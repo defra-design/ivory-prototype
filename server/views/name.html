@@ -1,0 +1,20 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group {{#if errors.firstName}}error{{/if}}">
+                    <label for="firstName" class="form-label">First name</label> {{#if errors.firstName}}<span class="error-message">{{errors.firstName}}</span>{{/if}}
+                    <input class="form-control" id="firstName" name="firstName" value="{{firstName}}" type="text" maxlength="100">
+                </div>
+            </fieldset>
+            <fieldset data-required data-error="{{errorMessageTwo}}">
+                <div class="form-group {{#if errors.lastName}}error{{/if}}">
+                    <label for="lastName" class="form-label">Last name</label> {{#if errors.lastName}}<span class="error-message">{{errors.lastName}}</span>{{/if}}
+                    <input class="form-control" id="lastName" name="lastName" value="{{lastName}}" type="text" maxlength="100"> </div>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <p class="bold-medium">2 addresses found for Flat 20 and WA4 1AB</p>
+        <form method="post" autocomplete="off" novalidate>
+
+
+
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
+                    {{#each items}}
+                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                    <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                        <p>{{selectedText}}</p>
+                    </div>
+                    {{/if}} {{/each}}
+                </div>
+            </fieldset>
+
+            <button type="submit" class="button">Continue</button>
+        </form>
+        <br> {{#if returnURL}}
+        <p><a href="{{manualAddressLink}}">My address is not listed</a></p>
+        {{else}}
+        <p><a href="manual-address">My address is not listed</a></p> {{/if}}
+        </p>
+    </div>
+</div>

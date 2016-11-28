@@ -1,0 +1,7526 @@
+/**
+* @fileOverview Base contains variables, mixins, reset, baseline, grid, and utilities
+* @name Base
+* @author hdoan
+* @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+*/
+/**
+ * @fileOverview Variables contains variables
+ * @name Variables
+ * @author hdoan
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+/* Fonts */
+/* Colors */
+/**
+ * @fileOverview Mixins contains mixins
+ * @name Mixins
+ * @author hdoan
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+/**
+ * @fileOverview Reset contains reset and baseline styles
+ * @name Reset
+ * @author hdoan
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+/* Reset ====================================== */
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before,
+q:after {
+  content: "";
+}
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+/* Start of base-lining, some from YUI's CSS Foundation ==================== */
+body {
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  font-size: 95%;
+  /* Base font-size is 15px */
+  color: #2c2e2f;
+}
+h1 {
+  /*18px via YUI Fonts CSS foundation*/
+  font-size: 138.5%;
+}
+h2 {
+  /*16px via YUI Fonts CSS foundation*/
+  font-size: 123.1%;
+}
+h3 {
+  /*14px via YUI Fonts CSS foundation*/
+  font-size: 108%;
+}
+h1,
+h2,
+h3 {
+  /* top & bottom margin based on font size */
+  margin: 1em 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  /*bringing boldness back to headers and the strong element*/
+  font-weight: bold;
+}
+a {
+  color: #0079ad;
+}
+abbr,
+acronym {
+  /*indicating to users that more info is available */
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+em {
+  /*bringing italics back to the em element*/
+  font-style: italic;
+}
+blockquote,
+ul,
+ol,
+dl {
+  /*giving blockquotes and lists room to breath*/
+  margin: 1em;
+}
+ol,
+ul,
+dl {
+  /*bringing lists on to the page with breathing room */
+  margin-left: 2em;
+}
+ol {
+  /*giving OL's LIs generated numbers*/
+  list-style: decimal outside;
+}
+ul {
+  /*giving UL's LIs generated disc markers*/
+  list-style: disc outside;
+}
+dl dd {
+  /*providing spacing for definition terms*/
+  margin-left: 1em;
+}
+th,
+td {
+  /*borders and padding to make the table readable*/
+  border: 1px solid #000;
+  padding: .5em;
+}
+th {
+  /*distinguishing table headers from data cells*/
+  font-weight: bold;
+  text-align: center;
+}
+input {
+  margin-bottom: 10px;
+}
+caption {
+  /*coordinated margin to match cell's padding*/
+  margin-bottom: .5em;
+  /*centered so it doesn't blend in to other content*/
+  text-align: center;
+}
+p,
+fieldset,
+table,
+pre,
+legend {
+  /*so things don't run into each other*/
+  margin-bottom: 1em;
+}
+/* setting a consistent width, 160px;
+   control of type=file still not possible */
+input[type=text],
+input[type=password],
+textarea {
+  width: 12.25em;
+  *width: 11.9em;
+}
+/**
+ * @fileOverview Grid contains grid rules
+ * @name Grid
+ * @author hdoan
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+.row-fluid {
+  width: 100%;
+  *zoom: 1;
+}
+.row-fluid:before,
+.row-fluid:after {
+  display: table;
+  content: "";
+}
+.row-fluid:after {
+  clear: both;
+}
+.row-fluid > [class*="span"] {
+  float: left;
+  margin-left: 2.127659574%;
+}
+.row-fluid > [class*="span"]:first-child {
+  margin-left: 0;
+}
+.row-fluid > .span24 {
+  width: 99.999999978%;
+}
+.row-fluid > .span23 {
+  width: 95.74468083%;
+}
+.row-fluid > .span22 {
+  width: 91.48936168200001%;
+}
+.row-fluid > .span21 {
+  width: 87.234042534%;
+}
+.row-fluid > .span20 {
+  width: 82.97872338599998%;
+}
+.row-fluid > .span19 {
+  width: 78.723404238%;
+}
+.row-fluid > .span18 {
+  width: 74.46808508999999%;
+}
+.row-fluid > .span17 {
+  width: 70.212765942%;
+}
+.row-fluid > .span16 {
+  width: 65.95744679399999%;
+}
+.row-fluid > .span15 {
+  width: 61.702127646%;
+}
+.row-fluid > .span14 {
+  width: 54.446808497999996%;
+}
+.row-fluid > .span13 {
+  width: 53.19148935%;
+}
+.row-fluid > .span12 {
+  width: 48.936170202%;
+}
+.row-fluid > .span11 {
+  width: 44.680851054%;
+}
+.row-fluid > .span10 {
+  width: 40.425531905999996%;
+}
+.row-fluid > .span9 {
+  width: 36.170212758%;
+}
+.row-fluid > .span8 {
+  width: 31.91489361%;
+}
+.row-fluid > .span7 {
+  width: 27.659574462000002%;
+}
+.row-fluid > .span6 {
+  width: 23.404255313999997%;
+}
+.row-fluid > .span5 {
+  width: 19.148936166%;
+}
+.row-fluid > .span4 {
+  width: 14.893617018%;
+}
+.row-fluid > .span3 {
+  width: 10.638297869999999%;
+}
+.row-fluid > .span2 {
+  width: 6.382978722%;
+}
+.row-fluid > .span1 {
+  width: 2.127659574%;
+}
+.container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+  *zoom: 1;
+}
+.container-fluid:before,
+.container-fluid:after {
+  display: table;
+  content: "";
+}
+.container-fluid:after {
+  clear: both;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt15 {
+  margin-top: 10px;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.pt15 {
+  padding-top: 15px;
+}
+.mb10 {
+  margin-bottom: 10px;
+}
+.mb15 {
+  margin-bottom: 15px;
+}
+.pb10 {
+  padding-bottom: 10px;
+}
+.pb15 {
+  padding-bottom: 15px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.ml15 {
+  margin-left: 15px;
+}
+.pl10 {
+  padding-left: 10px;
+}
+.pl15 {
+  padding-left: 15px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.mr15 {
+  margin-right: 15px;
+}
+.pr10 {
+  padding-right: 10px;
+}
+.pr15 {
+  padding-right: 15px;
+}
+/* Button styles */
+.btn {
+  height: 44px;
+  margin-bottom: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #009cde;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  *margin-left: .3em;
+  display: inline-block;
+  /* IE7 inline-block hack */
+  *display: inline;
+  *zoom: 1;
+  background-color: #009cde;
+  font-size: 1.0em;
+  font-weight: bold;
+  line-height: 42px;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+}
+.btn .btn-secondary {
+  -webkit-font-smoothing: auto;
+}
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+  background-color: #0079c1;
+}
+.btn.active,
+.btn:active {
+  background-color: #006ba8;
+  outline: 0;
+}
+.btn.disabled,
+.btn[disabled] {
+  background-color: #b2d9ea;
+  border-color: #b2d9ea;
+  cursor: default;
+}
+.btn.firstHalf {
+  width: 46.4%;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+.btn.secondHalf {
+  width: 46.4%;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+}
+a.btn:focus,
+a.btn:hover {
+  color: #ffffff;
+}
+.btn:first-child {
+  *margin-left: 0;
+}
+.btn-large {
+  padding: 8px 15px;
+  font-size: 18px;
+  line-height: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.btn-small {
+  padding: 5px 9px;
+  font-size: 11px;
+  line-height: 16px;
+}
+.btn-mini {
+  padding: 2px 6px;
+  font-size: 11px;
+  line-height: 14px;
+}
+.btn-secondary {
+  border-style: solid;
+  border-color: #e1e7eb;
+  color: #393f44;
+  background-color: #e1e7eb;
+}
+.btn-secondary:active,
+.btn-secondary:focus {
+  border-color: #c5ccd1;
+  background-color: #c5ccd1;
+}
+.btn-secondary:hover {
+  color: #393f44;
+  border-color: #edf2f5;
+  background-color: #edf2f5;
+}
+.btn-secondary.disabled,
+.btn-secondary[disabled] {
+  color: #393f55;
+}
+a.btn-secondary:hover,
+a.btn-secondary:focus,
+a.btn-secondary:active {
+  color: #393f44;
+  border-color: #c5ccd1;
+  background-color: #c5ccd1;
+}
+a.btn-secondary.disabled,
+a.btn-secondary[disabled] {
+  color: #393f55;
+  background-color: #e7edf0;
+}
+button.btn,
+input[type="submit"].btn {
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+}
+button.btn::-moz-focus-inner,
+input[type="submit"].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button.btn.btn-large,
+input[type="submit"].btn.btn-large {
+  *padding-top: 7px;
+  *padding-bottom: 7px;
+}
+button.btn.btn-small,
+input[type="submit"].btn.btn-small {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+button.btn.btn-mini,
+input[type="submit"].btn.btn-mini {
+  *padding-top: 1px;
+  *padding-bottom: 1px;
+}
+section .buttons #backButton,
+#largeScreenAccountCreation .buttons #backButton {
+  width: 30%;
+}
+section .buttons #proceedButton,
+#largeScreenAccountCreation .buttons #proceedButton {
+  width: 65%;
+}
+section .buttons #proceedButton.full,
+#largeScreenAccountCreation .buttons #proceedButton.full {
+  width: 100%;
+}
+/* mixin for Select element - Dropdowns
+    *
+    * We style native select element on web and it uses native element on other devices
+    * HTML Format to use for select element:
+    *   <div class="dropdown">
+    *           <label for="selectID" class="accessAid" id="forSelectID">Select Label</label>
+    *           <select id="selectID" name="selectID">
+    *               <option value="">Option 1</option>
+    *               <option value="2">Option 2</option>
+    *           </select>
+    *       </div>
+    *
+    * @param width - defines the width of the select dropdown on form
+*/
+.custom-select-container {
+  position: relative;
+}
+/* Set the dimensions of the replaced select element and make it transparent. */
+select.replaced {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  height: 44px;
+  border: 0;
+  line-height: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  /* Move to IE-speci    fic CSS file if you want to. */
+}
+.custom-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  -webkit-transition: border-color 0.3s ease 0s;
+  -moz-transition: border-color 0.3s ease 0s;
+  -ms-transition: border-color 0.3s ease 0s;
+  -o-transition: border-color 0.3s ease 0s;
+  transition: border-color 0.3s ease 0s;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.custom-select > span {
+  display: block;
+  padding: 7px 33px 7px 13px;
+  border: 1px solid #ccd0d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_1x.png");
+  background-repeat: no-repeat;
+  background-position: right -7px top -1182px;
+  color: #333;
+  line-height: 28px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .custom-select > span {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_2x.png");
+    background-size: 40px 7400px;
+  }
+}
+.disabled .custom-select > span {
+  background-position: right -7px top -6990px;
+}
+.validated select.ng-invalid + .custom-select > span,
+.validated select.backendError + .custom-select > span {
+  background: url("@errorIcon") no-repeat right 10px center;
+  background-size: 16px;
+  color: #c72e2e;
+  border: 1px solid #c72e2e;
+}
+.custom-select span span {
+  display: block;
+  overflow: hidden;
+  height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1em;
+}
+.custom-select.active > span {
+  border: 1px solid #009cde;
+  outline: 0;
+}
+#task .custom-select {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.mobile .dob label {
+  position: static;
+  top: 0;
+  left: 0;
+}
+input[type=date] {
+  padding: 5px 38px 3px 6px;
+  border: 1px solid #ccd0d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #333;
+  background-size: 24px;
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_cart_icons.png") no-repeat 100% 61%;
+}
+input[type=date]:focus {
+  border-color: #3399ff;
+}
+.showDropdopwnLabels .labelText {
+  float: left;
+  color: #aaa;
+}
+.showDropdopwnLabels .valueText {
+  float: right;
+  min-width: 90px;
+}
+@media (min-width: 0) and (max-width: 40em) {
+  .showDropdopwnLabels .labelText {
+    display: none;
+  }
+  .showDropdopwnLabels .valueText {
+    float: none;
+    min-width: 0;
+  }
+}
+.multiline-select-container {
+  outline: 0 none;
+}
+.multiline-select-container:active .innerContainer,
+.multiline-select-container:focus .innerContainer {
+  border-color: #009cde;
+}
+.multiline-select-container.open:active .innerContainer,
+.multiline-select-container.open:focus .innerContainer {
+  border-color: #ccd0d4;
+}
+.multiline-select-container option,
+.multiline-select-container select {
+  position: absolute !important;
+  left: -9999px;
+}
+.multiline-select-container .custom-select {
+  position: relative;
+}
+.multiline-select-container .custom-select span span {
+  height: auto;
+  white-space: initial;
+}
+.multiline-select-container .custom-select > span {
+  background: none;
+}
+.multiline-select-container.open .custom-select > span {
+  border-radius: 5px 5px 0 0;
+  border-bottom-color: #eee;
+}
+.multiline-select-container .arrow {
+  background-clip: padding-box;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms.png");
+  background-position: left -8px top -1198px;
+  background-repeat: no-repeat;
+  height: 10px;
+  position: absolute;
+  width: 14px;
+  top: 40%;
+  right: 12px;
+}
+.validated .multiline-select-container .ng-invalid + .custom-select .arrow,
+.backendError .multiline-select-container .ng-invalid + .custom-select .arrow {
+  display: none;
+}
+.multiline-select-list {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  background-color: #fff;
+  z-index: 1000;
+  border-radius: 0 0 5px 5px;
+  border-bottom: 1px solid #ccd0d4;
+  max-height: 200px;
+  overflow: auto;
+  box-shadow: #cccccc 0px -1px 1px 0px;
+}
+.multiline-select-list li {
+  padding: 10px;
+  border: 1px solid;
+  border-color: #eee #ccd0d4;
+  border-top: 0 none;
+  cursor: pointer;
+  line-height: 1.35em;
+  vertical-align: middle;
+}
+.multiline-select-list li:hover,
+.multiline-select-list li:focus,
+.multiline-select-list li:active {
+  background-color: #e5f5fc;
+  outline: 0 none;
+}
+.multiline-select-list li:first-of-type {
+  border-top: 0 none;
+}
+.multiline-select-list li:last-of-type {
+  border-bottom: 0 none;
+}
+.multiline-select-list:hover li:focus {
+  background-color: #fff;
+}
+.multiline-select-list:hover li:focus:hover,
+.multiline-select-list:hover li:focus:active {
+  background-color: #e5f5fc;
+}
+.accessAid,
+#midflash {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+/*
+ * HTML elements
+ */
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+a:hover {
+  text-decoration: underline;
+}
+a.dashed {
+  text-decoration: none;
+  border-bottom: 1px #0079ad dashed;
+  font-size: 0.9em;
+}
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+fieldset legend {
+  padding-bottom: 0.5em;
+  font-size: 1.5em;
+}
+section:focus {
+  outline: none;
+}
+.show-section {
+  display: block;
+}
+hr.faded {
+  width: 100%;
+  height: 1px;
+  margin: 10px 0;
+  border: 0;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(0.5, rgba(0, 0, 0, 0.3)), color-stop(1, transparent));
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.3), transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+}
+.alpha {
+  font-size: 1.60em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #6c7378;
+  font-weight: lighter;
+  margin: 0.5em 0;
+  line-height: 1.154em;
+}
+.asideAlpha {
+  font-size: 1.44em;
+}
+aside .aside .header.noButtons .walletHeading {
+  text-align: center;
+  line-height: 1.05em;
+}
+.beta {
+  font-size: 1.54em;
+  color: #2c2e2f;
+  font-weight: lighter;
+  line-height: 1.2em;
+}
+.gamma {
+  font-size: 1.30em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #6c7378;
+  font-weight: lighter;
+  margin-bottom: 0.75em;
+}
+.zeta {
+  font-size: 1.25em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #6c7378;
+  font-weight: lighter;
+  margin-bottom: 0.75em;
+}
+.delta {
+  font-size: 1.10em;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #6c7378;
+  margin-bottom: 12px;
+  font-weight: normal;
+}
+.vprop-header {
+  font-size: 1.60em;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #2c2e2f;
+  margin: 10px 0;
+  font-weight: lighter;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  line-height: 1.2em;
+}
+.vprop-content {
+  font-size: 1.0em;
+  font-family: "HelveticaNeue", helvetica, arial, sans-serif;
+  color: #2c2e2f;
+  font-weight: lighter;
+  line-height: 1.2em;
+}
+.vprop-image {
+  margin-top: 25px;
+}
+.eta {
+  font-size: 1.10em;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #2c2e2f;
+  font-weight: normal;
+}
+.theta {
+  font-size: 1.0em;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #2c2e2f;
+  font-weight: normal;
+}
+.value-prop-title {
+  color: #2c2e2f;
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 10px 0;
+}
+.props {
+  padding: 0 0 0 15px;
+  clear: both;
+  text-align: center;
+}
+.props p,
+.props li {
+  line-height: 1.154em;
+  font-size: 0.9em;
+  font-weight: lighter;
+  line-height: 1.2em;
+  margin: 5px 0;
+}
+.secondary {
+  color: #6c7378;
+  font-size: 0.85em;
+}
+.legal {
+  color: #6c7378;
+  font-size: 0.75em;
+  line-height: 1.154em;
+}
+.mu {
+  font-size: 2.46em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #fff;
+  color: #0079c1;
+}
+/* Single property classes - 0 value or common attributes */
+.noHead {
+  margin-top: 0;
+}
+.noBottom {
+  margin-bottom: 0;
+}
+.showTray #task {
+  overflow: hidden;
+  margin-left: 0;
+}
+.hide,
+#spinner {
+  display: none;
+}
+.clearfix,
+html[xmlns] .clearfix,
+.loading #spinner,
+.media .img img {
+  display: block;
+}
+#billingToggleLink {
+  display: inline-block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  text-align: center;
+}
+/* End single property classes */
+.outerWrapper {
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #ffffff;
+}
+header {
+  z-index: 2;
+}
+.cartContainer {
+  display: none;
+}
+#wrapper {
+  margin: 0 auto;
+  max-width: 780px;
+  border: 1px solid #e3e3e3;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  background-color: #fff;
+}
+#wrapper #header {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  z-index: 4;
+  -webkit-box-shadow: 0 0 3px 0;
+  -moz-box-shadow: 0 0 3px 0;
+  box-shadow: 0 0 3px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#contents {
+  position: relative;
+  z-index: 1;
+}
+.active #wrapper {
+  visibility: visible;
+  -webkit-animation-duration: 400ms;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-name: slideUp;
+}
+#logo {
+  margin: 22px 0 0 20px;
+}
+.container {
+  clear: both;
+  padding: 20px;
+}
+.containerNoHead {
+  padding-top: 0;
+}
+.noPaddingBottom {
+  padding-bottom: 0;
+}
+.noPaddingTop {
+  padding-top: 0;
+}
+.subContainer {
+  border-top: 1px solid #e3e3e3;
+  padding: 20px 0 20px;
+  position: relative;
+}
+#proceedButton {
+  width: 46.4%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+}
+#proceedButton.full {
+  width: 100%;
+}
+#proceedButton:focus {
+  color: #ffffff;
+}
+#backButton {
+  width: 46.4%;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+#backButton:hover,
+#backButton:focus {
+  color: #2c2e2f;
+}
+.middleName {
+  display: none;
+  float: right;
+}
+.h2,
+h2 {
+  font-size: 1.2em;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  margin-top: 0;
+  font-weight: normal;
+  color: #0666B3;
+}
+.clearfix:after {
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  overflow: auto;
+  line-height: 0;
+  content: " ";
+}
+* html .clearfix {
+  height: 1%;
+}
+#main {
+  padding: 25px 30px 15px;
+  -webkit-transition: margin 0.3s ease-out;
+  -moz-transition: margin 0.3s ease-out;
+  -ms-transition: margin 0.3s ease-out;
+  -o-transition: margin 0.3s ease-out;
+  transition: margin 0.3s ease-out;
+  width: 100%;
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.loading #main {
+  background: none;
+}
+.loginLoadingMessage,
+.bmlLoadingMessage {
+  display: none;
+}
+.loginProcessing .genericLoadingMessage {
+  display: none;
+}
+.loginProcessing .loginLoadingMessage {
+  display: block;
+}
+.full {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  text-decoration: none;
+}
+.trayInner {
+  padding: 20px 0;
+}
+.disclaimer {
+  font-size: 0.75em;
+  color: #6c7378;
+}
+.infoTxt {
+  clear: both;
+  padding-top: 10px;
+}
+.help {
+  color: #A9A9A9;
+}
+.keyValue label {
+  color: #292929;
+}
+/* Form styles */
+input[type=submit],
+input[type=button] {
+  -webkit-appearance: none;
+}
+input[disabled=disabled],
+.inputField input[disabled=disabled] {
+  background: #F2F3F4;
+  border: 1px solid #E3E3E3;
+  color: #7B8388;
+}
+input::-ms-clear {
+  display: none;
+}
+input.link:hover {
+  cursor: pointer;
+}
+input.xsmall {
+  width: 2em;
+}
+input.small {
+  width: 3.35em;
+  font-size: 1em;
+}
+input.medium {
+  width: 7em;
+}
+input.large {
+  width: 14em;
+}
+input.xlarge {
+  width: 20em;
+}
+.button-as-link {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: auto;
+  font-size: 0.85em;
+  background: transparent;
+  color: #0079ad;
+  cursor: pointer;
+}
+/* Hide spinner on type=number fields */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.buttons {
+  margin-top: 15px;
+  overflow: hidden;
+}
+.inputField {
+  position: relative;
+}
+.inputField label,
+.inputField input {
+  display: block;
+  vertical-align: top;
+}
+.inputField input {
+  width: 100%;
+  height: 44px;
+  padding: 0 13px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #c5ccd1;
+  color: #000000;
+  -webkit-transition: border-color 0.3s ease 0s;
+  -moz-transition: border-color 0.3s ease 0s;
+  -ms-transition: border-color 0.3s ease 0s;
+  -o-transition: border-color 0.3s ease 0s;
+  transition: border-color 0.3s ease 0s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.inputField input:active,
+.inputField input:focus {
+  border: 1px solid #009cde;
+  outline: 0;
+}
+.inputField select {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.custom-select-container select {
+  font-size: inherit;
+}
+.inputField label {
+  position: absolute;
+  top: 12px;
+  left: 11px;
+  cursor: text;
+  text-align: left;
+  color: #666666;
+  font-size: 1em;
+}
+.no-js .inputField label,
+.no-js .dropdown label {
+  position: static;
+}
+.inputField label.focus {
+  color: #919191;
+}
+.fieldGroup .inputField {
+  float: left;
+  padding: 0 0.5em 0 0;
+}
+.inputField.error input,
+.validated .inputField input.ng-invalid,
+.validated .inputField input.backendError {
+  border-color: #c72e2e;
+  padding-right: 29px;
+  background: #ffffff url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1.png') no-repeat 98% center;
+}
+.inputField.error input::-webkit-input-placeholder,
+.validated .inputField input.ng-invalid::-webkit-input-placeholder,
+.validated .inputField input.backendError::-webkit-input-placeholder {
+  color: #c72e2e;
+}
+.inputField.error input:-moz-placeholder,
+.validated .inputField input.ng-invalid:-moz-placeholder,
+.validated .inputField input.backendError:-moz-placeholder {
+  /* Firefox 18- */
+  color: #c72e2e;
+}
+.inputField.error input::-moz-placeholder,
+.validated .inputField input.ng-invalid::-moz-placeholder,
+.validated .inputField input.backendError::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c72e2e;
+}
+.inputField.error input:-ms-input-placeholder,
+.validated .inputField input.ng-invalid:-ms-input-placeholder,
+.validated .inputField input.backendError:-ms-input-placeholder {
+  color: #c72e2e;
+}
+.validated select.ng-invalid + .custom-select > span,
+.validated select.backendError + .custom-select > span {
+  background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png') no-repeat right 10px center;
+  background-size: 18px;
+}
+.inputField.valid input {
+  background: #ffffff url(https://www.paypalobjects.com/webstatic/checkout/hermes/icon_checkmark_wallet_2x.png) no-repeat 98% center;
+  background-size: 14px;
+}
+.inputField.error input,
+.validated .inputField input.ng-invalid,
+.validated .inputField input.backendError {
+  background-position: -webkit-calc(100% - 10px) center;
+  background-position: right 10px center;
+}
+.creditCardField.valid input {
+  background: #fff;
+}
+.inputField.error select,
+.dropdown.error select {
+  border: 1px solid #c72e2e;
+}
+.selectLabel {
+  display: block;
+}
+input::-webkit-input-placeholder {
+  color: #7b8388;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  font-size: 1em;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #7b8388;
+  opacity: 1;
+  /* for some reason, FF seems to put the opacity of placeholder text to 50% by default */
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #7b8388;
+  opacity: 1;
+  /* for some reason, FF seems to put the opacity of placeholder text to 50% by default */
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+}
+input:-ms-input-placeholder {
+  color: #7b8388;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+}
+/* End form styles */
+.checkbox input[type=checkbox] {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.checkbox input[type=checkbox] ~ label {
+  display: inline-block;
+  min-height: 25px;
+  padding-left: 35px;
+  line-height: 27px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_1x.png");
+  background-repeat: no-repeat;
+  background-position: -9px 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .checkbox input[type=checkbox] ~ label {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_2x.png");
+    background-size: 40px 7400px;
+  }
+}
+.checkbox.error input[type=checkbox] ~ label,
+.checkbox.error input[type=checkbox]:focus ~ label {
+  background-position: -9px -600px;
+}
+.checkbox input[type=checkbox]:checked ~ label,
+.checkbox input[type=checkbox]:focus:checked ~ label {
+  background-position: -9px -400px;
+}
+.checkbox input[type=checkbox]:focus ~ label {
+  background-position: -9px -200px;
+}
+.validated input[type=checkbox].ng-invalid ~ label,
+.validated input[type=checkbox].ng-invalid:focus ~ label {
+  background-position: -9px -600px;
+}
+.validated input[type=radio].ng-invalid + label,
+.validated input[type=radio].ng-invalid:focus + label {
+  background-position: -10px -2200px;
+}
+.sCheckbox.checkbox input[type=checkbox] ~ label {
+  line-height: 19px;
+  padding-left: 27px;
+  font-size: 0.85em;
+  background-position: -9px -2600px;
+}
+.sCheckbox.checkbox.error input[type=checkbox] ~ label,
+.sCheckbox.checkbox.error input[type=checkbox]:focus ~ label {
+  background-position: -9px -3200px;
+}
+.sCheckbox.checkbox input[type=checkbox]:checked ~ label,
+.sCheckbox.checkbox input[type=checkbox]:focus:checked ~ label {
+  background-position: -9px -3000px;
+}
+.sCheckbox.checkbox input[type=checkbox]:focus ~ label {
+  background-position: -9px -2800px;
+}
+.radioButton input[type=radio] {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+.radioButton input[type=radio] ~ label {
+  display: inline-block;
+  min-height: 25px;
+  padding-left: 35px;
+  line-height: 27px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v1.png");
+  background-repeat: no-repeat;
+  background-position: -10px -1600px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .radioButton input[type=radio] ~ label {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v1.png");
+    background-size: 40px 4600px;
+  }
+}
+.radioButton.error input[type=radio] + label,
+.radioButton.error input[type=radio]:focus + label {
+  background-position: -10px -2200px;
+}
+.radioButton input[type=radio]:checked + label,
+.radioButton input[type=radio]:focus:checked + label {
+  background-position: -10px -2000px;
+}
+.radioButton input[type=radio]:focus + label {
+  background-position: -10px -1800px;
+}
+.inputField label.nolap {
+  position: relative;
+  top: auto;
+  left: auto;
+  color: #2c2e2f;
+}
+.inputField.half {
+  width: 48.15%;
+  margin-right: 3.7%;
+  padding-right: 0;
+}
+.inputField.half.issueNo {
+  width: 42%;
+  margin-top: 15px;
+}
+.inputField.half.startDate {
+  width: 54%;
+  margin-right: 10px;
+}
+.inputField.half.last-child {
+  margin-right: 0;
+}
+.fieldGroup .inputField.last-child {
+  padding-right: 0;
+}
+.fidobDay {
+  width: 30%;
+  float: left;
+}
+.fidobDay .custom-select > span {
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+.fidobMonth {
+  width: 30%;
+  float: left;
+}
+.fidobMonth .custom-select > span {
+  border-radius: 0px;
+}
+.fidobYear {
+  width: 40%;
+  float: left;
+}
+.fidobYear .custom-select > span {
+  border-radius: 0px 5px 5px 0;
+  border-left: 0;
+}
+.cardDOB {
+  width: 100%;
+  clear: both;
+}
+.dobLabel {
+  top: auto;
+  left: auto;
+  position: relative;
+  display: block;
+  bottom: 4px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  .inputField.error input,
+  .validated .inputField input.ng-invalid,
+  .validated .inputField input.backendError {
+    background-image: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png');
+    background-size: 18px;
+  }
+  .validated select.ng-invalid + .custom-select > span,
+  .validated select.backendError + .custom-select > span {
+    background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png') no-repeat right 10px center;
+    background-size: 18px;
+  }
+}
+.submitted input.ng-invalid {
+  border-color: #c72e2e;
+  padding-right: 29px;
+  background: #ffffff url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1.png') no-repeat 98% center;
+}
+.submitted input.ng-invalid::-webkit-input-placeholder {
+  color: #c72e2e;
+}
+.submitted input.ng-invalid:-moz-placeholder {
+  /* Firefox 18- */
+  color: #c72e2e;
+}
+.submitted input.ng-invalid::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c72e2e;
+}
+.submitted input.ng-invalid:-ms-input-placeholder {
+  color: #c72e2e;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  .submitted input.ng-invalid {
+    background-image: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png');
+    background-size: 18px;
+  }
+}
+.merchantHeader {
+  height: 90px;
+  margin: 0 auto;
+}
+.merchantHeader .headerWrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  overflow: hidden;
+  max-height: 90px;
+  line-height: 90px;
+}
+.merchantHeader .merchantName {
+  font-size: 1.6em;
+  font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+  color: #2c2e2f;
+  font-weight: normal;
+  width: 575px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+.merchantHeader img {
+  vertical-align: middle;
+}
+.paypalHeaderWrapper .logo {
+  float: left;
+  width: 112px;
+  height: 29px;
+  margin-top: 5px;
+  background-position: 0 -47px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .paypalHeaderWrapper .logo {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.paypalHeaderWrapper .span14 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.paypalHeaderWrapper .cartContainer {
+  position: relative;
+  line-height: 29px;
+}
+.paypalHeaderWrapper .transctionCartDetails {
+  z-index: 2;
+}
+.paypalHeaderWrapper.paypalCredit .logo {
+  height: 35px;
+  background-position: 0 -129px;
+}
+.aside .header {
+  padding: 15px;
+  vertical-align: middle;
+  line-height: 50px;
+  border-bottom: 1px solid #e3e3e3;
+}
+.aside .header.tall {
+  min-height: 65px;
+  line-height: normal;
+  padding: 13px 20px 10px;
+  margin-bottom: 0;
+}
+.aside .asideAlpha {
+  padding: 0 20px;
+  text-align: center;
+  line-height: 1.2em;
+}
+.aside .walletHeading {
+  text-align: center;
+}
+.aside .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 19px;
+  height: 19px;
+  padding: 0;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -223px 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .aside .close {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.aside .close:hover,
+.aside .close:focus {
+  background-position: -223px -22px;
+}
+.aside .backArrow {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  display: inline-block;
+  width: 9px;
+  height: 18px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -232px -46px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .aside .backArrow {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.aside .backArrow:hover,
+.aside .backArrow:focus {
+  background-position: -232px -68px;
+}
+.aside .addOptions {
+  margin-top: 20px;
+}
+.aside .addOptions h2 {
+  float: left;
+  width: 70%;
+  margin-bottom: 0;
+}
+.aside .addOptions a {
+  float: right;
+  display: block;
+  line-height: 1.9em;
+  font-size: .85em;
+}
+.pageSepaAgreementContingency .paypalHeader.span14,
+.pageSepaMandateContingency .paypalHeader.span14,
+.pageSepaMandate .paypalHeader.span14 {
+  width: 100%;
+}
+@media (max-width: 41.3125em) {
+  .merchantHeader {
+    display: none;
+  }
+  .paypalHeaderWrapper {
+    height: 65px;
+  }
+  .paypalHeaderWrapper .logo {
+    margin: 15px 0 0 30px;
+  }
+  .paypalHeaderWrapper.paypalCredit .logo {
+    height: 35px;
+    margin: 15px 0 0 0;
+    background-position: 0 -129px;
+  }
+}
+@media (max-width: 30em) and (min-width: 0) {
+  .paypalHeaderWrapper .logo {
+    margin: 15px 0 0 0;
+  }
+  .paypalHeaderWrapper.paypalCredit .logo {
+    height: 35px;
+    margin: 15px 0 0 0;
+    background-position: 0 -129px;
+  }
+  .header {
+    height: 55px;
+  }
+  .aside .header {
+    height: auto;
+  }
+  .aside .close {
+    right: 15px;
+  }
+}
+.footer {
+  max-width: 780px;
+  margin: 10px auto;
+  font-size: 0.75em;
+}
+.cancelUrl {
+  float: left;
+  width: 39%;
+}
+.micaLender {
+  display: none;
+  color: #6c7378;
+  clear: both;
+}
+.footerWrapper {
+  float: right;
+  width: 60%;
+  text-align: right;
+}
+.footerLinks {
+  margin: 0;
+  display: inline-block;
+}
+.footerLinks a {
+  color: #979797;
+}
+.footerLinks a.feedbackLink {
+  color: #0079ad;
+  margin-left: 5px;
+}
+.copyright {
+  display: inline;
+  width: auto;
+  vertical-align: top;
+  color: #979797;
+}
+.secureIcon {
+  display: inline-block;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: 0 -33px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 10px;
+  height: 12px;
+  vertical-align: top;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .secureIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+@-moz-document url-prefix() {
+  .secureIcon {
+    margin-top: -2px;
+  }
+}
+.footerLinks {
+  overflow: auto;
+}
+.footerLinks li {
+  padding: 0 12px 0 0;
+  display: inline-block;
+}
+.footerLinks .last {
+  padding-right: 0;
+  border-right: none;
+}
+.minibrowser .footer {
+  width: 100%;
+}
+.minibrowser.AU .footer {
+  position: relative;
+  bottom: 0;
+  width: auto;
+}
+.minibrowser.AU .footer .policyInfoWrapper {
+  padding: 0;
+}
+.minibrowser .cancelUrl {
+  display: none;
+}
+.minibrowser .footerWrapper {
+  padding: 0 10px;
+  float: none;
+  width: 95%;
+  margin: 0;
+}
+.minibrowser .footerLinks li {
+  padding: 0 5px 0 0px;
+}
+.DE .footerWrapper,
+.fr.FR .footerWrapper {
+  float: none;
+  width: auto;
+}
+.DE .footerWrapper:after,
+.fr.FR .footerWrapper:after {
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  overflow: auto;
+  line-height: 0;
+  content: " ";
+}
+.DE .footerLinks,
+.fr.FR .footerLinks {
+  float: left;
+  width: 70%;
+  text-align: left;
+}
+.DE .footerLinks li:first-child,
+.fr.FR .footerLinks li:first-child {
+  padding-left: 0;
+}
+.DE .copyright,
+.fr.FR .copyright {
+  float: right;
+  width: 30%;
+  margin: 0;
+}
+.DE .cancelUrl,
+.fr.FR .cancelUrl {
+  float: none;
+  margin: 5px 0;
+  width: 100%;
+}
+.en_AU .policyInfoWrapper,
+.AU .policyInfoWrapper {
+  padding: 20px 0 10px 0;
+  color: #6c7378;
+}
+.en_AU .policyInfoWrapper p.moreInfo,
+.AU .policyInfoWrapper p.moreInfo {
+  padding: 15px 0 20px 0;
+  border-bottom: 1px solid #ccc;
+  float: left;
+}
+.en_AU .policyInfoWrapper p.moreCopyRight,
+.AU .policyInfoWrapper p.moreCopyRight {
+  padding: 5px 0 0 0;
+  clear: both;
+}
+.fr_XC .footerWrapper {
+  float: left;
+  width: 70%;
+  text-align: left;
+  padding-left: 0;
+  margin-left: -7px;
+}
+@media (max-width: 41.25em) {
+  .footer {
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+    margin-top: 10px;
+  }
+  .footerWrapper {
+    float: none;
+    width: 95%;
+    padding: 0 10px;
+  }
+  .footerWrapper:after {
+    height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+    overflow: auto;
+    line-height: 0;
+    content: " ";
+  }
+  .cancelUrl {
+    width: 95%;
+    padding: 0 10px;
+  }
+  .footerLinks {
+    float: left;
+    width: 70%;
+    text-align: left;
+  }
+  .footerLinks .feedback {
+    display: none;
+  }
+  .minibrowser .footerLinks .feedback {
+    display: inline-block;
+  }
+  .copyright {
+    float: right;
+    width: 20%;
+  }
+  .cancelUrl {
+    float: none;
+    margin: 5px 0;
+  }
+}
+@media (max-width: 30em) and (min-width: 0) {
+  .footerWrapper,
+  .cancelUrl {
+    padding: 0;
+  }
+  .trayOpen .footer {
+    display: none;
+  }
+  .secureIcon {
+    margin-left: 2px;
+  }
+  .footer {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  .footerWrapper,
+  .cancelUrl {
+    padding: 0;
+    margin: 5px 0px;
+    width: 100%;
+  }
+  .footerLinks,
+  .DE .footerLinks,
+  .fr.FR .footerLinks {
+    width: 65%;
+  }
+  .footerLinks li,
+  .DE .footerLinks li,
+  .fr.FR .footerLinks li {
+    padding: 0;
+    margin-right: 10px;
+  }
+  .footerLinks li.last,
+  .DE .footerLinks li.last,
+  .fr.FR .footerLinks li.last {
+    margin-right: 0;
+  }
+  .footerLinks .feedback,
+  .DE .footerLinks .feedback,
+  .fr.FR .footerLinks .feedback {
+    display: none;
+  }
+  .copyright,
+  .DE .copyright {
+    width: 33%;
+    margin: 0;
+  }
+  .minibrowser .copyright {
+    margin-right: 15px;
+    width: 30%;
+  }
+  .minibrowser .footerLinks .feedback {
+    display: inline-block;
+  }
+  .secureIcon {
+    margin-left: 5px;
+  }
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal-open .outerWrapper,
+.modal-open #wrapper,
+.modal-open #contents {
+  position: static;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 140;
+  background-color: #000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+}
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.54;
+}
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 150;
+}
+.modal.fade .modal-wrap {
+  -webkit-transform: translate(0, -25%);
+  -moz-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal.fade.in .modal-wrap {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-wrap {
+  position: relative;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+}
+.modal-header .close {
+  margin-top: 2px;
+}
+.modal-header h3 {
+  margin: 0;
+  line-height: 30px;
+}
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 15px;
+}
+.modal-form {
+  margin-bottom: 0;
+}
+.modal-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 0 1px 0 #ffffff;
+  -moz-box-shadow: inset 0 1px 0 #ffffff;
+  box-shadow: inset 0 1px 0 #ffffff;
+}
+.modal-footer:before,
+.modal-footer:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.modal-footer:after {
+  clear: both;
+}
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+.spinner {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+.spinner .spinWrap {
+  width: 200px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-left: -100px;
+}
+.spinner .loader {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: 0 0 0 -23px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: rgba(255, 255, 255, 0.701961);
+  -webkit-animation: rotation .7s infinite linear;
+  -moz-animation: rotation .7s infinite linear;
+  -o-animation: rotation .7s infinite linear;
+  animation: rotation .7s infinite linear;
+  border-left: 8px solid rgba(0, 0, 0, 0.2);
+  border-right: 8px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 8px solid rgba(0, 0, 0, 0.2);
+  border-top: 8px solid #2180c0;
+  border-radius: 100%;
+}
+.spinner .genericLoadingMessage,
+.spinner .loginLoadingMessage,
+.spinner .bmlLoadingMessage {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 55px;
+  text-align: center;
+  z-index: 100;
+}
+.spinner.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.aside {
+  min-height: 380px;
+}
+.aside .container {
+  padding: 15px;
+}
+.asideContent {
+  height: 100%;
+}
+.fsIcons {
+  display: inline-block;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_logos_wallet_flat_left_v5.png");
+  background-repeat: no-repeat;
+  min-width: 30px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .fsIcons {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_logos_wallet_flat_left_v5_2x.png");
+    background-size: 52px 1700px;
+  }
+}
+.HOLDING .fsIcons,
+.BALANCE .fsIcons,
+.DELAYED_TRANSFER .fsIcons {
+  background-position: 0px 0px;
+  width: 25px;
+  height: 20px;
+}
+.ELO .fsIcons,
+.HIPER .fsIcons,
+.HIPERCARD .fsIcons {
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_1x.png");
+  background-repeat: no-repeat;
+  min-width: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .ELO .fsIcons,
+  .HIPER .fsIcons,
+  .HIPERCARD .fsIcons {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_2x.png");
+    background-size: 31px 570px;
+  }
+}
+.ELO .fsIcons {
+  background-position: 0 -479px;
+  width: 25px;
+  height: 20px;
+}
+.HIPER .fsIcons {
+  background-position: 0 -458px;
+  width: 25px;
+  height: 20px;
+}
+.HIPERCARD .fsIcons {
+  background-position: 0 -500px;
+  width: 25px;
+  height: 20px;
+}
+.IACH .fsIcons,
+.BANK .fsIcons,
+.BANK_ACCOUNT .fsIcons {
+  background-position: 0 -300px;
+  width: 25px;
+  height: 20px;
+}
+.ELV .fsIcons,
+.ECHECK .fsIcons {
+  background-position: 0 -300px;
+  width: 25px;
+  height: 20px;
+}
+.BILL_ME_LATER .fsIcons,
+.BML .fsIcons,
+.PPCREDIT .fsIcons,
+.CREDIT_OPTION .fsIcons {
+  background-position: 0 -446px;
+  width: 25px;
+  height: 20px;
+}
+.PAYPAL_SMART_CONNECT .fsIcons {
+  background-position: 0px 0px;
+  width: 25px;
+  height: 20px;
+}
+.VISA .fsIcons {
+  width: 25px;
+  height: 8px;
+  background-position: 0 -75px;
+}
+.MASTERCARD .fsIcons {
+  width: 25px;
+  height: 15px;
+  background-position: 0 -150px;
+}
+.AMEX .fsIcons {
+  width: 25px;
+  height: 19px;
+  background-position: 0 -225px;
+}
+.DISCOVER .fsIcons,
+.DISC .fsIcons {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -375px;
+}
+.ELECTRON .fsIcons {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -525px;
+}
+.MAESTRO .fsIcons,
+.MSTRO .fsIcons,
+.SWITCH .fsIcons {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -600px;
+}
+.CB_NATIONALE .fsIcons,
+.CBN .fsIcons {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -826px;
+}
+.CELEM .fsIcons,
+.CETELEM .fsIcons {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -900px;
+}
+.CONF .fsIcons,
+.COFINOGA .fsIcons {
+  width: 25px;
+  height: 15px;
+  background-position: 0 -975px;
+}
+.COFID .fsIcons,
+.COFIDIS .fsIcons {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -1051px;
+}
+.JCB .fsIcons {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -1426px;
+}
+.INCENTIVE .fsIcons {
+  background-position: 0 -1500px;
+  width: 25px;
+  height: 20px;
+}
+.PAYPAL_EXTRAS_MASTERCARD .fsIcons {
+  background-position: 0 -1275px;
+  width: 25px;
+  height: 16px;
+}
+.PPSMTCONNECT .fsIcons {
+  background-position: 0 0;
+  width: 25px;
+  height: 20px;
+}
+.ES .PAYPAL_EXTRAS_MASTERCARD .fsIcons {
+  background-position: 0 -1580px;
+}
+.fsIcon {
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  left: 15px;
+  top: 20px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_logos_wallet_flat_left_v5.png");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .fsIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_logos_wallet_flat_left_v5_2x.png");
+    background-size: 52px 1700px;
+  }
+}
+.fsIcon.BANK,
+.fsIcon.PAD {
+  background-position: 0 -300px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.MASTER,
+.fsIcon.MCARD,
+.fsIcon.MASTERCARD {
+  width: 25px;
+  height: 15px;
+  background-position: 0 -150px;
+}
+.fsIcon.ELO,
+.fsIcon.HIPER,
+.fsIcon.HIPERCARD {
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_1x.png");
+  background-repeat: no-repeat;
+  min-width: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .fsIcon.ELO,
+  .fsIcon.HIPER,
+  .fsIcon.HIPERCARD {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_2x.png");
+    background-size: 31px 570px;
+  }
+}
+.fsIcon.ELO {
+  background-position: 0 -479px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.HIPER {
+  background-position: 0 -458px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.HIPERCARD {
+  background-position: 0 -500px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.DISCOVER,
+.fsIcon.DISC {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -375px;
+}
+.fsIcon.VISA {
+  width: 25px;
+  height: 20px;
+  background-position: 0 -73px;
+}
+.fsIcon.AMEX,
+.fsIcon.Amex {
+  width: 25px;
+  height: 19px;
+  background-position: 0 -225px;
+}
+.fsIcon.SWITCH,
+.fsIcon.MSTRO {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -600px;
+}
+.fsIcon.PAYPAL_SMART_CONNECT {
+  background-position: 0px 0px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.CBN {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -826px;
+}
+.fsIcon.CELEM {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -900px;
+}
+.fsIcon.COFID {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -1051px;
+}
+.fsIcon.CONF {
+  width: 25px;
+  height: 17px;
+  background-position: 0 -1051px;
+}
+.fsIcon.PAYPAL_EXTRAS_MASTERCARD,
+.fsIcon.PPXMCARD {
+  width: 25px;
+  height: 16px;
+  background-position: 0 -1275px;
+}
+.fsIcon.EBAY_MASTERCARD,
+.fsIcon.EBAYMCARD {
+  background-position: 0px 0px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon .PPCREDIT,
+.fsIcon .BML,
+.fsIcon.BILL_ME_LATER {
+  background-position: 0 -450px;
+  width: 25px;
+  height: 20px;
+}
+.fsIcon.PPSMTCONNECT {
+  background-position: 0 0;
+  width: 25px;
+  height: 20px;
+}
+.ES .fsIcon.PAYPAL_EXTRAS_MASTERCARD,
+.ES .fsIcon.PPXMCARD {
+  background-position: 0 -1580px;
+}
+.infoIcon {
+  width: 19px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -89px -1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .infoIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.addOption {
+  padding: 25px 10px;
+  margin: 0 0 0 44px;
+  color: #0079ad;
+  font-size: .85em;
+}
+.plusicon {
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 22px;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -223px -97px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .plusicon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.infoIcon + .checkIcon {
+  display: none;
+}
+.infoMsg {
+  position: absolute;
+  left: 55px;
+  top: 18px;
+  width: 70%;
+  font-size: .85em;
+}
+.expiredIcon {
+  background: #ffffff url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1.png') no-repeat 98% center;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  top: 6px;
+  position: relative;
+}
+.plccIcon {
+  float: left;
+  display: inline-block;
+  height: 20px;
+  background: none;
+  width: 32px;
+  position: relative;
+}
+/* this import should be something generated by the grunt */
+/* This file should be removed once we do the same using grunt */
+.loading #main {
+  opacity: .1;
+}
+.spinner {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+.spinner .spinWrap {
+  width: 200px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -100px;
+}
+.spinner .loader {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: 0 0 0 -23px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: rgba(255, 255, 255, 0.701961);
+  -webkit-animation: rotation .7s infinite linear;
+  -moz-animation: rotation .7s infinite linear;
+  -o-animation: rotation .7s infinite linear;
+  animation: rotation .7s infinite linear;
+  border-left: 8px solid rgba(0, 0, 0, 0.2);
+  border-right: 8px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 8px solid rgba(0, 0, 0, 0.2);
+  border-top: 8px solid #2180c0;
+  border-radius: 100%;
+}
+.spinner .loadingMessage {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 55px;
+  text-align: center;
+  z-index: 100;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.props .vprop-header {
+  font-size: 1.60em;
+  color: #2c2e2f;
+  margin: 15px 0 5px;
+  font-weight: lighter;
+  line-height: 1.2em;
+}
+.props .prop-img {
+  background-position: center 0;
+}
+.props.login {
+  padding: 0 10px 0 0;
+}
+.props.login .prop-img {
+  height: 104px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v3.png");
+  background-repeat: no-repeat;
+  margin-top: 20px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .props.login .prop-img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v2_2x.png");
+    background-size: 195px 104px;
+  }
+}
+.props.review .prop-img {
+  height: 92px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_shield_bags.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .props.review .prop-img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_shield_bags_2x.png");
+    background-size: 206px 92px;
+  }
+}
+.props.signature .prop-img {
+  height: 200px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/scr_vp_fprd_ballon.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .props.signature .prop-img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/scr_vp_fprd_ballon_2x.png");
+    background-size: 250px 200px;
+  }
+}
+.props.addTaxId .prop-img {
+  height: 104px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v3.png");
+  background-repeat: no-repeat;
+  margin-top: -25px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .props.addTaxId .prop-img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v2_2x.png");
+    background-size: 195px 104px;
+  }
+}
+.props p,
+.props li {
+  color: #7B8388;
+  font-size: .9em;
+  font-weight: lighter;
+  line-height: 1.35em;
+  margin: 5px 0;
+}
+.errorTooltip {
+  background-color: #c72e2e;
+  border-radius: 5px;
+  color: #fff;
+  display: none;
+  padding: 7px;
+  position: absolute;
+  top: 45px;
+  z-index: 2;
+  font-size: .8em;
+}
+.errorTooltipRequired {
+  z-index: 3;
+}
+.validated .ng-invalid:focus ~ .errorTooltipRuleSpecific,
+.validated .ng-invalid:focus ~ .errorTooltipRequired ~ .errorTooltipRuleSpecific {
+  display: block !important;
+}
+.validated .ng-invalid-required.ng-invalid:focus ~ .errorTooltipRuleSpecific,
+.validated .ng-invalid-required.ng-invalid:focus ~ .errorTooltipRequired ~ .errorTooltipRuleSpecific {
+  display: none !important;
+}
+.validated .ng-invalid-required:focus ~ .errorTooltipRequired,
+.validated input[type=checkbox].ng-invalid ~ .errorTooltipRuleSpecific {
+  display: block !important;
+}
+.validated input[type=checkbox].ng-invalid + .errorTooltipRuleSpecific {
+  top: 35px;
+  left: -20px;
+}
+.validated .errorTooltip:empty {
+  display: none !important;
+}
+.backendError:focus ~ .errorTooltipRuleSpecific {
+  display: block;
+}
+.validated .ng-invalid,
+.validated input.ng-invalid:focus,
+.validated input.ng-invalid:active,
+.custom-select-container > select.backendError + span.custom-select > span,
+input.backendError {
+  border: 1px solid #c72e2e;
+}
+.toolTip {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  padding: 7px;
+  color: #2c2e2f;
+  border: 1px solid #e1e7eb;
+  border-radius: 5px;
+  background: #e1e7eb;
+  font-size: .8em;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+#notifications {
+  position: relative;
+}
+.aside #notifications {
+  width: 100%;
+  box-sizing: border-box;
+}
+.msgPage {
+  padding: 7px 0 8px;
+  font-size: 0.85em;
+}
+.msgPage ul {
+  margin: 0;
+  padding-left: 25px;
+  list-style: none;
+}
+.msgPage ul li {
+  line-height: 1.35em;
+  margin: 1px 8px;
+}
+.msg-error,
+.msg-info,
+.msg-warning,
+.msg-success,
+.msg-desc {
+  color: #c72e2e;
+}
+.msg-error .icon,
+.msg-info .icon,
+.msg-warning .icon,
+.msg-success .icon,
+.msg-desc .icon {
+  display: inline-block;
+  width: 21px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -63px -1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .msg-error .icon,
+  .msg-info .icon,
+  .msg-warning .icon,
+  .msg-success .icon,
+  .msg-desc .icon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.msg-info {
+  background-color: #636b6d;
+  border: 1px solid #636b6d;
+  color: #ffffff;
+}
+.msg-info .icon {
+  background-position: -139px -22px;
+  left: 9px;
+}
+.msg-warning .icon {
+  background-position: -90px -22px;
+  left: 9px;
+}
+.msg-warning,
+.msg-warning ul li {
+  background-color: #ffad37;
+  color: #5b3300;
+  border: none;
+}
+.msg-success {
+  padding: 5px;
+  background-color: #8fcf8a;
+  border: 1px solid #8fcf8a;
+  color: #295425;
+}
+.msg-success .icon {
+  background-position: -114px -22px;
+  left: 10px;
+}
+.msg-desc {
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  color: #636b6d;
+}
+.msg-desc .icon {
+  background-position: -139px -1px;
+  left: 9px;
+}
+@media (max-width: 30em) and (min-width: 0) {
+  #notifications {
+    width: 100%;
+  }
+}
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  .review #notifications {
+    width: 100%;
+  }
+}
+.languageToggleDisplay {
+  text-decoration: none;
+  font-size: 15px;
+  position: absolute;
+  bottom: 17px;
+  right: 0px;
+}
+.languageToggleDisplay .changeLanguage {
+  display: inline-block;
+  margin: 5px 0 0 5px;
+  width: 12px;
+  height: 7px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -23px 0px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .languageToggleDisplay .changeLanguage {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.languageToggleDisplay .changeLanguage.expand {
+  background-position: -23px -10px;
+}
+.languageToggleDisplay .displayText {
+  margin-right: 2px;
+}
+.languageToggleDisplay a {
+  cursor: pointer;
+}
+@media (min-width: 30.0625em) and (max-width: 41.25em) {
+  .languageToggleDisplay .popover {
+    left: auto;
+    top: 46px;
+    right: 3px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  .languageToggleDisplay .popover {
+    left: auto ;
+    top: 50px ;
+    right: -6px;
+  }
+}
+@media (min-width: 41.3125em) {
+  .pageLogin .languageToggleEnabled .languageToggle.outside {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    margin: 10px auto 0;
+  }
+  #login .languageToggle {
+    display: block;
+  }
+}
+#langDropdownBlock {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 15px;
+  right: -15px;
+  min-width: 100px;
+  background-clip: padding-box;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+  text-align: left;
+}
+#langDropdownBlock ul {
+  list-style: outside none disc;
+  margin: 0;
+  padding: 9px 14px;
+}
+#langDropdownBlock ul li {
+  list-style-type: none;
+  padding: 5px 0;
+}
+#langDropdownBlock > .arrow,
+#langDropdownBlock > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#langDropdownBlock > .arrow {
+  border-width: 11px;
+}
+#langDropdownBlock > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+#langDropdownBlock.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+#langDropdownBlock.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: #ffffff;
+}
+#langDropdownBlock.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+#langDropdownBlock.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: #ffffff;
+}
+#langDropdownBlock.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+#langDropdownBlock.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+#langDropdownBlock.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+#langDropdownBlock.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: #ffffff;
+  bottom: -10px;
+}
+/**
+ * @fileOverview Shopping cart styles in Hermes header
+ * @name Cart
+ * @author Hermes UIE
+ * @tested
+ */
+.cartContainer {
+  float: left;
+  display: block;
+  width: 184px;
+}
+.transactionDetailsContainer {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+.transactionDetailsContainer.cart #transactionCart {
+  border-bottom: 0 none;
+  border-color: #dddddd #dddddd -moz-use-text-color;
+}
+.transactionDetailsContainer.cart #transactionCart .arrow {
+  background-position: -23px -10px;
+}
+.transactionDetailsContainer.cart .transctionCartDetails {
+  visibility: visible;
+  max-height: 530px;
+}
+.transactionDetailsContainer .merchantName {
+  width: 92%;
+  margin: 0px 15px 0;
+  padding-bottom: 9px;
+  font-size: 1em;
+}
+.transactionDetails {
+  display: block;
+  padding-right: 1px;
+  margin: 0 auto;
+  overflow: auto;
+  color: #393f44;
+}
+.transactionDetails:hover,
+.transactionDetails:focus {
+  text-decoration: none;
+  background-image: none;
+  color: #6C7378;
+}
+.transactionDetails:active {
+  background-image: none;
+}
+.transactionDetails:active #yourCart {
+  background-position: 5px -95px;
+}
+#transactionCart.hasItems:hover,
+#transactionCart.hasItems:focus {
+  -webkit-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.totalWrapper {
+  display: block;
+  overflow: auto;
+}
+.hasNoItems .totalWrapper {
+  background-image: none;
+}
+#yourCart {
+  float: left;
+}
+#transactionCart {
+  float: right;
+  z-index: 1;
+  padding: 8px 0 0 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-color: #ddd;
+  font-size: 1.00em;
+  font-weight: bold;
+  text-align: right;
+  color: #2c2e2f;
+  text-shadow: 1px 1px 1px #ffffff;
+  background-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#transactionCart:active {
+  background-position: right -290px;
+}
+#transactionCart .cartIcon {
+  display: inline-block;
+  width: 15px;
+  height: 14px;
+  margin-right: 6px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #transactionCart .cartIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#transactionCart .arrow {
+  display: inline-block;
+  margin: 5px 0 0 5px;
+  width: 12px;
+  height: 10px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -23px 0px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #transactionCart .arrow {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#transactionCart span {
+  vertical-align: middle;
+}
+@-moz-document url-prefix() {
+  #transactionCart .cartIcon {
+    margin-top: -2px;
+  }
+}
+.transctionCartDetails {
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  visibility: hidden;
+  padding-bottom: 0;
+  -webkit-transition: max-height 0.7s ease;
+  -moz-transition: max-height 0.7s ease;
+  -ms-transition: max-height 0.7s ease;
+  -o-transition: max-height 0.7s ease;
+  transition: max-height 0.7s ease;
+}
+.transctionCartDetails .pointer {
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/icon_flyoutArrow_up_2x.png") no-repeat scroll 0 0 transparent;
+  height: 10px;
+  position: absolute;
+  right: 57px;
+  top: 0;
+  width: 34px;
+}
+.details {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 0 0;
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 1px 1px 1px 0px #cccccc;
+  -moz-box-shadow: 1px 1px 1px 0px #cccccc;
+  box-shadow: 1px 1px 1px 0px #cccccc;
+}
+.details ul {
+  list-style-type: none;
+  margin: 0;
+  font-size: 0.85em;
+  background-color: #f1f4f5;
+  border-radius: 0 0 5px 5px;
+}
+.details li {
+  margin: 0;
+  padding: 1px 15px;
+  overflow: auto;
+  line-height: 20px;
+}
+.details li.subTotal {
+  padding: 10px 15px;
+  margin-top: 5px;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+}
+.details li.actions {
+  margin: 15px;
+  padding: 10px 1px 10px 15px;
+  border-top: 1px solid #ccc;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  text-align: right;
+}
+.notes {
+  font-weight: normal;
+  margin-top: 3px;
+  line-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  min-height: 1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.itemName {
+  margin-top: 3px;
+  width: 42%;
+  overflow: hidden;
+  min-height: 1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.itemPrice {
+  margin-top: 3px;
+  width: 57%;
+  overflow: hidden;
+  font-size: 1em;
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-font-feature-settings: "tnum";
+}
+.itemName,
+.itemPrice,
+.currencyCode {
+  float: left;
+}
+.currencyCode {
+  margin-top: 5px;
+  font-size: 0.8em;
+  text-align: right;
+  float: none;
+}
+.hasNoItems.transactionDetails,
+.hasNoItems.transactionDetails:active,
+.hasNoItems.transactionDetails:focus,
+#transactionDetails.cart .hasNoItems {
+  float: right;
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+}
+.hasNoItems.transactionDetails #yourCart,
+.hasNoItems.transactionDetails:active #yourCart,
+.hasNoItems.transactionDetails:focus #yourCart,
+#transactionDetails.cart .hasNoItems #yourCart {
+  display: none;
+}
+.hasNoItems.transactionDetails #transactionCart,
+.hasNoItems.transactionDetails:active #transactionCart,
+.hasNoItems.transactionDetails:focus #transactionCart,
+#transactionDetails.cart .hasNoItems #transactionCart {
+  padding: 8px 0 0 30px;
+  width: auto;
+}
+.hasNoItems.transactionDetails #transactionCart .arrow,
+.hasNoItems.transactionDetails:active #transactionCart .arrow,
+.hasNoItems.transactionDetails:focus #transactionCart .arrow,
+#transactionDetails.cart .hasNoItems #transactionCart .arrow {
+  display: none;
+}
+.hasNoItems.transactionDetails #transactionCart:hover,
+.hasNoItems.transactionDetails:active #transactionCart:hover,
+.hasNoItems.transactionDetails:focus #transactionCart:hover,
+#transactionDetails.cart .hasNoItems #transactionCart:hover,
+.hasNoItems.transactionDetails #transactionCart:focus,
+.hasNoItems.transactionDetails:active #transactionCart:focus,
+.hasNoItems.transactionDetails:focus #transactionCart:focus,
+#transactionDetails.cart .hasNoItems #transactionCart:focus {
+  text-decoration: none;
+  background-image: none;
+  color: #393f44;
+}
+.hasNoItems.transactionDetails #transactionCart .cartIcon,
+.hasNoItems.transactionDetails:active #transactionCart .cartIcon,
+.hasNoItems.transactionDetails:focus #transactionCart .cartIcon,
+#transactionDetails.cart .hasNoItems #transactionCart .cartIcon {
+  background-position: 0 0;
+}
+#closeCart {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -44px 0;
+  width: 10px;
+  height: 10px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #closeCart {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#closeCart:hover,
+#closeCart:focus {
+  background-position: -44px -15px;
+  width: 10px;
+  height: 11px;
+}
+.largeScreen .transactionDetails {
+  float: right;
+  margin: 0;
+}
+.largeScreen #transactionDetails {
+  position: relative;
+}
+.largeScreen #transactionDetails .transctionCartDetails {
+  clear: both;
+}
+.cartContainer {
+  float: right;
+}
+.transctionCartDetails {
+  position: absolute;
+  top: 35px;
+  right: -20px;
+  width: 300px;
+}
+.details {
+  margin: 10px;
+  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+  list-style-type: none;
+}
+@media (max-width: 41.3125em) {
+  .cartContainer {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 151;
+    width: 160px;
+  }
+  .minibrowser .cartContainer {
+    right: 0;
+  }
+  .transctionCartDetails {
+    left: -140px;
+    width: 310px;
+  }
+  .cartVerB header .cartContainer {
+    display: block;
+  }
+  .cartVerB #main .cartContainer {
+    display: none;
+  }
+  .incontext .cartContainer,
+  .incontext .pageMemberReview .cartContainer,
+  .incontext .pageApplyForBml .cartContainer,
+  .incontext .pageAddCard .cartContainer,
+  .incontext .pageLanding .cartContainer,
+  .incontext .pageEConsent .cartContainer,
+  .incontext .pageGuestVerify .cartContainer,
+  .incontext .pageLogin .cartContainer {
+    right: 35px;
+    top: 12px;
+  }
+  .incontext .transctionCartDetails,
+  .incontext .pageMemberReview .transctionCartDetails,
+  .incontext .pageApplyForBml .transctionCartDetails,
+  .incontext .pageAddCard .transctionCartDetails,
+  .incontext .pageLanding .transctionCartDetails,
+  .incontext .pageEConsent .transctionCartDetails,
+  .incontext .pageGuestVerify .transctionCartDetails,
+  .incontext .pageLogin .transctionCartDetails {
+    width: 350px;
+    left: -180px;
+  }
+  .incontext .cartContainer.hidePayPalLogo {
+    right: 214px;
+  }
+  .incontext .viewTypeOnePage .hidePayPalLogo .transctionCartDetails {
+    left: -15px;
+  }
+  .incontext .viewTypeOnePage .hidePayPalLogo .transctionCartDetails .pointer {
+    right: 300px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .cartContainer {
+    right: 0;
+    top: 15px;
+  }
+  #closeCart {
+    right: 20px;
+  }
+  .transactionDetails {
+    padding-right: 0;
+  }
+}
+.modal-wrapper .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 150;
+}
+.modal-wrapper .modal-dialog {
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 150;
+}
+.modal-wrapper .modalContent {
+  display: block;
+  height: auto;
+  width: 200px;
+  padding: 30px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.modal-wrapper .popLink {
+  word-break: break-all;
+  font-size: 0.8em;
+}
+hr.sep {
+  padding: 0;
+  margin-top: 25px;
+  height: auto;
+  border: none;
+  border-top: 1px solid #ccc;
+  color: #333;
+  text-align: center;
+  overflow: visible;
+}
+hr.sep:after,
+hr.sep::after {
+  content: "or";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1em;
+  padding: 0 0.50em;
+  background: white;
+  color: #6c7378;
+  font-weight: normal;
+}
+.de hr.sep:after,
+.de hr.sep::after {
+  content: "oder";
+}
+.da hr.sep:after,
+.da hr.sep::after {
+  content: "eller";
+}
+.zh hr.sep:after,
+.zh hr.sep::after {
+  content: "或";
+}
+.es hr.sep:after,
+.es hr.sep::after {
+  content: "o";
+}
+.fr hr.sep:after,
+.fr hr.sep::after {
+  content: "ou";
+}
+.he hr.sep:after,
+.he hr.sep::after {
+  content: "או";
+}
+.id hr.sep:after,
+.id hr.sep::after {
+  content: "Atau";
+}
+.it hr.sep:after,
+.it hr.sep::after {
+  content: "oppure";
+}
+.ja hr.sep:after,
+.ja hr.sep::after {
+  content: "または";
+}
+.nl hr.sep:after,
+.nl hr.sep::after {
+  content: "of";
+}
+.no hr.sep:after,
+.no hr.sep::after {
+  content: "eller";
+}
+.pl hr.sep:after,
+.pl hr.sep::after {
+  content: "lub";
+}
+.pt hr.sep:after,
+.pt hr.sep::after {
+  content: "ou";
+}
+.ru hr.sep:after,
+.ru hr.sep::after {
+  content: "Или";
+}
+.sv hr.sep:after,
+.sv hr.sep::after {
+  content: "eller";
+}
+.th hr.sep:after,
+.th hr.sep::after {
+  content: "หรือ";
+}
+.tr hr.sep:after,
+.tr hr.sep::after {
+  content: "Veya";
+}
+.zh hr.sep:after,
+.zh hr.sep::after {
+  content: "或";
+}
+/*
+ * @fileOverview queries.css contains media queries for responsive design/layout breakpoints.
+ * @name Queries
+ * @author abadri
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+  .merchantBrand {
+    display: none;
+  }
+  .outerWrapper {
+    background-position: left 50px;
+  }
+  .centerTray.loginSignup {
+    margin-bottom: 60px;
+  }
+  #main {
+    padding: 0;
+    position: relative;
+    background: none;
+    z-index: 2;
+  }
+  #contents {
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .paypalHeader {
+    padding: 0 20px 20px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  header,
+  .props {
+    display: none;
+  }
+  .review #wrapper {
+    min-height: 512px;
+  }
+  #contents {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+  .loginProcessing,
+  .bmlAppProcessing {
+    background-color: #f9f9f9;
+  }
+  .loggingIn {
+    margin: 0 25px;
+  }
+  .mobile .loggingIn {
+    margin: 0;
+  }
+  .saferEasier,
+  .simpler {
+    display: none;
+  }
+  #login .row-fluid {
+    padding-top: 0px;
+  }
+  #login .centerTray {
+    padding: 0;
+  }
+  #login #signupLink.btn {
+    margin: 5px 0;
+  }
+  #wrapper {
+    margin: 0;
+    width: auto;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    border: none;
+  }
+  #task {
+    width: 295px;
+  }
+  .loading .spinner {
+    background-position-y: 35%;
+  }
+  .centerTray {
+    width: auto;
+  }
+  .tray .inner,
+  .accountTerms .tray .inner {
+    padding: 10px;
+  }
+  .row-fluid > [class*="span"],
+  .signup {
+    width: 100%;
+    margin-left: 0;
+    float: none;
+  }
+  #notifications {
+    width: 100%;
+  }
+  .gamma,
+  .delta {
+    font-size: 1.36em;
+  }
+  .inputField label {
+    left: 7px;
+    top: 13px;
+  }
+  .saferEasier {
+    display: none;
+  }
+  #fundingInstruments .buttons {
+    height: 40px;
+  }
+  .cityState select {
+    font-size: 14px;
+  }
+  .cityState .city {
+    width: 100%;
+  }
+  .cityState .state {
+    width: 55%;
+  }
+  .cityState .zip {
+    width: 40.8%;
+  }
+  #tab {
+    margin-top: 0;
+    height: 125px;
+  }
+  #memberReview .container {
+    padding: 0px 15px 0;
+  }
+  .toolTip.whatsthis ul {
+    width: 242px;
+    left: 9px;
+  }
+  .toolTip.whatsthis ul li {
+    font-size: 0.9em;
+  }
+  #expiration.varB .expires {
+    width: 49%;
+  }
+  #expiration .inputField {
+    padding: 0;
+  }
+  #expiration .cvc {
+    width: 44%;
+    float: right;
+  }
+  #expiration.varB .cvc {
+    width: 49%;
+  }
+  .month {
+    margin-left: 46px;
+  }
+  .separator {
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+  .year {
+    margin-left: 0;
+  }
+  #expiration .cardIcon {
+    position: absolute;
+    right: 4px;
+  }
+  .details {
+    margin-right: 2px;
+  }
+  .mask #header,
+  .mask #closeButton {
+    display: none;
+  }
+}
+@media (min-width: 30.0625em) and (max-width: 41.25em) {
+  .row-fluid > .span10,
+  .row-fluid > .span12,
+  .row-fluid > .span14 {
+    width: 100%;
+  }
+  #notifications {
+    width: 100%;
+  }
+  .outerWrapper {
+    background-position: left 59px;
+  }
+  header,
+  .props {
+    display: none;
+  }
+  #wrapper {
+    margin: 0;
+    border: none;
+  }
+  #main {
+    padding: 0;
+  }
+  #contents {
+    padding: 0 25px;
+  }
+}
+@media (min-width: 41.3125em) {
+  .banner {
+    display: block;
+  }
+  #wrapper {
+    min-height: 0;
+    width: 95%;
+  }
+  .merchantHeader,
+  .footer {
+    width: 95%;
+  }
+  .largeScreen .centerTray {
+    margin-top: 0;
+  }
+  .signup {
+    margin-bottom: 0;
+  }
+  #genericError {
+    min-height: 375px;
+    background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/scr_cloud_balloon.png) no-repeat center bottom;
+  }
+  #transactionDetails .merchantName {
+    display: none;
+  }
+}
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  #contents {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+  .pageLanding #contents {
+    margin: 70px auto 40px 0px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  .cardType {
+    display: none;
+  }
+  ul.validations li.restriction.active {
+    background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/close3_2x.png) no-repeat 0 2px;
+    background-size: 10px;
+  }
+  .inputField.error input {
+    background-image: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png');
+    background-size: 18px;
+  }
+  .inputField.error input,
+  .inputField.valid input {
+    background-position: -webkit-calc(100% - 10px) center;
+    background-position: right 10px center;
+  }
+  .error .custom-select > span,
+  .error .custom-select.active > span {
+    background-image: url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1_2x.png');
+    background-size: 18px;
+  }
+  .de.DE #securityCode.creditCard {
+    background-position: 5px -302px;
+  }
+  .de.DE #securityCode.creditCard.four {
+    background-position: 5px -345px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 41.3125em) {
+  #genericError {
+    background-size: 640px 242px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .spinner {
+    position: fixed;
+  }
+  .trayOpen .sidebar {
+    left: -320px;
+    top: -75px;
+    width: 320px;
+  }
+  .trayOpen .minibrowser #main {
+    min-height: 535px;
+  }
+  .trayOpen .maskMember .trayViewMask {
+    top: -80px;
+    left: 0px;
+  }
+}
+#login .wallet_vprop_img {
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v3.png") top left no-repeat;
+  height: 104px;
+}
+#login .inline-prop {
+  font-size: 0.85em;
+}
+#login .trayInner {
+  margin: 0 0 25px;
+  padding: 0;
+}
+#login #forgotPasswordSection {
+  margin: 14px 0 9px;
+}
+#login .alpha {
+  margin-top: 0;
+}
+#login .pr {
+  position: relative;
+  padding-top: 25px;
+}
+#login .pr.hasError {
+  margin-top: 0px;
+}
+#login .loginBtn {
+  margin-top: 5px;
+}
+#login .msgPage {
+  padding: 15px 0 5px;
+}
+#login .sep {
+  margin-bottom: 15px;
+}
+#login .row-fluid > .span10 {
+  float: right;
+}
+.noscript {
+  margin: 0;
+  padding: 30px;
+  width: 58%;
+  border: 3px solid #f00;
+  position: absolute;
+  top: 95px;
+  left: 20%;
+  display: block;
+  z-index: 1001;
+  background: white;
+  font-size: 18px;
+  text-align: center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  #login .wallet_vprop_img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_wallet_card_v2_2x.png");
+    background-size: 195px 104px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em) {
+  #login .pr {
+    margin-top: 0;
+  }
+  #login .trayInner {
+    margin: 0 0 20px;
+  }
+}
+.trayOpen #main {
+  float: right;
+  margin-right: -320px;
+  width: 100%;
+  border-left: 1px solid #ddd;
+  min-height: 500px;
+}
+.trayOpen .maskMember .trayViewMask {
+  width: 100%;
+  height: 170%;
+  position: absolute;
+  top: -85px;
+  left: -30px;
+  z-index: 6;
+  cursor: pointer;
+  background-color: #edf2f5;
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  min-height: 550px;
+}
+.trayOpen .justMember,
+.trayOpen .paypalHeaderWrapper {
+  opacity: .5;
+}
+.asideContent {
+  overflow-y: auto;
+  overflow-x: hidden;
+  /*    &::-webkit-scrollbar {
+        width: 8px;
+        background-color: transparent;
+        margin-right: 10px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: #666666;
+        opacity: 0.5;
+        border-radius: 8px;
+        min-height: 3em;
+    }*/
+}
+.sidebar {
+  position: absolute;
+  left: -351px;
+  top: -80px;
+  width: 320px;
+}
+.sidebar .asideContent {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media (max-width: 41.25em) {
+  .trayOpen #main {
+    margin-right: -295px;
+  }
+  .trayOpen .sidebar {
+    left: -295px;
+    top: -65px;
+    width: 295px;
+  }
+  .trayOpen .minibrowser #main {
+    min-height: 535px;
+    margin-right: -320px;
+  }
+  .trayOpen .minibrowser .sidebar {
+    left: -320px;
+    top: -75px;
+    width: 320px;
+  }
+  .trayOpen .maskMember .trayViewMask {
+    top: -80px;
+    left: 0px;
+  }
+}
+.fundingInstrumentList.fundingInstrumentList {
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-bottom: 1px solid #999999;
+}
+.fundingInstrumentList.fundingInstrumentList ul {
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+.fundingInstrumentList.fundingInstrumentList ul li {
+  position: relative;
+  width: 50%;
+  height: 90px;
+  float: left;
+  color: white;
+  background: #008bdf;
+  cursor: pointer;
+  text-align: center;
+}
+.fundingInstrumentList.fundingInstrumentList ul li .icon {
+  width: 30px;
+  height: 25px;
+  margin: 0 auto;
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+.fundingInstrumentList.fundingInstrumentList ul li .description,
+.fundingInstrumentList.fundingInstrumentList ul li .icon {
+  display: block;
+}
+.fundingInstrumentList.fundingInstrumentList ul li .description {
+  margin-top: 7px;
+  vertical-align: middle;
+}
+.fundingInstrumentList.fundingInstrumentList ul li.bank .icon {
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_icon_addFI_white_2x.png") 0 -49px no-repeat;
+  background-size: 29px;
+}
+.fundingInstrumentList.fundingInstrumentList ul li.cards .icon {
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_icon_addFI_white_2x.png") 0 5px no-repeat;
+  background-size: 29px;
+}
+.fundingInstrumentList.fundingInstrumentList ul li:hover {
+  background: #0079c1;
+  color: white;
+}
+.fundingInstrumentList.fundingInstrumentList ul li a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+}
+li.fundingsource {
+  overflow: hidden;
+}
+.allFundingInstrumentsList {
+  margin: 0;
+  padding: 0;
+}
+.allFundingInstrumentsList li {
+  width: 99.8%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -ms-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 1px solid #e3e3e3;
+}
+.allFundingInstrumentsList li:hover,
+.allFundingInstrumentsList li:focus {
+  background-color: #f7f9fa;
+}
+.allFundingInstrumentsList li a.source {
+  display: block;
+  min-height: 70px;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+}
+.allFundingInstrumentsList li .fsdetails {
+  width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 18px 0 0 55px;
+  position: relative;
+}
+.allFundingInstrumentsList li .fsdetails span {
+  display: block;
+  margin-bottom: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.allFundingInstrumentsList li .fsdetails span.lastdigits,
+.allFundingInstrumentsList li .fsdetails span.amount {
+  color: #6c7378;
+  font-size: .85em;
+}
+.allFundingInstrumentsList li .fsdetails span.subtype {
+  display: inline;
+  color: #2c2e2f;
+}
+.allFundingInstrumentsList li .showMsg .fsdetails {
+  top: 75px;
+}
+.fundingOverlay {
+  width: 100%;
+  display: block;
+  z-index: 3;
+  position: absolute;
+  left: 0px;
+  top: 64px;
+  bottom: 0;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.disabledCardOpacity {
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+.disabledCardOpacity.balance {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+.disabledReasonContainer {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.disabledMessage {
+  width: 50%;
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  transition: opacity 800ms linear;
+  -webkit-transition: opacity 800ms linear;
+  -webkit-backface-visibility: hidden;
+}
+.disabledReason {
+  float: right;
+  display: inline-block;
+  position: absolute;
+  bottom: 50px;
+  width: 80%;
+  word-wrap: break-word;
+  padding-bottom: 9px;
+  font-size: 0.85em;
+}
+.expiredMsg {
+  color: #ff0000;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  padding-left: 6px;
+}
+.expired {
+  border: 1px solid #de746a;
+}
+.checkIcon {
+  width: 24px;
+  height: 17px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 17px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -192px -2px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .checkIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.infoMsg {
+  top: -75px;
+}
+.showMsg .infoMsg,
+.showMsg .fsdetails {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.showMsg .infoMsg {
+  top: 10px;
+}
+.showMsg .fsdetails {
+  top: 75px;
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .allFundingInstrumentsList li .fsdetails {
+    width: 190px;
+  }
+}
+.review {
+  min-height: 250px;
+}
+.review .paypalPoliciesLink {
+  color: #2c2e2f;
+}
+.review .span10 {
+  margin-left: 4%;
+}
+.review .editable {
+  cursor: pointer;
+}
+.review .redeemGC {
+  margin-top: 10px;
+  font-size: 0.85em;
+}
+.review .userEmail {
+  margin: 15px 0;
+  font-size: 0.85em;
+}
+.review .span14.trayInner {
+  padding: 0 0 20px;
+}
+.review .reviews {
+  margin: 10px 0;
+}
+.review .reviews + .reviews {
+  border-top: 1px solid #e3e3e3;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 0 0;
+}
+.review .reviews .msg-info {
+  background-color: transparent;
+  border: none;
+}
+.review .reviews .msg-info ul li {
+  background-color: transparent;
+  color: #6c7378;
+}
+.review .reviews .msg-info .icon {
+  background-position: -139px -1px;
+}
+.review .authUserNotify {
+  margin: 10px 0 10px 35px;
+  font-size: 0.65em;
+}
+.review .authUserContent {
+  line-height: 1.254em;
+  margin-bottom: 15px;
+  font-size: .85em;
+}
+.review .authUserContent + .authUserContent {
+  margin-bottom: 0;
+}
+.review #authMsg .buttons {
+  margin-top: 0;
+}
+.review .bmlCtaWrap {
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: #f7f9fa;
+  position: relative;
+  border-radius: 5px;
+  background-clip: padding-box;
+}
+.review .bmlCtaWrap p {
+  width: 70%;
+  margin-bottom: 5px;
+}
+.review .bmlCtaWrap .bmlApplyLink {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 0;
+  font-size: .85em;
+}
+.review .bmlCtaWrap .bmlSeeTerms {
+  font-size: 0.68em;
+  color: #666;
+}
+.review .bmlCtaWrap .trayInner {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.review .bmlCtaWrap .headerText {
+  margin-left: 35px;
+}
+.review .bmlCtaWrap .plccAddNowLink {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: .85em;
+}
+.review .bmlCtaWrap .plccOfferDesc {
+  font-size: 0.68em;
+  color: #666;
+  margin-left: 35px;
+}
+.review .bmlCtaWrap .fsIcon {
+  float: left;
+  position: inherit;
+}
+.review .frame {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.review .frameborder {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  height: 3px;
+  background: -webkit-linear-gradient(#ffffff, #dbdbdb);
+  background: -o-linear-gradient(#ffffff, #dbdbdb);
+  background: -moz-linear-gradient(#ffffff, #dbdbdb);
+  background: linear-gradient(#ffffff, #dbdbdb);
+  background: -webkit-gradient(linear, top, bottom, #ffffff, #dbdbdb);
+  background: -ms-linear-gradient(top, #ffffff, #dbdbdb);
+}
+.review .fixed {
+  padding: 10px 0;
+  margin: 0 20px;
+}
+#memberReview .reviews .trayInner {
+  padding: 10px 0;
+}
+#memberReview .edits {
+  font-size: .85em;
+  right: -1px;
+  top: -7px;
+}
+#memberReview .adr {
+  margin: 2px 0 0;
+  font-weight: normal;
+  width: 85%;
+  line-height: 1.35em;
+}
+#memberReview .billingAddressConsent {
+  margin-top: 10px;
+}
+#memberReview #pay-with-credit .trayInner .decreasedWidth {
+  width: 80%;
+}
+#memberReview #pay-with-credit .trayInner .decreasedWidth p {
+  width: 100%;
+}
+@media (min-width: 0) and (max-width: 30em) {
+  #memberReview .userEmail {
+    font-size: 1em;
+  }
+  #memberReview .edits,
+  #shippingAddress .edits {
+    right: 0;
+  }
+}
+#bmlHardDeclineModal,
+#bmlSuccessModal {
+  display: none;
+}
+.bmlModal {
+  overflow: hidden;
+}
+.bmlModal h2 {
+  margin: 0 0 1em 0;
+}
+.bmlModal .modal-wrap,
+.bmlModalDialog .modal-wrap {
+  z-index: 150;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  height: auto;
+  padding: 30px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 360px;
+}
+.bmlModal .modal-wrap #decline-modal-title,
+.bmlModalDialog .modal-wrap #decline-modal-title {
+  line-height: 1.154em;
+  margin-bottom: 20px;
+}
+.bmlModal .modal-wrap .alpha,
+.bmlModalDialog .modal-wrap .alpha {
+  margin-top: 0;
+}
+.bmlModal .modal-wrap #cancelContinue,
+.bmlModalDialog .modal-wrap #cancelContinue {
+  display: block;
+}
+.bmlModal .chkbx,
+.bmlModalDialog .chkbx,
+.bmlModal p,
+.bmlModalDialog p,
+.bmlModal h2,
+.bmlModalDialog h2 {
+  margin-bottom: 20px;
+}
+.bmlModal .chkbxLabel,
+.bmlModalDialog .chkbxLabel {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 1em;
+}
+.bmlModal .chkbx,
+.bmlModalDialog .chkbx {
+  vertical-align: top;
+  width: 6%;
+}
+.bmlModal .chkbxLabel,
+.bmlModalDialog .chkbxLabel {
+  width: 92%;
+}
+.bmlModal .checkbox .chkbxLabel,
+.bmlModalDialog .checkbox .chkbxLabel {
+  height: auto;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+.bmlModal .close,
+.bmlModalDialog .close {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+  -webkit-appearance: none;
+  background: transparent url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v5_2x.png") no-repeat right top;
+  background-repeat: no-repeat;
+  background-size: 250px 215px;
+  background-position: -218px 0;
+  border: 0;
+  cursor: pointer;
+  height: 22px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 17px;
+  text-indent: -999em;
+  width: 25px;
+}
+.bmlModal .cancelUrl,
+.bmlModalDialog .cancelUrl {
+  width: 100%;
+}
+@media (max-width: 41.25em) and (min-width: 0) {
+  .bmlModal .modal-wrap,
+  .bmlModalDialog .modal-wrap {
+    padding: 20px;
+    width: 80%;
+    margin: 0;
+  }
+}
+.modal-open.largeScreen #wrapper,
+.modal-open #main {
+  position: static;
+}
+.incontext .modal-open .outerWrapper,
+.minibrowser .modal-open .outerWrapper {
+  position: relative;
+}
+.incontext .modal-open .bmlModal,
+.minibrowser .modal-open .bmlModal {
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  position: absolute;
+}
+.incontext .modal-open .modal-backdrop,
+.minibrowser .modal-open .modal-backdrop {
+  display: none;
+}
+.button-spacing {
+  margin-bottom: 12px;
+}
+#addCard .firstname {
+  float: left;
+  width: 48.15%;
+  padding: 0;
+}
+#addCard .lastname {
+  float: right;
+  width: 48.15%;
+  padding: 0;
+}
+#addCard .replaced {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  height: 44px;
+  border: 0;
+  line-height: 2;
+}
+#addCard #billingAddress {
+  clear: both;
+  width: 100%;
+  margin-top: 24px;
+}
+#addCard #billingAddress label {
+  font-weight: bold;
+}
+#addCard .dropdown .billingAddress {
+  margin: 5px 0 10px;
+}
+#addCard .addNewBillingAddress {
+  float: right;
+}
+section#addCard h1 {
+  margin-bottom: 0;
+}
+section#addCard .prop-img {
+  height: 92px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_shield_bags.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  section#addCard .prop-img {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/scr_vp_fprd_shield_bags_2x.png");
+    background-size: 206px 92px;
+  }
+}
+.addressLabel {
+  display: none;
+}
+@media (min-width: 0) and (max-width: 30em) {
+  section#addCard #notifications,
+  section#updateCard #notifications {
+    margin-top: 10px;
+  }
+}
+#eConsent .content {
+  line-height: 1.35em;
+}
+#eConsent .agree {
+  position: relative;
+}
+#eConsent label {
+  line-height: 1.2em;
+}
+#eConsent .validated input[type=checkbox].ng-invalid + .errorTooltipRuleSpecific {
+  width: 300px;
+  font-size: 12px;
+  top: 30px;
+  left: 0;
+  line-height: 1.2em;
+  width: 275px;
+}
+#eConsent .buttons {
+  margin-top: 20px;
+}
+#addPhone .phoneTypeContainer {
+  width: 34%;
+  padding-right: 10px;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#addPhone .telephoneField {
+  width: 65%;
+  padding: 0;
+  float: right;
+}
+#addPhone .countryCodeSelect .phoneTypeContainer {
+  width: 50%;
+  padding: 0 10px 10px 0;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#addPhone .countryCodeSelect .phoneCodeContainer {
+  width: 50%;
+  float: right;
+}
+#addPhone .countryCodeSelect .telephoneField {
+  width: 100%;
+  padding: 0;
+  float: right;
+}
+.addFi .form-tabs {
+  color: #6c7378;
+  margin: auto 0 10px;
+  list-style: none;
+  border-bottom: 1px solid #dbdbdb;
+}
+.addFi .form-tabs > li {
+  width: 49%;
+  text-align: center;
+  display: inline-block;
+  margin-right: 0px;
+}
+.addFi .form-tabs > li.bankTab {
+  cursor: pointer;
+}
+.addFi .form-tabs > li.cardTab {
+  float: right;
+  cursor: pointer;
+}
+.addFi .form-tabs > li {
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+.addFi .form-tabs > li:hover,
+.addFi .form-tabs > li:focus {
+  border-color: #ccc #ccc #ddd;
+}
+.addFi .form-tabs > li a {
+  display: inline-block;
+  width: 100%;
+  line-height: 40px;
+  color: #666;
+  text-decoration: none;
+}
+.addFi .form-tabs > li.active {
+  cursor: default;
+  color: #ffffff;
+  margin-right: 0;
+  border-bottom: 2px solid #009cde;
+}
+.addFi .form-tabs > li.active a {
+  color: #2c2e2f;
+}
+.addFi .container {
+  padding: 10px 0;
+}
+.addFi .fieldLegend {
+  margin-bottom: 4px;
+  padding-bottom: 0;
+  font-size: inherit;
+}
+.addFi input[readonly=readonly],
+.addFi .inputField input[readonly=readonly] {
+  background: #f5f5f5;
+  color: #a8a8a8;
+}
+.addFi .billingAddress {
+  clear: both;
+  margin: 10px 0 15px;
+}
+.addFi #sepaMandate .btn-secondary {
+  display: none;
+}
+.addFi .addressLabel {
+  display: block;
+  margin: 10px 0;
+}
+.pageSepaMandate .span14 {
+  width: 100%;
+}
+.pageSepaMandate .span10 {
+  display: none;
+}
+/* this import should be something generated by the grunt */
+/* This file should be removed once we do the same using grunt */
+#shippingAddress {
+  position: relative;
+}
+#shippingAddress:focus {
+  outline: 0;
+}
+#shippingAddress .editable {
+  cursor: pointer;
+}
+#shippingAddress .addressDisplay {
+  margin-top: 10px;
+  word-wrap: break-word;
+  line-height: 1.2em;
+}
+#shippingAddress .addressDisplay .check {
+  padding-left: 20px;
+  background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/icon_checkmark_wallet.png) no-repeat 0 2px;
+}
+#shippingAddress .changeShipping {
+  cursor: pointer;
+}
+#shippingAddress .edits {
+  padding: 7px 0 4px;
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  color: #0079ad;
+}
+#shippingAddress .edits.disabled,
+#shippingAddress .edits.disabled:hover,
+#shippingAddress .edits.disabled:focus {
+  color: #6c7378;
+  text-decoration: none;
+}
+#shippingAddress .edits:hover,
+#shippingAddress .edits:focus {
+  text-decoration: underline;
+  color: #004e7b;
+}
+.reviewPreferredShipping {
+  margin: 5px 0 15px;
+}
+.paywith #paymentMethod {
+  position: relative;
+}
+.paywith #paymentMethod:focus {
+  outline: 0;
+}
+.paywith .charges {
+  display: table;
+  width: 100%;
+  margin: 10px 0 0;
+}
+.paywith .charges li {
+  list-style: none;
+  margin-bottom: 7px;
+}
+.paywith .charges li.backupFunding {
+  margin-bottom: 5px;
+  margin-top: -14px;
+  font-size: 0.85em;
+  line-height: 1em;
+  color: #6c7378;
+  padding-left: 35px;
+}
+.paywith .methodAmount {
+  float: right;
+}
+.paywith .methodAmount .amountCurrencyCode {
+  font-size: 0.75em;
+  display: block;
+  text-align: right;
+  line-height: 1.4em;
+  color: #6C7378;
+}
+.paywith .method {
+  text-overflow: ellipsis;
+  width: 72%;
+  float: left;
+  line-height: 22px;
+}
+.paywith .method .name {
+  vertical-align: top;
+}
+.paywith .method .name .txt,
+.paywith .method .name a {
+  vertical-align: inherit;
+}
+.paywith .method .name .txt {
+  font-size: 0.85em;
+}
+.paywith .method .fsname {
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 67%;
+  display: inline-block;
+  white-space: nowrap;
+}
+.paywith .method.DELAYED_TRANSFER .fsname {
+  max-width: 37%;
+}
+.paywith .method.check {
+  padding-left: 20px;
+  background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/icon_checkmark_wallet.png) no-repeat 0 2px;
+}
+.paywith .method.pad {
+  display: inline-block;
+  width: 72%;
+}
+.paywith .installments .method {
+  width: 50%;
+}
+.paywith .edits {
+  padding: 7px 0 4px;
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  color: #0079ad;
+}
+.paywith .edits:hover,
+.paywith .edits:focus {
+  text-decoration: underline;
+  color: #004e7b;
+}
+.paywith .INCENTIVE + .methodAmount .amountFormatted {
+  color: #56AA47;
+}
+.paywith .conversion {
+  display: table;
+  width: 100%;
+  text-align: right;
+  color: #757575;
+  font-size: .88em;
+}
+.paywith .billingTxt {
+  margin-top: 13px;
+  font-size: 0.75em;
+}
+.paywith .getInstallments {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #c5ccd1;
+  font-weight: normal;
+  text-align: start;
+  padding: 0 10px;
+}
+.paywith .getInstallmentsError {
+  border: 1px solid #c72e2e;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-align: start;
+  padding: 0 10px;
+  padding-right: 29px;
+  background: #ffffff url('https://www.paypalobjects.com/webstatic/checkout/hermes/flat/icons/error-icon_v1.png') no-repeat 98% center;
+}
+.paywith .raq {
+  margin-left: 5px;
+}
+.paywith .authUserNotify {
+  margin: 10px 0 0 5px;
+  padding-left: 30px;
+}
+.paywith .padHelpToolTip .padHeader {
+  font-weight: bold;
+}
+.paywith .padHelpToolTip p {
+  margin-bottom: 0;
+}
+.paywith .padHelpToolTip ul {
+  margin: 8px 8px 4px;
+}
+.paywith .padHelpToolTip ul li {
+  margin: 0;
+}
+.paywith .bmlDetails {
+  color: #6c7378;
+  font-size: .85em;
+  padding: 5px 0 0 35px;
+  width: 100%;
+  line-height: 1.1em;
+}
+.row-fluid > .bmlPopup {
+  box-sizing: border-box;
+  margin-left: 0;
+  padding: 40px 0;
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .paywith .method {
+    width: 80%;
+  }
+  .paywith .method .fsname {
+    max-width: 60%;
+  }
+}
+.adr {
+  margin-top: 3px;
+  color: #6c7378;
+  font-weight: lighter;
+  font-size: 0.85em;
+  width: 90%;
+}
+.adr .adr-break {
+  display: block;
+}
+.adr .singleline {
+  display: none;
+}
+.adr .country {
+  display: none;
+}
+.addressDisplay .adr .streets {
+  display: inline;
+  white-space: normal;
+}
+.addressDisplay .adr .streets + div {
+  display: inline;
+}
+.addressDisplay .adr .postal-code,
+.addressDisplay .adr .streets,
+.addressDisplay .adr .singleline,
+.addressDisplay .adr .adr-break {
+  display: inline;
+}
+.FR .cvv input {
+  padding-left: 6px;
+}
+#addCard .msg-error {
+  position: relative;
+  margin-top: 20px;
+}
+#addCard #addressAddedToolTip {
+  margin: -10px 0 7px;
+  border: 1px solid #7cda7a;
+  background-image: linear-gradient(to bottom, #f9fcfa, #f1f8f2);
+  min-height: 17px;
+  border-radius: 3px;
+}
+#addCard .addNewBillingAddress {
+  font-size: .85em;
+  margin-top: 2px;
+}
+#addCard.aside #notifications {
+  padding: 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 5px;
+}
+#addCard.aside .msg-error {
+  padding: 0;
+  margin-bottom: 0;
+}
+#addCard.aside .btn {
+  margin-top: 10px;
+}
+#addCard.aside #billingAddressForm .btn {
+  margin-top: 0;
+}
+.creditCardInput .plccCardNumberTitle {
+  margin-bottom: 5px;
+}
+.creditCardInput .cardIconsGroup {
+  background-color: #F2F3F4;
+  border: 1px solid #E3E3E3;
+  border-radius: 4px;
+  padding: 10px 15px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.creditCardInput .cardIcon {
+  background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_1x.png') no-repeat 0 100px;
+  height: 21px;
+  float: left;
+  width: 32px;
+  padding: 0px 4px 0px 0px;
+}
+.creditCardInput .cardIcon.ELO {
+  background-position: 0px -479px;
+}
+.creditCardInput .cardIcon.VISA {
+  background-position: 0px -21px;
+}
+.creditCardInput .cardIcon.MASTERCARD {
+  background-position: 0px -42px;
+}
+.creditCardInput .cardIcon.HIPER {
+  background-position: 0px -458px;
+}
+.creditCardInput .cardIcon.HIPERCARD {
+  background-position: 0px -500px;
+}
+.creditCardInput .cardIcon.AMEX {
+  background-position: 0px -63px;
+  margin-right: -10px;
+}
+.creditCardInput .cardIcon.ELECTRON {
+  background-position: 0px -147px;
+}
+.creditCardInput .cardIcon.MAESTRO {
+  background-position: 0px -168px;
+}
+.creditCardInput .cardIcon.DISCOVER {
+  background-position: 0px -84px;
+}
+.creditCardInput .cardIcon.CBNATIONALE {
+  background-position: 0 -210px;
+}
+.creditCardInput .cardIcon.CETELEM {
+  background-position: 0 -310px;
+}
+.creditCardInput .cardIcon.COFIDIS {
+  background-position: 0 -437px;
+}
+.creditCardInput .cardIcon.COFINOGA {
+  background-position: 0 -231px;
+}
+.creditCardInput .cardType {
+  clear: both;
+  display: block;
+  margin-bottom: 10px;
+}
+.creditCardInput #cardIssueInfo {
+  display: block;
+}
+.creditCardInput #expiration {
+  min-height: 80px;
+}
+.creditCardInput .expires {
+  position: relative;
+  display: block;
+  top: auto;
+  left: auto;
+  color: #2c2e2f;
+}
+.creditCardInput .expirationField {
+  width: 54%;
+  float: left;
+  min-height: 70px;
+}
+.creditCardInput #expiration label,
+.creditCardInput label.cvv {
+  margin: 5px 0 6px;
+}
+.creditCardInput .expmonth {
+  float: left;
+  width: 50%;
+}
+.creditCardInput .expmonth .custom-select > span {
+  border-radius: 5px 0 0 5px;
+  padding-right: 30px;
+}
+.creditCardInput .expyear {
+  float: left;
+  width: 50%;
+}
+.creditCardInput .expyear .custom-select > span {
+  border-radius: 0 5px 5px 0;
+  border-left: 0;
+}
+.creditCardInput .expyear .custom-select.active > span {
+  border-left: 1px solid #009cde;
+}
+.creditCardInput .replaced {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  line-height: 2;
+}
+.creditCardInput .cvv {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+.creditCardInput .cvvSecurityCode {
+  position: relative;
+}
+.creditCardInput .cvvField {
+  width: 42%;
+  float: right;
+}
+.creditCardInput .cardNumber {
+  clear: both;
+}
+.creditCardInput .cvvField .errorTooltip {
+  top: 60px;
+}
+.validated .ng-invalid ~ #creditCard,
+.validated input.ng-invalid:focus ~ #creditCard,
+.validated input.ng-invalid:active ~ #creditCard,
+input.backendError ~ #creditCard {
+  display: none;
+}
+.inputField.error #cvv,
+.validated .inputField input.ng-invalid#cvv {
+  background: none;
+}
+#securityCode.creditCard,
+.creditCardField .creditCard,
+.ccard {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 44px;
+  height: 27px;
+  text-indent: -500em;
+  background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v4.png) no-repeat 0 100px;
+}
+#securityCode.creditCard.ELO,
+.creditCardField .creditCard.ELO,
+.ccard.ELO,
+#securityCode.creditCard.HIPER,
+.creditCardField .creditCard.HIPER,
+.ccard.HIPER,
+#securityCode.creditCard.HIPERCARD,
+.creditCardField .creditCard.HIPERCARD,
+.ccard.HIPERCARD {
+  background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_1x.png') no-repeat 0 100px;
+  height: 21px;
+  width: 40px;
+  top: 12px;
+}
+#securityCode.creditCard.VISA,
+.creditCardField .creditCard.VISA,
+.ccard.VISA {
+  background-position: 0 -95px;
+}
+#securityCode.creditCard.MASTERCARD,
+.creditCardField .creditCard.MASTERCARD,
+.ccard.MASTERCARD {
+  background-position: 0 -199px;
+}
+#securityCode.creditCard.AMEX,
+.creditCardField .creditCard.AMEX,
+.ccard.AMEX {
+  background-position: 0 -300px;
+}
+#securityCode.creditCard.DISCOVER,
+.creditCardField .creditCard.DISCOVER,
+.ccard.DISCOVER {
+  background-position: 0 -600px;
+}
+#securityCode.creditCard.ccback,
+.creditCardField .creditCard.ccback,
+.ccard.ccback,
+#securityCode.creditCard.three,
+.creditCardField .creditCard.three,
+.ccard.three {
+  background-position: 0 -700px;
+}
+#securityCode.creditCard.front,
+.creditCardField .creditCard.front,
+.ccard.front,
+#securityCode.creditCard.four,
+.creditCardField .creditCard.four,
+.ccard.four {
+  background-position: 0 -799px;
+}
+#securityCode.creditCard.ELECTRON,
+.creditCardField .creditCard.ELECTRON,
+.ccard.ELECTRON {
+  background-position: 0 -900px;
+}
+#securityCode.creditCard.MAESTRO,
+.creditCardField .creditCard.MAESTRO,
+.ccard.MAESTRO {
+  background-position: 0 -1000px;
+}
+#securityCode.creditCard.ELO,
+.creditCardField .creditCard.ELO,
+.ccard.ELO {
+  background-position: 0px -479px;
+}
+#securityCode.creditCard.HIPER,
+.creditCardField .creditCard.HIPER,
+.ccard.HIPER {
+  background-position: 0px -458px;
+}
+#securityCode.creditCard.HIPERCARD,
+.creditCardField .creditCard.HIPERCARD,
+.ccard.HIPERCARD {
+  background-position: 0px -500px;
+}
+#securityCode.creditCard.CBNATIONALE,
+.creditCardField .creditCard.CBNATIONALE,
+.ccard.CBNATIONALE {
+  background-position: 0 -684px;
+}
+#securityCode.creditCard.CETELEM,
+.creditCardField .creditCard.CETELEM,
+.ccard.CETELEM {
+  background-position: 0 -733px;
+}
+#securityCode.creditCard.COFIDIS,
+.creditCardField .creditCard.COFIDIS,
+.ccard.COFIDIS {
+  background-position: 0 -1700px;
+}
+#securityCode.creditCard.COFINOGA,
+.creditCardField .creditCard.COFINOGA,
+.ccard.COFINOGA {
+  background-position: 0 -781px;
+}
+#securityCode.creditCard.DINERSCLUB,
+.creditCardField .creditCard.DINERSCLUB,
+.ccard.DINERSCLUB {
+  background-position: 0 -499px;
+  height: 27px;
+}
+#securityCode.creditCard {
+  width: 46px;
+  height: 30px;
+  top: 3px;
+  background-size: 40px;
+  background-position: 0 -606px;
+  -webkit-transition: background-position 0.3s ease;
+  -moz-transition: background-position 0.3s ease;
+  -ms-transition: background-position 0.3s ease;
+  -o-transition: background-position 0.3s ease;
+  transition: background-position 0.3s ease;
+}
+#securityCode.creditCard.four {
+  background-position: 0 -693px;
+}
+.de_DE #securityCode.creditCard {
+  background-position: 5px -606px;
+}
+.de_DE #securityCode.creditCard.four {
+  background-position: 5px -693px;
+}
+@media only screen and (max-device-width: 480px) {
+  #editCard .disc,
+  #editCard .discover {
+    background-position: 0 -585px;
+  }
+  #securityCode.creditCard {
+    background-position: 0 -608px;
+  }
+  #securityCode.creditCard.four {
+    background-position: 0 -695px;
+  }
+  #editCard .mcard,
+  #editCard .mastercard {
+    background-position: 0 -196px;
+  }
+  #editCard visa {
+    background-position: 0 -96px;
+  }
+  #editCard amex {
+    background-position: 0 -295px;
+  }
+  #editCard maestro {
+    background-position: 0 -978px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
+  .creditCardInput .cardIconsGroup {
+    background-color: #F2F3F4;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 20px;
+    margin-bottom: 10px;
+  }
+  .creditCardInput .cardIcon {
+    background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_2x.png') no-repeat 0 100px;
+    background-size: 31px;
+    height: 20px;
+    float: left;
+    width: 32px;
+    padding: 0px 4px 0px 0px;
+  }
+  .creditCardInput .cardIcon.ELO {
+    background-position: 0px -479px;
+  }
+  .creditCardInput .cardIcon.VISA {
+    background-position: 0px -21px;
+  }
+  .creditCardInput .cardIcon.MASTERCARD {
+    background-position: 0px -42px;
+  }
+  .creditCardInput .cardIcon.HIPER {
+    background-position: 0px -458px;
+  }
+  .creditCardInput .cardIcon.HIPERCARD {
+    background-position: 0px -500px;
+  }
+  .creditCardInput .cardIcon.AMEX {
+    background-position: 0px -63px;
+    margin-right: -10px;
+  }
+  .creditCardInput .cardIcon.ELECTRON {
+    background-position: 0px -147px;
+  }
+  .creditCardInput .cardIcon.MAESTRO {
+    background-position: 0px -168px;
+  }
+  .creditCardInput .cardIcon.DISCOVER {
+    background-position: 0px -84px;
+  }
+  .creditCardInput .cardIcon.CBNATIONALE {
+    background-position: 0 -210px;
+  }
+  .creditCardInput .cardIcon.COFIDIS {
+    background-position: 0 -437px;
+  }
+  .creditCardInput .cardIcon.COFINOGA {
+    background-position: 0 -231px;
+  }
+  .creditCardInput .cardType {
+    clear: both;
+    display: block;
+    margin-bottom: 10px;
+  }
+  #securityCode.creditCard,
+  .creditCardField .creditCard,
+  .ccard {
+    height: 25px;
+    width: 44px;
+    background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_2x_v2.png) no-repeat 0 100px;
+    background-size: 45px;
+  }
+  #securityCode.creditCard.ELO,
+  .creditCardField .creditCard.ELO,
+  .ccard.ELO,
+  #securityCode.creditCard.HIPER,
+  .creditCardField .creditCard.HIPER,
+  .ccard.HIPER,
+  #securityCode.creditCard.HIPERCARD,
+  .creditCardField .creditCard.HIPERCARD,
+  .ccard.HIPERCARD {
+    background: url('https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v7_2x.png') no-repeat 0 100px;
+    background-size: 31px;
+    height: 21px;
+    width: 32px;
+    top: 11px;
+    right: 9px;
+  }
+  #securityCode.creditCard.ELO,
+  .creditCardField .creditCard.ELO,
+  .ccard.ELO {
+    background-position: 0px -479px;
+  }
+  #securityCode.creditCard.HIPER,
+  .creditCardField .creditCard.HIPER,
+  .ccard.HIPER {
+    background-position: 0px -458px;
+  }
+  #securityCode.creditCard.HIPERCARD,
+  .creditCardField .creditCard.HIPERCARD,
+  .ccard.HIPERCARD {
+    background-position: 0px -500px;
+  }
+  #securityCode.creditCard.VISA,
+  .creditCardField .creditCard.VISA,
+  .ccard.VISA,
+  #securityCode.creditCard.visa,
+  .creditCardField .creditCard.visa,
+  .ccard.visa {
+    background-position: 0 -43px;
+  }
+  #securityCode.creditCard.MCARD,
+  .creditCardField .creditCard.MCARD,
+  .ccard.MCARD,
+  #securityCode.creditCard.mcard,
+  .creditCardField .creditCard.mcard,
+  .ccard.mcard,
+  #securityCode.creditCard.MASTERCARD,
+  .creditCardField .creditCard.MASTERCARD,
+  .ccard.MASTERCARD {
+    background-position: 0 -97px;
+  }
+  #securityCode.creditCard.DISC,
+  .creditCardField .creditCard.DISC,
+  .ccard.DISC,
+  #securityCode.creditCard.disc,
+  .creditCardField .creditCard.disc,
+  .ccard.disc,
+  #securityCode.creditCard.DISCOVER,
+  .creditCardField .creditCard.DISCOVER,
+  .ccard.DISCOVER {
+    background-position: 0 -292px;
+  }
+  #securityCode.creditCard.AMEX,
+  .creditCardField .creditCard.AMEX,
+  .ccard.AMEX,
+  #securityCode.creditCard.amex,
+  .creditCardField .creditCard.amex,
+  .ccard.amex {
+    background-position: 10px -146px;
+  }
+  #securityCode.creditCard.electron,
+  .creditCardField .creditCard.electron,
+  .ccard.electron {
+    background-position: 0 -438px;
+  }
+  #securityCode.creditCard.MSTRO,
+  .creditCardField .creditCard.MSTRO,
+  .ccard.MSTRO,
+  #securityCode.creditCard.mstro,
+  .creditCardField .creditCard.mstro,
+  .ccard.mstro,
+  #securityCode.creditCard.maestro,
+  .creditCardField .creditCard.maestro,
+  .ccard.maestro,
+  #securityCode.creditCard.MAESTRO,
+  .creditCardField .creditCard.MAESTRO,
+  .ccard.MAESTRO {
+    background-position: 0 -489px;
+  }
+  #securityCode.creditCard.elv,
+  .creditCardField .creditCard.elv,
+  .ccard.elv {
+    background-position: 0 -538px;
+  }
+  #securityCode.creditCard.split,
+  .creditCardField .creditCard.split,
+  .ccard.split {
+    width: 60%;
+    float: left;
+  }
+  #securityCode.creditCard.ccback,
+  .creditCardField .creditCard.ccback,
+  .ccard.ccback,
+  #securityCode.creditCard.three,
+  .creditCardField .creditCard.three,
+  .ccard.three {
+    background-position: 0 -350px;
+  }
+  #securityCode.creditCard.front,
+  .creditCardField .creditCard.front,
+  .ccard.front,
+  #securityCode.creditCard.four,
+  .creditCardField .creditCard.four,
+  .ccard.four {
+    background-position: 0 -390px;
+  }
+  #securityCode.creditCard.cbn,
+  .creditCardField .creditCard.cbn,
+  .ccard.cbn,
+  #securityCode.creditCard.CBN,
+  .creditCardField .creditCard.CBN,
+  .ccard.CBN {
+    background-position: 0 -684px;
+  }
+  #securityCode.creditCard.celem,
+  .creditCardField .creditCard.celem,
+  .ccard.celem,
+  #securityCode.creditCard.CELEM,
+  .creditCardField .creditCard.CELEM,
+  .ccard.CELEM {
+    background-position: 0 -733px;
+  }
+  #securityCode.creditCard.cofid,
+  .creditCardField .creditCard.cofid,
+  .ccard.cofid,
+  #securityCode.creditCard.COFID,
+  .creditCardField .creditCard.COFID,
+  .ccard.COFID,
+  #securityCode.creditCard.COFIDIS,
+  .creditCardField .creditCard.COFIDIS,
+  .ccard.COFIDIS {
+    background-position: 0 -829px;
+  }
+  #securityCode.creditCard.conf,
+  .creditCardField .creditCard.conf,
+  .ccard.conf,
+  #securityCode.creditCard.CONF,
+  .creditCardField .creditCard.CONF,
+  .ccard.CONF {
+    background-position: 0 -781px;
+  }
+  #securityCode.creditCard.unknown,
+  .creditCardField .creditCard.unknown,
+  .ccard.unknown,
+  #securityCode.creditCard.generic,
+  .creditCardField .creditCard.generic,
+  .ccard.generic,
+  #securityCode.creditCard.dinersclub,
+  .creditCardField .creditCard.dinersclub,
+  .ccard.dinersclub,
+  #securityCode.creditCard.DINERSCLUB,
+  .creditCardField .creditCard.DINERSCLUB,
+  .ccard.DINERSCLUB,
+  #securityCode.creditCard.type,
+  .creditCardField .creditCard.type,
+  .ccard.type {
+    background-position: 0 -243px;
+  }
+  #securityCode.creditCard {
+    height: 30px;
+    width: 45px;
+    background-size: 40px;
+    background-position: 8px -295px;
+  }
+  #securityCode.creditCard.four {
+    background-position: 8px -340px;
+  }
+}
+.ccard {
+  width: 100%;
+  position: relative;
+  margin-bottom: 17px;
+  padding-top: 3px;
+  padding-left: 50px;
+  height: 25px;
+  text-indent: 0;
+}
+.clearfix.hide {
+  display: none;
+}
+.issueNo .toolTip {
+  right: 0;
+  text-align: right;
+  width: auto;
+}
+#addCard .tipDesc.tipStartDate {
+  left: 0px;
+  top: 50px;
+}
+#addCard .tipDesc.tipStartDate .tipDescArrowFront,
+#addCard .tipDesc.tipStartDate .tipDescArrowBack {
+  left: 70px;
+}
+#addCard .tipDesc.tipIssueNo {
+  left: -140px;
+  top: 50px;
+  width: 230px;
+}
+#addCard .tipDesc.tipIssueNo .tipDescArrowFront,
+#addCard .tipDesc.tipIssueNo .tipDescArrowBack {
+  left: 160px;
+}
+#addCard .tipDesc.tipOptionalCsc {
+  left: -100px;
+  top: 50px;
+  width: 215px;
+}
+#addCard .tipDesc.tipOptionalCsc .tipDescArrowFront,
+#addCard .tipDesc.tipOptionalCsc .tipDescArrowBack {
+  left: 160px;
+}
+#ccFields input[type=text]::-ms-clear {
+  display: none;
+}
+#ccFields .tipDesc.tipCreditCard {
+  top: 42px;
+  left: 0;
+  width: 100%;
+}
+#ccFields .tipDesc.tipCreditCard .tipDescText {
+  background-color: #828a8d;
+  font-size: 13px;
+}
+.cardType.show {
+  display: block;
+  margin-bottom: 10px;
+}
+#issueNo {
+  padding-left: 5px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 0) and (max-width: 25em), (max-width: 40em) and (orientation: landscape) {
+  #securityCode.creditCard {
+    background-position: 7px -301px;
+  }
+  #securityCode.creditCard.four {
+    background-position: 7px -341px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .header {
+    margin-bottom: 15px;
+  }
+}
+#selectCardType .allFundingInstrumentsList li .fsdetails {
+  width: 226px;
+  padding: 18px 0 18px 55px;
+}
+#selectCardType .allFundingInstrumentsList li:first-of-type .fsIcon {
+  width: 40px;
+  height: 30px;
+  background-size: 33px;
+  top: 15px;
+  background-position: 0 -349px;
+  border-radius: 2px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_logos_wallet_v4.png");
+}
+#selectCardType .allFundingInstrumentsList li:first-of-type .fsdetails {
+  top: 7px;
+}
+#selectCardType .forwardIcon {
+  transform: scaleX(-1);
+  width: 24px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  right: 17px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -232px -46px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #selectCardType .forwardIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#selectCardType .plccIcon {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  left: 15px;
+  top: 20px;
+}
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  #selectCardType .allFundingInstrumentsList li .fsdetails {
+    width: 190px;
+  }
+}
+.sidebar .addBillingTitle {
+  position: absolute;
+  top: -6px;
+  background: #fff;
+  left: 45px;
+  font-size: 1.44em;
+  width: 230px;
+}
+.billingAddressLabel {
+  font-weight: bold;
+}
+@media (min-width: 0) and (max-width: 30em) {
+  .sidebar .addBillingTitle {
+    width: 215px;
+    top: -4px;
+    left: 40px;
+  }
+}
+.addressForm.TR {
+  margin-top: 3.5%;
+}
+.addressForm.AU .state {
+  width: 48.15%;
+  margin-right: 3.7%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.AU .zip {
+  padding-right: 0;
+  margin-right: 0;
+  width: 48.15%;
+  float: left;
+}
+.addressForm.BR .streetNumber {
+  width: 31.15%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.BR .line1 {
+  width: 66.15%;
+  margin-right: 2.7%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.BR .city {
+  width: 48.15%;
+  margin-right: 3.7%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.BR .state {
+  width: 48.15%;
+  margin-right: 0;
+  padding-right: 0;
+  float: right;
+}
+.addressForm.CA .state {
+  width: 48.15%;
+  margin-right: 3.7%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.CA .zip {
+  padding-right: 0;
+  margin-right: 0;
+  width: 48.15%;
+  float: left;
+}
+.addressForm.DE .postalCode {
+  display: block;
+  width: 42.3%;
+  float: left;
+}
+.addressForm.DE .city {
+  width: 55%;
+  float: right;
+}
+.addressForm.ES .state {
+  margin-bottom: 10px;
+}
+.addressForm.ES .postalCode {
+  display: block;
+  width: 49%;
+  float: left;
+}
+.addressForm.ES .city {
+  width: 48%;
+  float: right;
+}
+.addressForm.FR .postalCode {
+  display: block;
+  width: 49%;
+  float: left;
+}
+.addressForm.FR .city {
+  width: 48%;
+  float: right;
+}
+.addressForm.GB .state {
+  float: left;
+  width: 62%;
+  margin: 0 0 10px;
+}
+.addressForm.GB .zip {
+  float: right;
+  width: 35.30%;
+}
+.addressForm.GB .lookupZip {
+  width: 100%;
+  margin: 0 10px 10px 0;
+  float: none;
+}
+.addressForm.GB .lookupHeading {
+  margin: 15px 0 10px;
+}
+.addressForm.GB .lookupTitle {
+  font-weight: bold;
+}
+.addressForm.GB .addressLookup {
+  position: relative;
+}
+.addressForm.GB .lookupFailureMsg {
+  margin: 5px 0 8px;
+}
+.addressForm.GB .singleAddress {
+  border: 1px solid #c5ccd1;
+  margin: 10px 0px;
+  padding: 13px;
+  border-radius: 4px;
+  line-height: 1.35em;
+}
+.addressForm.IT .state {
+  margin-bottom: 10px;
+}
+.addressForm.IT .postalCode {
+  display: block;
+  width: 49%;
+  float: left;
+}
+.addressForm.IT .city {
+  width: 48%;
+  float: right;
+}
+.addressForm.US .state {
+  width: 48.15%;
+  margin-right: 3.7%;
+  padding-right: 0;
+  float: left;
+}
+.addressForm.US .zip {
+  padding-right: 0;
+  margin-right: 0;
+  width: 48.15%;
+  float: left;
+}
+.addressForm.BG .city,
+.addressForm.GR .city,
+.addressForm.FI .city,
+.addressForm.TR .city,
+.addressForm.CZ .city,
+.addressForm.RO .city,
+.addressForm.NO .city,
+.addressForm.FR .city,
+.addressForm.DK .city,
+.addressForm.UA .city,
+.addressForm.HU .city,
+.addressForm.LU .city,
+.addressForm.BG .postalCode,
+.addressForm.GR .postalCode,
+.addressForm.FI .postalCode,
+.addressForm.TR .postalCode,
+.addressForm.CZ .postalCode,
+.addressForm.RO .postalCode,
+.addressForm.NO .postalCode,
+.addressForm.FR .postalCode,
+.addressForm.DK .postalCode,
+.addressForm.UA .postalCode,
+.addressForm.HU .postalCode,
+.addressForm.LU .postalCode {
+  width: 100%;
+}
+.addressForm.PT .postalCode {
+  width: 47%;
+}
+.addressForm.PT .city {
+  width: 50%;
+  padding: 0;
+  float: right;
+}
+.addressForm.HR .state.half,
+.addressForm.SI .state.half,
+.addressForm.LV .state.half,
+.addressForm.LT .state.half,
+.addressForm.EE .state.half {
+  width: 55%;
+}
+.addressForm.HR .postalCode.half,
+.addressForm.SI .postalCode.half,
+.addressForm.LV .postalCode.half,
+.addressForm.LT .postalCode.half,
+.addressForm.EE .postalCode.half {
+  width: 41%;
+}
+.addressForm.TH .postalCode {
+  width: 40%;
+}
+.addressForm.TH .province {
+  width: 56%;
+}
+.addressForm.KR .postalCode,
+.addressForm.KR .state {
+  width: 100%;
+}
+.addressForm .TW.cityState .city {
+  width: 47%;
+  margin-right: 3%;
+}
+.addressForm .TW.cityState .state {
+  width: 49%;
+  margin: 0;
+}
+.addressForm .editAddress {
+  position: absolute;
+  font-size: 0.85em;
+  top: 2px;
+  right: 0;
+  color: #0079ad;
+  cursor: pointer;
+}
+.addressForm .btn {
+  margin-bottom: 15px;
+}
+.addressForm #findAddressButton.processing {
+  vertical-align: middle;
+  font-size: 32px;
+}
+.addressForm #findAddressButton.processing .spinner {
+  height: 25px;
+  width: 25px;
+  position: static;
+  display: inline-block;
+}
+.addressForm #findAddressButton.processing .loader {
+  height: 25px;
+  width: 25px;
+  position: static;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #2180C0 #fff #fff;
+}
+.addressForm #lookedupDropDown {
+  margin-bottom: 20px;
+}
+.addressForm .addPreferredShipping {
+  margin: 0 0 15px;
+}
+@media screen {
+  .addressForm .buttons {
+    margin-top: 0;
+  }
+  .TR .city {
+    margin: 0 0 10px 0;
+  }
+}
+/**
+ * @fileOverview Address Book Styles
+ * @name addressBook
+ * @author mvashisht/klkomenda
+ * @tested
+ */
+#selectShipping .xo-adr {
+  width: 85%;
+}
+#selectShipping .items {
+  margin: 0;
+  width: 100%;
+  list-style: none;
+}
+#selectShipping .address {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  border-bottom: 1px solid #e3e3e3;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -ms-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+#selectShipping .address:hover,
+#selectShipping .address:focus {
+  background-color: #f7f9fa;
+}
+#selectShipping .address .fullName {
+  word-break: break-all;
+  line-height: 1.35em;
+}
+#selectShipping .address .msgPage {
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+#selectShipping .address .msgPage ul li {
+  margin-top: 0px;
+}
+#selectShipping .disabled .shippingBlk {
+  cursor: default;
+  color: #d3d3d3;
+}
+#selectShipping .disabled .adr {
+  color: #d3d3d3;
+}
+#selectShipping .disabled:hover,
+#selectShipping .disabled:focus {
+  background-color: #fff;
+}
+#selectShipping .items .addBtnItem {
+  margin: 0;
+  padding: 10px 10px;
+  border-bottom: 1px solid #e3e3e3;
+}
+#selectShipping .items .addBtnItem:hover,
+#selectShipping .items .addBtnItem:focus {
+  background-color: #f7f9fa;
+}
+#selectShipping .address:after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+#selectShipping .addrHd {
+  margin-bottom: 10px;
+  padding: 0 15px;
+  border: none;
+}
+#selectShipping .backArrowContainer {
+  margin-left: 41px;
+}
+#selectShipping .display .adr {
+  margin-top: 3px;
+  color: #6c7378;
+  font-weight: lighter;
+  font-size: 0.85em;
+  width: 90%;
+}
+#selectShipping .phone {
+  clear: both;
+}
+#selectShipping .phone form {
+  overflow: hidden;
+}
+#selectShipping .secondHalf {
+  float: right;
+}
+#selectShipping .review {
+  float: left;
+  width: 65%;
+}
+#selectShipping .editCard {
+  font-size: 1em;
+}
+#selectShipping .add {
+  padding-left: 5px;
+  cursor: pointer;
+  display: block;
+}
+#selectShipping .add:hover {
+  text-decoration: none;
+}
+#selectShipping .add .btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 29px;
+  height: 29px;
+  background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_wallet_flat.png) 7px -895px no-repeat;
+}
+#selectShipping .checkIcon {
+  width: 24px;
+  height: 17px;
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -192px -2px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #selectShipping .checkIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#selectShipping .addAddressContent {
+  width: 73%;
+  display: inline-block;
+  vertical-align: middle;
+  color: #0079ad;
+  font-weight: normal;
+  margin-left: 5px;
+  font-size: .85em;
+}
+#selectShipping .addAddressContent:hover,
+#selectShipping .addAddressContent:focus {
+  text-decoration: underline;
+}
+#selectShipping li a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #292929;
+}
+#selectShipping li xo-message .msgPage {
+  padding: 15px 20px;
+}
+#selectShipping li xo-message .msgPage ul li {
+  margin-left: 0px;
+}
+#selectShipping li xo-message .msgPage .icon {
+  left: 20px;
+}
+#selectShipping .addIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -223px -97px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #selectShipping .addIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#shippingAddressForm .country {
+  margin-bottom: 10px;
+}
+#shippingAddressForm .firstname {
+  float: left;
+  width: 48.5%;
+  margin-right: 3%;
+  padding: 0;
+}
+#shippingAddressForm .lastname {
+  float: right;
+  width: 48.5%;
+  padding: 0;
+}
+#shippingAddressForm .buttons {
+  margin-top: 0px;
+}
+.fullpage .container {
+  padding: 20px 0;
+}
+#addShipping.fullpage div.container h1.gamma {
+  margin-bottom: 8px;
+}
+#selectShippingCountry .disabled,
+#selectShippingCountry .disabled span,
+#selectShippingCountry .disabled .custom-select > span {
+  color: #d3d3d3;
+  margin-top: 3px;
+}
+#selectShippingCountry .disabled.country {
+  min-height: 53px;
+}
+#selectFunding .items {
+  margin: 0;
+  width: 100%;
+  list-style: none;
+}
+#selectFunding .items .addBtnItem {
+  margin: 0;
+  padding: 20px 10px;
+  border-bottom: 1px solid #e3e3e3;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -ms-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+#selectFunding .items .addBtnItem:hover,
+#selectFunding .items .addBtnItem:focus {
+  background-color: #f7f9fa;
+}
+#selectFunding .address:after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+#selectFunding .backArrowContainer {
+  margin-left: 41px;
+}
+#selectFunding .display .adr {
+  margin-top: 3px;
+  color: #6c7378;
+  font-weight: lighter;
+  font-size: 0.85em;
+  width: 90%;
+}
+#selectFunding .secondHalf {
+  float: right;
+}
+#selectFunding .review {
+  float: left;
+  width: 65%;
+}
+#selectFunding .editCard {
+  font-size: 1em;
+}
+#selectFunding .add {
+  cursor: pointer;
+  display: block;
+}
+#selectFunding .add:hover {
+  text-decoration: none;
+}
+#selectFunding .add .btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: 29px;
+  height: 29px;
+  background: url(https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_wallet_flat.png) 7px -895px no-repeat;
+}
+#selectFunding .fundingContainerPAD .name {
+  color: #6c7378;
+  font-size: .85em;
+  margin-bottom: 0px;
+}
+#selectFunding .checkIcon {
+  width: 24px;
+  height: 17px;
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -192px -2px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #selectFunding .checkIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#selectFunding .addAddressContent {
+  width: 73%;
+  display: inline-block;
+  vertical-align: middle;
+  color: #0079ad;
+  font-weight: normal;
+}
+#selectFunding .addAddressContent:hover,
+#selectFunding .addAddressContent:focus {
+  text-decoration: underline;
+}
+#selectFunding li a {
+  text-decoration: none;
+  color: #292929;
+}
+#selectFunding .addIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -223px -97px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #selectFunding .addIcon {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+#selectFunding .bmlAsideOffer {
+  padding: 15px 10px;
+}
+#selectFunding .offerTile {
+  background-color: #f7f9fa;
+}
+#selectFunding .fundingContainerBml {
+  cursor: pointer;
+  padding-left: 15px;
+  position: relative;
+  min-height: 35px;
+}
+#selectFunding .fundingContainerBmlOffer {
+  font-size: .7em;
+  line-height: 20px;
+  padding: 0;
+  font-weight: lighter;
+  display: block;
+}
+#selectFunding .fundingContainerPlcc {
+  cursor: pointer;
+  position: relative;
+  min-height: 35px;
+}
+#selectFunding .fundingContainerPlcc .p {
+  margin-left: 30px;
+}
+#selectFunding .redeemGC {
+  margin-top: 0px;
+  cursor: pointer;
+}
+#selectFunding .bmlTermsLink {
+  color: #0079ad;
+  text-decoration: underline;
+}
+#selectFunding .bmlDetails {
+  display: inline-block;
+  width: 100%;
+  font-size: 0.85em;
+  padding-top: 0px;
+}
+#selectFunding .plccAddNowLink {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 0;
+  font-size: .85em;
+}
+#selectFunding .plccOfferDesc {
+  margin-top: 3px;
+  font-size: 0.68em;
+  color: #666;
+  margin-left: 40px;
+  margin-bottom: 0;
+}
+#selectFunding .headerText {
+  margin-left: 40px;
+  margin-bottom: 0;
+}
+#selectFunding .fsIcon {
+  float: left;
+  position: inherit;
+}
+#selectFunding .plccInstIcon {
+  float: left;
+  display: inline-block;
+  height: 20px;
+  top: 22px;
+  left: 15px;
+  background: none;
+  width: 25px;
+}
+#selectFunding .fsIcon.PLCC {
+  background-image: none;
+}
+#addBank .fieldLegend {
+  margin-bottom: 4px;
+  padding-bottom: 0;
+  font-size: inherit;
+}
+#addBank input[readonly=readonly],
+#addBank .inputField input[readonly=readonly] {
+  background: #f5f5f5;
+  color: #a8a8a8;
+}
+#sepaMandate .span {
+  width: 31%;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+#sepaMandate span.col1 {
+  display: block;
+  font-weight: bold;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+#sepaMandate span.col2 {
+  display: block;
+  word-wrap: break-word;
+}
+#sepaMandate .asideContent p {
+  font-size: 0.80em;
+}
+#sepaMandate .asideContent span.col1 {
+  display: inline-block;
+  width: 30%;
+}
+#sepaMandate .asideContent span.col2 {
+  display: inline-block;
+  width: 65%;
+  margin-left: 3%;
+}
+#sepaMandate .asideContent .span {
+  width: 100%;
+}
+#sepaMandate .creditorId {
+  word-wrap: break-word;
+}
+#sepaMandate .buttons {
+  padding: 0;
+}
+#sepaMandate #cancelBtn {
+  margin-top: 10px;
+}
+.conversionoptions {
+  list-style: none;
+  margin: 0;
+}
+.conversionoptions p {
+  margin: 0;
+  padding: 0;
+}
+.conversionoptions label {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.conversionoptions ul {
+  margin: 0 0 0 18px;
+  overflow-y: hidden;
+}
+.conversionoptions .conversion {
+  margin: 3px 0 4px 26px;
+}
+.conversionoptions input[name='ppconversion'] {
+  margin-bottom: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.conversionoptions .conversionCC {
+  margin-top: 20px;
+}
+.conversionoptions li {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 0.92em;
+}
+.currencyConversion {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 470px;
+}
+#largeScreenSEPADirectDebit_DE #proceedButton,
+#largeScreenDirectDebitAgreement_DE #proceedButton,
+#sepaMandateContingency #proceedButton,
+#sepaAgreementContingency #proceedButton {
+  float: none;
+}
+#largeScreenSEPADirectDebit_DE .de.cityPostalCode .city,
+#largeScreenDirectDebitAgreement_DE .de.cityPostalCode .city,
+#sepaMandateContingency .de.cityPostalCode .city,
+#sepaAgreementContingency .de.cityPostalCode .city {
+  width: 56%;
+}
+#largeScreenSEPADirectDebit_DE .countryList .list,
+#largeScreenDirectDebitAgreement_DE .countryList .list,
+#sepaMandateContingency .countryList .list,
+#sepaAgreementContingency .countryList .list {
+  width: 230px;
+}
+#largeScreenSEPADirectDebit_DE .button-as-link,
+#largeScreenDirectDebitAgreement_DE .button-as-link,
+#sepaMandateContingency .button-as-link,
+#sepaAgreementContingency .button-as-link {
+  font-size: 1em;
+}
+#largeScreenSEPADirectDebit_DE .sepaInfo,
+#sepaMandateContingency .sepaInfo {
+  margin-bottom: 10px;
+}
+#largeScreenSEPADirectDebit_DE .sepaInfo .span,
+#sepaMandateContingency .sepaInfo .span {
+  width: 31%;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+#largeScreenSEPADirectDebit_DE .sepaInfo p,
+#sepaMandateContingency .sepaInfo p {
+  margin: 0;
+}
+#largeScreenSEPADirectDebit_DE .sepaInfo p.marginTop,
+#sepaMandateContingency .sepaInfo p.marginTop {
+  margin-top: 10px;
+}
+#largeScreenSEPADirectDebit_DE .personalInfo,
+#sepaMandateContingency .personalInfo,
+#largeScreenSEPADirectDebit_DE .bankDetails,
+#sepaMandateContingency .bankDetails {
+  word-break: break-all;
+}
+#largeScreenSEPADirectDebit_DE .sepaInfo {
+  margin: 25px 0;
+}
+#largeScreenSEPADirectDebit_DE .trayInner {
+  padding: 0 0 20px 0;
+}
+@media (max-width: 41.3125em) {
+  #largeScreenSEPADirectDebit_DE .trayInner {
+    margin: 0;
+  }
+  .mobile .largeScreenSEPADirectDebitDE .centerTray {
+    padding: 0;
+  }
+  .largeScreenSEPADirectDebitDE {
+    margin: 15px 25px 0;
+  }
+}
+.rightLink {
+  float: right;
+}
+.entryToggleLinks {
+  margin-bottom: 4px;
+}
+/***** MEFT *****/
+#meftDeclineAddCard #billingAddress .custom-select-container {
+  margin-top: 10px;
+}
+#meftDeclineAddCard .useMeftInstead {
+  margin-top: 28px;
+}
+#meftDeclineAddCard .cardImg {
+  height: 122px;
+  margin-bottom: 18px;
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/scr_vp_fprd_add_card.png") no-repeat top center;
+}
+.incontext .useMeftInstead {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 77%;
+}
+@media (max-width: 30em) and (min-width: 0) {
+  #largeScreenSEPADirectDebit_DE .sepaInfo .span {
+    width: 100%;
+    margin: 5px 0;
+  }
+  #largeScreenSEPADirectDebit_DE .sepaInfo .span,
+  #sepaMandateContingency .sepaInfo .span {
+    width: 100%;
+    margin: 5px 0;
+  }
+  #meftDeclineAddCard .trayInner {
+    margin: 15px 0px 0;
+  }
+}
+.installmentOptions {
+  height: 400px;
+}
+.installmentOptions .cardInfo {
+  background-color: #ddd;
+  padding: 8px;
+  border-bottom: 1px solid #999;
+}
+.installmentOptions .cardInfo .ccard {
+  top: -2px;
+  padding-left: 48px;
+  padding-bottom: 6px;
+}
+.installmentOptions .items {
+  margin: 0;
+  width: 100%;
+  list-style: none;
+}
+.installmentOptions .term {
+  float: left;
+}
+.installmentOptions .display {
+  margin-left: 30px;
+}
+.installmentOptions .display .total {
+  margin-top: 3px;
+  color: #6c7378;
+  font-weight: lighter;
+  font-size: 0.85em;
+  width: 90%;
+}
+.installmentOptions .display .total .save {
+  color: #007644;
+  background-color: #ccedd1;
+  padding: 4px;
+}
+.installmentOptions .installment {
+  margin: 0px;
+  padding: 18px 18px;
+  position: relative;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+}
+.installmentOptions .installment:hover,
+.installmentOptions .installment:focus {
+  background-color: #f7f9fa;
+}
+.installmentOptions li a {
+  text-decoration: none;
+  color: #292929;
+}
+.installmentOptions .installment:after {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+.installmentOptions .asideContent {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 400px;
+}
+#addressNormalization .addrRadio {
+  position: relative;
+}
+#addressNormalization .addrLabel {
+  display: inline-block;
+  padding-left: 5px;
+  vertical-align: top;
+  width: 75%;
+}
+#addressNormalization .normalizedAdrSection {
+  margin-bottom: 10px;
+}
+#addressNormalization .adr {
+  margin-top: -2px;
+}
+#taxIdForm .taxIdHead {
+  font-size: 14px;
+}
+@media (min-width: 41.3125em) {
+  section#genericError .container {
+    width: 400px;
+  }
+  .genericError.footerWrapper {
+    float: none;
+    width: 99.4%;
+    padding: 0 3px;
+  }
+  .genericError.footerWrapper .footerLinks {
+    float: left;
+    width: 70%;
+    text-align: left;
+  }
+}
+section#genericError {
+  height: 450px;
+  background: none;
+}
+section#genericError .container {
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+section#genericError .title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+section#genericError .message {
+  font-size: 1.0em;
+  margin-bottom: 15px;
+  color: #7b8388;
+}
+section#genericError .secondaryMessage {
+  color: #979797;
+  line-height: 20px;
+}
+section#genericError .logo {
+  width: 112px;
+  height: 29px;
+  margin: 5px 0 20px;
+  background-position: 0 -47px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  section#genericError .logo {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+section#genericError .cancelLink {
+  margin-top: 20px;
+}
+@media (min-width: 41.3125em) {
+  section#genericMessage .container {
+    width: 400px;
+  }
+  .genericMessage.footerWrapper {
+    float: none;
+    width: 99.4%;
+    padding: 0 3px;
+  }
+  .genericMessage.footerWrapper .footerLinks {
+    float: left;
+    width: 70%;
+    text-align: left;
+  }
+}
+section#genericMessage {
+  height: 450px;
+  background: none;
+}
+section#genericMessage .container {
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+section#genericMessage .title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+section#genericMessage .message {
+  font-size: 1.0em;
+  margin-bottom: 15px;
+  color: #7b8388;
+}
+section#genericMessage .secondaryMessage {
+  color: #979797;
+  line-height: 20px;
+}
+section#genericMessage .logo {
+  width: 112px;
+  height: 29px;
+  margin: 5px 0 20px;
+  background-position: 0 -47px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  section#genericMessage .logo {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+section#genericMessage .cancelLink {
+  margin-top: 20px;
+}
+.overlayMask,
+.overlayWrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.overlayMask {
+  background: #CBD2D6;
+  opacity: 0.7;
+}
+.overlayWrapper {
+  background: #fff;
+  width: 620px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 50%;
+  padding: 90px 120px 0 120px;
+  overflow: auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transform: translate(-50%, 100%);
+  -moz-transform: translate(-50%, 100%);
+  -ms-transform: translate(-50%, 100%);
+  -o-transform: translate(-50%, 100%);
+  transform: translate(-50%, 100%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.overlayWrapper .logo {
+  left: 50%;
+  bottom: 0;
+  position: fixed;
+  margin-bottom: 30px;
+  width: 29px;
+  height: 29px;
+  background-position: 0 -47px;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .overlayWrapper .logo {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.overlayContainer {
+  width: 380px;
+  display: block;
+}
+.overlayOpen .overlayWrapper {
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.pageOverlay #spinner {
+  top: 0;
+  left: 0;
+}
+body.loading .pageOverlay .aside {
+  opacity: 0.1;
+}
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  .overlayWrapper {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .overlayWrapper .overlayContainer {
+    width: auto;
+    margin-top: 30px;
+  }
+}
+.headerBar {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.signupbml .title {
+  margin-bottom: 12px;
+}
+.signupbml .bmlRow {
+  border-top: 1px solid #e3e3e3;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 10px 0 0;
+}
+.signupbml .bmlSeeTerms {
+  font-size: 0.68em;
+  color: #666;
+}
+.signupbml .billingAddressRow {
+  margin-bottom: 15px;
+}
+.signupbml .changeBillingAddress {
+  float: right;
+  margin-top: 4px;
+}
+.signupbml .sameLine {
+  display: inline;
+}
+.signupbml .bmlMargin {
+  margin-top: 15px;
+}
+.signupbml .inputField input {
+  height: 40px;
+}
+.signupbml .billingName {
+  margin-bottom: 0;
+}
+.signupbml .fidobMonth {
+  width: 35%;
+  float: left;
+}
+.signupbml .fidobMonth .custom-select > span {
+  border-radius: 5px 0 0 5px;
+  border-right: 1px solid #ffffff;
+}
+.signupbml .fidobDay {
+  width: 30%;
+  float: left;
+}
+.signupbml .fidobDay .custom-select > span {
+  border-radius: 0 0 0 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.signupbml .fidobYear {
+  width: 35%;
+  float: left;
+}
+.signupbml .fidobYear .custom-select > span {
+  border-radius: 0 5px 5px 0;
+  border-left: 1px solid #ffffff;
+}
+.signupbml .custom-select.active > span {
+  border: 1px solid #009cde;
+  outline: 0;
+}
+.signupbml .dobNatlIdGroup {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.signupbml .dobNatlIdGroup input {
+  margin-bottom: 0;
+}
+.signupbml .dobNatlIdGroup .inputField {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+.signupbml .dobNatlIdGroup .toolTip {
+  white-space: nowrap;
+  right: 0;
+  position: absolute;
+  margin-top: 4px;
+}
+.signupbml .dob,
+.signupbml .nationalId {
+  width: 68%;
+  position: relative;
+  padding: 0;
+}
+.signupbml .dob legend,
+.signupbml .nationalId label.topLabel {
+  color: inherit;
+  display: block;
+  left: inherit;
+  margin: 0;
+  padding-bottom: 5px;
+  position: relative;
+  top: inherit;
+}
+.signupbml .nationalId label.placeholder {
+  top: 32px;
+  display: none;
+}
+.signupbml .dob {
+  float: left;
+}
+.signupbml .dob legend {
+  font-size: inherit;
+}
+.signupbml .dob.fullWidth {
+  width: 100%;
+}
+.signupbml .dob.fullWidth .custom-select-container {
+  width: 33.33%;
+}
+.signupbml .nationalId {
+  padding-right: 0;
+  width: 29.5%;
+}
+.signupbml .nationalId.inputField label.topLabel {
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+}
+.signupbml .fieldGroup .nationalId {
+  float: right;
+  height: 20px;
+}
+.signupbml .verifyHelp {
+  display: inline-block;
+  height: 18px;
+  width: 19px;
+  vertical-align: middle;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6.png");
+  background-repeat: no-repeat;
+  background-position: -164px -1px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .signupbml .verifyHelp {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/hermes_window_sprite_v6_2x.png");
+    background-size: 250px 215px;
+  }
+}
+.signupbml .postal-code.adr-break {
+  display: inline;
+}
+.signupbml .piHeight {
+  height: 25px;
+}
+.signupbml .toolTip {
+  font-size: 12px;
+  position: relative;
+}
+@media (max-width: 41.3125em) {
+  #bmlApplyEdu {
+    display: none;
+  }
+  .custom-select > span {
+    padding: 5px 15px 5px 5px ;
+  }
+  .line1,
+  .line2,
+  .city,
+  .state,
+  .zip,
+  .dobNatlIdGroup,
+  .bmlSeeTerms,
+  .addPhone {
+    font-size: 0.95em;
+  }
+  .toolTip {
+    font-size: 12px;
+  }
+}
+.mobile #applyForBml .tipNationalId {
+  width: 317px;
+}
+.mobile #applyForBml .custom-select > span {
+  padding: 5px;
+}
+.mobile .toolTip {
+  font-size: 12px;
+}
+@media (min-width: 30.0625em) and (max-width: 41.25em) {
+  #bmlApplyEdu {
+    display: none;
+  }
+  .line1,
+  .line2,
+  .city,
+  .state,
+  .zip,
+  .dobNatlIdGroup,
+  .bmlSeeTerms,
+  .addPhone {
+    font-size: 0.95em;
+  }
+  .dobNatlIdGroup .custom-select > span {
+    padding: 5px 15px 5px 5px ;
+  }
+  .toolTip {
+    font-size: 12px;
+  }
+}
+@media (min-width: 0) and (max-width: 40em) {
+  #bmlApplyEdu {
+    display: none;
+  }
+  .line1,
+  .line2,
+  .city,
+  .state,
+  .zip,
+  .dobNatlIdGroup,
+  .bmlSeeTerms,
+  .addPhone {
+    font-size: 0.95em;
+  }
+  .custom-select > span {
+    padding: 5px 15px 5px 5px ;
+  }
+  .toolTip {
+    font-size: 12px;
+  }
+}
+@media (min-width: 0) and (max-width: 30em), (max-width: 40em) and (orientation: landscape) {
+  #bmlApplyEdu {
+    display: none;
+  }
+  .line1,
+  .line2,
+  .city,
+  .state,
+  .zip,
+  .dobNatlIdGroup,
+  .bmlSeeTerms,
+  .addPhone {
+    font-size: 0.95em;
+  }
+  .dobNatlIdGroup .custom-select > span {
+    padding: 5px 15px 5px 5px ;
+  }
+  .toolTip {
+    font-size: 12px;
+  }
+}
+.headerBar {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.bmlSignature .bmlSeeTerms {
+  font-size: 0.68em;
+  color: #666;
+}
+.bmlSignature .sameLine {
+  display: inline;
+}
+.bmlSignature .bmlMargin {
+  margin-top: 15px;
+}
+.bmlSignature .content {
+  line-height: 1.35em;
+}
+.bmlSignature .agree {
+  position: relative;
+}
+.bmlSignature #confirmationMessage {
+  line-height: 1.2em;
+}
+.bmlSignature .validated input[type=checkbox].ng-invalid + .errorTooltipRuleSpecific {
+  width: 300px;
+  font-size: 12px;
+  top: 30px;
+  left: 0;
+  line-height: 1.2em;
+  width: 275px;
+}
+.bmlSignature .buttons {
+  margin-top: 20px;
+}
+#bmlTermsAndConditions .trayInner {
+  clear: both;
+  padding: 0 0 20px;
+}
+#bmlTermsAndConditions .trayPaymentPlanDetails {
+  padding: 25px 0 15px;
+  margin: 0;
+  border-top: none;
+}
+#bmlTermsAndConditions .trayPaymentPlanDetails h2 {
+  margin-bottom: 10px;
+}
+#bmlTermsAndConditions .trayPaymentPlanDetails p {
+  margin: 0;
+}
+#bmlTermsAndConditions .bmlTermsHeader {
+  margin: 20px 0 0;
+}
+#bmlTermsAndConditions .bmlTermsInnerWrap {
+  overflow: hidden;
+  position: relative;
+  height: 450px;
+}
+#bmlTermsAndConditions .bmlTermsHead {
+  float: left;
+}
+#bmlTermsAndConditions .printContent {
+  float: right;
+}
+#bmlTermsAndConditions .bmlTermsBody {
+  overflow: auto;
+  height: 400px;
+  clear: both;
+  border: 1px solid #dbdbdb;
+}
+#bmlTermsAndConditions .bmlTermsBody iframe {
+  height: 99%;
+  width: 100%;
+  overflow: scroll;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+}
+#bmlTermsAndConditions .bmlTermsFooter,
+#bmlTermsAndConditions .bmlTermsDirections {
+  background-color: #f1f4f5;
+}
+#bmlTermsAndConditions .bmlTermsDirections {
+  float: right;
+  font-weight: bold;
+}
+#bmlTermsAndConditions .bmlTermsDirections p {
+  margin: 0;
+}
+#bmlTermsAndConditions .bmlTermsDirections p.first {
+  margin: 8px 5px 0 0;
+}
+#bmlTermsAndConditions .bmlAgreeToTerms {
+  min-width: 50%;
+}
+#bmlTermsAndConditions #bmlAgreeToTermsSubmit {
+  float: left;
+  min-width: 50%;
+  margin: 2px 0 0;
+}
+#bmlTermsAndConditions .bmlTermsFooter {
+  position: static;
+  margin: 0;
+  padding: 15px 20px;
+  top: auto;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 70px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#bmlTermsAndConditions .trayInner {
+  position: relative;
+}
+#bmlTermsAndConditions .btn.disabled,
+#bmlTermsAndConditions .btn[disabled] {
+  opacity: 0.35;
+}
+.largeScreen.pageBmlTermsAndConditions .cartVerB #main .logo {
+  display: none;
+}
+.largeScreen.pageBmlTermsAndConditions .cartVerB #main .cartContainer {
+  margin: 0 0 30px;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.largeScreen.pageBmlTermsAndConditions .cartVerB #main .cartContainer .transctionCartDetails {
+  z-index: 2;
+}
+.largeScreen.pageBmlTermsAndConditions .cartVerB #main .cartContainer .transctionCartDetails .details {
+  margin: 10px 15px 10px 10px;
+}
+.mobile.pageBmlTermsAndConditions #bmlTermsAndConditions .bmlTermsBody,
+.pageBmlTermsAndConditions #bmlTermsAndConditions.mobile .bmlTermsBody,
+.mobile.pageBmlTermsAndConditions #bmlTermsAndConditions .bmlTermsInnerWrap,
+.pageBmlTermsAndConditions #bmlTermsAndConditions.mobile .bmlTermsInnerWrap {
+  height: auto;
+}
+@media (min-width: 30.0625em) and (max-width: 41.25em) {
+  #bmlTermsAndConditions .bmlTermsInnerWrap {
+    height: 450px;
+  }
+  #bmlTermsAndConditions #bmlAgreeToTermsSubmit {
+    margin: 0 30px 20px 0;
+    float: none;
+  }
+  #bmlTermsAndConditions .bmlTermsDirections {
+    float: none;
+    margin-bottom: 10px;
+  }
+  #bmlTermsAndConditions .printContent {
+    float: none;
+    margin-top: 10px;
+  }
+  .bmlTermsAndConditions #contents {
+    padding: 0;
+  }
+}
+@media (min-width: 30em) and (max-width: 35em) {
+  .largeScreen.pageBmlTermsAndConditions .footer {
+    padding: 30px 5px 0;
+  }
+}
+@media (min-width: 0) and (max-width: 40em) {
+  .largeScreen.bmlTermsAndConditions .cancelUrl {
+    display: none;
+  }
+  .largeScreen.bmlTermsAndConditions .trayInner {
+    padding: 25px 30px;
+  }
+  .modal-open .paypalHeaderWrapper .cartContainer {
+    display: none;
+  }
+  .footer {
+    margin-bottom: 20%;
+  }
+  .footerWrapper {
+    display: none;
+  }
+  #bmlTermsAndConditions header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  #bmlTermsAndConditions .cancelLink {
+    margin: 0 0 20px;
+    font-size: .86em;
+  }
+  #bmlTermsAndConditions .printContent {
+    float: none;
+    margin-top: 10px;
+  }
+  #bmlTermsAndConditions .bmlTermsBody {
+    height: auto;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  #bmlTermsAndConditions .bmlTermsBody iframe {
+    min-height: 350px;
+  }
+  #bmlTermsAndConditions h2 {
+    margin: 0;
+  }
+  #bmlTermsAndConditions .trayInner {
+    padding: 0;
+    box-shadow: none;
+  }
+  #bmlTermsAndConditions .trayInner.trayPaymentPlanDetails,
+  #bmlTermsAndConditions .trayInner.trayTerms {
+    padding: 0;
+  }
+  #bmlTermsAndConditions .bmlTermsHead {
+    float: none;
+    font-size: 1.25em;
+  }
+  #bmlTermsAndConditions .bmlTermsInnerWrap {
+    height: auto;
+  }
+  #bmlTermsAndConditions .bmlTermsHeader {
+    margin: 25px 0 0;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter {
+    position: fixed;
+    top: auto;
+    bottom: -100%;
+    min-height: 0;
+    padding: 15px;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter.bmlFooterShow {
+    bottom: 0;
+    transition: bottom 0.7s, ease 0s;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter .bmlTermsDirections {
+    width: 100%;
+    padding: 0;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter .bmlTermsDirections p {
+    margin: 5px 0;
+    text-align: center;
+    line-height: 1em;
+    font-size: .8em;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter #bmlAgreeToTerms {
+    width: 100%;
+    float: none;
+    margin: 0;
+    display: none;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter.enabled {
+    padding: 10px;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter.enabled .bmlTermsDirections {
+    display: none;
+  }
+  #bmlTermsAndConditions .bmlTermsFooter.enabled #bmlAgreeToTerms {
+    display: block;
+  }
+  #bmlTermsAndConditions .bmlTermsBody,
+  #bmlTermsAndConditions .trayPaymentPlanDetails {
+    border: none;
+  }
+  #bmlTermsAndConditions .termsTable {
+    font-size: .9em;
+  }
+  #bmlTermsAndConditions .learnMore {
+    font-size: .8em;
+  }
+  #bmlTermsAndConditions .trayInner {
+    margin: 0;
+  }
+  #bmlTermsAndConditions .footer.inside,
+  #bmlTermsAndConditions .footer.outside {
+    display: none;
+  }
+}
+@media (min-width: 41.3125em) {
+  .pageBmlTermsAndConditions .mobile .bmlTermsDirections {
+    display: none;
+  }
+}
+.minibrowser .pageBmlTermsAndConditions #bmlTermsAndConditions .bmlTermsBody {
+  margin: 0;
+}
+@media (min-width: 42em) {
+  .mobileApp header {
+    display: none;
+  }
+  .mobileApp #wrapper {
+    margin: 0;
+    max-width: inherit;
+    width: 100%;
+  }
+  .mobileApp .paypalHeader {
+    width: 100%;
+  }
+  .mobileApp .footer {
+    max-width: inherit;
+  }
+  .mobileApp section .row-fluid .span14 {
+    width: 100%;
+  }
+  .mobileApp section .row-fluid .span10 {
+    display: none;
+  }
+  .mobileApp .feedback {
+    display: none;
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+  }
+  to {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes pulse {
+  from {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+  }
+  to {
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+  }
+}
+.pulseAnimation {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+}
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+.shakeAnimation {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+}
+.custom-select-container {
+  position: relative;
+}
+/* Set the dimensions of the replaced select element and make it transparent. */
+select.replaced {
+  position: relative;
+  z-index: 8;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  line-height: 2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  /* Move to IE-specific CSS file if you want to. */
+}
+.custom-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  -webkit-transition: border-color 0.3s ease 0s;
+  -moz-transition: border-color 0.3s ease 0s;
+  -ms-transition: border-color 0.3s ease 0s;
+  -o-transition: border-color 0.3s ease 0s;
+  transition: border-color 0.3s ease 0s;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.custom-select > span {
+  display: block;
+  padding: 5px 33px 5px 10px;
+  border: 1px solid #ccd0d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_1x.png");
+  background-repeat: no-repeat;
+  background-position: right -12px top -1185px;
+  color: #333;
+  line-height: 28px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .custom-select > span {
+    background-image: url("https://www.paypalobjects.com/webstatic/checkout/hermes/flat/sprite_forms_v2_2x.png");
+    background-size: 40px 7400px;
+  }
+}
+.error .custom-select > span,
+.error .custom-select.active > span {
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/error-icon.png") no-repeat right 10px center;
+  background-size: 16px;
+  color: #c72e2e;
+  border: 1px solid #c72e2e;
+}
+.custom-select span span {
+  display: block;
+  overflow: hidden;
+  height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1em;
+}
+.custom-select.active > span {
+  border: 1px solid #009cde;
+  outline: 0;
+}
+#task .custom-select {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.mobile .dob label {
+  position: static;
+  top: 0;
+  left: 0;
+}
+input[type=date] {
+  padding: 5px 38px 3px 6px;
+  border: 1px solid #ccd0d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #333;
+  background-size: 24px;
+  background: url("https://www.paypalobjects.com/webstatic/checkout/hermes/sprite_cart_icons.png") no-repeat 100% 61%;
+}
+input[type=date]:focus {
+  border-color: #3399ff;
+}
+@media (min-width: 0) and (max-width: 40em) {
+  .showDropdopwnLabels .labelText {
+    display: none;
+  }
+  .showDropdopwnLabels .valueText {
+    float: none;
+    min-width: 0;
+  }
+}

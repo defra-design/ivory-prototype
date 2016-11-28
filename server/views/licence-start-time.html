@@ -1,0 +1,58 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}} {{startDay}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+
+            <div class="form-group {{#if errors}}error{{/if}}">
+
+                <!-- {{#if errors}}
+              <div class="alert alert-error">
+                  <span class="error-message">{{errorMessage}}</span>
+              </div>
+              {{/if}} -->
+
+
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        <div class="grid-row">
+                            <div class="column-half">
+                                <div class="radio-list">
+                                    {{#each items}}
+                                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                                    <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                                        <p>{{selectedText}}</p>
+                                    </div>
+                                    {{/if}} {{/each}}
+                                </div>
+                            </div>
+                            <div class="column-half">
+                                <div class="radio-list">
+                                    {{#each itemsTwo}}
+                                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                              <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
+                              {{text}}
+                              {{#if subText}}
+                              <br>{{subText}}
+                              {{/if}}
+                              </label> {{#if selectedText}}
+                                    <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                                        <p>{{selectedText}}</p>
+                                    </div>
+                                    {{/if}} {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

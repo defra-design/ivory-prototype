@@ -1,0 +1,22 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email address (optional)</label> {{#if errors.email}}<span class="error-message">{{errors.email}}</span>{{/if}}
+                    <input class="form-control" id="email" name="email" value="{{email}}" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="form-label">Mobile number (optional)</label> {{#if errors.mobile}}<span class="error-message">{{errors.mobile}}</span>{{/if}}
+                    <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
+                </div>
+
+
+                <a href="/buy/data-protection">View our data protection notice</a></p>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
+                    <label for="premises" class="form-label">Building number or name</label>
+                    <span class="form-hint">For example, 47, Flat 2a or Rose Cottage</span> {{#if errors.premises}}<span class="error-message">{{errors.premises}}</span>{{/if}}
+                    <input class="form-control" id="premises" name="premises" value="{{premises}}" type="text" maxlength="100">
+                </div>
+            </fieldset>
+
+            <div class="form-group {{#if errors.street}}error{{/if}}">
+                <label for="street" class="form-label">Address line 1 (optional)</label> {{#if errors.street}}<span class="error-message">{{errors.street}}</span>{{/if}}
+                <input class="form-control" id="street" name="street" value="{{street}}" type="text" maxlength="100">
+            </div>
+
+            <div class="form-group {{#if errors.locality}}error{{/if}}">
+                <label for="locality" class="form-label">Address line 2 (optional)</label> {{#if errors.locality}}<span class="error-message">{{errors.locality}}</span>{{/if}}
+                <input class="form-control" id="locality" name="locality" value="{{locality}}" type="text" maxlength="100">
+            </div>
+
+
+            <fieldset data-required data-error="{{errorMessageTwo}}">
+                <div class="form-group">
+                    <label for="town" class="form-label">Town or city</label> {{#if errors.town}}<span class="error-message">{{errors.town}}</span>{{/if}}
+                    <input class="form-control" id="town" name="town" value="{{town}}" type="text" maxlength="100">
+                </div>
+            </fieldset>
+            <fieldset data-required data-error="{{errorMessageThree}}">
+                <div class="form-group">
+                    <label for="postcode" class="form-label">Postcode</label> {{#if errors.postcode}}<span class="error-message">{{errors.postcode}}</span>{{/if}}
+                    <input class="form-control" id="postcode" name="postcode" value="{{postcode}}" type="text" maxlength="10">
+                </div>
+
+                <div class="form-group {{#if errors.country}}error{{/if}}">
+                    <label for="country" class="form-label">Country</label> {{#if errors.country}}<span class="error-message">{{errors.country}}</span>{{/if}}
+                    <select class="form-control" id="country" name="country">
+              <option></option>
+              {{#each countries}}
+                <option value="{{text}}">{{text}}</option>
+              {{/each}}
+            </select>
+                </div>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
+        </form>
+        <br> {{#if returnURL}}
+        <p><a href="{{findAddressLink}}">Find my address for me</a> </p> {{else}}
+        <p><a href="find-address">Find my address for me</a> </p>{{/if}}
+    </div>
+</div>

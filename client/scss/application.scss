@@ -1,0 +1,262 @@
+$path: '/public/icons/';
+@import 'govuk-elements';
+@import 'colours';
+@import '_util';
+@import 'start-date';
+@import 'paypal';
+
+body {
+    font-size: 19px;
+    line-height: 1.31579;
+}
+
+.text-error {
+    color: $error-colour;
+}
+
+.heavy {
+    font-weight: bold;
+}
+
+.notice .icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -17px;
+}
+
+.icon-important {
+    width: 35px;
+    height: 35px;
+    background: url("/public/icons/icon-important.png") no-repeat;
+}
+
+.check-your-answers {
+    th {
+        font-weight: bold;
+        font-size: 19px;
+        vertical-align: top;
+        border: none;
+        border-bottom: 1px solid #bfc1c3;
+    }
+
+    .change-answer {
+        font-weight: normal;
+        text-align: right;
+        padding-right: 0;
+    }
+
+    td {
+        @include core-19;
+        vertical-align: top;
+        border: none;
+        border-bottom: 1px solid #bfc1c3;
+
+        .data {
+            @include bold-19;
+            font-weight: normal;
+
+            span {
+                font-weight: normal;
+                display: inline-block;
+                padding-left: 5px;
+            }
+        }
+    }
+}
+
+.radio-list {
+    .block-label {
+        float: none;
+        padding-top: 8px;
+        padding-bottom: 5px;
+        margin-bottom: 1px;
+
+        input {
+            top: 5px;
+        }
+
+        &.disabled {
+            cursor: default;
+            color: $secondary-text-colour;
+
+            &:hover {
+                border-color: $panel-colour;
+            }
+        }
+    }
+}
+
+#terms-conditions-page {
+    .form-hint {
+        margin-top: 8px;
+    }
+}
+
+.header-proposition {
+    .content {
+        .auth {
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+// payment page summary box
+
+.payment-summary-small {
+    border: 10px solid #DEE0E2;
+    background-color: #F8F8F8;
+    padding: 15px;
+    margin-top: 50px;
+
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        padding-bottom: 30px;
+    }
+}
+
+.payment-info {
+    font-weight: 700;
+}
+
+.payment-amount {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: $gutter;
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.accepted-image-1 {
+    max-width: 320px;
+    margin-bottom: 30px;
+}
+
+#visa-image {
+    margin-bottom: -10px;
+    max-width: 110px;
+}
+
+.visa-hidden {
+    visibility: hidden;
+}
+
+img.card-image {
+    max-height: 38px;
+    padding-top: 2px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#building-and-street {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 19px;
+    line-height: 1.3157894737;
+    font-weight: 400;
+    text-transform: none;
+    width: 66%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px;
+    background-color: #fff;
+    border: 2px solid #6f777b;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.form-label-bold {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+#security-number {
+    width: 100px;
+}
+
+#postcode {
+    width: 120px;
+}
+
+table.payment-confirm {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+    td {
+        font-size: 19px;
+        font-weight: 300;
+        border: none;
+    }
+
+    .table-info {
+        font-weight: 700;
+    }
+}
+
+.check-details {
+    margin-bottom: 30px;
+}
+
+#card-security-number {
+    width: 20%;
+}
+// summary table
+
+table.check-your-answers {
+    th {
+        font-weight: bold;
+        font-size: 19px;
+        vertical-align: top;
+    }
+
+    .change-answer-normal {
+        font-weight: normal;
+        text-align: right;
+        padding-right: 0;
+    }
+
+    .change-answer {
+        font-weight: normal;
+    }
+}
+
+table.payment-confirm {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: none;
+
+    td {
+        font-size: 19px;
+        font-weight: 300;
+        border-bottom: none;
+    }
+
+    .table-info {
+        font-weight: 700;
+    }
+}
+
+.check-details {
+    margin-bottom: 30px;
+}
+
+#card-security-number {
+    width: 20%;
+}

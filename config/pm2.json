@@ -1,0 +1,16 @@
+/* Development: */
+{
+  "name": "test",
+  "script": "index.js",
+  "node_args": "--debug",
+  "watch": true,
+  "ignore_watch" : ["node_modules", "client", "bin", "logs"]
+}
+
+/* Production:
+{
+  "name": "test",
+  "script": "index.js",
+  "instances": 0,
+  "exec_mode": "cluster_mode"
+} */

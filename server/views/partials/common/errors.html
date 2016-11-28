@@ -1,0 +1,14 @@
+{{#if this}}
+<div class="error-summary">
+    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
+      Fix the following issues to continue:
+    </h1>
+    <ul class="error-summary-list">
+        {{#each this}}
+        <li>
+            <a href="#{{#if @key}}{{@key}}{{/if}}">{{this}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
