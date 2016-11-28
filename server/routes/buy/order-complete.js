@@ -5,6 +5,7 @@ const handlers = {
       nameOnLicence: request.session.holderName,
       licenceType: request.session.licenceType,
       startDate : request.session.startDate,
+      isSalmon: request.session.isSalmon
     })
   },
   post: function (request, reply) {

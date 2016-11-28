@@ -8,13 +8,14 @@
                     <label for="premises" class="form-label">House number or name<span class="form-hint">for example, Flat 20A</span></label>
                     <input class="form-control" id="premises" name="premises" value="{{premises}}" type="text" maxlength="100">
                 </div>
-                <fieldset data-required data-error="{{errorMessageTwo}}">
-                    <div class="form-group {{#if errors.postcode}}error{{/if}}">
-                        <label for="postcode" class="form-label">Postcode                        <span class="form-hint">for example, WA4 1AB</span></label>
-                        <input class="form-control" id="postcode" name="postcode" type="text" value="{{postcode}}" maxlength="10">
-                    </div>
-                </fieldset>
-                <button type="submit" class="button">Continue</button>
+            </fieldset>
+            <fieldset data-required data-error="{{errorMessageTwo}}">
+                <div class="form-group {{#if errors.postcode}}error{{/if}}">
+                    <label for="postcode" class="form-label">Postcode                        <span class="form-hint">for example, WA4 1AB</span></label>
+                    <input class="form-control" id="postcode" name="postcode" type="text" value="{{postcode}}" maxlength="10">
+                </div>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
         </form>
         <br> {{#if returnURL}}
         <p><a href="{{manualAddressLink}}">Enter my address manually</a></p>

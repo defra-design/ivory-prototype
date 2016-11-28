@@ -8,25 +8,37 @@
                     <strong class="bold-medium" id="permissionNumber">345 612 895</strong>
                 </p>
                 <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
-                <p><span class="bold-small">Starts:</span> <span id="startDate">{{startDate}}</span></p>
-                <p><span class="bold-small">Ends:</span> <span id="endDate">{{endDate}}</span></p>
+                <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}}</span></p>
+                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
+                <p>This licence can only be used by {{nameOnLicence}}</p>
             </div>
-            <h2 class="heading-medium">Before you go fishing</h2>
-            <p>We don't send you a licence in the post. When our bailiffs ask to see your licence, you must show them:</p>
+            <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
+            <p>If our bailiffs ask to see your licence, you must show them:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number</li>
                 <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
             </ol>
-            <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p>
-            <h2 class="heading-medium">Your payment</h2>
-            <p>You paid by debit or credit card.</p>
-            <h3 class="heading-small">We use your fishing licence money to:</h3>
-            <ul class="list list-bullet">
-                <li>encourage people to take-up fishing</li>
-                <li>improve facilities for anglers</li>
-                <li>rear coarse fish for restocking</li>
-                <li>protect stocks from illegal fishing</li>
-                <li>get rid of invasive species</li>
+            <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
+            <h2 class="heading-medium">Check the byelaws before you go</h2>
+            <p>You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws">local fishing byelaws</a> whenever you go fishing. These include
+                the rules on: </p>
+            <ul>
+                <li>where you can fish</li>
+                <li>when you can fish</li>
+                <li>which fish you’re allowed to keep</li>
+            </ul>
+            {{#if isSalmon}}
+            <h2 class="heading-medium">Remember to submit a catch return</h2>
+            <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
+            {{/if}}
+            <h2 class="heading-medium">How your licence money gets spent</h2>
+            <p class="text">We use your fishing licence money to:</p>
+            <ul>
+                <li>improve angling facilities and fish habitats</li>
+                <li>protect fisheries from illegal activity</li>
+                <li>prevent the spread of fish diseases and invasive, non-native species</li>
+                <li>rear and stock coarse fish to boost natural stocks</li>
+                <li>encourage more people to go fishing</li>
             </ul>
             <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
             <h2 class="heading-medium">Your feedback</h2>
