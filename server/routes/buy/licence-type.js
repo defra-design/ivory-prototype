@@ -23,6 +23,19 @@ const handlers = {
   post: function (request, reply) {
     request.session.licenceType = request.payload.licence_type
     returnURL = request.query.returnUrl
+    if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceLength === '1 day') {
+        request.session.cost = "£3.75"
+      } else {
+        request.session.cost = "£10.00"
+      }
+    } else {
+      if (request.session.licenceLength === '1 day') {
+        request.session.cost = "£8.00"
+      } else {
+        request.session.cost = "£23.00"
+      }
+    }
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
