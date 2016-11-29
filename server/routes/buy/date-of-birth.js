@@ -14,7 +14,13 @@ const handlers = {
     request.session.birthMonth = request.payload.birthMonth
     request.session.birthYear = request.payload.birthYear
     // Combile address
-    request.session.dateOfBirth = request.session.birthDay + " " + request.session.birthMonth + " " + request.session.birthYear
+    //request.session.dateOfBirth = request.session.birthDay + " " + request.session.birthMonth + " " + request.session.birthYear
+
+    var date = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var options = {
+        weekday: "long", year: "numeric", month: "short", day: "numeric"
+    };
+    request.session.dateOfBirth = date.toLocaleDateString("en-us", options)
     var year = request.payload.birthYear
     returnURL = request.query.returnUrl
 
