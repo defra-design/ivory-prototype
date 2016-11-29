@@ -1,3 +1,9 @@
+
+// Paypal
+// ==========================================================================
+
+
+
 /**
 * @fileOverview Base contains variables, mixins, reset, baseline, grid, and utilities
 * @name Base
@@ -255,12 +261,12 @@ table {
 }
 /* setting a consistent width, 160px;
    control of type=file still not possible */
-input[type=password],
-input[type=text],
-textarea {
-    width: 12.25em;
-    *width: 11.9em;
-}
+// input[type=password],
+// input[type=text],
+// textarea {
+//     width: 12.25em;
+//     *width: 11.9em;
+// }
 /**
  * @fileOverview Grid contains grid rules
  * @name Grid

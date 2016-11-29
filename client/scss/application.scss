@@ -1,13 +1,55 @@
 $path: '/public/icons/';
+
+// Settings (variables)
+
+// Mixins to generate components (chunks of UI)
+
+// Functions
+
+// Objects (unstyled design patterns)
+
+// Components (chunks of UI)
+
+
+// GOV.UK elements
+
 @import 'govuk-elements';
-@import 'colours';
-@import '_util';
+@import 'util';
 @import 'start-date';
 @import 'paypal';
 
 body {
     font-size: 19px;
     line-height: 1.31579;
+}
+
+table {
+  border: none;
+}
+
+table td,
+table th {
+  border: none;
+  border-bottom: solid 1px #bfc1c3;
+}
+
+.list-bullet {
+  margin: 0 0 20px;
+}
+
+.form-hint {
+  margin: 5px 0;
+}
+
+.bold-large {
+  margin: 0;
+}
+
+.helpline-text {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: #454a4c;
 }
 
 .text-error {
@@ -168,7 +210,7 @@ img.card-image {
     line-height: 1.3157894737;
     font-weight: 400;
     text-transform: none;
-    width: 66%;
+    width: 50%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -189,9 +231,9 @@ img.card-image {
     width: 100px;
 }
 
-#postcode {
-    width: 120px;
-}
+// #postcode {
+//     width: 120px;
+// }
 
 table.payment-confirm {
     border-collapse: collapse;
