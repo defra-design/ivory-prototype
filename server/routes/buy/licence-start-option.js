@@ -24,6 +24,19 @@ const handlers = {
 
     if (startOption === 'asap') {
       request.session.startDate = "30 minutes after payment"
+
+      var options = {
+          weekday: "long", year: "numeric", month: "short", day: "numeric"
+      };
+      if (request.session.licenceLength === '1 day') {
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
+      } else {
+        var eightDays = new Date();
+        eightDays.setDate(eightDays.getDate() + 8);
+        request.session.endDate = eightDays.toLocaleDateString("en-us", options)
+      }
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {

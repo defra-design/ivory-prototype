@@ -5,6 +5,7 @@ const handlers = {
       nameOnLicence: request.session.holderName,
       licenceType: request.session.licenceType,
       startDate : request.session.startDate,
+      endDate : request.session.endDate,
       isSalmon: request.session.isSalmon
     })
   },
