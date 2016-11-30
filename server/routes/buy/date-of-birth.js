@@ -24,14 +24,38 @@ const handlers = {
     var year = request.payload.birthYear
     returnURL = request.query.returnUrl
 
-    if (year < 2000) {
+    if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceLength === '1 day') {
+        request.session.cost = "£3.75"
+      } else {
+        request.session.cost = "£10.00"
+      }
+    } else {
+      if (request.session.licenceLength === '1 day') {
+        request.session.cost = "£8.00"
+      } else {
+        request.session.cost = "£23.00"
+      }
+    }
+
+    if (year >= 2004) {
+      // 12 or younger - No license needed
+      return reply.redirect('no-licence-required')
+    } else  if (year >= 2000 && year < 2004){
+      // 12 to 16 - Free License
+      if (returnURL) {
+        request.session.cost = "0"
+        return reply.redirect(returnURL)
+      } else {
+        request.session.cost = "Free"
+        return reply.redirect('name')
+      }
+    } else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
         return reply.redirect('name')
       }
-    } else {
-      return reply.redirect('no-licence-required')
     }
   }
 }
