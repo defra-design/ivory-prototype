@@ -1,21 +1,29 @@
-$path: '/public/icons/';
+// IWTF - application CSS
+// ==========================================================================
+
 
 // Settings (variables)
+$iconPath: '/public/icons/';
+$imagePath: '/public/images/';
+
+// GOV.UK elements
+@import 'govuk-elements';
+
+// Imported stylesheets
+@import 'start-date';
+@import 'paypal';
+
+
+// Split out CSS below into ITCSS folder structure
+
+
 
 // Mixins to generate components (chunks of UI)
-
 // Functions
-
 // Objects (unstyled design patterns)
-
 // Components (chunks of UI)
 
 
-// GOV.UK elements
-
-@import 'govuk-elements';
-@import 'start-date';
-@import 'paypal';
 
 body {
     font-size: 19px;
