@@ -2,7 +2,11 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             <div class="govuk-box-highlight">
-                <h1 class="bold-large">You've bought your licence</h1>
+                {{#if isJunior}}
+                <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
+                <h1 class="bold-large">You've bought your licence</h1> {{/if}}
+
+
                 <p>
                     Your fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">345 612 895</strong>
@@ -12,12 +16,25 @@
                 <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
                 <p>This licence can only be used by {{nameOnLicence}}</p>
             </div>
+
+
+            {{#if isFull}}
+            <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
+            <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
+            <ol class="list list-number">
+                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number</li>
+                <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+            </ol>
+
+            {{else}}
             <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
             <p>If our bailiffs ask to see your licence, you must show them:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number</li>
                 <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
             </ol>
+            {{/if}}
+
             <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
             <h2 class="heading-medium">Check the byelaws before you go</h2>
             <p>You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws">local fishing byelaws</a> whenever you go fishing. These include
@@ -27,10 +44,11 @@
                 <li>when you can fish</li>
                 <li>which fish you’re allowed to keep</li>
             </ul>
+
             {{#if isSalmon}}
             <h2 class="heading-medium">Remember to submit a catch return</h2>
             <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
-            {{/if}}
+            {{/if}} {{#if isJunior}} {{else}}
             <h2 class="heading-medium">How your licence money gets spent</h2>
             <p class="text">We use your fishing licence money to:</p>
             <ul>
@@ -41,8 +59,13 @@
                 <li>encourage more people to go fishing</li>
             </ul>
             <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
-            <h2 class="heading-medium">Your feedback</h2>
+            {{/if}}
+
+            <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
+            <p><a href="/feedback">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
+            {{else}}
             <p><a href="/feedback">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
+            {{/if}}
         </div>
     </div>
 </main>

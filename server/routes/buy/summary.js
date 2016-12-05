@@ -1,4 +1,3 @@
-
 const handlers = {
   get: function (request, reply) {
 
@@ -25,9 +24,11 @@ const handlers = {
       mobile: request.session.mobile ,
       address: request.session.Address,
       licenceType: request.session.licenceType,
+      numberOfRods: request.session.numberOfRods,
       licenceLength: request.session.licenceLength,
       startDate : request.session.startDate,
       cost: request.session.cost,
+      isJunior:  request.session.isJunior
     })
   },
   post: function (request, reply) {

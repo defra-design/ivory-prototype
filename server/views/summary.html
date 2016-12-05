@@ -3,11 +3,12 @@
         <div class="column-two-thirds">
             {{> common/back}}
             <h1 class="heading-large">{{pageTitle}}</h1>
-            <br>
+            <br> {{#if isJunior}} {{else}}
             <div class="notice">
                 <i class="icon icon-important"><span class="visuallyhidden">Warning</span></i>
                 <strong class="bold-small">Your licence is not valid until payment is complete</strong>
             </div>
+            {{/if}}
             <h2 class="heading-medium">Licence holder details</h2>
             <table class="check-your-answers">
                 <tbody>
@@ -114,6 +115,21 @@
                         </td>
                     </tr>
 
+
+                    {{#if isJunior}} {{else}}
+                    <tr>
+                        <th scope="row">
+                            Concession
+                        </th>
+                        <td class="data" id="concession">
+                            {{#if concession}} {{concession}} {{else}} Not supplied {{/if}}
+                        </td>
+
+                    </tr>
+                    {{/if}}
+
+
+
                     <tr>
                         <th scope="row">
                             Valid from
@@ -133,13 +149,13 @@
                             Number of rods
                         </th>
                         <td class="data" id="number-of-rods">
-                            1 rod (or up to 2 rods for trout and coarse fish)
+                            {{#if numberOfRods}} {{numberOfRods}} {{else}} 1 rod (or up to 2 rods for trout and coarse fish) {{/if}}
                         </td>
                         <td class="change-answer" id="number-of-rods">
                         </td>
                     </tr>
 
-
+                    {{#if isJunior}} {{else}}
                     <tr>
                         <th scope="row">
                             Cost
@@ -151,6 +167,8 @@
                             &nbsp;
                         </td>
                     </tr>
+                    {{/if}}
+
 
                 </tbody>
             </table>

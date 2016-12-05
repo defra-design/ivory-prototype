@@ -1,0 +1,17 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <label class="form-label" for="bb-number">
+                      Blue Badge number
+                      <span class="form-hint">This will be on your badge.</span>
+                    </label> <input class="form-control" id="blue-badge" name="blue-badge" value="{{blue-badge}}" type="text">
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

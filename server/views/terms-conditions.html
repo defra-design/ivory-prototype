@@ -1,7 +1,14 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
-        <h1 class="heading-large">{{pageTitle}}</h1>
+        <h1 class="heading-large">{{pageTitle}}</h1> {{#if isJunior}}
+        <p>When you get this licence you agree that:</p>
+        {{else}}
         <p>When you buy this licence you agree that:</p>
+        {{/if}}
+
+
+
+
         <ul class="list list-bullet">
             <li>the licence will only be used by the person named on it</li>
             <li>you will carry the necessary proof of your licence when you go fishing and show it to our bailiffs if they ask</li>
@@ -19,10 +26,18 @@
               I agree to the terms and conditions
             </label>
                 </div>
-                <button type="submit" class="button">Pay for the licence</button>
+                {{#if isJunior}}
+
+                <button type="submit" class="button">Get my licence</button> {{else}}
+                <button type="submit" class="button">Pay for the licence</button> {{/if}} {{#if isJunior}} {{else}}
                 <p class="form-hint">on the Worldpay secure payment site</p>
+                {{/if}}
             </fieldset>
         </form>
+        {{#if isJunior}}
+        <p><br><a href="/clear-session">I no longer want this licence</a></p>
+        {{else}}
         <p><a href="/clear-session">I no longer want to buy a licence</a></p>
+        {{/if}}
     </div>
 </div>

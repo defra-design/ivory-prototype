@@ -26,13 +26,28 @@ const handlers = {
     if (year >= 2004) {
       // 12 or younger - No license needed
       return reply.redirect('no-licence-required')
-    } else {
+    } else  if (year >= 2000 && year < 2004  && request.session.licenceLength != '365-days') {
+      // 12 to 16 and selected 1 or 8 day - upgrade License
+      request.session.licenceLength = '365-days'
+      request.session.isJunior = true
+      return reply.redirect('upgrade-licence')
+    } else if (year >= 2000 && year < 2004 ) {
+      request.session.isJunior = true
+      return reply.redirect('name')
+    } else if (year < 2000  && request.session.licenceLength === '365 days') {
+      // selected 12 months and over 16
+      return reply.redirect('disability')
+    }
+    else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
         return reply.redirect('name')
       }
     }
+
+
+
   }
 }
 
