@@ -34,7 +34,7 @@ const handlers = {
     } else if (year >= 2000 && year < 2004 ) {
       request.session.isJunior = true
       return reply.redirect('name')
-    } else if (year < 2000  && request.session.licenceLength === '365 days') {
+    } else if (year < 2000  && request.session.licenceLength === '365-days') {
       // selected 12 months and over 16
       return reply.redirect('disability')
     }

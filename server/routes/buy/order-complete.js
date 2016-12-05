@@ -8,7 +8,7 @@ const handlers = {
     }
 
     // is 365 day
-    if (request.session.licenceLength === '365 days') {
+    if (request.session.licenceLength === '365-days') {
       request.session.isFull = true;
     }
 
