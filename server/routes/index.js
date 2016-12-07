@@ -1,5 +1,4 @@
 module.exports = [].concat(
-  //require('./home'),
   require('./public'),
   require('./feedback'),
   require('./feedback-thankyou'),
