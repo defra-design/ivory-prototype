@@ -4,7 +4,7 @@ module.exports = {
   config: {
     handler: function (request, reply) {
       return reply.view('index', {
-        pageTitle: 'IWTF Prototype'
+        //pageTitle: 'IWTF Prototype'
       })
     }
   }
