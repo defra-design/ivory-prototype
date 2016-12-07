@@ -13,7 +13,7 @@ const handlers = {
 
       if (request.session.licenceLength === '1-day') {
         request.session.cost = "£3.75"
-      } else if (request.session.licenceLength === '8-days8-days (These licences are valid for 8 consecutive days)'){
+      } else if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)'){
         request.session.cost = "£10.00"
       } else {
         request.session.cost = "£27.00"
