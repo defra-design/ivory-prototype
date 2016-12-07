@@ -7,7 +7,7 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy',
+  path: '/',
   config: {
     handler: handlers.get
   }
