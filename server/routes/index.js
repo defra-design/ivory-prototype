@@ -1,4 +1,5 @@
 module.exports = [].concat(
+  require('./home'),
   require('./public'),
   require('./feedback'),
   require('./feedback-thankyou'),
@@ -26,5 +27,12 @@ module.exports = [].concat(
   require('./buy/terms-conditions'),
   require('./pay/enter-card-details'),
   require('./pay/confirm-payment'),
-  require('./buy/order-complete')
+  require('./buy/order-complete'),
+  require('./start'),
+  require('./start/overview'),
+  require('./start/licence-costs'),
+  require('./start/rules'),
+  require('./start/important-changes'),
+  require('./start/buy'),
+  require('./start/replace')
 )
