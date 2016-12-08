@@ -11,7 +11,7 @@ $imagePath: '/public/images/';
 
 // Imported stylesheets
 @import 'start-date';
-@import 'paypal';
+// @import 'paypal';
 
 
 // Split out CSS below into ITCSS folder structure
@@ -308,4 +308,208 @@ table.payment-confirm {
 
 #card-security-number {
     width: 20%;
+}
+
+
+
+// static
+
+
+.pagination {
+  border-bottom: 1px solid #bfc1c3;
+  display: block;
+  margin: 4em 0 0;
+}
+
+@media (max-width: 640px) {
+  .pagination {
+    margin: 2em 0 0;
+  }
+}
+
+.pagination ul {
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li {
+  float: left;
+  font-family: "nta",Arial,sans-serif;
+  font-size: 14px;
+  font-size-adjust: 0.5;
+  font-weight: 400;
+  line-height: 1.14286;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  text-transform: none;
+  width: 49%;
+}
+
+@media (min-width: 641px) {
+  .pagination li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.pagination li a {
+  background-color: transparent;
+  color: #005ea5;
+  display: block;
+  text-decoration: none;
+}
+
+.pagination li a:hover, .pagination li a:active {
+  background-color: #f8f8f8;
+}
+
+.pagination li a .pagination-label {
+  display: block;
+  font-family: "nta",Arial,sans-serif;
+  font-size: 20px;
+  font-size-adjust: 0.5;
+  font-weight: 400;
+  line-height: 1.11111;
+  margin-bottom: 0.1em;
+  text-transform: none;
+}
+
+@media (min-width: 641px) {
+  .pagination li a .pagination-label {
+    font-size: 27px;
+    line-height: 1.25;
+  }
+}
+
+.pagination li a .pagination-part-title {
+  text-decoration: underline;
+}
+
+.pagination li.next {
+  float: right;
+  text-align: right;
+}
+
+.pagination li.next a::before {
+  background: transparent url("/public/images/arrow-sprite.png") no-repeat scroll -102px -11px;
+  content: " ";
+  display: block;
+  float: right;
+  height: 38px;
+  margin: -4px -32px 0 0;
+  width: 30px;
+}
+
+.pagination li.previous a::before {
+  background: transparent url("/public/images/arrow-sprite.png") no-repeat scroll -20px -11px;
+  content: " ";
+  display: block;
+  float: left;
+  height: 38px;
+  margin: -4px 0 0 -32px;
+  width: 30px;
+}
+
+.pagination li.previous {
+  float: left;
+  text-align: left;
+}
+
+.pagination li.previous a {
+  padding: 0.75em 0 0.75em 3em;
+}
+
+.pagination li.next a {
+  padding: 0.75em 3em 0.75em 0;
+}
+
+@media (max-width: 640px) {
+  .pagination li.previous, .pagination li.next {
+    float: none;
+    width: 100%;
+  }
+  .pagination li.next a {
+    text-align: right;
+  }
+}
+
+.pagination .first, .pagination .last {
+  min-height: 4.5em;
+}
+
+.pagination .first span, .pagination .last span {
+  display: block;
+  min-height: 4.5em;
+  padding: 0.75em 5%;
+  width: 90%;
+}
+
+.pagination .first .pagination-label, .pagination .last .pagination-label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.related {
+  padding-top: 5px;
+  margin-top: 40px;
+  border-top: 10px solid #005ea5;
+}
+
+.related h2 {
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  margin-top: 0.3em;
+}
+
+.related li a {
+  display: block;
+  line-height: 1.25em;
+  margin-bottom: 10px;
+}
+
+.related ul {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.page-navigation li {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.button-start,
+.button-get-started {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: none;
+  background-image: url("/public/images/icon-pointer.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  padding: 0.3684210526em 2.1578947368em 0.2105263158em 0.8421052632em;
+}
+
+@media (min-width: 641px) {
+  .button-start,
+  .button-get-started {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-normal {
+  font-weight: normal;
+}
+
+.progressive-disclosure-margin {
+  margin-top: 1.4em;
 }
