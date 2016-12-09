@@ -154,7 +154,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('summary')
+      return reply.redirect('contact')
     }
   }
 }

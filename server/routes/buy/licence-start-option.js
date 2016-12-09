@@ -21,48 +21,17 @@ const handlers = {
     var startOption = request.payload.licence_start_option
     returnURL = request.query.returnUrl
 
-
     if (startOption === 'asap') {
       request.session.startDate = "30 minutes after payment"
-
-      var options = {
-          weekday: "long", year: "numeric", month: "short", day: "numeric"
-      };
-
-      if (request.session.licenceLength === '1 day') {
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
-      } else {
-        var eightDays = new Date();
-        eightDays.setDate(eightDays.getDate() + 8);
-        request.session.endDate = eightDays.toLocaleDateString("en-us", options)
-      }
-      if (returnURL) {
-        return reply.redirect(returnURL)
+      request.session.startAge = request.session.age
+      if (request.session.startAge < 12) {
+        return reply.redirect('no-licence-required')
       } else {
         return reply.redirect('licence-type')
       }
     } else {
-      if (returnURL) {
-        return reply.redirect('licence-start-day?returnUrl=/buy/summary')
-      } else {
-        return reply.redirect('licence-start-day')
-      }
+      return reply.redirect('licence-start-day')
     }
-
-
-
-
-    if (returnURL) {
-      return reply.redirect('select-address?returnUrl=/buy/summary')
-    } else {
-      return reply.redirect('select-address')
-    }
-
-
-
-
   }
 }
 
