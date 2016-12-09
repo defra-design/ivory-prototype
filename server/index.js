@@ -6,11 +6,11 @@ const options = {
 }
 
 const users = {
-  john: {
-    username: 'john',
-    password: 'doe',
-    name: 'John Doe',
-    id: '2133d32a'
+  iwtf: {
+    username: 'iwtf',
+    password: 'prototype',
+    name: 'Mr Fish',
+    id: '2133d32b'
   }
 }
 
