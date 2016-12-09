@@ -12,6 +12,17 @@ if (!module.parent) {
       throw err
     }
 
+    server.route({
+      method: 'GET',
+      path: '/foo',
+      config: {
+        auth: 'simple',
+        handler: function (request, reply) {
+          reply({ ok: 200 })
+        }
+      }
+    })
+
     /**
      * Start the server
      */

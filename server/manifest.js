@@ -4,6 +4,7 @@ const manifest = {
   server: {
     connections: {
       routes: {
+        auth: 'simple',
         validate: {
           options: {
             abortEarly: false
@@ -70,6 +71,11 @@ const manifest = {
         register: 'hapi-context-credentials'
       }
     },
+    {
+    plugin: {
+      register: 'hapi-auth-basic'
+    }
+  },
     {
     plugin: {
       register: 'hapi-auth-cookie'
