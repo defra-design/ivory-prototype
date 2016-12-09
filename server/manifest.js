@@ -4,6 +4,7 @@ const manifest = {
   server: {
     connections: {
       routes: {
+        auth: 'simple',
         validate: {
           options: {
             abortEarly: false

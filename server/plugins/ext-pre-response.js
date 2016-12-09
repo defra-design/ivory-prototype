@@ -19,10 +19,15 @@ exports.register = function (server, options, next) {
         message: response.message
       })
 
-      console.error(response.message)
+      if (statusCode === 500) {
+        console.error(response.message)
 
-      // The return the `500` view
-      return reply.view('500').code(statusCode)
+        // The return the `500` view
+        return reply.view('500', {
+          message: response.message,
+          data: response.data
+        }).code(statusCode)
+      }
     }
 
     return reply.continue()
