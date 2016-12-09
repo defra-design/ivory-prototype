@@ -72,6 +72,11 @@ const manifest = {
     },
     {
     plugin: {
+      register: 'hapi-auth-basic'
+    }
+  },
+    {
+    plugin: {
       register: 'hapi-auth-cookie'
     }
   }

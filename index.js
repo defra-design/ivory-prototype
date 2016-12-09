@@ -4,6 +4,31 @@ const pkg = require('./package.json')
 const appName = pkg.name
 const appVersion = pkg.version
 
+const users = {
+    john: {
+        username: 'john',
+        password: '$2a$10$iqJSHD.BGr0E2IxQwYgJmeP3NvhPrXAeLSaGCj6IR/XU5QtjVu5Tm',   // 'secret'
+        name: 'John Doe',
+        id: '2133d32a'
+    }
+};
+
+const validate = function (request, username, password, callback) {
+    const user = users[username];
+    if (!user) {
+        return callback(null, false);
+    }
+
+    if (user.password === password) {
+      callback(null, true, { id: user.id, name: user.name })
+    } else {
+      callback(new Error('Incorrect password'), false)
+    }
+};
+
+
+
+
 if (!module.parent) {
   // There's no callee so we're running
   // normally and will compose and start a server
@@ -11,6 +36,18 @@ if (!module.parent) {
     if (err) {
       throw err
     }
+
+    server.auth.strategy('simple', 'basic', { validateFunc: validate });
+    server.route({
+      method: 'GET',
+      path: '/foo',
+      config: {
+        auth: 'simple',
+        handler: function (request, reply) {
+          reply({ ok: 200 })
+        }
+      }
+    })
 
     /**
      * Start the server
