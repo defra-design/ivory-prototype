@@ -21,7 +21,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect('licence-start-time?returnUrl=/buy/summary')
     } else {
-      return reply.redirect('licence-start-time')
+      return reply.redirect('licence-type')
       //return reply(request.session.startDay)
     }
   }

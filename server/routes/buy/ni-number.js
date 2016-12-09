@@ -13,7 +13,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('name')
+      return reply.redirect('contact')
     }
 
 

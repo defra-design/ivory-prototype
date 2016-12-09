@@ -28,6 +28,7 @@ const handlers = {
       var options = {
           weekday: "long", year: "numeric", month: "short", day: "numeric"
       };
+
       if (request.session.licenceLength === '1 day') {
         var tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -40,7 +41,7 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('date-of-birth')
+        return reply.redirect('licence-type')
       }
     } else {
       if (returnURL) {

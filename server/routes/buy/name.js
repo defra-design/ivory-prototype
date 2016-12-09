@@ -17,7 +17,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('find-address')
+      return reply.redirect('date-of-birth')
     }
   }
 }

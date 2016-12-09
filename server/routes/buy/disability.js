@@ -23,7 +23,7 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (disability === 'no') {
-      return reply.redirect('name')
+      return reply.redirect('contact')
     } else {
       return reply.redirect('disability-proof')
     }

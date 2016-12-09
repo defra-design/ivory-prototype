@@ -23,6 +23,9 @@ const handlers = {
   post: function (request, reply) {
     request.session.licenceType = request.payload.licence_type
     returnURL = request.query.returnUrl
+
+    // Jump to summary if junior
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {

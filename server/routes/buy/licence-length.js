@@ -32,13 +32,19 @@ const handlers = {
 
     if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
       return reply.redirect('number-of-rods')
-    } else {
+    } else if (request.session.licenceLength === '365-days') {
+      return reply.redirect('disability')
+    }
+    else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-option')
+        return reply.redirect('licence-start-time')
       }
     }
+
+    // If 12 months and
+    return reply.redirect('disability')
   }
 }
 
