@@ -10,6 +10,7 @@ const handlers = {
     request.session.month = request.payload.licence_start_month
     request.session.year = request.payload.licence_start_year
     returnURL = request.query.returnUrl
+
     // Calculate age at licence start date
     var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
     var options = {
@@ -24,6 +25,7 @@ const handlers = {
       }
 
     request.session.startAge = startAge
+    request.session.date = date 
     request.session.startDate = date.toLocaleDateString("en-us", options)
 
     if (request.session.startAge < 12) {

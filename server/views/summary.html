@@ -115,18 +115,18 @@
                         </td>
                     </tr>
 
-
-                    {{#if isJunior}} {{else}}
+                    {{#if isFull}} {{#if concession}}
                     <tr>
                         <th scope="row">
                             Concession
                         </th>
                         <td class="data" id="concession">
-                            {{#if concession}} {{concession}} {{else}} Not supplied {{/if}}
+                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} Disabled {{/if}}concession
                         </td>
 
                     </tr>
-                    {{/if}}
+                    {{/if}} {{/if}}
+
 
 
 
@@ -166,6 +166,9 @@
                             {{#if numberOfRods}} {{numberOfRods}} {{/if}}
                         </td>
                         <td class="change-answer" id="number-of-rods">
+                            <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+              Change <span class="visuallyhidden">Number of rods</span>
+            </a>
                         </td>
                     </tr>
 

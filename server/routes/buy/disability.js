@@ -25,6 +25,8 @@ const handlers = {
     if (disability === 'no') {
       return reply.redirect('contact')
     } else {
+      request.session.hasBlueBadge = true
+      request.session.concession = true
       return reply.redirect('disability-proof')
     }
 

@@ -6,6 +6,7 @@ module.exports = [].concat(
   require('./buy'),
   require('./buy/licence-type'),
   require('./buy/licence-length'),
+    require('./buy/licence-short-term-length'),
   require('./buy/number-of-rods'),
   require('./buy/licence-start-option'),
   require('./buy/licence-start-day'),

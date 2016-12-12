@@ -21,9 +21,19 @@ const handlers = {
     var startOption = request.payload.licence_start_option
     returnURL = request.query.returnUrl
 
+    // Calculate age at licence start date
+    var date = new Date();
+    var options = {
+        weekday: "long", year: "numeric", month: "short", day: "numeric"
+    };
+
+
     if (startOption === 'asap') {
-      request.session.startDate = "30 minutes after payment"
+      request.session.startText = "30 minutes after payment"
       request.session.startAge = request.session.age
+      request.session.date = date 
+      request.session.startDate = date.toLocaleDateString("en-us", options)
+
       if (request.session.startAge < 12) {
         return reply.redirect('no-licence-required')
       } else {

@@ -13,12 +13,7 @@ const handlers = {
             text: '3 rods',
             name: 'number_of_rods',
             id: '3 rods',
-          },
-          three: {
-            text: '4 rods',
-            name: 'number_of_rods',
-            id: '4 rods',
-          },
+          }
       }
     })
   },

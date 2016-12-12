@@ -22,29 +22,33 @@ const handlers = {
     request.session.licenceType = request.payload.licence_type
     returnURL = request.query.returnUrl
 
-    // is salmon
-    if (request.session.licenceType === 'Coarse fish and trout') {
-      request.session.numberOfRods = 'Up to 2 rods'
+    //var april = new Date("April 01, 2016 11:13:00");
+    var april = Date.parse("April 01, 2017");
+    var licenceStart = Date.parse(request.session.date);
+
+
+    // Direct to pre April journey
+    if (april > licenceStart) {
+      return reply.redirect('licence-short-term-length')
     } else {
-      request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
+      // Jump to summary if junior
+      if (request.session.startAge < 17) {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('contact')
+        }
+      } else {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+        return reply.redirect('licence-length')
+        //return reply(request.session.startDate + " " +april)
+        }
+      }
     }
 
-    // Jump to summary if junior
-    if (request.session.startAge < 17) {
-      request.session.licenceLength = '365-day'
-      request.session.isJunior = true
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('contact')
-      }
-    } else {
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('licence-length')
-      }
-    }
+
   }
 }
 
