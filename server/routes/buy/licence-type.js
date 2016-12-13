@@ -51,10 +51,12 @@ const handlers = {
 
 
     if (request.session.startAge < 17) {
+      request.session.isJunior = true
+      request.session.licenceLength = '365-days'
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('find-address')
+        return reply.redirect('contact')
       }
     } else {
       if (returnURL) {
