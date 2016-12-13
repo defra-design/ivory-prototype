@@ -31,9 +31,17 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
-      return reply.redirect('number-of-rods')
+      if (returnURL) {
+        return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('number-of-rods')
+      }
     } else if (request.session.licenceLength === '365-days') {
-      return reply.redirect('disability')
+      if (returnURL) {
+        return reply.redirect('disability?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('disability')
+      }
     }
     else {
       if (returnURL) {
@@ -44,6 +52,8 @@ const handlers = {
     }
   }
 }
+
+
 
 module.exports = [{
   method: 'GET',

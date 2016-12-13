@@ -23,7 +23,7 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (disability === 'no') {
-      return reply.redirect('contact')
+      return reply.redirect('find-address')
     } else {
       request.session.hasBlueBadge = true
       request.session.concession = true

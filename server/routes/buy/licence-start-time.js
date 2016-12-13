@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('licence-start-time', {
       pageTitle: 'What time would you like the licence to start on ',
-      startDay: request.session.startDay,
+      startDate: request.session.startDate,
 
       errorMessage: 'Choose a start time',
       items: {
@@ -138,7 +138,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('contact')
+      return reply.redirect('find-address')
     }
   }
 }

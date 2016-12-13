@@ -63,7 +63,7 @@
                         </td>
                         <td class="change-answer" id="change-holder-mobile">
                             <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
-                Change <span class="visuallyhidden">mobile</span>
+                Change <span class="visuallyhidden">mobile number</span>
               </a>
                         </td>
                     </tr>
@@ -109,9 +109,13 @@
                             {{#if licenceLength}} {{licenceLength}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-length">
+                            {{#if beforeApril}}
+                            <a href="/buy/licence-short-term-length?returnUrl=/buy/summary" id="buy.licence.length">
+Change <span class="visuallyhidden">licence length</span></a> {{/if}} {{#if afterApril}}
                             <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
                 Change <span class="visuallyhidden">licence length</span>
-              </a>
+              </a> {{/if}}
+
                         </td>
                     </tr>
 
@@ -144,20 +148,24 @@
                         </td>
                     </tr>
 
+                    {{#if isFull}} {{else}}
+
+
                     <tr>
                         <th scope="row">
                             Time
                         </th>
                         <td class="data" id="start-date">
-                            {{#if startTime}} {{startTime}} {{else}} Not supplied {{/if}}
+                            {{#if startTime}}{{startTime}}{{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                            <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
                 Change <span class="visuallyhidden">start time</span>
               </a>
                         </td>
                     </tr>
 
+                    {{/if}}
                     <tr>
                         <th scope="row">
                             Number of rods
@@ -166,9 +174,12 @@
                             {{#if numberOfRods}} {{numberOfRods}} {{/if}}
                         </td>
                         <td class="change-answer" id="number-of-rods">
+
+                            {{#if isFull}} {{#if isCoarse}}
+
                             <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a>
+            </a> {{/if}} {{/if}}
                         </td>
                     </tr>
 

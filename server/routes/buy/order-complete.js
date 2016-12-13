@@ -1,11 +1,6 @@
 const handlers = {
   get: function (request, reply) {
 
-    // // is 365 day
-    // if (request.session.licenceLength === '365-days') {
-    //   request.session.isFull = true;
-    // }
-
     return reply.view('order-complete', {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,

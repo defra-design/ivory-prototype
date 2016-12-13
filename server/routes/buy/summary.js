@@ -1,6 +1,3 @@
-// const cost = require('../../services/cost')
-
-
 const handlers = {
   get: function (request, reply) {
 
@@ -24,23 +21,41 @@ const handlers = {
 
 
     // Rods
-    if (request.session.licenceType === 'Coarse fish and trout') {
-      request.session.numberOfRods = 'Up to 2 rods'
-    } else {
-      request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
+      } else if (request.session.licenceType === 'Trout and coarse') {
+        if (request.session.licenceLength != '365-days') {
+          request.session.numberOfRods = 'Up to 2 rods'
+        }
+      }
+
+
+    // is salmon
+    if (request.session.licenceType === 'Salmon and sea trout') {
+      request.session.isSalmon = true;
     }
 
-    // Add variable if senior
-    if (request.session.startAge > 65) {
-      request.session.isSenior = true
-      request.session.concession = true
+    // is salmon
+    if (request.session.licenceType === 'Trout and coarse') {
+      request.session.isCoarse = true;
     }
-    // Add variable if Junior
-    if (request.session.startAge < 17) {
-      request.session.licenceLength = '365-days'
-      request.session.isJunior = true
-      request.session.concession = true
-    }
+
+
+
+    // Add variables for senior and concession if after April
+    // var april = Date.parse("April 01, 2017");
+    // var licenceStart = Date.parse(request.session.date);
+
+
+      if (request.session.startAge > 65) {
+        request.session.isSenior = true
+        request.session.concession = true
+      } else if (request.session.startAge < 17) {
+        request.session.licenceLength = '365-days'
+        request.session.isJunior = true
+        request.session.concession = true
+      }
+
 
     //End dates
     var options = {
@@ -140,7 +155,9 @@ const handlers = {
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
       isFull: request.session.isFull,
-      concession: request.session.concession
+      concession: request.session.concession,
+      isSalmon: request.session.isSalmon,
+      isCoarse: request.session.isCoarse,
     })
   },
   post: function (request, reply) {

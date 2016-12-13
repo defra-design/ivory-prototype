@@ -25,7 +25,7 @@ const handlers = {
       }
 
     request.session.startAge = startAge
-    request.session.date = date 
+    request.session.date = date
     request.session.startDate = date.toLocaleDateString("en-us", options)
 
     if (request.session.startAge < 12) {

@@ -23,30 +23,47 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     //var april = new Date("April 01, 2016 11:13:00");
-    var april = Date.parse("April 01, 2017");
-    var licenceStart = Date.parse(request.session.date);
+    // var april = Date.parse("April 01, 2017");
+    // var licenceStart = Date.parse(request.session.date);
 
 
-    // Direct to pre April journey
-    if (april > licenceStart) {
-      return reply.redirect('licence-short-term-length')
-    } else {
-      // Jump to summary if junior
-      if (request.session.startAge < 17) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('contact')
-        }
+    // // Direct to pre April journey
+    // if (april > licenceStart) {
+    //   request.session.beforeApril = true
+    //   return reply.redirect('licence-short-term-length')
+    // } else {
+    //   // Jump to contact if junior
+    //   if (request.session.startAge < 17) {
+    //     if (returnURL) {
+    //       return reply.redirect(returnURL)
+    //     } else {
+    //       return reply.redirect('find-address')
+    //     }
+    //   } else {
+    //     if (returnURL) {
+    //       return reply.redirect(returnURL)
+    //     } else {
+    //     return reply.redirect('licence-length')
+    //     //return reply(request.session.startDate + " " +april)
+    //     }
+    //   }
+    // }
+
+
+    if (request.session.startAge < 17) {
+      if (returnURL) {
+        return reply.redirect(returnURL)
       } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-        return reply.redirect('licence-length')
-        //return reply(request.session.startDate + " " +april)
-        }
+        return reply.redirect('find-address')
+      }
+    } else {
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+      return reply.redirect('licence-length')
       }
     }
+
 
 
   }
