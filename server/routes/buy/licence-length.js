@@ -42,8 +42,13 @@ const handlers = {
       } else {
         return reply.redirect('disability')
       }
-    }
-    else {
+    } else if (request.session.haveTime === true){
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('find-address')
+      }
+    } else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {

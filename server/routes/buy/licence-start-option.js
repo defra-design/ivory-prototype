@@ -33,6 +33,10 @@ const handlers = {
       request.session.startAge = request.session.age
       request.session.date = date
       request.session.startDate = date.toLocaleDateString("en-us", options)
+      //Set time
+      var startTime = date.getHours();
+      request.session.startTime = startTime +":00"
+      request.session.haveTime = true
 
       if (request.session.startAge < 12) {
         return reply.redirect('no-licence-required')
