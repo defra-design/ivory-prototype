@@ -8,8 +8,6 @@ const handlers = {
   post: function (request, reply) {
 
     returnURL = request.query.returnUrl
-
-
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {

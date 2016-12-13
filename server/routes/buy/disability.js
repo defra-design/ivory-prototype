@@ -23,18 +23,22 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (disability === 'no') {
-      return reply.redirect('find-address')
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('find-address')
+      }
     } else {
       request.session.hasBlueBadge = true
       request.session.concession = true
-      return reply.redirect('disability-proof')
+      if (returnURL) {
+        return reply.redirect('disability-proof?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('disability-proof')
+      }
     }
 
-    // if (returnURL) {
-    //   return reply.redirect(returnURL)
-    // } else {
-    //   return reply.redirect('date-of-birth')
-    // }
+    
 
 
   }

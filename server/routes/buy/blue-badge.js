@@ -9,8 +9,6 @@ const handlers = {
 
     returnURL = request.query.returnUrl
 
-
-
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {

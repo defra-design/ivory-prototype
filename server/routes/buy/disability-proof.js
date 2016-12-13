@@ -23,16 +23,20 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (disability_proof === 'Blue Badge number') {
-      return reply.redirect('blue-badge')
+      if (returnURL) {
+        return reply.redirect('blue-badge?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('blue-badge')
+      }
     } else {
-      return reply.redirect('ni-number')
+      if (returnURL) {
+        return reply.redirect('ni-number?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('ni-number')
+      }
     }
 
-    // if (returnURL) {
-    //   return reply.redirect(returnURL)
-    // } else {
-    //   return reply.redirect('date-of-birth')
-    // }
+
 
 
   }
