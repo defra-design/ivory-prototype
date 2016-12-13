@@ -20,16 +20,7 @@ const handlers = {
     request.session.startAge = startAge
 
 
-    // Rods
-      if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
-      } else if (request.session.licenceType === 'Trout and coarse') {
-        if (request.session.licenceLength != '365-days') {
-          request.session.numberOfRods = 'Up to 2 rods'
-        }
-      }
-
-
+  
     // is salmon
     if (request.session.licenceType === 'Salmon and sea trout') {
       request.session.isSalmon = true;

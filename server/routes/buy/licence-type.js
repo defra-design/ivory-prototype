@@ -49,6 +49,13 @@ const handlers = {
     //   }
     // }
 
+    // Rods
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
+      } else if (request.session.licenceType === 'Trout and coarse') {
+          request.session.numberOfRods = 'Up to 2 rods'
+      }
+
 
     if (request.session.startAge < 17) {
       request.session.isJunior = true
