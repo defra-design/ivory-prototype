@@ -29,6 +29,8 @@ module.exports = [].concat(
   require('./pay/enter-card-details'),
   require('./pay/confirm-payment'),
   require('./buy/order-complete'),
+  require('./buy/phone-number'),
+  require('./buy/email-address'),
   require('./start'),
   require('./start/overview'),
   require('./start/licence-costs'),

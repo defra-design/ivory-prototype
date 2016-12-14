@@ -1,0 +1,16 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>We will use this email to send you your licence number.</p>
+        <form method="post" autocomplete="off" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email address</label> {{#if errors.email}}<span class="error-message">{{errors.email}}</span>{{/if}}
+                    <input class="form-control" id="email" name="email" value="{{email}}" type="email">
+                </div>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

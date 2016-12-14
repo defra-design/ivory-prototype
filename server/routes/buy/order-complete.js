@@ -9,7 +9,8 @@ const handlers = {
       endDate : request.session.endDate,
       isSalmon: request.session.isSalmon,
       isFull: request.session.isFull,
-      isJunior:  request.session.isJunior
+      isJunior:  request.session.isJunior,
+      noContact: request.session.noContact
     })
   },
   post: function (request, reply) {

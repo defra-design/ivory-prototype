@@ -2241,6 +2241,12 @@ table th {
   background: url("/public/icons/icon-important.png") no-repeat;
 }
 
+.icon-file-download {
+  width: 29px;
+  height: 26px;
+  background: url("/public/icons/icon-file-download.png") no-repeat;
+}
+
 .check-your-answers th {
   font-weight: bold;
   font-size: 19px;
@@ -2676,4 +2682,8 @@ table.payment-confirm .table-info {
 
 a.govuk-box-highlight-link {
   color: #fff;
+}
+
+a.govuk-box-highlight-link:hover {
+  color: #e0e2e5;
 }

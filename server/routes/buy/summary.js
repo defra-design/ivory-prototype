@@ -20,7 +20,7 @@ const handlers = {
     request.session.startAge = startAge
 
 
-  
+
     // is salmon
     if (request.session.licenceType === 'Salmon and sea trout') {
       request.session.isSalmon = true;
@@ -128,7 +128,7 @@ const handlers = {
     }
 
     return reply.view('summary', {
-      pageTitle: 'Check your new licence details',
+      pageTitle: 'Check your licence details',
       nameOnLicence: request.session.holderName,
       licenceDOB: request.session.dateOfBirth,
       email: request.session.email,
