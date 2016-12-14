@@ -8,12 +8,16 @@ const handlers = {
           text: 'Trout and coarse',
           name: 'licence_type',
           id: 'Trout and coarse',
+          value: 'Trout_and_coarse',
+          // selectedText: 'Non-migratory ',
         },
         two: {
           text: 'Salmon and sea trout',
           subText: 'includes trout and coarse fish',
           name: 'licence_type',
           id: 'Salmon and sea trout',
+          value: 'Salmon_and_sea_trout',
+          // selectedText: 'Migratory',
         },
       }
     })
