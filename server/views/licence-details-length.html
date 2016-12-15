@@ -1,0 +1,33 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        {{#each items}}
+                        <label for="{{id}}" class="block-label" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      <span class="heading-small">{{text}}</span>
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">Which fish are covered by the trout and coarse licence?</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>A trout and coarse fish licences allows you to fish for fresh water fish such as Corp, Pike and Perch.</p>
+            </div>
+        </details>
+    </div>
+</div>

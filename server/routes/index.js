@@ -3,10 +3,23 @@ module.exports = [].concat(
   require('./public'),
   require('./feedback'),
   require('./feedback-thankyou'),
+
+  require('./landing'),
+
   require('./buy'),
+
+  require('./upgrade/licence-before'),
+  require('./upgrade/find-a-licence'),
+  require('./upgrade/dob-postcode-check'),
+  require('./upgrade/upgrade-expired'),
+  require('./upgrade/licence-details-species'),
+  require('./upgrade/licence-details-length'),
+  require('./upgrade/change-details'),
+
+
   require('./buy/licence-type'),
   require('./buy/licence-length'),
-    require('./buy/licence-short-term-length'),
+  require('./buy/licence-short-term-length'),
   require('./buy/number-of-rods'),
   require('./buy/licence-start-option'),
   require('./buy/licence-start-day'),
