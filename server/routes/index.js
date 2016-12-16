@@ -5,10 +5,9 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
 
   require('./landing'),
+  require('./licence-before'),
 
-  require('./buy'),
 
-  require('./upgrade/licence-before'),
   require('./upgrade/find-a-licence'),
   require('./upgrade/dob-postcode-check'),
   require('./upgrade/upgrade-expired'),
@@ -17,6 +16,7 @@ module.exports = [].concat(
   require('./upgrade/change-details'),
 
 
+  require('./buy'),
   require('./buy/licence-type'),
   require('./buy/licence-length'),
   require('./buy/licence-short-term-length'),

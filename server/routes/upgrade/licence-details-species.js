@@ -1,22 +1,43 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-details-species', {
-      pageTitle: '',
-      errorMessage: '',
+      pageTitle: 'What would you like to do?',
+      errorMessage: 'Tell us what you\'d like to do',
+      licenceNumber: request.session.licenceNumber,
+      licenceType: request.session.licenceType,
+      nameOnLicence: request.session.holderName,
+      endDate: request.session.endDate,
+      items: {
+          one: {
+            text: 'Upgrade to 3 rods',
+            name: 'licence_details_upgrade',
+            id: '3_rods',
+          },
+          two: {
+            text: 'Upgrade to salmon licence',
+            name: 'licence_details_upgrade',
+            id: 'salmon_licence',
+          },
+          three: {
+            text: 'Change personal details',
+            name: 'licence_details_upgrade',
+            id: 'Change_details',
+          },
+        }
     })
   },
   post: function (request, reply) {
-    returnURL = request.query.returnUrl
+    var upgradeOption = request.payload.licence_details_upgrade
 
-    // if (returnURL) {
-    //   return reply.redirect(returnURL)
-    // } else {
-    //   return reply.redirect('')
-    // }
-
-    return reply.redirect('change-details')
+    if (upgradeOption === '3_rods') {
+      request.session.numberOfRods = 3
+      return reply.redirect('upgraded-rods')
+    } else if (upgradeOption === 'salmon_licence') {
+      request.session.licenceType = 'Salmon and sea trout'
     return reply.redirect('upgraded-species')
-
+    } else {
+      return reply.redirect('change-details')
+    }
   }
 }
 

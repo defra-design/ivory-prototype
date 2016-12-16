@@ -13,7 +13,6 @@ module.exports = [{
   path: '/landing.html',
   config: {
     handler: function (request, reply) {
-      return reply.redirect('feedback-thankyou')
     }
   }
 }]

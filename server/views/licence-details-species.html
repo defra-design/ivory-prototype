@@ -1,7 +1,13 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
-        <h1 class="heading-large">{{pageTitle}}</h1>
+        <h1 class="heading-large">Licence details</h1>
+        <p><span class="heavy spacing">Licence number: </span> {{licenceNumber}}</p>
+        <p><span class="heavy spacing">Licence type: </span>{{licenceType}} {{licenceLength}}</p>
+        <p><span class="heavy spacing">Name: </span> {{nameOnLicence}}</p>
+        <p><span class="heavy spacing">Ends: </span> {{endDate}}</p>
+
+        <h2 class="heading-medium">{{pageTitle}}</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
@@ -9,7 +15,7 @@
                         {{#each items}}
                         <label for="{{id}}" class="block-label" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-                      <span class="heading-small">{{text}}</span>
+                      {{text}}
                       {{#if subText}}
                         <br>{{subText}}
                       {{/if}}
@@ -23,11 +29,5 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
-        <details class="progressive-disclosure-margin">
-            <summary><span class="summary">Which fish are covered by the trout and coarse licence?</span></summary>
-            <div class="panel panel-border-narrow">
-                <p>A trout and coarse fish licences allows you to fish for fresh water fish such as Corp, Pike and Perch.</p>
-            </div>
-        </details>
     </div>
 </div>

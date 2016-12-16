@@ -9,7 +9,7 @@
                         {{#each items}}
                         <label for="{{id}}" class="block-label" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-                      <span class="heading-small">{{text}}</span>
+                      {{text}}
                       {{#if subText}}
                         <br>{{subText}}
                       {{/if}}

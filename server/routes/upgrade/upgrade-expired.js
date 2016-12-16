@@ -1,35 +1,50 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('', {
-      pageTitle: 'licence-details',
-      errorMessage: '',
+    return reply.view('upgrade-expired', {
+      pageTitle: 'Your upgrade period has expired',
+      errorMessage: 'Tell us what you\'d like to do',
+      licenceNumber: request.session.licenceNumber,
+      licenceType: request.session.licenceType,
+      nameOnLicence: request.session.holderName,
+      endDate: request.session.endDate,
+      items: {
+          one: {
+            text: 'Buy a new licence',
+            name: 'licence_details_upgrade',
+            id: 'new_licence',
+          },
+          two: {
+            text: 'Change personal details',
+            name: 'licence_details_upgrade',
+            id: 'Change_details',
+          },
+        }
     })
   },
   post: function (request, reply) {
-    returnURL = request.query.returnUrl
+    var upgradeOption = request.payload.licence_details_upgrade
 
-    // if (returnURL) {
-    //   return reply.redirect(returnURL)
-    // } else {
-    //   return reply.redirect('')
-    // }
+    if((upgradeOption === 'new_licence')) {
+      return reply.redirect('../buy')
+    } else {
+      return reply.redirect('change-details')
+    }
 
-    return reply.redirect('upgrade-species')
-    return reply.redirect('change-details')
+
 
   }
 }
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade/licence-details',
+  path: '/upgrade/upgrade-expired',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/upgrade/licence-details',
+  path: '/upgrade/upgrade-expired',
   config: {
     handler: handlers.post
   }
