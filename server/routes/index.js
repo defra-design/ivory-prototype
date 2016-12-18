@@ -5,15 +5,15 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
 
   require('./landing'),
-  require('./licence-before'),
+  require('./buy/licence-before'),
 
 
-  require('./upgrade/find-a-licence'),
-  require('./upgrade/dob-postcode-check'),
-  require('./upgrade/upgrade-expired'),
-  require('./upgrade/licence-details-species'),
-  require('./upgrade/licence-details-length'),
-  require('./upgrade/change-details'),
+  require('./buy/find-a-licence'),
+  require('./buy/dob-postcode-check'),
+  require('./buy/upgrade-expired'),
+  require('./buy/licence-details-species'),
+  require('./buy/licence-details-length'),
+
 
 
   require('./buy'),

@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('licence-details-length', {
-      pageTitle: 'Do you want to upgrade this licence to a 12 month licence?',
+    return reply.view('upgrade-expired', {
+      pageTitle: 'Your upgrade period has expired',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
       licenceType: request.session.licenceType,
@@ -9,14 +9,14 @@ const handlers = {
       endDate: request.session.endDate,
       items: {
           one: {
-            text: 'Yes',
-            name: 'licence_details_upgrade',
-            id: 'Yes',
-          },
-          two: {
-            text: 'No, I want to buy a new licence',
+            text: 'Buy a new licence',
             name: 'licence_details_upgrade',
             id: 'new_licence',
+          },
+          two: {
+            text: 'Change personal details',
+            name: 'licence_details_upgrade',
+            id: 'Change_details',
           },
         }
     })
@@ -24,29 +24,28 @@ const handlers = {
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
 
-    if (upgradeOption === 'Yes') {
-      request.session.licenceLength = '365-daye'
-      return reply.redirect('upgraded-rods')
+    if(upgradeOption === 'new_licence') {
+      return reply.redirect('name')
     } else {
-      return reply.redirect('../buy')
+      request.session.isUpgrade = true
+      return reply.redirect('summary')
     }
 
-    return reply.redirect('change-details')
-    return reply.redirect('upgraded-length')
+
 
   }
 }
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade/licence-details-length',
+  path: '/buy/upgrade-expired',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/upgrade/licence-details-length',
+  path: '/buy/upgrade-expired',
   config: {
     handler: handlers.post
   }

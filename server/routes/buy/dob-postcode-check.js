@@ -3,19 +3,22 @@ const handlers = {
     return reply.view('dob-postcode-check', {
       pageTitle: 'Find a licence',
       errorMessage: 'Enter your details',
+      birthDay: request.session.birthDay,
+      birthMonth: request.session.birthMonth,
+      birthYear: request.session.birthYear
     })
   },
   post: function (request, reply) {
 
 
-
-
-    returnURL = request.query.returnUrl
    if (request.session.licenceNumber === '697989192') {
-     request.session.firstName = 'Bob'
+     request.session.firstName = 'Bob',
      request.session.lastName = 'Jones'
      request.session.holderName = 'Bob Jones'
      request.session.dateOfBirth = '3 January 1974'
+     request.session.birthDay = 3
+     request.session.birthMonth = 1
+     request.session.birthYear = 1974
      request.session.email = 'bob.jones@email.com'
      request.session.mobile  = 07708123456
      request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
@@ -40,6 +43,9 @@ const handlers = {
      request.session.lastName = 'Smith'
      request.session.holderName = 'John Smith'
      request.session.dateOfBirth = '1 July 1980'
+     request.session.birthDay = 1
+     request.session.birthMonth = 7
+     request.session.birthYear = 1980
      request.session.email = 'john.smith@email.com'
      request.session.mobile  = 07708123456
      request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
@@ -64,6 +70,9 @@ const handlers = {
      request.session.lastName = 'Shaw'
      request.session.holderName = 'Mark Shaw'
      request.session.dateOfBirth = '3 January 1990'
+     request.session.birthDay = 3
+     request.session.birthMonth = 1
+     request.session.birthYear = 1990
      request.session.email = 'mark.shaw@email.com'
      request.session.mobile  = 07708123456
      request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
@@ -87,14 +96,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade/dob-postcode-check',
+  path: '/buy/dob-postcode-check',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/upgrade/dob-postcode-check',
+  path: '/buy/dob-postcode-check',
   config: {
     handler: handlers.post
   }

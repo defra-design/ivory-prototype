@@ -30,27 +30,33 @@ const handlers = {
     var upgradeOption = request.payload.licence_details_upgrade
 
     if (upgradeOption === '3_rods') {
-      request.session.numberOfRods = 3
-      return reply.redirect('upgraded-rods')
+      request.session.numberOfRods = '3'
+      request.session.cost = 'Show reduced cost'
+      request.session.isUpgrade = true
+      return reply.redirect('summary')
     } else if (upgradeOption === 'salmon_licence') {
       request.session.licenceType = 'Salmon and sea trout'
-    return reply.redirect('upgraded-species')
+      request.session.numberOfRods ='1 rod (or up to 3 rods for trout and coarse fish)'
+      request.session.cost = 'Show reduced cost'
+      request.session.isUpgrade = true
+    return reply.redirect('summary')
     } else {
-      return reply.redirect('change-details')
+      request.session.changeDetails = true
+      return reply.redirect('summary')
     }
   }
 }
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade/licence-details-species',
+  path: '/buy/licence-details-species',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/upgrade/licence-details-species',
+  path: '/buy/licence-details-species',
   config: {
     handler: handlers.post
   }

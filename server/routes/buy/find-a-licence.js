@@ -14,14 +14,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade/find-a-licence',
+  path: '/buy/find-a-licence',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/upgrade/find-a-licence',
+  path: '/buy/find-a-licence',
   config: {
     handler: handlers.post
   }

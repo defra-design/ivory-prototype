@@ -1,13 +1,13 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.redirect('/find-a-licence')
+    return reply.redirect('buy/name')
   }
 }
 
 
 module.exports = [{
   method: 'GET',
-  path: '/upgrade',
+  path: '/buy',
   config: {
     handler: handlers.get
   }

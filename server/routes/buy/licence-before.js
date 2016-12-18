@@ -23,23 +23,23 @@ const handlers = {
     returnURL = request.query.returnUrl
     var licenceBefore = request.payload.licence_before
     if (licenceBefore === 'Yes') {
-      return reply.redirect('../upgrade/find-a-licence')
+      return reply.redirect('find-a-licence')
     } else {
-      return reply.redirect('../buy')
+      return reply.redirect('name')
     }
   }
 }
 
 module.exports = [{
   method: 'GET',
-  path: '/licence-before',
+  path: '/buy/licence-before',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/licence-before',
+  path: '/buy/licence-before',
   config: {
     handler: handlers.post
   }
