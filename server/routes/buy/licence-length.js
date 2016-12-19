@@ -37,22 +37,22 @@ const handlers = {
         return reply.redirect('number-of-rods')
       }
     } else if (request.session.licenceLength === '365-days') {
+      request.session.haveTime = true
+      // if (returnURL) {
+      //   return reply.redirect('disability?returnUrl=/buy/summary')
+      // } else {
+      //   return reply.redirect('disability')
+      // }
       if (returnURL) {
-        return reply.redirect('disability?returnUrl=/buy/summary')
+        return reply.redirect('licence-start-option?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('disability')
-      }
-    } else if (request.session.haveTime === true){
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('find-address')
+        return reply.redirect('licence-start-option')
       }
     } else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-time')
+        return reply.redirect('licence-start-option')
       }
     }
   }

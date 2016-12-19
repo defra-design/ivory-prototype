@@ -1,20 +1,20 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-before', {
-      pageTitle: 'Have you had a licence before?',
+      pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us if you\'ve had a licence before',
       items: {
         one: {
-          text: 'Yes',
+          text: 'Buy a new licence',
           name: 'licence_before',
-          id: 'Yes',
-          value: 'Yes',
+          id: 'Buy_a_new_licence',
+          value: 'Buy_a_new_licence',
         },
         two: {
-          text: 'No',
+          text: 'Upgrade a licence',
           name: 'licence_before',
-          id: 'No',
-          value: 'No',
+          id: 'Upgrade_a_licence',
+          value: 'Upgrade_a_licence',
         },
       }
     })
@@ -22,7 +22,7 @@ const handlers = {
   post: function (request, reply) {
     returnURL = request.query.returnUrl
     var licenceBefore = request.payload.licence_before
-    if (licenceBefore === 'Yes') {
+    if (licenceBefore === 'Upgrade_a_licence') {
       return reply.redirect('find-a-licence')
     } else {
       return reply.redirect('name')

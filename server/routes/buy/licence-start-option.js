@@ -38,13 +38,17 @@ const handlers = {
       request.session.startTime = startTime +":00"
       request.session.haveTime = true
 
-      if (request.session.startAge < 12) {
-        return reply.redirect('no-licence-required')
+      if (request.session.licenceLength === '365-days') {
+        if (returnURL) {
+          return reply.redirect('disability?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect('disability')
+        }
       } else {
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {
-          return reply.redirect('licence-type')
+          return reply.redirect('find-address')
         }
       }
     } else {

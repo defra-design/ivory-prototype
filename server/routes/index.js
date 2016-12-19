@@ -3,19 +3,14 @@ module.exports = [].concat(
   require('./public'),
   require('./feedback'),
   require('./feedback-thankyou'),
-
   require('./landing'),
   require('./buy/licence-before'),
-
-
   require('./buy/find-a-licence'),
   require('./buy/dob-postcode-check'),
   require('./buy/upgrade-expired'),
   require('./buy/licence-details-species'),
   require('./buy/licence-details-length'),
-
-
-
+  require('./buy/details-updated'),
   require('./buy'),
   require('./buy/licence-type'),
   require('./buy/licence-length'),

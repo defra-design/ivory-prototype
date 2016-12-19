@@ -23,7 +23,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('disability')
+      return reply.redirect('licence-start-option')
     }
   }
 }

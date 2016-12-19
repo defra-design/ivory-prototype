@@ -18,21 +18,6 @@
               </a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <th scope="row">
-                            Date of birth
-                        </th>
-                        <td class="data" id="holder-dob">
-                            {{#if licenceDOB}} {{licenceDOB}} {{else}} Not supplied {{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-dob">
-                            <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
-                Change <span class="visuallyhidden">date of birth</span>
-              </a>
-                        </td>
-                    </tr>
-
                     <tr>
                         <th scope="row">
                             Email address
@@ -78,7 +63,7 @@
                 </tbody>
             </table>
             <br>
-            <a class="button" href="/upgrade/upgrade-expired">Exit service</a> {{else}}
+            <a class="button" href="/buy/details-updated">Continue</a> {{else}}
 
             <h1 class="heading-large">{{pageTitle}}</h1>
             <br> {{#if isJunior}} {{else}}

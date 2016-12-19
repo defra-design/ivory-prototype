@@ -31,11 +31,18 @@ const handlers = {
     request.session.age = age
     returnURL = request.query.returnUrl
 
-    if (returnURL) {
-      return reply.redirect(returnURL)
+    if (request.session.age < 12) {
+      return reply.redirect('no-licence-required')
+    } else if (request.session.age < 17) {
+      request.session.isJunior = true
+      request.session.licenceLength = '365-days'
+      return reply.redirect('licence-type')
     } else {
-      return reply.redirect('licence-start-option')
-      //return reply(age)
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('licence-type')
+      }
     }
   }
 }

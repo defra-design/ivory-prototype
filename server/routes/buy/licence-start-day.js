@@ -16,28 +16,43 @@ const handlers = {
     var options = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
-    var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
-    var startAge = startDate.getFullYear() - birthDate.getFullYear();
-    var m = startDate.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
-          startAge--;
-      }
+     var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    // var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    // var startAge = startDate.getFullYear() - birthDate.getFullYear();
+    // var m = startDate.getMonth() - birthDate.getMonth();
+    //   if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
+    //       startAge--;
+    //   }
 
-    request.session.startAge = startAge
-    request.session.date = date
+    // request.session.startAge = startAge
+    // request.session.date = date
     request.session.startDate = date.toLocaleDateString("en-us", options)
 
-    if (request.session.startAge < 12) {
-      return reply.redirect('no-licence-required')
+
+
+
+    if (request.session.licenceLength === '365-days') {
+      if (returnURL) {
+        return reply.redirect('disability?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('disability')
+      }
     } else {
       if (returnURL) {
-        return reply.redirect(returnURL)
+        return reply.redirect('licence-start-time?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('licence-type')
-        //return reply(startDate + ' ' + request.session.age + ' ' + startAge)
+        return reply.redirect('licence-start-time')
       }
     }
+
+  //  else {
+  //     if (returnURL) {
+  //       return reply.redirect(returnURL)
+  //     } else {
+  //       return reply.redirect('licence-start-time')
+  //     }
+  //   }
+
   }
 }
 
