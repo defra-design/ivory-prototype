@@ -56,31 +56,31 @@ const manifest = {
         register: './plugins/ext-pre-response'
       }
     },
-      {
+    {
       plugin: {
         register: 'hapi-server-session',
         options: {
           cookie: {
-            isSecure: false,
-          },
-        },
+            isSecure: false
+          }
+        }
       }
     },
-      {
+    {
       plugin: {
         register: 'hapi-context-credentials'
       }
     },
     {
-    plugin: {
-      register: 'hapi-auth-basic'
-    }
-  },
+      plugin: {
+        register: 'hapi-auth-basic'
+      }
+    },
     {
-    plugin: {
-      register: 'hapi-auth-cookie'
+      plugin: {
+        register: 'hapi-auth-cookie'
+      }
     }
-  }
   ]
 }
 
