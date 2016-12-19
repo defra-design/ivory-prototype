@@ -61,15 +61,15 @@ const handlers = {
       }
 
 
-      if (returnURL) {
-        return reply.redirect(returnURL)
+      if (request.session.isJunior === true) {
+        return reply.redirect('find-address')
       } else {
-      return reply.redirect('licence-length')
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('licence-length')
+        }
       }
-
-
-
-
   }
 }
 
