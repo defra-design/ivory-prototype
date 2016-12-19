@@ -1,877 +1,638 @@
-$(document).ready(function() {
-   var dp1 = new datepicker('dp1', 'day', 'month', 'year', true);
+$(function () {
+  var page = new StartDatePage({
+    maxDaysInAdvance: 30
+  })
+})
 
-   $('#bn_date').click(function(e) {
-      dp1.showDlg();
+function StartDatePage (options) {
+  var maxDate = options.maxDaysInAdvance
+  var $day = $('#day')
+  var $month = $('#month')
+  var $year = $('#year')
+  var $datepicker = $('#datepicker')
 
-      e.stopPropagation();
-      return false;
-   });
-});
+  if ($datepicker.val() === '//') {
+    $datepicker.val('')
+  }
 
-function datepicker(id, target1, target2, target3, modal) {
+  $datepicker.datepicker({
+    minDate: 0,
+    maxDate: maxDate,
+    dateFormat: 'dd/mm/yy',
+    showOn: 'button',
+    buttonImage: '/public/images/calendar.png',
+    buttonImageOnly: false,
+    buttonText: 'Open calendar',
+    dayNamesShort: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+    showButtonPanel: true,
+    closeText: 'Close',
+    onSelect: onSelect
+  })
 
+  dayTripper()
 
-   this.$id = $('#' + id); // element to attach widget to
-   this.$monthObj = this.$id.find('#month');
-   this.$prev = this.$id.find('#bn_prev');
-   this.$next = this.$id.find('#bn_next');
-   this.$grid = this.$id.find('#cal');
-   this.$target1 = $('#' + target1); // div or text box that will receive the selected date string and focus (if modal)
-   this.$target2 = $('#' + target2); // div or text box that will receive the selected date string and focus (if modal)
-   this.$target3 = $('#' + target3); // div or text box that will receive the selected date string and focus (if modal)
-   this.bModal = modal; // true if datepicker should appear in a modal dialog box.
+  function dayTripper () {
+    $('.ui-datepicker-trigger').click(function () {
+      setTimeout(function () {
+        var $today = $('.ui-datepicker-today a')
+        var $selected = $('.ui-datepicker-current-day a')
 
-   this.monthNames = ['January', 'February', 'March', 'April','May','June',
-         'July', 'August', 'September', 'October', 'November', 'December'];
+        if ($selected.length) {
+          $selected.focus()
+        } else {
+          $today.focus()
+        }
 
-   this.dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        // Hide the "today" button
+        $('.ui-datepicker-current').hide()
 
-   this.dateObj = new Date();
+        datePickHandler()
+      }, 0)
+    })
+  }
 
-   this.curYear = this.dateObj.getFullYear();
-   this.year = this.curYear;
+  function datePickHandler () {
+    var activeDate, prev, next
+    var container = document.getElementById('ui-datepicker-div')
+    var input = document.getElementById('datepicker')
 
-   this.curMonth = this.dateObj.getMonth();
-   this.month = this.curMonth;
-   this.currentDate = true;
+    if (!container || !input) {
+      return
+    }
 
-   this.date = this.dateObj.getDate();
+    $(container).find('table').first().attr('role', 'grid')
 
-   this.keys = {
-                tab:       9,
-                enter:    13,
-                esc:      27,
-                space:    32,
-                pageup:   33,
-                pagedown: 34,
-                end:      35,
-                home:     36,
-                left:     37,
-                up:       38,
-                right:    39,
-                down:     40
-               };
+    container.setAttribute('role', 'application')
+    container.setAttribute('aria-label', 'Calendar view date-picker')
 
-   // display the current month
-   this.$monthObj.html(this.monthNames[this.month] + ' ' + this.year);
+    // the top controls:
+    prev = $('.ui-datepicker-prev', container)[0]
+    next = $('.ui-datepicker-next', container)[0]
 
-   // populate the calendar grid
-   this.popGrid();
+    // This is the line that needs to be fixed for use on pages with base URL set in head
+    next.href = 'javascript:void(0)'
+    prev.href = 'javascript:void(0)'
 
-   // update the table's activedescdendant to point to the current day
-   this.$grid.attr('aria-activedescendant', this.$grid.find('.today').attr('id'));
+    next.setAttribute('role', 'button')
+    next.removeAttribute('title')
+    prev.setAttribute('role', 'button')
+    prev.removeAttribute('title')
 
-   this.bindHandlers();
+    appendOffscreenMonthText(next)
+    appendOffscreenMonthText(prev)
 
-   // hide dialog if in modal mode
-   if (this.bModal == true) {
-      this.$id.attr('aria-hidden', 'true');
-   }
+    // delegation won't work here for whatever reason, so we are
+    // forced to attach individual click listeners to the prev /
+    // next month buttons each time they are added to the DOM
+    $(next).on('click', handleNextClicks)
+    $(prev).on('click', handlePrevClicks)
+
+    monthDayYearText()
+
+    $(container).on('keydown', function calendarKeyboardListener (keyVent) {
+      var which = keyVent.which
+      var target = keyVent.target
+      var dateCurrent = getCurrentDate(container)
+
+      if (!dateCurrent) {
+        dateCurrent = $('a.ui-state-default')[0]
+        setHighlightState(dateCurrent, container)
+      }
+
+      if (which === 27) {
+        keyVent.stopPropagation()
+        return closeCalendar()
+      } else if (which === 9 && keyVent.shiftKey) { // SHIFT + TAB
+        keyVent.preventDefault()
+        if ($(target).hasClass('ui-datepicker-close')) { // close button
+          $('.ui-datepicker-prev')[0].focus()
+        } else if ($(target).hasClass('ui-state-default')) { // a date link
+          $('.ui-datepicker-close')[0].focus()
+        } else if ($(target).hasClass('ui-datepicker-prev')) { // the prev link
+          $('.ui-datepicker-next')[0].focus()
+        } else if ($(target).hasClass('ui-datepicker-next')) { // the next link
+          activeDate = $('.ui-state-highlight') ||
+          $('.ui-state-active')[0]
+          if (activeDate) {
+            activeDate.focus()
+          }
+        }
+      } else if (which === 9) { // TAB
+        keyVent.preventDefault()
+        if ($(target).hasClass('ui-datepicker-close')) { // close button
+          activeDate = $('.ui-state-highlight') ||
+          $('.ui-state-active')[0]
+          if (activeDate) {
+            activeDate.focus()
+          }
+        } else if ($(target).hasClass('ui-state-default')) {
+          $('.ui-datepicker-next')[0].focus()
+        } else if ($(target).hasClass('ui-datepicker-next')) {
+          $('.ui-datepicker-prev')[0].focus()
+        } else if ($(target).hasClass('ui-datepicker-prev')) {
+          $('.ui-datepicker-close')[0].focus()
+        }
+      } else if (which === 37) { // LEFT arrow key
+        // if we're on a date link...
+        if (!$(target).hasClass('ui-datepicker-close') && $(target).hasClass('ui-state-default')) {
+          keyVent.preventDefault()
+          previousDay(target)
+        }
+      } else if (which === 39) { // RIGHT arrow key
+        // if we're on a date link...
+        if (!$(target).hasClass('ui-datepicker-close') && $(target).hasClass('ui-state-default')) {
+          keyVent.preventDefault()
+          nextDay(target)
+        }
+      } else if (which === 38) { // UP arrow key
+        if (!$(target).hasClass('ui-datepicker-close') && $(target).hasClass('ui-state-default')) {
+          keyVent.preventDefault()
+          upHandler(target, container, prev)
+        }
+      } else if (which === 40) { // DOWN arrow key
+        if (!$(target).hasClass('ui-datepicker-close') && $(target).hasClass('ui-state-default')) {
+          keyVent.preventDefault()
+          downHandler(target, container, next)
+        }
+      } else if (which === 13) { // ENTER
+        if ($(target).hasClass('ui-state-default')) {
+          setTimeout(function () {
+            closeCalendar()
+          }, 100)
+        } else if ($(target).hasClass('ui-datepicker-prev')) {
+          handlePrevClicks()
+        } else if ($(target).hasClass('ui-datepicker-next')) {
+          handleNextClicks()
+        }
+      } else if (which === 32) {
+        if ($(target).hasClass('ui-datepicker-prev') || $(target).hasClass('ui-datepicker-next')) {
+          target.click()
+        }
+      } else if (which === 33) { // PAGE UP
+        moveOneMonth(target, 'prev')
+      } else if (which === 34) { // PAGE DOWN
+        moveOneMonth(target, 'next')
+      } else if (which === 36) { // HOME
+        var firstOfMonth = $(target).closest('tbody').find('.ui-state-default')[0]
+        if (firstOfMonth) {
+          firstOfMonth.focus()
+          setHighlightState(firstOfMonth, $('#ui-datepicker-div')[0])
+        }
+      } else if (which === 35) { // END
+        var $daysOfMonth = $(target).closest('tbody').find('.ui-state-default')
+        var lastDay = $daysOfMonth[$daysOfMonth.length - 1]
+        if (lastDay) {
+          lastDay.focus()
+          setHighlightState(lastDay, $('#ui-datepicker-div')[0])
+        }
+      }
+      $('.ui-datepicker-current').hide()
+    })
+  }
+
+  function closeCalendar () {
+    var container = $('#ui-datepicker-div')
+    $(container).off('keydown')
+    var input = $('#datepicker')[0]
+    $(input).datepicker('hide')
+
+    input.focus()
+  }
+
+  function moveOneMonth (currentDate, dir) {
+    var button = (dir === 'next')
+      ? $('.ui-datepicker-next')[0]
+      : $('.ui-datepicker-prev')[0]
+
+    if (!button) {
+      return
+    }
+
+    var ENABLED_SELECTOR = '#ui-datepicker-div tbody td:not(.ui-state-disabled)'
+    var $currentCells = $(ENABLED_SELECTOR)
+    var currentIdx = $.inArray(currentDate.parentNode, $currentCells)
+
+    button.click()
+    setTimeout(function () {
+      updateHeaderElements()
+
+      var $newCells = $(ENABLED_SELECTOR)
+      var newTd = $newCells[currentIdx]
+      var newAnchor = newTd && $(newTd).find('a')[0]
+
+      while (!newAnchor) {
+        currentIdx--
+        newTd = $newCells[currentIdx]
+        newAnchor = newTd && $(newTd).find('a')[0]
+      }
+
+      setHighlightState(newAnchor, $('#ui-datepicker-div')[0])
+      newAnchor.focus()
+    }, 0)
+  }
+
+  function handleNextClicks () {
+    setTimeout(function () {
+      updateHeaderElements()
+      prepHighlightState()
+      $('.ui-datepicker-next').focus()
+      $('.ui-datepicker-current').hide()
+    }, 0)
+  }
+
+  function handlePrevClicks () {
+    setTimeout(function () {
+      updateHeaderElements()
+      prepHighlightState()
+      $('.ui-datepicker-prev').focus()
+      $('.ui-datepicker-current').hide()
+    }, 0)
+  }
+
+  function previousDay (dateLink) {
+    var container = document.getElementById('ui-datepicker-div')
+    if (!dateLink) {
+      return
+    }
+    var td = $(dateLink).closest('td')
+    if (!td) {
+      return
+    }
+
+    var prevTd = $(td).prev()
+    var prevDateLink = $('a.ui-state-default', prevTd)[0]
+
+    if (prevTd && prevDateLink) {
+      setHighlightState(prevDateLink, container)
+      prevDateLink.focus()
+    } else {
+      handlePrevious(dateLink)
+    }
+  }
+
+  function handlePrevious (target) {
+    var container = document.getElementById('ui-datepicker-div')
+    if (!target) {
+      return
+    }
+    var currentRow = $(target).closest('tr')
+    if (!currentRow) {
+      return
+    }
+    var previousRow = $(currentRow).prev()
+
+    if (!previousRow || previousRow.length === 0) {
+      // there is not previous row, so we go to previous month...
+      previousMonth()
+    } else {
+      var prevRowDates = $('td a.ui-state-default', previousRow)
+      var prevRowDate = prevRowDates[prevRowDates.length - 1]
+
+      if (prevRowDate) {
+        setTimeout(function () {
+          setHighlightState(prevRowDate, container)
+          prevRowDate.focus()
+        }, 0)
+      }
+    }
+  }
+
+  function previousMonth () {
+    var prevLink = $('.ui-datepicker-prev')[0]
+    var container = document.getElementById('ui-datepicker-div')
+    prevLink.click()
+    // focus last day of new month
+    setTimeout(function () {
+      var trs = $('tr', container)
+      var lastRowTdLinks = $('td a.ui-state-default', trs[trs.length - 1])
+      var lastDate = lastRowTdLinks[lastRowTdLinks.length - 1]
+
+      // updating the cached header elements
+      updateHeaderElements()
+
+      setHighlightState(lastDate, container)
+      lastDate.focus()
+    }, 0)
+  }
+
+  /**
+   * Handles right arrow key navigation
+   * @param  {HTMLElement} dateLink The target of the keyboard event
+   */
+  function nextDay (dateLink) {
+    var container = document.getElementById('ui-datepicker-div')
+    if (!dateLink) {
+      return
+    }
+    var td = $(dateLink).closest('td')
+    if (!td) {
+      return
+    }
+    var nextTd = $(td).next()
+    var nextDateLink = $('a.ui-state-default', nextTd)[0]
+
+    if (nextTd && nextDateLink) {
+      setHighlightState(nextDateLink, container)
+      nextDateLink.focus()
+    } else {
+      handleNext(dateLink)
+    }
+  }
+
+  function handleNext (target) {
+    var container = document.getElementById('ui-datepicker-div')
+    if (!target) {
+      return
+    }
+    var currentRow = $(target).closest('tr')
+    var nextRow = $(currentRow).next()
+
+    if (!nextRow || nextRow.length === 0) {
+      nextMonth()
+    } else {
+      var nextRowFirstDate = $('a.ui-state-default', nextRow)[0]
+      if (nextRowFirstDate) {
+        setHighlightState(nextRowFirstDate, container)
+        nextRowFirstDate.focus()
+      }
+    }
+  }
+
+  function nextMonth () {
+    var nextMon = $('.ui-datepicker-next')[0]
+    var container = document.getElementById('ui-datepicker-div')
+    nextMon.click()
+    // focus the first day of the new month
+    setTimeout(function () {
+      // updating the cached header elements
+      updateHeaderElements()
+
+      var firstDate = $('a.ui-state-default', container)[0]
+      setHighlightState(firstDate, container)
+      firstDate.focus()
+    }, 0)
+  }
+
+  // ///////// UP ///////////
+  /**
+   * Handle the up arrow navigation through dates
+   * @param  {HTMLElement} target   The target of the keyboard event (day)
+   * @param  {HTMLElement} cont     The calendar container
+   * @param  {HTMLElement} prevLink Link to navigate to previous month
+   */
+  function upHandler (target, cont, prevLink) {
+    prevLink = $('.ui-datepicker-prev')[0]
+    var rowContext = $(target).closest('tr')
+    if (!rowContext) {
+      return
+    }
+    var rowTds = $('td', rowContext)
+    var rowLinks = $('a.ui-state-default', rowContext)
+    var targetIndex = $.inArray(target, rowLinks)
+    var prevRow = $(rowContext).prev()
+    var prevRowTds = $('td', prevRow)
+    var parallel = prevRowTds[targetIndex]
+    var linkCheck = $('a.ui-state-default', parallel)[0]
+
+    if (prevRow && parallel && linkCheck) {
+      // there is a previous row, a td at the same index
+      // of the target AND theres a link in that td
+      setHighlightState(linkCheck, cont)
+      linkCheck.focus()
+    } else {
+      // we're either on the first row of a month, or we're on the
+      // second and there is not a date link directly above the target
+      prevLink.click()
+      setTimeout(function () {
+        // updating the cached header elements
+        updateHeaderElements()
+        var newRows = $('tr', cont)
+        var lastRow = newRows[newRows.length - 1]
+        var lastRowTds = $('td', lastRow)
+        var tdParallelIndex = $.inArray(target.parentNode, rowTds)
+        var newParallel = lastRowTds[tdParallelIndex]
+        var newCheck = $('a.ui-state-default', newParallel)[0]
+
+        if (lastRow && newParallel && newCheck) {
+          setHighlightState(newCheck, cont)
+          newCheck.focus()
+        } else {
+          // theres no date link on the last week (row) of the new month
+          // meaning its an empty cell, so we'll try the 2nd to last week
+          var secondLastRow = newRows[newRows.length - 2]
+          var secondTds = $('td', secondLastRow)
+          var targetTd = secondTds[tdParallelIndex]
+          var linkCheck = $('a.ui-state-default', targetTd)[0]
+
+          if (linkCheck) {
+            setHighlightState(linkCheck, cont)
+            linkCheck.focus()
+          }
+        }
+      }, 0)
+    }
+  }
+
+  // ////////////// DOWN ////////////////
+  /**
+   * Handles down arrow navigation through dates in calendar
+   * @param  {HTMLElement} target   The target of the keyboard event (day)
+   * @param  {HTMLElement} cont     The calendar container
+   * @param  {HTMLElement} nextLink Link to navigate to next month
+   */
+  function downHandler (target, cont, nextLink) {
+    nextLink = $('.ui-datepicker-next')[0]
+    var targetRow = $(target).closest('tr')
+    if (!targetRow) {
+      return
+    }
+    var targetCells = $('td', targetRow)
+    var cellIndex = $.inArray(target.parentNode, targetCells)
+    var nextRow = $(targetRow).next()
+    var nextRowCells = $('td', nextRow)
+    var nextWeekTd = nextRowCells[cellIndex]
+    var nextWeekCheck = $('a.ui-state-default', nextWeekTd)[0]
+
+    if (nextRow && nextWeekTd && nextWeekCheck) {
+      // theres a next row, a TD at the same index of `target`,
+      // and theres an anchor within that td
+      setHighlightState(nextWeekCheck, cont)
+      nextWeekCheck.focus()
+    } else {
+      nextLink.click()
+
+      setTimeout(function () {
+        // updating the cached header elements
+        updateHeaderElements()
+
+        var nextMonthTrs = $('tbody tr', cont)
+        var firstTds = $('td', nextMonthTrs[0])
+        var firstParallel = firstTds[cellIndex]
+        var firstCheck = $('a.ui-state-default', firstParallel)[0]
+
+        if (firstParallel && firstCheck) {
+          setHighlightState(firstCheck, cont)
+          firstCheck.focus()
+        } else {
+          // lets try the second row b/c we didnt find a
+          // date link in the first row at the target's index
+          var secondRow = nextMonthTrs[1]
+          var secondTds = $('td', secondRow)
+          var secondRowTd = secondTds[cellIndex]
+          var secondCheck = $('a.ui-state-default', secondRowTd)[0]
+
+          if (secondRow && secondCheck) {
+            setHighlightState(secondCheck, cont)
+            secondCheck.focus()
+          }
+        }
+      }, 0)
+    }
+  }
+
+  // add an aria-label to the date link indicating the currently focused date
+  // (formatted identically to the required format: mm/dd/yyyy)
+  function monthDayYearText () {
+    var cleanUps = $('.amaze-date')
+
+    $(cleanUps).each(function (clean) {
+      // each(cleanUps, function (clean) {
+      clean.parentNode.removeChild(clean)
+    })
+
+    var datePickDiv = document.getElementById('ui-datepicker-div')
+    // in case we find no datepick div
+    if (!datePickDiv) {
+      return
+    }
+
+    var dates = $('a.ui-state-default', datePickDiv)
+
+    $(dates).each(function (index, date) {
+      var currentRow = $(date).closest('tr')
+      var currentTds = $('td', currentRow)
+      var currentIndex = $.inArray(date.parentNode, currentTds)
+      var headThs = $('thead tr th', datePickDiv)
+      var dayIndex = headThs[currentIndex]
+      var daySpan = $('span', dayIndex)[0]
+      var monthName = $('.ui-datepicker-month', datePickDiv)[0].innerHTML
+      var year = $('.ui-datepicker-year', datePickDiv)[0].innerHTML
+      var number = date.innerHTML
+
+      if (!daySpan || !monthName || !number || !year) {
+        return
+      }
+
+      // AT Reads: {month} {date} {year} {day}
+      // "December 18 2014 Thursday"
+      var dateText = monthName + ' ' + date.innerHTML + ' ' + year + ' ' + daySpan.title
+      // AT Reads: {date(number)} {name of day} {name of month} {year(number)}
+      // var dateText = date.innerHTML + ' ' + daySpan.title + ' ' + monthName + ' ' + year
+      // add an aria-label to the date link reading out the currently focused date
+      date.setAttribute('aria-label', dateText)
+    })
+  }
+
+  // update the cached header elements because we're in a new month or year
+  function updateHeaderElements () {
+    var context = document.getElementById('ui-datepicker-div')
+    if (!context) {
+      return
+    }
+
+    $(context).find('table').first().attr('role', 'grid')
+
+    var prev = $('.ui-datepicker-prev', context)[0]
+    var next = $('.ui-datepicker-next', context)[0]
+
+    // make them click/focus - able
+    next.href = 'javascript:void(0)'
+    prev.href = 'javascript:void(0)'
+
+    next.setAttribute('role', 'button')
+    prev.setAttribute('role', 'button')
+    appendOffscreenMonthText(next)
+    appendOffscreenMonthText(prev)
+
+    $(next).on('click', handleNextClicks)
+    $(prev).on('click', handlePrevClicks)
+
+    // add month day year text
+    monthDayYearText()
+  }
+
+  function prepHighlightState () {
+    var highlight
+    var cage = document.getElementById('ui-datepicker-div')
+    highlight = $('.ui-state-highlight', cage)[0] ||
+    $('.ui-state-default', cage)[0]
+    if (highlight && cage) {
+      setHighlightState(highlight, cage)
+    }
+  }
+
+  // Set the highlighted class to date elements, when focus is recieved
+  function setHighlightState (newHighlight, container) {
+    var prevHighlight = getCurrentDate(container)
+    // remove the highlight state from previously
+    // highlighted date and add it to our newly active date
+    $(prevHighlight).removeClass('ui-state-highlight')
+    $(newHighlight).addClass('ui-state-highlight')
+  }
+
+  // grabs the current date based on the hightlight class
+  function getCurrentDate (container) {
+    var currentDate = $('.ui-state-highlight', container)[0]
+    return currentDate
+  }
+
+  /**
+   * Appends logical next/prev month text to the buttons
+   * - ex: Next Month, January 2015
+   *       Previous Month, November 2014
+   */
+  function appendOffscreenMonthText (button) {
+    var buttonText
+    var isNext = $(button).hasClass('ui-datepicker-next')
+    var months = [
+      'january', 'february',
+      'march', 'april',
+      'may', 'june', 'july',
+      'august', 'september',
+      'october',
+      'november', 'december'
+    ]
+
+    var currentMonth = $('.ui-datepicker-title .ui-datepicker-month').text().toLowerCase()
+    var monthIndex = $.inArray(currentMonth.toLowerCase(), months)
+    var currentYear = $('.ui-datepicker-title .ui-datepicker-year').text().toLowerCase()
+    var adjacentIndex = (isNext) ? monthIndex + 1 : monthIndex - 1
+
+    if (isNext && currentMonth === 'december') {
+      currentYear = parseInt(currentYear, 10) + 1
+      adjacentIndex = 0
+    } else if (!isNext && currentMonth === 'january') {
+      currentYear = parseInt(currentYear, 10) - 1
+      adjacentIndex = months.length - 1
+    }
+
+    buttonText = (isNext)
+      ? 'Next Month, ' + firstToCap(months[adjacentIndex]) + ' ' + currentYear
+      : 'Previous Month, ' + firstToCap(months[adjacentIndex]) + ' ' + currentYear
+
+    $(button).find('.ui-icon').html(buttonText)
+  }
+
+  // Returns the string with the first letter capitalized
+  function firstToCap (s) {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
+  function onSelect (dateText) {
+    var parts = dateText.split('/')
+    $day.val(parts[0])
+    $month.val(parts[1])
+    $year.val(parts[2])
+    $('.ui-datepicker-trigger').focus()
+  }
 }
-
-//
-// popGrid() is a member function to populate the datepicker grid with calendar days
-// representing the current month
-//
-// @return N/A
-//
-datepicker.prototype.popGrid = function() {
-
-   var numDays = this.calcNumDays(this.year, this.month);
-   var startWeekday = this.calcStartWeekday(this.year, this.month);
-   var weekday = 0;
-   var curDay = 1;
-   var rowCount = 1;
-   var $tbody = this.$grid.find('tbody');
-
-   var gridCells = '\t<tr id="row1">\n';
-
-   // clear the grid
-   $tbody.empty();
-   $('#msg').empty();
-
-   // Insert the leading empty cells
-   for (weekday = 0; weekday < startWeekday; weekday++) {
-
-      gridCells += '\t\t<td class="empty">&nbsp;</td>\n';
-   }
-
-   // insert the days of the month.
-   for (curDay = 1; curDay <= numDays; curDay++) {
-
-      if (curDay == this.date && this.currentDate == true) {
-
-         gridCells += '\t\t<td id="day' + curDay + '" class="today" headers="row' +
-                      rowCount + ' ' + this.dayNames[weekday] + '" role="gridcell" aria-selected="false">' + curDay + '</td>';
-
-      }
-      else {
-         gridCells += '\t\t<td id="day' + curDay + '" headers="row' +
-                      rowCount + ' ' + this.dayNames[weekday] + '" role="gridcell" aria-selected="false">' + curDay + '</td>';
-      }
-
-
-      if (weekday == 6 && curDay < numDays) {
-         // This was the last day of the week, close it out
-         // and begin a new one
-         gridCells += '\t</tr>\n\t<tr id="row' + rowCount + '">\n';
-         rowCount++;
-         weekday = 0;
-      }
-      else {
-         weekday++;
-      }
-   }
-
-   // Insert any trailing empty cells
-   for (weekday; weekday < 7; weekday++) {
-
-      gridCells += '\t\t<td class="empty">&nbsp;</td>\n';
-   }
-
-   gridCells += '\t</tr>';
-
-   $tbody.append(gridCells);
-}
-
-//
-// calcNumDays() is a member function to calculate the number of days in a given month
-//
-// @return (integer) number of days
-//
-datepicker.prototype.calcNumDays = function(year, month) {
-
-   return 32 - new Date(year, month, 32).getDate();
-}
-
-//
-// calcstartWeekday() is a member function to calculate the day of the week the first day of a
-// month lands on
-//
-// @return (integer) number representing the day of the week (0=Sunday....6=Saturday)
-//
-datepicker.prototype.calcStartWeekday = function(year, month) {
-
-   return  new Date(year, month, 1).getDay();
-
-} // end calcStartWeekday()
-
-//
-// showPrevMonth() is a member function to show the previous month
-//
-// @param (offset int) offset may be used to specify an offset for setting
-//                      focus on a day the specified number of days from
-//                      the end of the month.
-// @return N/A
-//
-datepicker.prototype.showPrevMonth = function(offset) {
-   // show the previous month
-   if (this.month == 0) {
-      this.month = 11;
-      this.year--;
-   }
-   else {
-      this.month--;
-   }
-
-   if (this.month != this.curMonth || this.year != this.curYear) {
-      this.currentDate = false;
-   }
-   else {
-      this.currentDate = true;
-   }
-
-   // populate the calendar grid
-   this.popGrid();
-
-   this.$monthObj.html(this.monthNames[this.month] + ' ' + this.year);
-
-   // if offset was specified, set focus on the last day - specified offset
-   if (offset != null) {
-      var numDays = this.calcNumDays(this.year, this.month);
-      var day = 'day' + (numDays - offset);
-
-      this.$grid.attr('aria-activedescendant', day);
-      $('#' + day).addClass('focus').attr('aria-selected', 'true');
-   }
-
-} // end showPrevMonth()
-
-//
-// showNextMonth() is a member function to show the next month
-//
-// @param (offset int) offset may be used to specify an offset for setting
-//                      focus on a day the specified number of days from
-//                      the beginning of the month.
-// @return N/A
-//
-datepicker.prototype.showNextMonth = function(offset) {
-
-   // show the next month
-   if (this.month == 11) {
-      this.month = 0;
-      this.year++;
-   }
-   else {
-      this.month++;
-   }
-
-   if (this.month != this.curMonth || this.year != this.curYear) {
-      this.currentDate = false;
-   }
-   else {
-      this.currentDate = true;
-   }
-
-   // populate the calendar grid
-   this.popGrid();
-
-   this.$monthObj.html(this.monthNames[this.month] + ' ' + this.year);
-
-      // if offset was specified, set focus on the first day + specified offset
-      if (offset != null) {
-         var day = 'day' + offset;
-
-         this.$grid.attr('aria-activedescendant', day);
-         $('#' + day).addClass('focus').attr('aria-selected', 'true');
-      }
-
-} // end showNextMonth()
-
-//
-// showPrevYear() is a member function to show the previous year
-//
-// @return N/A
-//
-datepicker.prototype.showPrevYear = function() {
-
-      // decrement the year
-      this.year--;
-
-      if (this.month != this.curMonth || this.year != this.curYear) {
-         this.currentDate = false;
-      }
-      else {
-         this.currentDate = true;
-      }
-
-      // populate the calendar grid
-      this.popGrid();
-
-      this.$monthObj.html(this.monthNames[this.month] + ' ' + this.year);
-
-} // end showPrevYear()
-
-//
-// showNextYear() is a member function to show the next year
-//
-// @return N/A
-//
-datepicker.prototype.showNextYear = function() {
-
-   // increment the year
-   this.year++;
-
-   if (this.month != this.curMonth || this.year != this.curYear) {
-      this.currentDate = false;
-   }
-   else {
-      this.currentDate = true;
-   }
-
-   // populate the calendar grid
-   this.popGrid();
-
-   this.$monthObj.html(this.monthNames[this.month] + ' ' + this.year);
-
-} // end showNextYear()
-
-//
-// bindHandlers() is a member function to bind event handlers for the widget
-//
-// @return N/A
-//
-datepicker.prototype.bindHandlers = function() {
-
-   var thisObj = this;
-
-   ////////////////////// bind button handlers //////////////////////////////////
-   this.$prev.click(function(e) {
-      return thisObj.handlePrevClick(e);
-   });
-
-   this.$next.click(function(e) {
-      return thisObj.handleNextClick(e);
-   });
-
-   this.$prev.keydown(function(e) {
-      return thisObj.handlePrevKeyDown(e);
-   });
-
-   this.$next.keydown(function(e) {
-      return thisObj.handleNextKeyDown(e);
-   });
-
-   ///////////// bind grid handlers //////////////
-
-   this.$grid.keydown(function(e) {
-      return thisObj.handleGridKeyDown(e);
-   });
-
-   this.$grid.keypress(function(e) {
-      return thisObj.handleGridKeyPress(e);
-   });
-
-   this.$grid.focus(function(e) {
-      return thisObj.handleGridFocus(e);
-   });
-
-   this.$grid.blur(function(e) {
-      return thisObj.handleGridBlur(e);
-   });
-
-   this.$grid.delegate('td', 'click', function(e) {
-      return thisObj.handleGridClick(this, e);
-   });
-
-} // end bindHandlers();
-
-//
-// handlePrevClick() is a member function to process click events for the prev month button
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handlePrevClick = function(e) {
-
-   var active = this.$grid.attr('aria-activedescendant');
-
-   if (e.ctrlKey) {
-      this.showPrevYear();
-   }
-   else {
-      this.showPrevMonth();
-   }
-
-   if (this.currentDate == false) {
-      this.$grid.attr('aria-activedescendant', 'day1');
-   }
-   else {
-      this.$grid.attr('aria-activedescendant', active);
-   }
-
-   e.stopPropagation();
-   return false;
-
-} // end handlePrevClick()
-
-//
-// handleNextClick() is a member function to process click events for the next month button
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handleNextClick = function(e) {
-
-   var active = this.$grid.attr('aria-activedescendant');
-
-   if (e.ctrlKey) {
-      this.showNextYear();
-   }
-   else {
-      this.showNextMonth();
-   }
-
-   if (this.currentDate == false) {
-      this.$grid.attr('aria-activedescendant', 'day1');
-   }
-   else {
-      this.$grid.attr('aria-activedescendant', active);
-   }
-
-   e.stopPropagation();
-   return false;
-
-} // end handleNextClick()
-
-//
-// handlePrevKeyDown() is a member function to process keydown events for the prev month button
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handlePrevKeyDown = function(e) {
-
-   if (e.altKey) {
-      return true;
-   }
-
-   switch (e.keyCode) {
-      case this.keys.tab: {
-         if (this.bModal == false || !e.shiftKey || e.ctrlKey) {
-            return true;
-         }
-
-         this.$grid.focus();
-         e.stopPropagation();
-         return false;
-      }
-      case this.keys.enter:
-      case this.keys.space: {
-         if (e.shiftKey) {
-            return true;
-         }
-
-         if (e.ctrlKey) {
-            this.showPrevYear();
-         }
-         else {
-            this.showPrevMonth();
-         }
-
-         e.stopPropagation();
-         return false;
-      }
-   }
-
-   return true;
-
-} // end handlePrevKeyDown()
-
-//
-// handleNextKeyDown() is a member function to process keydown events for the next month button
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handleNextKeyDown = function(e) {
-
-   if (e.altKey) {
-      return true;
-   }
-
-   switch (e.keyCode) {
-      case this.keys.enter:
-      case this.keys.space: {
-
-         if (e.ctrlKey) {
-            this.showNextYear();
-         }
-         else {
-            this.showNextMonth();
-         }
-
-         e.stopPropagation();
-         return false;
-      }
-   }
-
-   return true;
-
-} // end handleNextKeyDown()
-
-//
-// handleGridKeyDown() is a member function to process keydown events for the datepicker grid
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handleGridKeyDown = function(e) {
-
-      var $rows = this.$grid.find('tbody tr');
-      var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
-      var $days = this.$grid.find('td').not('.empty');
-      var $curRow = $curDay.parent();
-
-      if (e.altKey) {
-         return true;
-      }
-
-      switch(e.keyCode) {
-         case this.keys.tab: {
-
-            if (this.bModal == true) {
-               if (e.shiftKey) {
-                  this.$next.focus();
-               }
-               else {
-                  this.$prev.focus();
-               }
-               e.stopPropagation()
-               return false;
-            }
-            break;
-         }
-         case this.keys.enter:
-         case this.keys.space: {
-
-            if (e.ctrlKey) {
-               return true;
-            }
-
-            // update the target box
-            this.$target.val((this.month < 9 ? '0' : '') + (this.month+1) + '/' + $curDay.html() + '/' + this.year);
-
-            // fall through
-         }
-         case this.keys.esc: {
-            // dismiss the dialog box
-            this.hideDlg();
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.left: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            var dayIndex = $days.index($curDay) - 1;
-            var $prevDay = null;
-
-            if (dayIndex >= 0) {
-               $prevDay = $days.eq(dayIndex);
-
-               $curDay.removeClass('focus').attr('aria-selected', 'false');
-               $prevDay.addClass('focus').attr('aria-selected', 'true');
-
-               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
-            }
-            else {
-               this.showPrevMonth(0);
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.right: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            var dayIndex = $days.index($curDay) + 1;
-            var $nextDay = null;
-
-            if (dayIndex < $days.length) {
-               $nextDay = $days.eq(dayIndex);
-               $curDay.removeClass('focus').attr('aria-selected', 'false');
-               $nextDay.addClass('focus').attr('aria-selected', 'true');
-
-               this.$grid.attr('aria-activedescendant', $nextDay.attr('id'));
-            }
-            else {
-               // move to the next month
-               this.showNextMonth(1);
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.up: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            var dayIndex = $days.index($curDay) - 7;
-            var $prevDay = null;
-
-            if (dayIndex >= 0) {
-               $prevDay = $days.eq(dayIndex);
-
-               $curDay.removeClass('focus').attr('aria-selected', 'false');
-               $prevDay.addClass('focus').attr('aria-selected', 'true');
-
-               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
-            }
-            else {
-               // move to appropriate day in previous month
-               dayIndex = 6 - $days.index($curDay);
-
-               this.showPrevMonth(dayIndex);
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.down: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            var dayIndex = $days.index($curDay) + 7;
-            var $prevDay = null;
-
-            if (dayIndex < $days.length) {
-               $prevDay = $days.eq(dayIndex);
-
-               $curDay.removeClass('focus').attr('aria-selected', 'false');
-               $prevDay.addClass('focus').attr('aria-selected', 'true');
-
-               this.$grid.attr('aria-activedescendant', $prevDay.attr('id'));
-            }
-            else {
-               // move to appropriate day in next month
-               dayIndex = 8 - ($days.length - $days.index($curDay));
-
-               this.showNextMonth(dayIndex);
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.pageup: {
-            var active = this.$grid.attr('aria-activedescendant');
-
-
-            if (e.shiftKey) {
-               return true;
-            }
-
-
-            if (e.ctrlKey) {
-               this.showPrevYear();
-            }
-            else {
-               this.showPrevMonth();
-            }
-
-            if ($('#' + active).attr('id') == undefined) {
-               var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-               $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
-            }
-            else {
-               $('#' + active).addClass('focus').attr('aria-selected', 'true');
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.pagedown: {
-            var active = this.$grid.attr('aria-activedescendant');
-
-
-            if (e.shiftKey) {
-               return true;
-            }
-
-            if (e.ctrlKey) {
-               this.showNextYear();
-            }
-            else {
-               this.showNextMonth();
-            }
-
-            if ($('#' + active).attr('id') == undefined) {
-               var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-               $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
-            }
-            else {
-               $('#' + active).addClass('focus').attr('aria-selected', 'true');
-            }
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.home: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            $curDay.removeClass('focus').attr('aria-selected', 'false');
-
-            $('#day1').addClass('focus').attr('aria-selected', 'true');
-
-            this.$grid.attr('aria-activedescendant', 'day1');
-
-            e.stopPropagation();
-            return false;
-         }
-         case this.keys.end: {
-
-            if (e.ctrlKey || e.shiftKey) {
-               return true;
-            }
-
-            var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-
-            $curDay.removeClass('focus').attr('aria-selected', 'false');
-
-            $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
-
-            this.$grid.attr('aria-activedescendant', lastDay);
-
-            e.stopPropagation();
-            return false;
-         }
-      }
-
-      return true;
-
-} // end handleGridKeyDown()
-
-//
-// handleGridKeyPress() is a member function to consume keypress events for browsers that
-// use keypress to scroll the screen and manipulate tabs
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handleGridKeyPress = function(e) {
-
-      if (e.altKey) {
-         return true;
-      }
-
-      switch(e.keyCode) {
-         case this.keys.tab:
-         case this.keys.enter:
-         case this.keys.space:
-         case this.keys.esc:
-         case this.keys.left:
-         case this.keys.right:
-         case this.keys.up:
-         case this.keys.down:
-         case this.keys.pageup:
-         case this.keys.pagedown:
-         case this.keys.home:
-         case this.keys.end: {
-            e.stopPropagation();
-            return false;
-         }
-      }
-
-      return true;
-
-} // end handleGridKeyPress()
-
-//
-// handleGridClick() is a member function to process mouse click events for the datepicker grid
-//
-// @input (id obj) e is the id of the object triggering the event
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) false if consuming event, true if propagating
-//
-datepicker.prototype.handleGridClick = function(id, e) {
-   var $cell = $(id);
-
-   if ($cell.is('.empty')) {
-      return true;
-   }
-
-   this.$grid.find('.focus').removeClass('focus').attr('aria-selected', 'false');
-   $cell.addClass('focus').attr('aria-selected', 'true');
-   this.$grid.attr('aria-activedescendant', $cell.attr('id'));
-
-   var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
-
-   // update the target box
-   this.$target1.val($curDay.html());
-   this.$target2.val((this.month < 9 ? '0' : '') + (this.month+1));
-   this.$target3.val(this.year);
-
-   // dismiss the dialog box
-   this.hideDlg();
-
-   e.stopPropagation();
-   return false;
-
-} // end handleGridClick()
-
-//
-// handleGridFocus() is a member function to process focus events for the datepicker grid
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) true
-//
-datepicker.prototype.handleGridFocus = function(e) {
-   var active = this.$grid.attr('aria-activedescendant');
-
-   if ($('#' + active).attr('id') == undefined) {
-      var lastDay = 'day' + this.calcNumDays(this.year, this.month);
-      $('#' + lastDay).addClass('focus').attr('aria-selected', 'true');
-   }
-   else {
-      $('#' + active).addClass('focus').attr('aria-selected', 'true');
-   }
-
-   return true;
-
-} // end handleGridFocus()
-
-//
-// handleGridBlur() is a member function to process blur events for the datepicker grid
-//
-// @input (e obj) e is the event object associated with the event
-//
-// @return (boolean) true
-//
-datepicker.prototype.handleGridBlur = function(e) {
-   $('#' + this.$grid.attr('aria-activedescendant')).removeClass('focus').attr('aria-selected', 'false');
-
-   return true;
-
-} // end handleGridBlur()
-
-//
-// showDlg() is a member function to show the datepicker and give it focus. This function is only called if
-// the datepicker is used in modal dialog mode.
-//
-// @return N/A
-//
-datepicker.prototype.showDlg = function() {
-
-   var thisObj = this;
-
-  // Bind an event listener to the document to capture all mouse events to make dialog modal
-  $(document).bind('click mousedown mouseup mousemove mouseover', function(e) {
-
-    //ensure focus remains on the dialog
-    thisObj.$grid.focus();
-
-    // Consume all mouse events and do nothing
-    e.stopPropagation;
-    return false;
-  });
-
-   // show the dialog
-   this.$id.attr('aria-hidden', 'false');
-
-   this.$grid.focus();
-
-} // end showDlg()
-
-//
-// hideDlg() is a member function to hide the datepicker and remove focus. This function is only called if
-// the datepicker is used in modal dialog mode.
-//
-// @return N/A
-//
-datepicker.prototype.hideDlg = function() {
-
-   var thisObj = this;
-
-  // unbind the modal event sinks
-  $(document).unbind('click mousedown mouseup mousemove mouseover');
-
-   // hide the dialog
-   this.$id.attr('aria-hidden', 'true');
-
-   // set focus on the focus target
-   this.$target.focus();
-
-} // end showDlg()
