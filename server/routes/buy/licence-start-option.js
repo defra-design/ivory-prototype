@@ -8,11 +8,15 @@ const handlers = {
             text: '30 minutes after payment',
             name: 'licence_start_option',
             id: 'asap',
+            value: 'asap',
+            //selectedText: '365-day licences are only available from April 1st 2017',
           },
           two: {
             text: 'Another time or date',
             name: 'licence_start_option',
             id: 'absolute',
+            value: 'absolute',
+            //selectedText: 'ddddddd',
           },
       }
     })

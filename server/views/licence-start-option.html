@@ -2,31 +2,25 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-
-
-
+        <div class="panel panel-border-wide">
+            <p>
+                12 month licences are now valid for 365 days from their start date and can be purchased at any time from April 1st 2017.
+            </p>
+        </div>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group">
-
-                <!-- {{#if errors}}
-                <div class="alert alert-error">
-                    <span class="error-message">{{errorMessage}}</span>
-                </div>
-                {{/if}} -->
-
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         {{#each items}}
-                        <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                        <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{value}}_text" {{/if}}>
 
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-
                       {{text}}
                       {{#if subText}}
                         <br>{{subText}}
                       {{/if}}
                     </label> {{#if selectedText}}
-                        <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
                             <p>{{selectedText}}</p>
                         </div>
                         {{/if}} {{/each}}
