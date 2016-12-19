@@ -41,6 +41,7 @@ const handlers = {
       if (request.session.startAge < 12) {
         return reply.redirect('no-licence-required')
       } else {
+        request.session.beforeApril = true
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {

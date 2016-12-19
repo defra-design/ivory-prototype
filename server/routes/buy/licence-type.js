@@ -55,30 +55,63 @@ const handlers = {
 
     // Rods
       if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.numberOfRods ='1 rod (or up to 2 rods for trout and coarse fish)'
+        request.session.numberOfRods ='1 rod (or up to 3 rods for trout and coarse fish)'
       } else if (request.session.licenceType === 'Trout and coarse') {
           request.session.numberOfRods = 'Up to 2 rods'
       }
 
 
-    if (request.session.startAge < 17) {
-      request.session.isJunior = true
-      request.session.licenceLength = '365-days'
-      if (returnURL) {
-        return reply.redirect(returnURL)
+//     if (request.session.startAge < 17) {
+//       request.session.isJunior = true
+//       request.session.licenceLength = '365-days'
+//       if (returnURL) {
+//         return reply.redirect(returnURL)
+//       } else {
+//         return reply.redirect('contact')
+//       }
+//     } else {
+//       if (returnURL) {
+//         return reply.redirect(returnURL)
+//       } else {
+//       return reply.redirect('licence-length')
+//       }
+//     }
+//
+//
+//
+//   }
+// }
+
+
+    if (request.session.beforeApril === true) {
+      if (request.session.isJunior === true) {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('contact')
+        }
       } else {
-        return reply.redirect('contact')
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('licence-short-term-length')
+        }
       }
     } else {
-      if (returnURL) {
-        return reply.redirect(returnURL)
+      if (request.session.isJunior === true) {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('contact')
+        }
       } else {
-      return reply.redirect('licence-length')
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('licence-length')
+        }
       }
     }
-
-
-
   }
 }
 
