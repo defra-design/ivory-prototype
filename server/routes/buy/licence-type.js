@@ -62,7 +62,11 @@ const handlers = {
 
 
       if (request.session.isJunior === true) {
-        return reply.redirect('find-address')
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('find-address')
+        }
       } else {
         if (returnURL) {
           return reply.redirect(returnURL)
