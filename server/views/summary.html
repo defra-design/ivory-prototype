@@ -104,7 +104,7 @@
               </a>
                         </td>
                     </tr>
-
+                    {{#if isJunior}} {{else}}
                     <tr>
                         <th scope="row">
                             Email address
@@ -132,7 +132,7 @@
               </a>
                         </td>
                     </tr>
-                    {{#if isJunior}} {{else}}
+                    {{/if}} {{#if isJunior}} {{else}}
                     <tr>
                         <th scope="row">
                             Address

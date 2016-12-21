@@ -36,7 +36,8 @@ const handlers = {
     } else if (request.session.age < 17) {
       request.session.isJunior = true
       request.session.licenceLength = '365-days'
-      return reply.redirect('licence-start-option')
+      request.session.startDate = "30 minutes after payment"
+      return reply.redirect('licence-type')
     } else {
       if (returnURL) {
         return reply.redirect(returnURL)
