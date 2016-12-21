@@ -8,11 +8,15 @@ const handlers = {
             text: '30 minutes after payment',
             name: 'licence_start_option',
             id: 'asap',
+            value: 'asap',
+            //selectedText: '365-day licences are only available from April 1st 2017',
           },
           two: {
             text: 'Another time or date',
             name: 'licence_start_option',
             id: 'absolute',
+            value: 'absolute',
+            //selectedText: 'ddddddd',
           },
       }
     })
@@ -38,17 +42,14 @@ const handlers = {
       request.session.startTime = startTime +":00"
       request.session.haveTime = true
 
-      if (request.session.licenceLength === '365-days') {
-        if (returnURL) {
-          return reply.redirect('disability?returnUrl=/buy/summary')
-        } else {
-          return reply.redirect('disability')
-        }
+      if (request.session.startAge < 12) {
+        return reply.redirect('no-licence-required')
       } else {
+        request.session.beforeApril = true
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {
-          return reply.redirect('find-address')
+          return reply.redirect('licence-type')
         }
       }
     } else {
@@ -58,6 +59,11 @@ const handlers = {
         return reply.redirect('licence-start-day')
       }
     }
+
+
+
+
+    
   }
 }
 

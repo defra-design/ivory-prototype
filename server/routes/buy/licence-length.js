@@ -9,7 +9,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
+            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year from April 2017.',
           },
           two: {
             text: '1 day',
@@ -37,22 +37,22 @@ const handlers = {
         return reply.redirect('number-of-rods')
       }
     } else if (request.session.licenceLength === '365-days') {
-      request.session.haveTime = true
-      // if (returnURL) {
-      //   return reply.redirect('disability?returnUrl=/buy/summary')
-      // } else {
-      //   return reply.redirect('disability')
-      // }
       if (returnURL) {
-        return reply.redirect('licence-start-option?returnUrl=/buy/summary')
+        return reply.redirect('disability?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('licence-start-option')
+        return reply.redirect('disability')
+      }
+    } else if (request.session.haveTime === true){
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('find-address')
       }
     } else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-option')
+        return reply.redirect('licence-start-time')
       }
     }
   }
