@@ -25,15 +25,16 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('find-address')
+        return reply.redirect('blue-badge-check')
+        //return reply.redirect('find-address')
       }
     } else {
       request.session.hasBlueBadge = true
       request.session.concession = true
       if (returnURL) {
-        return reply.redirect('disability-proof?returnUrl=/buy/summary')
+        return reply.redirect('ni-number?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('disability-proof')
+        return reply.redirect('ni-number')
       }
     }
 
