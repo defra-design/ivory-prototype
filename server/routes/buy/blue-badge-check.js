@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('disability', {
-      pageTitle: 'Does the licence holder receive any of the following benefits?',
+    return reply.view('blue-badge-check', {
+      pageTitle: 'Does the licence holder have a Blue Badge?',
       errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
       items: {
         one: {
@@ -24,39 +24,32 @@ const handlers = {
     if (disability === 'no') {
       if (returnURL) {
         return reply.redirect(returnURL)
-      } else if (request.session.isUpgrade === true){
-        return reply.redirect('summary')
       } else {
-        return reply.redirect('blue-badge-check')
-        //return reply.redirect('find-address')
+        return reply.redirect('find-address')
       }
     } else {
       request.session.hasBlueBadge = true
       request.session.concession = true
       if (returnURL) {
-        return reply.redirect('ni-number?returnUrl=/buy/summary')
+        return reply.redirect('blue-badge?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('ni-number')
+        return reply.redirect('blue-badge')
       }
     }
-
-
-
-
   }
 }
 
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/disability',
+  path: '/buy/blue-badge-check',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/disability',
+  path: '/buy/blue-badge-check',
   config: {
     handler: handlers.post
   }

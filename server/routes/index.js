@@ -23,6 +23,7 @@ module.exports = [].concat(
   require('./buy/no-licence-required'),
   require('./buy/upgrade-licence'),
   require('./buy/disability'),
+  require('./buy/blue-badge-check'),
   require('./buy/disability-proof'),
   require('./buy/blue-badge'),
   require('./buy/ni-number'),
