@@ -131,6 +131,11 @@ const handlers = {
       }
     }
 
+    if (request.session.isUpgrade === true) {
+      request.session.cost = 'Show reduced cost'
+    }
+
+
     return reply.view('summary', {
       pageTitle: 'Check your licence details',
       nameOnLicence: request.session.holderName,
