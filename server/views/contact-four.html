@@ -1,0 +1,57 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <div class="panel panel-border-wide">
+            <p>
+                We will contact you with important licence information including order confirmation and renewal reminders.
+            </p>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <fieldset>
+
+                    <legend class="visually-hidden">How do you want to be contacted?</legend>
+
+                    <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
+        <input id="example-contact-by-email" type="checkbox" name="radio-contact-group" value="Yes">
+        Email
+      </label>
+                    <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                        <label class="form-label" for="contact-email">Email address</label>
+                        <input class="form-control" name="contact-email" type="text" id="contact-email">
+                    </div>
+                    <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-by-text">
+        <input id="example-contact-by-text" type="checkbox" name="radio-contact-group" value="No">
+        Text message
+      </label>
+                    <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                        <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+                    </div>
+                </fieldset>
+
+
+                <h2 class="heading-large">Would you like to receive fishing news and updates?</h2>
+                <!-- <p>We send information on fishing and our newsletters from time to time.</p> -->
+                <fieldset>
+                    <label for="radio_1" class="block-label" id="1">
+        <input id="radio_1" type="radio" name="marketing-radio-group" value="Yes">
+        Yes
+        </label>
+                    <label for="radio_2" class="block-label" id="2">
+        <input id="radio_2" type="radio" name="marketing-radio-group" value="No">
+        No
+        </label>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+
+        <br>
+        <a href="/buy/data-protection">View our data protection notice</a>
+
+
+    </div>
+</div>

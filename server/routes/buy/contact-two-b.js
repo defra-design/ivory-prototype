@@ -1,25 +1,25 @@
 
 const handlers = {
   get: function (request, reply) {
-    return reply.view('email-address', {
-      pageTitle: 'Enter your email address',
+    return reply.view('contact-two-b', {
+      pageTitle: 'Would the licence holder like to receive fishing news and updates?',
     })
   },
   post: function (request, reply) {
-    return reply.redirect('contact-three')
+      return reply.redirect('')
   }
 }
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/email-address',
+  path: '/buy/contact-two-b',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/email-address',
+  path: '/buy/contact-two-b',
   config: {
     handler: handlers.post
   }
