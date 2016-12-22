@@ -10,4 +10,5 @@ module.exports = [{
   config: {
     handler: handlers.get
   }
-}]
+}
+]

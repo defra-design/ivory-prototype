@@ -13,29 +13,40 @@ const handlers = {
     request.session.birthDay = request.payload.birthDay
     request.session.birthMonth = request.payload.birthMonth
     request.session.birthYear = request.payload.birthYear
-    // Combile address
-    //request.session.dateOfBirth = request.session.birthDay + " " + request.session.birthMonth + " " + request.session.birthYear
-    var date = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+
+    // Calculate age
+    var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
     var options = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
-    request.session.dateOfBirth = date.toLocaleDateString("en-us", options)
-    var year = request.payload.birthYear
+    request.session.dateOfBirth = dob.toLocaleDateString("en-us", options)
+    var today = new Date();
+    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+
+    request.session.age = age
     returnURL = request.query.returnUrl
 
-    if (year >= 2004) {
-      // 12 or younger - No license needed
+    if (request.session.age < 12) {
       return reply.redirect('no-licence-required')
+    } else if (request.session.age < 17) {
+      request.session.isJunior = true
+      request.session.licenceLength = '365-days'
+      request.session.startDate = "30 minutes after payment"
+      return reply.redirect('licence-type')
     } else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('name')
+        return reply.redirect('licence-start-option')
       }
     }
   }
 }
-
 
 module.exports = [{
   method: 'GET',

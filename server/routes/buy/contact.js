@@ -10,6 +10,11 @@ const handlers = {
   post: function (request, reply) {
     request.session.email = request.payload.email
     request.session.mobile = request.payload.mobile
+
+    if (!request.payload.email && !request.payload.mobile) {
+        request.session.noContact = true
+    }
+
     returnURL = request.query.returnUrl
     if (returnURL) {
       return reply.redirect(returnURL)

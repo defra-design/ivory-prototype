@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('licence-start-time', {
       pageTitle: 'What time would you like the licence to start on ',
-      startDay: request.session.startDay,
+      startDate: request.session.startDate,
 
       errorMessage: 'Choose a start time',
       items: {
@@ -133,28 +133,12 @@ const handlers = {
   },
   post: function (request, reply) {
     request.session.startTime = request.payload.licence_start_time
-    request.session.startDate = request.session.startDay + " " + request.session.startTime
     returnURL = request.query.returnUrl
-
-    var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
-    };
-
-    if (request.session.licenceLength === '1 day') {
-      var tomorrow = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
-    } else {
-      var eightDays = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-      eightDays.setDate(eightDays.getDate() + 8);
-      request.session.endDate = eightDays.toLocaleDateString("en-us", options)
-    }
-
 
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('date-of-birth')
+      return reply.redirect('find-address')
     }
   }
 }

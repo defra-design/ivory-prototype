@@ -80,6 +80,12 @@ table th {
     background: url("/public/icons/icon-important.png") no-repeat;
 }
 
+.icon-file-download {
+    width: 29px;
+    height: 26px;
+    background: url("/public/icons/icon-file-download.png") no-repeat;
+}
+
 .check-your-answers {
     th {
         font-weight: bold;
@@ -119,7 +125,7 @@ table th {
         float: none;
         padding-top: 8px;
         padding-bottom: 5px;
-        margin-bottom: 1px;
+        margin-bottom: 11px;
 
         input {
             top: 5px;
@@ -512,4 +518,12 @@ table.payment-confirm {
 
 .progressive-disclosure-margin {
   margin-top: 1.4em;
+}
+
+a.govuk-box-highlight-link {
+  color: #fff
+}
+
+a.govuk-box-highlight-link:hover {
+  color: #e0e2e5
 }

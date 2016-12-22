@@ -6,7 +6,7 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/start/replace',
+  path: '/start/replace.html',
   config: {
     handler: handlers.get
   }
