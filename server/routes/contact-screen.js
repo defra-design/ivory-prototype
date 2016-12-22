@@ -3,7 +3,7 @@ module.exports = [{
   path: '/contact-screen.html',
   config: {
     handler: function (request, reply) {
-      return reply.view('landing', {
+      return reply.view('contact-screen', {
       })
     }
   }

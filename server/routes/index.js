@@ -6,6 +6,7 @@ module.exports = [].concat(
   require('./landing'),
 
   // Contact screen ideas
+  require('./contact-screen'),
   require('./buy/contact-one'),
   require('./buy/contact-two'),
   require('./buy/contact-two-b'),
