@@ -10,7 +10,7 @@
             <fieldset data-required data-error="{{errorMessage}}">
                 <div class="form-group">
                     {{#each items}}
-                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                    <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
                       {{text}}
                       {{#if subText}}
