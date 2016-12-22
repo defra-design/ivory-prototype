@@ -4,6 +4,16 @@ module.exports = [].concat(
   require('./feedback'),
   require('./feedback-thankyou'),
   require('./landing'),
+
+  // Contact screen ideas
+  require('./buy/contact-one'),
+  require('./buy/contact-two'),
+  require('./buy/contact-two-b'),
+  require('./buy/contact-three'),
+  require('./buy/contact-four'),
+  require('./buy/contact-five'),
+
+  // Buy
   require('./buy/licence-before'),
   require('./buy/find-a-licence'),
   require('./buy/dob-postcode-check'),
