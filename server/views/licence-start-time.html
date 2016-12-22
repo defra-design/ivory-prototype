@@ -10,7 +10,7 @@
                             <div class="column-half">
                                 <div class="radio-list">
                                     {{#each items}}
-                                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                                    <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
                       {{text}}
                       {{#if subText}}
@@ -26,7 +26,7 @@
                             <div class="column-half">
                                 <div class="radio-list">
                                     {{#each itemsTwo}}
-                                    <label for="{{id}}" class="block-label" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                                    <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
                               <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}">
                               {{text}}
                               {{#if subText}}
