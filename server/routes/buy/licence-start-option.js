@@ -59,6 +59,11 @@ const handlers = {
         return reply.redirect('licence-start-day')
       }
     }
+
+
+
+
+    
   }
 }
 

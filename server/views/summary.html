@@ -1,7 +1,70 @@
 <main id="summary-page">
     <div class="grid-row">
         <div class="column-two-thirds">
-            {{> common/back}}
+            {{> common/back}} {{#if changeDetails}}
+            <h1 class="heading-large">Update your details</h1>
+            <table class="check-your-answers">
+                <tbody>
+                    <tr>
+                        <th scope="row" style="width:30%;">
+                            Name on licence
+                        </th>
+                        <td class="data" id="holder-name">
+                            {{#if nameOnLicence}} {{nameOnLicence}} {{else}} Not supplied {{/if}}
+                        </td>
+                        <td class="change-answer" id="change-holder-name">
+                            <a href="/buy/name?returnUrl=/buy/summary" id="buy.holder.name">
+                Change <span class="visuallyhidden">name</span>
+              </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Email address
+                        </th>
+                        <td class="data" id="holder-email">
+                            {{#if email}} {{email}} {{else}} Not supplied {{/if}}
+                        </td>
+                        <td class="change-answer" id="change-holder-email">
+                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
+                Change <span class="visuallyhidden">email</span>
+              </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            Mobile number
+                        </th>
+                        <td class="data" id="holder-mobile">
+                            {{#if mobile}} {{mobile}} {{else}} Not supplied {{/if}}
+                        </td>
+                        <td class="change-answer" id="change-holder-mobile">
+                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
+                Change <span class="visuallyhidden">mobile number</span>
+              </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            Address
+                        </th>
+                        <td class="data" id="holder-address">
+                            {{#if address}} {{address}} {{else}} Not supplied {{/if}}
+                        </td>
+                        <td class="change-answer" id="change-holder-address">
+                            <a href="/buy/manual-address?returnUrl=/buy/summary" id="buy.holder.address">
+                Change <span class="visuallyhidden">address</span>
+              </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <a class="button" href="/buy/details-updated">Continue</a> {{else}}
+
             <h1 class="heading-large">{{pageTitle}}</h1>
             <br> {{#if isJunior}} {{else}}
             <div class="notice">
@@ -10,6 +73,8 @@
             </div>
             {{/if}}
             <h2 class="heading-medium">Licence holder details</h2>
+
+
             <table class="check-your-answers">
                 <tbody>
                     <tr>
@@ -95,9 +160,9 @@
                             {{#if licenceType}} {{licenceType}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-type">
-                            <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
                 Change <span class="visuallyhidden">licence type</span>
-              </a>
+              </a>{{/if}}
                         </td>
                     </tr>
 
@@ -109,10 +174,9 @@
                             {{#if licenceLength}} {{licenceLength}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-length">
-                            {{#if isJunior}} {{else}}
-                            <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
                 Change <span class="visuallyhidden">licence length</span>
-              </a>{{/if}}
+              </a>{{/if}}{{/if}}
 
                         </td>
                     </tr>
@@ -140,9 +204,9 @@
                             {{#if startDate}} {{startDate}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
                 Change <span class="visuallyhidden">start date</span>
-              </a>
+              </a>{{/if}}
                         </td>
                     </tr>
 
@@ -157,9 +221,9 @@
                             {{#if startTime}}{{startTime}}{{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
                 Change <span class="visuallyhidden">start time</span>
-              </a>
+              </a>{{/if}}
                         </td>
                     </tr>
 
@@ -173,11 +237,9 @@
                         </td>
                         <td class="change-answer" id="number-of-rods">
 
-                            {{#if isFull}} {{#if isCoarse}}
-
-                            <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a> {{/if}} {{/if}}
+            </a> {{/if}} {{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -199,7 +261,7 @@
                 </tbody>
             </table>
             <br>
-            <a class="button" href="/buy/terms-conditions">Continue</a>
+            <a class="button" href="/buy/terms-conditions">Continue</a> {{/if}}
         </div>
     </div>
 </main>

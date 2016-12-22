@@ -6,15 +6,14 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-
     returnURL = request.query.returnUrl
     if (returnURL) {
       return reply.redirect(returnURL)
-    } else {
+    } else if (request.session.isUpgrade === true){
+        return reply.redirect('summary')
+      } else {
       return reply.redirect('find-address')
     }
-
-
   }
 }
 

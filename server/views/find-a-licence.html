@@ -1,0 +1,25 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
+                    <label class="form-label" for="licence_number">
+                      <span class="bold">Rod licence number</span>
+                      <!-- <span class="form-hint">A 9-digit number on the top left of your licence.<br/>For example: 123 456 789.</span> -->
+                      <span class="form-hint">For example: 123 456 789.</span>
+                    </label>
+                    <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
+                </div>
+            </fieldset>
+            <button type="submit" class="button">Continue</button>
+        </form>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">I don't know my rod licence number</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>The licence number is a 9-digit number on the top left of your paper licence. It can also be forund on your post office recipt.</p>
+            </div>
+        </details>
+    </div>
+</div>
