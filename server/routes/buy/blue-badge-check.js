@@ -24,6 +24,8 @@ const handlers = {
     if (disability === 'no') {
       if (returnURL) {
         return reply.redirect(returnURL)
+      } else if (request.session.isUpgrade === true){
+        return reply.redirect('summary')
       } else {
         return reply.redirect('find-address')
       }
@@ -38,6 +40,10 @@ const handlers = {
     }
   }
 }
+
+
+
+
 
 
 module.exports = [{
