@@ -46,11 +46,15 @@ module.exports = [].concat(
   require('./buy/data-protection'),
   require('./buy/summary'),
   require('./buy/terms-conditions'),
-  require('./pay/enter-card-details'),
-  require('./pay/confirm-payment'),
   require('./buy/order-complete'),
   require('./buy/phone-number'),
   require('./buy/email-address'),
+
+  // Pay pages
+  require('./pay/enter-card-details'),
+  require('./pay/confirm-payment'),
+
+  // Start pages
   require('./start'),
   require('./start/overview'),
   require('./start/licence-costs'),
