@@ -2291,6 +2291,13 @@ table th {
   color: #454a4c;
 }
 
+.helpline-text-sub {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #0b0c0c;
+}
+
 .text-error {
   color: #b10e1e;
 }

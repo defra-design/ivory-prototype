@@ -14,6 +14,11 @@ module.exports = [].concat(
   require('./buy/contact-four'),
   require('./buy/contact-five'),
 
+  // Junior version two
+  require('./junior-screen'),
+  require('./buy/name-junior'),
+  require('./buy/download-option'),
+
   // Buy
   require('./buy/licence-before'),
   require('./buy/find-a-licence'),
