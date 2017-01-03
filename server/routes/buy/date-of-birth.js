@@ -35,6 +35,7 @@ const handlers = {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
       } else {
+        request.session.isJunior = true
         return reply.redirect('download-option')
       }
     } else if (request.session.age < 12) {

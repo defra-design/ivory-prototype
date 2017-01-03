@@ -84,32 +84,16 @@ const handlers = {
 
 
     if (request.session.beforeApril === true) {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('summary')
-        }
+      if (returnURL) {
+        return reply.redirect(returnURL)
       } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-short-term-length')
-        }
+        return reply.redirect('licence-short-term-length')
       }
     } else {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('summary')
-        }
+      if (returnURL) {
+        return reply.redirect(returnURL)
       } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-length')
-        }
+        return reply.redirect('licence-length')
       }
     }
   }

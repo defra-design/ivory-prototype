@@ -18,6 +18,7 @@ module.exports = [].concat(
   require('./junior-screen'),
   require('./buy/name-junior'),
   require('./buy/download-option'),
+  require('./buy/download-complete'),
 
   // Buy
   require('./buy/licence-before'),

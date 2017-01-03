@@ -24,7 +24,6 @@ const handlers = {
   },
   post: function (request, reply) {
     request.session.licenceType = request.payload.licence_type
-    returnURL = request.query.returnUrl
 
     // Rods
       if (request.session.licenceType === 'Salmon and sea trout') {
@@ -33,34 +32,15 @@ const handlers = {
           request.session.numberOfRods = 'Up to 2 rods'
       }
 
-    if (request.session.beforeApril === true) {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('summary')
-        }
-      } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-short-term-length')
-        }
-      }
+      request.session.startDate = 'Today'
+      request.session.licenceLength = '365-days'
+      request.session.startTime = "30 minutes after payment"
+
+    returnURL = request.query.returnUrl
+      if (returnURL) {
+      return reply.redirect(returnURL)
     } else {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('summary')
-        }
-      } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-length')
-        }
-      }
+      return reply.redirect('summary')
     }
   }
 }

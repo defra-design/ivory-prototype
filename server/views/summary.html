@@ -160,9 +160,11 @@
                             {{#if licenceType}} {{licenceType}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-type">
-                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                            {{#if isUpgrade}} {{else}} {{#if isJunior}}<a href="/buy/download-option?returnUrl=/buy/summary" id="buy.licence.type">
                 Change <span class="visuallyhidden">licence type</span>
-              </a>{{/if}}
+              </a> {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+  Change <span class="visuallyhidden">licence type</span>
+</a>{{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -204,9 +206,9 @@
                             {{#if startDate}} {{startDate}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
                 Change <span class="visuallyhidden">start date</span>
-              </a>{{/if}}
+              </a>{{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -237,9 +239,9 @@
                         </td>
                         <td class="change-answer" id="number-of-rods">
 
-                            {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isJunior}} {{else}} {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a> {{/if}} {{/if}}{{/if}}
+            </a> {{/if}} {{/if}}{{/if}}{{/if}}
                         </td>
                     </tr>
 
