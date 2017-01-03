@@ -17,7 +17,9 @@ module.exports = [].concat(
   // Junior version two
   require('./junior-screen'),
   require('./buy/name-junior'),
+  require('./buy/name-junior-quick'),
   require('./buy/download-option'),
+  require('./buy/download-option-quick'),
   require('./buy/download-complete'),
 
   // Buy

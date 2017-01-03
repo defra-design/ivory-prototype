@@ -31,7 +31,14 @@ const handlers = {
     request.session.age = age
     returnURL = request.query.returnUrl
 
-    if (request.session.juniorDownload === true) {
+    if (request.session.juniorDownloadQuick === true) {
+      if (request.session.age < 12) {
+        return reply.redirect('no-licence-required')
+      } else {
+        request.session.isJunior = true
+        return reply.redirect('download-option-quick')
+      }
+    } else if (request.session.juniorDownload === true) {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
       } else {

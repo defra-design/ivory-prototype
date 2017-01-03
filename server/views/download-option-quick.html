@@ -3,7 +3,15 @@
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <p>You qualify for a full 12-month licence because of your age. Licenses are free when you're between 12 and 16.</p>
-        <!-- <h2 class="heading-medium"> What fish should your licence cover?</h2> -->
+        <div class="panel panel-border-wide">
+            <h2 class="heading-medium">You must download your licence</h2>
+            <p>If our bailiffs ask to see your licence, you must show them:</p>
+            <ol class="list list-number">
+                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+            </ol>
+        </div>
         <h2 class="heading-medium">Which licence would you like to download?</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
@@ -24,7 +32,7 @@
                     </div>
                 </fieldset>
             </div>
-            <button type="submit" class="button">Continue</button>
+            <button type="submit" class="button">Download</button>
         </form>
         <details class="progressive-disclosure-margin">
             <summary><span class="summary">Which fish are covered by the trout and coarse licence?</span></summary>
