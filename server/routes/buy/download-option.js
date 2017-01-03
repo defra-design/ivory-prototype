@@ -32,9 +32,19 @@ const handlers = {
           request.session.numberOfRods = 'Up to 2 rods'
       }
 
-      request.session.startDate = 'Today'
+      //request.session.startDate = 'Today'
       request.session.licenceLength = '365-days'
       request.session.startTime = "30 minutes after payment"
+
+      var date = new Date();
+      var options = {
+          weekday: "long", year: "numeric", month: "short", day: "numeric"
+      };
+      request.session.startDate = date.toLocaleDateString("en-us", options)
+      request.session.date = date
+      var threeSixFiveDays = new Date(Date.parse(request.session.date));
+      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
+      request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
 
     returnURL = request.query.returnUrl
       if (returnURL) {
