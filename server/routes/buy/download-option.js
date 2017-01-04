@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('download-option', {
-      pageTitle: 'You do not need a licence',
+      pageTitle: 'Licenses are free when you\'re between 12 and 16',
       errorMessage: 'Choose a licence type',
       items: {
         one: {
