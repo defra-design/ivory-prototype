@@ -82,19 +82,10 @@ const handlers = {
 //   }
 // }
 
-
-    if (request.session.beforeApril === true) {
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('licence-short-term-length')
-      }
+    if (returnURL) {
+      return reply.redirect(returnURL)
     } else {
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('licence-length')
-      }
+      return reply.redirect('licence-length')
     }
   }
 }
