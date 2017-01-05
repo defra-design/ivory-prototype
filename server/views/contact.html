@@ -1,22 +1,54 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
-        <h1 class="heading-large">{{pageTitle}}</h1>
+        <h1 class="heading-large">{{pageTitle}}</h1> {{#if is365}}
+        <div class="panel panel-border-wide">
+            <p>
+                Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
+            </p>
+        </div>
+        {{else}}
+        <div class="panel panel-border-wide">
+            <p>
+                We don’t send 1-day or 8-day licences in the post.
+            </p>
+        </div>
+        {{/if}}
         <form method="post" autocomplete="off" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label for="email" class="form-label">Email address (optional)</label> {{#if errors.email}}<span class="error-message">{{errors.email}}</span>{{/if}}
-                    <input class="form-control" id="email" name="email" value="{{email}}" type="email">
-                </div>
-                <div class="form-group">
-                    <label for="mobile" class="form-label">Mobile number (optional)</label> {{#if errors.mobile}}<span class="error-message">{{errors.mobile}}</span>{{/if}}
-                    <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
-                </div>
+            <div class="form-group">
+                <fieldset>
 
+                    <legend class="visually-hidden">How do you want to be contacted?</legend>
 
-                <a href="/buy/data-protection">View our data protection notice</a></p>
-            </fieldset>
+                    <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
+      <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
+      Email
+    </label>
+                    <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                        <label class="form-label" for="contact-email">Email address</label>
+                        <input class="form-control" name="contact-email" type="text" id="contact-email"> <br>
+                    </div>
+                    <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-by-text">
+                  <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
+                  Text message
+                </label>
+                    <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                        <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+                    </div>
+                    <label class="block-label selection-button-radio" data-target="contact-by-phone" for="example-contact-by-phone">
+                  <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
+                  I will write it down
+                </label>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <input id="contact-checkbox" name="contact-by-text-phone" type="checkbox" value="true"> Would the licence holder like to receive fishing news and updates?
+                </fieldset>
+            </div>
             <button type="submit" class="button">Continue</button>
         </form>
+        <br>
+        <a href="/buy/data-protection">View our data protection notice</a>
     </div>
 </div>

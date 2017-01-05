@@ -9,7 +9,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year from April 2017.',
+            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
           },
           two: {
             text: '1 day',
@@ -31,24 +31,28 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
+      request.session.is365 = true;
       if (returnURL) {
         return reply.redirect('number-of-rods?returnUrl=/buy/summary')
       } else {
         return reply.redirect('number-of-rods')
       }
     } else if (request.session.licenceLength === '365-days') {
+      request.session.is365 = true;
       if (returnURL) {
         return reply.redirect('disability?returnUrl=/buy/summary')
       } else {
         return reply.redirect('disability')
       }
-    } else if (request.session.haveTime === true){
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('find-address')
-      }
-    } else {
+    }
+    //else if (request.session.haveTime === true){
+    //   if (returnURL) {
+    //     return reply.redirect(returnURL)
+    //   } else {
+    //     return reply.redirect('find-address')
+    //   }
+    // }
+    else {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
