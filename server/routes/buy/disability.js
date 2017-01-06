@@ -20,10 +20,12 @@ const handlers = {
   post: function (request, reply) {
     var disability = request.payload.disability
     returnURL = request.query.returnUrl
+    request.session.disabilityChecked = true
+
 
     if (disability === 'no') {
       if (returnURL) {
-        return reply.redirect(returnURL)
+        return reply.redirect('blue-badge-check?returnUrl=/buy/summary')
       } else {
         return reply.redirect('blue-badge-check')
         //return reply.redirect('find-address')

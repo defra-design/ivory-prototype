@@ -104,7 +104,7 @@
               </a>
                         </td>
                     </tr>
-                    {{#if isJunior}} {{else}}
+
                     <tr>
                         <th scope="row">
                             Email address
@@ -132,7 +132,7 @@
               </a>
                         </td>
                     </tr>
-                    {{/if}} {{#if isJunior}} {{else}}
+
                     <tr>
                         <th scope="row">
                             Address
@@ -146,7 +146,7 @@
               </a>
                         </td>
                     </tr>
-                    {{/if}}
+
                 </tbody>
             </table>
             <h2 class="heading-medium">Licence details</h2>
@@ -191,7 +191,8 @@
                         <td class="data" id="concession">
                             {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} Disabled {{/if}}concession
                         </td>
-
+                        <td class="change-answer" id="change-concession">
+                        </td>
                     </tr>
                     {{/if}} {{/if}}
 
@@ -212,7 +213,7 @@
                         </td>
                     </tr>
 
-                    {{#if isFull}} {{else}}
+                    {{#if isFull}} {{else}} {{#if isJunior}} {{else}}
 
 
                     <tr>
@@ -228,8 +229,7 @@
               </a>{{/if}}
                         </td>
                     </tr>
-
-                    {{/if}}
+                    {{/if}} {{/if}}
                     <tr>
                         <th scope="row">
                             Number of rods

@@ -82,10 +82,23 @@ const handlers = {
 //   }
 // }
 
-    if (returnURL) {
-      return reply.redirect(returnURL)
+
+    if (request.session.isJunior === true) {
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('find-address')
+      }
     } else {
-      return reply.redirect('licence-length')
+      if (returnURL) {
+        if (request.session.licenceLength === '12 months' && request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect(returnURL)
+        }
+      } else {
+        return reply.redirect('licence-length')
+      }
     }
   }
 }
