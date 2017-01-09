@@ -1,14 +1,38 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-not-found', {
-      pageTitle: 'We can\'t find this licence',
+      pageTitle: 'We can\'t find your licence details',
+      errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
+      items: {
+        one: {
+          text: 'Yes',
+          name: 'licence_not_found',
+          id: 'yes',
+        },
+        two: {
+          text: 'No (exit service)',
+          name: 'licence_not_found',
+          id: 'no',
+        },
+      }
     })
   },
   post: function (request, reply) {
-    if (returnURL) {
-      return reply.redirect(returnURL)
+    returnURL = request.query.returnUrl
+    var licenceNotFound = request.payload.licence_not_found
+    if (licenceNotFound === 'no') {
+
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('/')
+      }
     } else {
-      return reply.redirect('/')
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('name')
+      }
     }
   }
 }
