@@ -11,7 +11,7 @@ const handlers = {
           value: 'Buy_a_new_licence',
         },
         two: {
-          text: 'Upgrade your licence',
+          text: 'Upgrade my licence',
           name: 'licence_before',
           id: 'Upgrade_a_licence',
           value: 'Upgrade_a_licence',
