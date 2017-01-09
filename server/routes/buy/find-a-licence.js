@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('find-a-licence', {
-      pageTitle: 'Find a licence',
+      pageTitle: 'Find your licence',
       errorMessage: 'Enter your rod licence number',
       licence_number: request.session.licence_number,
     })

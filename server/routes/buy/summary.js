@@ -164,9 +164,19 @@ const handlers = {
       }
     }
 
-
+    // Upgrade costs
     if (request.session.isUpgrade === true) {
-      request.session.cost = 'Show reduced cost'
+       if (request.session.licenceNumber === '495969798') {
+           request.session.cost = '£52.00'
+       } else if (request.session.licenceNumber === '497804364') {
+           request.session.cost = '£15.00'
+       } else if (request.session.licenceNumber === '697989192') {
+         if (request.session.hasBlueBadge === true) {
+           request.session.cost = '£27.00'
+         } else {
+           request.session.cost = '£55.00'
+         }
+       }
     }
 
 

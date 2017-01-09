@@ -22,7 +22,7 @@ module.exports = [].concat(
   require('./buy/download-option-quick'),
   require('./buy/download-complete'),
 
-  // Buy
+  // Upgrade
   require('./buy/licence-before'),
   require('./buy/find-a-licence'),
   require('./buy/dob-postcode-check'),
@@ -30,6 +30,9 @@ module.exports = [].concat(
   require('./buy/licence-details-species'),
   require('./buy/licence-details-length'),
   require('./buy/details-updated'),
+  require('./buy/licence-not-found'),
+
+  // Buy
   require('./buy'),
   require('./buy/licence-type'),
   require('./buy/licence-length'),

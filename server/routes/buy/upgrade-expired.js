@@ -12,12 +12,7 @@ const handlers = {
             text: 'Buy a new licence',
             name: 'licence_details_upgrade',
             id: 'new_licence',
-          },
-          two: {
-            text: 'Change personal details',
-            name: 'licence_details_upgrade',
-            id: 'Change_details',
-          },
+          }
         }
     })
   },

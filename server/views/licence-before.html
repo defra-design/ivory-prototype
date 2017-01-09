@@ -2,6 +2,11 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <div class="panel panel-border-wide">
+            <p>
+                You qualify for an upgrade within x days of buying a licence.
+            </p>
+        </div>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">

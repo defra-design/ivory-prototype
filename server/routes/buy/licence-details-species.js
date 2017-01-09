@@ -14,15 +14,10 @@ const handlers = {
             id: '3_rods',
           },
           two: {
-            text: 'Upgrade to salmon licence',
+            text: 'Upgrade to Salmon and sea trout licence',
             name: 'licence_details_upgrade',
             id: 'salmon_licence',
-          },
-          three: {
-            text: 'Change personal details',
-            name: 'licence_details_upgrade',
-            id: 'Change_details',
-          },
+          }
         }
     })
   },
