@@ -2,9 +2,10 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             <div class="govuk-box-highlight">
-                {{#if isJunior}}
+                {{#if isUpgrade}}
+                <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                 <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
-                <h1 class="bold-large">You've bought your licence</h1> {{/if}}
+                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
                 <p>
                     Your fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">345 612 895</strong>

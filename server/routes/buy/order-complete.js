@@ -11,6 +11,7 @@ const handlers = {
       isSalmon: request.session.isSalmon,
       isFull: request.session.isFull,
       isJunior:  request.session.isJunior,
+      isUpgrade:  request.session.isUpgrade,
       noContact: request.session.noContact
     })
   },
