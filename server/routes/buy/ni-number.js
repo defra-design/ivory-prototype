@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('ni-number', {
-      pageTitle: 'What is the licence holder\'s National Insurance number?',
+      pageTitle: 'What is your National Insurance number?',
       errorMessage: 'Enter your national insurance number',
     })
   },

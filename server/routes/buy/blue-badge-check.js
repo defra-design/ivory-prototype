@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('blue-badge-check', {
-      pageTitle: 'Does the licence holder have a Blue Badge?',
+      pageTitle: 'Do you have a Blue Badge?',
       errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
       items: {
         one: {
