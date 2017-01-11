@@ -5,23 +5,23 @@ const handlers = {
       errorMessage: 'Choose a licence length',
       items: {
           one: {
-            text: '12 months',
-            name: 'licence_length',
-            id: '365-days',
-            value: '365-days',
-            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
-          },
-          two: {
             text: '1 day',
             name: 'licence_length',
             id: '1-day',
           },
-          three: {
+          two: {
             text: '8 days',
             name: 'licence_length',
             id: '8-days (These licences are valid for 8 consecutive days)',
             value: '8-days',
             selectedText: '8-day licences are valid for 8 consecutive days',
+          },
+          three: {
+            text: '12 months',
+            name: 'licence_length',
+            id: '365-days',
+            value: '365-days',
+            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
           },
       }
     })
