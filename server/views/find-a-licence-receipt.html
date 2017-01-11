@@ -2,7 +2,7 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <form method="post" autocomplete="off" novalidate>
+        <!-- <form method="post" autocomplete="off" novalidate>
             <fieldset data-required data-error="{{errorMessage}}">
                 <div class="form-group">
                     <label class="form-label" for="licence_number">
@@ -13,24 +13,12 @@
                 </div>
             </fieldset>
             <button type="submit" class="button">Continue</button>
-        </form>
-        </br>
-        <a href="find-a-licence-receipt">I don't know my rod licence number</a>
-        <!-- <form method="post" autocomplete="off" novalidate>
+        </form> -->
+        <!-- </br>
+        <a href="">I don't know my rod licence number</a> -->
+        <form method="post" autocomplete="off" novalidate>
             <div class="form-group">
                 <fieldset>
-
-                    <legend class="visually-hidden">How do you want to be contacted?</legend>
-
-                    <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
-        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-        Rod licence number
-      </label>
-                    <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-                        <label class="form-label" for="contact-email">Rod licence number</label>
-                        <span class="form-hint">A 9-digit number found on your current licence.</span>
-                        <input class="form-control" name="contact-email" type="text" id="contact-email">
-                    </div>
 
                     <label class="block-label selection-button-radio" data-target="contact-by-phone" for="example-contact-by-phone">
         <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
@@ -55,7 +43,7 @@
                 </fieldset>
             </div>
             <button type="submit" class="button">Continue</button>
-        </form> -->
+        </form>
         <!-- <details class="progressive-disclosure-margin">
             <summary><span class="summary">I don't know my rod licence number</span></summary>
             <div class="panel panel-border-narrow">
