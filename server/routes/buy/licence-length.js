@@ -9,7 +9,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            //selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
+            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
           },
           two: {
             text: '1 day',
