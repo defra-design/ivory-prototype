@@ -25,6 +25,7 @@ module.exports = [].concat(
   // Upgrade
   require('./buy/licence-before'),
   require('./buy/find-a-licence'),
+  require('./buy/find-a-licence-receipt'),
   require('./buy/dob-postcode-check'),
   require('./buy/upgrade-expired'),
   require('./buy/licence-details-species'),
