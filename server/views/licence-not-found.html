@@ -6,7 +6,8 @@
         <h2 class="heading-medium">Would you like to buy a new licence?</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
-                <fieldset class="inline" data-required data-error="{{errorMessage}}">
+                <!-- <fieldset class="inline" data-required data-error="{{errorMessage}}"> -->
+                <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         {{#each items}}
                         <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
