@@ -7,7 +7,7 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    return reply.redirect('order-complete')
+    return reply.redirect('contact-three')
   }
 }
 
