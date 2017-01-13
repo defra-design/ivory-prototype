@@ -20,11 +20,20 @@ const handlers = {
   post: function (request, reply) {
     request.session.numberOfRods = request.payload.number_of_rods
     returnURL = request.query.returnUrl
+
+
     if (returnURL) {
-      return reply.redirect(returnURL)
+      if (request.session.disabilityChecked === true) {
+        return reply.redirect(returnURL)
+      } else {
+        return reply.redirect('disability?returnUrl=/buy/summary')
+      }
     } else {
       return reply.redirect('disability')
     }
+
+
+
   }
 }
 

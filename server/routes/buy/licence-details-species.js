@@ -14,20 +14,16 @@ const handlers = {
             id: '3_rods',
           },
           two: {
-            text: 'Upgrade to salmon licence',
+            text: 'Upgrade to Salmon and sea trout licence',
             name: 'licence_details_upgrade',
             id: 'salmon_licence',
-          },
-          three: {
-            text: 'Change personal details',
-            name: 'licence_details_upgrade',
-            id: 'Change_details',
-          },
+          }
         }
     })
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
+    request.session.endDate = '2 April 2018'
 
     if (upgradeOption === '3_rods') {
       request.session.numberOfRods = '3'

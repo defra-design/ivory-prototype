@@ -4,7 +4,7 @@ module.exports = [{
   config: {
     handler: function (request, reply) {
       return reply.view('feedback', {
-        pageTitle: 'Provide feedback about the "Go Fishing" service',
+        pageTitle: 'Provide feedback about the "Get a fishing licence" service',
         errorMessage: 'Please choose an option from the list and then select \'Send feedback\'.',
       })
     }

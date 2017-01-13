@@ -7,7 +7,7 @@
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         {{#each items}}
-                        <label for="{{id}}" class="block-label" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
                       <span class="heading-small">{{text}}</span>
                       {{#if subText}}
@@ -23,10 +23,27 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
-        <details class="progressive-disclosure-margin">
+        </br>
+
+        <!--  <h2 class="heading-large">Helper text ideas to test</h2>
+         <details class="progressive-disclosure-margin">
             <summary><span class="summary">Which fish are covered by the trout and coarse licence?</span></summary>
             <div class="panel panel-border-narrow">
-                <p>A trout and coarse fish licences allows you to fish for fresh water fish such as Carp, Pike and Perch.</p>
+                <p>A trout and coarse fish licence allows you to fish for freshwater fish such as Carp, Pike and Perch.</p>
+            </div>
+        </details>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">Which fishing licence do I need?</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>A trout and coarse fish licence allows you to fish for freshwater fish such as Carp, Pike and Perch.</p>
+                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all the freshwater fish included in the trout and coarse licence.</p>
+            </div>
+        </details> -->
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">Which fishing licence do I need?</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.</p>
+                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.</p>
             </div>
         </details>
     </div>

@@ -4,7 +4,9 @@ const handlers = {
     return reply.view('contact', {
       pageTitle: 'How can we send you your licence details?',
       email: request.session.email,
-      mobile: request.session.mobile
+      mobile: request.session.mobile,
+      is365Contact: request.session.is365Contact,
+      isJunior: request.session.isJunior,
     })
   },
   post: function (request, reply) {

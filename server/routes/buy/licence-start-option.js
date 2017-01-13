@@ -40,7 +40,8 @@ const handlers = {
       //Set time
       var startTime = date.getHours();
       request.session.startTime = startTime +":00"
-      request.session.haveTime = true
+
+      // request.session.haveTime = true
 
       if (request.session.startAge < 12) {
         return reply.redirect('no-licence-required')
@@ -59,11 +60,6 @@ const handlers = {
         return reply.redirect('licence-start-day')
       }
     }
-
-
-
-
-    
   }
 }
 

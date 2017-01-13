@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('upgrade-expired', {
-      pageTitle: 'Your upgrade period has expired',
+      pageTitle: 'Your upgrade period has expired, would you like to buy a new licence?',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
       licenceType: request.session.licenceType,
@@ -9,30 +9,28 @@ const handlers = {
       endDate: request.session.endDate,
       items: {
           one: {
-            text: 'Buy a new licence',
+            text: 'Yes',
             name: 'licence_details_upgrade',
-            id: 'new_licence',
+            id: 'yes',
           },
           two: {
-            text: 'Change personal details',
+            text: 'No (exit service)',
             name: 'licence_details_upgrade',
-            id: 'Change_details',
-          },
+            id: 'no',
+          }
         }
     })
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
+    returnURL = request.query.returnUrl
 
-    if(upgradeOption === 'new_licence') {
+    if(upgradeOption === 'yes') {
       return reply.redirect('name')
     } else {
       request.session.isUpgrade = true
-      return reply.redirect('summary')
+      return reply.redirect('/')
     }
-
-
-
   }
 }
 

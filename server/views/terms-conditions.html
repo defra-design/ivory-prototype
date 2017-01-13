@@ -1,5 +1,6 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
+        {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1> {{#if isJunior}}
         <p>When you get this licence you agree that:</p>
         {{else}}
@@ -21,7 +22,7 @@
                 <div id="agree-form-group" class="form-group {{#if errors.agree}}error{{/if}}">
                     {{#if errors}}
                     <span class="error-message">{{errors.agree}}</span> {{/if}}
-                    <label for="agree" class="block-label">
+                    <label for="agree" class="block-label selection-button-checkbox">
               <input id="agree" name="agree" type="checkbox">
               I agree to the terms and conditions
             </label>

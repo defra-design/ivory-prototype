@@ -59,6 +59,15 @@ table th {
   color: #454a4c;
 }
 
+.helpline-text-sub {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #0b0c0c;
+}
+
+
+
 .text-error {
     color: $error-colour;
 }
@@ -125,7 +134,7 @@ table th {
         float: none;
         padding-top: 8px;
         padding-bottom: 5px;
-        margin-bottom: 1px;
+        margin-bottom: 11px;
 
         input {
             top: 5px;

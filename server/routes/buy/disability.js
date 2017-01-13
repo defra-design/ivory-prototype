@@ -1,8 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('disability', {
-      pageTitle: 'Do you receive Disability Living Allowance or Personal Independence Payment or hold a Blue Badge?',
-      pageText: 'We will use this information to find out if you are eligible for a disabled concession.',
+      pageTitle: 'Do you receive any of the following benefits?',
       errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
       items: {
         one: {
@@ -21,22 +20,23 @@ const handlers = {
   post: function (request, reply) {
     var disability = request.payload.disability
     returnURL = request.query.returnUrl
+    request.session.disabilityChecked = true
+
 
     if (disability === 'no') {
       if (returnURL) {
-        return reply.redirect(returnURL)
-      } else if (request.session.isUpgrade === true){
-        return reply.redirect('summary')
+        return reply.redirect('blue-badge-check?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('find-address')
+        return reply.redirect('blue-badge-check')
+        //return reply.redirect('find-address')
       }
     } else {
       request.session.hasBlueBadge = true
       request.session.concession = true
       if (returnURL) {
-        return reply.redirect('disability-proof?returnUrl=/buy/summary')
+        return reply.redirect('ni-number?returnUrl=/buy/summary')
       } else {
-        return reply.redirect('disability-proof')
+        return reply.redirect('ni-number')
       }
     }
 

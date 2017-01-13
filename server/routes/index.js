@@ -5,6 +5,8 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Contact screen ideas
+  require('./contact-screen'),
   require('./buy/contact-one'),
   require('./buy/contact-two'),
   require('./buy/contact-two-b'),
@@ -12,16 +14,26 @@ module.exports = [].concat(
   require('./buy/contact-four'),
   require('./buy/contact-five'),
 
+  // Junior version two
+  require('./junior-screen'),
+  require('./buy/name-junior'),
+  require('./buy/name-junior-quick'),
+  require('./buy/download-option'),
+  require('./buy/download-option-quick'),
+  require('./buy/download-complete'),
 
-
-
+  // Upgrade
   require('./buy/licence-before'),
   require('./buy/find-a-licence'),
+  require('./buy/find-a-licence-receipt'),
   require('./buy/dob-postcode-check'),
   require('./buy/upgrade-expired'),
   require('./buy/licence-details-species'),
   require('./buy/licence-details-length'),
   require('./buy/details-updated'),
+  require('./buy/licence-not-found'),
+
+  // Buy
   require('./buy'),
   require('./buy/licence-type'),
   require('./buy/licence-length'),
@@ -34,6 +46,7 @@ module.exports = [].concat(
   require('./buy/no-licence-required'),
   require('./buy/upgrade-licence'),
   require('./buy/disability'),
+  require('./buy/blue-badge-check'),
   require('./buy/disability-proof'),
   require('./buy/blue-badge'),
   require('./buy/ni-number'),
@@ -45,11 +58,16 @@ module.exports = [].concat(
   require('./buy/data-protection'),
   require('./buy/summary'),
   require('./buy/terms-conditions'),
-  require('./pay/enter-card-details'),
-  require('./pay/confirm-payment'),
   require('./buy/order-complete'),
   require('./buy/phone-number'),
   require('./buy/email-address'),
+
+  // Pay pages
+  require('./pay/enter-card-details'),
+  require('./pay/confirm-payment'),
+
+  // Start pages
+  require('./start-screen'),
   require('./start'),
   require('./start/overview'),
   require('./start/licence-costs'),

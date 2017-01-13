@@ -99,9 +99,9 @@
                             {{#if licenceDOB}} {{licenceDOB}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-holder-dob">
-                            <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+                            {{#if isUpgrade}} {{else}} <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
                 Change <span class="visuallyhidden">date of birth</span>
-              </a>
+              </a>{{/if}}
                         </td>
                     </tr>
 
@@ -132,7 +132,7 @@
               </a>
                         </td>
                     </tr>
-                    {{#if isJunior}} {{else}}
+
                     <tr>
                         <th scope="row">
                             Address
@@ -146,7 +146,7 @@
               </a>
                         </td>
                     </tr>
-                    {{/if}}
+
                 </tbody>
             </table>
             <h2 class="heading-medium">Licence details</h2>
@@ -160,9 +160,11 @@
                             {{#if licenceType}} {{licenceType}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-type">
-                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                            {{#if isUpgrade}} {{else}} {{#if isJunior}}<a href="/buy/download-option?returnUrl=/buy/summary" id="buy.licence.type">
                 Change <span class="visuallyhidden">licence type</span>
-              </a>{{/if}}
+              </a> {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+  Change <span class="visuallyhidden">licence type</span>
+</a>{{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -189,7 +191,8 @@
                         <td class="data" id="concession">
                             {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} Disabled {{/if}}concession
                         </td>
-
+                        <td class="change-answer" id="change-concession">
+                        </td>
                     </tr>
                     {{/if}} {{/if}}
 
@@ -204,13 +207,13 @@
                             {{#if startDate}} {{startDate}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
                 Change <span class="visuallyhidden">start date</span>
-              </a>{{/if}}
+              </a>{{/if}}{{/if}}
                         </td>
                     </tr>
 
-                    {{#if isFull}} {{else}}
+                    {{#if isFull}} {{else}} {{#if isJunior}} {{else}}
 
 
                     <tr>
@@ -226,8 +229,7 @@
               </a>{{/if}}
                         </td>
                     </tr>
-
-                    {{/if}}
+                    {{/if}} {{/if}}
                     <tr>
                         <th scope="row">
                             Number of rods
@@ -237,9 +239,9 @@
                         </td>
                         <td class="change-answer" id="number-of-rods">
 
-                            {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isJunior}} {{else}} {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a> {{/if}} {{/if}}{{/if}}
+            </a> {{/if}} {{/if}}{{/if}}{{/if}}
                         </td>
                     </tr>
 

@@ -83,33 +83,21 @@ const handlers = {
 // }
 
 
-    if (request.session.beforeApril === true) {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('contact')
-        }
+    if (request.session.isJunior === true) {
+      if (returnURL) {
+        return reply.redirect(returnURL)
       } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-short-term-length')
-        }
+        return reply.redirect('find-address')
       }
     } else {
-      if (request.session.isJunior === true) {
-        if (returnURL) {
-          return reply.redirect(returnURL)
+      if (returnURL) {
+        if (request.session.licenceLength === '12 months' && request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods?returnUrl=/buy/summary')
         } else {
-          return reply.redirect('contact')
+          return reply.redirect(returnURL)
         }
       } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-length')
-        }
+        return reply.redirect('licence-length')
       }
     }
   }

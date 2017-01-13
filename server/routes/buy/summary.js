@@ -38,11 +38,11 @@ const handlers = {
     // var licenceStart = Date.parse(request.session.date);
 
 
-      if (request.session.startAge > 65) {
+      if (request.session.age > 65) {
         request.session.isSenior = true
         request.session.concession = true
-      } else if (request.session.startAge < 17) {
-        request.session.licenceLength = '365-days'
+      } else if (request.session.age < 17) {
+        request.session.licenceLength = '12 months'
         request.session.isJunior = true
         request.session.concession = true
       }
@@ -102,12 +102,12 @@ const handlers = {
     if (request.session.licenceLength === '365-days') {
         request.session.isFull = true;
       // Junior
-      if (request.session.startAge < 17 ) {
+      if (request.session.age < 17 ) {
         request.session.cost = "00.00"
       }
       // Salmon
       if (request.session.licenceType === 'Salmon and sea trout') {
-        if (request.session.startAge  > 65 || request.session.hasBlueBadge === true) {
+        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
           request.session.cost = "£54.00"
         } else {
           request.session.cost = "£82.00"
@@ -116,13 +116,13 @@ const handlers = {
       // Coarse
       if (request.session.licenceType === 'Trout and coarse') {
         if(request.session.numberOfRods === '3 rods') {
-          if (request.session.startAge  > 65 || request.session.hasBlueBadge === true) {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
             request.session.cost = "£30.00"
           } else {
             request.session.cost = "£45.00"
           }
         } else {
-          if (request.session.startAge  > 65 || request.session.hasBlueBadge === true) {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
             request.session.cost = "£20.00"
           } else {
             request.session.cost = "£30.00"
@@ -131,8 +131,57 @@ const handlers = {
       }
     }
 
+    // 12 Months
+    if (request.session.licenceLength === '12 months') {
+        request.session.isFull = true;
+      // Junior
+      if (request.session.age < 17 ) {
+        request.session.cost = "00.00"
+      }
+      // Salmon
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+          request.session.cost = "£54.00"
+        } else {
+          request.session.cost = "£82.00"
+        }
+      }
+      // Coarse
+      if (request.session.licenceType === 'Trout and coarse') {
+        if(request.session.numberOfRods === '3 rods') {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+            request.session.cost = "£30.00"
+          } else {
+            request.session.cost = "£45.00"
+          }
+        } else {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+            request.session.cost = "£20.00"
+          } else {
+            request.session.cost = "£30.00"
+          }
+        }
+      }
+    }
+
+    // Upgrade costs
     if (request.session.isUpgrade === true) {
-      request.session.cost = 'Show reduced cost'
+       if (request.session.licenceNumber === '495969798') {
+           request.session.cost = '£52.00'
+       } else if (request.session.licenceNumber === '497804364') {
+           request.session.cost = '£15.00'
+       } else if (request.session.licenceNumber === '697989192') {
+         if (request.session.hasBlueBadge === true) {
+           request.session.cost = '£27.00'
+         } else {
+           request.session.cost = '£55.00'
+         }
+       }
+    }
+
+
+    if (request.session.licenceLength === '365-days') {
+      request.session.licenceLength = '12 months'
     }
 
 

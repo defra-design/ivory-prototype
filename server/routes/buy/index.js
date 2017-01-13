@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.redirect('../landing.html')
+    return reply.redirect('buy/name')
   }
 }
 

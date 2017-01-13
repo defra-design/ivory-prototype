@@ -23,6 +23,7 @@ const handlers = {
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
+    request.session.endDate = '2 April 2018'
     if (upgradeOption === 'Yes') {
       request.session.licenceLength = '365-days'
       request.session.cost = 'Show reduced cost'
