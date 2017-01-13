@@ -61,26 +61,33 @@ const handlers = {
     // }
 
 
-    if (request.session.age < 12) {
-      return reply.redirect('no-licence-required')
-    } else if (request.session.age < 17) {
-      request.session.isJunior = true
-      request.session.licenceLength = '365-days'
-      var date = new Date();
-      var options = {
-          weekday: "long", year: "numeric", month: "short", day: "numeric"
-      };
-      request.session.startDate = date.toLocaleDateString("en-us", options)
-      return reply.redirect('licence-type')
-    } else {
-      if (returnURL) {
-        return reply.redirect(returnURL)
+    if (request.session.juniorDownloadQuick === true) {
+      if (request.session.age < 12) {
+        return reply.redirect('no-licence-required')
       } else {
-        return reply.redirect('licence-start-option')
+        request.session.isJunior = true
+        return reply.redirect('download-option-quick')
+      }
+    } else {
+      if (request.session.age < 12) {
+        return reply.redirect('no-licence-required')
+      } else if (request.session.age < 17) {
+        request.session.isJunior = true
+        request.session.licenceLength = '365-days'
+        var date = new Date();
+        var options = {
+            weekday: "long", year: "numeric", month: "short", day: "numeric"
+        };
+        request.session.startDate = date.toLocaleDateString("en-us", options)
+        return reply.redirect('licence-type')
+      } else {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('licence-start-option')
+        }
       }
     }
-
-
   }
 }
 

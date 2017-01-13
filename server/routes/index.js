@@ -66,6 +66,7 @@ module.exports = [].concat(
   require('./pay/confirm-payment'),
 
   // Start pages
+  require('./start-screen'),
   require('./start'),
   require('./start/overview'),
   require('./start/licence-costs'),
