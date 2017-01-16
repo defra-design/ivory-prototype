@@ -79,7 +79,8 @@ const handlers = {
             weekday: "long", year: "numeric", month: "short", day: "numeric"
         };
         request.session.startDate = date.toLocaleDateString("en-us", options)
-        return reply.redirect('licence-type')
+        //return reply.redirect('licence-type')
+        return reply.redirect('licence-start-option')
       } else {
         if (returnURL) {
           return reply.redirect(returnURL)
