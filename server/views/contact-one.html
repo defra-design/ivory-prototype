@@ -8,26 +8,21 @@
             </p>
         </div>
         <form method="post" autocomplete="off" novalidate>
-            <div class="form-group">
-                <fieldset>
-
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
                     <legend class="visually-hidden">How do you want to be contacted?</legend>
-
                     <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
                     <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
                     Send me my licence number
                   </label>
                     <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-                        <label class="form-label" for="contact-email">Email address</label>
-                        <!-- <input class="form-control" name="contact-email" type="text" id="contact-email"> -->
-                        <input class="form-control" id="email" name="email" value="{{email}}" type="email"> <br>
-                        <label class="form-label" for="contact-text-message">Mobile phone number</label>
-                        <!-- <input class="form-control" name="contact-text-message" type="text" id="contact-text-message"> -->
-                        <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
-                        </br>
                         <div class="form-group">
-                            <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would the licence holder like to receive fishing news and updates?
+                            <label class="form-label" for="contact-email">Email address</label>
+                            <input class="form-control" id="email" name="email" value="{{email}}" type="email"> <br>
+                            <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                            <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
                         </div>
+                        <input id="contact-checkbox" style="margin: 10px 0;" name="contact-by-text-phone" type="checkbox" value="true"> Would the licence holder like to receive fishing news and updates?
                         <br>
                         <a href="/buy/data-protection">View our data protection notice</a>
                     </div>
@@ -35,9 +30,8 @@
                   <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
                   I will write it down
                 </label>
-                </fieldset>
-            </div>
-
+                </div>
+            </fieldset>
             <button type="submit" class="button">Continue</button>
         </form>
 
