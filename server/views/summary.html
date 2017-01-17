@@ -189,13 +189,29 @@
                             Concession
                         </th>
                         <td class="data" id="concession">
-                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} Disabled {{/if}}concession
+                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} disabled {{/if}} {{#if hasNINumber}} Disabled {{/if}} concession
                         </td>
-                        <td class="change-answer" id="change-concession">
+                        <td class="change-answer" id="change-holder-name">
+                            <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
+                Change <span class="visuallyhidden">name</span>
+              </a>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <th scope="row">
+                            Concession
+                        </th>
+                        <td class="data" id="concession">
+                            No concession
+                        </td>
+                        <td class="change-answer" id="change-holder-name">
+                            <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
+                  Change <span class="visuallyhidden">name</span>
+                  </a>
                         </td>
                     </tr>
                     {{/if}} {{/if}}
-
 
 
 

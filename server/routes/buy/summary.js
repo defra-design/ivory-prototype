@@ -203,6 +203,7 @@ const handlers = {
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
+      hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
       concession: request.session.concession,
       isSalmon: request.session.isSalmon,

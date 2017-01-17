@@ -20,7 +20,9 @@ const handlers = {
   post: function (request, reply) {
     var disability = request.payload.disability
     returnURL = request.query.returnUrl
-
+    request.session.hasNINumber = false
+    request.session.hasBlueBadge = false
+        request.session.concession = false
     if (disability === 'no') {
       if (returnURL) {
         return reply.redirect(returnURL)
@@ -30,8 +32,6 @@ const handlers = {
         return reply.redirect('find-address')
       }
     } else {
-      request.session.hasBlueBadge = true
-      request.session.concession = true
       if (returnURL) {
         return reply.redirect('blue-badge?returnUrl=/buy/summary')
       } else {
