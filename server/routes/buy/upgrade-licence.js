@@ -1,15 +1,15 @@
 const handlers = {
   get: function (request, reply) {
 
-    if (request.session.licenceLength === '1-day' ) {
-      request.session.daysSelected = "a 1-day"
-    } else {
-      request.session.daysSelected = "an 8-day"
-    }
+    // if (request.session.licenceLength === '1-day' ) {
+    //   request.session.daysSelected = "a 1-day"
+    // } else {
+    //   request.session.daysSelected = "an 8-day"
+    // }
 
     return reply.view('upgrade-licence', {
-      pageTitle: 'We\'ve upgraded your licence',
-      LicenceLength: request.session.daysSelected
+      pageTitle: 'Junior license',
+      // LicenceLength: request.session.daysSelected
     })
   },
   post: function (request, reply) {
@@ -17,7 +17,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('name')
+      return reply.redirect('licence-type')
     }
   }
 }

@@ -21,7 +21,9 @@ const handlers = {
     var disability = request.payload.disability
     returnURL = request.query.returnUrl
     request.session.disabilityChecked = true
-
+    request.session.hasNINumber = false
+    request.session.hasBlueBadge = false
+    request.session.concession = false
 
     if (disability === 'no') {
       if (returnURL) {
@@ -31,8 +33,6 @@ const handlers = {
         //return reply.redirect('find-address')
       }
     } else {
-      request.session.hasBlueBadge = true
-      request.session.concession = true
       if (returnURL) {
         return reply.redirect('ni-number?returnUrl=/buy/summary')
       } else {

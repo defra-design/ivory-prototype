@@ -164,6 +164,10 @@ const handlers = {
       }
     }
 
+    if (request.session.isJunior === true) {
+      request.session.cost = "£00.00"
+    }
+
     // Upgrade costs
     if (request.session.isUpgrade === true) {
        if (request.session.licenceNumber === '495969798') {
@@ -203,6 +207,7 @@ const handlers = {
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
+      hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
       concession: request.session.concession,
       isSalmon: request.session.isSalmon,
