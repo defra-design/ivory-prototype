@@ -32,7 +32,6 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.isSenior = false
     request.session.isJunior = false
-    request.session.concession = false
     if (request.session.juniorDownloadQuick === true) {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
