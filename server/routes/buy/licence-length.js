@@ -3,6 +3,7 @@ const handlers = {
     return reply.view('licence-length', {
       pageTitle: 'How long do you want your licence to last?',
       errorMessage: 'Choose a licence length',
+      //myDate: request.session.date
       items: {
           one: {
             text: '1 day',
@@ -21,7 +22,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
+            selectedText: 'A 12-month licence is not available for the start date of you selected. We will amend the date to 1 April 2017',
           },
       }
     })
@@ -56,7 +57,12 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-time')
+        if (request.session.haveTime === true) {
+          return reply.redirect('find-address')
+        } else {
+          return reply.redirect('licence-start-time')
+        }
+
       }
     }
   }
