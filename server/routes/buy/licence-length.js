@@ -56,7 +56,12 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-time')
+        if (request.session.haveTime === true) {
+          return reply.redirect('find-address')
+        } else {
+          return reply.redirect('licence-start-time')
+        }
+
       }
     }
   }
