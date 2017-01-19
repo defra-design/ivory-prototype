@@ -2765,3 +2765,11 @@ a.govuk-box-highlight-link {
 a.govuk-box-highlight-link:hover {
   color: #e0e2e5;
 }
+
+details summary.non-blue {
+  color: #0b0c0c !important;
+}
+
+details summary.non-blue .summary-link {
+  color: #4c2c92 !important;
+}

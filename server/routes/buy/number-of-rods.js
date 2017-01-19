@@ -29,7 +29,12 @@ const handlers = {
         return reply.redirect('disability?returnUrl=/buy/summary')
       }
     } else {
-      return reply.redirect('disability')
+      if (request.session.isJunior === true) {
+        //return reply.redirect('blue-badge-check')
+        return reply.redirect('disability')
+      } else {
+        return reply.redirect('disability')
+      }
     }
 
 

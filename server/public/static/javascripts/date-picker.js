@@ -1,6 +1,6 @@
 $(function () {
   var page = new StartDatePage({
-    maxDaysInAdvance: 30
+    maxDaysInAdvance: 90
   })
 })
 
