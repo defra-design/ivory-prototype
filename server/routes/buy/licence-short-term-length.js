@@ -30,25 +30,57 @@ const handlers = {
   post: function (request, reply) {
     request.session.licenceLength = request.payload.licence_length
     returnURL = request.query.returnUrl
-    if (returnURL) {
-      return reply.redirect(returnURL)
-    } else {
-      return reply.redirect('licence-start-time')
+
+    if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
+      request.session.is365Contact = true;
+      if (returnURL) {
+        return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('number-of-rods')
+      }
+    } else if (request.session.licenceLength === '365-days') {
+      request.session.is365Contact = true;
+      if (returnURL) {
+        return reply.redirect('disability?returnUrl=/buy/summary')
+      } else {
+        return reply.redirect('disability')
+      }
+    }
+    //else if (request.session.haveTime === true){
+    //   if (returnURL) {
+    //     return reply.redirect(returnURL)
+    //   } else {
+    //     return reply.redirect('find-address')
+    //   }
+    // }
+    else {
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
+        if (request.session.haveTime === true) {
+          return reply.redirect('find-address')
+        } else {
+          return reply.redirect('licence-start-time')
+        }
+
+      }
     }
   }
-}
+  }
 
-module.exports = [{
+
+
+  module.exports = [{
   method: 'GET',
   path: '/buy/licence-short-term-length',
   config: {
     handler: handlers.get
   }
-},
-{
+  },
+  {
   method: 'POST',
   path: '/buy/licence-short-term-length',
   config: {
     handler: handlers.post
   }
-}]
+  }]
