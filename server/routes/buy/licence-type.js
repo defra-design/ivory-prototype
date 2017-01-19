@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-type', {
-      pageTitle: 'What fish should your licence cover?',
+      pageTitle: 'What type of fishing licence do you want?',
       errorMessage: 'Choose a licence type',
       items: {
         one: {
