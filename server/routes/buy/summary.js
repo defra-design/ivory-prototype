@@ -42,7 +42,7 @@ const handlers = {
         request.session.isSenior = true
         request.session.concession = true
       } else if (request.session.age < 17) {
-        request.session.licenceLength = '12 months'
+        request.session.licenceLength = '12-months'
         request.session.isJunior = true
         request.session.concession = true
       }
@@ -185,7 +185,7 @@ const handlers = {
 
 
     if (request.session.licenceLength === '365-days') {
-      request.session.licenceLength = '12 months'
+      request.session.licenceLength = '12-months'
     }
 
 

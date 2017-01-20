@@ -22,7 +22,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            selectedText: 'A 12-month licence is not available for the start date of you selected. We will amend the date to 1 April 2017',
+            //selectedText: 'A 12-month licence is not available for the start date you have selected. The start date will be updated to 1 April 2017.',
           },
       }
     })

@@ -35,7 +35,7 @@ const handlers = {
     if (april > licenceStart) {
       request.session.beforeApril = true
       //return reply.redirect('licence-short-term-length')
-      return reply.redirect('licence-length')
+      return reply.redirect('licence-short-term-length')
     } else {
       // Jump to contact if junior
       if (request.session.startAge < 17) {
@@ -49,7 +49,7 @@ const handlers = {
           return reply.redirect(returnURL)
         } else {
         //return reply.redirect('licence-length')
-        return reply.redirect('licence-short-term-length')
+        return reply.redirect('licence-length')
         //return reply(request.session.startDate + " " +april)
         }
       }
