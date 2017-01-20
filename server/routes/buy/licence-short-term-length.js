@@ -40,6 +40,7 @@ const handlers = {
       }
     } else if (request.session.licenceLength === '365-days') {
       request.session.is365Contact = true;
+      request.session.startDate = "1 April 2017"
       if (returnURL) {
         return reply.redirect('disability?returnUrl=/buy/summary')
       } else {

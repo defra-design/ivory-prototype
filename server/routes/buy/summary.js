@@ -53,8 +53,8 @@ const handlers = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
 
-    if (request.session.startDate === "April 1st 2017") {
-      request.session.endDate = "April 1st 2018"
+    if (request.session.startDate === "1 April 2017") {
+      request.session.endDate = "1 April 2018"
     } else {
       if (request.session.licenceLength === '1-day') {
         var tomorrow = new Date(Date.parse(request.session.date));
