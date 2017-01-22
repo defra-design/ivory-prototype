@@ -30,6 +30,13 @@ const handlers = {
     var april = Date.parse("April 01, 2017");
     var licenceStart = Date.parse(request.session.date);
 
+    // Rods
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.numberOfRods ='1 rod (or up to 3 rods for trout and coarse fish)'
+      } else if (request.session.licenceType === 'Trout and coarse') {
+          request.session.numberOfRods = 'Up to 2 rods'
+      }
+
 
     // Direct to pre April journey
     if (april > licenceStart) {
@@ -42,7 +49,7 @@ const handlers = {
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {
-          return reply.redirect('find-address')
+          return reply.redirect('disability')
         }
       } else {
         if (returnURL) {
@@ -55,12 +62,6 @@ const handlers = {
       }
     }
 
-    // Rods
-      if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.numberOfRods ='1 rod (or up to 3 rods for trout and coarse fish)'
-      } else if (request.session.licenceType === 'Trout and coarse') {
-          request.session.numberOfRods = 'Up to 2 rods'
-      }
 
 
 //     if (request.session.startAge < 17) {
