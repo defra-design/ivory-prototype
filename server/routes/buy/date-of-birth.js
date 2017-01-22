@@ -45,6 +45,7 @@ const handlers = {
       } else if (request.session.age < 17) {
         request.session.isJunior = true
         request.session.licenceLength = '365-days'
+        request.session.isFull = true;
         var date = new Date();
         var options = {
             weekday: "long", year: "numeric", month: "short", day: "numeric"
