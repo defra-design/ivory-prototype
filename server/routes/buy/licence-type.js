@@ -38,7 +38,7 @@ const handlers = {
       return reply.redirect('licence-short-term-length')
     } else {
       // Jump to contact if junior
-      if (request.session.startAge < 17) {
+      if (request.session.isJunior === true) {
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {

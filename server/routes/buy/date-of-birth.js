@@ -51,7 +51,7 @@ const handlers = {
         };
         request.session.startDate = date.toLocaleDateString("en-us", options)
         //return reply.redirect('licence-type')
-        return reply.redirect('licence-start-option')
+        return reply.redirect('upgrade-licence')
       } else {
         if (returnURL) {
           return reply.redirect(returnURL)
