@@ -10,9 +10,9 @@ const handlers = {
             id: 'Up to 2 rods',
           },
           two: {
-            text: '3 rods',
+            text: 'Up to 3 rods',
             name: 'number_of_rods',
-            id: '3 rods',
+            id: 'Up to 3 rods',
           }
       }
     })
