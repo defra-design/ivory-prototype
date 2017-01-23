@@ -41,8 +41,15 @@ const handlers = {
     // Direct to pre April journey
     if (april > licenceStart) {
       request.session.beforeApril = true
-      //return reply.redirect('licence-short-term-length')
-      return reply.redirect('licence-short-term-length')
+      if (returnURL) {
+        if (request.session.licenceLength === '12-months' && request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect(returnURL)
+        }
+      } else {
+        return reply.redirect('licence-short-term-length')
+      }
     } else {
       // Jump to contact if junior
       if (request.session.isJunior === true) {

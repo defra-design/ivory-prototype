@@ -132,7 +132,7 @@ const handlers = {
     }
 
     // 12 Months
-    if (request.session.licenceLength === '12 months') {
+    if (request.session.licenceLength === '12-months') {
         request.session.isFull = true;
       // Junior
       if (request.session.age < 17 ) {
