@@ -8,7 +8,7 @@ const handlers = {
     // }
 
     return reply.view('upgrade-licence', {
-      pageTitle: 'Junior license',
+      pageTitle: 'Junior licence',
       // LicenceLength: request.session.daysSelected
     })
   },
