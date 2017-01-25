@@ -207,20 +207,14 @@
                         <td class="data" id="concession">
                             No concession
                         </td>
+                        <td class="change-answer" id="change-holder-name">
 
-                        {{#if isJunior}}
-                        <td class="change-answer" id="change-holder-name">
-                            <a href="/buy/blue-badge-check?returnUrl=/buy/summary" id="buy.holder.name">
-Change <span class="visuallyhidden">name</span>
-</a>
-                        </td>
-                        {{else}}
-                        <td class="change-answer" id="change-holder-name">
+                            {{#if isUpgrade}} {{else}}
                             <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
                   Change <span class="visuallyhidden">name</span>
-                  </a>
+                  </a> {{/if}}
                         </td>
-                        {{/if}}
+
                     </tr>
                     {{/if}} {{/if}}
 

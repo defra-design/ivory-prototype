@@ -9,7 +9,7 @@ const handlers = {
       endDate: request.session.endDate,
       items: {
           one: {
-            text: 'Upgrade to 3 rods',
+            text: 'Upgrade to up to 3 rods',
             name: 'licence_details_upgrade',
             id: '3_rods',
           },
@@ -26,14 +26,14 @@ const handlers = {
     request.session.endDate = '2 April 2018'
 
     if (upgradeOption === '3_rods') {
-      request.session.numberOfRods = '3'
-      request.session.cost = 'Show reduced cost'
+      request.session.numberOfRods = 'Up to 3 rods'
+      //request.session.cost = '£15.00 (save £30.00)'
       request.session.isUpgrade = true
       return reply.redirect('summary')
     } else if (upgradeOption === 'salmon_licence') {
       request.session.licenceType = 'Salmon and sea trout'
       request.session.numberOfRods ='1 rod (or up to 3 rods for coarse fish)'
-      request.session.cost = 'Show reduced cost'
+      //request.session.cost = '£52.00 (save £30.00)'
       request.session.isUpgrade = true
     return reply.redirect('summary')
     } else {

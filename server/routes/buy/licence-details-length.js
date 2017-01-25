@@ -26,7 +26,7 @@ const handlers = {
     request.session.endDate = '2 April 2018'
     if (upgradeOption === 'Yes') {
       request.session.licenceLength = '365-days'
-      request.session.cost = 'Show reduced cost'
+      //request.session.cost = '£55.00 (save £27.00)'
       request.session.isUpgrade = true
       return reply.redirect('disability')
     } else {

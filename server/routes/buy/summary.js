@@ -115,7 +115,7 @@ const handlers = {
       }
       // Coarse
       if (request.session.licenceType === 'Trout and coarse') {
-        if(request.session.numberOfRods === '3 rods') {
+        if(request.session.numberOfRods === 'Up to3 rods') {
           if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
             request.session.cost = "£30.00"
           } else {
@@ -148,7 +148,7 @@ const handlers = {
       }
       // Coarse
       if (request.session.licenceType === 'Trout and coarse') {
-        if(request.session.numberOfRods === '3 rods') {
+        if(request.session.numberOfRods === 'Up to 3 rods') {
           if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
             request.session.cost = "£30.00"
           } else {
@@ -171,14 +171,14 @@ const handlers = {
     // Upgrade costs
     if (request.session.isUpgrade === true) {
        if (request.session.licenceNumber === '495969798') {
-           request.session.cost = '£52.00'
+           request.session.cost = '£52.00 (save £30.00)'
        } else if (request.session.licenceNumber === '497804364') {
-           request.session.cost = '£15.00'
+           request.session.cost = '£15.00 (save £30.00)'
        } else if (request.session.licenceNumber === '697989192') {
-         if (request.session.hasBlueBadge === true) {
-           request.session.cost = '£27.00'
+         if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+           request.session.cost = '£27.00 (save £27.00)'
          } else {
-           request.session.cost = '£55.00'
+           request.session.cost = '£55.00 (save £27.00)'
          }
        }
     }
