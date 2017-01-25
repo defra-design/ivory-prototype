@@ -14,6 +14,9 @@ const handlers = {
   },
   post: function (request, reply) {
     request.session.licenceLength = '365-days'
+    request.session.startDate = "1 April 2017"
+    request.session.endDate = "1 April 2018"
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
