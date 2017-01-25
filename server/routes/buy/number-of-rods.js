@@ -23,7 +23,9 @@ const handlers = {
 
 
     if (returnURL) {
-      if (request.session.disabilityChecked === true) {
+      if (request.session.isJunior === true) {
+        return reply.redirect(returnURL)
+      } else if (request.session.disabilityChecked === true) {
         return reply.redirect(returnURL)
       } else {
         return reply.redirect('disability?returnUrl=/buy/summary')
