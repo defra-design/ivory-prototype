@@ -34,11 +34,8 @@ module.exports = [].concat(
   require('./buy/licence-details-length'),
   require('./buy/details-updated'),
   require('./buy/licence-not-found'),
+
   // Two
-  require('./buy/licence-before-2'),
-  require('./buy/find-a-licence-2'),
-  require('./buy/find-a-licence-receipt-2'),
-  require('./buy/dob-postcode-check-2'),
   // require('./buy/upgrade-expired'),
   // require('./buy/licence-details-species'),
   // require('./buy/licence-details-length'),

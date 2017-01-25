@@ -29,10 +29,11 @@ const handlers = {
       //request.session.cost = '£55.00 (save £27.00)'
       request.session.isUpgrade = true
       return reply.redirect('disability')
-    } else {
-      request.session.changeDetails = true
-      return reply.redirect('name')
     }
+    // } else {
+    //   request.session.changeDetails = true
+    //   return reply.redirect('name')
+    // }
   }
 }
 
