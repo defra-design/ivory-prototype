@@ -59,7 +59,7 @@ const handlers = {
           if (request.session.licenceType === 'Trout and coarse') {
             return reply.redirect('number-of-rods')
           } else {
-            return reply.redirect('disability')
+            return reply.redirect('find-address')
           }
         }
       } else {

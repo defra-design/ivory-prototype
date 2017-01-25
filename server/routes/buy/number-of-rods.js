@@ -31,7 +31,7 @@ const handlers = {
     } else {
       if (request.session.isJunior === true) {
         //return reply.redirect('blue-badge-check')
-        return reply.redirect('disability')
+        return reply.redirect('find-address')
       } else {
         return reply.redirect('disability')
       }
