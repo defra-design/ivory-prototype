@@ -32,7 +32,7 @@ const handlers = {
       return reply.redirect('summary')
     } else if (upgradeOption === 'salmon_licence') {
       request.session.licenceType = 'Salmon and sea trout'
-      request.session.numberOfRods ='1 rod (or up to 3 rods for trout and coarse fish)'
+      request.session.numberOfRods ='1 rod (or up to 3 rods for coarse fish)'
       request.session.cost = 'Show reduced cost'
       request.session.isUpgrade = true
     return reply.redirect('summary')

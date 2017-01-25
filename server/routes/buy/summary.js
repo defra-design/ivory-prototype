@@ -42,7 +42,7 @@ const handlers = {
         request.session.isSenior = true
         request.session.concession = true
       } else if (request.session.age < 17) {
-        request.session.licenceLength = '12 months'
+        request.session.licenceLength = '12-months'
         request.session.isJunior = true
         request.session.concession = true
       }
@@ -53,8 +53,8 @@ const handlers = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
 
-    if (request.session.startDate === "April 1st 2017") {
-      request.session.endDate = "April 1st 2018"
+    if (request.session.startDate === "1 April 2017") {
+      request.session.endDate = "1 April 2018"
     } else {
       if (request.session.licenceLength === '1-day') {
         var tomorrow = new Date(Date.parse(request.session.date));
@@ -132,7 +132,7 @@ const handlers = {
     }
 
     // 12 Months
-    if (request.session.licenceLength === '12 months') {
+    if (request.session.licenceLength === '12-months') {
         request.session.isFull = true;
       // Junior
       if (request.session.age < 17 ) {
@@ -164,6 +164,10 @@ const handlers = {
       }
     }
 
+    if (request.session.isJunior === true) {
+      request.session.cost = "£00.00"
+    }
+
     // Upgrade costs
     if (request.session.isUpgrade === true) {
        if (request.session.licenceNumber === '495969798') {
@@ -181,7 +185,7 @@ const handlers = {
 
 
     if (request.session.licenceLength === '365-days') {
-      request.session.licenceLength = '12 months'
+      request.session.licenceLength = '12-months'
     }
 
 
@@ -203,6 +207,7 @@ const handlers = {
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
+      hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
       concession: request.session.concession,
       isSalmon: request.session.isSalmon,

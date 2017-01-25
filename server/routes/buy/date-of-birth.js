@@ -30,37 +30,8 @@ const handlers = {
 
     request.session.age = age
     returnURL = request.query.returnUrl
-
-    // if (request.session.juniorDownloadQuick === true) {
-    //   if (request.session.age < 12) {
-    //     return reply.redirect('no-licence-required')
-    //   } else {
-    //     request.session.isJunior = true
-    //     return reply.redirect('download-option-quick')
-    //   }
-    // } else if (request.session.juniorDownload === true) {
-    //   if (request.session.age < 12) {
-    //     return reply.redirect('no-licence-required')
-    //   } else {
-    //     request.session.isJunior = true
-    //     return reply.redirect('download-option')
-    //   }
-    // } else if (request.session.age < 12) {
-    //   return reply.redirect('no-licence-required')
-    // } else if (request.session.age < 17) {
-    //   request.session.isJunior = true
-    //   request.session.licenceLength = '365-days'
-    //   request.session.startDate = "30 minutes after payment"
-    //   return reply.redirect('licence-type')
-    // } else {
-    //   if (returnURL) {
-    //     return reply.redirect(returnURL)
-    //   } else {
-    //     return reply.redirect('licence-start-option')
-    //   }
-    // }
-
-
+    request.session.isSenior = false
+    request.session.isJunior = false
     if (request.session.juniorDownloadQuick === true) {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
@@ -74,12 +45,14 @@ const handlers = {
       } else if (request.session.age < 17) {
         request.session.isJunior = true
         request.session.licenceLength = '365-days'
+        request.session.isFull = true;
         var date = new Date();
         var options = {
             weekday: "long", year: "numeric", month: "short", day: "numeric"
         };
         request.session.startDate = date.toLocaleDateString("en-us", options)
-        return reply.redirect('licence-type')
+        //return reply.redirect('licence-type')
+        return reply.redirect('upgrade-licence')
       } else {
         if (returnURL) {
           return reply.redirect(returnURL)
