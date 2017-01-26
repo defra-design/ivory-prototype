@@ -27,6 +27,16 @@
             <h2 class="heading-medium">We don’t send junior licences in the post</h2>
             <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
             </p>
+            {{#if noContact}}
+            <p>We can also send you your licence confirmation:</p>
+            <ol class="list">
+                <li><a href="email-address">Email me my licence confirmation</a></li>
+                <li><a href="mobile-number">Text me my licence confirmation</a></li>
+            </ol>
+            {{else}}
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+            {{/if}}
             <!-- <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
 
@@ -42,8 +52,16 @@
                 {{/if}} -->
                         <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
                 </ol>
+                {{#if noContact}}
+                <p>We can also send you your licence confirmation:</p>
+                <ol class="list">
+                    <li><a href="email-address">Email me my licence confirmation</a></li>
+                    <li><a href="mobile-number">Text me my licence confirmation</a></li>
+                </ol>
+                {{else}}
+                <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
 
-                {{/if}} {{else}}
+                {{/if}} {{/if}} {{else}}
                 <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
                 <p>If our bailiffs ask to see your licence, you must show them:</p>
                 <ol class="list list-number">
@@ -52,7 +70,16 @@
                 {{/if}} -->
                         <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
                 </ol>
-                {{/if}}
+                {{#if noContact}}
+                <p>We can also send you your licence confirmation:</p>
+                <ol class="list">
+                    <li><a href="email-address">Email me my licence confirmation</a></li>
+                    <li><a href="mobile-number">Text me my licence confirmation</a></li>
+                </ol>
+                {{else}}
+                <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+                {{/if}} {{/if}}
 
                 <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
                 <h2 class="heading-medium">Check the byelaws before you go</h2>

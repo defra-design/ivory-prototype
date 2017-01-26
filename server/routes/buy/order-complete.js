@@ -12,7 +12,10 @@ const handlers = {
       isFull: request.session.isFull,
       isJunior:  request.session.isJunior,
       isUpgrade:  request.session.isUpgrade,
-      noContact: request.session.noContact
+      email: request.session.email,
+      mobile: request.session.mobile,
+      noContact: request.session.noContact,
+      hasBothContact: request.session.hasBothContact
     })
   },
   post: function (request, reply) {
