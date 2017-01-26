@@ -7,6 +7,8 @@ const handlers = {
   },
   post: function (request, reply) {
     returnURL = request.query.returnUrl
+    request.session.hasNINumber = true
+    request.session.concession = true
     if (returnURL) {
       return reply.redirect(returnURL)
     } else if (request.session.isUpgrade === true){

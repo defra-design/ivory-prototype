@@ -10,9 +10,9 @@ const handlers = {
             id: 'Up to 2 rods',
           },
           two: {
-            text: '3 rods',
+            text: 'Up to 3 rods',
             name: 'number_of_rods',
-            id: '3 rods',
+            id: 'Up to 3 rods',
           }
       }
     })
@@ -23,13 +23,20 @@ const handlers = {
 
 
     if (returnURL) {
-      if (request.session.disabilityChecked === true) {
+      if (request.session.isJunior === true) {
+        return reply.redirect(returnURL)
+      } else if (request.session.disabilityChecked === true) {
         return reply.redirect(returnURL)
       } else {
         return reply.redirect('disability?returnUrl=/buy/summary')
       }
     } else {
-      return reply.redirect('disability')
+      if (request.session.isJunior === true) {
+        //return reply.redirect('blue-badge-check')
+        return reply.redirect('find-address')
+      } else {
+        return reply.redirect('disability')
+      }
     }
 
 

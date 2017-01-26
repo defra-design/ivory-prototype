@@ -3,6 +3,7 @@ const handlers = {
     return reply.view('licence-length', {
       pageTitle: 'How long do you want your licence to last?',
       errorMessage: 'Choose a licence length',
+      //myDate: request.session.date
       items: {
           one: {
             text: '1 day',
@@ -21,7 +22,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.',
+            //selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
           },
       }
     })
@@ -29,6 +30,13 @@ const handlers = {
   post: function (request, reply) {
     request.session.licenceLength = request.payload.licence_length
     returnURL = request.query.returnUrl
+
+    // Rods
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.numberOfRods ='1 rod (or up to 3 rods for coarse fish)'
+      } else if (request.session.licenceType === 'Trout and coarse') {
+          request.session.numberOfRods = 'Up to 2 rods'
+      }
 
     if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
       request.session.is365Contact = true;
@@ -56,7 +64,12 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        return reply.redirect('licence-start-time')
+        if (request.session.haveTime === true) {
+          return reply.redirect('find-address')
+        } else {
+          return reply.redirect('licence-start-time')
+        }
+
       }
     }
   }
