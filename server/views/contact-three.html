@@ -15,19 +15,27 @@
             </div>
 
 
+
+
             <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
             <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
-                    <p>You can also have your licence number sent to you</p>
-                    <ol class="list">
-                        <li><a href="email-address">Send in an email</a></li>
-                        <li><a href="phone-number">Send in a text message</a></li>
-                    </ol>
+
                 </li>
                 <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
             </ol>
 
+            {{#if noContact}}
+            <p>We can also send you your licence confirmation:</p>
+            <ol class="list">
+                <li><a href="email-address">Email me my licence confirmation</a></li>
+                <li><a href="mobile-number">Text me my licence confirmation</a></li>
+            </ol>
+            {{else}}
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+            {{/if}}
 
             <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
             <h2 class="heading-medium">Check the byelaws before you go</h2>

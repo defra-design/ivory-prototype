@@ -59,7 +59,7 @@ module.exports = [].concat(
   require('./buy/summary'),
   require('./buy/terms-conditions'),
   require('./buy/order-complete'),
-  require('./buy/phone-number'),
+  require('./buy/mobile-number'),
   require('./buy/email-address'),
 
   // Pay pages

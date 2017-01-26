@@ -2,9 +2,9 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <p>We will only use this number to send you your licence number.</p>
+        <p>We will only use this number to text you your licence confirmation.</p>
         <form method="post" autocomplete="off" novalidate>
-            <fieldset>
+            <fieldset data-required data-error="{{errorMessage}}">
                 <div class="form-group">
                     <label for="mobile" class="form-label">Mobile number</label> {{#if errors.mobile}}<span class="error-message">{{errors.mobile}}</span>{{/if}}
                     <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
