@@ -1,17 +1,17 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-before', {
-      pageTitle: 'What would you like to do?',
+      pageTitle: 'Have you had a licence before?',
       errorMessage: 'Tell us if you\'ve had a licence before',
       items: {
         one: {
-          text: 'Buy a new licence',
+          text: 'No, buy a new licence',
           name: 'licence_before',
           id: 'Buy_a_new_licence',
           value: 'Buy_a_new_licence',
         },
         two: {
-          text: 'Upgrade my licence',
+          text: 'Yes, upgrade my licence',
           name: 'licence_before',
           id: 'Upgrade_a_licence',
           value: 'Upgrade_a_licence',

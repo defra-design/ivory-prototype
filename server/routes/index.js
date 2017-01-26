@@ -36,11 +36,8 @@ module.exports = [].concat(
   require('./buy/licence-not-found'),
 
   // Two
-  // require('./buy/upgrade-expired'),
-  // require('./buy/licence-details-species'),
-  // require('./buy/licence-details-length'),
-  // require('./buy/details-updated'),
-  // require('./buy/licence-not-found'),
+  // require('./buy/licence-table'),
+
 
   // Buy
   require('./buy'),
