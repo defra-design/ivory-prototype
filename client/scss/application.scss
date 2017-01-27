@@ -544,3 +544,20 @@ details summary.non-blue {
 details summary.non-blue .summary-link{
   color: #4c2c92!important;
 }
+
+// results table
+
+
+.result h2.heading-medium {
+  margin-bottom: 0;
+}
+
+.result dd {
+    float: left;
+    clear: both;
+}
+
+.result b,
+.result strong {
+    font-weight: 600;
+}

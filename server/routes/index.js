@@ -40,7 +40,8 @@ module.exports = [].concat(
   require('./buy/find-a-licence-two'),
   require('./buy/find-a-licence-dob'),
   require('./buy/find-a-licence-postcode'),
-  // require('./buy/licence-table'),
+  require('./buy/licence-options'),
+  require('./buy/licence-options-two'),
 
 
   // Buy
