@@ -36,6 +36,10 @@ module.exports = [].concat(
   require('./buy/licence-not-found'),
 
   // Two
+  require('./buy/licence-before-two'),
+  require('./buy/find-a-licence-two'),
+  require('./buy/find-a-licence-dob'),
+  require('./buy/find-a-licence-postcode'),
   // require('./buy/licence-table'),
 
 
