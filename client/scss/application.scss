@@ -547,17 +547,29 @@ details summary.non-blue .summary-link{
 
 // results table
 
+.result {
+  border-bottom: 1px solid #bfc1c3;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
 
 .result h2.heading-medium {
-  margin-bottom: 0;
+  margin: 0;
 }
 
-.result dd {
-    float: left;
-    clear: both;
+.result dl {
+    margin-top:10px;
 }
 
-.result b,
-.result strong {
-    font-weight: 600;
+.result dl dt {
+    float:left;
+    font-weight:bold;
+    margin-right:10px;
+    padding:5px;
+    width:100px;
+}
+
+.result dl dd {
+    margin:2px 0;
+    padding:5px 0;
 }
