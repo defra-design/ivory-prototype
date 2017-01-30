@@ -12,6 +12,11 @@
             border: none;
             background: none;
             cursor: pointer;
+            float: left;
+            font-size: 16px;
+            margin-top: 31px;
+            color: #005ea5;
+            text-decoration: underline;
         }
 
         .ui-datepicker-trigger img {
@@ -34,9 +39,6 @@
               {{/if}} -->
 
                 <fieldset data-required data-error="{{errorMessage}}">
-
-
-
                     <div class="form-group">
                         <div class="form-date">
                             <p class="form-hint">For example, 19 11 2016</p>
@@ -52,21 +54,22 @@
                                 <label for="year">Year</label>
                                 <input class="form-control" id="year" name="licence_start_year" value="{{year}}" type="number" title="Licence start date year">
                             </div>
-                            <div class="form-group calendar nojs-hide">
-                                <label>Calendar</label>
-                                <input id="datepicker" class="js-hidden" value="{{day}}/{{month}}/{{year}}">
-                            </div>
-                            <!--<div class="form-group calendar-svg-container">
+                        </div>
+                        <div class="calendar nojs-hide">
+                            <label>Calendar</label>
+                            <input id="datepicker" class="js-hidden" value="{{day}}/{{month}}/{{year}}">
+                        </div>
+                        <!--<div class="form-group calendar-svg-container">
 
                                 <a href="btn_date" id="bn_date"><svg class="svg"></svg>
                 <p class="visuallyhidden">Calendar</p>-->
 
-                            <!--<object type="image/svg+xml" data="/public/images/calendar.svg" class="calendar-svg">
+                        <!--<object type="image/svg+xml" data="/public/images/calendar.svg" class="calendar-svg">
               <img src="/public/assets/images/calendar.png" alt="Select a date from calendar"/>
     <svg no support fallback ie < 9 android < 3 ...
-  </object>-->
-                            </a>
-                        </div>
+  </object>
+                            </a>-->
+
                     </div>
             </div>
             </fieldset>
