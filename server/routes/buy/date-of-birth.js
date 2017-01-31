@@ -6,25 +6,25 @@ const handlers = {
       exampleDate: '23 3 1972',
       items: {
         one: {
-          text: 'Under 12',
+          text: 'Under 12 years old',
           name: 'licence_dob',
           id: 'Under 12',
           value: 'Under_12',
         },
         two: {
-          text: '12 to 16',
+          text: 'Between 12 and 16 years old',
           name: 'licence_dob',
           id: '12 to 16',
           value: '12 to 16',
         },
         three: {
-          text: '17 to 65',
+          text: 'Between 17 and 65 years old',
           name: 'licence_dob',
           id: '17 to 65',
           value: '17_to_65',
         },
         four: {
-          text: 'Over 65',
+          text: '65 or over',
           name: 'licence_dob',
           id: 'Over 65',
           value: 'Over_65',
