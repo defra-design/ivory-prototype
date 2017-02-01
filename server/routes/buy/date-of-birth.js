@@ -59,42 +59,19 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.isSenior = false
     request.session.isJunior = false
-
-    // if (request.session.juniorDownloadQuick === true) {
-    //   if (request.session.age < 12) {
-    //     return reply.redirect('no-licence-required')
-    //   } else {
-    //     request.session.isJunior = true
-    //     return reply.redirect('download-option-quick')
-    //   }
-    // } else {
-    //   if (request.session.age < 12) {
-    //     return reply.redirect('no-licence-required')
-    //   } else if (request.session.age < 17) {
-    //     request.session.isJunior = true
-    //     request.session.licenceLength = '365-days'
-    //     request.session.isFull = true;
-    //     var date = new Date();
-    //     var options = {
-    //         weekday: "long", year: "numeric", month: "short", day: "numeric"
-    //     };
-    //     request.session.startDate = date.toLocaleDateString("en-us", options)
-    //     //return reply.redirect('licence-type')
-    //     return reply.redirect('upgrade-licence')
-    //   } else {
-    //     if (returnURL) {
-    //       return reply.redirect(returnURL)
-    //     } else {
-    //       return reply.redirect('licence-start-option')
-    //     }
-    //   }
-    // }
-
-    if (request.session.licenceDOB === 'Under 12') {
-      request.session.age = 11
-      return reply.redirect('no-licence-required')
-    } else if (request.session.licenceDOB === '12 to 16') {
-        request.session.age = 14
+    
+    // BATE OF BIRTH FIELD
+    if (request.session.juniorDownloadQuick === true) {
+      if (request.session.age < 12) {
+        return reply.redirect('no-licence-required')
+      } else {
+        request.session.isJunior = true
+        return reply.redirect('download-option-quick')
+      }
+    } else {
+      if (request.session.age < 12) {
+        return reply.redirect('no-licence-required')
+      } else if (request.session.age < 17) {
         request.session.isJunior = true
         request.session.licenceLength = '365-days'
         request.session.isFull = true;
@@ -105,15 +82,41 @@ const handlers = {
         request.session.startDate = date.toLocaleDateString("en-us", options)
         //return reply.redirect('licence-type')
         return reply.redirect('upgrade-licence')
-    } else if (request.session.licenceDOB === '17 to 65') {
-      request.session.age = 22
-      return reply.redirect('licence-start-option')
-    } else {
-      request.session.isSenior = true
-      request.session.concession = true
-      request.session.age = 77
-      return reply.redirect('licence-start-option')
+      } else {
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('licence-start-option')
+        }
+      }
     }
+
+    // AGE GROUP RADIOS
+
+    // if (request.session.licenceDOB === 'Under 12') {
+    //   request.session.age = 11
+    //   return reply.redirect('no-licence-required')
+    // } else if (request.session.licenceDOB === '12 to 16') {
+    //     request.session.age = 14
+    //     request.session.isJunior = true
+    //     request.session.licenceLength = '365-days'
+    //     request.session.isFull = true;
+    //     var date = new Date();
+    //     var options = {
+    //         weekday: "long", year: "numeric", month: "short", day: "numeric"
+    //     };
+    //     request.session.startDate = date.toLocaleDateString("en-us", options)
+    //     //return reply.redirect('licence-type')
+    //     return reply.redirect('upgrade-licence')
+    // } else if (request.session.licenceDOB === '17 to 65') {
+    //   request.session.age = 22
+    //   return reply.redirect('licence-start-option')
+    // } else {
+    //   request.session.isSenior = true
+    //   request.session.concession = true
+    //   request.session.age = 77
+    //   return reply.redirect('licence-start-option')
+    // }
 
   }
 }
