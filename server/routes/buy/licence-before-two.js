@@ -4,17 +4,31 @@ const handlers = {
       pageTitle: 'Have you had a licence before?',
       errorMessage: 'Tell us if you\'ve had a licence before',
       items: {
-        one: {
-          text: 'No, buy a new licence',
+        two: {
+          text: 'Renew my licence',
           name: 'licence_before',
-          id: 'Buy_a_new_licence',
-          value: 'Buy_a_new_licence',
+          id: 'Renew_my_licence',
+          value: 'Renew_my_licence',
+        },
+        one: {
+          text: 'Upgrade my licence',
+          name: 'licence_before',
+          id: 'Upgrade_my_licence',
+          value: 'Upgrade_my_licence',
+        },
+      },
+      items2: {
+        one: {
+          text: 'Buy a new 12-month licence',
+          name: 'licence_before',
+          id: 'Buy_a_new_12_month_licence',
+          value: 'Buy_a_new_12_month_licence',
         },
         two: {
-          text: 'Yes, upgrade my licence',
+          text: 'Buy a new short term licence',
           name: 'licence_before',
-          id: 'Upgrade_a_licence',
-          value: 'Upgrade_a_licence',
+          id: 'Buy_a_new_short_term_licence',
+          value: 'Buy_a_new_short_term_licence',
         },
       }
     })
