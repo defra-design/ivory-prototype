@@ -1303,7 +1303,7 @@ textarea {
   box-sizing: border-box;
   float: left;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 641px) {

@@ -4,31 +4,17 @@ const handlers = {
       pageTitle: 'Have you had a licence before?',
       errorMessage: 'Tell us if you\'ve had a licence before',
       items: {
-        two: {
-          text: 'Renew my licence',
-          name: 'licence_before',
-          id: 'Renew_my_licence',
-          value: 'Renew_my_licence',
-        },
         one: {
-          text: 'Upgrade my licence',
+          text: 'Yes',
           name: 'licence_before',
-          id: 'Upgrade_my_licence',
-          value: 'Upgrade_my_licence',
-        },
-      },
-      items2: {
-        one: {
-          text: 'Buy a new 12-month licence',
-          name: 'licence_before',
-          id: 'Buy_a_new_12_month_licence',
-          value: 'Buy_a_new_12_month_licence',
+          id: 'Yes',
+          value: 'Yes',
         },
         two: {
-          text: 'Buy a new short term licence',
+          text: 'No',
           name: 'licence_before',
-          id: 'Buy_a_new_short_term_licence',
-          value: 'Buy_a_new_short_term_licence',
+          id: 'No',
+          value: 'No',
         },
       }
     })
@@ -36,10 +22,10 @@ const handlers = {
   post: function (request, reply) {
     returnURL = request.query.returnUrl
     var licenceBefore = request.payload.licence_before
-    if (licenceBefore === 'Upgrade_a_licence') {
-      return reply.redirect('find-a-licence-two')
+    if (licenceBefore === 'Yes') {
+      return reply.redirect('choose-upgrade')
     } else {
-      return reply.redirect('name')
+      return reply.redirect('choose-licence')
     }
   }
 }
