@@ -38,7 +38,6 @@ module.exports = [].concat(
   // Two
   require('./buy/licence-before-two'),
   require('./buy/choose-licence'),
-  require('./buy/choose-upgrade'),
   require('./buy/find-a-licence-two'),
   require('./buy/find-a-licence-dob'),
   require('./buy/find-a-licence-postcode'),

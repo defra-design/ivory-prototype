@@ -29,7 +29,7 @@ const handlers = {
       } else if (request.session.isUpgrade === true){
         return reply.redirect('summary')
       } else {
-        return reply.redirect('find-address')
+        return reply.redirect('licence-start-option')
       }
     } else {
       if (returnURL) {
