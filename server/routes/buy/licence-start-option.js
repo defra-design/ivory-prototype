@@ -5,18 +5,28 @@ const handlers = {
       errorMessage: 'Choose when you\'d like your licence to start',
       items: {
           one: {
-            text: '30 minutes after payment',
+            //text: '30 minutes after payment',
+            text: '1 April 2017',
             name: 'licence_start_option',
-            id: 'asap',
-            value: 'asap',
+            id: 'april',
+            value: 'april',
             //selectedText: '365-day licences are only available from April 1st 2017',
           },
           two: {
-            text: 'Another time or date',
+            //text: 'Another time or date',
+            text: 'Another date or time',
             name: 'licence_start_option',
             id: 'absolute',
             value: 'absolute',
             //selectedText: 'ddddddd',
+          },
+          three: {
+            //text: 'Another time or date',
+            text: 'Now',
+            name: 'licence_start_option',
+            id: 'asap',
+            value: 'asap',
+            selectedText: 'Your licence will not be valid until 30 minutes after payment',
           },
       }
     })
@@ -54,6 +64,23 @@ const handlers = {
           return reply.redirect('licence-type')
         }
       }
+    } else if (startOption === 'april') {
+
+      request.session.year = '2017'
+      request.session.month = '04'
+      request.session.day = '01'
+
+
+      var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+      var options = {
+          weekday: "long", year: "numeric", month: "short", day: "numeric"
+      };
+      var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+
+      request.session.date = date
+      request.session.startDate = date.toLocaleDateString("en-us", options)
+
+      return reply.redirect('licence-type')
     } else {
       if (returnURL) {
         return reply.redirect('licence-start-day?returnUrl=/buy/summary')
