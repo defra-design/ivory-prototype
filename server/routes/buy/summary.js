@@ -53,23 +53,22 @@ const handlers = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
 
-    // if (request.session.startDate === "1 April 2017") {
-    //   request.session.endDate = "1 April 2018"
-    // } else {
-      if (request.session.licenceLength === '1-day') {
-        var tomorrow = new Date(Date.parse(request.session.date));
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
-      } else if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
-        var eightDays = new Date(Date.parse(request.session.date));
-        eightDays.setDate(eightDays.getDate() + 8);
-        request.session.endDate = eightDays.toLocaleDateString("en-us", options)
-      } else {
-        var threeSixFiveDays = new Date(Date.parse(request.session.date));
-        threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
-        request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
-      }
-    // }
+    if (request.session.licenceLength === '1-day') {
+      var tomorrow = new Date(Date.parse(request.session.date));
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
+    } else if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
+      var eightDays = new Date(Date.parse(request.session.date));
+      eightDays.setDate(eightDays.getDate() + 8);
+      request.session.endDate = eightDays.toLocaleDateString("en-us", options)
+    } else {
+      var threeSixFiveDays = new Date(Date.parse(request.session.date));
+      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
+      request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
+    }
+
+
+
 
     // Calculate cost
     // 1 Day

@@ -2,10 +2,13 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('email-address', {
-      pageTitle: 'Enter your email address',
+      pageTitle: 'What is your email address?',
+      errorMessage: 'Enter your email address',
     })
   },
   post: function (request, reply) {
+    request.session.email = request.payload.email
+    request.session.noContact = false
     return reply.redirect('contact-three')
   }
 }

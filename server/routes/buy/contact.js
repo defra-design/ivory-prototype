@@ -18,6 +18,10 @@ const handlers = {
         request.session.noContact = true
     }
 
+    if (request.payload.email && request.payload.mobile) {
+        request.session.hasBothContact = true
+    }
+
     returnURL = request.query.returnUrl
     if (returnURL) {
       return reply.redirect(returnURL)

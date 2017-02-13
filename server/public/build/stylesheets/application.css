@@ -2774,6 +2774,7 @@ details summary.non-blue .summary-link {
   color: #4c2c92 !important;
 }
 
+<<<<<<< HEAD
 .result {
   border-bottom: 1px solid #bfc1c3;
   padding-bottom: 20px;
@@ -2799,4 +2800,8 @@ details summary.non-blue .summary-link {
 .result dl dd {
   margin: 2px 0;
   padding: 5px 0;
+=======
+.notice-margin-bottom {
+  margin-bottom: 10px;
+>>>>>>> develop
 }

@@ -2,11 +2,22 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <div class="panel panel-border-wide">
+        <!-- <div class="panel panel-border-wide">
             <p>
                 We don’t send 1-day or 8-day licences in the post.
             </p>
+        </div> -->
+        <p> Choose how you’d like to receive your licence confirmation and expiry reminders.</p>
+        <div class="panel panel-border-wide">
+            <p>
+                Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
+            </p>
         </div>
+        <!-- <div class="panel panel-border-wide">
+            <p>
+                We don’t send junior licences in the post.
+            </p>
+        </div> -->
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group">
                 <fieldset>
@@ -31,15 +42,20 @@
                         <br>
                         <a href="/buy/data-protection">View our data protection notice</a>
                     </div>
-                    <label class="block-label selection-button-radio" data-target="contact-by-phone" for="example-contact-by-phone">
+                    <label class="block-label selection-button-radio" data-target="write" for="example-contact-by-phone">
                   <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
                   I will write it down
                 </label>
+                    <div class="panel panel-border-narrow js-hidden" id="write">
+                        <p>We will write to you when your licence is about to expire.</p>
+                    </div>
                 </fieldset>
             </div>
 
             <button type="submit" class="button">Continue</button>
         </form>
+        </br>
+        <!-- <p>We will send you a renewal reminder in the post</p> -->
 
     </div>
 </div>

@@ -2,15 +2,12 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <!-- <h1 class="heading-large">What age group do you belong to?</h1> -->
+        <!-- <div class="panel panel-border-wide"> -->
+        <p>We use this information to find out if you're eligible for a senior or junior concession.</p>
+        <!-- </div> -->
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
-
-                <!-- {{#if errors}}
-              <div class="alert alert-error">
-                  <span class="error-message">{{errorMessage}}</span>
-              </div>
-              {{/if}} -->
-
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         <div class="form-date">
@@ -33,5 +30,31 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
+
+
+        <!-- <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        {{#each items}}
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form> -->
+
+
+
     </div>
 </div>
