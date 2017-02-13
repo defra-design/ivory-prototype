@@ -18,25 +18,37 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    request.session.numberOfRods = request.payload.number_of_rods
     returnURL = request.query.returnUrl
+    request.session.numberOfRods = request.payload.number_of_rods
+
+
+
+    // if (returnURL) {
+    //   if (request.session.isJunior === true) {
+    //     return reply.redirect(returnURL)
+    //   } else if (request.session.disabilityChecked === true) {
+    //     return reply.redirect(returnURL)
+    //   } else {
+    //     return reply.redirect('disability?returnUrl=/buy/summary')
+    //   }
+    // } else {
+    //   if (request.session.isJunior === true) {
+    //     //return reply.redirect('blue-badge-check')
+    //     return reply.redirect('contact')
+    //   } else {
+    //     return reply.redirect('contact')
+    //   }
+    // }
 
 
     if (returnURL) {
-      if (request.session.isJunior === true) {
-        return reply.redirect(returnURL)
-      } else if (request.session.disabilityChecked === true) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('disability?returnUrl=/buy/summary')
-      }
+      return reply.redirect(returnURL)
     } else {
       if (request.session.isJunior === true) {
-        //return reply.redirect('blue-badge-check')
-        return reply.redirect('contact')
-      } else {
-        return reply.redirect('contact')
-      }
+          return reply.redirect('contact')
+        } else {
+          return reply.redirect('licence-start-option')
+        }
     }
 
 

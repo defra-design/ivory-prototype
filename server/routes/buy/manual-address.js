@@ -39,10 +39,17 @@ const handlers = {
     // Combile address
     request.session.Address = request.session.premises + " " + request.session.street + " " + request.session.locality + " " + request.session.town + " " +  request.session.postcode + " " + request.session.country
     returnURL = request.query.returnUrl
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('disability')
+      if (request.session.isJunior === true) {
+        return reply.redirect('licence-type')
+      } else if (request.session.isFull === true) {
+        return reply.redirect('disability')
+      } else {
+        return reply.redirect('licence-type')
+      }
     }
   }
 }

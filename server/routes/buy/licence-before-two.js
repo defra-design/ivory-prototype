@@ -23,13 +23,13 @@ const handlers = {
         two: {
           text: 'Renew my licence',
           name: 'choose_upgrade',
-          id: 'Renew_my_licence',
+          id: 'Renew my licence',
           value: 'Renew_my_licence',
         },
         one: {
           text: 'Upgrade my licence',
           name: 'choose_upgrade',
-          id: 'Upgrade_my_licence',
+          id: 'Upgrade my licence',
           value: 'Upgrade_my_licence',
         },
       },
@@ -37,13 +37,13 @@ const handlers = {
         one: {
           text: 'Buy a new 12-month licence',
           name: 'choose_licence',
-          id: 'Buy_a_new_12_month_licence',
+          id: 'Buy a new 12-month licence',
           value: 'Buy_a_new_12_month_licence',
         },
         two: {
           text: 'Buy a new short term licence',
           name: 'choose_licence',
-          id: 'Buy_a_new_short_term_licence',
+          id: 'Buy a new short term licence',
           value: 'Buy_a_new_short_term_licence',
         },
       },
@@ -53,16 +53,30 @@ const handlers = {
     returnURL = request.query.returnUrl
     var licenceBefore = request.payload.licence_before
     var licenceOption = request.payload.choose_licence
+    choose_upgrade = request.payload.choose_upgrade
+    choose_licence = request.payload.choose_licence
+
     if (licenceBefore === 'Yes') {
-      request.session.isUpgrade === true
-      return reply.redirect('dob-postcode-check')
-    } else if (licenceOption === 'Buy a new 12-month licence') {
-      request.session.isFull === true
-      return reply.redirect('name')
+      request.session.isUpgrade = true
+      //return reply('Yes')
+      if (choose_upgrade === 'Renew my licence') {
+        return reply.redirect('find-a-licence')
+      } else {
+        return reply.redirect('find-a-licence')
+      }
     } else {
-      request.session.isFull === false
-      return reply.redirect('name')
+      //request.session.isFull === false
+      //return reply('No')
+      if (choose_licence === 'Buy a new 12-month licence') {
+        request.session.isFull = true
+        request.session.licenceLength = '365-days'
+        return reply.redirect('name')
+      } else {
+        request.session.isFull = false
+        return reply.redirect('name')
+      }
     }
+
   }
 }
 

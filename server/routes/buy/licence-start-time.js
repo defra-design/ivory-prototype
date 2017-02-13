@@ -132,14 +132,15 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    request.session.startTime = request.payload.licence_start_time
     returnURL = request.query.returnUrl
+    request.session.startTime = request.payload.licence_start_time
 
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('licence-length')
+      return reply.redirect('contact')
     }
+
   }
 }
 

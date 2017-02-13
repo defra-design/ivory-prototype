@@ -5,19 +5,19 @@ const handlers = {
 
 
     // Calculate age at licence start date
-    var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
-    };
-    var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
-    var startAge = startDate.getFullYear() - birthDate.getFullYear();
-    var m = startDate.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
-          startAge--;
-      }
-
-    request.session.startAge = startAge
+    // var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    // var options = {
+    //     weekday: "long", year: "numeric", month: "short", day: "numeric"
+    // };
+    // var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    // var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    // var startAge = startDate.getFullYear() - birthDate.getFullYear();
+    // var m = startDate.getMonth() - birthDate.getMonth();
+    //   if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
+    //       startAge--;
+    //   }
+    //
+    // request.session.startAge = startAge
 
 
 
@@ -53,9 +53,9 @@ const handlers = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
 
-    if (request.session.startDate === "1 April 2017") {
-      request.session.endDate = "1 April 2018"
-    } else {
+    // if (request.session.startDate === "1 April 2017") {
+    //   request.session.endDate = "1 April 2018"
+    // } else {
       if (request.session.licenceLength === '1-day') {
         var tomorrow = new Date(Date.parse(request.session.date));
         tomorrow.setDate(tomorrow.getDate() + 1);
@@ -69,17 +69,73 @@ const handlers = {
         threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
         request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
       }
-    }
+    // }
 
     // Calculate cost
     // 1 Day
+    // if (request.session.licenceLength === '1-day') {
+    //   if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
+    //     request.session.cost = "£3.75"
+    //   } else if (request.session.licenceType === 'Trout and coarse') {
+    //     request.session.cost = "£6.00"
+    //   } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
+    //     request.session.cost = "£8.00"
+    //   } else if (request.session.licenceType === 'Salmon and sea trout') {
+    //     request.session.cost = "£12.00"
+    //   }
+    // }
+
+    // 8 Day
+    // if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
+    //   if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
+    //     request.session.cost = "£10.00"
+    //   } else if (request.session.licenceType === 'Trout and coarse') {
+    //     request.session.cost = "£12.00"
+    //   } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
+    //     request.session.cost = "£23.00"
+    //   } else if (request.session.licenceType === 'Salmon and sea trout') {
+    //     request.session.cost = "£27.00"
+    //   }
+    // }
+
+    // 365 Day
+    // if (request.session.licenceLength === '365-days') {
+    //     request.session.isFull = true;
+    //   // Junior
+    //   if (request.session.age < 17 ) {
+    //     request.session.cost = "00.00"
+    //   }
+    //   // Salmon
+    //   if (request.session.licenceType === 'Salmon and sea trout') {
+    //     if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+    //       request.session.cost = "£54.00"
+    //     } else {
+    //       request.session.cost = "£82.00"
+    //     }
+    //   }
+    //   // Coarse
+    //   if (request.session.licenceType === 'Trout and coarse') {
+    //     if(request.session.numberOfRods === 'Up to3 rods') {
+    //       if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+    //         request.session.cost = "£30.00"
+    //       } else {
+    //         request.session.cost = "£45.00"
+    //       }
+    //     } else {
+    //       if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+    //         request.session.cost = "£20.00"
+    //       } else {
+    //         request.session.cost = "£30.00"
+    //       }
+    //     }
+    //   }
+    // }
+
+
+    // 1 Day
     if (request.session.licenceLength === '1-day') {
-      if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
-        request.session.cost = "£3.75"
-      } else if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceType === 'Trout and coarse') {
         request.session.cost = "£6.00"
-      } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
-        request.session.cost = "£8.00"
       } else if (request.session.licenceType === 'Salmon and sea trout') {
         request.session.cost = "£12.00"
       }
@@ -87,52 +143,15 @@ const handlers = {
 
     // 8 Day
     if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
-      if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
-        request.session.cost = "£10.00"
-      } else if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceType === 'Trout and coarse') {
         request.session.cost = "£12.00"
-      } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
-        request.session.cost = "£23.00"
       } else if (request.session.licenceType === 'Salmon and sea trout') {
         request.session.cost = "£27.00"
       }
     }
 
-    // 365 Day
-    if (request.session.licenceLength === '365-days') {
-        request.session.isFull = true;
-      // Junior
-      if (request.session.age < 17 ) {
-        request.session.cost = "00.00"
-      }
-      // Salmon
-      if (request.session.licenceType === 'Salmon and sea trout') {
-        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-          request.session.cost = "£54.00"
-        } else {
-          request.session.cost = "£82.00"
-        }
-      }
-      // Coarse
-      if (request.session.licenceType === 'Trout and coarse') {
-        if(request.session.numberOfRods === 'Up to3 rods') {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-            request.session.cost = "£30.00"
-          } else {
-            request.session.cost = "£45.00"
-          }
-        } else {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-            request.session.cost = "£20.00"
-          } else {
-            request.session.cost = "£30.00"
-          }
-        }
-      }
-    }
-
     // 12 Months
-    if (request.session.licenceLength === '12-months') {
+    if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days') {
         request.session.isFull = true;
       // Junior
       if (request.session.age < 17 ) {

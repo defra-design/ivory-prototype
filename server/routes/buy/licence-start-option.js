@@ -5,18 +5,17 @@ const handlers = {
       errorMessage: 'Choose when you\'d like your licence to start',
       items: {
           one: {
-            text: '30 minutes after payment',
+            text: 'now',
             name: 'licence_start_option',
             id: 'asap',
             value: 'asap',
-            //selectedText: '365-day licences are only available from April 1st 2017',
+            selectedText: 'Your licence will not be valid until 30 minutes after payment',
           },
           two: {
             text: 'Another time or date',
             name: 'licence_start_option',
             id: 'absolute',
             value: 'absolute',
-            //selectedText: 'ddddddd',
           },
       }
     })
@@ -38,22 +37,9 @@ const handlers = {
       request.session.haveTime = true
       request.session.date = date
       request.session.startDate = date.toLocaleDateString("en-us", options)
-      //Set time
       var startTime = date.getHours();
       request.session.startTime = startTime +":00"
-
-      // request.session.haveTime = true
-
-      if (request.session.startAge < 12) {
-        return reply.redirect('no-licence-required')
-      } else {
-        request.session.beforeApril = true
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('licence-length')
-        }
-      }
+      return reply.redirect('contact')
     } else {
       if (returnURL) {
         return reply.redirect('licence-start-day?returnUrl=/buy/summary')
@@ -61,6 +47,7 @@ const handlers = {
         return reply.redirect('licence-start-day')
       }
     }
+
   }
 }
 

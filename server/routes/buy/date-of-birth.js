@@ -10,6 +10,7 @@ const handlers = {
     })
   },
   post: function (request, reply) {
+    returnURL = request.query.returnUrl
     request.session.birthDay = request.payload.birthDay
     request.session.birthMonth = request.payload.birthMonth
     request.session.birthYear = request.payload.birthYear
@@ -19,6 +20,7 @@ const handlers = {
     var options = {
         weekday: "long", year: "numeric", month: "short", day: "numeric"
     };
+
     request.session.dateOfBirth = dob.toLocaleDateString("en-us", options)
     var today = new Date();
     var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
@@ -29,27 +31,18 @@ const handlers = {
       }
 
     request.session.age = age
-    returnURL = request.query.returnUrl
     request.session.isSenior = false
     request.session.isJunior = false
-    if (request.session.juniorDownloadQuick === true) {
-      if (request.session.age < 12) {
-        return reply.redirect('no-licence-required')
-      } else {
-        request.session.isJunior = true
-        return reply.redirect('download-option-quick')
-      }
-    } else {
+
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
       } else if (request.session.age < 17) {
-        request.session.isJunior = true
-        request.session.licenceLength = '365-days'
-        request.session.isFull = true;
+
         var date = new Date();
         var options = {
             weekday: "long", year: "numeric", month: "short", day: "numeric"
         };
+
         request.session.startDate = date.toLocaleDateString("en-us", options)
         //return reply.redirect('licence-type')
         return reply.redirect('upgrade-licence')
@@ -60,7 +53,7 @@ const handlers = {
           return reply.redirect('find-address')
         }
       }
-    }
+
   }
 }
 

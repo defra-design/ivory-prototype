@@ -29,7 +29,7 @@ const handlers = {
       } else if (request.session.isUpgrade === true){
         return reply.redirect('summary')
       } else {
-        return reply.redirect('licence-start-option')
+        return reply.redirect('licence-type')
       }
     } else {
       if (returnURL) {

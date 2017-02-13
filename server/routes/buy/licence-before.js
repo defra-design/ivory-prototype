@@ -1,19 +1,33 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-before', {
-      pageTitle: 'Have you had a licence before?',
-      errorMessage: 'Tell us if you\'ve had a licence before',
+      pageTitle: 'What do you want to do?',
+      errorMessage: 'Tell us what you want to do',
       items: {
         one: {
-          text: 'No, buy a new licence',
-          name: 'licence_before',
-          id: 'Buy_a_new_licence',
-          value: 'Buy_a_new_licence',
+          text: 'Buy a new 12-month licence',
+          name: 'what_to_do',
+          id: 'Buy a new 12-month licence',
+          value: 'Buy_a_new_12_month_licence',
         },
         two: {
-          text: 'Yes, upgrade my licence',
-          name: 'licence_before',
-          id: 'Upgrade_a_licence',
+          text: 'Buy a new short term licence',
+          name: 'what_to_do',
+          id: 'Buy a new short term licence',
+          value: 'Buy_a_new_short_term_licence',
+        },
+      },
+      items2: {
+        three: {
+          text: 'Renew my licence',
+          name: 'what_to_do',
+          id: 'Renew my licence',
+          value: 'renew_a_licence',
+        },
+        four: {
+          text: 'Upgrade my licence',
+          name: 'what_to_do',
+          id: 'Upgrade my licence',
           value: 'Upgrade_a_licence',
         },
       }
@@ -21,12 +35,22 @@ const handlers = {
   },
   post: function (request, reply) {
     returnURL = request.query.returnUrl
-    var licenceBefore = request.payload.licence_before
-    if (licenceBefore === 'Upgrade_a_licence') {
-      return reply.redirect('find-a-licence')
-    } else {
+    var whatToDo = request.payload.what_to_do
+
+    if (whatToDo === 'Buy a new 12-month licence') {
+      request.session.isFull = true
+      request.session.licenceLength = '365-days'
       return reply.redirect('name')
+    } else if (whatToDo === 'Buy a new short term licence') {
+      return reply.redirect('name')
+    } else if (whatToDo === 'Upgrade my licence') {
+      request.session.isUpgrade = true
+      return reply.redirect('find-a-licence')
+    } else if (whatToDo === 'Renew my licence') {
+      request.session.isUpgrade = true
+      return reply.redirect('find-a-licence')
     }
+
   }
 }
 
