@@ -1,43 +1,104 @@
 const handlers = {
   get: function (request, reply) {
 
-
-
-
-    // Calculate age at licence start date
-    // var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    // var options = {
-    //     weekday: "long", year: "numeric", month: "short", day: "numeric"
-    // };
-    // var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    // var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
-    // var startAge = startDate.getFullYear() - birthDate.getFullYear();
-    // var m = startDate.getMonth() - birthDate.getMonth();
-    //   if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
-    //       startAge--;
-    //   }
-    //
-    // request.session.startAge = startAge
-
-
-
-    // is salmon
-    if (request.session.licenceType === 'Salmon and sea trout') {
-      request.session.isSalmon = true;
+    // 1 Day
+    if (request.session.licenceLength === '1-day') {
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.cost = "£12.00"
+      } else {
+        request.session.cost = "£6.00"
+      }
     }
 
-    // is salmon
-    if (request.session.licenceType === 'Trout and coarse') {
-      request.session.isCoarse = true;
+    // 8 Day
+    if (request.session.licenceLength === '8-days') {
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        request.session.cost = "£27.00"
+      } else {
+        request.session.cost = "£12.00"
+      }
+    }
+
+    // 12 Months
+    if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days') {
+        request.session.isFull = true;
+      // Junior
+      if (request.session.age < 17 ) {
+        request.session.cost = "00.00"
+      }
+      // Salmon
+      if (request.session.licenceType === 'Salmon and sea trout') {
+        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+          request.session.cost = "£54.00"
+        } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+          request.session.cost = "£54.00"
+        } else {
+          request.session.cost = "£82.00"
+        }
+      } else {
+        if(request.session.numberOfRods === 'Up to 3 rods') {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+            request.session.cost = "£30.00"
+          } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+            request.session.cost = "£30.00"
+          } else {
+            request.session.cost = "£45.00"
+          }
+        } else {
+          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+            request.session.cost = "£20.00"
+          } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+            request.session.cost = "£20.00"
+          } else {
+            request.session.cost = "£30.00"
+          }
+        }
+      }
     }
 
 
+    if (request.session.isJunior === true) {
+      request.session.cost = "£00.00"
+    }
 
-    // Add variables for senior and concession if after April
-    // var april = Date.parse("April 01, 2017");
-    // var licenceStart = Date.parse(request.session.date);
+    // Upgrade costs
+    if (request.session.isUpgrade === true) {
+       if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711') {
+           request.session.cost = '£52.00 (save £30.00)'
+       } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
+           request.session.cost = '£15.00 (save £30.00)'
+       } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
+            if (request.session.hasBlueBadge === true || request.session.hasNINumber === true || request.session.age > 65) {
+              if(request.session.numberOfRods === 'Up to 3 rods') {
+                request.session.cost = '£18.00 (save £12.00)'
+              } else {
+                request.session.cost = '£8.00 (save £12.00)'
+              }
+            } else {
+                if(request.session.numberOfRods === 'Up to 3 rods') {
+                  request.session.cost = '£33.00 (save £12.00)'
+              } else {
+                request.session.cost = '£18.00 (save £12.00)'
+              }
+            }
+       } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A714') {
+           request.session.cost = '£70.00 (save £12.00)'
+       } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
+           request.session.cost = '£24.00 (save £6.00)'
+       }
+
+      //  else if (request.session.licenceNumber === 'B7A713') {
+      //    if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+      //      request.session.cost = '£27.00 (save £27.00)'
+      //    } else {
+      //      request.session.cost = '£55.00 (save £27.00)'
+      //    }
+      //  }
 
 
+    }
+
+      // Concession
       if (request.session.age > 65) {
         request.session.isSenior = true
         request.session.concession = true
@@ -45,6 +106,12 @@ const handlers = {
         request.session.licenceLength = '12-months'
         request.session.isJunior = true
         request.session.concession = true
+      } else {
+        request.session.concession = false
+      }
+
+      if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+
       }
 
 
@@ -65,140 +132,6 @@ const handlers = {
       var threeSixFiveDays = new Date(Date.parse(request.session.date));
       threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
       request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
-    }
-
-
-
-
-    // Calculate cost
-    // 1 Day
-    // if (request.session.licenceLength === '1-day') {
-    //   if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
-    //     request.session.cost = "£3.75"
-    //   } else if (request.session.licenceType === 'Trout and coarse') {
-    //     request.session.cost = "£6.00"
-    //   } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
-    //     request.session.cost = "£8.00"
-    //   } else if (request.session.licenceType === 'Salmon and sea trout') {
-    //     request.session.cost = "£12.00"
-    //   }
-    // }
-
-    // 8 Day
-    // if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
-    //   if (request.session.licenceType === 'Trout and coarse' && request.session.oldPrice === true) {
-    //     request.session.cost = "£10.00"
-    //   } else if (request.session.licenceType === 'Trout and coarse') {
-    //     request.session.cost = "£12.00"
-    //   } else if (request.session.licenceType === 'Salmon and sea trout' && request.session.oldPrice === true) {
-    //     request.session.cost = "£23.00"
-    //   } else if (request.session.licenceType === 'Salmon and sea trout') {
-    //     request.session.cost = "£27.00"
-    //   }
-    // }
-
-    // 365 Day
-    // if (request.session.licenceLength === '365-days') {
-    //     request.session.isFull = true;
-    //   // Junior
-    //   if (request.session.age < 17 ) {
-    //     request.session.cost = "00.00"
-    //   }
-    //   // Salmon
-    //   if (request.session.licenceType === 'Salmon and sea trout') {
-    //     if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-    //       request.session.cost = "£54.00"
-    //     } else {
-    //       request.session.cost = "£82.00"
-    //     }
-    //   }
-    //   // Coarse
-    //   if (request.session.licenceType === 'Trout and coarse') {
-    //     if(request.session.numberOfRods === 'Up to3 rods') {
-    //       if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-    //         request.session.cost = "£30.00"
-    //       } else {
-    //         request.session.cost = "£45.00"
-    //       }
-    //     } else {
-    //       if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-    //         request.session.cost = "£20.00"
-    //       } else {
-    //         request.session.cost = "£30.00"
-    //       }
-    //     }
-    //   }
-    // }
-
-
-    // 1 Day
-    if (request.session.licenceLength === '1-day') {
-      if (request.session.licenceType === 'Trout and coarse') {
-        request.session.cost = "£6.00"
-      } else if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.cost = "£12.00"
-      }
-    }
-
-    // 8 Day
-    if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)') {
-      if (request.session.licenceType === 'Trout and coarse') {
-        request.session.cost = "£12.00"
-      } else if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.cost = "£27.00"
-      }
-    }
-
-    // 12 Months
-    if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days') {
-        request.session.isFull = true;
-      // Junior
-      if (request.session.age < 17 ) {
-        request.session.cost = "00.00"
-      }
-      // Salmon
-      if (request.session.licenceType === 'Salmon and sea trout') {
-        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-          request.session.cost = "£54.00"
-        } else {
-          request.session.cost = "£82.00"
-        }
-      }
-      // Coarse
-      if (request.session.licenceType === 'Trout and coarse') {
-        if(request.session.numberOfRods === 'Up to 3 rods') {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-            request.session.cost = "£30.00"
-          } else {
-            request.session.cost = "£45.00"
-          }
-        } else {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
-            request.session.cost = "£20.00"
-          } else {
-            request.session.cost = "£30.00"
-          }
-        }
-      }
-    }
-
-    if (request.session.isJunior === true) {
-      request.session.cost = "£00.00"
-    }
-
-    // Upgrade costs
-    if (request.session.isUpgrade === true) {
-       if (request.session.licenceNumber === '495969798') {
-           request.session.cost = '£52.00 (save £30.00)'
-       } else if (request.session.licenceNumber === '497804364') {
-           request.session.cost = '£15.00 (save £30.00)'
-       } else if (request.session.licenceNumber === '697989192') {
-         if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
-           request.session.cost = '£27.00 (save £27.00)'
-         } else {
-           request.session.cost = '£55.00 (save £27.00)'
-         }
-       }
     }
 
 

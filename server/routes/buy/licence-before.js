@@ -11,23 +11,29 @@ const handlers = {
           value: 'Buy_a_new_12_month_licence',
         },
         two: {
-          text: 'Buy a new short term licence',
+          text: 'Buy a new 8-day licence',
           name: 'what_to_do',
-          id: 'Buy a new short term licence',
-          value: 'Buy_a_new_short_term_licence',
+          id: 'Buy a new 8-day licence',
+          value: 'Buy_a_new_8_day_licence',
+        },
+        three: {
+          text: 'Buy a new 1-day licence',
+          name: 'what_to_do',
+          id: 'Buy a new 1-day licence',
+          value: 'Buy_a_new_1_day_licence',
         },
       },
       items2: {
         three: {
-          text: 'Renew my licence',
+          text: 'Renew a licence',
           name: 'what_to_do',
-          id: 'Renew my licence',
+          id: 'Renew a licence',
           value: 'renew_a_licence',
         },
         four: {
-          text: 'Upgrade my licence',
+          text: 'Upgrade a licence',
           name: 'what_to_do',
-          id: 'Upgrade my licence',
+          id: 'Upgrade a licence',
           value: 'Upgrade_a_licence',
         },
       }
@@ -39,14 +45,25 @@ const handlers = {
 
     if (whatToDo === 'Buy a new 12-month licence') {
       request.session.isFull = true
-      request.session.licenceLength = '365-days'
+      request.session.licenceLength = '12-months'
+      request.session.haveTime = true
       return reply.redirect('name')
-    } else if (whatToDo === 'Buy a new short term licence') {
+    } else if (whatToDo === 'Buy a new 8-day licence') {
+      request.session.isFull = false
+      request.session.licenceLength = '8-days'
+      request.session.haveTime = false
+      request.session.concession = false
       return reply.redirect('name')
-    } else if (whatToDo === 'Upgrade my licence') {
+    } else if (whatToDo === 'Buy a new 1-day licence') {
+      request.session.isFull = false
+      request.session.licenceLength = '1-day'
+      request.session.haveTime = false
+      request.session.concession = false
+      return reply.redirect('name')
+    } else if (whatToDo === 'Upgrade a licence') {
       request.session.isUpgrade = true
       return reply.redirect('find-a-licence')
-    } else if (whatToDo === 'Renew my licence') {
+    } else if (whatToDo === 'Renew a licence') {
       request.session.isUpgrade = true
       return reply.redirect('find-a-licence')
     }

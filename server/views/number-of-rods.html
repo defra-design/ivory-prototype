@@ -23,5 +23,30 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">How many rods do I need?</span></summary>
+            <div class="panel panel-border-narrow">
+                <h3 class="heading-small">Up to 2 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 2 rods for freshwater fish</p>
+                <h3 class="heading-small">Up to 3 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 3 rods for freshwater fish</p>
+            </div>
+        </details>
+    </div>
+    <div class="column-third">
+        <div class="payment-summary-small">
+            <h2>Pricing help</h2>
+            <!-- <p class="payment-info">Licence length {{#if licenceLength}} {{licenceLength}} {{else}} Not supplied {{/if}} </p> -->
+            <!-- {{#if licenceLength}}
+            <p class="payment-title">Licence length</p>
+            <p class="payment-info">{{licenceLength}}</p>
+            {{/if}} -->
+            <!-- <h3>Amount to pay:</h3> -->
+            <!-- <p class="payment-amount"> </p> -->
+            <p class="payment-title">Up to 2 rods</p>
+            <p class="payment-info payment-amount">{{Rod2Cost}}</p>
+            <p class="payment-title">Up to 3 rods</p>
+            <p class="payment-info payment-amount">{{Rod3Cost}}</p>
+        </div>
     </div>
 </div>

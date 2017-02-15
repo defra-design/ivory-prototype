@@ -12,7 +12,11 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else if (request.session.isUpgrade === true){
+      if (request.session.licenceType === 'Trout and coarse') {
+        return reply.redirect('number-of-rods')
+      } else {
         return reply.redirect('summary')
+      }
       } else {
       return reply.redirect('licence-type')
     }

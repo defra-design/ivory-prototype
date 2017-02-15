@@ -34,9 +34,17 @@ const handlers = {
     request.session.isSenior = false
     request.session.isJunior = false
 
+
+    if (returnURL) {
+      return reply.redirect(returnURL)
+    } else {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
       } else if (request.session.age < 17) {
+        request.session.licenceLength = '12-months'
+        request.session.isJunior = true
+        request.session.concession = true
+        request.session.isSenior = false
 
         var date = new Date();
         var options = {
@@ -46,13 +54,19 @@ const handlers = {
         request.session.startDate = date.toLocaleDateString("en-us", options)
         //return reply.redirect('licence-type')
         return reply.redirect('upgrade-licence')
-      } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
+      } else if (request.session.age > 65) {
+          request.session.isSenior = true
+          request.session.concession = true
+          request.session.isJunior = false
           return reply.redirect('find-address')
         }
+        else {
+          request.session.isSenior = false
+          request.session.concession = false
+          request.session.isJunior = false
+          return reply.redirect('find-address')
       }
+    }
 
   }
 }

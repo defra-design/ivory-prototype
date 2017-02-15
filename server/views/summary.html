@@ -189,7 +189,7 @@
                             Concession
                         </th>
                         <td class="data" id="concession">
-                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} disabled {{/if}} {{#if hasNINumber}} Disabled {{/if}} concession
+                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} disabled {{/if}} {{#if hasNINumber}} disabled {{/if}} concession
                         </td>
 
                         <td class="change-answer" id="change-holder-name">
@@ -261,9 +261,9 @@
                         </td>
                         <td class="change-answer" id="number-of-rods">
 
-                            {{#if isFull}} {{#if isCoarse}} {{#if isUpgrade}} {{else}} <a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isUpgrade}}{{else}} {{#if isFull}}{{#if isCoarse}}<a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a> {{/if}} {{/if}}{{/if}}
+            </a> {{/if}}{{/if}}{{/if}}
                         </td>
                     </tr>
 

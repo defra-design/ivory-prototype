@@ -39,7 +39,11 @@ const handlers = {
       request.session.startDate = date.toLocaleDateString("en-us", options)
       var startTime = date.getHours();
       request.session.startTime = startTime +":00"
+      if (returnURL) {
+        return reply.redirect(returnURL)
+      } else {
       return reply.redirect('contact')
+      }
     } else {
       if (returnURL) {
         return reply.redirect('licence-start-day?returnUrl=/buy/summary')

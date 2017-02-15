@@ -22,12 +22,16 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
-        request.session.concession = false
+    request.session.concession = false
     if (disability === 'no') {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else if (request.session.isUpgrade === true){
-        return reply.redirect('summary')
+        if (request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods')
+        } else {
+          return reply.redirect('summary')
+        }
       } else {
         return reply.redirect('licence-type')
       }

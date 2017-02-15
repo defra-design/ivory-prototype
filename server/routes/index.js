@@ -5,6 +5,7 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+
   // Contact screen ideas
   require('./contact-screen'),
   require('./buy/contact-one'),
@@ -22,24 +23,24 @@ module.exports = [].concat(
   require('./buy/download-option-quick'),
   require('./buy/download-complete'),
 
-  // Upgrade
+  // Upgrade & renewals
   require('./upgrade-screen'),
-  // One
   require('./buy/licence-before'),
+  require('./buy/licence-before-two'),
   require('./buy/find-a-licence'),
   require('./buy/find-a-licence-receipt'),
   require('./buy/dob-postcode-check'),
   require('./buy/upgrade-expired'),
+  require('./buy/renew-expired'),
   require('./buy/licence-details-species'),
   require('./buy/licence-details-length'),
+  require('./buy/licence-details-renew'),
   require('./buy/details-updated'),
   require('./buy/licence-not-found'),
 
-  // Two
-  require('./buy/licence-before-two'),
 
-  // require('./buy/licence-new-customers'),
-  // require('./buy/licence-old-customers'),
+
+
 
   require('./buy/choose-licence'),
   require('./buy/find-a-licence-two'),

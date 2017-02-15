@@ -21,16 +21,16 @@ const handlers = {
       },
       items1: {
         two: {
-          text: 'Renew my licence',
+          text: 'Renew a licence',
           name: 'choose_upgrade',
-          id: 'Renew my licence',
-          value: 'Renew_my_licence',
+          id: 'Renew a licence',
+          value: 'Renew_a_licence',
         },
         one: {
-          text: 'Upgrade my licence',
+          text: 'Upgrade a licence',
           name: 'choose_upgrade',
-          id: 'Upgrade my licence',
-          value: 'Upgrade_my_licence',
+          id: 'Upgrade a licence',
+          value: 'Upgrade_a_licence',
         },
       },
       items2: {
@@ -41,10 +41,16 @@ const handlers = {
           value: 'Buy_a_new_12_month_licence',
         },
         two: {
-          text: 'Buy a new short term licence',
+          text: 'Buy a new 8-day licence',
           name: 'choose_licence',
-          id: 'Buy a new short term licence',
-          value: 'Buy_a_new_short_term_licence',
+          id: 'Buy a new 8-day licence',
+          value: 'Buy_a_new_8_day_licence',
+        },
+        three: {
+          text: 'Buy a new 1-day licence',
+          name: 'choose_licence',
+          id: 'Buy a new 1-day licence',
+          value: 'Buy_a_new_1_day_licence',
         },
       },
     })
@@ -59,7 +65,7 @@ const handlers = {
     if (licenceBefore === 'Yes') {
       request.session.isUpgrade = true
       //return reply('Yes')
-      if (choose_upgrade === 'Renew my licence') {
+      if (choose_upgrade === 'Renew a licence') {
         return reply.redirect('find-a-licence')
       } else {
         return reply.redirect('find-a-licence')
@@ -69,10 +75,20 @@ const handlers = {
       //return reply('No')
       if (choose_licence === 'Buy a new 12-month licence') {
         request.session.isFull = true
-        request.session.licenceLength = '365-days'
+        request.session.licenceLength = '12-months'
+        request.session.haveTime = true
         return reply.redirect('name')
-      } else {
+      } else if (choose_licence === 'Buy a new 8-day licence')  {
         request.session.isFull = false
+        request.session.licenceLength = '8-days'
+        request.session.haveTime = false
+        request.session.concession = false
+        return reply.redirect('name')
+      } else if (choose_licence === 'Buy a new 1-day licence')  {
+        request.session.isFull = false
+        request.session.licenceLength = '1-day'
+        request.session.haveTime = false
+        request.session.concession = false
         return reply.redirect('name')
       }
     }
