@@ -5,6 +5,7 @@ const handlers = {
       email: request.session.email,
       mobile: request.session.mobile,
       is365Contact: request.session.is365Contact,
+      isFull: request.session.isFull,
       isJunior: request.session.isJunior,
     })
   },
