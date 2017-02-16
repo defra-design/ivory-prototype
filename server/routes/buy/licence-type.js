@@ -25,7 +25,8 @@ const handlers = {
     }
 
     if (request.session.isJunior === true) {
-      request.session.cost = "£00.00"
+        request.session.salmonCost = "£00.00"
+        request.session.coarseCost = "£00.00"
     }
 
     // // Upgrade costs
@@ -55,7 +56,7 @@ const handlers = {
       hasBlueBadge: request.session.hasBlueBadge,
       hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
-      concession: request.session.concession,
+      isConcession: request.session.isConcession,
       items: {
         one: {
           text: 'Trout and coarse',

@@ -1,12 +1,6 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
-        {{> common/back}}
-        <h1 class="heading-large">Licence details</h1>
-        <p><span class="heavy spacing">Licence number: </span> {{licenceNumber}}</p>
-        <p><span class="heavy spacing">Licence type: </span>{{licenceType}} {{licenceLength}}</p>
-        <p><span class="heavy spacing">Name: </span> {{nameOnLicence}}</p>
-        <p><span class="heavy spacing">Ends: </span> {{endDate}}</p>
-
+        {{> common/back}} {{> common/licence-details}}
         <h2 class="heading-medium">{{pageTitle}}</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
@@ -24,10 +18,34 @@
                             <p>{{selectedText}}</p>
                         </div>
                         {{/if}} {{/each}}
+                        <p class="form-block">or</p>
+                        {{#each items2}}
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
                     </div>
                 </fieldset>
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
+    </div>
+    <div class="column-third">
+        <div class="payment-summary-small">
+            <h2>How much will it cost?</h2>
+            <p class="payment-title">Upgrade to up to 3 rods</p>
+            <p class="payment-info payment-amount">{{rodUpgrade}}</p>
+            <p class="payment-title">Upgrade to salmon and sea trout</p>
+            <p class="payment-info payment-amount">{{salmonUpgrade}}</p>
+            <p class="payment-title">Buy this licence again</p>
+            <p class="payment-info payment-amount">{{buyAgain}}</p>
+        </div>
     </div>
 </div>

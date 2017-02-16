@@ -25,7 +25,16 @@ const handlers = {
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
-        if (request.session.haveTime === true) {
+        if (request.session.isRenew === true) {
+          if (request.session.haveTime === true) {
+            return reply.redirect('summary')
+          } else {
+            return reply.redirect('licence-start-time')
+          }
+        }
+        else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
+          return reply.redirect('summary')
+        } else if (request.session.haveTime === true) {
             return reply.redirect('contact')
         } else {
           return reply.redirect('licence-start-time')

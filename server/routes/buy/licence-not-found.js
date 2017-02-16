@@ -4,35 +4,26 @@ const handlers = {
       pageTitle: 'We can\'t find your licence details',
       errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
       items: {
-        one: {
-          text: 'Yes',
-          name: 'licence_not_found',
-          id: 'yes',
-        },
         two: {
-          text: 'No (exit service)',
-          name: 'licence_not_found',
-          id: 'no',
+          text: 'Buy a new licence',
+          name: 'licence_details_upgrade',
+          id: 'Buy_new',
+        },
+        three: {
+          text: 'Exit service',
+          name: 'licence_details_upgrade',
+          id: 'exit_service',
         },
       }
     })
   },
   post: function (request, reply) {
     returnURL = request.query.returnUrl
-    var licenceNotFound = request.payload.licence_not_found
-    if (licenceNotFound === 'no') {
-
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('/')
-      }
+    var upgradeOption = request.payload.licence_details_upgrade
+    if (upgradeOption === 'Buy_new') {
+      return reply.redirect('licence-before')
     } else {
-        if (returnURL) {
-          return reply.redirect(returnURL)
-        } else {
-          return reply.redirect('name')
-      }
+      return reply.redirect('/')
     }
   }
 }

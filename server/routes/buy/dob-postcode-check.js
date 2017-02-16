@@ -21,7 +21,8 @@ const handlers = {
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
       return reply.redirect('renew-expired')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A716') {
-      return reply.redirect('summary')
+      request.session.isRenew= true
+      return reply.redirect('upgrade-licence')
     } else {
       return reply.redirect('licence-not-found')
     }

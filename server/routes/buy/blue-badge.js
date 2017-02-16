@@ -8,10 +8,9 @@ const handlers = {
   post: function (request, reply) {
     returnURL = request.query.returnUrl
     request.session.hasBlueBadge = true
-    request.session.concession = true
     if (returnURL) {
       return reply.redirect(returnURL)
-    } else if (request.session.isUpgrade === true){
+    } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
       if (request.session.licenceType === 'Trout and coarse') {
         return reply.redirect('number-of-rods')
       } else {

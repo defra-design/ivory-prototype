@@ -1,39 +1,46 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-details-renew', {
-      pageTitle: 'Do you want to upgrade this licence to a 12 month licence?',
+      pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
       licenceType: request.session.licenceType,
+      licenceLength: request.session.licenceLength,
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
+      isJunior:  request.session.isJunior,
+      isSenior: request.session.isSenior,
+      hasBlueBadge: request.session.hasBlueBadge,
+      isFull: request.session.isFull,
+      isConcession: request.session.isConcession,
+      isSalmon: request.session.isSalmon,
+      isCoarse: request.session.isCoarse,
+      startDate: request.session.startDate,
+      startText: request.session.startText,
+      startTime: request.session.startTime,
+      buyAgain: '£82.00',
       items: {
           one: {
-            text: 'Yes',
+            text: 'Buy this licence again',
             name: 'licence_details_upgrade',
-            id: 'Yes',
+            id: 'Buy_again',
           },
           two: {
-            text: 'No, I want to buy a new licence',
+            text: 'Buy a new licence',
             name: 'licence_details_upgrade',
-            id: 'new_licence',
+            id: 'Buy_new',
           },
-        }
+        },
     })
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
-    request.session.endDate = '2 April 2018'
-    if (upgradeOption === 'Yes') {
-      request.session.licenceLength = '365-days'
-      //request.session.cost = '£55.00 (save £27.00)'
-      request.session.isUpgrade = true
-      return reply.redirect('disability')
+    if (upgradeOption === 'Buy_again') {
+      request.session.isRenew = true
+      return reply.redirect('licence-start-option')
+    } else {
+      return reply.redirect('/')
     }
-    // } else {
-    //   request.session.changeDetails = true
-    //   return reply.redirect('name')
-    // }
   }
 }
 

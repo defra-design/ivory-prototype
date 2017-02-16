@@ -22,11 +22,10 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
-    request.session.concession = false
     if (disability === 'no') {
       if (returnURL) {
         return reply.redirect(returnURL)
-      } else if (request.session.isUpgrade === true){
+      } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
         if (request.session.licenceType === 'Trout and coarse') {
           return reply.redirect('number-of-rods')
         } else {

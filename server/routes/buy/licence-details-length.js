@@ -1,39 +1,60 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-details-length', {
-      pageTitle: 'Do you want to upgrade this licence to a 12 month licence?',
+      pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
       licenceType: request.session.licenceType,
+      licenceLength: request.session.licenceLength,
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
+      isJunior:  request.session.isJunior,
+      isSenior: request.session.isSenior,
+      hasBlueBadge: request.session.hasBlueBadge,
+      isFull: request.session.isFull,
+      isConcession: request.session.isConcession,
+      isSalmon: request.session.isSalmon,
+      isCoarse: request.session.isCoarse,
+      startDate: request.session.startDate,
+      startText: request.session.startText,
+      startTime: request.session.startTime,
+      upgradePrice: '£18.00',
+      buyAgain: '£12.00',
       items: {
-          one: {
-            text: 'Yes',
-            name: 'licence_details_upgrade',
-            id: 'Yes',
-          },
-          two: {
-            text: 'No, I want to buy a new licence',
-            name: 'licence_details_upgrade',
-            id: 'new_licence',
-          },
-        }
+        one: {
+          text: 'Upgrade to up to 12-month licence',
+          name: 'licence_details_upgrade',
+          id: '12_month',
+        },
+        two: {
+          text: 'Buy this licence again',
+          name: 'licence_details_upgrade',
+          id: 'Buy_again',
+        },
+      },
+      items2: {
+        one: {
+          text: 'Buy a new licence',
+          name: 'licence_details_upgrade',
+          id: 'Buy_new',
+        },
+      }
     })
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
-    request.session.endDate = '2 April 2018'
-    if (upgradeOption === 'Yes') {
-      request.session.licenceLength = '365-days'
-      //request.session.cost = '£55.00 (save £27.00)'
-      request.session.isUpgrade = true
+    if (upgradeOption === '12_month') {
+      request.session.isUpgradeLength = true
+      request.session.isFull = true
+      request.session.licenceLength = '12-months'
       return reply.redirect('disability')
+    } else if (upgradeOption === 'Buy_again') {
+      // request.session.changeDetails = true
+      request.session.isRenew = true
+      return reply.redirect('summary')
+    } else {
+      return reply.redirect('licence-before')
     }
-    // } else {
-    //   request.session.changeDetails = true
-    //   return reply.redirect('name')
-    // }
   }
 }
 

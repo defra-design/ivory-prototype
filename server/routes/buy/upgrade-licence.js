@@ -23,18 +23,18 @@ const handlers = {
 
 
     request.session.startText = "30 minutes after payment"
-    request.session.startAge = request.session.age
     request.session.haveTime = true
     request.session.date = date
     request.session.startDate = date.toLocaleDateString("en-us", options)
     var startTime = date.getHours();
     request.session.startTime = startTime +":00"
 
-    if (returnURL) {
-      return reply.redirect(returnURL)
-    } else {
-      return reply.redirect('find-address')
-    }
+    if (request.session.isRenew === true) {
+        return reply.redirect('summary')
+      } else {
+        return reply.redirect('find-address')
+      }
+
   }
 }
 

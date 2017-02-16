@@ -31,26 +31,68 @@ const handlers = {
     };
 
 
-    if (startOption === 'asap') {
-      request.session.startText = "30 minutes after payment"
-      request.session.startAge = request.session.age
-      request.session.haveTime = true
-      request.session.date = date
-      request.session.startDate = date.toLocaleDateString("en-us", options)
-      var startTime = date.getHours();
-      request.session.startTime = startTime +":00"
-      if (returnURL) {
-        return reply.redirect(returnURL)
+    if (request.session.isRenew === true) {
+
+      if (startOption === 'asap') {
+        request.session.startText = "30 minutes after payment"
+        request.session.haveTime = true
+        request.session.date = date
+        request.session.startDate = date.toLocaleDateString("en-us", options)
+        var startTime = date.getHours();
+        request.session.startTime = startTime +":00"
+        return reply.redirect('summary')
       } else {
-      return reply.redirect('contact')
+        if (returnURL) {
+          return reply.redirect('licence-start-day?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect('licence-start-day')
+        }
       }
-    } else {
-      if (returnURL) {
-        return reply.redirect('licence-start-day?returnUrl=/buy/summary')
-      } else {
-        return reply.redirect('licence-start-day')
-      }
+
     }
+
+
+    else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
+
+      if (startOption === 'asap') {
+        request.session.startText = "30 minutes after payment"
+        request.session.haveTime = true
+        request.session.date = date
+        request.session.startDate = date.toLocaleDateString("en-us", options)
+        var startTime = date.getHours();
+        request.session.startTime = startTime +":00"
+        return reply.redirect('summary')
+      } else {
+        if (returnURL) {
+          return reply.redirect('licence-start-day?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect('licence-start-day')
+        }
+      }
+
+    } else {
+      if (startOption === 'asap') {
+        request.session.startText = "30 minutes after payment"
+        request.session.haveTime = true
+        request.session.date = date
+        request.session.startDate = date.toLocaleDateString("en-us", options)
+        var startTime = date.getHours();
+        request.session.startTime = startTime +":00"
+        if (returnURL) {
+          return reply.redirect(returnURL)
+        } else {
+          return reply.redirect('contact')
+        }
+        } else {
+          if (returnURL) {
+            return reply.redirect('licence-start-day?returnUrl=/buy/summary')
+          } else {
+            return reply.redirect('licence-start-day')
+          }
+        }
+    }
+
+
 
   }
 }

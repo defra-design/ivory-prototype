@@ -43,7 +43,6 @@ const handlers = {
       } else if (request.session.age < 17) {
         request.session.licenceLength = '12-months'
         request.session.isJunior = true
-        request.session.concession = true
         request.session.isSenior = false
 
         var date = new Date();
@@ -56,13 +55,11 @@ const handlers = {
         return reply.redirect('upgrade-licence')
       } else if (request.session.age > 65) {
           request.session.isSenior = true
-          request.session.concession = true
           request.session.isJunior = false
           return reply.redirect('find-address')
         }
         else {
           request.session.isSenior = false
-          request.session.concession = false
           request.session.isJunior = false
           return reply.redirect('find-address')
       }

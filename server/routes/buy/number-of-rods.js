@@ -2,14 +2,32 @@ const handlers = {
   get: function (request, reply) {
 
 
-
-      if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
-        request.session.Rod2Cost = "£20.00"
-        request.session.Rod3Cost = "£30.00"
+      if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
+        if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+          request.session.Rod2Cost = "£8.00"
+          request.session.Rod3Cost = "£18.00"
+        } else {
+          request.session.Rod2Cost = "£18.00"
+          request.session.Rod3Cost = "£33.00"
+        }
       } else {
-        request.session.Rod2Cost = "£30.00"
-        request.session.Rod3Cost = "£45.00"
+        if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+          request.session.Rod2Cost = "£20.00"
+          request.session.Rod3Cost = "£30.00"
+        } else {
+          request.session.Rod2Cost = "£30.00"
+          request.session.Rod3Cost = "£45.00"
+        }
       }
+
+      if (request.session.hasBlueBadge === true && request.session.hasNINumber === true) {
+        request.session.isConcession = true
+      }
+
+
+
+
+
 
     return reply.view('number-of-rods', {
       pageTitle: 'How many rods would you like to licence?',
@@ -22,9 +40,10 @@ const handlers = {
       hasBlueBadge: request.session.hasBlueBadge,
       hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
-      concession: request.session.concession,
+      isConcession: request.session.isConcession,
       Rod2Cost: request.session.Rod2Cost,
       Rod3Cost: request.session.Rod3Cost,
+      isUpgrade: request.session.isUpgrade,
       items: {
         one: {
           text: 'Up to 2 rods',
@@ -50,14 +69,10 @@ const handlers = {
         return reply.redirect('disability?returnUrl=/buy/summary')
       }
     } else {
-      if (request.session.isUpgrade === true) {
-        return reply.redirect('summary')
-      } else {
         if (request.session.isJunior === true) {
-            return reply.redirect('contact')
-          } else {
-            return reply.redirect('licence-start-option')
-        }
+          return reply.redirect('contact')
+        } else {
+          return reply.redirect('licence-start-option')
       }
     }
 

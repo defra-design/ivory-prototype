@@ -1,5 +1,6 @@
 <main id="summary-page">
     <div class="grid-row">
+
         <div class="column-two-thirds">
             {{> common/back}} {{#if changeDetails}}
             <h1 class="heading-large">Update your details</h1>
@@ -99,9 +100,9 @@
                             {{#if licenceDOB}} {{licenceDOB}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-holder-dob">
-                            {{#if isUpgrade}} {{else}} <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+                            {{#if isUpgrade}} {{else}} {{#if isUpgradeLength}} {{else}} <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
                 Change <span class="visuallyhidden">date of birth</span>
-              </a>{{/if}}
+              </a>{{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -160,11 +161,11 @@
                             {{#if licenceType}} {{licenceType}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-type">
-                            {{#if isUpgrade}} {{else}} {{#if isJunior}}<a href="/buy/download-option?returnUrl=/buy/summary" id="buy.licence.type">
+                            {{#if isUpgrade}} {{else}}{{#if isUpgradeLength}} {{else}} {{#if isJunior}}<a href="/buy/download-option?returnUrl=/buy/summary" id="buy.licence.type">
                 Change <span class="visuallyhidden">licence type</span>
               </a> {{else}} <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
   Change <span class="visuallyhidden">licence type</span>
-</a>{{/if}}{{/if}}
+</a>{{/if}}{{/if}}{{/if}}
                         </td>
                     </tr>
 
@@ -176,14 +177,14 @@
                             {{#if licenceLength}} {{licenceLength}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-licence-length">
-                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} {{#if isUpgradeLength}} {{else}} <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
                 Change <span class="visuallyhidden">licence length</span>
-              </a>{{/if}}{{/if}}
+              </a>{{/if}}{{/if}}{{/if}}
 
                         </td>
                     </tr>
 
-                    {{#if isFull}} {{#if concession}}
+                    {{#if isFull}} {{#if isConcession}}
                     <tr>
                         <th scope="row">
                             Concession
@@ -193,10 +194,10 @@
                         </td>
 
                         <td class="change-answer" id="change-holder-name">
-                            {{#if isJunior}} {{else}}
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}}
                             <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
                   Change <span class="visuallyhidden">concession check</span>
-                  </a>{{/if}}
+                  </a>{{/if}}{{/if}}
                         </td>
 
                     </tr>
@@ -211,9 +212,10 @@
 
 
                         <td class="change-answer" id="change-holder-name">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}}
                             <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
                   Change <span class="visuallyhidden">concession check</span>
-                  </a>
+                  </a>{{/if}}{{/if}}
                         </td>
 
                     </tr>
@@ -261,9 +263,9 @@
                         </td>
                         <td class="change-answer" id="number-of-rods">
 
-                            {{#if isUpgrade}}{{else}} {{#if isFull}}{{#if isCoarse}}<a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
+                            {{#if isUpgrade}} {{else}} {{#if isUpgradeLength}} {{else}} {{#if isFull}} {{#if isCoarse}}<a href="/buy/number-of-rods?returnUrl=/buy/summary" id="buy.licence.start">
               Change <span class="visuallyhidden">Number of rods</span>
-            </a> {{/if}}{{/if}}{{/if}}
+            </a> {{/if}}{{/if}}{{/if}}{{/if}}
                         </td>
                     </tr>
 

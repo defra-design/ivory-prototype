@@ -138,7 +138,11 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('contact')
+      if (request.session.isRenew === true) {
+        return reply.redirect('summary')
+      } else {
+        return reply.redirect('contact')
+      }
     }
 
   }
