@@ -117,7 +117,7 @@ const handlers = {
         var tomorrow = new Date(Date.parse(request.session.date));
         tomorrow.setDate(tomorrow.getDate() + 1);
         request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
-      } else if (request.session.licenceLength === '8-days (These licences are valid for 8 consecutive days)' || request.session.licenceLength === '8-days') {
+      } else if (request.session.licenceLength === '8-days') {
         var eightDays = new Date(Date.parse(request.session.date));
         eightDays.setDate(eightDays.getDate() + 8);
         request.session.endDate = eightDays.toLocaleDateString("en-us", options)

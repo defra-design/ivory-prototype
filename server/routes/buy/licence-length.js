@@ -15,7 +15,7 @@ const handlers = {
         two: {
           text: '8-days',
           name: 'licence_length',
-          id: '8-days (These licences are valid for 8 consecutive days)',
+          id: '8-days',
           value: '8-days',
           selectedText: '8-day licences are valid for 8 consecutive days',
         },
@@ -30,14 +30,13 @@ const handlers = {
   post: function (request, reply) {
     returnURL = request.query.returnUrl
     request.session.licenceLength = request.payload.licence_length
-
     if (returnURL) {
         if (request.session.licenceLength === '365-days') {
-          if (request.session.licenceType === 'Trout and coarse') {
-            return reply.redirect('number-of-rods?returnUrl=/buy/summary')
-          } else {
-            return reply.redirect('disability?returnUrl=/buy/summary')
-          }
+          return reply.redirect('disability?returnUrl=/buy/summary')
+        } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '1-day') {
+          request.session.isFull = false
+          request.session.haveTime = false
+          return reply.redirect('licence-start-time?returnUrl=/buy/summary')
         } else {
           return reply.redirect(returnURL)
         }

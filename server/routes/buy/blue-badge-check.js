@@ -24,7 +24,16 @@ const handlers = {
     request.session.hasBlueBadge = false
     if (disability === 'no') {
       if (returnURL) {
-        return reply.redirect(returnURL)
+
+        if (request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect(returnURL)
+        }
+
+
+
+
       } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
         if (request.session.licenceType === 'Trout and coarse') {
           return reply.redirect('number-of-rods')
