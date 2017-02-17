@@ -108,7 +108,7 @@ const handlers = {
 
 
     //End dates
-    if (request.session.isUpgrade === false) {
+
       var options = {
           weekday: "long", year: "numeric", month: "short", day: "numeric"
       };
@@ -126,7 +126,7 @@ const handlers = {
         threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
         request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
       }
-    }
+
 
 
     if (request.session.licenceLength === '365-days') {

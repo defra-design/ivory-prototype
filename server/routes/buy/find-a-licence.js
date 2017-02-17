@@ -8,9 +8,6 @@ const handlers = {
   },
   post: function (request, reply) {
 
-    var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
-    };
 
     request.session.licenceNumber = request.payload.licence_number
     if (request.session.licenceNumber === 'B7A711') {
@@ -36,10 +33,18 @@ const handlers = {
       request.session.numberOfRods = 'Up to 2 rods'
       request.session.licenceLength = '12-months'
       request.session.haveTime = true
-      request.session.startDate = '2 April 2017'
+      request.session.year =   2017
+      request.session.month =  4
+      request.session.day = 2
+      var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+      var options = {
+          weekday: "long", year: "numeric", month: "short", day: "numeric"
+      };
+      var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+
+      request.session.date = date
+      request.session.startDate = date.toLocaleDateString("en-us", options)
       request.session.startText = '2 April 2017'
-      var end = new Date(Date.UTC(2018, 4 -1, 2));
-      request.session.endDate = end.toLocaleDateString("en-us", options)
       request.session.hasBlueBadge = true
       request.session.hasNINumber = true
       request.session.isFull = true
@@ -71,8 +76,6 @@ const handlers = {
       request.session.startDate = '2 March 2017'
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
-      var end = new Date(Date.UTC(2018, 3 -1, 2));
-      request.session.endDate = end.toLocaleDateString("en-us", options)
       request.session.isFull = true
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A713') {
@@ -100,8 +103,6 @@ const handlers = {
       request.session.startDate = '2 March 2017'
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
-      // var end = new Date(Date.UTC(2017, 3 -1, 10));
-      // request.session.endDate = end.toLocaleDateString("en-us", options)
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A714') {
       request.session.licenceNumber = '00010418-3WC3JDS-B7A714'
@@ -126,8 +127,6 @@ const handlers = {
       request.session.licenceLength = '1-day'
       request.session.startDate = '2 April 2017'
       request.session.startText = '2 April 2017'
-      var end = new Date(Date.UTC(2017, 4 -1, 3));
-      request.session.endDate = end.toLocaleDateString("en-us", options)
       request.session.startTime = '6PM'
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A715') {
@@ -155,8 +154,6 @@ const handlers = {
       request.session.startDate = '12 February 2017'
       request.session.startText = '12 February 2017'
       request.session.startTime = '12 February 2018'
-      var end = new Date(Date.UTC(2017, 2 -1, 13));
-      request.session.endDate = end.toLocaleDateString("en-us", options)
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A716') {
         request.session.licenceNumber = '00010418-3WC3JDS-B7A716'
@@ -187,8 +184,6 @@ const handlers = {
         request.session.startDate = '12 February 2017'
         request.session.startText = '12 February 2017'
         request.session.startTime = '6PM'
-        var end = new Date(Date.UTC(2018, 2 -1, 12));
-        request.session.endDate = end.toLocaleDateString("en-us", options)
         request.session.isFull = true
         request.session.isCoarse = true;
         request.session.isConcession = true

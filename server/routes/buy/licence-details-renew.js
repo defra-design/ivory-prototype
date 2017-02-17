@@ -39,7 +39,7 @@ const handlers = {
       request.session.isRenew = true
       return reply.redirect('licence-start-option')
     } else {
-      return reply.redirect('/')
+      return reply.redirect('licence-before')
     }
   }
 }

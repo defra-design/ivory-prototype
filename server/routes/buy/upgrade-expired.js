@@ -44,7 +44,7 @@ const handlers = {
 
     if (upgradeOption === 'Buy_again') {
       request.session.isRenew = true
-      return reply.redirect('summary')
+      return reply.redirect('licence-start-option')
     } else {
       return reply.redirect('licence-before')
     }
