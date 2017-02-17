@@ -63,12 +63,9 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.numberOfRods = request.payload.number_of_rods
     if (returnURL) {
-      if (request.session.disabilityChecked === true) {
-        return reply.redirect(returnURL)
-      } else {
-        return reply.redirect('disability?returnUrl=/buy/summary')
-      }
+      return reply.redirect(returnURL)
     } else {
+      request.session.rodsChecked === true
         if (request.session.isJunior === true) {
           return reply.redirect('contact')
         } else {

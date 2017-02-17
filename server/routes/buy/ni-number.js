@@ -9,13 +9,13 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = true
     if (returnURL) {
-      if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceType === 'Trout and coarse' && request.session.rodsChecked === false) {
         return reply.redirect('number-of-rods?returnUrl=/buy/summary')
       } else {
         return reply.redirect(returnURL)
       }
     } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
-      if (request.session.licenceType === 'Trout and coarse') {
+      if (request.session.licenceType === 'Trout and coarse' && request.session.rodsChecked === false) {
         return reply.redirect('number-of-rods')
       } else {
         return reply.redirect('summary')

@@ -3,7 +3,7 @@
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <div class="form-group licence-svg-container">
-            <img src="../../../../public/images/licence-gds-two.png" alt="Licence number diagram" class="licence-image">
+            <img src="../../../../public/images/licence-gds.png" alt="Licence number diagram" class="licence-image">
             <p class="visuallyhidden">Licence diagram</p>
         </div>
         <form method="post" autocomplete="off" novalidate>
@@ -11,7 +11,8 @@
                 <div class="form-group">
                     <label class="form-label" for="licence_number">
                         <span class="bold">Rod licence number</span>
-                        <span class="form-hint">The last 6 digits of your licence number allocated at purchase.<br/>For example: B7A718.</span>
+                        <span class="form-hint">A 9-digit number that can be found on the top left of a physical licence.<br/>For example: 123 456 789.</span>
+                        <!-- <span class="form-hint">A 9-digit number allocated at purchase.<br/>For example: 123 456 789.</span> -->
                       </label>
                     <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
                 </div>
@@ -19,7 +20,7 @@
             <button type="submit" class="button">Continue</button>
         </form>
         </br>
-        <a href="find-a-licence-receipt">I don't know my rod licence number</a>
+        <a href="find-a-licence-receipt" title="I don't know my rod licence number">I don't know my rod licence number</a>
         <!-- </br>
         </br>
         <form method="post" autocomplete="off" novalidate>

@@ -45,6 +45,7 @@ const handlers = {
     var upgradeOption = request.payload.licence_details_upgrade
     if (upgradeOption === '12_month') {
       request.session.isUpgradeLength = true
+      request.session.isRenew = false
       request.session.isFull = true
       request.session.licenceLength = '12-months'
       return reply.redirect('disability')
