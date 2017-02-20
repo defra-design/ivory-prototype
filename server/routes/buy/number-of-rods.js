@@ -24,11 +24,6 @@ const handlers = {
         request.session.isConcession = true
       }
 
-
-
-
-
-
     return reply.view('number-of-rods', {
       pageTitle: 'How many rods would you like to licence?',
       errorMessage: 'Select number of rods',
