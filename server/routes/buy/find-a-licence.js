@@ -175,13 +175,12 @@ const handlers = {
       request.session.town = 'Warrington'
       request.session.postcode = 'WA4 1AB'
       request.session.country = 'England'
-      request.session.licenceType = 'Trout and coarse'
-      request.session.isCoarse = true;
+      request.session.licenceType = 'Salmon and sea trout'
+      request.session.isCoarse = false;
       request.session.numberOfRods = 'Up to 2 rods'
-      request.session.licenceLength = '1-day'
+      request.session.licenceLength = '12-months'
       request.session.startDate = '12 February 2017'
       request.session.startText = '12 February 2017'
-      request.session.startTime = '12 February 2018'
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A716') {
         request.session.licenceNumber = '00010418-3WC3JDS-B7A716'
