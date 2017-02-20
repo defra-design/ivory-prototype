@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.redirect('/start/index.html')
+    return reply.redirect('upgrade-screen.html')
   }
 }
 
