@@ -1,5 +1,14 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.age  > 65) {
+      request.session.upgradePrice = '£8.00'
+      request.session.buyAgain = '£12.00'
+    } else {
+      request.session.upgradePrice = '£18.00'
+      request.session.buyAgain = '£12.00'
+    }
+
     return reply.view('licence-details-length', {
       pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
@@ -18,8 +27,10 @@ const handlers = {
       startDate: request.session.startDate,
       startText: request.session.startText,
       startTime: request.session.startTime,
-      upgradePrice: '£18.00',
-      buyAgain: '£12.00',
+      upgradePrice: request.session.upgradePrice,
+      buyAgain: request.session.buyAgain,
+
+
       items: {
         one: {
           text: 'Upgrade to up to 12-month licence',

@@ -24,6 +24,13 @@ const handlers = {
         request.session.isConcession = true
       }
 
+      // if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
+      //   request.session.isSenior = true
+      //   request.session.isConcession = true
+      //   request.session.Rod2Cost = "£8.00"
+      //   request.session.Rod3Cost = "£18.00"
+      // }
+
     return reply.view('number-of-rods', {
       pageTitle: 'How many rods would you like to licence?',
       errorMessage: 'Select number of rods',

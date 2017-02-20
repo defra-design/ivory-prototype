@@ -16,6 +16,8 @@ const handlers = {
       return reply.redirect('licence-details-renew')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
       return reply.redirect('licence-details-length')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713B') {
+      return reply.redirect('licence-details-length')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A714') {
       return reply.redirect('upgrade-expired')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
