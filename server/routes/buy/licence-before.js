@@ -24,12 +24,12 @@ const handlers = {
         },
       },
       items2: {
-        three: {
-          text: 'Renew a licence',
-          name: 'what_to_do',
-          id: 'Renew a licence',
-          value: 'renew_a_licence',
-        },
+        // three: {
+        //   text: 'Renew a licence',
+        //   name: 'what_to_do',
+        //   id: 'Renew a licence',
+        //   value: 'renew_a_licence',
+        // },
         four: {
           text: 'Upgrade a licence',
           name: 'what_to_do',

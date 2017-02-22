@@ -5,7 +5,7 @@ const handlers = {
       errorMessage: 'Choose when you\'d like your licence to start',
       items: {
           one: {
-            text: 'now',
+            text: 'Now',
             name: 'licence_start_option',
             id: 'asap',
             value: 'asap',
