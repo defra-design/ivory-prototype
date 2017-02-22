@@ -9,7 +9,7 @@ const handlers = {
   post: function (request, reply) {
     request.session.email = request.payload.email
     request.session.noContact = false
-    return reply.redirect('contact-three')
+    return reply.redirect('order-complete')
   }
 }
 
