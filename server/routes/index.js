@@ -13,6 +13,7 @@ module.exports = [].concat(
   require('./buy/contact-three'),
   require('./buy/contact-four'),
   require('./buy/contact-five'),
+  require('./buy/contact-six'),
 
   // Junior version two
   require('./junior-screen'),
