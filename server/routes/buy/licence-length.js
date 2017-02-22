@@ -39,14 +39,15 @@ const handlers = {
       }
 
     if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
-      request.session.is365Contact = true;
+      request.session.isFull = true;
       if (returnURL) {
         return reply.redirect('number-of-rods?returnUrl=/buy/summary')
       } else {
         return reply.redirect('number-of-rods')
       }
     } else if (request.session.licenceLength === '365-days') {
-      request.session.is365Contact = true;
+      // request.session.is365Contact = true;
+      request.session.isFull = true;
       if (returnURL) {
         return reply.redirect('disability?returnUrl=/buy/summary')
       } else {
