@@ -37,11 +37,11 @@ const handlers = {
           name: 'licence_details_upgrade',
           id: '12_month',
         },
-        two: {
-          text: 'Buy this licence again',
-          name: 'licence_details_upgrade',
-          id: 'Buy_again',
-        },
+        // two: {
+        //   text: 'Buy this licence again',
+        //   name: 'licence_details_upgrade',
+        //   id: 'Buy_again',
+        // },
       },
       items2: {
         one: {

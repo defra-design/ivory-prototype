@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('licence-not-found', {
       pageTitle: 'We can\'t find your licence details',
-      errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
+      errorMessage: 'Tell us what you\'d like to do',
       items: {
         two: {
           text: 'Buy a new licence',

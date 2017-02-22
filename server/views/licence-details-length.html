@@ -18,7 +18,7 @@
                             <p>{{selectedText}}</p>
                         </div>
                         {{/if}} {{/each}}
-                        <p class="form-block">or</p>
+                        <!-- <p class="form-block">or</p> -->
                         {{#each items2}}
                         <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
                       <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
@@ -42,8 +42,8 @@
             <h2>How much will this cost?</h2>
             <p class="payment-title">Upgrade to a 12-month licence</p>
             <p class="payment-info payment-amount">{{upgradePrice}}</p>
-            <p class="payment-title">Buy this licence again</p>
-            <p class="payment-info payment-amount">{{buyAgain}}</p>
+            <!-- <p class="payment-title">Buy this licence again</p>
+            <p class="payment-info payment-amount">{{buyAgain}}</p> -->
         </div>
     </div>
 </div>

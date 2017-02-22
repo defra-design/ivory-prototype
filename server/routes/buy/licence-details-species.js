@@ -37,11 +37,11 @@ const handlers = {
             name: 'licence_details_upgrade',
             id: 'salmon_licence',
           },
-          three: {
-            text: 'Buy this licence again',
-            name: 'licence_details_upgrade',
-            id: 'Buy_again',
-          },
+          // three: {
+          //   text: 'Buy this licence again',
+          //   name: 'licence_details_upgrade',
+          //   id: 'Buy_again',
+          // },
         },
         items2: {
           one: {
