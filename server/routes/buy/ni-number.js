@@ -8,6 +8,7 @@ const handlers = {
   post: function (request, reply) {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = true
+    request.session.hasDisabledConcession = true
     if (returnURL) {
       if (request.session.licenceType === 'Trout and coarse' && request.session.rodsChecked === false) {
         return reply.redirect('number-of-rods?returnUrl=/buy/summary')

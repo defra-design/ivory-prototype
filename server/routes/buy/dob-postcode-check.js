@@ -12,6 +12,8 @@ const handlers = {
     birthYear = request.session.birthYear
     if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711') {
       return reply.redirect('licence-details-species')
+    }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711B') {
+        return reply.redirect('licence-details-species')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
       return reply.redirect('licence-details-renew')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {

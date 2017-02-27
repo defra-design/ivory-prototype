@@ -22,6 +22,7 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
+    request.session.hasDisabledConcession = false
     if (disability === 'no') {
       if (returnURL) {
 

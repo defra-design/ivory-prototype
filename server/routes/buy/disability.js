@@ -23,6 +23,7 @@ const handlers = {
     request.session.disabilityChecked = true
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
+    request.session.hasDisabledConcession = false
 
     if (disability === 'no') {
       if (returnURL) {

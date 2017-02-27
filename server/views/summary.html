@@ -73,7 +73,7 @@
                 <strong class="bold-small">Your licence is not valid until payment is complete</strong>
             </div>
             {{/if}}
-            <h2 class="heading-medium">Licence holder details</h2>
+            <h2 class="heading-medium">Your details</h2>
 
 
             <table class="check-your-answers">
@@ -190,7 +190,7 @@
                             Concession
                         </th>
                         <td class="data" id="concession">
-                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasBlueBadge}} disabled {{/if}} {{#if hasNINumber}} disabled {{/if}} concession
+                            {{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasDisabledConcession}} disabled {{/if}} concession
                         </td>
 
                         <td class="change-answer" id="change-holder-name">

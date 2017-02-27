@@ -1,5 +1,16 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711') {
+      request.session.rodUpgrade = '£10.00'
+      request.session.salmonUpgrade = '£34.00'
+      request.session.buyAgain = '£20.00'
+    } else {
+      request.session.rodUpgrade = '£15.00'
+      request.session.salmonUpgrade = '£52.00'
+      request.session.buyAgain = '£30.00'
+    }
+
     return reply.view('licence-details-species', {
       pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
@@ -8,6 +19,7 @@ const handlers = {
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
       licenceLength: request.session.licenceLength,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
@@ -18,14 +30,9 @@ const handlers = {
       startDate: request.session.startDate,
       startText: request.session.startText,
       startTime: request.session.startTime,
-
-      // Pricing help
-      // rodUpgrade: '£10.00 (save £20.00)',
-      // salmonUpgrade: '£34.00 (save £20.00)',
-      rodUpgrade: '£10.00',
-      salmonUpgrade: '£34.00',
-      buyAgain: '£20.00',
-
+      rodUpgrade: request.session.rodUpgrade,
+      salmonUpgrade: request.session.salmonUpgrade,
+      buyAgain: request.session.buyAgain,
       items: {
           one: {
             text: 'Upgrade to up to 3 rods',

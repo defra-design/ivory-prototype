@@ -11,6 +11,7 @@ const handlers = {
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       isFull: request.session.isFull,
       isConcession: request.session.isConcession,
       isSalmon: request.session.isSalmon,

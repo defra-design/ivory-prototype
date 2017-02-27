@@ -41,16 +41,53 @@ const handlers = {
           weekday: "long", year: "numeric", month: "short", day: "numeric"
       };
       var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-
       request.session.date = date
       request.session.startDate = date.toLocaleDateString("en-us", options)
       request.session.startText = '2 April 2017'
-      request.session.hasBlueBadge = true
-      request.session.hasNINumber = true
+      request.session.hasDisabledConcession = true
       request.session.isFull = true
       request.session.isConcession = true
       request.session.isCoarse = true;
       return reply.redirect('dob-postcode-check')
+    }else if (request.session.licenceNumber === 'B7A711B') {
+        request.session.licenceNumber = '00010418-3WC3JDS-B7A711B'
+        request.session.firstName = 'John'
+        request.session.lastName = 'Smith'
+        request.session.holderName = 'John Smith'
+        request.session.dateOfBirth = '1 July 1980'
+        request.session.birthDay = 1
+        request.session.birthMonth = 7
+        request.session.birthYear = 1980
+        request.session.email = 'john.smith@email.com'
+        request.session.mobile  = 07708123456
+        request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
+        request.session.premises = 'Flat 20A'
+        request.session.street = 'Knutsford Road'
+        request.session.locality = ''
+        request.session.town = 'Warrington'
+        request.session.postcode = 'WA4 1AB'
+        request.session.country = 'England'
+        request.session.licenceType = 'Trout and coarse'
+        request.session.isCoarse = true;
+        request.session.numberOfRods = 'Up to 2 rods'
+        request.session.licenceLength = '12-months'
+        request.session.haveTime = true
+        request.session.year =   2017
+        request.session.month =  4
+        request.session.day = 2
+        var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+        var options = {
+            weekday: "long", year: "numeric", month: "short", day: "numeric"
+        };
+        var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+        request.session.date = date
+        request.session.startDate = date.toLocaleDateString("en-us", options)
+        request.session.startText = '2 April 2017'
+        //request.session.hasDisabledConcession = false
+        request.session.isFull = true
+        request.session.isConcession = false
+        request.session.isCoarse = true;
+        return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A712') {
       request.session.licenceNumber = '00010418-3WC3JDS-B7A712'
       request.session.firstName = 'Bob',
@@ -101,9 +138,11 @@ const handlers = {
       request.session.isCoarse = true;
       request.session.numberOfRods = 'up to 2 rods'
       request.session.licenceLength = '8-days'
+      request.session.rodsChecked = false
       request.session.startDate = '2 March 2017'
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
+      request.session.isConcession = true
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A713B') {
       request.session.licenceNumber = '00010418-3WC3JDS-B7A713B'
@@ -128,6 +167,7 @@ const handlers = {
       request.session.isCoarse = true;
       request.session.numberOfRods = 'up to 2 rods'
       request.session.licenceLength = '8-days'
+      request.session.rodsChecked = false
       request.session.startDate = '2 March 2017'
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
@@ -153,6 +193,7 @@ const handlers = {
       request.session.licenceType = 'Salmon and sea trout'
       request.session.numberOfRods = '1 rod (or up to 3 rods for coarse fish)'
       request.session.licenceLength = '1-day'
+      request.session.rodsChecked = false
       request.session.startDate = '2 April 2017'
       request.session.startText = '2 April 2017'
       request.session.startTime = '6PM'
@@ -217,7 +258,8 @@ const handlers = {
         request.session.haveTime = true
         return reply.redirect('dob-postcode-check')
     } else  {
-      return reply.redirect('licence-not-found')
+      //return reply.redirect('licence-not-found')
+      return reply.redirect('dob-postcode-check')
     }
   }
 }

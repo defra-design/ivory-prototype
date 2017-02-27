@@ -11,6 +11,7 @@ const handlers = {
       request.session.isJunior = true
     } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
       request.session.isConcession = true
+      request.session.hasDisabledConcession = true
     } else {
       request.session.isConcession = false
     }
@@ -83,7 +84,14 @@ const handlers = {
              } else {
                request.session.cost = '£34.00'
              }
-         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
+         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711B') {
+           if(request.session.numberOfRods === 'Up to 3 rods') {
+             request.session.cost = '£15.00'
+           } else {
+             request.session.cost = '£52.00'
+           }
+
+           }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
              request.session.cost = '£82.00'
 
          } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
@@ -114,7 +122,7 @@ const handlers = {
          } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
              request.session.cost = '£24.00 (save £6.00)'
          }
-  
+
 
 
     //End dates
@@ -139,7 +147,11 @@ const handlers = {
 
 
     if (request.session.licenceLength === '365-days') {
-      request.session.licenceLength = '12-months'
+      request.session.licenceLength = '12 months'
+    }
+
+    if (request.session.licenceLength === '12-months') {
+      request.session.licenceLength = '12 months'
     }
 
 
@@ -160,6 +172,7 @@ const handlers = {
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
       isConcession: request.session.isConcession,
