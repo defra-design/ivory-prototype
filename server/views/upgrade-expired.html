@@ -1,8 +1,11 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
-        {{> common/back}} {{> common/licence-details}}
-        <h2 class="heading-medium">{{pageTitle}}</h2>
-        <form method="post" autocomplete="off" novalidate>
+        {{> common/back}}
+        <!-- {{> common/licence-details}} -->
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>You needed to upgrade this licence within 14 days of its expiry.</p>
+        <!-- <h2 class="heading-medium">{{pageTitle}}</h2> -->
+        <!-- <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
@@ -22,13 +25,18 @@
                 </fieldset>
             </div>
             <button type="submit" class="button">Continue</button>
+        </form> -->
+        <form method="post" autocomplete="off" novalidate>
+            <button type="submit" class="button">Buy a new licence</button>
         </form>
+        </br>
+        <p><a href="/clear-session" title="exit service">I no longer want to buy a licence</a></p>
     </div>
-    <div class="column-third">
+    <!-- <div class="column-third">
         <div class="payment-summary-small">
-            <h2>How much will this cost?</h2>
+            <h2>How much could this cost?</h2>
             <p class="payment-title">Buy this licence again</p>
             <p class="payment-info payment-amount">{{buyAgain}}</p>
         </div>
-    </div>
+    </div> -->
 </div>

@@ -34,7 +34,7 @@ const handlers = {
 
       items: {
         one: {
-          text: 'Upgrade to up to 12-month licence',
+          text: 'Upgrade to 12-month licence',
           name: 'licence_details_upgrade',
           id: '12_month',
         },

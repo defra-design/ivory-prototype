@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('find-a-licence', {
-      pageTitle: 'Find your licence',
+      pageTitle: 'What\'s your licence number?',
       errorMessage: 'Enter your rod licence number',
       licence_number: request.session.licence_number,
     })
@@ -125,6 +125,7 @@ const handlers = {
       request.session.birthDay = 3
       request.session.birthMonth = 1
       request.session.birthYear = 1930
+      request.session.isSenior = true
       request.session.email = 'bob.jones@email.com'
       request.session.mobile  = 07708123456
       request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'

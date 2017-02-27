@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('upgrade-expired', {
-      pageTitle: 'What would you like to do?',
+      pageTitle: 'You can no longer upgrade your licence',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
       licenceType: request.session.licenceType,

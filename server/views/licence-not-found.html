@@ -3,10 +3,10 @@
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <p>We were unable to find details of your previous licence.</p>
-        <h2 class="heading-medium">What would you like to do?</h2>
+        <!-- <h2 class="heading-medium">What would you like to do?</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
-                <!-- <fieldset class="inline" data-required data-error="{{errorMessage}}"> -->
+                <fieldset class="inline" data-required data-error="{{errorMessage}}">
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         {{#each items}}
@@ -25,6 +25,11 @@
                 </fieldset>
             </div>
             <button type="submit" class="button">Continue</button>
+        </form> -->
+        <form method="post" autocomplete="off" novalidate>
+            <button type="submit" class="button">Buy a new licence</button>
         </form>
+        </br>
+        <p><a href="/clear-session" title="exit service">I no longer want to buy a licence</a></p>
     </div>
 </div>

@@ -23,7 +23,7 @@ const handlers = {
     if (upgradeOption === 'Buy_new') {
       return reply.redirect('licence-before')
     } else {
-      return reply.redirect('/')
+      return reply.redirect('/buy/licence-before')
     }
   }
 }

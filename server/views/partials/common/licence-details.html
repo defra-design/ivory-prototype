@@ -1,9 +1,9 @@
-<h1 class="heading-large">Licence details</h1>
+<h1 class="heading-large">Current licence details</h1>
 <p><span class="heavy spacing">Licence number: </span> {{licenceNumber}}</p>
 <p><span class="heavy spacing">Name: </span> {{nameOnLicence}}</p>
 <p><span class="heavy spacing">Licence type: </span>{{licenceType}} </p>
 <p><span class="heavy spacing">Licence length: </span>{{licenceLength}}</p>
 {{#if isConcession}}
-<p><span class="heavy spacing">Concession: </span>{{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasDisabledConcession}} disabled {{/if}} concession</p>
+<p><span class="heavy spacing">Concession: </span>{{#if isJunior}} Junior {{/if}} {{#if isSenior}} Senior {{/if}} {{#if hasDisabledConcession}} Disabled {{/if}} concession</p>
 {{else}}{{/if}}
 <p><span class="heavy spacing">Valid from:</span> {{startDate}} {{startTime}}</p>

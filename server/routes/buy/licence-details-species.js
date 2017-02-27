@@ -35,12 +35,12 @@ const handlers = {
       buyAgain: request.session.buyAgain,
       items: {
           one: {
-            text: 'Upgrade to up to 3 rods',
+            text: 'Upgrade to a 3-rod licence',
             name: 'licence_details_upgrade',
             id: '3_rods',
           },
           two: {
-            text: 'Upgrade to salmon and sea trout',
+            text: 'Upgrade to a salmon and sea trout licence',
             name: 'licence_details_upgrade',
             id: 'salmon_licence',
           },
