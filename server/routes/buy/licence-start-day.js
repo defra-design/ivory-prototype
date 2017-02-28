@@ -11,15 +11,26 @@ const handlers = {
     request.session.year = request.payload.licence_start_year
     returnURL = request.query.returnUrl
 
-    // Calculate age at licence start date
+    // Calculate start date
     var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-    var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
-    };
-    var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
-
     request.session.date = date
-    request.session.startDate = date.toLocaleDateString("en-us", options)
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var n = month[date.getMonth()];
+    request.session.startDate = date.getUTCDate()
+    request.session.startMonth = n
+    request.session.startYear = date.getFullYear()
 
 
       if (returnURL) {

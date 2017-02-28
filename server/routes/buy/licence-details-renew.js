@@ -20,6 +20,8 @@ const handlers = {
       isSalmon: request.session.isSalmon,
       isCoarse: request.session.isCoarse,
       startDate: request.session.startDate,
+      startMonth: request.session.startMonth,
+      startYear: request.session.startYear,
       startText: request.session.startText,
       startTime: request.session.startTime,
       buyAgain: '£82.00',

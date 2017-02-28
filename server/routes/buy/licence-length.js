@@ -6,21 +6,21 @@ const handlers = {
       //myDate: request.session.date
       items: {
         one: {
-          text: '12-months',
+          text: '12 months',
           name: 'licence_length',
           id: '12-months',
           value: '12-months',
           selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
         },
         two: {
-          text: '8-days',
+          text: '8 days',
           name: 'licence_length',
           id: '8-days',
           value: '8-days',
           selectedText: '8-day licences are valid for 8 consecutive days',
         },
         three: {
-          text: '1-day',
+          text: '1 day',
           name: 'licence_length',
           id: '1-day',
         },

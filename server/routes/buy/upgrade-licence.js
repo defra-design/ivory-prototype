@@ -18,14 +18,14 @@ const handlers = {
     // Calculate age at licence start date
     var date = new Date();
     var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
+        day: "numeric", month: "long", year: "numeric"
     };
 
 
     request.session.startText = "30 minutes after payment"
     request.session.haveTime = true
     request.session.date = date
-    request.session.startDate = date.toLocaleDateString("en-us", options)
+    request.session.startDate = date.toDateString("en-us", options)
     var startTime = date.getHours();
     request.session.startTime = startTime +":00"
 

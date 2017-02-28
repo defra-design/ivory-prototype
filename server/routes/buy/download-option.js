@@ -38,13 +38,13 @@ const handlers = {
 
       var date = new Date();
       var options = {
-          weekday: "long", year: "numeric", month: "short", day: "numeric"
+          day: "numeric", month: "long", year: "numeric"
       };
-      request.session.startDate = date.toLocaleDateString("en-us", options)
+      request.session.startDate = date.toDateString("en-us", options)
       request.session.date = date
       var threeSixFiveDays = new Date(Date.parse(request.session.date));
       threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
-      request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
+      request.session.endDate = threeSixFiveDays.toDateString("en-us", options)
 
     returnURL = request.query.returnUrl
       if (returnURL) {

@@ -126,22 +126,45 @@ const handlers = {
 
 
     //End dates
-      var options = {
-          weekday: "long", year: "numeric", month: "short", day: "numeric"
-      };
+
+
+      var month = new Array();
+      month[0] = "January";
+      month[1] = "February";
+      month[2] = "March";
+      month[3] = "April";
+      month[4] = "May";
+      month[5] = "June";
+      month[6] = "July";
+      month[7] = "August";
+      month[8] = "September";
+      month[9] = "October";
+      month[10] = "November";
+      month[11] = "December";
+
+      // var n = month[date.getMonth()];
+
 
       if (request.session.licenceLength === '1-day') {
         var tomorrow = new Date(Date.parse(request.session.date));
         tomorrow.setDate(tomorrow.getDate() + 1);
-        request.session.endDate = tomorrow.toLocaleDateString("en-us", options)
+        request.session.endDate = tomorrow.getUTCDate()
+        request.session.endMonth = month[tomorrow.getMonth()];
+        request.session.endYear = tomorrow.getFullYear()
+
       } else if (request.session.licenceLength === '8-days') {
         var eightDays = new Date(Date.parse(request.session.date));
         eightDays.setDate(eightDays.getDate() + 8);
-        request.session.endDate = eightDays.toLocaleDateString("en-us", options)
+        request.session.endDate = eightDays.getUTCDate()
+        request.session.endMonth = month[eightDays.getMonth()];
+        request.session.endYear = eightDays.getFullYear()
+
       } else {
         var threeSixFiveDays = new Date(Date.parse(request.session.date));
         threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
-        request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
+        request.session.endDate = threeSixFiveDays.getUTCDate()
+        request.session.endMonth = month[threeSixFiveDays.getMonth()];
+        request.session.endYear = threeSixFiveDays.getFullYear()
       }
 
     // Rods
@@ -175,6 +198,8 @@ const handlers = {
       numberOfRods: request.session.numberOfRods,
       licenceLength: request.session.licenceLength,
       startDate: request.session.startDate,
+      startMonth: request.session.startMonth,
+      startYear: request.session.startYear,
       startText: request.session.startText,
       startTime: request.session.startTime,
       cost: request.session.cost,

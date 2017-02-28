@@ -18,10 +18,10 @@ const handlers = {
     // Calculate age
     var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
     var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
+        day: "numeric", month: "long", year: "numeric"
     };
 
-    request.session.dateOfBirth = dob.toLocaleDateString("en-us", options)
+    request.session.dateOfBirth = dob.toDateString("en-us", options)
     var today = new Date();
     var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
     var age = today.getFullYear() - birthDate.getFullYear();
@@ -47,10 +47,10 @@ const handlers = {
 
         var date = new Date();
         var options = {
-            weekday: "long", year: "numeric", month: "short", day: "numeric"
+            day: "numeric", month: "long", year: "numeric"
         };
 
-        request.session.startDate = date.toLocaleDateString("en-us", options)
+        request.session.startDate = date.toDateString("en-us", options)
         //return reply.redirect('licence-type')
         return reply.redirect('upgrade-licence')
       } else if (request.session.age > 65) {

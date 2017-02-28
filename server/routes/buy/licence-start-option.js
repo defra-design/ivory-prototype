@@ -33,11 +33,22 @@ const handlers = {
     var startOption = request.payload.licence_start_option
     returnURL = request.query.returnUrl
 
-    // Calculate age at licence start date
+    // Calculate start date
     var date = new Date();
-    var options = {
-        weekday: "long", year: "numeric", month: "short", day: "numeric"
-    };
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var n = month[date.getMonth()];
 
 
     if (request.session.isRenew === true) {
@@ -46,7 +57,9 @@ const handlers = {
         request.session.startText = "30 minutes after payment"
         request.session.haveTime = true
         request.session.date = date
-        request.session.startDate = date.toLocaleDateString("en-us", options)
+        request.session.startDate = date.getUTCDate()
+        request.session.startMonth = n
+        request.session.startYear = date.getFullYear()
         var startTime = date.getHours();
         request.session.startTime = startTime +":00"
         return reply.redirect('summary')
@@ -67,7 +80,9 @@ const handlers = {
         request.session.startText = "30 minutes after payment"
         request.session.haveTime = true
         request.session.date = date
-        request.session.startDate = date.toLocaleDateString("en-us", options)
+        request.session.startDate = date.getUTCDate()
+        request.session.startMonth = n
+        request.session.startYear = date.getFullYear()
         var startTime = date.getHours();
         request.session.startTime = startTime +":00"
         return reply.redirect('summary')
@@ -84,7 +99,9 @@ const handlers = {
         request.session.startText = "30 minutes after payment"
         request.session.haveTime = true
         request.session.date = date
-        request.session.startDate = date.toLocaleDateString("en-us", options)
+        request.session.startDate = date.getUTCDate()
+        request.session.startMonth = n
+        request.session.startYear = date.getFullYear()
         var startTime = date.getHours();
         request.session.startTime = startTime +":00"
         if (returnURL) {
