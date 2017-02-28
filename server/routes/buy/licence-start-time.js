@@ -3,6 +3,8 @@ const handlers = {
     return reply.view('licence-start-time', {
       pageTitle: 'What time would you like the licence to start on ',
       startDate: request.session.startDate,
+      startMonth: request.session.startMonth,
+      startYear: request.session.startYear,
 
       errorMessage: 'Choose a start time',
       items: {
