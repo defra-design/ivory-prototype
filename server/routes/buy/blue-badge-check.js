@@ -27,9 +27,9 @@ const handlers = {
       if (returnURL) {
 
         if (request.session.licenceType === 'Trout and coarse' && request.session.rodsChecked === true) {
-          return reply.redirect(returnURL)
-        } else {
           return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect(returnURL)
         }
 
 

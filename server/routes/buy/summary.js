@@ -17,7 +17,7 @@ const handlers = {
     }
 
     // 1 Day
-    if (request.session.licenceLength === '1-day') {
+    if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
       if (request.session.licenceType === 'Salmon and sea trout') {
         request.session.cost = "£12.00"
       } else {
@@ -26,7 +26,7 @@ const handlers = {
     }
 
     // 8 Day
-    if (request.session.licenceLength === '8-days') {
+    if (request.session.licenceLength === '8-days' || request.session.licenceLength === '8 days') {
       if (request.session.licenceType === 'Salmon and sea trout') {
         request.session.cost = "£27.00"
       } else {
@@ -35,7 +35,7 @@ const handlers = {
     }
 
     // 12 Months
-    if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days') {
+    if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days' || request.session.licenceLength === '12 months') {
         request.session.isFull = true;
       // Junior
       if (request.session.age < 17 ) {
@@ -144,19 +144,23 @@ const handlers = {
         request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
       }
 
-    if (request.session.licenceLength === '365-days') {
-      request.session.licenceLength = '12 months'
-    }
-
-    if (request.session.licenceLength === '12-months') {
-      request.session.licenceLength = '12 months'
-    }
-
     // Rods
     if (request.session.licenceType === 'Trout and coarse' ) {
       if (request.session.licenceLength === '8-days' || request.session.licenceLength === '1-day') {
         request.session.numberOfRods = 'Up to 2 rods'
       }
+    }
+
+    if (request.session.licenceLength === '8-days') {
+      request.session.licenceLength = '8 days'
+    }
+
+    if (request.session.licenceLength === '1-day') {
+      request.session.licenceLength = '1 day'
+    }
+
+    if (request.session.licenceLength === '12-months') {
+      request.session.licenceLength = '12 months'
     }
 
 

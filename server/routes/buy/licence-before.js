@@ -47,18 +47,15 @@ const handlers = {
     if (whatToDo === 'Buy a new 12-month licence') {
       request.session.isFull = true
       request.session.licenceLength = '12-months'
-      request.session.haveTime = true
       return reply.redirect('name')
     } else if (whatToDo === 'Buy a new 8-day licence') {
       request.session.isFull = false
       request.session.licenceLength = '8-days'
-      request.session.haveTime = false
       request.session.isConcession = false
       return reply.redirect('name')
     } else if (whatToDo === 'Buy a new 1-day licence') {
       request.session.isFull = false
       request.session.licenceLength = '1-day'
-      request.session.haveTime = false
       request.session.isConcession = false
       return reply.redirect('name')
     } else {

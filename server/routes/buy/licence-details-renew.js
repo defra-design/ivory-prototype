@@ -16,6 +16,7 @@ const handlers = {
       hasDisabledConcession: request.session.hasDisabledConcession,
       isFull: request.session.isFull,
       isConcession: request.session.isConcession,
+      oldConcession: request.session.oldConcession,
       isSalmon: request.session.isSalmon,
       isCoarse: request.session.isCoarse,
       startDate: request.session.startDate,

@@ -49,6 +49,7 @@ const handlers = {
       request.session.hasDisabledConcession = true
       request.session.isFull = true
       request.session.isConcession = true
+      request.session.oldConcession = 'Disabled concession'
       request.session.isCoarse = true;
       return reply.redirect('dob-postcode-check')
     }else if (request.session.licenceNumber === 'B7A711B') {
@@ -152,6 +153,7 @@ const handlers = {
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
       request.session.isConcession = true
+      request.session.oldConcession = 'Senior concession'
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A713B') {
       request.session.licenceNumber = '00010418-3WC3JDS-B7A713B'

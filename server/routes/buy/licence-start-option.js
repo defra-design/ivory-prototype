@@ -1,5 +1,14 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
+      request.session.haveTime = false
+    } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '8 days') {
+      request.session.haveTime = false
+    } else {
+      request.session.haveTime = true
+    }
+
     return reply.view('licence-start-option', {
       pageTitle: 'When would you like your licence to start?',
       errorMessage: 'Choose when you\'d like your licence to start',
