@@ -94,7 +94,7 @@ const handlers = {
            }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
              request.session.cost = '£82.00'
 
-         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
+         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713' || request.session.licenceNumber === '00010418-3WC3JDS-B7A713B') {
 
            if (request.session.isRenew === true) {
              request.session.cost = '£12.00'
@@ -144,14 +144,19 @@ const handlers = {
         request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
       }
 
-
-
     if (request.session.licenceLength === '365-days') {
       request.session.licenceLength = '12 months'
     }
 
     if (request.session.licenceLength === '12-months') {
       request.session.licenceLength = '12 months'
+    }
+
+    // Rods
+    if (request.session.licenceType === 'Trout and coarse' ) {
+      if (request.session.licenceLength === '8-days' || request.session.licenceLength === '1-day') {
+        request.session.numberOfRods = 'Up to 2 rods'
+      }
     }
 
 

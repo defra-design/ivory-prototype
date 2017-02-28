@@ -8,8 +8,8 @@ const handlers = {
         one: {
           text: '12-months',
           name: 'licence_length',
-          id: '365-days',
-          value: '365-days',
+          id: '12-months',
+          value: '12-months',
           selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
         },
         two: {
@@ -31,7 +31,7 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.licenceLength = request.payload.licence_length
     if (returnURL) {
-        if (request.session.licenceLength === '365-days') {
+        if (request.session.licenceLength === '12-months') {
           return reply.redirect('disability?returnUrl=/buy/summary')
         } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '1-day') {
           request.session.isFull = false
@@ -41,9 +41,9 @@ const handlers = {
           return reply.redirect(returnURL)
         }
     } else {
-      if (request.session.licenceLength === '365-days') {
+      if (request.session.licenceLength === '12-months') {
         request.session.isFull = true
-        request.session.licenceLength = '12-months'
+        // request.session.licenceLength = '12-months'
         request.session.haveTime = true
         return reply.redirect('licence-start-option')
       } else if (request.session.licenceLength === '8-days') {
