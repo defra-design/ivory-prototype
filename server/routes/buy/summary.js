@@ -125,9 +125,7 @@ const handlers = {
 
 
 
-    //End dates
-
-
+    // End dates
       var month = new Array();
       month[0] = "January";
       month[1] = "February";
@@ -141,9 +139,6 @@ const handlers = {
       month[9] = "October";
       month[10] = "November";
       month[11] = "December";
-
-      // var n = month[date.getMonth()];
-
 
       if (request.session.licenceLength === '1-day') {
         var tomorrow = new Date(Date.parse(request.session.date));
