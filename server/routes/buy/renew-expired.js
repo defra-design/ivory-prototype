@@ -42,7 +42,7 @@ const handlers = {
     var upgradeOption = request.payload.licence_details_upgrade
     returnURL = request.query.returnUrl
     if (upgradeOption === 'Buy_new') {
-      return reply.redirect('licence-before')
+      return reply.redirect('product-type')
     } else {
       return reply.redirect('/')
     }

@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('licence-before', {
+    return reply.view('product-type', {
       pageTitle: 'What do you want to do?',
       errorMessage: 'Tell us what you want to do',
       items: {
@@ -67,14 +67,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/licence-before',
+  path: '/buy/product-type',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/licence-before',
+  path: '/buy/product-type',
   config: {
     handler: handlers.post
   }

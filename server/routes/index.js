@@ -5,7 +5,6 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
-
   // Contact screen ideas
   require('./contact-screen'),
   require('./buy/contact-one'),
@@ -25,7 +24,8 @@ module.exports = [].concat(
 
   // Upgrade & renewals
   require('./upgrade-screen'),
-  require('./buy/licence-before'),
+  // require('./buy/licence-before'),
+  require('./buy/product-type'),
   require('./buy/licence-before-two'),
   require('./buy/find-a-licence'),
   require('./buy/find-a-licence-receipt'),

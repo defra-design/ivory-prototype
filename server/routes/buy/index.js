@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.redirect('buy/licence-before')
+    return reply.redirect('buy/product-type')
   }
 }
 

@@ -21,9 +21,9 @@ const handlers = {
     returnURL = request.query.returnUrl
     var upgradeOption = request.payload.licence_details_upgrade
     if (upgradeOption === 'Buy_new') {
-      return reply.redirect('licence-before')
+      return reply.redirect('product-type')
     } else {
-      return reply.redirect('/buy/licence-before')
+      return reply.redirect('/buy/product-type')
     }
   }
 }

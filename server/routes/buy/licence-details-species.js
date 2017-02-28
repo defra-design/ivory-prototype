@@ -84,7 +84,7 @@ const handlers = {
       request.session.isUpgrade = false
       return reply.redirect('licence-start-option')
     } else {
-      return reply.redirect('licence-before')
+      return reply.redirect('product-type')
     }
   }
 }

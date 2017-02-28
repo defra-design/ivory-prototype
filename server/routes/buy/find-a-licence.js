@@ -2,14 +2,11 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('find-a-licence', {
       pageTitle: 'What\'s your licence number?',
-      errorMessage: 'Enter your rod licence number',
+      errorMessage: 'Enter your licence number',
       licence_number: request.session.licence_number,
     })
   },
   post: function (request, reply) {
-
-
-
 
     request.session.licenceNumber = request.payload.licence_number
     if (request.session.licenceNumber === 'B7A711') {
