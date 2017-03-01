@@ -2,6 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('contact', {
       pageTitle: 'How can we send you your licence details?',
+      errorMessage: 'Select how you want to receive your licence details',
       email: request.session.email,
       mobile: request.session.mobile,
       is365Contact: request.session.is365Contact,

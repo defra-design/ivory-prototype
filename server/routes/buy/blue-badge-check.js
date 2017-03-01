@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('blue-badge-check', {
       pageTitle: 'Do you have a Blue Badge?',
-      errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
+      errorMessage: 'Tell us if you hold a Blue Badge',
       items: {
         one: {
           text: 'Yes',

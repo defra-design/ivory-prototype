@@ -3,6 +3,7 @@ const handlers = {
     return reply.view('blue-badge', {
       pageTitle: 'What is your Blue Badge number?',
       errorMessage: 'Enter your blue badge number',
+      blueBadge: request.session.blueBadge,
     })
   },
   post: function (request, reply) {

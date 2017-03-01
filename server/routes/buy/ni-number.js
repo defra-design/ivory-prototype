@@ -3,6 +3,7 @@ const handlers = {
     return reply.view('ni-number', {
       pageTitle: 'What is your National Insurance number?',
       errorMessage: 'Enter your national insurance number',
+      NINumber: request.session.NINumber,
     })
   },
   post: function (request, reply) {
