@@ -41,21 +41,21 @@ const handlers = {
           return reply.redirect(returnURL)
         }
     } else {
-      if (request.session.licenceLength === '12-months') {
+      if (request.session.licenceLength === '12-months' || request.session.licenceLength === '12 months') {
         request.session.isFull = true
-        // request.session.licenceLength = '12-months'
         request.session.haveTime = true
-        return reply.redirect('licence-start-option')
-      } else if (request.session.licenceLength === '8-days') {
+        request.session.licenceLength = '12 months'
+        return reply.redirect('name')
+      } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '8 days') {
         request.session.isFull = false
+        request.session.haveTime = false
         request.session.licenceLength = '8-days'
-        request.session.haveTime = false
         return reply.redirect('licence-start-option')
-      } else if (request.session.licenceLength === '1-day') {
+      } else if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
         request.session.isFull = false
-        request.session.licenceLength = '1-day'
         request.session.haveTime = false
-        return reply.redirect('licence-start-option')
+        request.session.licenceLength = '1 day'
+        return reply.redirect('name')
       }
     }
 

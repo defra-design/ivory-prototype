@@ -24,9 +24,10 @@ module.exports = [].concat(
 
   // Upgrade & renewals
   require('./upgrade-screen'),
-  // require('./buy/licence-before'),
   require('./buy/product-type'),
+  require('./buy/licence-before'),
   require('./buy/licence-before-two'),
+  require('./buy/renew-or-upgrade-licence'),
   require('./buy/find-a-licence'),
   require('./buy/find-a-licence-receipt'),
   require('./buy/dob-postcode-check'),
