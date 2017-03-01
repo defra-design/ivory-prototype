@@ -23,8 +23,10 @@
         </div>
         {{/if}} {{/if}}
         <form method="post" autocomplete="off" novalidate>
-            <div class="form-group">
-                <fieldset>
+            <!-- <fieldset data-required data-error="{{errorMessage}}"> -->
+            <fieldset>
+                <div class="form-group">
+
 
                     <legend class="visually-hidden">How do you want to be contacted?</legend>
 
@@ -54,10 +56,9 @@
                     <!-- <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
                       <p>By selecting none of the above options you will be required to write down your licence number</p>
                   </div> -->
-            </div>
-            <div class="form-group">
-                </fieldset>
-            </div>
+                </div>
+            </fieldset>
+
             <button type="submit" class="button">Continue</button>
         </form>
 
