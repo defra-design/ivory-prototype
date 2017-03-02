@@ -38,9 +38,8 @@ module.exports = [].concat(
   require('./buy/licence-details-renew'),
   require('./buy/details-updated'),
   require('./buy/licence-not-found'),
-
-
-
+  require('./buy/upgrade-used'),
+  require('./buy/system-failure'),
 
 
   require('./buy/choose-licence'),

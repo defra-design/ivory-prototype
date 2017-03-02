@@ -30,6 +30,12 @@ const handlers = {
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A716') {
       request.session.isRenew= true
       return reply.redirect('upgrade-licence')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A717') {
+      request.session.isRenew= true
+      return reply.redirect('upgrade-used')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A718') {
+      request.session.isRenew= true
+      return reply.redirect('system-failure')
     } else {
       return reply.redirect('licence-not-found')
     }

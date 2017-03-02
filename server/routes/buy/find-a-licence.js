@@ -275,7 +275,7 @@ const handlers = {
         request.session.isJunior = true
         request.session.isFull = true
         request.session.cost = '£00.00'
-        request.session.email = 'ton.smith@email.com'
+        request.session.email = 'tom.smith@email.com'
         request.session.mobile  = 07708123456
         request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
         request.session.premises = 'Flat 20A'
@@ -298,6 +298,78 @@ const handlers = {
         request.session.isConcession = true
         request.session.haveTime = true
         return reply.redirect('dob-postcode-check')
+      } else if (request.session.licenceNumber === 'B7A717') {
+          request.session.licenceNumber = '00010418-3WC3JDS-B7A717'
+          request.session.firstName = 'Tom'
+          request.session.lastName = 'Smith'
+          request.session.holderName = 'Tom Smith'
+          request.session.dateOfBirth = '3 January 2004'
+          request.session.birthDay = 3
+          request.session.birthMonth = 1
+          request.session.birthYear = 2004
+          request.session.age = 14
+          request.session.isJunior = true
+          request.session.isFull = true
+          request.session.cost = '£00.00'
+          request.session.email = 'tom.smith@email.com'
+          request.session.mobile  = 07708123456
+          request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
+          request.session.premises = 'Flat 20A'
+          request.session.street = 'Knutsford Road'
+          request.session.locality = ''
+          request.session.town = 'Warrington'
+          request.session.postcode = 'WA4 1AB'
+          request.session.country = 'England'
+          request.session.oldLicenceType = 'Trout and coarse'
+          request.session.licenceType = 'Trout and coarse'
+          request.session.haveTime = true
+          request.session.numberOfRods = 'Up to 2 rods'
+          request.session.oldLicenceLength = '12 month'
+          request.session.licenceLength = '12 months'
+          request.session.startDate = '12 February 2017'
+          request.session.startText = '12 February 2017'
+          request.session.startTime = '6PM'
+          request.session.isFull = true
+          request.session.isCoarse = true;
+          request.session.isConcession = true
+          request.session.haveTime = true
+          return reply.redirect('dob-postcode-check')
+        } else if (request.session.licenceNumber === 'B7A718') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A718'
+            request.session.firstName = 'Tom'
+            request.session.lastName = 'Smith'
+            request.session.holderName = 'Tom Smith'
+            request.session.dateOfBirth = '3 January 2004'
+            request.session.birthDay = 3
+            request.session.birthMonth = 1
+            request.session.birthYear = 2004
+            request.session.age = 14
+            request.session.isJunior = true
+            request.session.isFull = true
+            request.session.cost = '£00.00'
+            request.session.email = 'tom.smith@email.com'
+            request.session.mobile  = 07708123456
+            request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
+            request.session.premises = 'Flat 20A'
+            request.session.street = 'Knutsford Road'
+            request.session.locality = ''
+            request.session.town = 'Warrington'
+            request.session.postcode = 'WA4 1AB'
+            request.session.country = 'England'
+            request.session.oldLicenceType = 'Trout and coarse'
+            request.session.licenceType = 'Trout and coarse'
+            request.session.haveTime = true
+            request.session.numberOfRods = 'Up to 2 rods'
+            request.session.oldLicenceLength = '12 month'
+            request.session.licenceLength = '12 months'
+            request.session.startDate = '12 February 2017'
+            request.session.startText = '12 February 2017'
+            request.session.startTime = '6PM'
+            request.session.isFull = true
+            request.session.isCoarse = true;
+            request.session.isConcession = true
+            request.session.haveTime = true
+            return reply.redirect('dob-postcode-check')
     } else  {
       //return reply.redirect('licence-not-found')
       return reply.redirect('dob-postcode-check')
