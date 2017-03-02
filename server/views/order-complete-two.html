@@ -1,0 +1,205 @@
+<main id="summary-page">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="govuk-box-highlight">
+                {{#if isUpgrade}}
+                <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
+                <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
+                <h1 class="bold-large">You've bought your licences</h1> {{/if}}{{/if}}
+                <p>
+                    Your fishing licence numbers are:<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A719</strong><br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A721</strong><br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A722</strong>
+
+                </p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Licence number:</th>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00010418-3WC3JDS-B7A718</td>
+                        <td>Peter Walter-Smith</td>
+                        <td>2-rod coarse fish and trout</td>
+                        <td>12 months</td>
+                        <td>1 March 2017</td>
+                        <td>1 March 2018</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Licence number:</th>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00010418-3WC3JDS-B7A719</td>
+                        <td>Joe Walter-Smith</td>
+                        <td>2-rod coarse fish and trout</td>
+                        <td>12 months</td>
+                        <td>1 March 2017</td>
+                        <td>1 March 2018</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Licence number:</th>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00010418-3WC3JDS-B7A721</td>
+                        <td>Helen Bate</td>
+                        <td>Salmon and seat trout</td>
+                        <td>8 days</td>
+                        <td>1 March 2017</td>
+                        <td>9 March 2017</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Licence number:</th>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00010418-3WC3JDS-B7A722</td>
+                        <td>Sam Cooper</td>
+                        <td>3-rod coarse fish and trout</td>
+                        <td>1 day</td>
+                        <td>1 March 2017</td>
+                        <td>2 March 2017</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            {{#if isFull}} {{#if isJunior}}
+            <h2 class="heading-medium">We don’t send junior licences in the post</h2>
+            <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
+            </p>
+            {{#if noContact}}
+            <p>We can also send you your licence confirmation:</p>
+            <ol class="list">
+                <li><a href="email-address">Email me my licence confirmation</a></li>
+                <li><a href="mobile-number">Text me my licence confirmation</a></li>
+            </ol>
+            {{else}}
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+            {{/if}}
+            <!-- <ol class="list list-number">
+                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+
+
+            </ol> -->
+
+            {{else}}
+            <h2 class="heading-medium">What to do if your licence doesn't arrive by 1 April 2017</h2>
+            <p>Your licence will arrive in the post before 1 April 2017. If it doesn't, you can still go fishing as long as you take:
+                <ol class="list list-number">
+                    <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+                        <!-- {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a> or <a href="phone-number">text message</a></li>
+                {{/if}} -->
+                        <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                </ol>
+                {{#if noContact}}
+                <p>We can also send you your licence confirmation:</p>
+                <ol class="list">
+                    <li><a href="email-address">Email me my licence confirmation</a></li>
+                    <li><a href="mobile-number">Text me my licence confirmation</a></li>
+                </ol>
+                {{else}}
+                <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+                {{/if}} {{/if}} {{else}}
+                <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
+                <p>If our bailiffs ask to see your licence, you must show them:</p>
+                <ol class="list list-number">
+                    <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+                        <!-- {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a> or <a href="phone-number">text message</a></li>
+                {{/if}} -->
+                        <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                </ol>
+                {{#if noContact}}
+                <p>We can also send you your licence confirmation:</p>
+                <ol class="list">
+                    <li><a href="email-address">Email me my licence confirmation</a></li>
+                    <li><a href="mobile-number">Text me my licence confirmation</a></li>
+                </ol>
+                {{else}}
+                <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+
+                {{/if}} {{/if}}
+
+                <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
+                <h2 class="heading-medium">Check the byelaws before you go</h2>
+                <p>You must follow the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and <a href="https://www.gov.uk/government/collections/local-fishing-byelaws">local fishing byelaws</a> whenever you go fishing. These
+                    include the rules on: </p>
+                <ul class="list list-bullet">
+                    <li>where you can fish</li>
+                    <li>when you can fish</li>
+                    <li>which fish you’re allowed to keep</li>
+                </ul>
+
+                {{#if isSalmon}}
+                <h2 class="heading-medium">Remember to submit a catch return</h2>
+                <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
+                {{/if}} {{#if isJunior}} {{else}}
+                <h2 class="heading-medium">How your licence money gets spent</h2>
+                <p class="text">We use your fishing licence money to:</p>
+                <ul class="list list-bullet">
+                    <li>improve angling facilities and fish habitats</li>
+                    <li>protect fisheries from illegal activity</li>
+                    <li>prevent the spread of fish diseases and invasive, non-native species</li>
+                    <li>rear and stock coarse fish to boost natural stocks</li>
+                    <li>encourage more people to go fishing</li>
+                </ul>
+                <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
+                {{/if}}
+
+                <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
+                <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
+                {{else}}
+                <p><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
+                {{/if}}
+        </div>
+    </div>
+</main>
+
+</div>
+</main>

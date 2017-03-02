@@ -5,6 +5,12 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Multibuy
+  require('./multibuy-screen'),
+  require('./buy/order-complete-two'),
+  require('./buy/order-complete-three'),
+
+
   // Contact screen ideas
   require('./contact-screen'),
   require('./buy/contact-one'),
