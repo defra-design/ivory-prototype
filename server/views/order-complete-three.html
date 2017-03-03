@@ -1,27 +1,86 @@
 <main id="summary-page">
     <div class="grid-row">
         <div class="column-two-thirds">
+
+
+
+
+            <section class="more">
+                <div class="js-tabs nav-tabs">
+                    <ul class="tabs-nav" role="tablist">
+                        <li class="active"><a href="#before-you-start" role="tab" id="tab-before-you-start" aria-controls="before-you-start" aria-flowto="before-you-start" aria-selected="true" tabindex="0">Before you start</a></li>
+
+                        <li class=""><a href="#other-ways-to-apply" role="tab" id="tab-other-ways-to-apply" aria-controls="other-ways-to-apply" aria-flowto="other-ways-to-apply" aria-selected="false" tabindex="-1">Other ways to apply</a></li>
+                    </ul>
+                </div>
+
+                <div class="js-tab-content tab-content tabs-body" aria-live="polite">
+                    <div class="js-tab-pane tab-pane tabs-panel tabs-panel-selected" id="before-you-start-enhanced" role="tabpanel" aria-hidden="false" aria-expanded="true" aria-labelledby="tab-before-you-start" style="display: block;">
+                        <p>You’ll need a debit or credit card to use this service.</p>
+
+                        <p>It should take 6 weeks to get your first adult passport once your form has been received. For all other application types, it should take 3 weeks.</p>
+
+                        <p>It can take longer if more information is needed or your application hasn’t been filled out correctly.</p>
+
+                        <p>You should use a different service if you <a href="/get-a-passport-urgently">need your passport urgently</a>.</p>
+
+                        <div role="note" aria-label="Information" class="application-notice info-notice">
+                            <p>Don’t book travel until you have a valid passport - doing so is at your own risk.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="js-tab-pane tab-pane tabs-panel" id="other-ways-to-apply-enhanced" role="tabpanel" aria-hidden="true" aria-expanded="false" aria-labelledby="tab-other-ways-to-apply" style="display: none;">
+                        <p>You can pick up passport application forms from your <a rel="external" href="http://www.postoffice.co.uk/branch-finder">local Post Office</a> and apply by post, or use the <a href="/how-the-post-office-check-and-send-service-works">Post Office Check and Send service</a>.</p>
+
+
+                    </div>
+                </div>
+
+            </section>
+
+
+
+
+
+
             <div class="govuk-box-highlight">
                 {{#if isUpgrade}}
                 <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                 <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                 <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
                 <p>
-                    Your fishing licence number is<br>
-                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
+                    Your fishing licence numbers are:<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
+                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A719</strong><br> -->
+                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A721</strong><br> -->
+                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A722</strong> -->
                 </p>
-                <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
-                <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
-                <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startTime}}</span></p>
-                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
-                <p>This licence can only be used by {{nameOnLicence}}</p>
-
-                <!-- {{#if isJunior}}
-                <p><i class="icon icon-file-download">
-    <span class="visually-hidden">Download licence</span>
-  </i><a href="#" title="Download licence" class="govuk-box-highlight-link">Download licence</a></p>
-                {{/if}} -->
             </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Licence number:</th>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>00010418-3WC3JDS-B7A718</td>
+                        <td>Peter Walter-Smith</td>
+                        <td>2-rod coarse fish and trout</td>
+                        <td>12 months</td>
+                        <td>1 March 2017</td>
+                        <td>1 March 2018</td>
+                    </tr>
+                </tbody>
+            </table>
 
             {{#if isFull}} {{#if isJunior}}
             <h2 class="heading-medium">We don’t send junior licences in the post</h2>
