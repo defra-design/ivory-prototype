@@ -91,5 +91,8 @@ module.exports = [].concat(
   require('./start/rules'),
   require('./start/important-changes'),
   require('./start/buy'),
-  require('./start/replace')
+  require('./start/replace'),
+  require('./start/when-you-need-a-licence'),
+  require('./start/buy-a-fishing-licence'),
+  require('./start/fishing-in-the-thames')
 )
