@@ -80,15 +80,15 @@ const handlers = {
       if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
          if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711') {
              if(request.session.numberOfRods === 'Up to 3 rods') {
-               request.session.cost = '£10.00'
+               request.session.cost = '£10.00 (save £10.00)'
              } else {
-               request.session.cost = '£34.00'
+               request.session.cost = '£34.00 (save £20.00)'
              }
          } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711B') {
            if(request.session.numberOfRods === 'Up to 3 rods') {
-             request.session.cost = '£15.00'
+             request.session.cost = '£15.00 (save £15.00)'
            } else {
-             request.session.cost = '£52.00'
+             request.session.cost = '£52.00 (save £28.00)'
            }
 
            }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {

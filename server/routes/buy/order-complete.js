@@ -16,6 +16,7 @@ const handlers = {
       isFull: request.session.isFull,
       isJunior:  request.session.isJunior,
       isUpgrade:  request.session.isUpgrade,
+      isUpgradeLength:  request.session.isUpgradeLength,
       email: request.session.email,
       mobile: request.session.mobile,
       noContact: request.session.noContact,

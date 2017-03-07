@@ -3,13 +3,24 @@
         <div class="column-two-thirds">
             <div class="govuk-box-highlight">
                 {{#if isUpgrade}}
+                <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isUpgradeLength}}
                 <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                 <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
-                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
+                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}{{/if}} {{#if isUpgrade}}
+                <p>
+                    Your NEW fishing licence number is<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
+                </p>{{else}} {{#if isUpgradeLength}}
+                <p>
+                    Your NEW fishing licence number is<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
+                </p>{{else}}
                 <p>
                     Your fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
-                </p>
+                </p>{{/if}}{{/if}}
+
+
                 <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
                 <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
                 <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startMonth}} {{startYear}} {{startTime}}</span></p>
