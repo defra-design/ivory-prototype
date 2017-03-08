@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('system-failure', {
-      pageTitle: 'Sorry, this service is currently unavailable',
+      pageTitle: 'Sorry, this upgrade service is currently unavailable',
       errorMessage: 'Tell us what you\'d like to do',
       items: {
         two: {
