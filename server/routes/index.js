@@ -5,6 +5,17 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+
+  // Done screen
+  require('./done-screen'),
+  require('./buy/order-complete-four'),
+
+
+  // Multibuy
+  require('./multibuy-screen'),
+  require('./buy/order-complete-two'),
+  require('./buy/order-complete-three'),
+
   // Contact screen ideas
   require('./contact-screen'),
   require('./buy/contact-one'),
