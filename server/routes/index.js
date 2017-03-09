@@ -9,6 +9,7 @@ module.exports = [].concat(
   require('./multibuy-screen'),
   require('./buy/order-complete-two'),
   require('./buy/order-complete-three'),
+  require('./buy/summary-two'),
 
 
   // Contact screen ideas
