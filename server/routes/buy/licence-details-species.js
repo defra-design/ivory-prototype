@@ -19,6 +19,7 @@ const handlers = {
       licenceType: request.session.licenceType,
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
+      endText: request.session.endText,
       licenceLength: request.session.licenceLength,
       oldLicenceLength: request.session.oldLicenceLength,
       hasDisabledConcession: request.session.hasDisabledConcession,

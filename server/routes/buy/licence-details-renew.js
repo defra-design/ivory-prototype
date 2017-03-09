@@ -10,6 +10,7 @@ const handlers = {
       oldLicenceLength: request.session.oldLicenceLength,
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
+      endText: request.session.endText,
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
       hasBlueBadge: request.session.hasBlueBadge,
