@@ -1,0 +1,756 @@
+<main id="summary-page">
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            {{> common/back}}
+
+
+            <h1 class="heading-large">{{pageTitle}}</h1>
+            <br> {{#if isJunior}} {{else}}
+            <div class="notice">
+                <i class="icon icon-important"><span class="visuallyhidden">Warning</span></i>
+                <strong class="bold-small">Your licence is not valid until payment is complete</strong>
+            </div>
+            {{/if}}
+            <!-- <h2 class="heading-medium">Licence holder details</h2> -->
+
+
+
+            <section class="more">
+                <div class="js-tabs nav-tabs">
+                    <ul>
+                        <li class="active"><a href="#Peter-Walter-Smith">Peter Walter-Smith</a></li>
+                        <li><a href="#Joe-Walter-Smith">Joe Walter-Smith</a></li>
+                        <li><a href="#Helen-Bate">Helen Bate</a></li>
+                        <li><a href="#Sam-Cooper">Sam Cooper</a></li>
+                    </ul>
+                </div>
+
+                <div class="js-tab-content tab-content">
+
+                    <div class="js-tab-pane tab-pane" id="Peter-Walter-Smith">
+                        <h2 class="heading-medium">Licence holder details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Name on licence
+                                    </th>
+                                    <td class="data" id="holder-name">
+                                        Peter Walter-Smith
+                                    </td>
+                                    <td class="change-answer" id="change-holder-name">
+                                        <a href="/buy/name?returnUrl=/buy/summary" id="buy.holder.name">
+                Change <span class="visuallyhidden">name</span>
+              </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Date of birth
+                                    </th>
+                                    <td class="data" id="holder-dob">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-dob">
+                                        <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+                Change <span class="visuallyhidden">date of birth</span>
+              </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Email address
+                                    </th>
+                                    <td class="data" id="holder-email">
+                                        peter-walter-smith@gmail.com
+                                    </td>
+                                    <td class="change-answer" id="change-holder-email">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
+                Change <span class="visuallyhidden">email</span>
+              </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Mobile number
+                                    </th>
+                                    <td class="data" id="holder-mobile">
+                                        01123 123 123
+                                    </td>
+                                    <td class="change-answer" id="change-holder-mobile">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
+                Change <span class="visuallyhidden">mobile number</span>
+              </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Address
+                                    </th>
+                                    <td class="data" id="holder-address">
+                                        Flat 20b, Knutsford Road, Warrington
+                                    </td>
+                                    <td class="change-answer" id="change-holder-address">
+                                        <a href="/buy/find-address?returnUrl=/buy/summary" id="buy.holder.address">
+                Change <span class="visuallyhidden">address</span>
+              </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <h2 class="heading-medium">Licence details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Licence type
+                                    </th>
+                                    <td class="data" id="licence-type">
+                                        Trout and coarse
+                                    </td>
+                                    <td class="change-answer" id="change-licence-type">
+                                        <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                          Change <span class="visuallyhidden">licence type</span>
+                        </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Licence length
+                                    </th>
+                                    <td class="data" id="licence-length">
+                                        12 months
+                                    </td>
+                                    <td class="change-answer" id="change-licence-length">
+                                        <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                                        Change <span class="visuallyhidden">licence length</span>
+                                      </a>
+
+                                    </td>
+                                </tr>
+
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Valid from
+                                    </th>
+                                    <td class="data" id="start-date">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                                        Change <span class="visuallyhidden">start date</span>
+                                      </a>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Time
+                                    </th>
+                                    <td class="data" id="start-date">
+
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
+                                        Change <span class="visuallyhidden">start time</span>
+                                      </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Number of rods
+                                    </th>
+                                    <td class="data" id="number-of-rods">
+
+                                    </td>
+                                    <td class="change-answer" id="number-of-rods">
+
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Cost
+                                    </th>
+                                    <td class="data" id="cost-data">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="js-tab-pane tab-pane" id="Joe-Walter-Smith">
+                        <h2 class="heading-medium">Licence holder details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Name on licence
+                                    </th>
+                                    <td class="data" id="holder-name">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-name">
+                                        <a href="/buy/name?returnUrl=/buy/summary" id="buy.holder.name">
+              Change <span class="visuallyhidden">name</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Date of birth
+                                    </th>
+                                    <td class="data" id="holder-dob">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-dob">
+                                        <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+              Change <span class="visuallyhidden">date of birth</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Email address
+                                    </th>
+                                    <td class="data" id="holder-email">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-email">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
+              Change <span class="visuallyhidden">email</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Mobile number
+                                    </th>
+                                    <td class="data" id="holder-mobile">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-mobile">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
+              Change <span class="visuallyhidden">mobile number</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Address
+                                    </th>
+                                    <td class="data" id="holder-address">
+                                        Flat 20b, Knutsford Road, Warrington
+                                    </td>
+                                    <td class="change-answer" id="change-holder-address">
+                                        <a href="/buy/find-address?returnUrl=/buy/summary" id="buy.holder.address">
+              Change <span class="visuallyhidden">address</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <h2 class="heading-medium">Licence details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Licence type
+                                    </th>
+                                    <td class="data" id="licence-type">
+                                        Trout and coarse
+                                    </td>
+                                    <td class="change-answer" id="change-licence-type">
+                                        <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                        Change <span class="visuallyhidden">licence type</span>
+                      </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Licence length
+                                    </th>
+                                    <td class="data" id="licence-length">
+                                        12 months
+                                    </td>
+                                    <td class="change-answer" id="change-licence-length">
+                                        <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                                      Change <span class="visuallyhidden">licence length</span>
+                                    </a>
+
+                                    </td>
+                                </tr>
+
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Valid from
+                                    </th>
+                                    <td class="data" id="start-date">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start date</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Time
+                                    </th>
+                                    <td class="data" id="start-date">
+
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start time</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Number of rods
+                                    </th>
+                                    <td class="data" id="number-of-rods">
+
+                                    </td>
+                                    <td class="change-answer" id="number-of-rods">
+
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Cost
+                                    </th>
+                                    <td class="data" id="cost-data">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="js-tab-pane tab-pane" id="Helen-Bate">
+                        <h2 class="heading-medium">Licence holder details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Name on licence
+                                    </th>
+                                    <td class="data" id="holder-name">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-name">
+                                        <a href="/buy/name?returnUrl=/buy/summary" id="buy.holder.name">
+              Change <span class="visuallyhidden">name</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Date of birth
+                                    </th>
+                                    <td class="data" id="holder-dob">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-dob">
+                                        <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+              Change <span class="visuallyhidden">date of birth</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Email address
+                                    </th>
+                                    <td class="data" id="holder-email">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-email">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
+              Change <span class="visuallyhidden">email</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Mobile number
+                                    </th>
+                                    <td class="data" id="holder-mobile">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-mobile">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
+              Change <span class="visuallyhidden">mobile number</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Address
+                                    </th>
+                                    <td class="data" id="holder-address">
+                                        Flat 20b, Knutsford Road, Warrington
+                                    </td>
+                                    <td class="change-answer" id="change-holder-address">
+                                        <a href="/buy/find-address?returnUrl=/buy/summary" id="buy.holder.address">
+              Change <span class="visuallyhidden">address</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <h2 class="heading-medium">Licence details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Licence type
+                                    </th>
+                                    <td class="data" id="licence-type">
+                                        Salmon and sea trout
+                                    </td>
+                                    <td class="change-answer" id="change-licence-type">
+                                        <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                        Change <span class="visuallyhidden">licence type</span>
+                      </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Licence length
+                                    </th>
+                                    <td class="data" id="licence-length">
+                                        8 days
+                                    </td>
+                                    <td class="change-answer" id="change-licence-length">
+                                        <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                                      Change <span class="visuallyhidden">licence length</span>
+                                    </a>
+
+                                    </td>
+                                </tr>
+
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Valid from
+                                    </th>
+                                    <td class="data" id="start-date">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start date</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Time
+                                    </th>
+                                    <td class="data" id="start-date">
+
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start time</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Number of rods
+                                    </th>
+                                    <td class="data" id="number-of-rods">
+
+                                    </td>
+                                    <td class="change-answer" id="number-of-rods">
+
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Cost
+                                    </th>
+                                    <td class="data" id="cost-data">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="js-tab-pane tab-pane" id="Sam-Cooper">
+                        <h2 class="heading-medium">Licence holder details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Name on licence
+                                    </th>
+                                    <td class="data" id="holder-name">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-name">
+                                        <a href="/buy/name?returnUrl=/buy/summary" id="buy.holder.name">
+              Change <span class="visuallyhidden">name</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Date of birth
+                                    </th>
+                                    <td class="data" id="holder-dob">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-dob">
+                                        <a href="/buy/date-of-birth?returnUrl=/buy/summary" id="buy.holder.dateOfBirth">
+              Change <span class="visuallyhidden">date of birth</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Email address
+                                    </th>
+                                    <td class="data" id="holder-email">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-email">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
+              Change <span class="visuallyhidden">email</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Mobile number
+                                    </th>
+                                    <td class="data" id="holder-mobile">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-holder-mobile">
+                                        <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
+              Change <span class="visuallyhidden">mobile number</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Address
+                                    </th>
+                                    <td class="data" id="holder-address">
+                                        Flat 20b, Knutsford Road, Warrington
+                                    </td>
+                                    <td class="change-answer" id="change-holder-address">
+                                        <a href="/buy/find-address?returnUrl=/buy/summary" id="buy.holder.address">
+              Change <span class="visuallyhidden">address</span>
+            </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <h2 class="heading-medium">Licence details</h2>
+                        <table class="check-your-answers">
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="width:30%;">
+                                        Licence type
+                                    </th>
+                                    <td class="data" id="licence-type">
+                                        Trout and coarse
+                                    </td>
+                                    <td class="change-answer" id="change-licence-type">
+                                        <a href="/buy/licence-type?returnUrl=/buy/summary" id="buy.licence.type">
+                        Change <span class="visuallyhidden">licence type</span>
+                      </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Licence length
+                                    </th>
+                                    <td class="data" id="licence-length">
+                                        1 day
+                                    </td>
+                                    <td class="change-answer" id="change-licence-length">
+                                        <a href="/buy/licence-length?returnUrl=/buy/summary" id="buy.licence.length">
+                                      Change <span class="visuallyhidden">licence length</span>
+                                    </a>
+
+                                    </td>
+                                </tr>
+
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Valid from
+                                    </th>
+                                    <td class="data" id="start-date">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-option?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start date</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Time
+                                    </th>
+                                    <td class="data" id="start-date">
+
+                                    </td>
+                                    <td class="change-answer" id="change-start-date">
+                                        <a href="/buy/licence-start-time?returnUrl=/buy/summary" id="buy.licence.start">
+                                      Change <span class="visuallyhidden">start time</span>
+                                    </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        Number of rods
+                                    </th>
+                                    <td class="data" id="number-of-rods">
+
+                                    </td>
+                                    <td class="change-answer" id="number-of-rods">
+
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <th scope="row">
+                                        Cost
+                                    </th>
+                                    <td class="data" id="cost-data">
+                                        Not supplied
+                                    </td>
+                                    <td class="change-answer">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <table class="check-your-answers">
+                <tbody>
+                    <tr>
+                        <th scope="row" style="width:30%;">
+                            Total cost
+                        </th>
+                        <td class="data" id="licence-type">
+                            Not supplied
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+            <br>
+            <a class="button" href="/buy/terms-conditions">Continue</a>
+        </div>
+    </div>
+</main>

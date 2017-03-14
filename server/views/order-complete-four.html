@@ -2,16 +2,9 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             <div class="govuk-box-highlight">
-                {{#if isUpgrade}}
-                <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
-                <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
-                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
+                <h1 class="bold-large">You've bought your licence</h1>
                 <p>
-                    Your fishing licence number is:<br>
                     <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
-                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A719</strong><br> -->
-                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A721</strong><br> -->
-                    <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A722</strong> -->
                 </p>
             </div>
 
@@ -41,9 +34,10 @@
             </p>
             <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
             <ol class="list list-number">
-                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number. {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a>                    or<a href="phone-number">text message</a></li>
-                {{/if}}
-                <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+
             </ol>
             <p>We will send your licence details to peter-walter-smith@gmail.com.</p>
 
@@ -58,7 +52,7 @@
                 <li>which fish you’re allowed to keep</li>
             </ul>
 
-            {{#if isJunior}} {{else}}
+
             <h2 class="heading-medium">How your licence money gets spent</h2>
             <p class="text">We use your fishing licence money to:</p>
             <ul class="list list-bullet">
@@ -69,13 +63,11 @@
                 <li>encourage more people to go fishing</li>
             </ul>
             <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
-            {{/if}}
 
-            <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
-            <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
-            {{else}}
+
+            <h2 class="heading-medium">Your feedback</h2>
             <p><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
-            {{/if}}
+
         </div>
     </div>
 </main>
