@@ -12,6 +12,7 @@ const handlers = {
       endDate : request.session.endDate,
       endMonth : request.session.endMonth,
       endYear : request.session.endYear,
+      endText : request.session.endText,
       isSalmon: request.session.isSalmon,
       isFull: request.session.isFull,
       isJunior:  request.session.isJunior,

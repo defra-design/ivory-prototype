@@ -8,11 +8,11 @@
                 <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                 <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}{{/if}} {{#if isUpgrade}}
                 <p>
-                    Your NEW fishing licence number is<br>
+                    Your new fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
                 </p>{{else}} {{#if isUpgradeLength}}
                 <p>
-                    Your NEW fishing licence number is<br>
+                    Your new fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
                 </p>{{else}}
                 <p>
@@ -24,7 +24,11 @@
                 <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
                 <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
                 <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startMonth}} {{startYear}} {{startTime}}</span></p>
+                {{#if isUpgrade}}
+                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endText}}</span></p>
+                {{else}}
                 <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}  {{endMonth}}  {{endYear}}</span></p>
+                {{/if}}
                 <p>This licence can only be used by {{nameOnLicence}}</p>
 
                 <!-- {{#if isJunior}}
@@ -62,7 +66,7 @@
             </ol> -->
 
             {{else}}
-            <h2 class="heading-medium">Want to go fishing before your licencie arrives?</h2>
+            <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
             <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
