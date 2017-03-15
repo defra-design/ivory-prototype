@@ -1,6 +1,9 @@
 
 const handlers = {
   get: function (request, reply) {
+
+    request.session.noContact = false
+
     return reply.view('contact', {
       pageTitle: 'How can we send you your licence details?',
       errorMessage: 'Tell us how you would like to receive your licence details?',

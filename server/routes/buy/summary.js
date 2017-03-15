@@ -213,7 +213,8 @@ const handlers = {
       isCoarse: request.session.isCoarse,
       licenceNumber: request.session.licenceNumber,
       isUpgrade: request.session.isUpgrade,
-      changeDetails: request.session.changeDetails
+      changeDetails: request.session.changeDetails,
+      noContact: request.session.noContact,
     })
   },
   post: function (request, reply) {
