@@ -212,7 +212,8 @@ const handlers = {
       licenceNumber: request.session.licenceNumber,
       isUpgrade: request.session.isUpgrade,
       isUpgradeLength: request.session.isUpgradeLength,
-      changeDetails: request.session.changeDetails
+      changeDetails: request.session.changeDetails,
+      noContact: request.session.noContact,
     })
   },
   post: function (request, reply) {
