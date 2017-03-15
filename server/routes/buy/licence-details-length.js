@@ -6,6 +6,7 @@ const handlers = {
       request.session.buyAgain = '£12.00'
     } else {
       request.session.upgradePrice = '£18.00'
+      request.session.upgradeConcessionPrice = '£8.00'
       request.session.buyAgain = '£12.00'
     }
 
@@ -35,6 +36,7 @@ const handlers = {
       startText: request.session.startText,
       startTime: request.session.startTime,
       upgradePrice: request.session.upgradePrice,
+      upgradeConcessionPrice: request.session.upgradeConcessionPrice,
       buyAgain: request.session.buyAgain,
 
 

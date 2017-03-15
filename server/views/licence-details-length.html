@@ -42,6 +42,10 @@
             <h2>How much could this cost?</h2>
             <p class="payment-title">Upgrade to a 12-month licence</p>
             <p class="payment-info payment-amount">{{upgradePrice}}</p>
+            {{#if isSenior}} {{else}}
+            <p class="payment-title">Upgrade to a 12-month concession licence</p>
+            <p class="payment-info payment-amount">{{upgradeConcessionPrice}}</p>
+            {{/if}}
             <!-- <p class="payment-title">Buy this licence again</p>
             <p class="payment-info payment-amount">{{buyAgain}}</p> -->
         </div>
