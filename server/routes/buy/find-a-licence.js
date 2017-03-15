@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('find-a-licence', {
-      pageTitle: 'What\'s your licence number?',
+      pageTitle: 'What\'s the last 6 digits of your licence number?',
       errorMessage: 'Enter your licence number',
       licence_number: request.session.licence_number,
     })
