@@ -4,9 +4,9 @@ const handlers = {
       pageTitle: 'Find your licence',
       errorMessage: 'Enter a valid date of birth',
       errorMessageTwo: 'Enter a valid postcode',
-      birthDay: request.session.birthDay,
-      birthMonth: request.session.birthMonth,
-      birthYear: request.session.birthYear,
+      // birthDay: request.session.birthDay,
+      // birthMonth: request.session.birthMonth,
+      // birthYear: request.session.birthYear,
     })
   },
   post: function (request, reply) {
