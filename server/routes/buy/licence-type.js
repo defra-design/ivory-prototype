@@ -25,8 +25,8 @@ const handlers = {
     }
 
     if (request.session.isJunior === true) {
-        request.session.salmonCost = "£00.00"
-        request.session.coarseCost = "£00.00"
+        request.session.salmonCost = "Free"
+        request.session.coarseCost = "Free"
     }
 
     // // Upgrade costs

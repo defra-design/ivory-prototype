@@ -24,6 +24,11 @@ const handlers = {
         request.session.isConcession = true
       }
 
+      if (request.session.isJunior === true) {
+          request.session.Rod2Cost = "Free"
+          request.session.Rod3Cost = "Free"
+      }
+
       // if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
       //   request.session.isSenior = true
       //   request.session.isConcession = true
