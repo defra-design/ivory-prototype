@@ -4,13 +4,21 @@ const handlers = {
       pageTitle: 'When would you like your licence to start?',
       errorMessage: 'Choose when you\'d like your licence to start',
       items: {
+          // one: {
+          //   //text: '30 minutes after payment',
+          //   text: '1 April 2017',
+          //   name: 'licence_start_option',
+          //   id: 'april',
+          //   value: 'april',
+          //   //selectedText: '365-day licences are only available from April 1st 2017',
+          // },
           one: {
-            //text: '30 minutes after payment',
-            text: '1 April 2017',
+            //text: 'Another time or date',
+            text: 'Now',
             name: 'licence_start_option',
-            id: 'april',
-            value: 'april',
-            //selectedText: '365-day licences are only available from April 1st 2017',
+            id: 'asap',
+            value: 'asap',
+            selectedText: 'Your licence will not be valid until 30 minutes after payment',
           },
           two: {
             //text: 'Another time or date',
@@ -20,14 +28,7 @@ const handlers = {
             value: 'absolute',
             //selectedText: 'ddddddd',
           },
-          three: {
-            //text: 'Another time or date',
-            text: 'Now',
-            name: 'licence_start_option',
-            id: 'asap',
-            value: 'asap',
-            selectedText: 'Your licence will not be valid until 30 minutes after payment',
-          },
+
       }
     })
   },

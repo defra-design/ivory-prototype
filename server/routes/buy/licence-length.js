@@ -22,7 +22,7 @@ const handlers = {
             name: 'licence_length',
             id: '365-days',
             value: '365-days',
-            //selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
+            selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
           },
       }
     })
