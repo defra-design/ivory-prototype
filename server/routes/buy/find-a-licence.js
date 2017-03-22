@@ -58,7 +58,7 @@ const handlers = {
       request.session.startMonth = n
       request.session.startYear = date.getFullYear()
       request.session.startText = '2 April 2017'
-      request.session.endText = '2 April 2018'
+      request.session.endText = '1 April 2018'
       request.session.hasDisabledConcession = true
       request.session.isFull = true
       request.session.isConcession = true
@@ -113,7 +113,7 @@ const handlers = {
         request.session.startMonth = n
         request.session.startYear = date.getFullYear()
         request.session.startText = '2 April 2017'
-        request.session.endText = '2 April 2018'
+        request.session.endText = '1 April 2018'
         //request.session.hasDisabledConcession = false
         request.session.isFull = true
         request.session.isConcession = false
@@ -147,7 +147,7 @@ const handlers = {
       request.session.startDate = '2 March 2017'
       request.session.startText = '2 March 2017'
       request.session.startTime = '2PM'
-      request.session.endText = '2 March 2018'
+      request.session.endText = '1 March 2018'
       request.session.isFull = true
       return reply.redirect('dob-postcode-check')
     } else if (request.session.licenceNumber === 'B7A714') {
