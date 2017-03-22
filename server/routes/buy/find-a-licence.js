@@ -65,8 +65,8 @@ const handlers = {
       request.session.oldConcession = 'Disabled concession'
       request.session.isCoarse = true;
       return reply.redirect('dob-postcode-check')
-    }else if (request.session.licenceNumber === 'B7A711B') {
-        request.session.licenceNumber = '00010418-3WC3JDS-B7A711B'
+    }else if (request.session.licenceNumber === 'B7A712') {
+        request.session.licenceNumber = '00010418-3WC3JDS-B7A712'
         request.session.firstName = 'John'
         request.session.lastName = 'Smith'
         request.session.holderName = 'John Smith'
@@ -119,8 +119,8 @@ const handlers = {
         request.session.isConcession = false
         request.session.isCoarse = true;
         return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A712') {
-      request.session.licenceNumber = '00010418-3WC3JDS-B7A712'
+    } else if (request.session.licenceNumber === 'B7A713') {
+      request.session.licenceNumber = '00010418-3WC3JDS-B7A713'
       request.session.firstName = 'Bob',
       request.session.lastName = 'Jones'
       request.session.holderName = 'Bob Jones'
@@ -150,8 +150,8 @@ const handlers = {
       request.session.endText = '2 March 2018'
       request.session.isFull = true
       return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A713') {
-      request.session.licenceNumber = '00010418-3WC3JDS-B7A713'
+    } else if (request.session.licenceNumber === 'B7A714') {
+      request.session.licenceNumber = '00010418-3WC3JDS-B7A714'
       request.session.firstName = 'Bob',
       request.session.lastName = 'Jones'
       request.session.holderName = 'Bob Jones'
@@ -185,8 +185,8 @@ const handlers = {
       request.session.isConcession = true
       request.session.oldConcession = 'Senior concession'
       return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A713B') {
-      request.session.licenceNumber = '00010418-3WC3JDS-B7A713B'
+    } else if (request.session.licenceNumber === 'B7A715') {
+      request.session.licenceNumber = '00010418-3WC3JDS-B7A715'
       request.session.firstName = 'Billy',
       request.session.lastName = 'Jones'
       request.session.holderName = 'Bob Jones'
@@ -217,8 +217,8 @@ const handlers = {
       request.session.startTime = '2PM'
       request.session.endText = '10 March 2017'
       return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A714') {
-      request.session.licenceNumber = '00010418-3WC3JDS-B7A714'
+    } else if (request.session.licenceNumber === 'B7A716') {
+      request.session.licenceNumber = '00010418-3WC3JDS-B7A716'
       request.session.firstName = 'John'
       request.session.lastName = 'Smith'
       request.session.holderName = 'John Smith'
@@ -247,36 +247,8 @@ const handlers = {
       request.session.startTime = '6PM'
       request.session.endText = '3 April 2017'
       return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A715') {
-      request.session.licenceNumber = '00010418-3WC3JDS-B7A715'
-      request.session.firstName = 'Mark'
-      request.session.lastName = 'Shaw'
-      request.session.holderName = 'Mark Shaw'
-      request.session.dateOfBirth = '3 January 1990'
-      request.session.birthDay = 3
-      request.session.birthMonth = 1
-      request.session.birthYear = 1990
-      // request.session.email = 'mark.shaw@email.com'
-      request.session.mobile  = 07708123456
-      request.session.noContact = false
-      request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
-      request.session.premises = 'Flat 20A'
-      request.session.street = 'Knutsford Road'
-      request.session.locality = ''
-      request.session.town = 'Warrington'
-      request.session.postcode = 'WA4 1AB'
-      request.session.country = 'England'
-      request.session.oldLicenceType = 'Salmon and sea trout'
-      request.session.licenceType = 'Salmon and sea trout'
-      request.session.isCoarse = false;
-      request.session.numberOfRods = 'Up to 2 rods'
-      request.session.oldLicenceLength = '12 months'
-      request.session.licenceLength = '12 months'
-      request.session.startDate = '12 February 2017'
-      request.session.startText = '12 February 2017'
-      return reply.redirect('dob-postcode-check')
-    } else if (request.session.licenceNumber === 'B7A716') {
-        request.session.licenceNumber = '00010418-3WC3JDS-B7A716'
+    } else if (request.session.licenceNumber === 'B7A717') {
+        request.session.licenceNumber = '00010418-3WC3JDS-B7A717'
         request.session.firstName = 'Tom'
         request.session.lastName = 'Smith'
         request.session.holderName = 'Tom Smith'
@@ -312,8 +284,8 @@ const handlers = {
         request.session.isConcession = true
         request.session.haveTime = true
         return reply.redirect('dob-postcode-check')
-      } else if (request.session.licenceNumber === 'B7A717') {
-          request.session.licenceNumber = '00010418-3WC3JDS-B7A717'
+      } else if (request.session.licenceNumber === 'B7A718') {
+          request.session.licenceNumber = '00010418-3WC3JDS-B7A718'
           request.session.firstName = 'Tom'
           request.session.lastName = 'Smith'
           request.session.holderName = 'Tom Smith'
@@ -349,8 +321,8 @@ const handlers = {
           request.session.isConcession = true
           request.session.haveTime = true
           return reply.redirect('dob-postcode-check')
-        } else if (request.session.licenceNumber === 'B7A718') {
-            request.session.licenceNumber = '00010418-3WC3JDS-B7A718'
+        } else if (request.session.licenceNumber === 'B7A719') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A719'
             request.session.firstName = 'Tom'
             request.session.lastName = 'Smith'
             request.session.holderName = 'Tom Smith'
@@ -386,10 +358,38 @@ const handlers = {
             request.session.isConcession = true
             request.session.haveTime = true
             return reply.redirect('dob-postcode-check')
-    } else  {
-      //return reply.redirect('licence-not-found')
-      return reply.redirect('dob-postcode-check')
-    }
+          } else if (request.session.licenceNumber === 'B7A720') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A720'
+            request.session.firstName = 'Mark'
+            request.session.lastName = 'Shaw'
+            request.session.holderName = 'Mark Shaw'
+            request.session.dateOfBirth = '3 January 1990'
+            request.session.birthDay = 3
+            request.session.birthMonth = 1
+            request.session.birthYear = 1990
+            // request.session.email = 'mark.shaw@email.com'
+            request.session.mobile  = 07708123456
+            request.session.noContact = false
+            request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
+            request.session.premises = 'Flat 20A'
+            request.session.street = 'Knutsford Road'
+            request.session.locality = ''
+            request.session.town = 'Warrington'
+            request.session.postcode = 'WA4 1AB'
+            request.session.country = 'England'
+            request.session.oldLicenceType = 'Salmon and sea trout'
+            request.session.licenceType = 'Salmon and sea trout'
+            request.session.isCoarse = false;
+            request.session.numberOfRods = 'Up to 2 rods'
+            request.session.oldLicenceLength = '12 months'
+            request.session.licenceLength = '12 months'
+            request.session.startDate = '12 February 2017'
+            request.session.startText = '12 February 2017'
+            return reply.redirect('dob-postcode-check')
+          } else  {
+            //return reply.redirect('licence-not-found')
+            return reply.redirect('dob-postcode-check')
+          }
   }
 }
 

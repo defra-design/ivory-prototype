@@ -15,25 +15,25 @@ const handlers = {
     birthYear = request.session.birthYear
     if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711') {
       return reply.redirect('licence-details-species')
-    }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711B') {
+    }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
         return reply.redirect('licence-details-species')
-    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
-      return reply.redirect('licence-details-renew')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
-      return reply.redirect('licence-details-length')
-    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713B') {
-      return reply.redirect('licence-details-length')
+      return reply.redirect('licence-details-renew')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A714') {
-      return reply.redirect('upgrade-expired')
+      return reply.redirect('licence-details-length')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
-      return reply.redirect('renew-expired')
+      return reply.redirect('licence-details-length')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A716') {
+      return reply.redirect('upgrade-expired')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A717') {
+      return reply.redirect('upgrade-licence')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A720') {
       request.session.isRenew= true
       return reply.redirect('upgrade-licence')
-    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A717') {
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A718') {
       request.session.isRenew= true
       return reply.redirect('upgrade-used')
-    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A718') {
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A719') {
       request.session.isRenew= true
       return reply.redirect('system-failure')
     } else {
