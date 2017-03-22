@@ -64,7 +64,7 @@ const handlers = {
       request.session.endDate = eightDays.toLocaleDateString("en-us", options)
     } else {
       var threeSixFiveDays = new Date(Date.parse(request.session.date));
-      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
+      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 364);
       request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
     }
 
