@@ -17,7 +17,7 @@
                     <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset data-required data-error="{{errorMessageTwo}}">
                 <div class="form-group">
                     <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">For example, WA4 1AB</span></label>
                     <input class="form-control" id="postcode" name="postcode" type="text" value="" maxlength="10">
