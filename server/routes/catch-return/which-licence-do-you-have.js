@@ -5,14 +5,16 @@ const handlers = {
       errorMessage: 'Tell us which licence number you have',
       items: {
         one: {
-          text: 'Old',
+          text: 'A 9-digit licence number',
           name: 'licenceNumber',
           id: 'Old',
+          subText: 'For example, 345 612 895',
         },
         two: {
-          text: 'New',
+          text: 'A 12-digit licence number',
           name: 'licenceNumber',
           id: 'New',
+          subText: 'For example, 00010418-3WC3JDS-B7A718',
         },
       }
     })

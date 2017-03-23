@@ -2,70 +2,37 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <div class="form-group licence-svg-container">
-            <!-- <img src="../../../../public/images/licence-gds.png" alt="Licence number diagram" class="licence-image"> -->
+        <p>It will take at least 48 hours for newly purchased licence numbers to appear online before a catch return can be submitted.</p>
+        <!-- <div class="form-group licence-svg-container">
+             <img src="../../../../public/images/licence-gds.png" alt="Licence number diagram" class="licence-image">
             <p class="visuallyhidden">Licence diagram</p>
-        </div>
+        </div> -->
         <form method="post" autocomplete="off" novalidate>
             <fieldset data-required data-error="{{errorMessage}}">
                 <div class="form-group">
                     <label class="form-label" for="licence_number">
-                        <span class="bold">Rod licence number</span>
-                        <span class="form-hint">A 9-digit number that can be found on the top left of a physical licence.<br/>For example: 123 456 789.</span>
-                        <span class="form-hint">A 9-digit number allocated at purchase.<br/>For example: 123 456 789.</span>
+                        <span class="bold">Enter your full 9-digit licence number</span>
+                        <span class="form-hint">For example, 123 456 789</span>
                       </label>
                     <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group">
+                    <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">For example, WA4 1AB</span></label>
+                    <input class="form-control" id="postcode" name="postcode" type="text" value="" maxlength="10">
                 </div>
             </fieldset>
             <button type="submit" class="button">Continue</button>
         </form>
         </br>
-        <a href="find-a-licence-receipt">I don't know my rod licence number</a>
-        <!-- <form method="post" autocomplete="off" novalidate>
-            <div class="form-group">
-                <fieldset>
-
-                    <legend class="visually-hidden">How do you want to be contacted?</legend>
-
-                    <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
-        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-        Rod licence number
-      </label>
-                    <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-                        <label class="form-label" for="contact-email">Rod licence number</label>
-                        <span class="form-hint">A 9-digit number found on your current licence.</span>
-                        <input class="form-control" name="contact-email" type="text" id="contact-email">
-                    </div>
-
-                    <label class="block-label selection-button-radio" data-target="contact-by-phone" for="example-contact-by-phone">
-        <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
-        Post office receipt number
-      </label>
-                    <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
-                        <label class="form-label" for="contact-phone">Post office receipt number</label>
-                        <span class="form-hint">Hint text.</span>
-                        <input class="form-control" name="contact-phone" type="text" id="contact-phone">
-                    </div>
-
-                    <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-by-text">
-        <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
-        Permission number
-      </label>
-                    <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
-                        <label class="form-label" for="contact-text-message">Permission number</label>
-                        <span class="form-hint">Hint text.</span>
-                        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
-                    </div>
-
-                </fieldset>
+        <details class="progressive-disclosure-margin" role="group">
+            <summary role="button" aria-controls="details-content-0" aria-expanded="true"><span class="summary">I don't know my licence number</span></summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
+                <p>Call us on <a href="tel:+443708506506">03708 506 506</a> (open 8am to 6pm Monday to Friday) or <a href="mailto:enquiries@environment-agency.gov.uk">email us at enquiries@environment-agency.gov.uk</a> and we will try to find your licence
+                    details.
+                </p>
             </div>
-            <button type="submit" class="button">Continue</button>
-        </form> -->
-        <!-- <details class="progressive-disclosure-margin">
-            <summary><span class="summary">I don't know my rod licence number</span></summary>
-            <div class="panel panel-border-narrow">
-                <p>The licence number is a 9-digit number on the top left of your paper licence. It can also be found on your post office recipt.</p>
-            </div>
-        </details> -->
+        </details>
     </div>
 </div>
