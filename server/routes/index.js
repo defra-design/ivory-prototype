@@ -5,11 +5,14 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Catch returns
+  require('./catch-returns/which-licence-do-you-have'),
+  require('./catch-returns/new-licence-number'),
+  require('./catch-returns/old-licence-number'),
 
   // Done screen
   require('./done-screen'),
   require('./buy/order-complete-four'),
-
 
   // Multibuy
   require('./multibuy-screen'),
