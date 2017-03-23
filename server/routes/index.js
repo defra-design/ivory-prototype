@@ -6,9 +6,9 @@ module.exports = [].concat(
   require('./landing'),
 
   // Catch returns
-  require('./catch-returns/which-licence-do-you-have'),
-  require('./catch-returns/new-licence-number'),
-  require('./catch-returns/old-licence-number'),
+  require('./catch-return/which-licence-do-you-have'),
+  require('./catch-return/new-licence-number'),
+  require('./catch-return/old-licence-number'),
 
   // Done screen
   require('./done-screen'),

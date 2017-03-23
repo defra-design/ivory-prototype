@@ -1,0 +1,33 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        <h1 class="heading-large">{{pageTitle}}</h1>
+
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        {{#each items}}
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </fieldset>
+            </div>
+            <!-- <details class="progressive-disclosure-margin">
+                <summary><span class="summary">Help with benefits</summary>
+          <div class="panel panel-border-narrow">
+    <p>We need to know whether you receive any of these benefits so that we can work out if you're entitled to a disability concession.</p>
+    <p>You can only get a disabled concession if you're receving PIP or DLA, or if you hold a Blue Badge.</p>
+  </div></details><br> -->
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

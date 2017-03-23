@@ -1,8 +1,8 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('which-licence-do-you-have', {
-      pageTitle: 'which licence do you have?',
-      errorMessage: 'Tell us which licence you have',
+      pageTitle: 'Which licence number do you have?',
+      errorMessage: 'Tell us which licence number you have',
       items: {
         one: {
           text: 'Old',
@@ -22,9 +22,9 @@ const handlers = {
     returnURL = request.query.returnUrl
 
     if (licenceNumber === 'Old') {
-        return reply.redirect('ni-number')
+        return reply.redirect('old-licence-number')
     } else {
-      
+      return reply.redirect('new-licence-number')
     }
 
   }
@@ -33,14 +33,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/which-licence-do-you-have',
+  path: '/catch-return/which-licence-do-you-have',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/which-licence-do-you-have',
+  path: '/catch-return/which-licence-do-you-have',
   config: {
     handler: handlers.post
   }
