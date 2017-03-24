@@ -5,16 +5,20 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Catch returns
+  require('./catch-return/which-licence-do-you-have'),
+  require('./catch-return/new-licence-number'),
+  require('./catch-return/old-licence-number'),
 
   // Done screen
   require('./done-screen'),
   require('./buy/order-complete-four'),
 
-
   // Multibuy
   require('./multibuy-screen'),
   require('./buy/order-complete-two'),
   require('./buy/order-complete-three'),
+  require('./buy/summary-two'),
 
   // Contact screen ideas
   require('./contact-screen'),

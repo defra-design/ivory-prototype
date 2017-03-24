@@ -64,7 +64,7 @@ const handlers = {
       request.session.endDate = eightDays.toLocaleDateString("en-us", options)
     } else {
       var threeSixFiveDays = new Date(Date.parse(request.session.date));
-      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 364);
+      threeSixFiveDays.setDate(threeSixFiveDays.getDate() + 365);
       request.session.endDate = threeSixFiveDays.toLocaleDateString("en-us", options)
     }
 
@@ -188,7 +188,7 @@ const handlers = {
     }
 
 
-    return reply.view('summary', {
+    return reply.view('summary-two', {
       pageTitle: 'Check your licence details',
       nameOnLicence: request.session.holderName,
       licenceDOB: request.session.dateOfBirth,
@@ -213,8 +213,7 @@ const handlers = {
       isCoarse: request.session.isCoarse,
       licenceNumber: request.session.licenceNumber,
       isUpgrade: request.session.isUpgrade,
-      changeDetails: request.session.changeDetails,
-      noContact: request.session.noContact,
+      changeDetails: request.session.changeDetails
     })
   },
   post: function (request, reply) {
@@ -224,14 +223,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/summary',
+  path: '/buy/summary-two',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/summary',
+  path: '/buy/summary-two',
   config: {
     handler: handlers.post
   }

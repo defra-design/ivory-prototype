@@ -1,19 +1,15 @@
 <main id="summary-page">
     <div class="grid-row">
         <div class="column-two-thirds">
-                        <div class="govuk-box-highlight">
-                            {{#if isUpgrade}}
-                            <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
-                            <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
-                            <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
-                            <p>
-                                Your fishing licence numbers are:<br>
-                                <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
-                                <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A719</strong><br> -->
-                                <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A721</strong><br> -->
-                                <!-- <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A722</strong> -->
-                            </p>
-                        </div>
+            <div class="govuk-box-highlight">
+                <h1 class="bold-large">You've bought your licence</h1>
+                <p>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
+                </p>
+                <p><i class="icon icon-file-download">
+    <span class="visually-hidden">Download licence</span>
+  </i><a href="#" title="Download licence" class="govuk-box-highlight-link">Save licence</a> </p>
+            </div>
 
                         <table>
                             <thead>
@@ -36,16 +32,18 @@
                             </tbody>
                         </table>
 
-                        <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
-                        <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
-                        </p>
-                        <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
-                        <ol class="list list-number">
-                            <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number. {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a>                                or<a href="phone-number">text message</a></li>
-                            {{/if}}
-                            <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
-                        </ol>
-                        <p>We will send your licence details to peter-walter-smith@gmail.com.</p>
+
+            <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
+            <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
+            </p>
+            <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
+            <ol class="list list-number">
+                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+
+            </ol>
+            <p>We will send your licence details to peter-walter-smith@gmail.com.</p>
 
 
             <div class="print-hide">
@@ -58,6 +56,7 @@
                   <li>which fish you’re allowed to keep</li>
               </ul>
           </div>
+
 
             <h2 class="heading-medium">Remember to submit a catch return</h2>
             <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
@@ -76,12 +75,24 @@
               {{/if}}
             </div>
             <div class="print-hide">
-              <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
-              <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
-              {{else}}
+              <h2 class="heading-medium">Your feedback</h2>
               <p><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
-              {{/if}}
+
+
+              <p>
+                  <a href="/" title="Exit service">Finished (exit service)</a>
+              </p>
             </div>
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 </main>
