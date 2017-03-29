@@ -41,6 +41,9 @@ module.exports = [].concat(
   require('./buy/upgrade-used'),
   require('./buy/system-failure'),
 
+  require('./buy/renew-not-valid'),
+  require('./buy/renewal-used'),
+
 
   require('./buy/choose-licence'),
   require('./buy/find-a-licence-two'),

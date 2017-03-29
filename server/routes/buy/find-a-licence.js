@@ -360,14 +360,14 @@ const handlers = {
             return reply.redirect('dob-postcode-check')
           } else if (request.session.licenceNumber === 'B7A720') {
             request.session.licenceNumber = '00010418-3WC3JDS-B7A720'
-            request.session.firstName = 'Mark'
-            request.session.lastName = 'Shaw'
-            request.session.holderName = 'Mark Shaw'
+            request.session.firstName = 'Tim'
+            request.session.lastName = 'Stone'
+            request.session.holderName = 'Tim Stone'
             request.session.dateOfBirth = '3 January 1990'
             request.session.birthDay = 3
             request.session.birthMonth = 1
             request.session.birthYear = 1990
-            // request.session.email = 'mark.shaw@email.com'
+            // request.session.email = 'tim.stone@email.com'
             request.session.mobile  = 07708123456
             request.session.noContact = false
             request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
@@ -383,8 +383,70 @@ const handlers = {
             request.session.numberOfRods = 'Up to 2 rods'
             request.session.oldLicenceLength = '12 months'
             request.session.licenceLength = '12 months'
+            request.session.year =   2017
+            request.session.month =  4
+            request.session.day = 2
+            var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+            var month = new Array();
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
+            var n = month[date.getMonth()];
+            request.session.startDate = date.getUTCDate()
+            request.session.startMonth = n
+            request.session.startYear = date.getFullYear()
+            request.session.startText = '2 April 2017'
+            request.session.endText = '1 April 2018'
+            return reply.redirect('dob-postcode-check')
+          } else if (request.session.licenceNumber === 'B7A721') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A721'
+            request.session.firstName = 'Bex'
+            request.session.lastName = 'Lamb'
+            request.session.holderName = 'Bex Lamb'
+            request.session.dateOfBirth = '3 January 1990'
+            request.session.birthDay = 3
+            request.session.birthMonth = 1
+            request.session.birthYear = 1990
+            // request.session.email = 'Bex.Lamb@email.com'
+            request.session.mobile  = 07708123456
+            request.session.noContact = false
+            request.session.Address = 'Flat 20A, Knutsford Road, Warrington WA4 1AB'
+            request.session.premises = 'Flat 20A'
+            request.session.street = 'Knutsford Road'
+            request.session.locality = ''
+            request.session.town = 'Warrington'
+            request.session.postcode = 'WA4 1AB'
+            request.session.country = 'England'
+            request.session.oldLicenceType = 'Trout and coarse'
+            request.session.licenceType = 'Trout and coarse'
+            request.session.isCoarse = true;
+            request.session.numberOfRods = 'Up to 2 rods'
+            request.session.oldLicenceLength = '8 days'
+            request.session.licenceLength = '8 days'
             request.session.startDate = '12 February 2017'
             request.session.startText = '12 February 2017'
+            request.session.endText = '20 February 2018'
+            return reply.redirect('dob-postcode-check')
+          } else if (request.session.licenceNumber === 'B7A722') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A722'
+            return reply.redirect('dob-postcode-check')
+          } else if (request.session.licenceNumber === 'B7A723') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A723'
+            return reply.redirect('dob-postcode-check')
+          } else if (request.session.licenceNumber === 'B7A724') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A724'
+            return reply.redirect('dob-postcode-check')
+          } else if (request.session.licenceNumber === 'B7A725') {
+            request.session.licenceNumber = '00010418-3WC3JDS-B7A725'
             return reply.redirect('dob-postcode-check')
           } else  {
             //return reply.redirect('licence-not-found')

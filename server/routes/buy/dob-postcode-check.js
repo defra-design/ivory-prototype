@@ -27,14 +27,21 @@ const handlers = {
       return reply.redirect('upgrade-expired')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A717') {
       return reply.redirect('upgrade-licence')
-    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A720') {
-      request.session.isRenew= true
-      return reply.redirect('upgrade-licence')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A718') {
-      request.session.isRenew= true
       return reply.redirect('upgrade-used')
     } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A719') {
-      request.session.isRenew= true
+      return reply.redirect('system-failure')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A720') {
+      return reply.redirect('licence-details-renew')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A721') {
+      return reply.redirect('licence-details-renew')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A722') {
+      return reply.redirect('renew-not-valid')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A723') {
+      return reply.redirect('upgrade-licence')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A724') {
+      return reply.redirect('renewal-used')
+    } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A725') {
       return reply.redirect('system-failure')
     } else {
       return reply.redirect('licence-not-found')

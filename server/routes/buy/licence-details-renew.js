@@ -1,5 +1,13 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.licenceNumber === '00010418-3WC3JDS-B7A720') {
+      request.session.renewPrice =  '£82.00'
+    } else {
+      request.session.renewPrice = '£12.00'
+    }
+
+
     return reply.view('licence-details-renew', {
       pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
@@ -25,7 +33,7 @@ const handlers = {
       startYear: request.session.startYear,
       startText: request.session.startText,
       startTime: request.session.startTime,
-      buyAgain: '£82.00',
+      renewPrice: request.session.renewPrice,
       items: {
           one: {
             text: 'Buy this licence again',

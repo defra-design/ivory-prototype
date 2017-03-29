@@ -24,20 +24,9 @@ const handlers = {
     var whatToDo = request.payload.what_to_do
 
 
-    if (whatToDo === 'Buy a new 12-month licence') {
-      request.session.isFull = true
-      request.session.licenceLength = '12-months'
-      return reply.redirect('name')
-    } else if (whatToDo === 'Buy a new 8-day licence') {
-      request.session.isFull = false
-      request.session.licenceLength = '8-days'
-      request.session.isConcession = false
-      return reply.redirect('name')
-    } else if (whatToDo === 'Buy a new 1-day licence') {
-      request.session.isFull = false
-      request.session.licenceLength = '1-day'
-      request.session.isConcession = false
-      return reply.redirect('name')
+    if (whatToDo === 'Renew a licence') {
+      request.session.isRenew= true
+      return reply.redirect('find-a-licence')
     } else {
       return reply.redirect('find-a-licence')
     }
