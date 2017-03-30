@@ -1,7 +1,14 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.isRenew === true) {
+      request.session.pageTitle = 'Sorry, this renewal service is currently unavailable'
+    } else {
+      request.session.pageTitle = 'Sorry, this upgrade service is currently unavailable'
+    }
+
     return reply.view('system-failure', {
-      pageTitle: 'Sorry, this service is currently unavailable',
+      pageTitle: request.session.pageTitle,
       errorMessage: 'Tell us what you\'d like to do',
       items: {
         two: {
