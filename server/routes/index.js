@@ -5,6 +5,9 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Analytics
+  require('./analytics-screen'),
+
   // Catch returns
   require('./catch-return/which-licence-do-you-have'),
   require('./catch-return/new-licence-number'),
