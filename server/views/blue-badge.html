@@ -3,14 +3,13 @@
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <form method="post" autocomplete="off" novalidate>
-            <div class="form-group {{#if errors}}error{{/if}}">
-                <fieldset data-required data-error="{{errorMessage}}">
-                    <label class="form-label" for="bb-number">
-                      Blue Badge number
-                      <span class="form-hint">This will be on your badge.</span>
-                    </label> <input class="form-control" id="blue-badge" name="blue-badge" value="{{blue-badge}}" type="text">
-                </fieldset>
-            </div>
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
+                    <label for="blueBadge" class="form-label">Blue badge</label>
+                    <span class="form-hint">This will be on your badge.</span>
+                    <input class="form-control" id="blueBadge" name="blueBadge" value="{{blueBadge}}" type="text">
+                </div>
+            </fieldset>
             <button type="submit" class="button">Continue</button>
         </form>
     </div>

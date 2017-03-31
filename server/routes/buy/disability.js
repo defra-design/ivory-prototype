@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('disability', {
       pageTitle: 'Do you receive any of the following benefits?',
-      errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
+      errorMessage: 'Tell us if you claim Disability Living Allowance or Personal Independence Payment',
       items: {
         one: {
           text: 'Yes',
@@ -23,7 +23,7 @@ const handlers = {
     request.session.disabilityChecked = true
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
-    request.session.concession = false
+    request.session.hasDisabledConcession = false
 
     if (disability === 'no') {
       if (returnURL) {

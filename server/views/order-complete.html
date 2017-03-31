@@ -3,17 +3,32 @@
         <div class="column-two-thirds">
             <div class="govuk-box-highlight">
                 {{#if isUpgrade}}
+                <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isUpgradeLength}}
                 <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                 <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
-                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
+                <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}{{/if}} {{#if isUpgrade}}
+                <p>
+                    Your new fishing licence number is<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
+                </p>{{else}} {{#if isUpgradeLength}}
+                <p>
+                    Your new fishing licence number is<br>
+                    <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
+                </p>{{else}}
                 <p>
                     Your fishing licence number is<br>
                     <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong>
-                </p>
+                </p>{{/if}}{{/if}}
+
+
                 <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
                 <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
-                <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startTime}}</span></p>
-                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
+                <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startMonth}} {{startYear}} {{startTime}}</span></p>
+                {{#if isUpgrade}}
+                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endText}}</span></p>
+                {{else}}
+                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}  {{endMonth}}  {{endYear}}</span></p>
+                {{/if}}
                 <p>This licence can only be used by {{nameOnLicence}}</p>
 
                 <!-- {{#if isJunior}}
@@ -22,6 +37,13 @@
   </i><a href="#" title="Download licence" class="govuk-box-highlight-link">Download licence</a></p>
                 {{/if}} -->
             </div>
+
+
+            <!-- <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
+            <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
+            <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startTime}}</span></p>
+            <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
+            <p>This licence can only be used by {{nameOnLicence}}</p> -->
 
             {{#if isFull}} {{#if isJunior}}
             <h2 class="heading-medium">We don’t send junior licences in the post</h2>
@@ -34,7 +56,7 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
 
             {{/if}}
             <!-- <ol class="list list-number">
@@ -45,7 +67,8 @@
 
             {{else}}
             <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
-            <p> Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
+            <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
+
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
                     <!-- {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a> or <a href="phone-number">text message</a></li>
@@ -59,8 +82,7 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
-
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
             {{/if}} {{/if}} {{else}}
             <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
             <p>If our bailiffs ask to see your licence, you must show them:</p>
@@ -77,7 +99,8 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}} {{#if hasBothContact}}and {{/if}}{{mobile}}{{/if}}.</p>
+<<<<<<< HEAD
+            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
 
             {{/if}} {{/if}}
 
@@ -106,7 +129,6 @@
             </ul>
             <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
             {{/if}}
-
             <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
             <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
             {{else}}

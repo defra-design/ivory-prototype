@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('blue-badge-check', {
       pageTitle: 'Do you have a Blue Badge?',
-      errorMessage: 'Tell us if you claim Disability Living Allowance, Personal Independence Payment or hold a Blue Badge',
+      errorMessage: 'Tell us if you hold a Blue Badge',
       items: {
         one: {
           text: 'Yes',
@@ -22,14 +22,25 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.hasNINumber = false
     request.session.hasBlueBadge = false
-        request.session.concession = false
+    request.session.hasDisabledConcession = false
     if (disability === 'no') {
       if (returnURL) {
-        return reply.redirect(returnURL)
-      } else if (request.session.isUpgrade === true){
-        return reply.redirect('summary')
+
+        if (request.session.licenceType === 'Trout and coarse' && request.session.rodsChecked === true) {
+          return reply.redirect('number-of-rods?returnUrl=/buy/summary')
+        } else {
+          return reply.redirect(returnURL)
+        }
+
+
+      } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
+        if (request.session.licenceType === 'Trout and coarse') {
+          return reply.redirect('number-of-rods')
+        } else {
+          return reply.redirect('summary')
+        }
       } else {
-        return reply.redirect('find-address')
+        return reply.redirect('licence-type')
       }
     } else {
       if (returnURL) {

@@ -1,7 +1,7 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
-        <h1 class="heading-large">{{pageTitle}} {{startDate}}</h1>
+        <h1 class="heading-large">{{pageTitle}} {{startDate}} {{startMonth}} {{startYear}}</h1>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">

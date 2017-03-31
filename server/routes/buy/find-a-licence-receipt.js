@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('find-a-licence-receipt', {
       pageTitle: 'Find your licence',
-      errorMessage: 'Enter your rod licence number',
+      errorMessage: 'Enter your Post Office reference number',
       licence_number: request.session.licence_number,
       PostOfficeReceiptNumber: request.session.PostOfficeReceiptNumber,
       PermissionNumber: request.session.PermissionNumber,

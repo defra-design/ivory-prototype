@@ -13,7 +13,7 @@ const handlers = {
           two: {
             text: '8 days',
             name: 'licence_length',
-            id: '8-days (These licences are valid for 8 consecutive days)',
+            id: '8-days',
             value: '8-days',
             selectedText: '8-day licences are valid for 8 consecutive days',
           },

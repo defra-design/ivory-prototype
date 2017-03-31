@@ -1,37 +1,80 @@
 const handlers = {
   get: function (request, reply) {
+
+    if (request.session.age  > 65) {
+      request.session.upgradePrice = '£8.00'
+      request.session.buyAgain = '£12.00'
+    } else {
+      request.session.upgradePrice = '£18.00'
+      request.session.upgradeConcessionPrice = '£8.00'
+      request.session.buyAgain = '£12.00'
+    }
+
     return reply.view('licence-details-length', {
-      pageTitle: 'Do you want to upgrade this licence to a 12 month licence?',
+      pageTitle: 'What would you like to do?',
       errorMessage: 'Tell us what you\'d like to do',
       licenceNumber: request.session.licenceNumber,
+      oldLicenceType: request.session.oldLicenceType,
       licenceType: request.session.licenceType,
+      licenceLength: request.session.licenceLength,
+      oldLicenceLength: request.session.oldLicenceLength,
       nameOnLicence: request.session.holderName,
       endDate: request.session.endDate,
+      endText: request.session.endText,
+      isJunior:  request.session.isJunior,
+      isSenior: request.session.isSenior,
+      hasBlueBadge: request.session.hasBlueBadge,
+      hasDisabledConcession: request.session.hasDisabledConcession,
+      isFull: request.session.isFull,
+      isConcession: request.session.isConcession,
+      oldConcession: request.session.oldConcession,
+      isSalmon: request.session.isSalmon,
+      isCoarse: request.session.isCoarse,
+      startDate: request.session.startDate,
+      startMonth: request.session.startMonth,
+      startYear: request.session.startYear,
+      startText: request.session.startText,
+      startTime: request.session.startTime,
+      upgradePrice: request.session.upgradePrice,
+      upgradeConcessionPrice: request.session.upgradeConcessionPrice,
+      buyAgain: request.session.buyAgain,
+
+
       items: {
-          one: {
-            text: 'Yes',
-            name: 'licence_details_upgrade',
-            id: 'Yes',
-          },
-          two: {
-            text: 'No, I want to buy a new licence',
-            name: 'licence_details_upgrade',
-            id: 'new_licence',
-          },
-        }
+        one: {
+          text: 'Upgrade to 12-month licence',
+          name: 'licence_details_upgrade',
+          id: '12_month',
+        },
+        // two: {
+        //   text: 'Buy this licence again',
+        //   name: 'licence_details_upgrade',
+        //   id: 'Buy_again',
+        // },
+      },
+      items2: {
+        one: {
+          text: 'Buy a new licence',
+          name: 'licence_details_upgrade',
+          id: 'Buy_new',
+        },
+      }
     })
   },
   post: function (request, reply) {
     var upgradeOption = request.payload.licence_details_upgrade
-    request.session.endDate = '2 April 2018'
-    if (upgradeOption === 'Yes') {
-      request.session.licenceLength = '365-days'
-      request.session.cost = 'Show reduced cost'
-      request.session.isUpgrade = true
+    if (upgradeOption === '12_month') {
+      request.session.isUpgradeLength = true
+      request.session.isRenew = false
+      request.session.isFull = true
+      request.session.licenceLength = '12-months'
       return reply.redirect('disability')
+    } else if (upgradeOption === 'Buy_again') {
+      // request.session.changeDetails = true
+      request.session.isRenew = true
+      return reply.redirect('licence-start-option')
     } else {
-      request.session.changeDetails = true
-      return reply.redirect('name')
+      return reply.redirect('product-type')
     }
   }
 }

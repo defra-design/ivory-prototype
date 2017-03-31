@@ -1,0 +1,17 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessageTwo}}">
+                    <div class="form-group {{#if errors.postcode}}error{{/if}}">
+                        <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">for example, WA4 1AB</span></label>
+                        <input class="form-control" id="postcode" name="postcode" type="text" value="{{postcode}}" maxlength="10">
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+    </div>
+</div>

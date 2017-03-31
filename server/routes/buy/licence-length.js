@@ -1,82 +1,69 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-length', {
-      pageTitle: 'How long do you want your licence to last?',
-      errorMessage: 'Choose a licence length',
-      //myDate: request.session.date
+      pageTitle: 'What do you want to do?',
+      errorMessage: 'Tell us what you want to do',
       items: {
-          one: {
-            text: '1 day',
-            name: 'licence_length',
-            id: '1-day',
-          },
-          two: {
-            text: '8 days',
-            name: 'licence_length',
-            id: '8-days (These licences are valid for 8 consecutive days)',
-            value: '8-days',
-            selectedText: '8-day licences are valid for 8 consecutive days',
-          },
-          three: {
-            text: '12 months',
-            name: 'licence_length',
-            id: '365-days',
-            value: '365-days',
-            selectedText: 'These licences are now valid for a full year from their start date and can be purchased at any time during the year.',
-          },
+        one: {
+          text: 'Buy a new 12-month licence',
+          name: 'what_to_do',
+          id: 'Buy a new 12-month licence',
+          value: 'Buy_a_new_12_month_licence',
+        },
+        two: {
+          text: 'Buy a new 8-day licence',
+          name: 'what_to_do',
+          id: 'Buy a new 8-day licence',
+          value: 'Buy_a_new_8_day_licence',
+        },
+        three: {
+          text: 'Buy a new 1-day licence',
+          name: 'what_to_do',
+          id: 'Buy a new 1-day licence',
+          value: 'Buy_a_new_1_day_licence',
+        },
+      },
+      items2: {
+        // three: {
+        //   text: 'Renew a licence',
+        //   name: 'what_to_do',
+        //   id: 'Renew a licence',
+        //   value: 'renew_a_licence',
+        // },
+        four: {
+          text: 'Upgrade a licence',
+          name: 'what_to_do',
+          id: 'Upgrade a licence',
+          value: 'Upgrade_a_licence',
+        },
       }
     })
   },
   post: function (request, reply) {
-    request.session.licenceLength = request.payload.licence_length
     returnURL = request.query.returnUrl
+    var whatToDo = request.payload.what_to_do
 
-    // Rods
-      if (request.session.licenceType === 'Salmon and sea trout') {
-        request.session.numberOfRods ='1 rod (or up to 3 rods for coarse fish)'
-      } else if (request.session.licenceType === 'Trout and coarse') {
-          request.session.numberOfRods = 'Up to 2 rods'
-      }
 
-    if (request.session.licenceLength === '365-days' && request.session.licenceType === 'Trout and coarse') {
-      request.session.isFull = true;
-      if (returnURL) {
-        return reply.redirect('number-of-rods?returnUrl=/buy/summary')
-      } else {
-        return reply.redirect('number-of-rods')
-      }
-    } else if (request.session.licenceLength === '365-days') {
-      // request.session.is365Contact = true;
-      request.session.isFull = true;
-      if (returnURL) {
-        return reply.redirect('disability?returnUrl=/buy/summary')
-      } else {
-        return reply.redirect('disability')
-      }
+    if (whatToDo === 'Buy a new 12-month licence') {
+      request.session.isFull = true
+      request.session.licenceLength = '12-months'
+      return reply.redirect('name')
+    } else if (whatToDo === 'Buy a new 8-day licence') {
+      request.session.isFull = false
+      request.session.licenceLength = '8-days'
+      request.session.isConcession = false
+      return reply.redirect('name')
+    } else if (whatToDo === 'Buy a new 1-day licence') {
+      request.session.isFull = false
+      request.session.licenceLength = '1-day'
+      request.session.isConcession = false
+      return reply.redirect('name')
+    } else {
+      return reply.redirect('find-a-licence')
     }
-    //else if (request.session.haveTime === true){
-    //   if (returnURL) {
-    //     return reply.redirect(returnURL)
-    //   } else {
-    //     return reply.redirect('find-address')
-    //   }
-    // }
-    else {
-      if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
-        if (request.session.haveTime === true) {
-          return reply.redirect('find-address')
-        } else {
-          return reply.redirect('licence-start-time')
-        }
 
-      }
-    }
   }
 }
-
-
 
 module.exports = [{
   method: 'GET',

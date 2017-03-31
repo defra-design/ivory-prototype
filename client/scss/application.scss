@@ -179,7 +179,7 @@ table th {
     border: 10px solid #DEE0E2;
     background-color: #F8F8F8;
     padding: 15px;
-    margin-top: 50px;
+    margin-top: 100px;
 
     h2 {
         font-size: 24px;
@@ -188,8 +188,17 @@ table th {
     }
 }
 
-.payment-info {
+.payment-title {
+    // font-weight: 700;
+    margin-bottom: 0
+}
+
+.payment-licence-title {
     font-weight: 700;
+}
+
+.payment-info {
+    margin-bottom: 15px;
 }
 
 .payment-amount {
@@ -203,7 +212,7 @@ table th {
     margin-bottom: $gutter;
     float: left;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .accepted-image-1 {
@@ -551,6 +560,58 @@ details summary.non-blue .summary-link{
 }
 
 
+// results table
+
+.result {
+  border-bottom: 1px solid #bfc1c3;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.result h2.heading-medium {
+  margin: 0;
+}
+
+.result dl {
+    margin-top:10px;
+}
+
+.result dl dt {
+    float:left;
+    font-weight:bold;
+    margin-right:10px;
+    padding:5px;
+    width:100px;
+}
+
+.result dl dd {
+  margin:2px 0;
+  padding:5px 0;
+}
+
+
 .notice-margin-bottom {
   margin-bottom: 10px;
+}
+
+
+// Date picker
+
+.calendar label {
+    visibility: hidden;
+}
+
+.ui-datepicker-trigger {
+  border: none;
+  background: none;
+  cursor: pointer;
+  float: left;
+  font-size: 16px;
+  margin-top: 27px;
+  color: #005ea5;
+  text-decoration: underline;
+}
+
+.ui-datepicker-trigger img {
+  width: 40px;
 }

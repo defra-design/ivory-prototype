@@ -3,6 +3,8 @@ const handlers = {
     return reply.view('licence-start-time', {
       pageTitle: 'What time would you like the licence to start on ',
       startDate: request.session.startDate,
+      startMonth: request.session.startMonth,
+      startYear: request.session.startYear,
 
       errorMessage: 'Choose a start time',
       items: {
@@ -132,14 +134,19 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    request.session.startTime = request.payload.licence_start_time
     returnURL = request.query.returnUrl
+    request.session.startTime = request.payload.licence_start_time
 
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('find-address')
+      if (request.session.isRenew === true) {
+        return reply.redirect('summary')
+      } else {
+        return reply.redirect('contact')
+      }
     }
+
   }
 }
 

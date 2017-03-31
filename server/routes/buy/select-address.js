@@ -27,11 +27,22 @@ const handlers = {
     request.session.postcode = "WA2"
     request.session.country = "uk"
     returnURL = request.query.returnUrl
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      return reply.redirect('contact')
+      if (request.session.isJunior === true) {
+        return reply.redirect('licence-type')
+      } else if (request.session.isFull === true) {
+        return reply.redirect('disability')
+      } else {
+        return reply.redirect('licence-type')
+      }
     }
+
+
+
+
   }
 }
 

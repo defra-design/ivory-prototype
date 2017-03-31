@@ -2,35 +2,34 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>We need these details so that we can find the correct licence.</p>
         <form method="post" autocomplete="off" novalidate>
-            <div class="form-group {{#if errors}}error{{/if}}">
-                <fieldset data-required data-error="{{errorMessage}}">
-                    <div class="form-group">
-                        <div class="form-date">
-                            <span class="bold">Date of birth</span>
-                            <p class="form-hint">For example, 23 03 1972</p>
-                            <div class="form-group form-group-day">
-                                <label for="day">Day</label>
-                                <input class="form-control" id="birthDay" name="birthDay" value="{{birthDay}}" type="number" title="Date of birth day">
-                            </div>
-                            <div class="form-group form-group-month">
-                                <label for="month">Month</label>
-                                <input class="form-control" id="birthMonth" name="birthMonth" value="{{birthMonth}}" type="number" title="Date of birth month">
-                            </div>
-                            <div class="form-group form-group-year">
-                                <label for="year">Year</label>
-                                <input class="form-control" id="birthYear" name="birthYear" value="{{birthYear}}" type="number" title="Date of birth year">
-                            </div>
+            <fieldset data-required data-error="{{errorMessage}}">
+                <div class="form-group">
+                    <div class="form-date">
+                        <span class="bold">Date of birth</span>
+                        <p class="form-hint">For example, 23 03 1972</p>
+                        <div class="form-group form-group-day">
+                            <label for="day">Day</label>
+                            <input class="form-control" id="birthDay" name="birthDay" value="{{birthDay}}" type="number" title="Date of birth day">
+                        </div>
+                        <div class="form-group form-group-month">
+                            <label for="month">Month</label>
+                            <input class="form-control" id="birthMonth" name="birthMonth" value="{{birthMonth}}" type="number" title="Date of birth month">
+                        </div>
+                        <div class="form-group form-group-year">
+                            <label for="year">Year</label>
+                            <input class="form-control" id="birthYear" name="birthYear" value="{{birthYear}}" type="number" title="Date of birth year">
                         </div>
                     </div>
-                </fieldset>
-                <fieldset data-required data-error="{{errorMessageTwo}}">
-                    <div class="form-group {{#if errors.postcode}}error{{/if}}">
-                        <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">for example, WA4 1AB</span></label>
-                        <input class="form-control" id="postcode" name="postcode" type="text" value="{{postcode}}" maxlength="10">
-                    </div>
-                </fieldset>
-            </div>
+                </div>
+            </fieldset>
+            <fieldset data-required data-error="{{errorMessageTwo}}">
+                <div class="form-group">
+                    <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">for example, WA4 1AB</span></label>
+                    <input class="form-control" id="postcode" name="postcode" type="text" value="{{postcode}}" maxlength="10">
+                </div>
+            </fieldset>
             <button type="submit" class="button">Continue</button>
         </form>
         <!-- <details class="progressive-disclosure-margin">

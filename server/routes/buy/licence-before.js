@@ -1,32 +1,37 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('licence-before', {
-      pageTitle: 'What would you like to do?',
+      pageTitle: 'Have you had a licence before?',
       errorMessage: 'Tell us if you\'ve had a licence before',
+      errorMessageTwo: 'Select an option',
+      errorMessageThree: 'Select an option',
       items: {
         one: {
-          text: 'Buy a new licence',
+          text: 'Yes',
           name: 'licence_before',
-          id: 'Buy_a_new_licence',
-          value: 'Buy_a_new_licence',
+          id: 'Yes',
+          value: 'Yes',
         },
         two: {
-          text: 'Upgrade my licence',
+          text: 'No',
           name: 'licence_before',
-          id: 'Upgrade_a_licence',
-          value: 'Upgrade_a_licence',
+          id: 'No',
+          value: 'No',
         },
-      }
+      },
     })
   },
   post: function (request, reply) {
     returnURL = request.query.returnUrl
-    var licenceBefore = request.payload.licence_before
-    if (licenceBefore === 'Upgrade_a_licence') {
-      return reply.redirect('find-a-licence')
+    licenceBefore = request.payload.licence_before
+
+    if (licenceBefore === 'Yes') {
+      return reply.redirect('renew-or-upgrade-licence')
     } else {
-      return reply.redirect('name')
+      return reply.redirect('licence-length')
     }
+
+
   }
 }
 

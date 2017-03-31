@@ -9,16 +9,18 @@ const handlers = {
     })
   },
   post: function (request, reply) {
+    returnURL = request.query.returnUrl
     request.session.firstName = request.payload.firstName
     request.session.lastName = request.payload.lastName
-    // Combile address
+    // Full name
     request.session.holderName = request.session.firstName + " " + request.session.lastName
-    returnURL = request.query.returnUrl
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
       return reply.redirect('date-of-birth')
     }
+
   }
 }
 

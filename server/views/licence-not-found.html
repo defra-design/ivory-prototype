@@ -2,29 +2,19 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <p>We were unable to find details of your previous licence.</p>
-        <h2 class="heading-medium">Would you like to buy a new licence?</h2>
-        <form method="post" autocomplete="off" novalidate>
-            <div class="form-group {{#if errors}}error{{/if}}">
-                <!-- <fieldset class="inline" data-required data-error="{{errorMessage}}"> -->
-                <fieldset data-required data-error="{{errorMessage}}">
-                    <div class="form-group">
-                        {{#each items}}
-                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
-                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-                      {{text}}
-                      {{#if subText}}
-                        <br>{{subText}}
-                      {{/if}}
-                    </label> {{#if selectedText}}
-                        <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
-                            <p>{{selectedText}}</p>
-                        </div>
-                        {{/if}} {{/each}}
-                    </div>
-                </fieldset>
-            </div>
-            <button type="submit" class="button">Continue</button>
-        </form>
+        <p>We were unable to find your previous licence.</p>
+        <h2 class="heading-medium">What now?</h2>
+
+
+        <ul class="list list-bullet">
+            <li><a href="find-a-licence" title="Enter licence number">Enter licence number again</a></li>
+            <li>
+                Call us on <a href="tel:+443448005386">0344 800 5386</a> and we will try to find these details for you
+            </li>
+            <li><a href="product-type" title="Buy a new licence">Buy a new licence</a></li>
+            <li><a href="/clear-session" title="exit service">Exit service</a></li>
+        </ul>
+
+
     </div>
 </div>

@@ -41,16 +41,36 @@ module.exports = [].concat(
   require('./buy/download-option-quick'),
   require('./buy/download-complete'),
 
-  // Upgrade
+  // Upgrade & renewals
+  require('./upgrade-screen'),
+  require('./buy/product-type'),
   require('./buy/licence-before'),
+  require('./buy/licence-before-two'),
+  require('./buy/renew-or-upgrade-licence'),
   require('./buy/find-a-licence'),
   require('./buy/find-a-licence-receipt'),
   require('./buy/dob-postcode-check'),
   require('./buy/upgrade-expired'),
+  require('./buy/renew-expired'),
   require('./buy/licence-details-species'),
   require('./buy/licence-details-length'),
+  require('./buy/licence-details-renew'),
   require('./buy/details-updated'),
   require('./buy/licence-not-found'),
+  require('./buy/upgrade-used'),
+  require('./buy/system-failure'),
+
+  require('./buy/renew-not-valid'),
+  require('./buy/renewal-used'),
+
+
+  require('./buy/choose-licence'),
+  require('./buy/find-a-licence-two'),
+  require('./buy/find-a-licence-dob'),
+  require('./buy/find-a-licence-postcode'),
+  require('./buy/licence-options'),
+  require('./buy/licence-options-two'),
+
 
   // Buy
   require('./buy'),
@@ -94,7 +114,8 @@ module.exports = [].concat(
   require('./start/important-changes'),
   require('./start/buy'),
   require('./start/replace'),
-  require('./start//when-you-need-a-licence'),
+  require('./start/when-you-need-a-licence'),
   require('./start/buy-a-fishing-licence'),
+  require('./start/fishing-in-the-thames'),
   require('./start/upgrade-your-licence')
 )
