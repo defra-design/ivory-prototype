@@ -1,0 +1,11 @@
+/*
+  Print
+  ----------------------------------- */
+
+@media print {
+  .print-hide {
+    display: none;
+    height: 0;
+  }
+
+}

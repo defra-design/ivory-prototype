@@ -5,6 +5,24 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+  // Analytics
+  require('./analytics-screen'),
+
+  // Catch returns
+  require('./catch-return/which-licence-do-you-have'),
+  require('./catch-return/new-licence-number'),
+  require('./catch-return/old-licence-number'),
+
+  // Done screen
+  require('./done-screen'),
+  require('./buy/order-complete-four'),
+
+  // Multibuy
+  require('./multibuy-screen'),
+  require('./buy/order-complete-two'),
+  require('./buy/order-complete-three'),
+  require('./buy/summary-two'),
+
   // Contact screen ideas
   require('./contact-screen'),
   require('./buy/contact-one'),
@@ -13,6 +31,7 @@ module.exports = [].concat(
   require('./buy/contact-three'),
   require('./buy/contact-four'),
   require('./buy/contact-five'),
+  require('./buy/contact-six'),
 
   // Junior version two
   require('./junior-screen'),

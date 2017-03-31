@@ -5,11 +5,25 @@
 <!--[if IE 7]><link href="{{{assetPath}}}stylesheets/application-ie7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if IE 8]><link href="{{{assetPath}}}stylesheets/application-ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
 <!-- Application version: {{appVersion}} -->
-<script src="{{{assetPath}}}javascripts/jquery.min.js"></script>
+
+<!-- <script src="{{{assetPath}}}javascripts/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="{{{assetPath}}}javascripts/reveal.js"></script>
 <script src="{{{assetPath}}}javascripts/selection-buttons.js"></script>
 <script src="{{{assetPath}}}javascripts/validation.js"></script>
-<script src="{{{assetPath}}}javascripts/date-picker.js"></script>
+<!-- <script src="{{{assetPath}}}javascripts/date-picker.js"></script> -->
 <script src="{{{assetPath}}}javascripts/details.polyfill.js"></script>
 <script src="{{{assetPath}}}javascripts/jquery.tabs.js"></script>
+<script src="{{{assetPath}}}javascripts/jquery.history.js"></script>
+<script src="{{{assetPath}}}javascripts/jquery.tabs.js"></script>
+<!-- JS Tabs -->
+<script>
+    $(function() {
+        $('section.more').tabs({
+            scrollOnload: true
+        })
+    })
+</script>
+
+
 <!-- <link rel="stylesheet" href="https://rawgit.com/ffoodd/a11y.css/master/css/a11y-en.css"> -->

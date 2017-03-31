@@ -1,6 +1,9 @@
 
 const handlers = {
   get: function (request, reply) {
+
+    request.session.noContact = true
+
     return reply.view('contact-three', {
       pageTitle: 'How would you like to save your licence details?',
       email: request.session.email,
