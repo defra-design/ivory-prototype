@@ -6,61 +6,58 @@ const handlers = {
       items: {
         one: {
           text: 'Buy a new 12-month licence',
-          name: 'what_to_do',
-          id: 'Buy a new 12-month licence',
-          value: 'Buy_a_new_12_month_licence',
+          name: 'licence_length',
+          id: '12-months',
+          value: '12-months',
         },
         two: {
           text: 'Buy a new 8-day licence',
-          name: 'what_to_do',
-          id: 'Buy a new 8-day licence',
-          value: 'Buy_a_new_8_day_licence',
+          name: 'licence_length',
+          id: '8-days',
+          value: '8-days',
         },
         three: {
           text: 'Buy a new 1-day licence',
-          name: 'what_to_do',
-          id: 'Buy a new 1-day licence',
-          value: 'Buy_a_new_1_day_licence',
+          name: 'licence_length',
+          id: '1-day',
+          value: '1-day',
         },
       },
-      items2: {
-        // three: {
-        //   text: 'Renew a licence',
-        //   name: 'what_to_do',
-        //   id: 'Renew a licence',
-        //   value: 'renew_a_licence',
-        // },
-        four: {
-          text: 'Upgrade a licence',
-          name: 'what_to_do',
-          id: 'Upgrade a licence',
-          value: 'Upgrade_a_licence',
-        },
-      }
     })
   },
   post: function (request, reply) {
-    returnURL = request.query.returnUrl
-    var whatToDo = request.payload.what_to_do
+      returnURL = request.query.returnUrl
+      request.session.licenceLength = request.payload.licence_length
+      if (returnURL) {
+          if (request.session.licenceLength === '12-months') {
+            return reply.redirect('disability?returnUrl=/buy/summary')
+          } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '1-day') {
+            request.session.isFull = false
+            request.session.haveTime = false
+            return reply.redirect('licence-start-time?returnUrl=/buy/summary')
+          } else {
+            return reply.redirect(returnURL)
+          }
+      } else {
+        if (request.session.licenceLength === '12-months' || request.session.licenceLength === '12 months') {
+          request.session.isFull = true
+          request.session.haveTime = true
+          request.session.licenceLength = '12-months'
+          return reply.redirect('name')
+        } else if (request.session.licenceLength === '8-days' || request.session.licenceLength === '8 days') {
+          request.session.isFull = false
+          request.session.haveTime = false
+          request.session.licenceLength = '8-days'
+          return reply.redirect('licence-start-option')
+        } else if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
+          request.session.isFull = false
+          request.session.haveTime = false
+          request.session.licenceLength = '1-day'
+          return reply.redirect('name')
+        }
+      }
 
 
-    if (whatToDo === 'Buy a new 12-month licence') {
-      request.session.isFull = true
-      request.session.licenceLength = '12-months'
-      return reply.redirect('name')
-    } else if (whatToDo === 'Buy a new 8-day licence') {
-      request.session.isFull = false
-      request.session.licenceLength = '8-days'
-      request.session.isConcession = false
-      return reply.redirect('name')
-    } else if (whatToDo === 'Buy a new 1-day licence') {
-      request.session.isFull = false
-      request.session.licenceLength = '1-day'
-      request.session.isConcession = false
-      return reply.redirect('name')
-    } else {
-      return reply.redirect('find-a-licence')
-    }
 
   }
 }
