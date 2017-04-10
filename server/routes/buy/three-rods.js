@@ -4,7 +4,7 @@ const handlers = {
 
 
     return reply.view('three-rods', {
-      pageTitle: 'Do want to fish with 3 rods?',
+      pageTitle: 'Do you want to fish with 3 rods?',
       errorMessage: 'Select number of rods',
 
       items: {
