@@ -15,6 +15,12 @@ const handlers = {
     request.session.birthMonth = request.payload.birthMonth
     request.session.birthYear = request.payload.birthYear
 
+    request.session.hasNINumber = false
+    request.session.hasBlueBadge = false
+    request.session.hasDisabledConcession = false
+    request.session.isSenior = false
+    request.session.isJunior = false
+
     // Calculate age
     var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
     var options = {
@@ -31,8 +37,7 @@ const handlers = {
       }
 
     request.session.age = age
-    request.session.isSenior = false
-    request.session.isJunior = false
+
 
 
     if (returnURL) {

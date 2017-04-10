@@ -43,7 +43,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      if (request.session.isJunior === true) {
+      if (request.session.isJunior === true || request.session.isSenior === true) {
         return reply.redirect('licence-type')
       } else if (request.session.isFull === true) {
         return reply.redirect('disability')
