@@ -1,25 +1,65 @@
 <div class="grid-row">
     <div class="column-two-thirds reducemargin">
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>It will take at least 48 hours for newly purchased licence numbers to appear online before a catch return can be submitted.</p>
 
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
+                <h2 class="heading-medium heading-medium-returns">Which licence number do you have? </h2>
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
-                        {{#each items}}
-                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
-                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-                      <span class="heading-small">{{text}}</span>
-                      {{#if subText}}
-                        <br>{{subText}}
-                      {{/if}}
-                    </label> {{#if selectedText}}
-                        <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
-                            <p>{{selectedText}}</p>
+
+                        <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
+        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
+        <span class="heading-small">A 9-digit licence number</span> <br>For example, 345 612 895
+      </label>
+
+
+                        <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                            <label class="form-label" for="licence_number">
+                                <span class="bold">Enter your full 9-digit licence number</span>
+                                <span class="form-hint">For example, 123 456 789</span>
+                              </label>
+                            <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
                         </div>
-                        {{/if}} {{/each}}
+
+
+
+                        <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-by-text">
+                      <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
+                    <span class="heading-small">A 21-digit licence number</span> </br> For example, 00010418-3WC3JDS-B7A718
+
+                    </label>
+
+                        <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                            <label class="form-label" for="licence_number">
+                                <span class="bold">Enter the last 6 digits of your licence number</span>
+                                <span class="form-hint">For example, B7A718</span>
+                              </label>
+                            <input class="form-control" id="licence_number" name="licence_number" value="{{licence_number}}" type="text">
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group">
+                            <h2 class="heading-medium">What is your postcode?</h2>
+                            <fieldset data-required data-error="{{errorMessageTwo}}">
+                                <div class="form-group">
+                                    <label for="postcode" class="form-label"><span class="bold">UK Postcode</span><span class="form-hint">For example, WA4 1AB</span></label>
+                                    <input class="form-control" id="postcode" name="postcode" type="text" value="" maxlength="10">
+                                </div>
+                            </fieldset>
+                        </div>
+
+
+
+
                     </div>
                 </fieldset>
+
             </div>
             <!-- <details class="progressive-disclosure-margin">
                 <summary><span class="summary">Help with benefits</summary>
