@@ -11,7 +11,7 @@ const handlers = {
           subText: 'For example, 345 612 895',
         },
         two: {
-          text: 'A 12-digit licence number',
+          text: 'A 21-digit licence number',
           name: 'licenceNumber',
           id: 'New',
           subText: 'For example, 00010418-3WC3JDS-B7A718',
