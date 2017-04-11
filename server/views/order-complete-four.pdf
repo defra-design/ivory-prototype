@@ -8,10 +8,9 @@
                     <p>
                         <strong class="bold-medium" id="permissionNumber">00010418-3WC3JDS-B7A718</strong><br>
                     </p>
-                    <p class="print-hide"><i class="icon icon-file-download">
+                    <p><i class="icon icon-file-download">
     <span class="visually-hidden">Save licence (PDF)</span>
-  </i><a href="
-  /public/pdf/licence-details.pdf" download="/public/pdf/licence-details.pdf" title="Download licence confirmtion" class="govuk-box-highlight-link">Save licence (PDF)</a></p>
+  </i><a href="javascript:window.print();" title="Download licence confirmtion" class="govuk-box-highlight-link">Save licence (PDF)</a></p>
             </div>
 
             <table>
