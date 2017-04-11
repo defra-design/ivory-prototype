@@ -27,6 +27,7 @@ module.exports = {
   },
   relativeTo: __dirname,
   layout: true,
+  layoutPath: 'layout',
   isCached: config.views.isCached,
   partialsPath: 'partials',
   helpersPath: 'helpers',
