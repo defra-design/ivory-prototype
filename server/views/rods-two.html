@@ -2,8 +2,14 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <p>You can use 3 rods for freshwater COARSE fish.</p>
-        <p> The place where you fish may have additional rules about how many rods you can use there.</p>
+        <p>Your licence allows you to to fish with:</p>
+        <ul class="list-bullet">
+            <li>1 rod for non-migratory trout in rivers, streams, drains and canals</li>
+            <li>up to 2 rods for non-migratory trout in reservoirs, lakes and ponds</li>
+            <!-- <li>up to 2 rods for freshwater fish</li> -->
+        </ul>
+        <p>You can choose how many rods you want to use for freshwater fish</p>
+        <h2 class="heading-medium">How many rods would you like to use for freshwater fish?</h2>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
@@ -25,22 +31,15 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
-        <!-- <details class="progressive-disclosure-margin">
-            <summary><span class="summary">How many rods do I need?</span></summary>
-            <div class="panel panel-border-narrow">
-                <h3 class="heading-small">Up to 2 rods</h3>
-                <p>You can fish with 1 rod for non-migratory trout or up to 2 rods for freshwater fish</p>
-                <h3 class="heading-small">Up to 3 rods</h3>
-                <p>You can fish with 1 rod for non-migratory trout or up to 3 rods for freshwater fish</p>
-            </div>
-        </details> -->
+        </br>
+        <p>The place where you fish may have additional rules about how many rods you can use there.</p>
     </div>
     <div class="column-third">
         <div class="payment-summary-small">
             <h2>How much will this cost?</h2>
-            <p class="payment-title">No</p>
+            <p class="payment-title">Up to 2 rods</p>
             <p class="payment-info payment-amount">£30.00</p>
-            <p class="payment-title">Yes</p>
+            <p class="payment-title">Up to 3 rods</p>
             <p class="payment-info payment-amount">£45.00</p>
         </div>
     </div>
