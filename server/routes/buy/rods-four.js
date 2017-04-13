@@ -3,7 +3,7 @@ const handlers = {
 
 
 
-    return reply.view('three-rods', {
+    return reply.view('rods-four', {
       pageTitle: 'Do you want to fish with 3 rods?',
       errorMessage: 'Select number of rods',
 
@@ -34,14 +34,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/three-rods',
+  path: '/buy/rods-four',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/three-rods',
+  path: '/buy/rods-four',
   config: {
     handler: handlers.post
   }
