@@ -5,6 +5,13 @@ module.exports = [].concat(
   require('./feedback-thankyou'),
   require('./landing'),
 
+
+  // Rod screen
+  require('./rod-screen'),
+  require('./buy/rods-two'),
+  require('./buy/rods-three'),
+  require('./buy/rods-four'),
+
   // Analytics
   require('./analytics-screen'),
 

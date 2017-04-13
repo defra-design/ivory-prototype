@@ -2,6 +2,9 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>
+            The place where you fish may have additional rules about how many rods you can use there.
+        </p>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
@@ -23,16 +26,23 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
-        <details class="progressive-disclosure-margin">
-            <summary><span class="summary">Which is right for me?</span></summary>
+        <!-- <details class="progressive-disclosure-margin">
+            <summary><span class="summary">How many rods do I need?</span></summary>
             <div class="panel panel-border-narrow">
-                <h3 class="heading-small">12-month licences - from £30.00</h3>
-                <p>12-month licences are valid for 365 days from their start date and can be purchased at any time during the year.</p>
-                <h3 class="heading-small">8-day licences - from £12.00</h3>
-                <p> 8-day licences are valid for 8 consecutive days.</p>
-                <h3 class="heading-small">1-day licences - from £6.00</h3>
-                <p>1-day licences are valid for a full 24 hours from the start time that you select.</p>
+                <h3 class="heading-small">Up to 2 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 2 rods for freshwater fish</p>
+                <h3 class="heading-small">Up to 3 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 3 rods for freshwater fish</p>
             </div>
-        </details>
+        </details> -->
+    </div>
+    <div class="column-third">
+        <div class="payment-summary-small">
+            <h2>How much will this cost?</h2>
+            <p class="payment-title">Up to 2 rods</p>
+            <p class="payment-info payment-amount">£30.00</p>
+            <p class="payment-title">Up to 3 rods</p>
+            <p class="payment-info payment-amount">£45.00</p>
+        </div>
     </div>
 </div>
