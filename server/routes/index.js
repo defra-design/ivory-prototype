@@ -10,6 +10,7 @@ module.exports = [].concat(
   require('./rod-screen'),
   require('./buy/three-rods'),
   require('./buy/rods-two'),
+  require('./buy/rods-three'),
 
   // Analytics
   require('./analytics-screen'),

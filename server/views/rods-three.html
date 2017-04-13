@@ -1,0 +1,45 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+        <h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        {{#each items}}
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+        <!-- <details class="progressive-disclosure-margin">
+            <summary><span class="summary">How many rods do I need?</span></summary>
+            <div class="panel panel-border-narrow">
+                <h3 class="heading-small">Up to 2 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 2 rods for freshwater fish</p>
+                <h3 class="heading-small">Up to 3 rods</h3>
+                <p>You can fish with 1 rod for non-migratory trout or up to 3 rods for freshwater fish</p>
+            </div>
+        </details> -->
+    </div>
+    <div class="column-third">
+        <div class="payment-summary-small">
+            <h2>How much will this cost?</h2>
+            <p class="payment-title">Up to 2 rods</p>
+            <p class="payment-info payment-amount">£30.00</p>
+            <p class="payment-title">Up to 3 rods</p>
+            <p class="payment-info payment-amount">£45.00</p>
+        </div>
+    </div>
+</div>
