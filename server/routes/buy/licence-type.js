@@ -57,6 +57,7 @@ const handlers = {
       hasNINumber: request.session.hasNINumber,
       isFull: request.session.isFull,
       isConcession: request.session.isConcession,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       items: {
         one: {
           text: 'Trout and coarse',

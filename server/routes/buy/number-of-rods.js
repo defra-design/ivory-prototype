@@ -51,6 +51,7 @@ const handlers = {
       Rod2Cost: request.session.Rod2Cost,
       Rod3Cost: request.session.Rod3Cost,
       isUpgrade: request.session.isUpgrade,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       items: {
         one: {
           text: 'Up to 2 rods',
