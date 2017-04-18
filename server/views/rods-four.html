@@ -2,8 +2,7 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <p>You can use 3 rods for freshwater (coarse) fish.</p>
-        <p> The place where you fish may have additional rules about how many rods you can use there.</p>
+        <p>You can use up to 3 rods for coarse fish.</p>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
@@ -25,6 +24,18 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">How many rods can I use?</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>Your licence allows you to to fish with:</p>
+                <ul class="list-bullet">
+                    <li>1 rod for non-migratory trout in rivers, streams, drains and canals</li>
+                    <li>up to 2 rods for non-migratory trout in reservoirs, lakes and ponds</li>
+                    <li>up to 2 rods for freshwater fish</li>
+                </ul>
+            </div>
+        </details>
+        <p>The place where you fish may have additional rules about how many rods you can use there.</p>
     </div>
     <div class="column-third">
         <div class="payment-summary-small">
