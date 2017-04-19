@@ -19,47 +19,6 @@
               </a>
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <th scope="row">
-                            Contact
-                        </th>
-                        <td class="data" id="holder-email">
-                            {{#if email}} {{email}} {{/if}} {{#if mobile}} {{mobile}} {{/if}} {{#if noContact}}Not supplied{{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-email">
-                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
-                  Change <span class="visuallyhidden">email</span>
-                </a>
-                        </td>
-                    </tr>
-
-                    <!-- <tr>
-                        <th scope="row">
-                            Email address
-                        </th>
-                        <td class="data" id="holder-email">
-                            {{#if email}} {{email}} {{else}} Not supplied {{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-email">
-                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
-                Change <span class="visuallyhidden">email</span>
-              </a>
-                        </td>
-                    </tr> -->
-
-                    <!-- <tr>
-                        <th scope="row">
-                            Mobile number
-                        </th>
-                        <td class="data" id="holder-mobile">
-                            {{#if mobile}} {{mobile}} {{else}} Not supplied {{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-mobile">
-                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
-                Change <span class="visuallyhidden">mobile number</span>
-              </a>
-                        </td>
-                    </tr> -->
 
                     <tr>
                         <th scope="row">
@@ -134,34 +93,6 @@
               </a>{{/if}}{{/if}}
                         </td>
                     </tr>
-
-                    <!-- <tr>
-                        <th scope="row">
-                            Email address
-                        </th>
-                        <td class="data" id="holder-email">
-                            {{#if email}} {{email}} {{else}} Not supplied {{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-email">
-                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.email">
-                Change <span class="visuallyhidden">email</span>
-              </a>
-                        </td>
-                    </tr> -->
-
-                    <!-- <tr>
-                        <th scope="row">
-                            Mobile number
-                        </th>
-                        <td class="data" id="holder-mobile">
-                            {{#if mobile}} {{mobile}} {{else}} Not supplied {{/if}}
-                        </td>
-                        <td class="change-answer" id="change-holder-mobile">
-                            <a href="/buy/contact?returnUrl=/buy/summary" id="buy.holder.contact.mobile">
-                Change <span class="visuallyhidden">mobile number</span>
-              </a>
-                        </td>
-                    </tr> -->
 
                     <tr>
                         <th scope="row">
@@ -330,6 +261,11 @@
 
                 </tbody>
             </table>
+            <br> {{#if isMultibuy}}
+            <p>
+                <a href="/buy/licence-length">Buy another licence</a>
+            </p>
+            {{/if}}
             <br>
             <a class="button" href="/buy/terms-conditions">Continue</a> {{/if}}
         </div>

@@ -25,7 +25,7 @@ module.exports = [].concat(
   require('./buy/order-complete-four'),
 
   // Multibuy
-  require('./multibuy-screen'),
+  require('./buy/multibuy-screen'),
   require('./buy/order-complete-two'),
   require('./buy/order-complete-three'),
   require('./buy/summary-two'),

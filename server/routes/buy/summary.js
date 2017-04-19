@@ -183,7 +183,6 @@ const handlers = {
       request.session.licenceLength = '12 months'
     }
 
-
     return reply.view('summary', {
       pageTitle: 'Check your licence details',
       nameOnLicence: request.session.holderName,
@@ -214,6 +213,7 @@ const handlers = {
       isUpgradeLength: request.session.isUpgradeLength,
       changeDetails: request.session.changeDetails,
       noContact: request.session.noContact,
+      isMultibuy: request.session.multibuy,
     })
   },
   post: function (request, reply) {
