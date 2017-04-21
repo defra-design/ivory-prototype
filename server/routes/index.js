@@ -124,6 +124,6 @@ module.exports = [].concat(
   require('./start/replace'),
   require('./start/when-you-need-a-licence'),
   require('./start/buy-a-fishing-licence'),
-  require('./start/fishing-in-the-thames'),
+  require('./start/fishing-in-scotland-and-northern-ireland'),
   require('./start/upgrade-your-licence')
 )
