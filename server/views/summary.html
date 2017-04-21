@@ -261,13 +261,17 @@
 
                 </tbody>
             </table>
-            <br> {{#if isMultibuy}}
+            <!-- <br> {{#if isMultibuy}}
             <p>
                 <a href="/buy/licence-length">Buy another licence</a>
             </p>
-            {{/if}}
+            {{/if}} -->
             <br>
-            <a class="button" href="/buy/terms-conditions">Continue</a> {{/if}}
+            <form method="post" autocomplete="off" novalidate>
+                <button type="submit" class="button">Continue</button>
+            </form>
+            <!-- <a class="button" href="/buy/terms-conditions">Continue</a> -->
+            {{/if}}
         </div>
     </div>
 </main>

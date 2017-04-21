@@ -183,6 +183,9 @@ const handlers = {
       request.session.licenceLength = '12 months'
     }
 
+    // REMOVE!!!!!!!!
+    request.session.multibuy = true
+
     return reply.view('summary', {
       pageTitle: 'Check your licence details',
       nameOnLicence: request.session.holderName,
@@ -217,7 +220,11 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    return reply.redirect('terms-conditions')
+    if (request.session.multibuy === true) {
+      return reply.redirect('add-another')
+    } else {
+      return reply.redirect('terms-conditions')
+    }
   }
 }
 
