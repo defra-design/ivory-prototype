@@ -5,6 +5,7 @@ const handlers = {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,
       licenceType: request.session.licenceType,
+      licenceLength: request.session.licenceLength,
       numberOfRods: request.session.numberOfRods,
       startDate: request.session.startDate,
       startMonth: request.session.startMonth,

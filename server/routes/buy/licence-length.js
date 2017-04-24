@@ -49,7 +49,7 @@ const handlers = {
           request.session.isFull = false
           request.session.haveTime = false
           request.session.licenceLength = '8-days'
-          return reply.redirect('licence-start-option')
+          return reply.redirect('name')
         } else if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
           request.session.isFull = false
           request.session.haveTime = false

@@ -36,13 +36,11 @@
 
 
             <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
-            <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
-            </p>
             <p>Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must take:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
 
-                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
 
             </ol>
             <p>We will send your licence details to peter-walter-smith@gmail.com.</p>
@@ -82,7 +80,7 @@
 
 
                 <p>
-                    <a href="/" title="Exit service">Finished (exit service)</a>
+                    <a href="/" class="button" title="Exit service">Finished</a>
                 </p>
             </div>
 
