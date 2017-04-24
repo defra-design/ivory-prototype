@@ -18,14 +18,14 @@
 
           <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
             <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-            Email or text messsage
+            Email or text it to me
           </label>
           <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-            <p>If a valid email is provided we will use this as the preferd method of contact.</p>
+            <p>If a valid email is provided we will use this as the preferred method of contact.</p>
             <label class="form-label" for="contact-email">Email address</label>
-            <input class="form-control" name="contact-email" type="text" id="contact-email"> <br>
+            <input class="form-control" name="email" type="text" id="email" value="{{email}}"> <br>
             <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+            <input class="form-control" name="mobile" type="text" id="mobile" value="{{mobile}}">
             <div class="form-group">
               <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
             </div>
