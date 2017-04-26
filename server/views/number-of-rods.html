@@ -2,9 +2,10 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
+        <p>You can use up to 3 rods for coarse fish.</p>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
-                <fieldset data-required data-error="{{errorMessage}}">
+                <fieldset class="inline" data-required data-error="{{errorMessage}}">
                     <div class="form-group">
                         {{#each items}}
                         <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
@@ -23,23 +24,33 @@
             </div>
             <button type="submit" class="button">Continue</button>
         </form>
-        <!-- <details class="progressive-disclosure-margin">
-            <summary><span class="summary">How many rods do I need?</span></summary>
+        <details class="progressive-disclosure-margin">
+            <summary><span class="summary">How many rods can I use?</span></summary>
             <div class="panel panel-border-narrow">
-                <h3 class="heading-small">Up to 2 rods</h3>
-                <p>You can fish with 1 rod for non-migratory trout or up to 2 rods for freshwater fish</p>
-                <h3 class="heading-small">Up to 3 rods</h3>
-                <p>You can fish with 1 rod for non-migratory trout or up to 3 rods for freshwater fish</p>
+                <p>A 2-rod trout and coarse licence allows you to fish with:</p>
+                <ul class="list-bullet">
+                    <li>1 rod for non-migratory trout in rivers, streams, drains and canals</li>
+                    <li>up to 2 rods for non-migratory trout in reservoirs, lakes and ponds</li>
+                    <li>up to 2 rods for freshwater fish</li>
+                </ul>
+                <p>If you buy a 3-rod trout and coarse licence, it allows you to fish with:</p>
+                <ul class="list-bullet">
+                    <li>1 rod for non-migratory trout in rivers, streams, drains and canals</li>
+                    <li>up to 2 rods for non-migratory trout in reservoirs, lakes and ponds</li>
+                    <li>up to 3 rods for freshwater fish</li>
+                </ul>
+                <p>The place where you fish may have additional rules about how many rods you can use there.</p>
             </div>
-        </details> -->
+        </details>
+
     </div>
     <div class="column-third">
         <div class="payment-summary-small">
-            <h2>How much could this cost?</h2>
-            <p class="payment-title">Up to 2 rods</p>
-            <p class="payment-info payment-amount">{{Rod2Cost}}</p>
-            <p class="payment-title">Up to 3 rods</p>
-            <p class="payment-info payment-amount">{{Rod3Cost}}</p>
+            <h2>How much will this cost?</h2>
+            <p class="payment-title">2-rod trout and coarse licence</p>
+            <p class="payment-info payment-amount">£30.00</p>
+            <p class="payment-title">3-rod trout and coarse licence</p>
+            <p class="payment-info payment-amount">£45.00</p>
         </div>
     </div>
 </div>

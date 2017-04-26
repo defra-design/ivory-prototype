@@ -21,29 +21,37 @@
                 </p>{{/if}}{{/if}}
 
 
-                <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
-                <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
-                <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startMonth}} {{startYear}} {{startTime}}</span></p>
-                {{#if isUpgrade}}
-                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endText}}</span></p>
-                {{else}}
-                <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}  {{endMonth}}  {{endYear}}</span></p>
-                {{/if}}
+                <p class="print-hide"><i class="icon icon-file-download">
+                <span class="visually-hidden">Save licence (PDF)</span>
+                </i><a href="
+                /public/pdf/licence-details.pdf" download="/public/pdf/licence-details.pdf" title="Download licence confirmtion" class="govuk-box-highlight-link">Save licence (PDF)</a></p>
+
                 <p>This licence can only be used by {{nameOnLicence}}</p>
+                            </div>
 
-                <!-- {{#if isJunior}}
-                <p><i class="icon icon-file-download">
-    <span class="visually-hidden">Download licence</span>
-  </i><a href="#" title="Download licence" class="govuk-box-highlight-link">Download licence</a></p>
-                {{/if}} -->
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name:</th>
+                        <th>Licence type:</th>
+                        <th>Licence length:</th>
+                        <th>Valid from:</th>
+                        <th>Expires:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{nameOnLicence}}</td>
+                        <td>{{licenceType}}</td>
+                        <td>{{licenceLength}}</td>
+                        <td>{{startDate}} {{startMonth}} {{startYear}} {{startTime}}</td>
+                        <td>{{endDate}}  {{endMonth}}  {{endYear}} {{endTime}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
 
-            <!-- <p><span class="bold-small">Licence type:</span> <span id="licenceType">{{licenceType}}</span></p>
-            <p><span class="bold-small">Number of rods:</span> <span id="numberOfRods">{{numberOfRods}}</span></p>
-            <p><span class="bold-small">Valid from:</span> <span id="startDate">{{startDate}} {{startTime}}</span></p>
-            <p><span class="bold-small">Expires:</span> <span id="endDate">{{endDate}}</span></p>
-            <p>This licence can only be used by {{nameOnLicence}}</p> -->
+
 
             {{#if isFull}} {{#if isJunior}}
             <h2 class="heading-medium">We don’t send junior licences in the post</h2>
@@ -56,14 +64,20 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
+            {{#if hasBothContact}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
 
-            {{/if}}
-            <!-- <ol class="list list-number">
-                <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
+            {{#if email}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
+
+            {{#if mobile}}
+            <p>We will send your licence details to {{mobile}}.</p>
+
+            {{/if}}{{/if}}{{/if}}{{/if}}
 
 
-            </ol> -->
 
             {{else}}
             <h2 class="heading-medium">Want to go fishing before your licence arrives?</h2>
@@ -73,8 +87,9 @@
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
                     <!-- {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a> or <a href="phone-number">text message</a></li>
                 {{/if}} -->
-                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
             </ol>
+
             {{#if noContact}}
             <p>We can also send you your licence confirmation:</p>
             <ol class="list">
@@ -82,15 +97,28 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
-            {{/if}} {{/if}} {{else}}
+            {{#if hasBothContact}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
+
+            {{#if email}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
+
+            {{#if mobile}}
+            <p>We will send your licence details to {{mobile}}.</p>
+
+            {{/if}}{{/if}}{{/if}}{{/if}}
+
+            {{/if}} {{else}}
+
             <h2 class="heading-medium">We don’t send 1-day or 8-day licences in the post</h2>
             <p>If our bailiffs ask to see your licence, you must show them:</p>
             <ol class="list list-number">
                 <li><span class="heavy">proof of your licence</span>: <a href="javascript:window.print();">print out this page</a> or make a note of your licence number.
                     <!-- {{#if noContact}} You can also have your licence number sent in an <a href="email-address">email</a> or <a href="phone-number">text message</a></li>
                 {{/if}} -->
-                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or passport</li>
+                    <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
             </ol>
             {{#if noContact}}
             <p>We can also send you your licence confirmation:</p>
@@ -99,9 +127,21 @@
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
             {{else}}
-            <p>We will send your licence details to {{#if email}} {{email}}{{/if}} {{#if mobile}}{{mobile}}{{/if}}.</p>
+            {{#if hasBothContact}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
 
-            {{/if}} {{/if}}
+            {{#if email}}
+              <p>We will send your licence details to {{email}}.</p>
+            {{else}}
+
+            {{#if mobile}}
+            <p>We will send your licence details to {{mobile}}.</p>
+
+            {{/if}}{{/if}}{{/if}}{{/if}}
+
+
+            {{/if}}
 
             <!-- <p>You must check the <a href="https://www.gov.uk/freshwater-rod-fishing-rules">rod fishing rules</a> and byelaws before you go.</p> -->
             <h2 class="heading-medium">Check the byelaws before you go</h2>
@@ -133,6 +173,9 @@
             {{else}}
             <p><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
             {{/if}}
+            <p>
+                <a href="/buy/clear-session" class="button" title="Exit service">Finished</a>
+            </p>
         </div>
     </div>
 </main>

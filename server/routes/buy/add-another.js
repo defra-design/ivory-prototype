@@ -21,24 +21,64 @@ const handlers = {
     var multibuy = request.payload.multibuy
     if (multibuy === 'yes') {
 
-      // Save user in object
-      function Licence(firstName, lastName, dob, contact, address, licenceType, licenceLength, validFrom, NumberOfRods, cost) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = dob;
-        this.contact = contact;
-        this.address = address;
-        this.licenceType = licenceType;
-        this.licenceLength = licenceLength;
-        this.validFrom = validFrom;
-        this.NumberOfRods = NumberOfRods;
-        this.cost = cost;
-      }
-      //var userOne = new Licence("John", "Doe", 01 April 2017, 0770 123 123);
-
       // Clear session
+      //request.session = ''
 
-      //request.session.firstName.clear
+      // Cear session
+      request.session.licenceNumber = ''
+      request.session.firstName = ''
+      request.session.lastName = ''
+      request.session.holderName = ''
+      request.session.dateOfBirth = ''
+      request.session.birthDay = ''
+      request.session.birthMonth = ''
+      request.session.birthYear = ''
+      request.session.email = ''
+      request.session.noContact = ''
+      request.session.mobile  = ''
+      request.session.Address = ''
+      request.session.premises = ''
+      request.session.street = ''
+      request.session.locality = ''
+      request.session.town = ''
+      request.session.postcode = ''
+      request.session.country = ''
+      request.session.oldLicenceType = ''
+      request.session.licenceType = ''
+      request.session.isCoarse = ''
+      request.session.numberOfRods = ''
+      request.session.oldLicenceLength = ''
+      request.session.licenceLength = ''
+      request.session.haveTime = ''
+      request.session.year = ''
+      request.session.month = ''
+      request.session.day = ''
+      request.session.date = ''
+      request.session.startDate = ''
+      request.session.startMonth = ''
+      request.session.startYear = ''
+      request.session.startText = ''
+      request.session.endText = ''
+      request.session.hasDisabledConcession = ''
+      request.session.isFull = ''
+      request.session.isConcession = ''
+      request.session.oldConcession = ''
+      request.session.isCoarse = ''
+
+      // Save user in object
+      // function Licence(firstName, lastName, dob, contact, address, licenceType, licenceLength, validFrom, NumberOfRods, cost) {
+      //   this.firstName = firstName;
+      //   this.lastName = lastName;
+      //   this.dob = dob;
+      //   this.contact = contact;
+      //   this.address = address;
+      //   this.licenceType = licenceType;
+      //   this.licenceLength = licenceLength;
+      //   this.validFrom = validFrom;
+      //   this.NumberOfRods = NumberOfRods;
+      //   this.cost = cost;
+      // }
+
 
 
 

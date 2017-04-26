@@ -5,6 +5,7 @@ const handlers = {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,
       licenceType: request.session.licenceType,
+      licenceLength: request.session.licenceLength,
       numberOfRods: request.session.numberOfRods,
       startDate: request.session.startDate,
       startMonth: request.session.startMonth,
@@ -21,7 +22,9 @@ const handlers = {
       email: request.session.email,
       mobile: request.session.mobile,
       noContact: request.session.noContact,
-      hasBothContact: request.session.hasBothContact
+      hasBothContact: request.session.hasBothContact,
+      startTime: request.session.startTime,
+      endTime: request.session.endTime,
     })
   },
   post: function (request, reply) {

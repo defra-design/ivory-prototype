@@ -22,6 +22,7 @@ const handlers = {
           name: 'licence_length',
           id: '1-day',
           value: '1-day',
+          selectedText: '1-day licences are valid for a full 24 hours from the start time that you select.'
         },
       },
     })
@@ -49,7 +50,7 @@ const handlers = {
           request.session.isFull = false
           request.session.haveTime = false
           request.session.licenceLength = '8-days'
-          return reply.redirect('licence-start-option')
+          return reply.redirect('name')
         } else if (request.session.licenceLength === '1-day' || request.session.licenceLength === '1 day') {
           request.session.isFull = false
           request.session.haveTime = false

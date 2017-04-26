@@ -103,7 +103,7 @@ const handlers = {
         request.session.startMonth = n
         request.session.startYear = date.getFullYear()
         var startTime = date.getHours();
-        request.session.startTime = startTime +":00"
+        request.session.startTime = startTime +':00'
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {

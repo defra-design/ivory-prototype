@@ -148,6 +148,7 @@ const handlers = {
         request.session.endDate = tomorrow.getUTCDate()
         request.session.endMonth = month[tomorrow.getMonth()];
         request.session.endYear = tomorrow.getFullYear()
+        request.session.endTime = request.session.startTime
 
       } else if (request.session.licenceLength === '8-days') {
         var eightDays = new Date(Date.parse(request.session.date));
@@ -155,6 +156,7 @@ const handlers = {
         request.session.endDate = eightDays.getUTCDate()
         request.session.endMonth = month[eightDays.getMonth()];
         request.session.endYear = eightDays.getFullYear()
+        request.session.endTime = request.session.startTime
 
       } else {
         var threeSixFiveDays = new Date(Date.parse(request.session.date));
@@ -162,6 +164,7 @@ const handlers = {
         request.session.endDate = threeSixFiveDays.getUTCDate()
         request.session.endMonth = month[threeSixFiveDays.getMonth()];
         request.session.endYear = threeSixFiveDays.getFullYear()
+        request.session.endTime = '23:59'
       }
 
     // Rods
@@ -182,9 +185,6 @@ const handlers = {
     if (request.session.licenceLength === '12-months') {
       request.session.licenceLength = '12 months'
     }
-
-    // REMOVE!!!!!!!!
-    request.session.multibuy = true
 
     return reply.view('summary', {
       pageTitle: 'Check your licence details',

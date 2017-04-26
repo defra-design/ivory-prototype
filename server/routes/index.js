@@ -3,6 +3,7 @@ module.exports = [].concat(
   require('./public'),
   require('./feedback'),
   require('./feedback-thankyou'),
+  require('./clear-session'),
   require('./landing'),
 
 

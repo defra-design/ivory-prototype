@@ -2,7 +2,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('contact-two', {
-      pageTitle: 'How would you like to receive your licence confirmation?',
+      pageTitle: 'How can we send you your licence details?',
     })
   },
   post: function (request, reply) {

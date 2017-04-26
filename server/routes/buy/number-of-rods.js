@@ -37,7 +37,7 @@ const handlers = {
       // }
 
     return reply.view('number-of-rods', {
-      pageTitle: 'How many rods would you like to licence?',
+      pageTitle: 'Do you want to fish with 3 rods?',
       errorMessage: 'Select number of rods',
       cost: request.session.cost,
       selectedText: request.session.cost,
@@ -51,17 +51,18 @@ const handlers = {
       Rod2Cost: request.session.Rod2Cost,
       Rod3Cost: request.session.Rod3Cost,
       isUpgrade: request.session.isUpgrade,
+      hasDisabledConcession: request.session.hasDisabledConcession,
       items: {
         one: {
-          text: 'Up to 2 rods',
+          text: 'Yes',
           name: 'number_of_rods',
-          id: 'Up to 2 rods',
+          id: 'Up to 3 rods',
           // selectedText: request.session.cost,
         },
         two: {
-          text: 'Up to 3 rods',
+          text: 'No',
           name: 'number_of_rods',
-          id: 'Up to 3 rods',
+          id: 'Up to 2 rods',
         }
       }
     })
