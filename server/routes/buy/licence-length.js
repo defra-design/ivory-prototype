@@ -22,6 +22,7 @@ const handlers = {
           name: 'licence_length',
           id: '1-day',
           value: '1-day',
+          selectedText: '1-day licences are valid for a full 24 hours from the start time that you select.'
         },
       },
     })

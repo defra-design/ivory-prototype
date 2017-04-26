@@ -22,7 +22,9 @@ const handlers = {
       email: request.session.email,
       mobile: request.session.mobile,
       noContact: request.session.noContact,
-      hasBothContact: request.session.hasBothContact
+      hasBothContact: request.session.hasBothContact,
+      startTime: request.session.startTime,
+      endTime: request.session.endTime,
     })
   },
   post: function (request, reply) {

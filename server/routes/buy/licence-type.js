@@ -64,7 +64,6 @@ const handlers = {
           name: 'licence_type',
           id: 'Trout and coarse',
           value: 'Trout_and_coarse',
-          // selectedText: request.session.cost,
         },
         two: {
           text: 'Salmon and sea trout',
@@ -72,7 +71,7 @@ const handlers = {
           name: 'licence_type',
           id: 'Salmon and sea trout',
           value: 'Salmon_and_sea_trout',
-          // selectedText: request.session.cost,
+          //selectedText: 'You will need to submit a catch return?????'
         },
       }
     })

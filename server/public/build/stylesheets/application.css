@@ -3097,7 +3097,6 @@ details summary.non-blue .summary-link {
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
 .calendar label {
   visibility: hidden;
 }
@@ -3115,8 +3114,8 @@ details summary.non-blue .summary-link {
 
 .ui-datepicker-trigger img {
   width: 40px;
-=======
+}
+
 .heading-medium-returns {
   margin-top: 0;
->>>>>>> catch-returns
 }

@@ -46,6 +46,7 @@ const handlers = {
         else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
           return reply.redirect('summary')
         } else if (request.session.haveTime === true) {
+          request.session.startTime = '00.01'
             return reply.redirect('contact')
         } else {
           return reply.redirect('licence-start-time')
