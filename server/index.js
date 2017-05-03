@@ -14,6 +14,12 @@ const users = {
   }
 }
 
+const sessionPluginOptions = {
+  cache: { segment: 'unique-cache-sement' },
+  cookie: { isSecure: false },
+  key: 'super-secret-cookie-encryption-key'
+}
+
 const validate = function (request, username, password, callback) {
   const user = users[username]
   if (!user) {
@@ -34,6 +40,7 @@ function composeServer (callback) {
     }
 
     server.auth.strategy('simple', 'basic', { validateFunc: validate })
+
 
     /**
      * Load all routes

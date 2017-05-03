@@ -12,9 +12,9 @@ const handlers = {
     returnURL = request.query.returnUrl
     request.session.firstName = request.payload.firstName
     request.session.lastName = request.payload.lastName
-
     // Full name
     request.session.holderName = request.session.firstName + " " + request.session.lastName
+
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {

@@ -4,6 +4,7 @@ const manifest = {
   server: {
     connections: {
       routes: {
+        //auth: 'session',
         auth: 'simple',
         validate: {
           options: {
@@ -60,6 +61,7 @@ const manifest = {
       plugin: {
         register: 'hapi-server-session',
         options: {
+          name: 'cathy',
           cookie: {
             isSecure: false
           }
@@ -81,6 +83,24 @@ const manifest = {
         register: 'hapi-auth-cookie'
       }
     }
+
+
+
+
+
+
+    //{
+      // plugin: {
+      //   register: 'yar',
+      //   options: {
+      //     storeBlank: false,
+      //     cookieOptions: {
+      //       password: 'the-password-must-be-at-least-32-characters-long',
+      //       isSecure: true
+      //     }
+      //   }
+      // }
+    //}
   ]
 }
 

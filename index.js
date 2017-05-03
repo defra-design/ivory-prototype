@@ -17,6 +17,7 @@ if (!module.parent) {
       path: '/foo',
       config: {
         auth: 'simple',
+        //auth: 'session',
         handler: function (request, reply) {
           reply({ ok: 200 })
         }
