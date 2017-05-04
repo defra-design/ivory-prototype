@@ -36,14 +36,15 @@
             Email or text it to me
           </label>
           <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-            <p>If a valid email is provided we will use this as the preferred method of contact.</p>
+            <!-- <p>If a valid email is provided we will use this as the preferred method of contact.</p> -->
             <label class="form-label" for="contact-email">Email address</label>
-            <input class="form-control" name="email" type="text" id="email" value="{{email}}"> <br>
-            <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <input class="form-control" name="mobile" type="text" id="mobile" value="{{mobile}}">
+            <input class="form-control" name="email" type="text" id="email" value="{{email}}">
             <div class="form-group">
               <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
-            </div>
+            </div> <br>
+            <label class="form-label" for="contact-text-message">Mobile phone number</label>
+            <input class="form-control" name="mobile" type="text" id="mobile" value="{{mobile}}">
+
           </div>
 
           <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
