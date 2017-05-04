@@ -29,31 +29,57 @@
       <div class="form-group">
         <fieldset>
 
-          <legend class="visually-hidden">How do you want to be contacted?</legend>
+          <legend class="visually-hidden">Can we send you your licence details?</legend>
 
-          <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
-            <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-            Email or text it to me
+          <label class="block-label selection-button-radio" data-target="contact-me" for="example-contact-me">
+            <input id="example-contact-me" type="radio" name="radio-contact-group" value="Yes">
+            Yes, email or text it to me
           </label>
-          <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-            <!-- <p>If a valid email is provided we will use this as the preferred method of contact.</p> -->
-            <label class="form-label" for="contact-email">Email address</label>
-            <input class="form-control" name="email" type="text" id="email" value="{{email}}">
-            <div class="form-group">
-              <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
-            </div> <br>
-            <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <input class="form-control" name="mobile" type="text" id="mobile" value="{{mobile}}">
+
+          <div class="panel panel-border-narrow js-hidden" id="contact-me">
+
+            <h2 class="heading-medium">How would you like to receive your licence confirmation</h2>
+            <legend class="visually-hidden">How do you want to be contacted?</legend>
+
+
+
+            <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
+        <input id="example-contact-by-email" type="radio" name="radio-contact-group-two" value="Yes">
+        Email
+      </label>
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+              <label class="form-label" for="contact-email">Email address</label>
+              <input class="form-control" name="email" type="text" id="email"> <br>
+              <div class="form-group">
+                <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
+              </div>
+            </div>
+
+            <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-by-text">
+                    <input id="example-contact-by-text" type="radio" name="radio-contact-group-two" value="No">
+                    Text message
+                  </label>
+            <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+              <label class="form-label" for="contact-text-message">Mobile phone number</label>
+              <input class="form-control" name="mobile" type="text" id="mobile">
+            </div>
+
+
+            <!-- <h2 class="heading-medium">Prefered message</h2>
+
+            <label class="block-label selection-button-radio">
+            <input id="example-contact-by-email" type="radio" name="radio-contact-prefered" value="Yes">
+
+            <label class="block-label selection-button-radio">
+        <input id="example-contact-by-email" type="radio" name="radio-contact-prefered" value="Yes"> -->
+
 
           </div>
 
-          <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
-            <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
-          </div>
-          <label class="block-label selection-button-radio" data-target="contact-by-phone" for="example-contact-by-phone">
-                  <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
-                  I will write it down
+
+          <label class="block-label selection-button-radio" data-target="contact-no" for="example-contact-no">
+                  <input id="example-contact-no" type="radio" name="radio-contact-group" value="No">
+                  No, I will write it down
                 </label>
           <!-- <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
                       <p>By selecting none of the above options you will be required to write down your licence number</p>
