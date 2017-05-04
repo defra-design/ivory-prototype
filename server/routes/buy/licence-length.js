@@ -28,6 +28,14 @@ const handlers = {
     })
   },
   post: function (request, reply) {
+
+
+    // Set global user variable
+    global.users = [],
+
+
+
+    
       returnURL = request.query.returnUrl
       request.session.licenceLength = request.payload.licence_length
       if (returnURL) {
