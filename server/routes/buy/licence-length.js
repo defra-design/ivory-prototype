@@ -1,5 +1,15 @@
 const handlers = {
   get: function (request, reply) {
+
+    // Set global user variable
+
+    if(!global.users) {
+      global.users = []
+    }
+
+
+
+
     return reply.view('licence-length', {
       pageTitle: 'What do you want to do?',
       errorMessage: 'Tell us what you want to do',
@@ -28,14 +38,6 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-
-
-    // Set global user variable
-    global.users = [],
-
-
-
-    
       returnURL = request.query.returnUrl
       request.session.licenceLength = request.payload.licence_length
       if (returnURL) {

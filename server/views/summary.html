@@ -2,7 +2,18 @@
     <div class="grid-row">
 
         <div class="column-two-thirds">
-            {{> common/back}} {{#if changeDetails}}
+            {{> common/back}}
+
+
+            <!-- <h2>  {{user1.licenceType}} - user one </h2>
+            <h2>  {{user2.licenceType}} - user two </h2>
+            <h2>  {{user3.licenceType}} - user three </h2>
+            <h2>  {{user4.licenceType}} - user four </h2> -->
+
+
+
+
+                  {{#if changeDetails}}
             <h1 class="heading-large">Update your details</h1>
             <table class="check-your-answers">
                 <tbody>
@@ -53,7 +64,6 @@
             </table>
             <br>
             <a class="button" href="/buy/details-updated">Continue</a> {{else}}
-
             <h1 class="heading-large">{{pageTitle}}</h1>
             <br> {{#if isJunior}} {{else}}
             <div class="notice">

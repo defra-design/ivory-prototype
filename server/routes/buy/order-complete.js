@@ -25,6 +25,10 @@ const handlers = {
       hasBothContact: request.session.hasBothContact,
       startTime: request.session.startTime,
       endTime: request.session.endTime,
+      user1 : global.users[0],
+      user2 : global.users[1],
+      user3 : global.users[2],
+      user4 : global.users[3],
     })
   },
   post: function (request, reply) {
