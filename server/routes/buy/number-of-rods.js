@@ -54,13 +54,13 @@ const handlers = {
       hasDisabledConcession: request.session.hasDisabledConcession,
       items: {
         one: {
-          text: 'Up to 2-rods for freshwater fish',
+          text: 'Up to 2 rods for freshwater fish',
           name: 'number_of_rods',
           id: 'Up to 2 rods',
           // selectedText: request.session.cost,
         },
         two: {
-          text: 'Up to 3-rods for freshwater fish',
+          text: 'Up to 3 rods for freshwater fish',
           name: 'number_of_rods',
           id: 'Up to 3 rods',
         }
