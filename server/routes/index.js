@@ -31,6 +31,7 @@ module.exports = [].concat(
   require('./buy/order-complete-three'),
   require('./buy/summary-two'),
   require('./buy/add-another'),
+  require('./buy/order-complete-multibuy'),
 
   // Contact screen ideas
   require('./contact-screen'),

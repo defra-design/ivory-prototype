@@ -4,15 +4,6 @@
         <div class="column-two-thirds">
             {{> common/back}}
 
-
-            <!-- <h2>  {{user1.licenceType}} - user one </h2>
-            <h2>  {{user2.licenceType}} - user two </h2>
-            <h2>  {{user3.licenceType}} - user three </h2>
-            <h2>  {{user4.licenceType}} - user four </h2> -->
-
-
-
-
                   {{#if changeDetails}}
             <h1 class="heading-large">Update your details</h1>
             <table class="check-your-answers">
@@ -275,7 +266,7 @@
                             Cost
                         </th>
                         <td class="data" id="cost-data">
-                            {{#if cost}} {{cost}} {{else}} Not supplied {{/if}}
+                            {{#if cost}} £{{cost}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer">
                             &nbsp;
@@ -286,11 +277,23 @@
 
                 </tbody>
             </table>
-            <!-- <br> {{#if isMultibuy}}
-            <p>
-                <a href="/buy/licence-length">Buy another licence</a>
-            </p>
-            {{/if}} -->
+</br>
+        {{#isnt count 0}}
+        <h2 class="heading-medium">Total cost</h2>
+        <table class="check-your-answers">
+            <tbody>
+                <tr>
+                    <th scope="row" style="width:30%;">
+                        Total cost
+                    </th>
+                    <td class="data" id="licence-type">
+                        {{#if totalCost}}  £{{totalCost}} {{else}}  £{{cost}} {{/if}}
+                    </td>
+            </tr>
+          </table>
+{{/isnt}}
+
+
             <br>
             <form method="post" autocomplete="off" novalidate>
                 <button type="submit" class="button">Continue</button>

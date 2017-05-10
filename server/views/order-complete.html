@@ -1,15 +1,6 @@
 <main id="summary-page">
     <div class="grid-row">
         <div class="column-two-thirds">
-
-
-          <h2>  {{user1.licenceType}} - user one </h2>
-          <h2>  {{user2.licenceType}} - user two </h2>
-          <h2>  {{user3.licenceType}} - user three </h2>
-          <h2>  {{user4.licenceType}} - user four </h2>
-
-
-
             <div class="govuk-box-highlight">
                 {{#if isUpgrade}}
                 <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isUpgradeLength}}
@@ -177,6 +168,8 @@
             </ul>
             <p class="text">Read the <a href="https://www.gov.uk/government/publications/environment-agency-annual-fisheries-report">annual fisheries report</a> for more detail about how we spend this money.</p>
             {{/if}}
+
+
             <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
             <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
             {{else}}
@@ -185,6 +178,9 @@
             <p>
                 <a href="/buy/clear-session" class="button" title="Exit service">Finished</a>
             </p>
+
+
+
         </div>
     </div>
 </main>

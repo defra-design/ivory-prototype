@@ -5,7 +5,11 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    return reply.redirect('../buy/order-complete')
+    if (global.users.length > 0) {
+      return reply.redirect('../buy/order-complete-multibuy')
+    } else {
+      return reply.redirect('../buy/order-complete')
+    }
   }
 }
 
