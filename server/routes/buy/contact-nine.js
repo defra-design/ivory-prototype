@@ -3,8 +3,7 @@ const handlers = {
   get: function (request, reply) {
 
     request.session.noContact = false
-
-    return reply.view('contact', {
+    return reply.view('contact-nine', {
       pageTitle: 'Can we send you your licence details?',
       errorMessage: 'Tell us how you would like to receive your licence details?',
       email: request.session.email,
@@ -37,14 +36,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/contact',
+  path: '/buy/contact-nine',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/contact',
+  path: '/buy/contact-nine',
   config: {
     handler: handlers.post
   }

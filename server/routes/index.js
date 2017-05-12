@@ -12,6 +12,7 @@ module.exports = [].concat(
   require('./buy/rods-two'),
   require('./buy/rods-three'),
   require('./buy/rods-four'),
+  require('./buy/rods-five'),
 
   // Analytics
   require('./analytics-screen'),
@@ -42,6 +43,9 @@ module.exports = [].concat(
   require('./buy/contact-four'),
   require('./buy/contact-five'),
   require('./buy/contact-six'),
+  require('./buy/contact-seven'),
+  require('./buy/contact-eight'),
+  require('./buy/contact-nine'),
 
   // Junior version two
   require('./junior-screen'),
@@ -112,8 +116,8 @@ module.exports = [].concat(
   require('./buy/email-address'),
 
   // Pay pages
-  require('./pay/enter-card-details'),
-  require('./pay/confirm-payment'),
+  require('./buy/enter-card-details'),
+  require('./buy/confirm-payment'),
 
   // Start pages
   require('./start-screen'),

@@ -12,7 +12,7 @@ const handlers = {
     } else if (request.session.isJunior === true) {
       return reply.redirect('order-complete')
     } else {
-      return reply.redirect('../pay/enter-card-details')
+      return reply.redirect('../buy/enter-card-details')
     }
   }
 }
