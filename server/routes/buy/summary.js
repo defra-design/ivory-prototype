@@ -3,9 +3,6 @@ const costCalc = require('../../lib/costs')
 const handlers = {
   get: function (request, reply) {
 
-     console.log(request.session)
-
-
     // Concession
     if (request.session.age > 65) {
       request.session.isConcession = true
@@ -139,8 +136,7 @@ const handlers = {
 
           var user = JSON.parse(JSON.stringify(request.session))
           global.users.push(user)
-          // Clear session
-          request.session = {}
+          
           
           return reply.redirect('terms-conditions')
         } else {

@@ -22,12 +22,6 @@ const handlers = {
       user4 : global.users[3],
       count : global.users.length
     })
-
-    console.log(user1.startText)
-    console.log(user1.startText)
-    console.log(user1.startText)
-    console.log(user1.startText)
-
   },
   post: function (request, reply) {
     return reply.redirect('conditions')

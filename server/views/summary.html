@@ -302,6 +302,9 @@
                     <th class="data" id="licence-type">
                         Cost
                     </th>
+                    <th class="data" id="licence-type">
+                        
+                    </th>
             </tr>
              <tr>
                     <td scope="row" style="width:30%;">
@@ -309,6 +312,9 @@
                     </td>
                     <td class="data" id="licence-type">
                         £{{cost}}
+                    </td>
+                     <td>
+                        <a href="">Remove licence</a>
                     </td>
             </tr>
         {{#if user1}}
@@ -320,6 +326,9 @@
                     <td class="data" id="licence-type">
                         £{{user1.cost}}
                     </td>
+                     <td>
+                        <a href="">Remove licence</a>
+                    </td>
             </tr>
 {{/if}}
  {{#if user2}}
@@ -329,6 +338,9 @@
                     </td>
                     <td class="data" id="licence-type">
                         £{{user2.cost}}
+                    </td>
+                     <td>
+                        <a href="">Remove licence</a>
                     </td>
             </tr>
 {{/if}}
@@ -341,6 +353,9 @@
                     <td class="data" id="licence-type">
                         £{{user3.cost}}
                     </td>
+                    <td>
+                        <a href="">Remove licence</a>
+                    </td>
             </tr>
 {{/if}}
  {{#if user4}}
@@ -351,6 +366,9 @@
                     <td class="data" id="licence-type">
                         £{{user4.cost}}
                     </td>
+                      <td>
+                        <a href="">Remove licence</a>
+                    </td>
             </tr>
 {{/if}}
             <tr>
@@ -359,6 +377,9 @@
                     </th>
                     <th class="data" id="licence-type">
                         {{#if totalCost}}  £{{totalCost}} {{else}}  £{{cost}} {{/if}}
+                    </th>
+                      <th>
+                        
                     </th>
             </tr>
           </table>
