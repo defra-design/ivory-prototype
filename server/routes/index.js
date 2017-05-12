@@ -114,8 +114,8 @@ module.exports = [].concat(
   require('./buy/email-address'),
 
   // Pay pages
-  require('./pay/enter-card-details'),
-  require('./pay/confirm-payment'),
+  require('./buy/enter-card-details'),
+  require('./buy/confirm-payment'),
 
   // Start pages
   require('./start-screen'),
