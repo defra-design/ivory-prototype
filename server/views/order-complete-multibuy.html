@@ -15,7 +15,7 @@
                 <div class="js-tab-content tab-content">
                     <div class="js-tab-pane tab-pane" id="{{user1.firstName}}">
                         <div class="govuk-box-highlight">
-                            {{#if isUpgrade}}
+                            {{#if user1.isUpgrade}}
                             <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                             <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                             <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
@@ -44,34 +44,34 @@
                                     <td>{{user1.holderName}}</td>
                                     <td>{{user1.numberOfRods}} {{user1.licenceType}}</td>
                                     <td>{{user1.licenceLength}}</td>
-                                    <td>{{user1.startDate}}</td>
-                                    <td>{{user1.endDate}}</td>
+                                    <td>{{user1.startDate}} {{user1.startMonth}} {{user1.startYear}} {{user1.startTime}}</td>
+                                    <td>{{user1.endDate}} {{user1.endMonth}} {{user1.endYear}} {{user1.endTime}}</td>
                                 </tr>
                             </tbody>
                         </table>
 
 
 
-                                    {{#if isFull}} {{#if isJunior}}
+                                    {{#if user1.isFull}} {{#if user1.isJunior}}
                                     <h2 class="heading-medium">We don’t send junior licences in the post</h2>
                                     <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
                                     </p>
-                                    {{#if noContact}}
+                                    {{#if user1.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user1.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user1.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user1.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -89,22 +89,22 @@
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
 
-                                    {{#if noContact}}
+                                    {{#if user1.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user1.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user1.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user1.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -119,22 +119,22 @@
                                         {{/if}} -->
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
-                                    {{#if noContact}}
+                                    {{#if user1.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user1.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user1.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user1.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -152,7 +152,7 @@
                                         <li>which fish you’re allowed to keep</li>
                                     </ul>
 
-                                    {{#if isSalmon}}
+                                    {{#if user1.isSalmon}}
                                     <h2 class="heading-medium">Remember to submit a catch return</h2>
                                     <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
                                     {{/if}} {{#if isJunior}} {{else}}
@@ -174,7 +174,7 @@
   {{#if user2}}
                     <div class="js-tab-pane tab-pane" id="{{user2.firstName}}">
                         <div class="govuk-box-highlight">
-                            {{#if isUpgrade}}
+                            {{#if user2.isUpgrade}}
                             <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                             <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                             <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
@@ -203,34 +203,34 @@
                                   <td>{{user2.holderName}}</td>
                                   <td>{{user2.numberOfRods}} {{user1.licenceType}}</td>
                                   <td>{{user2.licenceLength}}</td>
-                                  <td>{{user2.startDate}}</td>
-                                  <td>{{user2.endDate}}</td>
+                                  <td>{{user2.startDate}} {{user2.startMonth}} {{user2.startYear}} {{user2.startTime}}</td>
+                                <td>{{user2.endDate}} {{user2.endMonth}} {{user2.endYear}} {{user2.endTime}}</td>
                               </tr>
                             </tbody>
                         </table>
 
 
 
-                                    {{#if isFull}} {{#if isJunior}}
+                                    {{#if user2.isFull}} {{#if user2isJunior}}
                                     <h2 class="heading-medium">We don’t send junior licences in the post</h2>
                                     <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
                                     </p>
-                                    {{#if noContact}}
+                                    {{#if user2.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user2.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user2.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user2.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -248,22 +248,22 @@
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
 
-                                    {{#if noContact}}
+                                    {{#if user2.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user2.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user2.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user2.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -278,22 +278,22 @@
                                         {{/if}} -->
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
-                                    {{#if noContact}}
+                                    {{#if user2.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user2.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user2.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user2.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -311,7 +311,7 @@
                                         <li>which fish you’re allowed to keep</li>
                                     </ul>
 
-                                    {{#if isSalmon}}
+                                    {{#if user2.isSalmon}}
                                     <h2 class="heading-medium">Remember to submit a catch return</h2>
                                     <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
                                     {{/if}} {{#if isJunior}} {{else}}
@@ -335,7 +335,7 @@
                     <div class="js-tab-pane tab-pane" id="{{user3.firstName}}">
 
                         <div class="govuk-box-highlight">
-                            {{#if isUpgrade}}
+                            {{#if user3.isUpgrade}}
                             <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                             <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                             <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
@@ -365,8 +365,8 @@
                                   <td>{{user3.holderName}}</td>
                                   <td>{{user3.numberOfRods}} {{user1.licenceType}}</td>
                                   <td>{{user3.licenceLength}}</td>
-                                  <td>{{user3.startDate}}</td>
-                                  <td>{{user3.endDate}}</td>
+                                 <td>{{user3.startDate}} {{user3.startMonth}} {{user3.startYear}} {{user3.startTime}}</td>
+                                 <td>{{user3.endDate}} {{user3.endMonth}} {{user3.endYear}} {{user3.endTime}}</td>
                               </tr>
                             </tbody>
                         </table>
@@ -374,26 +374,26 @@
 
 
 
-                                    {{#if isFull}} {{#if isJunior}}
+                                    {{#if user3.isFull}} {{#if user3.isJunior}}
                                     <h2 class="heading-medium">We don’t send junior licences in the post</h2>
                                     <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
                                     </p>
-                                    {{#if noContact}}
+                                    {{#if user3.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user3.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user3.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user3.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -411,22 +411,22 @@
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
 
-                                    {{#if noContact}}
+                                    {{#if user3.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user3.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user3.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user3.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -441,22 +441,22 @@
                                         {{/if}} -->
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
-                                    {{#if noContact}}
+                                    {{#if user3.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user3.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user3.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user3.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -474,10 +474,10 @@
                                         <li>which fish you’re allowed to keep</li>
                                     </ul>
 
-                                    {{#if isSalmon}}
+                                    {{#if user3.isSalmon}}
                                     <h2 class="heading-medium">Remember to submit a catch return</h2>
                                     <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
-                                    {{/if}} {{#if isJunior}} {{else}}
+                                    {{/if}} {{#if user3.isJunior}} {{else}}
                                     <h2 class="heading-medium">How your licence money gets spent</h2>
                                     <p class="text">We use your fishing licence money to:</p>
                                     <ul class="list list-bullet">
@@ -498,7 +498,7 @@
                     <div class="js-tab-pane tab-pane" id="{{user4.firstName}}">
 
                         <div class="govuk-box-highlight">
-                            {{#if isUpgrade}}
+                            {{#if user4.isUpgrade}}
                             <h1 class="bold-large">You've successfully upgraded your licence</h1> {{else}} {{#if isJunior}}
                             <h1 class="bold-large">You've successfully ordered your licence</h1> {{else}}
                             <h1 class="bold-large">You've bought your licence</h1> {{/if}}{{/if}}
@@ -528,8 +528,8 @@
                                   <td>{{user4.holderName}}</td>
                                   <td>{{user4.numberOfRods}} {{user1.licenceType}}</td>
                                   <td>{{user4.licenceLength}}</td>
-                                  <td>{{user4.startDate}}</td>
-                                  <td>{{user4.endDate}}</td>
+                                  <td>{{user4.startDate}} {{user4.startMonth}} {{user4.startYear}} {{user4.startTime}}</td>
+                                  <td>{{user4.endDate}} {{user4.endMonth}} {{user4.endYear}} {{user4.endTime}}</td>
                               </tr>
                             </tbody>
                         </table>
@@ -538,26 +538,26 @@
 
 
 
-                                    {{#if isFull}} {{#if isJunior}}
+                                    {{#if user4.isFull}} {{#if user4.isJunior}}
                                     <h2 class="heading-medium">We don’t send junior licences in the post</h2>
                                     <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
                                     </p>
-                                    {{#if noContact}}
+                                    {{#if user4.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user4.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user4.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user4.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -575,22 +575,22 @@
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
 
-                                    {{#if noContact}}
+                                    {{#if user4.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user4.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user4.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user4.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -605,22 +605,22 @@
                                         {{/if}} -->
                                             <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
                                     </ol>
-                                    {{#if noContact}}
+                                    {{#if user4.noContact}}
                                     <p>We can also send you your licence confirmation:</p>
                                     <ol class="list">
                                         <li><a href="email-address">Email me my licence confirmation</a></li>
                                         <li><a href="mobile-number">Text me my licence confirmation</a></li>
                                     </ol>
                                     {{else}}
-                                    {{#if hasBothContact}}
+                                    {{#if user4.hasBothContact}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if email}}
+                                    {{#if user4.email}}
                                       <p>We will send your licence details to {{email}}.</p>
                                     {{else}}
 
-                                    {{#if mobile}}
+                                    {{#if user4.mobile}}
                                     <p>We will send your licence details to {{mobile}}.</p>
 
                                     {{/if}}{{/if}}{{/if}}{{/if}}
@@ -638,7 +638,7 @@
                                         <li>which fish you’re allowed to keep</li>
                                     </ul>
 
-                                    {{#if isSalmon}}
+                                    {{#if user4.isSalmon}}
                                     <h2 class="heading-medium">Remember to submit a catch return</h2>
                                     <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
                                     {{/if}} {{#if isJunior}} {{else}}

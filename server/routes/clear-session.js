@@ -5,6 +5,9 @@ const handlers = {
     request.session = {}
     return reply.redirect('/')
 
+    // Cear saved users
+    global.users = []
+
   },
 }
 

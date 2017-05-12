@@ -97,16 +97,34 @@
     </div>
     <div class="column-third">
 
+
+
+
         <div class="payment-summary-small">
             <h2>Payment summary</h2>
-            <p class="bold">{{#if isJunior}} Junior concession {{/if}} {{#if isSenior}} Senior concession{{/if}} {{#if hasDisabledConcession}} Disabled concession{{/if}} </p>
 
-            <p class="payment-info"><span class="bold">Licence type</span><br/>{{licenceType}}</p>
-            <p class="payment-info"><span class="bold">Licence length</span><br/>{{licenceLength}}</p>
-            <p class="payment-info"><span class="bold">Number of rods </span><br/>{{numberOfRods}}</p>
-            </p>
+{{#if user1}}
+            <p class="bold">{{#if user1.isJunior}} Junior concession {{/if}} {{#if user1.isSenior}} Senior concession{{/if}} {{#if user1.hasDisabledConcession}} Disabled concession{{/if}} </p>
+            <p class="payment-info">{{user1.licenceType}}, {{user1.licenceLength}}, {{user1.numberOfRods}}</p>
+{{/if}}
+{{#if user2}}
+       <p class="bold">{{#if user2.isJunior}} Junior concession {{/if}} {{#if user2.isSenior}} Senior concession{{/if}} {{#if user2.hasDisabledConcession}} Disabled concession{{/if}} </p>
+            <p class="payment-info">{{user2.licenceType}}, {{user2.licenceLength}}, {{user2.numberOfRods}}</p>
+{{/if}}      
+{{#if user3}}
+     <p class="bold">{{#if user3.isJunior}} Junior concession {{/if}} {{#if user3.isSenior}} Senior concession{{/if}} {{#if user3.hasDisabledConcession}} Disabled concession{{/if}} </p>
+            <p class="payment-info">{{user3.licenceType}}, {{user3.licenceLength}}, {{user3.numberOfRods}}</p>
+{{/if}}       
+{{#if user4}}
+      <p class="bold">{{#if user4.isJunior}} Junior concession {{/if}} {{#if user4.isSenior}} Senior concession{{/if}} {{#if user4.hasDisabledConcession}} Disabled concession{{/if}} </p>
+            <p class="payment-info">{{user4.licenceType}}, {{user4.licenceLength}}, {{user4.numberOfRods}}</p>
+{{/if}}      
+ 
+
+
+
             <h3>Amount to pay:</h3>
-            <p class="payment-amount"> {{cost}} </p>
+            <p class="payment-amount"> {{totalCost}} </p>
         </div>
 
 

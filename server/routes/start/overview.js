@@ -1,6 +1,8 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('index.html')
+    // Cear session
+    global.users = []
   }
 }
 

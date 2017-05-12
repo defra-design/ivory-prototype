@@ -1,5 +1,11 @@
+const costCalc = require('../../lib/costs')
+
 const handlers = {
   get: function (request, reply) {
+
+     // Total cost
+     var totalCost = costCalc.getTotalCost(request)
+
     return reply.view('confirm-payment', {
       pageTitle: 'Check your new licence details',
       licenceType: request.session.licenceType,
@@ -17,10 +23,21 @@ const handlers = {
       address: request.session.Address,
       email: request.session.email,
       nameOnLicence: request.session.holderName,
+      totalCost: totalCost,
+      user1 : global.users[0],
+      user2 : global.users[1],
+      user3 : global.users[2],
+      user4 : global.users[3],
+      count : global.users.length
     })
   },
   post: function (request, reply) {
-    return reply.redirect('../buy/order-complete')
+    if(request.session.multibuy = true) {
+      return reply.redirect('../buy/order-complete-multibuy')
+    } else {
+      return reply.redirect('../buy/order-complete')
+    }
+    
   }
 }
 

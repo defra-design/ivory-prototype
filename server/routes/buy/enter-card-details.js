@@ -1,5 +1,12 @@
+const costCalc = require('../../lib/costs')
+
 const handlers = {
   get: function (request, reply) {
+
+     // Total cost
+     var totalCost = costCalc.getTotalCost(request)
+
+
     return reply.view('enter-card-details', {
       pageTitle: 'Check your new licence details',
       licenceType: request.session.licenceType,
@@ -20,6 +27,12 @@ const handlers = {
       town: request.session.town,
       postcode: request.session.postcode,
       country: request.session.country,
+      totalCost: totalCost,
+      user1 : global.users[0],
+      user2 : global.users[1],
+      user3 : global.users[2],
+      user4 : global.users[3],
+      count : global.users.length
     })
   },
   post: function (request, reply) {
