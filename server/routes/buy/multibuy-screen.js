@@ -2,6 +2,11 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('multibuy-screen', {
     })
+
+    // Set global user variable
+    global.users = []
+
+
   },
   post: function (request, reply) {
     request.session.multibuy = true

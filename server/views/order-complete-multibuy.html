@@ -1,18 +1,21 @@
 <main id="summary-page">
     <div class="grid-row">
         <div class="column-two-thirds">
-            <section class="more">
+
+  {{#if user2}}<section class="more">{{/if}}
+              {{#if user2}}
                 <div class="js-tabs nav-tabs">
                     <ul>
-                        {{#if user1}}<li class="active"><a href="#{{user1.firstName}}">{{user1.firstName}}</a></li>{{/if}}
-                        {{#if user2}}<li><a href="#{{user2.firstName}}">{{user2.firstName}}</a></li>{{/if}}
-                        {{#if user3}}<li><a href="#{{user3.firstName}}">{{user3.firstName}}</a></li>{{/if}}
-                        {{#if user4}}<li><a href="#{{user4.firstName}}">{{user4.firstName}}</a></li>{{/if}}
+                        {{#if user1}}<li class="active"><a href="#{{user1.firstName}}">{{user1.firstName}} {{user1.lastName}}</a></li>{{/if}}
+                        {{#if user2}}<li><a href="#{{user2.firstName}}">{{user2.firstName}} {{user2.lastName}}</a></li>{{/if}}
+                        {{#if user3}}<li><a href="#{{user3.firstName}}">{{user3.firstName}} {{user3.lastName}}</a></li>{{/if}}
+                        {{#if user4}}<li><a href="#{{user4.firstName}}">{{user4.firstName}} {{user4.lastName}}</a></li>{{/if}}
                     </ul>
                 </div>
+                  {{/if}}
 
                 {{#if user1}}
-                <div class="js-tab-content tab-content">
+              {{#if user2}}  <div class="js-tab-content tab-content">{{/if}}
                     <div class="js-tab-pane tab-pane" id="{{user1.firstName}}">
                         <div class="govuk-box-highlight">
                             {{#if user1.isUpgrade}}
@@ -42,7 +45,11 @@
                             <tbody>
                                 <tr>
                                     <td>{{user1.holderName}}</td>
+                                    {{#if user1.isSalmon}}
+                                    <td>{{user1.licenceType}}</td>
+                                    {{else}}
                                     <td>{{user1.numberOfRods}} {{user1.licenceType}}</td>
+                                    {{/if}}
                                     <td>{{user1.licenceLength}}</td>
                                     <td>{{user1.startDate}} {{user1.startMonth}} {{user1.startYear}} {{user1.startTime}}</td>
                                     <td>{{user1.endDate}} {{user1.endMonth}} {{user1.endYear}} {{user1.endTime}}</td>
@@ -169,9 +176,9 @@
                                     {{/if}}
 
                     </div>
-{{/if}}
+                    {{/if}}
 
-  {{#if user2}}
+                  {{#if user2}}
                     <div class="js-tab-pane tab-pane" id="{{user2.firstName}}">
                         <div class="govuk-box-highlight">
                             {{#if user2.isUpgrade}}
@@ -201,7 +208,11 @@
                             <tbody>
                               <tr>
                                   <td>{{user2.holderName}}</td>
-                                  <td>{{user2.numberOfRods}} {{user1.licenceType}}</td>
+                                  {{#if user2.isSalmon}}
+                                  <td>{{user2.licenceType}}</td>
+                                  {{else}}
+                                  <td>{{user2.numberOfRods}} {{user2.licenceType}}</td>
+                                  {{/if}}
                                   <td>{{user2.licenceLength}}</td>
                                   <td>{{user2.startDate}} {{user2.startMonth}} {{user2.startYear}} {{user2.startTime}}</td>
                                 <td>{{user2.endDate}} {{user2.endMonth}} {{user2.endYear}} {{user2.endTime}}</td>
@@ -329,9 +340,9 @@
 
 
                     </div>
-{{/if}}
+                  {{/if}}
 
-  {{#if user3}}
+                  {{#if user3}}
                     <div class="js-tab-pane tab-pane" id="{{user3.firstName}}">
 
                         <div class="govuk-box-highlight">
@@ -363,7 +374,11 @@
                             <tbody>
                               <tr>
                                   <td>{{user3.holderName}}</td>
-                                  <td>{{user3.numberOfRods}} {{user1.licenceType}}</td>
+                                  {{#if user3.isSalmon}}
+                                  <td>{{user3.licenceType}}</td>
+                                  {{else}}
+                                  <td>{{user3.numberOfRods}} {{user3.licenceType}}</td>
+                                  {{/if}}
                                   <td>{{user3.licenceLength}}</td>
                                  <td>{{user3.startDate}} {{user3.startMonth}} {{user3.startYear}} {{user3.startTime}}</td>
                                  <td>{{user3.endDate}} {{user3.endMonth}} {{user3.endYear}} {{user3.endTime}}</td>
@@ -492,9 +507,9 @@
 
 
                     </div>
-{{/if}}
+                {{/if}}
 
-  {{#if user4}}
+                      {{#if user4}}
                     <div class="js-tab-pane tab-pane" id="{{user4.firstName}}">
 
                         <div class="govuk-box-highlight">
@@ -526,7 +541,11 @@
                             <tbody>
                               <tr>
                                   <td>{{user4.holderName}}</td>
-                                  <td>{{user4.numberOfRods}} {{user1.licenceType}}</td>
+                                  {{#if user4.isSalmon}}
+                                  <td>{{user4.licenceType}}</td>
+                                  {{else}}
+                                  <td>{{user4.numberOfRods}} {{user4.licenceType}}</td>
+                                  {{/if}}
                                   <td>{{user4.licenceLength}}</td>
                                   <td>{{user4.startDate}} {{user4.startMonth}} {{user4.startYear}} {{user4.startTime}}</td>
                                   <td>{{user4.endDate}} {{user4.endMonth}} {{user4.endYear}} {{user4.endTime}}</td>
@@ -657,8 +676,10 @@
 
                     </div>
                     {{/if}}
-                </div>
-            </section>
+                {{#if user2}}</div>{{/if}}
+          {{#if user2}}  </section>{{/if}}
+
+
 
 
 

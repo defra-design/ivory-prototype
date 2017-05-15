@@ -1,6 +1,5 @@
 const handlers = {
   get: function (request, reply) {
-
     return reply.view('order-complete', {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,

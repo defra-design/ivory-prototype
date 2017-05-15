@@ -1,6 +1,5 @@
 const handlers = {
   get: function (request, reply) {
-
     return reply.view('order-complete-multibuy', {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,
@@ -20,25 +19,20 @@ const handlers = {
       user2 : global.users[1],
       user3 : global.users[2],
       user4 : global.users[3],
-      count : global.users.length
+      count  : global.users.length
     })
-  },
-  post: function (request, reply) {
-    return reply.redirect('conditions')
+
+    // if (count > 1) {
+    //   tabs = true
+    // }
+
   }
 }
 
-module.exports = [{
+module.exports = {
   method: 'GET',
   path: '/buy/order-complete-multibuy',
   config: {
     handler: handlers.get
   }
-},
-{
-  method: 'POST',
-  path: '/buy/order-complete-multibuy',
-  config: {
-    handler: handlers.post
-  }
-}]
+}

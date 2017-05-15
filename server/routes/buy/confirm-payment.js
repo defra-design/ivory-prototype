@@ -28,7 +28,14 @@ const handlers = {
       user2 : global.users[1],
       user3 : global.users[2],
       user4 : global.users[3],
-      count : global.users.length
+      count : global.users.length,
+      expiryMonth: request.session.expiryMonth,
+      expiryYear: request.session.expiryYear,
+      nameOnCard: request.session.nameOnCard,
+      billingPremises: request.session.billingPremises,
+      billingStreet: request.session.billingStreet,
+      billingTown: request.session.billingTown,
+      billingPostcode: request.session.billingPostcode,
     })
   },
   post: function (request, reply) {
@@ -37,7 +44,7 @@ const handlers = {
     } else {
       return reply.redirect('../buy/order-complete')
     }
-    
+
   }
 }
 

@@ -130,14 +130,20 @@ const handlers = {
 
 
 
+    if (request.session.multibuy === true) {
+
+      // Make a copy of the current user and save it in our new array.
+      if (global.users.length <= 4) {
+        var user = JSON.parse(JSON.stringify(request.session))
+        global.users.push(user)
+      }
+
+    }
+
+
 
     if (request.session.multibuy === true) {
-        if (users.length >= 3) {
-
-          var user = JSON.parse(JSON.stringify(request.session))
-          global.users.push(user)
-          
-          
+      if (global.users.length >= 4) {
           return reply.redirect('terms-conditions')
         } else {
           return reply.redirect('add-another')

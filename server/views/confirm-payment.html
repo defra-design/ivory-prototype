@@ -13,27 +13,23 @@
                     </tr>
                     <tr>
                         <td>Expiry date:</td>
-                        <td class="table-info">{{endText}}</td>
+                        <td class="table-info">{{expiryMonth}} {{expiryYear}}</td>
                     </tr>
                     <tr>
                         <td>Name on card:</td>
-                        <td class="table-info">{{nameOnLicence}}</td>
+                        <td class="table-info">{{nameOnCard}}</td>
                     </tr>
                     <tr>
                         <td>Billing address:</td>
-                        <td class="table-info">{{address}}</td>
+                        <td class="table-info">{{billingPremises}}, {{billingStreet}}, {{billingTown}}, {{billingPostcode}}</td>
                     </tr>
                     <tr>
                         <td>Email address:</td>
-                        <td class="table-info">{{email}}</td>
-                    </tr>
-                    <tr>
-                        <td>Payment of:</td>
-                        <td class="table-info">{{licenceType}} licence, {{numberOfRods}}, {{licenceLength}}</td>
+                        <td class="table-info">{{user1.email}}</td>
                     </tr>
                     <tr>
                         <td>Amount to pay:</td>
-                        <td class="table-info">{{cost}}</td>
+                        <td class="table-info">£{{totalCost}}</td>
                     </tr>
                 </tbody>
             </table>

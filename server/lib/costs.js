@@ -1,6 +1,11 @@
 module.exports = {
   getTotalCost: function (request) {
-    var totalCost = request.session.cost
+    if (request.session.cost) {
+      var totalCost = request.session.cost
+    } else {
+      var totalCost = 0
+    }
+
     for (var i = 0; i < global.users.length; i++) {
       totalCost += global.users[i].cost;
     }

@@ -2,13 +2,9 @@ const handlers = {
   get: function (request, reply) {
 
     // Set global user variable
-
     if(!global.users) {
       global.users = []
     }
-
-
-
 
     return reply.view('licence-length', {
       pageTitle: 'What do you want to do?',
