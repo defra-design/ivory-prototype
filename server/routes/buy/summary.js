@@ -79,11 +79,6 @@ const handlers = {
     }
 
 
-    // // Make a copy of the current user and save it in our new array.
-    // var user = JSON.parse(JSON.stringify(request.session))
-    // global.users.push(user)
-
-
     // Total cost
     var totalCost = costCalc.getTotalCost(request)
 

@@ -3,10 +3,11 @@ const handlers = {
 
     // Cear session
     request.session = {}
-    return reply.redirect('/')
-
     // Cear saved users
     global.users = []
+    return reply.redirect('/')
+
+
 
   },
 }

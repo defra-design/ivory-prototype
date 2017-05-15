@@ -4,6 +4,10 @@ module.exports = [].concat(
   require('./feedback'),
   require('./feedback-thankyou'),
   require('./clear-session'),
+  require('./remove-user-one'),
+  require('./remove-user-two'),
+  require('./remove-user-three'),
+  require('./remove-user-four'),
   require('./landing'),
 
 
