@@ -7,7 +7,6 @@ module.exports = [].concat(
   require('./remove-user-one'),
   require('./remove-user-two'),
   require('./remove-user-three'),
-  require('./remove-user-four'),
   require('./landing'),
 
 

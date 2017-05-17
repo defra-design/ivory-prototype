@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    global.users.splice(0, 2);
+    global.users.splice(1, 2);
     return reply.redirect('/buy/summary')
   },
 }
