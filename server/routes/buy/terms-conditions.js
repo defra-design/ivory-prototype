@@ -7,9 +7,7 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    if (request.session.juniorDownload === true) {
-      return reply.redirect('download-complete')
-    } else if (request.session.isJunior === true) {
+    if (request.session.isJunior === true) {
       return reply.redirect('order-complete')
     } else {
       return reply.redirect('../buy/enter-card-details')

@@ -19,15 +19,15 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-  
-    // Clear session
-    request.session = {}
 
-    request.session.multibuy = true
     var multibuy = request.payload.multibuy
     if (multibuy === 'yes') {
+      // Clear session
+      request.session = {}
+      request.session.multibuy = true
       return reply.redirect('licence-length')
     } else {
+      request.session.multibuy = true
       return reply.redirect('terms-conditions')
     }
   }

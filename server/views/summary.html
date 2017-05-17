@@ -279,7 +279,7 @@
                             Cost
                         </th>
                         <td class="data" id="cost-data">
-                            {{#if cost}} £{{cost}} {{else}} Not supplied {{/if}}
+                            {{#if cost}} £{{cost}} {{else}} {{#if hasNoCost}} £0.00 {{else}} Not supplied {{/if}} {{/if}}
                         </td>
                         <td class="change-answer">
                             &nbsp;
@@ -295,7 +295,7 @@
         <h2 class="heading-medium">Total cost</h2>
         <table class="check-your-answers">
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row" style="width:30%;">
                         Name on licence
                     </th>
@@ -305,7 +305,7 @@
                     <th class="data" id="licence-type">
 
                     </th>
-            </tr>
+            </tr> -->
              <!-- <tr>
                     <td scope="row" style="width:30%;">
                         {{nameOnLicence}}
@@ -314,15 +314,15 @@
                         £{{cost}}
                     </td>
                      <td>
-                        
+
                     </td>
             </tr> -->
         {{#if user1}}
 
             <tr>
-                    <td scope="row" style="width:30%;">
+                    <th scope="row" style="width:30%;">
                         {{user1.holderName}}
-                    </td>
+                    </th>
                     <td class="data" id="licence-type">
                         £{{user1.cost}}
                     </td>
@@ -333,9 +333,9 @@
 {{/if}}
  {{#if user2}}
             <tr>
-                    <td scope="row" style="width:30%;">
+                    <th scope="row" style="width:30%;">
                         {{user2.holderName}}
-                    </td>
+                    </th>
                     <td class="data" id="licence-type">
                         £{{user2.cost}}
                     </td>
@@ -347,9 +347,9 @@
  {{#if user3}}
 
             <tr>
-                    <td scope="row" style="width:30%;">
+                    <th scope="row" style="width:30%;">
                         {{user3.holderName}}
-                    </td>
+                    </th>
                     <td class="data" id="licence-type">
                         £{{user3.cost}}
                     </td>

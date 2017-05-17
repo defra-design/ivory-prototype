@@ -38,7 +38,8 @@ module.exports = {
         request.session.isFull = true;
       // Junior
       if (request.session.age < 17 ) {
-        request.session.cost = 00
+        request.session.cost = 0
+        request.session.hasNoCost = true
       }
       // Salmon
       if (request.session.licenceType === 'Salmon and sea trout') {
@@ -72,7 +73,8 @@ module.exports = {
 
 
     if (request.session.isJunior === true) {
-      request.session.cost = 00
+      request.session.cost = 0
+      request.session.hasNoCost = true
     }
 
     // Upgrade costs

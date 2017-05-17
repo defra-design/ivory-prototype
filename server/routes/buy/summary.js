@@ -98,6 +98,7 @@ const handlers = {
       startText: request.session.startText,
       startTime: request.session.startTime,
       cost: request.session.cost,
+      hasNoCost: request.session.hasNoCost,
       totalCost: totalCost,
       isJunior:  request.session.isJunior,
       isSenior: request.session.isSenior,
@@ -134,7 +135,6 @@ const handlers = {
       }
 
     }
-
 
 
     if (request.session.multibuy === true) {
