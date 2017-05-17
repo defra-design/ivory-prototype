@@ -1,5 +1,6 @@
 const handlers = {
   get: function (request, reply) {
+
     return reply.view('terms-conditions', {
       pageTitle: 'Licence conditions',
       errorMessage: 'You must agree to the terms and conditions to continue',
@@ -7,11 +8,23 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    if (request.session.isJunior === true) {
-      return reply.redirect('order-complete')
+
+    if (request.session.multibuy === true) {
+      if (global.users[0].cost > 0 || global.users[1].cost > 0 || global.users[2].cost > 0 || global.users[3].cost > 0) {
+        return reply.redirect('../buy/enter-card-details')
+      } else {
+        return reply.redirect('order-complete-multibuy')
+      }
     } else {
-      return reply.redirect('../buy/enter-card-details')
+      if (request.session.isJunior === true) {
+        return reply.redirect('order-complete')
+      } else {
+        return reply.redirect('../buy/enter-card-details')
+      }
     }
+
+
+
   }
 }
 

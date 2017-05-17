@@ -136,7 +136,6 @@ const handlers = {
 
     }
 
-
     if (request.session.multibuy === true) {
       if (global.users.length >= 4) {
           return reply.redirect('terms-conditions')
