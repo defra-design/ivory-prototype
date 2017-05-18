@@ -1,5 +1,11 @@
 const handlers = {
   get: function (request, reply) {
+
+    // Clear session
+    request.session = {}
+
+
+
     return reply.view('order-complete-multibuy', {
       pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,
@@ -21,11 +27,6 @@ const handlers = {
       user4 : global.users[3],
       count  : global.users.length
     })
-
-    // if (count > 1) {
-    //   tabs = true
-    // }
-
   }
 }
 

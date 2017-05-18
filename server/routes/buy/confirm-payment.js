@@ -39,7 +39,7 @@ const handlers = {
     })
   },
   post: function (request, reply) {
-    if(request.session.multibuy = true) {
+    if(request.session.multibuy === true) {
       return reply.redirect('../buy/order-complete-multibuy')
     } else {
       return reply.redirect('../buy/order-complete')

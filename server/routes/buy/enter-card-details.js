@@ -3,10 +3,6 @@ const costCalc = require('../../lib/costs')
 const handlers = {
   get: function (request, reply) {
 
-
-    // Clear session
-    request.session = {}
-
      // Total cost
      var totalCost = costCalc.getTotalCost(request)
 
