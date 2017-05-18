@@ -1,5 +1,13 @@
+const costCalc = require('../../lib/costs')
+
 const handlers = {
   get: function (request, reply) {
+
+    costCalc.applyCosts(request)
+
+    // Total cost
+    var totalCost = costCalc.getTotalCost(request)
+
 
     return reply.view('terms-conditions', {
       pageTitle: 'Licence conditions',
@@ -10,17 +18,21 @@ const handlers = {
   post: function (request, reply) {
 
     if (request.session.multibuy === true) {
-      if (global.users[0].cost > 0 || global.users[1].cost > 0 || global.users[2].cost > 0 || global.users[3].cost > 0) {
-        return reply.redirect('../buy/enter-card-details')
-      } else {
+
+      if (costCalc.getTotalCost(request) <= 0) {
         return reply.redirect('order-complete-multibuy')
+      } else {
+        return reply.redirect('../buy/enter-card-details')
       }
+
     } else {
+
       if (request.session.isJunior === true) {
         return reply.redirect('order-complete')
       } else {
         return reply.redirect('../buy/enter-card-details')
       }
+
     }
 
 
