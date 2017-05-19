@@ -138,9 +138,9 @@ const handlers = {
 
     if (request.session.multibuy === true) {
       if (global.users.length >= 4) {
-          return reply.redirect('terms-conditions')
+          return reply.redirect('buy-another-licence')
         } else {
-          return reply.redirect('add-another')
+          return reply.redirect('buy-another-licence')
         }
     } else {
       return reply.redirect('terms-conditions')

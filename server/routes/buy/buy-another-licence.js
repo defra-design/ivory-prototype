@@ -1,7 +1,12 @@
+const costCalc = require('../../lib/costs')
+
 const handlers = {
   get: function (request, reply) {
 
-    return reply.view('add-another', {
+    // Total cost
+    var totalCost = costCalc.getTotalCost(request)
+
+    return reply.view('buy-another-licence', {
       pageTitle: 'Do you want to buy another licence?',
       errorMessage: 'Tell us if you want to buy another licence',
       items: {
@@ -15,7 +20,14 @@ const handlers = {
           name: 'multibuy',
           id: 'no',
         },
-      }
+      },
+      totalCost: totalCost,
+      isMultibuy: request.session.multibuy,
+      user1 : global.users[0],
+      user2 : global.users[1],
+      user3 : global.users[2],
+      user4 : global.users[3],
+      count : global.users.length
     })
   },
   post: function (request, reply) {
@@ -35,14 +47,14 @@ const handlers = {
 
 module.exports = [{
   method: 'GET',
-  path: '/buy/add-another',
+  path: '/buy/buy-another-licence',
   config: {
     handler: handlers.get
   }
 },
 {
   method: 'POST',
-  path: '/buy/add-another',
+  path: '/buy/buy-another-licence',
   config: {
     handler: handlers.post
   }

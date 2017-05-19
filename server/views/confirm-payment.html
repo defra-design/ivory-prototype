@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td>Amount to pay:</td>
-                        <td class="table-info">£{{totalCost}}</td>
+                        <td class="table-info">{{#if totalCost}} £{{totalCost}} {{else}} £{{cost}} {{/if}}</td>
                     </tr>
                 </tbody>
             </table>

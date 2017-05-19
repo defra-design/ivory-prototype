@@ -1,0 +1,142 @@
+<div class="grid-row">
+    <div class="column-two-thirds reducemargin">
+        {{> common/back}}
+
+
+
+        {{#isnt count 1}}
+        <h1 class="heading-large">Your licences</h1>
+        <!-- <h2 class="heading-medium">Total cost</h2> -->
+        <table class="check-your-answers">
+            <tbody>
+
+        {{#if user1}}
+
+            <tr>
+                    <td scope="row" style="width:30%;">
+                        {{user1.licenceLength}} - {{user1.licenceType}}
+                    </td>
+                    <!-- <td scope="row" style="width:30%;">
+                        {{user1.licenceLength}}
+                    </td> -->
+                    <td>
+                        {{#if user1.isJunior}} Junior {{else}}  {{#if user1.isSenior}} Senior {{else}} {{#if user1.hasDisabledConcession}} Disabled  {{else}} No  {{/if}} {{/if}} {{/if}} concession
+                    </td>
+                    <td class="data" id="licence-type">
+                        £{{user1.cost}}
+                    </td>
+                     <td>
+                        <a href="/buy/remove-user-one">Remove licence</a>
+                    </td>
+            </tr>
+{{/if}}
+ {{#if user2}}
+            <tr>
+                    <td scope="row" style="width:30%;">
+                        {{user2.licenceLength}} - {{user2.licenceType}}
+                    </td>
+                    <!-- <td scope="row" style="width:30%;">
+                        {{user2.licenceLength}}
+                    </td> -->
+                    <td>
+                        {{#if user2.isJunior}} Junior {{else}}  {{#if user2.isSenior}} Senior {{else}} {{#if user2.hasDisabledConcession}} Disabled  {{else}} No  {{/if}} {{/if}} {{/if}} concession
+                    </td>
+                    <td class="data" id="licence-type">
+                        £{{user2.cost}}
+                    </td>
+                     <td>
+                    <a href="/buy/remove-user-two">Remove licence</a>
+                    </td>
+            </tr>
+{{/if}}
+ {{#if user3}}
+
+            <tr>
+                    <td scope="row" style="width:30%;">
+                      {{user3.licenceLength}} - {{user3.licenceType}}
+                    </td>
+                    <!-- <td scope="row" style="width:30%;">
+                        {{user3.licenceLength}}
+                    </td> -->
+                    <td>
+                        {{#if user3.isJunior}} Junior {{else}}  {{#if user3.isSenior}} Senior {{else}} {{#if user3.hasDisabledConcession}} Disabled  {{else}} No  {{/if}} {{/if}} {{/if}} concession
+                    </td>
+                    <td class="data" id="licence-type">
+                        £{{user3.cost}}
+                    </td>
+                    <td>
+                      <a href="/buy/remove-user-three">Remove licence</a>
+                    </td>
+            </tr>
+{{/if}}
+  {{#if user4}}
+            <tr>
+                    <td scope="row" style="width:30%;">
+                        {{user4.licenceLength}} - {{user4.licenceType}} 
+                    </td>
+                    <!-- <td scope="row" style="width:30%;">
+                        {{user4.licenceLength}}
+                    </td> -->
+                    <td>
+                        {{#if user4.isJunior}} Junior {{else}}  {{#if user4.isSenior}} Senior {{else}} {{#if user4.hasDisabledConcession}} Disabled  {{else}} No  {{/if}} {{/if}} {{/if}} concession
+                    </td>
+                    <td class="data" id="licence-type">
+                        £{{user4.cost}}
+                    </td>
+                      <td>
+                      <a href="/buy/remove-user-four">Remove licence</a>
+                    </td>
+            </tr>
+{{/if}}
+            <tr>
+                    <th scope="row" style="width:30%;">
+                        Total cost
+                    </th>
+                    <th class="data">
+                        {{#isnt totalCost 0}} £{{totalCost}}  {{/isnt}}
+
+                        {{#is totalCost 0}} £{{totalCost}}  {{/is}}
+                    </th>
+                      <th>
+
+                    </th>
+                    <th>
+
+                  </th>
+            </tr>
+          </table>
+</br>
+{{/isnt}}
+
+
+
+{{#isnt count 4}}
+<h1 class="heading-large">{{pageTitle}}</h1>
+        <form method="post" autocomplete="off" novalidate>
+            <div class="form-group {{#if errors}}error{{/if}}">
+                <fieldset class="inline" data-required data-error="{{errorMessage}}">
+                    <div class="form-group">
+                        {{#each items}}
+                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}}data-target="{{name}}_text" {{/if}}>
+                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
+                      {{text}}
+                      {{#if subText}}
+                        <br>{{subText}}
+                      {{/if}}
+                    </label> {{#if selectedText}}
+                        <div class="panel panel-border-narrow js-hidden" id="{{name}}_text">
+                            <p>{{selectedText}}</p>
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </fieldset>
+            </div>
+            <button type="submit" class="button">Continue</button>
+        </form>
+        {{/isnt}}
+{{#is count 4}}
+        <p><a href="terms-conditions"  class="button">Continue</a></p>
+        <p>A maximum of 4 license can be bought in one transaction.</p>
+              {{/is}}
+    </div>
+</div>

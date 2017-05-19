@@ -7,6 +7,7 @@ module.exports = [].concat(
   require('./remove-user-one'),
   require('./remove-user-two'),
   require('./remove-user-three'),
+  require('./remove-user-four'),
   require('./landing'),
 
 
@@ -34,7 +35,7 @@ module.exports = [].concat(
   require('./buy/order-complete-two'),
   require('./buy/order-complete-three'),
   require('./buy/summary-two'),
-  require('./buy/add-another'),
+  require('./buy/buy-another-licence'),
   require('./buy/order-complete-multibuy'),
 
   // Contact screen ideas
