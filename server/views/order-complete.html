@@ -58,8 +58,8 @@
             <p>If our bailiffs ask to see your licence, you must show them proof of your licence. <a href="javascript:window.print();">Print out this page</a> or make a note of your licence number.
             </p>
             {{#if noContact}}
-            <p>We can also send you your licence confirmation:</p>
-            <ol class="list">
+            <p class="print-hide">We can also send you your licence confirmation:</p>
+            <ol class="list print-hide">
                 <li><a href="email-address">Email me my licence confirmation</a></li>
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
@@ -91,8 +91,8 @@
             </ol>
 
             {{#if noContact}}
-            <p>We can also send you your licence confirmation:</p>
-            <ol class="list">
+            <p class="list print-hide">We can also send you your licence confirmation:</p>
+            <ol class="list print-hide">
                 <li><a href="email-address">Email me my licence confirmation</a></li>
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
@@ -121,8 +121,8 @@
                     <li><span class="heavy">proof of your identity</span>, such as your driver's licence or other photo ID</li>
             </ol>
             {{#if noContact}}
-            <p>We can also send you your licence confirmation:</p>
-            <ol class="list">
+            <p class="list list print-hide">We can also send you your licence confirmation:</p>
+            <ol class="list list print-hide">
                 <li><a href="email-address">Email me my licence confirmation</a></li>
                 <li><a href="mobile-number">Text me my licence confirmation</a></li>
             </ol>
@@ -157,7 +157,8 @@
             <h2 class="heading-medium">Remember to submit a catch return</h2>
             <p class="text">You must <a href="https://www.gov.uk/catch-return">report a catch return</a> to tell us how many salmon and sea trout you’ve caught.</p>
             {{/if}} {{#if isJunior}} {{else}}
-            <h2 class="heading-medium">How your licence money gets spent</h2>
+
+            <h2 class="heading-medium print-hide">How your licence money gets spent</h2>
             <p class="text">We use your fishing licence money to:</p>
             <ul class="list list-bullet">
                 <li>improve angling facilities and fish habitats</li>
@@ -170,13 +171,13 @@
             {{/if}}
 
 
-            <h2 class="heading-medium">Your feedback</h2> {{#if isJunior}}
-            <p><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
+            <h2 class="heading-medium print-hide">Your feedback</h2> {{#if isJunior}}
+            <p class="print-hide"><a href="#">Tell us what you think about getting your licence</a> (takes 30 seconds)</p>
             {{else}}
-            <p><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
+            <p class="print-hide"><a href="#">Tell us what you think about buying your licence</a> (takes 30 seconds)</p>
             {{/if}}
-            <p>
-                <a href="/buy/clear-session" class="button" title="Exit service">Finished</a>
+            <p class="print-hide">
+                <a href="/buy/clear-session" class="button print-hide" title="Exit service">Finished</a>
             </p>
 
 
