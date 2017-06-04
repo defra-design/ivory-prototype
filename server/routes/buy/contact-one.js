@@ -2,8 +2,8 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('contact-one', {
-      pageTitle: 'How would you like to receive your licence details?',
-      errorMessage: 'Choose a licence type',
+      pageTitle: 'Can we send you your licence details?',
+      errorMessage: 'Can we send you your licence details?',
       email: request.session.email,
       mobile: request.session.mobile,
       is365Contact: request.session.is365Contact,
