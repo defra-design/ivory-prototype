@@ -2,25 +2,30 @@
   <div class="column-two-thirds reducemargin">
     {{> common/back}}
     <h1 class="heading-large">{{pageTitle}}</h1>
-    <p>We will send your licence confirmation and expiry reminders.</p>
-
-
     <div class="panel panel-border-wide">
-        {{#if isJunior}}
-      <p>
-        We don’t send junior licences in the post.
-      </p>
-        {{else}} {{#if isFull}}
+
+      <!-- <p>
+        We don’t send junior licences in the post. Choose how you would like to receive your licence confirmation and expiry reminders.
+      </p> -->
+
         <p>
-          Your licence will arrive in the post within 10 working days. To go fishing before you receive it, you must be able to produce your licence confirmation.
+          Your licence will arrive in the post within 10 working days. You can go fishing before you receive it, but you must be able to produce your licence confirmation.
         </p>
-        {{else}}
         <p>
-          We don’t send 1-day or 8-day licences in the post.
+          Choose how you would like to receive this licence confirmation and your expiry reminders.
         </p>
-        {{/if}} {{/if}}
+
+
+        <!-- <p>
+          We don’t send 1-day or 8-day licences in the post. Choose how you would like to receive your licence confirmation and expiry reminders.
+        </p> -->
+
 
     </div>
+
+    <!-- <p>Choose how you would like to receive your licence confirmation and expiry reminders.</p> -->
+
+
 
 
     <form method="post" autocomplete="off" novalidate>
@@ -31,7 +36,7 @@
 
                 <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
                 <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-                Yes, send me my licence details
+                Email or text me my licence details
               </label>
                 <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
                     <label class="form-label" for="contact-email">Email address</label>
@@ -49,11 +54,11 @@
                 </div>
                 <label class="block-label selection-button-radio" data-target="write" for="example-contact-by-phone">
               <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
-              No, I will write down my licence confirmation
+              I will write down my licence confirmation
             </label>
-                <div class="panel panel-border-narrow js-hidden" id="write">
+                <!-- <div class="panel panel-border-narrow js-hidden" id="write">
                     <p>We will write to you when your licence is about to expire.</p>
-                </div>
+                </div> -->
             </fieldset>
         </div>
 

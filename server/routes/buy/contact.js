@@ -5,7 +5,7 @@ const handlers = {
     request.session.noContact = false
 
     return reply.view('contact', {
-      pageTitle: 'Can we send you your licence details?',
+      pageTitle: 'How can we send you your licence details?',
       errorMessage: 'Tell us how you would like to receive your licence details?',
       email: request.session.email,
       mobile: request.session.mobile,
