@@ -23,54 +23,44 @@
     </div>
 
 
-
-
     <form method="post" autocomplete="off" novalidate>
-      <div class="form-group">
-        <fieldset>
+        <div class="form-group">
+            <fieldset>
 
-          <legend class="visually-hidden">Can we send you your licence details?</legend>
+                <legend class="visually-hidden">Can we send you your licence details?</legend>
 
-          <label class="block-label selection-button-radio" data-target="contact-me" for="example-contact-me">
-            <input id="example-contact-me" type="radio" name="radio-contact-group" value="Yes">
-            Yes, email it to me
-          </label>
+                <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
+                <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
+                Yes, send me my licence details
+              </label>
+                <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                    <label class="form-label" for="contact-email">Email address</label>
+                    <!-- <input class="form-control" name="contact-email" type="text" id="contact-email"> -->
+                    <input class="form-control" id="email" name="email" value="{{email}}" type="email"> <br>
+                    <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                    <!-- <input class="form-control" name="contact-text-message" type="text" id="contact-text-message"> -->
+                    <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
+                    </br>
+                    <!-- <div class="form-group">
+                        <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
+                    </div> -->
+                    <br>
+                    <a href="/buy/data-protection">View our data protection notice</a>
+                </div>
+                <label class="block-label selection-button-radio" data-target="write" for="example-contact-by-phone">
+              <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
+              No, I will write down my licence confirmation
+            </label>
+                <div class="panel panel-border-narrow js-hidden" id="write">
+                    <p>We will write to you when your licence is about to expire.</p>
+                </div>
+            </fieldset>
+        </div>
 
-          <div class="panel panel-border-narrow js-hidden" id="contact-me">
-            <label class="form-label" for="contact-email">Email address</label>
-            <input class="form-control" name="email" type="text" id="email"> <br>
-            <div class="form-group">
-              <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates?
-            </div>
-          </div>
-
-          <label class="block-label selection-button-radio" data-target="contact-by-text" for="example-contact-me-text">
-            <input id="example-contact-me-text" type="radio" name="radio-contact-group" value="Yes">
-            Yes, text it to me
-          </label>
-
-          <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
-            <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <input class="form-control" name="mobile" type="text" id="mobile">
-          </div>
-
-
-
-
-
-          <label class="block-label selection-button-radio" data-target="contact-no" for="example-contact-no">
-                  <input id="example-contact-no" type="radio" name="radio-contact-group" value="No">
-                  No, I will write it down
-                </label>
-          <!-- <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
-                      <p>By selecting none of the above options you will be required to write down your licence number</p>
-                  </div> -->
-      </div>
-      <div class="form-group">
-        </fieldset>
-      </div>
-      <button type="submit" class="button">Continue</button>
+        <button type="submit" class="button">Continue</button>
     </form>
+
+
     <br>
     <a href="/buy/data-protection">View our data protection notice</a>
   </div>
