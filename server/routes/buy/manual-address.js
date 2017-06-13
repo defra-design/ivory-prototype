@@ -43,12 +43,14 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      if (request.session.isJunior === true || request.session.isSenior === true) {
-        return reply.redirect('licence-type')
+      if (request.session.isJunior === true) {
+        return reply.redirect('disability')
+      } else if (request.session.isSenior === true) {
+        return reply.redirect('licence-start-type')
       } else if (request.session.isFull === true) {
         return reply.redirect('disability')
       } else {
-        return reply.redirect('licence-type')
+        return reply.redirect('licence-start-option')
       }
     }
   }

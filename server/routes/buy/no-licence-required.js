@@ -2,7 +2,6 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('no-licence-required', {
       pageTitle: 'You do not need a licence',
-      pageMessage: 'You do not need a licence because you are under 12 years of age.',
       isMultibuy: request.session.multibuy,
       user1 : global.users[0],
       user2 : global.users[1],

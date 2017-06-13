@@ -23,7 +23,7 @@ const handlers = {
         return reply.redirect('summary')
       }
       } else {
-      return reply.redirect('licence-type')
+      return reply.redirect('licence-start-option')
     }
   }
 }

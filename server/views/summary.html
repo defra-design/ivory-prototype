@@ -95,7 +95,7 @@
                         </td>
                     </tr>
 
-                  <!--  <tr>
+                   <tr>
                         <th scope="row">
                             Email address
                         </th>
@@ -107,9 +107,9 @@
                 Change <span class="visuallyhidden">email</span>
               </a>
                         </td>
-                    </tr>-->
+                    </tr>
 
-                  <!--     <tr>
+                      <tr>
                         <th scope="row">
                             Mobile number
                         </th>
@@ -121,9 +121,9 @@
                 Change <span class="visuallyhidden">mobile number</span>
               </a>
                         </td>
-                    </tr> -->
+                    </tr>
 
-                    <tr>
+                    <!-- <tr>
                         <th scope="row">
                             Contact
                         </th>
@@ -136,7 +136,7 @@
                 </a>
 
                         </td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <th scope="row">
@@ -188,7 +188,9 @@
                         </td>
                     </tr>
 
-                    {{#if isFull}} {{#if isConcession}}
+                    <!-- {{#if isFull}}
+
+                    {{#if isConcession}}
                     <tr>
                         <th scope="row">
                             Concession
@@ -205,8 +207,13 @@
                         </td>
 
                     </tr>
+
+
+
                     {{else}}
                     <tr>
+
+
                         <th scope="row">
                             Concession
                         </th>
@@ -223,9 +230,52 @@
                         </td>
 
                     </tr>
-                    {{/if}} {{/if}}
+                    {{/if}} {{/if}} -->
 
 
+                    {{#if isFull}}
+
+                    <tr>
+                        <th scope="row" style="width:30%;">
+                            Concession
+                        </th>
+                        <td class="data" id="concession">
+
+                    {{#if hasDisabledConcession}}
+
+
+                      {{#if isJunior}}
+                        Junior  disabled concession
+                        {{else}}
+                      {{#if isSenior}}
+                          Senior disabled concession
+                      {{else}}
+                         Disabled concession
+                        {{/if}} {{/if}}
+
+                    {{else}}
+
+                      {{#if isJunior}}
+                        Junior concession
+                        {{else}}
+                      {{#if isSenior}}
+                          Senior concession
+                          {{else}}
+                          No concession
+                        {{/if}} {{/if}}
+
+
+
+                    {{/if}}
+                  </td>
+                  <td class="change-answer" id="change-holder-name">
+                       {{#if isUpgrade}} {{else}}
+                      <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
+                  Change <span class="visuallyhidden">concession check</span>
+                  </a>{{/if}}
+                  </td>
+
+                  {{/if}}
 
                     <tr>
                         <th scope="row">

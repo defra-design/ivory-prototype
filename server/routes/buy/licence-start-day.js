@@ -33,6 +33,9 @@ const handlers = {
     request.session.startYear = date.getFullYear()
 
 
+
+
+
       if (returnURL) {
         return reply.redirect(returnURL)
       } else {
@@ -45,13 +48,20 @@ const handlers = {
         }
         else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
           return reply.redirect('summary')
-        } else if (request.session.haveTime === true) {
-          request.session.startTime = '00.01'
-            return reply.redirect('contact')
-        } else {
+        } else if (request.session.age < 12) {
+          return reply.redirect('no-licence-required')
+        } else if (request.session.age < 17) {
+         return reply.redirect('upgrade-licence')
+       }  else if (request.session.haveTime === true) {
+         request.session.startTime = '00.01'
+           return reply.redirect('licence-type')
+       }  else {
           return reply.redirect('licence-start-time')
         }
       }
+
+
+
 
   }
 }

@@ -114,7 +114,7 @@ const handlers = {
             if (request.session.licenceType === 'Trout and coarse' && request.session.licenceLength === '12-months') {
               return reply.redirect('number-of-rods')
             } else {
-              return reply.redirect('licence-start-option')
+              return reply.redirect('contact')
               }
           }
         }

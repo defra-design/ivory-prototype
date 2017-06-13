@@ -35,7 +35,34 @@
     <div class="column-third">
         <div class="payment-summary-small">
             <h2>How much could this cost?</h2>
-            <p class="bold">{{#if isJunior}} Junior concession {{/if}} {{#if isSenior}} Senior concession{{/if}} {{#if hasDisabledConcession}} Disabled concession{{/if}} </p>
+
+            {{#if hasDisabledConcession}}
+
+            <p class="bold">
+              {{#if isJunior}}
+                Junior  disabled concession
+                {{else}}
+              {{#if isSenior}}
+                  Senior disabled concession
+              {{else}}
+                 Disabled concession
+                {{/if}} {{/if}}
+            </p>
+            {{else}}
+            <p class="bold">
+              {{#if isJunior}}
+                Junior concession
+                {{else}}
+              {{#if isSenior}}
+                  Senior concession
+                {{/if}} {{/if}}
+            </p>
+            {{/if}}
+
+
+
+
+
             <p class="payment-title">Trout and coarse</p>
             <p class="payment-info payment-amount">{{coarseCost}}</p>
             <p class="payment-title">Salmon and sea trout</p>

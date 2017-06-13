@@ -44,7 +44,8 @@ const handlers = {
       return reply.redirect(returnURL)
     } else {
       if (request.session.age < 12) {
-        return reply.redirect('no-licence-required')
+        //return reply.redirect('no-licence-required')
+        return reply.redirect('find-address')
       } else if (request.session.age < 17) {
         request.session.licenceLength = '12-months'
         request.session.isJunior = true
@@ -56,8 +57,8 @@ const handlers = {
         };
 
         request.session.startDate = date.toDateString("en-us", options)
-        //return reply.redirect('licence-type')
-        return reply.redirect('upgrade-licence')
+        return reply.redirect('find-address')
+        //return reply.redirect('upgrade-licence')
       } else if (request.session.age > 65) {
           request.session.isSenior = true
           request.session.isJunior = false

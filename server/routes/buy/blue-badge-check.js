@@ -36,11 +36,12 @@ const handlers = {
       } else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true){
         if (request.session.licenceType === 'Trout and coarse') {
           return reply.redirect('number-of-rods')
+          //return reply.redirect('licence-start-option')
         } else {
           return reply.redirect('summary')
         }
       } else {
-        return reply.redirect('licence-type')
+        return reply.redirect('licence-start-option')
       }
     } else {
       if (returnURL) {

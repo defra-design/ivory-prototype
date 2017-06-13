@@ -50,8 +50,7 @@ const handlers = {
     month[11] = "December";
     var n = month[date.getMonth()];
 
-
-    if (request.session.isRenew === true) {
+   if (request.session.isRenew === true) {
 
       if (startOption === 'asap') {
         request.session.startText = "30 minutes after payment"
@@ -107,7 +106,15 @@ const handlers = {
         if (returnURL) {
           return reply.redirect(returnURL)
         } else {
-          return reply.redirect('contact')
+
+            if (request.session.age < 12) {
+              return reply.redirect('no-licence-required')
+              //return reply.redirect('find-address')
+            } else if (request.session.age < 17) {
+              return reply.redirect('upgrade-licence')
+            }
+          
+          return reply.redirect('licence-type')
         }
         } else {
           if (returnURL) {

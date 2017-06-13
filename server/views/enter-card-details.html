@@ -105,20 +105,101 @@
 
           {{#if user1}}
           <p class="bold">{{user1.licenceType}}</p>
-                      <p>{{#if user1.isJunior}} Junior concession,{{/if}}  {{#if user1.isSenior}} Senior concession,{{/if}} {{#if user1.hasDisabledConcession}} Disabled concession,{{/if}} {{user1.licenceLength}}, {{user1.numberOfRods}}</p>
+
+
+
+          {{#if user1.hasDisabledConcession}}
+          <p>  {{#if user1.isJunior}}
+              Junior  disabled concession,
+              {{else}}
+            {{#if user1.isSenior}}
+                Senior disabled concession,
+            {{else}}
+               Disabled concession,
+              {{/if}} {{/if}} {{user1.licenceLength}}, {{user1.numberOfRods}}</p>
+
+            {{else}}
+            <p>
+              {{#if user1.isJunior}}
+                Junior concession,
+                {{else}}
+              {{#if user1.isSenior}}
+                  Senior concession,
+                {{/if}} {{/if}} {{user1.licenceLength}}, {{user1.numberOfRods}}</p>
+            </p>
           {{/if}}
+
+      {{/if}}
+
           {{#if user2}}
           <p class="bold">{{user2.licenceType}}</p>
-                   <p>{{#if user2.isJunior}} Junior concession,{{/if}}  {{#if user2.isSenior}} Senior concession,{{/if}} {{#if user2.hasDisabledConcession}} Disabled concession,{{/if}} {{user2.licenceLength}}, {{user2.numberOfRods}}</p>
+          {{#if user2.hasDisabledConcession}}
+          <p>  {{#if user2.isJunior}}
+              Junior  disabled concession,
+              {{else}}
+            {{#if user2.isSenior}}
+                Senior disabled concession,
+            {{else}}
+               Disabled concession,
+              {{/if}} {{/if}} {{user2.licenceLength}}, {{user2.numberOfRods}}</p>
+
+            {{else}}
+            <p>
+              {{#if user2.isJunior}}
+                Junior concession,
+                {{else}}
+              {{#if user2.isSenior}}
+                  Senior concession,
+                {{/if}} {{/if}} {{user2.licenceLength}}, {{user2.numberOfRods}}</p>
+            </p>
+          {{/if}}
+
           {{/if}}
           {{#if user3}}
           <p class="bold">{{user3.licenceType}}</p>
-                 <p>{{#if user3.isJunior}} Junior concession,{{/if}}  {{#if user3.isSenior}} Senior concession,{{/if}} {{#if user3.hasDisabledConcession}} Disabled concession,{{/if}} {{user3.licenceLength}}, {{user3.numberOfRods}}</p>
+          {{#if user3.hasDisabledConcession}}
+          <p>  {{#if user3.isJunior}}
+              Junior  disabled concession,
+              {{else}}
+            {{#if user3.isSenior}}
+                Senior disabled concession,
+            {{else}}
+               Disabled concession,
+              {{/if}} {{/if}} {{user3.licenceLength}}, {{user3.numberOfRods}}</p>
+
+            {{else}}
+            <p>
+              {{#if user3.isJunior}}
+                Junior concession,
+                {{else}}
+              {{#if user3.isSenior}}
+                  Senior concession,
+                {{/if}} {{/if}} {{user3.licenceLength}}, {{user3.numberOfRods}}</p>
+            </p>
+          {{/if}}
           {{/if}}
           {{#if user4}}
           <p class="bold">{{user4.licenceType}}</p>
-                <p>{{#if user4.isJunior}} Junior concession,{{/if}}  {{#if user4.isSenior}} Senior concession,{{/if}} {{#if user4.hasDisabledConcession}} Disabled concession, {{/if}} {{user4.licenceLength}}, {{user4.numberOfRods}}</p>
+          <p>  {{#if user4.isJunior}}
+              Junior  disabled concession,
+              {{else}}
+            {{#if user4.isSenior}}
+                Senior disabled concession,
+            {{else}}
+               Disabled concession,
+              {{/if}} {{/if}} {{user4.licenceLength}}, {{user4.numberOfRods}}</p>
+
+            {{else}}
+            <p>
+              {{#if user4.isJunior}}
+                Junior concession,
+                {{else}}
+              {{#if user4.isSenior}}
+                  Senior concession,
+                {{/if}} {{/if}} {{user4.licenceLength}}, {{user4.numberOfRods}}</p>
+            </p>
           {{/if}}
+
 
 
 

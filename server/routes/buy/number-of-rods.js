@@ -51,7 +51,9 @@ const handlers = {
       Rod2Cost: request.session.Rod2Cost,
       Rod3Cost: request.session.Rod3Cost,
       isUpgrade: request.session.isUpgrade,
+      isConcession: request.session.isConcession,
       hasDisabledConcession: request.session.hasDisabledConcession,
+
       items: {
         one: {
           text: 'Up to 2 rods for freshwater fish',
@@ -77,7 +79,7 @@ const handlers = {
         if (request.session.isJunior === true) {
           return reply.redirect('contact')
         } else {
-          return reply.redirect('licence-start-option')
+          return reply.redirect('contact')
       }
     }
 

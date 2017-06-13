@@ -143,7 +143,7 @@ const handlers = {
       if (request.session.isRenew === true) {
         return reply.redirect('summary')
       } else {
-        return reply.redirect('contact')
+        return reply.redirect('licence-type')
       }
     }
 
