@@ -3,17 +3,15 @@
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <p>You do not need a licence because you are under 12 years of age.</p>
-  <h2 class="heading-medium">What now?</h2>
-        <ul class="list list-bullet">
+        <button type="submit" class="button">Exit service</button>
+
+        {{#isnt count 0}}
+          <h2 class="heading-medium">What now?</h2>
+          <ul class="list list-bullet">
             <li><a href="licence-length" title="Buy a new licence">Buy a different licence</a></li>
-
-            {{#isnt count 0}}
-                  <li><a href="buy-another-licence" title="Buy a new licence">Continue with licences for {{#if user1}} {{user1.firstName}}{{/if}}{{#if user2}}, {{user2.firstName}}{{/if}}{{#if user3}} and {{user3.firstName}} {{/if}}</a></li>
-            {{/isnt}}
-
-
+            <li><a href="buy-another-licence" title="Buy a new licence">Continue with licences for {{#if user1}} {{user1.firstName}}{{/if}}{{#if user2}}, {{user2.firstName}}{{/if}}{{#if user3}} and {{user3.firstName}} {{/if}}</a></li>
             <li><a href="/clear-session" title="exit service">Exit service</a></li>
-        </ul>
-        <!-- <button type="submit" class="button">Exit service</button> -->
+          </ul>
+        {{/isnt}}
     </div>
 </div>
