@@ -107,13 +107,13 @@ const handlers = {
           return reply.redirect(returnURL)
         } else {
 
-            if (request.session.age < 12) {
-              return reply.redirect('no-licence-required')
-              //return reply.redirect('find-address')
-            } else if (request.session.age < 17) {
-              return reply.redirect('upgrade-licence')
-            }
-          
+            // if (request.session.age < 12) {
+            //   return reply.redirect('no-licence-required')
+            //   //return reply.redirect('find-address')
+            // } else if (request.session.age < 17) {
+            //   return reply.redirect('upgrade-licence')
+            // }
+
           return reply.redirect('licence-type')
         }
         } else {

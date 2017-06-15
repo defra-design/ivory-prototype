@@ -45,7 +45,7 @@ const handlers = {
     if (request.session.isRenew === true) {
         return reply.redirect('summary')
       } else {
-        return reply.redirect('licence-type')
+        return reply.redirect('find-address')
       }
 
   }

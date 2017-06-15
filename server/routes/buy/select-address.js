@@ -35,7 +35,8 @@ const handlers = {
         return reply.redirect('licence-start-option')
         //return reply.redirect('disability')
       } else if (request.session.isJunior === true) {
-        return reply.redirect('disability')
+        //return reply.redirect('disability')
+        return reply.redirect('licence-start-option')
       } else if (request.session.isFull === true) {
         return reply.redirect('disability')
       } else {
