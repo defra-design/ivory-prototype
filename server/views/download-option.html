@@ -5,6 +5,13 @@
         <p>You qualify for a full 12-month licence because of your age.</p>
         <!-- <h2 class="heading-medium"> What fish should your licence cover?</h2> -->
         <h2 class="heading-medium">Which licence would you like to download?</h2>
+        <!-- <details class="progressive-disclosure-margin" open="">
+            <summary><span class="summary">Which fishing licence do I need?</span></summary>
+            <div class="panel panel-border-narrow">
+                <p>A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.</p>
+                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.</p>
+            </div>
+        </details> -->
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
@@ -26,12 +33,5 @@
                 <button type="submit" class="button">Continue</button>
             </div>
         </form>
-        <details class="progressive-disclosure-margin" open="">
-            <summary><span class="summary">Which fishing licence do I need?</span></summary>
-            <div class="panel panel-border-narrow">
-                <p>A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.</p>
-                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.</p>
-            </div>
-        </details>
     </div>
 </div>
