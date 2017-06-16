@@ -216,6 +216,7 @@ function validate(e) {
     e.preventDefault();
     // Show the error summary
     $('.error-summary:first').show();
+    $('.error-summary:first').removeClass('visually-hidden');
     // Scroll to the top of the page
     $('body').scrollTop(0);
   }
