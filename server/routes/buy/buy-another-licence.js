@@ -23,6 +23,7 @@ const handlers = {
       },
       totalCost: totalCost,
       isMultibuy: request.session.multibuy,
+      users : global.users,
       user1 : global.users[0],
       user2 : global.users[1],
       user3 : global.users[2],
