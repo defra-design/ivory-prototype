@@ -4,12 +4,10 @@ const handlers = {
   get: function (request, reply) {
 
     // Concession
-    if (request.session.age > 65) {
+    if (request.session.isSenior === 65) {
       request.session.isConcession = true
-      request.session.isSenior = true
-    } else if (request.session.age < 17) {
+    } else if (request.session.isJunior === true) {
       request.session.isConcession = true
-      request.session.isJunior = true
     } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
       request.session.isConcession = true
       request.session.hasDisabledConcession = true

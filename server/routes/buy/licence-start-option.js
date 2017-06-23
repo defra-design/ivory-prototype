@@ -61,6 +61,16 @@ const handlers = {
         request.session.startTime = startTime +':00'
 
         if (returnURL) {
+
+          if (request.session.age < 17) {
+            request.session.isJunior = true
+          } else if (request.session.age > 65) {
+            request.session.isSenior = true
+          } else {
+            request.session.isJunior = false
+            request.session.isSenior = false
+          }
+
           return reply.redirect(returnURL)
         }
 

@@ -15,7 +15,7 @@ const handlers = {
 
     // 12 Months
     if (request.session.licenceLength === '12-months') {
-      if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+      if (request.session.isSenior  === true || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
         request.session.salmonCost = "£54.00"
         request.session.coarseCost = "£20.00"
       } else {

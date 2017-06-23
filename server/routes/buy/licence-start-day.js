@@ -47,22 +47,40 @@ const handlers = {
 
     request.session.startAge = startAge
     request.session.date = date
-    request.session.startDate = date.toLocaleDateString("en-us", options)
+    //request.session.startDate = date.toLocaleDateString("en-us", options)
 
 
 
       if (returnURL) {
+        if (request.session.age < 17) {
+          request.session.isJunior = true
+        } else if (request.session.age > 65) {
+          request.session.isSenior = true
+        } else {
+          request.session.isJunior = false
+          request.session.isSenior = false
+        }
         return reply.redirect(returnURL)
       } else if (request.session.haveTime === true) {
          request.session.startTime = '00.01'
 
          if (request.session.startAge < 17) {
+           request.session.isJunior = true
            return reply.redirect('upgrade-licence')
          }
 
-         if (request.session.startAge > 65 || request.session.isFull === false ) {
+         if (request.session.startAge > 65) {
+           request.session.isSenior = true
+           return reply.redirect('licence-type')
+         }
+
+         if (request.session.isFull === false ) {
+           request.session.isSenior = false
+           request.session.isJunior = false
            return reply.redirect('licence-type')
          } else {
+           request.session.isSenior = false
+           request.session.isJunior = false
            return reply.redirect('disability')
          }
 

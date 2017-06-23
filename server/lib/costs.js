@@ -39,32 +39,32 @@ module.exports = {
     if (request.session.licenceLength === '12-months' || request.session.licenceLength === '365-days' || request.session.licenceLength === '12 months') {
         request.session.isFull = true;
       // Junior
-      if (request.session.age < 17 ) {
+      if (request.session.isJunior === true ) {
         request.session.cost = 0
         request.session.hasNoCost = true
       }
       // Salmon
       if (request.session.licenceType === 'Salmon and sea trout') {
-        if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+        if (request.session.isSenior  === true || request.session.hasBlueBadge === true) {
           request.session.cost = 54.00
-        } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+        } else if (request.session.isSenior === true || request.session.hasNINumber === true) {
           request.session.cost = 54.00
         } else {
           request.session.cost = 82.00
         }
       } else {
         if(request.session.numberOfRods === 'Up to 3 rods') {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+          if (request.session.isSenior === true || request.session.hasBlueBadge === true) {
             request.session.cost = 30.00
-          } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+          } else if (request.session.isSenior === true || request.session.hasNINumber === true) {
             request.session.cost = 30.00
           } else {
             request.session.cost = 45.00
           }
         } else {
-          if (request.session.age  > 65 || request.session.hasBlueBadge === true) {
+          if (request.session.isSenior === true || request.session.hasBlueBadge === true) {
             request.session.cost = 20.00
-          } else if (request.session.age  > 65 || request.session.hasNINumber === true) {
+          } else if (request.session.isSenior === true || request.session.hasNINumber === true) {
             request.session.cost = 20.00
           } else {
             request.session.cost = 30.00
@@ -103,7 +103,7 @@ module.exports = {
 
            if (request.session.isRenew === true) {
              request.session.cost = 12.00
-           } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true || request.session.age > 65) {
+           } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true || request.session.isSenior === true) {
 
                 if(request.session.numberOfRods === 'Up to 3 rods') {
                   request.session.cost = '£18.00 (save £12.00)'

@@ -11,7 +11,7 @@ const handlers = {
           request.session.Rod3Cost = "£33.00"
         }
       } else {
-        if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+        if (request.session.isSenior === true || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
           request.session.Rod2Cost = "£20.00"
           request.session.Rod3Cost = "£30.00"
         } else {
