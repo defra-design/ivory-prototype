@@ -50,50 +50,6 @@ const handlers = {
     month[11] = "December";
     var n = month[date.getMonth()];
 
-   if (request.session.isRenew === true) {
-
-      if (startOption === 'asap') {
-        request.session.startText = "30 minutes after payment"
-        request.session.haveTime = true
-        request.session.date = date
-        request.session.startDate = date.getUTCDate()
-        request.session.startMonth = n
-        request.session.startYear = date.getFullYear()
-        var startTime = date.getHours();
-        request.session.startTime = startTime +":00"
-        return reply.redirect('summary')
-      } else {
-        if (returnURL) {
-          return reply.redirect('licence-start-day?returnUrl=/buy/summary')
-        } else {
-          return reply.redirect('licence-start-day')
-        }
-      }
-
-    }
-
-
-    else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
-
-      if (startOption === 'asap') {
-        request.session.startText = "30 minutes after payment"
-        request.session.haveTime = true
-        request.session.date = date
-        request.session.startDate = date.getUTCDate()
-        request.session.startMonth = n
-        request.session.startYear = date.getFullYear()
-        var startTime = date.getHours();
-        request.session.startTime = startTime +":00"
-        return reply.redirect('summary')
-      } else {
-        if (returnURL) {
-          return reply.redirect('licence-start-day?returnUrl=/buy/summary')
-        } else {
-          return reply.redirect('licence-start-day')
-        }
-      }
-
-    } else {
       if (startOption === 'asap') {
         request.session.startText = "30 minutes after payment"
         request.session.haveTime = true
@@ -103,19 +59,14 @@ const handlers = {
         request.session.startYear = date.getFullYear()
         var startTime = date.getHours();
         request.session.startTime = startTime +':00'
+
         if (returnURL) {
           return reply.redirect(returnURL)
-        } else {
-
-            // if (request.session.age < 12) {
-            //   return reply.redirect('no-licence-required')
-            //   //return reply.redirect('find-address')
-            // } else if (request.session.age < 17) {
-            //   return reply.redirect('upgrade-licence')
-            // }
-
-          return reply.redirect('licence-type')
-        }
+        } else if (request.session.isJunior === true || request.session.isSenior === true || request.session.isFull === false ) {
+            return reply.redirect('licence-type')
+          } else {
+            return reply.redirect('disability')
+          }
         } else {
           if (returnURL) {
             return reply.redirect('licence-start-day?returnUrl=/buy/summary')
@@ -123,11 +74,7 @@ const handlers = {
             return reply.redirect('licence-start-day')
           }
         }
-    }
-
-
-
-  }
+      }
 }
 
 module.exports = [{

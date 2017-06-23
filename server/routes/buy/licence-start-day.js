@@ -33,41 +33,22 @@ const handlers = {
     request.session.startYear = date.getFullYear()
 
 
-
-
-
       if (returnURL) {
         return reply.redirect(returnURL)
-      } else {
-        if (request.session.isRenew === true) {
-          if (request.session.haveTime === true) {
-            return reply.redirect('summary')
-          } else {
-            return reply.redirect('licence-start-time')
-          }
-        }
-        else if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
-          return reply.redirect('summary')
-        }
-
-      //   else if (request.session.age < 12) {
-      //     return reply.redirect('no-licence-required')
-      //   } else if (request.session.age < 17) {
-      //    return reply.redirect('upgrade-licence')
-      //  }
-
-       else if (request.session.haveTime === true) {
+      } else if (request.session.haveTime === true) {
          request.session.startTime = '00.01'
+
+         if (request.session.isJunior === true || request.session.isSenior === true || request.session.isFull === false ) {
            return reply.redirect('licence-type')
+         } else {
+           return reply.redirect('disability')
+         }
+
        }  else {
           return reply.redirect('licence-start-time')
         }
       }
 
-
-
-
-  }
 }
 
 module.exports = [{

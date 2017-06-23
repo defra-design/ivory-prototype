@@ -269,10 +269,10 @@
                     {{/if}}
                   </td>
                   <td class="change-answer" id="change-holder-name">
-                       {{#if isUpgrade}} {{else}}
+                       {{#if isUpgrade}} {{else}} {{#if isJunior}} {{else}} {{#if isSenior}}{{else}}
                       <a href="/buy/disability?returnUrl=/buy/summary" id="buy.holder.name">
                   Change <span class="visuallyhidden">concession check</span>
-                  </a>{{/if}}
+                  </a>{{/if}}{{/if}}{{/if}}
                   </td>
 
                   {{/if}}

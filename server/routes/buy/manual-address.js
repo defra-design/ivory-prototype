@@ -50,7 +50,7 @@ const handlers = {
         //return reply.redirect('disability')
         return reply.redirect('licence-start-type')
       } else if (request.session.isFull === true) {
-        return reply.redirect('disability')
+        return reply.redirect('licence-start-type')
       } else {
         return reply.redirect('licence-start-option')
       }

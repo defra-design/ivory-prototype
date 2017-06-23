@@ -87,7 +87,7 @@ module.exports = {
              } else {
                request.session.cost = 34.00
              }
-         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A711B') {
+         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
            if(request.session.numberOfRods === 'Up to 3 rods') {
              //request.session.cost = '£15.00 (save £15.00)'
              request.session.cost = 15.00
@@ -96,10 +96,10 @@ module.exports = {
              request.session.cost = 52.00
            }
 
-           }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A712') {
+         }else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713') {
              request.session.cost = 82.00
 
-         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A713' || request.session.licenceNumber === '00010418-3WC3JDS-B7A713B') {
+         } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A714' || request.session.licenceNumber === '00010418-3WC3JDS-B7A714') {
 
            if (request.session.isRenew === true) {
              request.session.cost = 12.00
@@ -122,9 +122,9 @@ module.exports = {
             }
 
 
-      } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A714') {
-        request.session.cost = '£70.00 (save £12.00)'
       } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A715') {
+        request.session.cost = '£70.00 (save £12.00)'
+      } else if (request.session.licenceNumber === '00010418-3WC3JDS-B7A716') {
         request.session.cost = '£24.00 (save £6.00)'
       }
   }

@@ -1,5 +1,11 @@
 const handlers = {
   get: function (request, reply) {
+
+    // Set global user variable
+    if(!global.users) {
+      global.users = []
+    }
+    
     return reply.view('product-type', {
       pageTitle: 'What do you want to do?',
       errorMessage: 'Tell us what you want to do',

@@ -68,7 +68,7 @@ const handlers = {
       request.session.isRenew = false
       request.session.isFull = true
       request.session.licenceLength = '12-months'
-      return reply.redirect('disability')
+      return reply.redirect('licence-start-option')
     } else if (upgradeOption === 'Buy_again') {
       // request.session.changeDetails = true
       request.session.isRenew = true
