@@ -32,13 +32,35 @@ const handlers = {
     request.session.startMonth = n
     request.session.startYear = date.getFullYear()
 
+    // Calculate age at licence start date
+    var date = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    var options = {
+        weekday: "long", year: "numeric", month: "short", day: "numeric"
+    };
+    var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var startAge = startDate.getFullYear() - birthDate.getFullYear();
+    var m = startDate.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
+          startAge--;
+      }
+
+    request.session.startAge = startAge
+    request.session.date = date
+    request.session.startDate = date.toLocaleDateString("en-us", options)
+
+
 
       if (returnURL) {
         return reply.redirect(returnURL)
       } else if (request.session.haveTime === true) {
          request.session.startTime = '00.01'
 
-         if (request.session.isJunior === true || request.session.isSenior === true || request.session.isFull === false ) {
+         if (request.session.startAge < 17) {
+           return reply.redirect('upgrade-licence')
+         }
+
+         if (request.session.startAge > 65 || request.session.isFull === false ) {
            return reply.redirect('licence-type')
          } else {
            return reply.redirect('disability')

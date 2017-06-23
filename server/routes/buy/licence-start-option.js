@@ -62,12 +62,22 @@ const handlers = {
 
         if (returnURL) {
           return reply.redirect(returnURL)
-        } else if (request.session.isJunior === true || request.session.isSenior === true || request.session.isFull === false ) {
+        }
+
+
+        else if (request.session.isJunior === true) {
+          return reply.redirect('upgrade-licence')
+        }
+
+        else if (request.session.isSenior === true || request.session.isFull === false ) {
             return reply.redirect('licence-type')
           } else {
             return reply.redirect('disability')
           }
-        } else {
+
+        }
+
+        else {
           if (returnURL) {
             return reply.redirect('licence-start-day?returnUrl=/buy/summary')
           } else {

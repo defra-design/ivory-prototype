@@ -57,8 +57,8 @@ const handlers = {
         };
 
         request.session.startDate = date.toDateString("en-us", options)
-        //return reply.redirect('find-address')
-        return reply.redirect('upgrade-licence')
+        return reply.redirect('find-address')
+        //return reply.redirect('upgrade-licence')
       } else if (request.session.age > 65) {
           request.session.isSenior = true
           request.session.isJunior = false
