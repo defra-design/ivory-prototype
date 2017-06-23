@@ -15,11 +15,6 @@ const handlers = {
     request.session.birthMonth = request.payload.birthMonth
     request.session.birthYear = request.payload.birthYear
 
-    request.session.hasNINumber = false
-    request.session.hasBlueBadge = false
-    request.session.hasDisabledConcession = false
-    request.session.isSenior = false
-    request.session.isJunior = false
 
     // Calculate age
     var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
@@ -41,33 +36,12 @@ const handlers = {
 
 
     if (returnURL) {
-      return reply.redirect(returnURL)
-    } else {
+        return reply.redirect(returnURL)
+      } else {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
-        //return reply.redirect('find-address')
-      } else if (request.session.age < 17) {
-        request.session.licenceLength = '12-months'
-        request.session.isJunior = true
-        request.session.isSenior = false
-
-        var date = new Date();
-        var options = {
-            day: "numeric", month: "long", year: "numeric"
-        };
-
-        request.session.startDate = date.toDateString("en-us", options)
+      } else {
         return reply.redirect('find-address')
-        //return reply.redirect('upgrade-licence')
-      } else if (request.session.age > 65) {
-          request.session.isSenior = true
-          request.session.isJunior = false
-          return reply.redirect('find-address')
-        }
-        else {
-          request.session.isSenior = false
-          request.session.isJunior = false
-          return reply.redirect('find-address')
       }
     }
 

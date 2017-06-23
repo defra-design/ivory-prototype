@@ -1,6 +1,26 @@
 const handlers = {
   get: function (request, reply) {
 
+    // Concession
+    if (request.session.startAge > 65) {
+      request.session.isSenior = true
+      request.session.isJunior = false
+      request.session.isConcession = true
+    } else if (request.session.startAge < 17) {
+      request.session.isJunior = true
+      request.session.isSenior = false
+      request.session.isConcession = true
+    } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+      request.session.isConcession = true
+      request.session.hasDisabledConcession = true
+      request.session.isSenior = false
+      request.session.isJunior = false
+    } else {
+      request.session.isConcession = false
+      request.session.isSenior = false
+      request.session.isJunior = false
+    }
+
 
       if (request.session.isUpgrade === true || request.session.isUpgradeLength === true) {
         if (request.session.age  > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
@@ -24,7 +44,7 @@ const handlers = {
         request.session.isConcession = true
       }
 
-      if (request.session.isJunior === true) {
+      if (request.session.startAge < 17) {
           request.session.Rod2Cost = "Free"
           request.session.Rod3Cost = "Free"
       }

@@ -3,16 +3,35 @@ const costCalc = require('../../lib/costs')
 const handlers = {
   get: function (request, reply) {
 
+    // Calculate age at start date
+    var startDate = new Date(Date.UTC(request.session.year, request.session.month -1, request.session.day));
+    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var startAge = startDate.getFullYear() - birthDate.getFullYear();
+    var m = startDate.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && startDate.getDate() < birthDate.getDate())) {
+          startAge--;
+      }
+
+    request.session.startAge = startAge
+
     // Concession
-    if (request.session.isSenior === 65) {
+    if (request.session.startAge > 65) {
+      request.session.isSenior = true
+      request.session.isJunior = false
       request.session.isConcession = true
-    } else if (request.session.isJunior === true) {
+    } else if (request.session.startAge < 17) {
+      request.session.isJunior = true
+      request.session.isSenior = false
       request.session.isConcession = true
     } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
       request.session.isConcession = true
       request.session.hasDisabledConcession = true
+      request.session.isSenior = false
+      request.session.isJunior = false
     } else {
       request.session.isConcession = false
+      request.session.isSenior = false
+      request.session.isJunior = false
     }
 
     costCalc.applyCosts(request)

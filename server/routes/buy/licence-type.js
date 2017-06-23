@@ -1,6 +1,26 @@
 const handlers = {
   get: function (request, reply) {
 
+    // Concession
+    if (request.session.startAge > 65) {
+      request.session.isSenior = true
+      request.session.isJunior = false
+      request.session.isConcession = true
+    } else if (request.session.startAge < 17) {
+      request.session.isJunior = true
+      request.session.isSenior = false
+      request.session.isConcession = true
+    } else if (request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+      request.session.isConcession = true
+      request.session.hasDisabledConcession = true
+      request.session.isSenior = false
+      request.session.isJunior = false
+    } else {
+      request.session.isConcession = false
+      request.session.isSenior = false
+      request.session.isJunior = false
+    }
+
     // 1 Day
     if (request.session.licenceLength === '1-day') {
       request.session.salmonCost = "£12.00"
@@ -15,7 +35,7 @@ const handlers = {
 
     // 12 Months
     if (request.session.licenceLength === '12-months') {
-      if (request.session.isSenior  === true || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
+      if (request.session.startAge > 65 || request.session.hasBlueBadge === true || request.session.hasNINumber === true) {
         request.session.salmonCost = "£54.00"
         request.session.coarseCost = "£20.00"
       } else {
@@ -24,7 +44,7 @@ const handlers = {
       }
     }
 
-    if (request.session.isJunior === true) {
+    if (request.session.startAge < 17) {
         request.session.salmonCost = "Free"
         request.session.coarseCost = "Free"
     }
