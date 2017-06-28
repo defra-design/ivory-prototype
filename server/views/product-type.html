@@ -2,9 +2,9 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <details class="progressive-disclosure-margin">
-            <summary><span class="summary">Which is right for me?</span></summary>
-            <div class="panel panel-border-narrow">
+        <details class="progressive-disclosure-margin" role="group">
+            <summary role="button" aria="" controls="details-content-0" aria-expanded="true"><span class="summary">Which is right for me?</span></summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
                 <!-- <h3 class="heading-small">12-months - from £30.00</h3>
                 <p>12-month licences are valid for 365 days from their start date and can be purchased at any time during the year.</p>
                 <h3 class="heading-small">8-days - from £12.00</h3>

@@ -2,13 +2,13 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <!-- <details class="progressive-disclosure-margin">
-            <summary><span class="summary">Which licence do I need?</span></summary>
-            <div class="panel panel-border-narrow">
-                <p>You can get short term 1-day or 8-day licences. 8-day licences are valid for 8 consecutive days.</p>
+        <!--<details class="progressive-disclosure-margin" role="group">
+            <summary role="button" aria="" controls="details-content-0" aria-expanded="true"><span class="summary">Which licence do I need?</span></summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
+                 <p>You can get short term 1-day or 8-day licences. 8-day licences are valid for 8 consecutive days.</p>
                 <p>12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.</p>
             </div>
-        </details> -->
+        </details>-->
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
