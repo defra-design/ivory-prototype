@@ -2,11 +2,12 @@
     <div class="column-two-thirds reducemargin">
         {{> common/back}}
         <h1 class="heading-large">{{pageTitle}}</h1>
-        <details class="progressive-disclosure-margin">
-            <summary><span class="summary">Which fishing licence do I need?</span></summary>
-            <div class="panel panel-border-narrow">
+        <details class="progressive-disclosure-margin" role="group">
+            <summary role="button" aria="" controls="details-content-0" aria-expanded="true"><span class="summary">Which fishing licence do I need?</span></summary>
+            <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="false">
                 <p>A trout and coarse licence allows you to fish for all freshwater fish, but not for salmon or sea trout.</p>
-                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish included in the trout and coarse licence.</p>
+                <p>A salmon and sea trout licence allows you to fish for salmon and sea trout as well as all freshwater fish
+                    included in the trout and coarse licence.</p>
             </div>
         </details>
         <form method="post" autocomplete="off" novalidate>
@@ -38,23 +39,12 @@
             {{#if hasDisabledConcession}}
 
             <p class="bold">
-              {{#if isJunior}}
-                Junior  disabled concession
-                {{else}}
-              {{#if isSenior}}
-                  Senior disabled concession
-              {{else}}
-                 Disabled concession
+                {{#if isJunior}} Junior disabled concession {{else}} {{#if isSenior}} Senior disabled concession {{else}} Disabled concession
                 {{/if}} {{/if}}
             </p>
             {{else}}
             <p class="bold">
-              {{#if isJunior}}
-                Junior concession
-                {{else}}
-              {{#if isSenior}}
-                  Senior concession
-                {{/if}} {{/if}}
+                {{#if isJunior}} Junior concession {{else}} {{#if isSenior}} Senior concession {{/if}} {{/if}}
             </p>
             {{/if}}
 
