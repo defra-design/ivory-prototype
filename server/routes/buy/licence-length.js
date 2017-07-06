@@ -7,24 +7,28 @@ const handlers = {
     }
 
     return reply.view('licence-length', {
-      pageTitle: 'What do you want to do?',
+      //pageTitle: 'What do you want to do?',
+      pageTitle: 'Which fishing licence do you want to get?',
       errorMessage: 'Tell us what you want to do',
       items: {
         one: {
-          text: 'Buy a new 12-month licence',
+          //text: 'Buy a new 12-month licence',
+          text: '12-month licence',
           name: 'licence_length',
           id: '12-months',
           value: '12-months',
           selectedText: '12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.'
         },
         two: {
-          text: 'Buy a new 8-day licence',
+          //text: 'Buy a new 8-day licence',
+          text: '8-day licence',
           name: 'licence_length',
           id: '8-days',
           value: '8-days',
         },
         three: {
-          text: 'Buy a new 1-day licence',
+          //text: 'Buy a new 1-day licence',
+          text: '1-day licence',
           name: 'licence_length',
           id: '1-day',
           value: '1-day',
