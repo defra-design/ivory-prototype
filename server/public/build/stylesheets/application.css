@@ -3135,6 +3135,19 @@ input:focus, textarea:focus, select:focus, button:focus {
   opacity: 0;
 }
 
+.js-enabled .block-label.selection-button-checkbox::after {
+  content: "";
+  border: 10px solid;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
 .js-enabled .block-label.selection-button-radio.selected::after, .js-enabled .block-label.selection-button-checkbox.selected::after {
   zoom: 1;
   filter: alpha(opacity=100);
@@ -3143,4 +3156,15 @@ input:focus, textarea:focus, select:focus, button:focus {
 
 .inline .block-label {
   display: inline !important;
+}
+
+.js-enabled .block-label.selection-button-checkbox::before {
+  content: "";
+  border: 2px solid;
+  background: transparent;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
