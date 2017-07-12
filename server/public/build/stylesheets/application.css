@@ -3168,3 +3168,7 @@ input:focus, textarea:focus, select:focus, button:focus {
   top: 0;
   left: 0;
 }
+
+.form-date #error-message-1 {
+  display: none;
+}

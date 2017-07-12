@@ -10,6 +10,7 @@ function validate(e) {
   // Check all data-required tags
   $('[data-required]').each(function () {
     var textInputs = $(this).find('input[type="text"]');
+    var numberInputs = $(this).find('input[type="number"]');
     var radioInputs = $(this).find('input[type="radio"]');
     var checkboxInputs = $(this).find('input[type="checkbox"]');
     var textAreas = $(this).find('textarea');
@@ -159,6 +160,7 @@ function validate(e) {
         }
       });
     }
+    
 
     // Textareas
     if (textAreas.length > 0) {
