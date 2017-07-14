@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('licence-start-day', {
       pageTitle: 'When would you like your licence to start? ',
-      errorMessage: 'Enter a valid date that is within 60 days',
+      errorMessage: 'Enter a valid date that is within 90 days',
     })
   },
   post: function (request, reply) {
