@@ -45,10 +45,10 @@
             </select>
                 </div>
             </fieldset>
-            <button type="submit" class="button">Continue</button>
-        </form>
-        <br> {{#if returnURL}}
+            {{#if returnURL}}
         <p><a href="{{findAddressLink}}">Find my address for me</a> </p> {{else}}
         <p><a href="find-address">Find my address for me</a> </p>{{/if}}
+            <button type="submit" class="button">Continue</button>
+        </form>
     </div>
 </div>
