@@ -9,7 +9,7 @@ const handlers = {
     return reply.view('licence-length', {
       //pageTitle: 'What do you want to do?',
       pageTitle: 'Which fishing licence do you want to get?',
-      errorMessage: 'Tell us what you want to do',
+      errorMessage: 'Tell us which fishing licence you want',
       items: {
         one: {
           //text: 'Buy a new 12-month licence',
