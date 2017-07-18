@@ -1,6 +1,6 @@
 const config = require('../../config')
 const pageRefreshTime = config.pageRefreshTime
-const analyticsAccount = config.analyticsAccount
+const analyticsAccount = 'UA-102562189-1' //config.analyticsAccount
 const pkg = require('../../package.json')
 const appVersion = pkg.version
 const appName = pkg.name
