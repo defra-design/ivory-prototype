@@ -25,6 +25,7 @@ const handlers = {
           name: 'licence_length',
           id: '8-days',
           value: '8-days',
+          selectedText: '8-day licences are valid for 8 consecutive days from the start time that you select.'
         },
         three: {
           //text: 'Buy a new 1-day licence',

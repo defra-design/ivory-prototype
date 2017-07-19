@@ -1,7 +1,7 @@
 const handlers = {
   get: function (request, reply) {
     return reply.view('upgrade-licence', {
-      pageTitle: 'You qualify for a junior licence',
+      pageTitle: 'You qualify for a free junior licence',
       // LicenceLength: request.session.daysSelected
     })
   },

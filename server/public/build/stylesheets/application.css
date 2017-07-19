@@ -3155,7 +3155,7 @@ input:focus, textarea:focus, select:focus, button:focus {
 }
 
 .inline .block-label {
-  display: inline !important;
+  display: inline-block !important;
 }
 
 .js-enabled .block-label.selection-button-checkbox::before {
