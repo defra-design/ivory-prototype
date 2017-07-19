@@ -61,8 +61,8 @@
     }
   }())
 
-  GOVUK.performance.sendGoogleAnalyticsEvent = function (category, event, label) {
-    global._gaq.push(['_trackEvent', category, event, label, undefined, true])
+  GOVUK.performance.sendGoogleAnalyticsEvent = function (category, event, label, value) {
+    global._gaq.push(['_trackEvent', category, event, label, value, undefined, true])
   }
 
   global.GOVUK = GOVUK
