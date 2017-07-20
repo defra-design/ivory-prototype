@@ -6,7 +6,7 @@ const handlers = {
       request.session.isSenior = true
       request.session.isJunior = false
       request.session.isConcession = true
-    } else if (request.session.startAge < 17) {
+    } else if (request.session.age < 17) {
       request.session.isJunior = true
       request.session.isSenior = false
       request.session.isConcession = true
@@ -44,7 +44,7 @@ const handlers = {
         request.session.isConcession = true
       }
 
-      if (request.session.startAge < 17) {
+      if (request.session.age < 17) {
           request.session.Rod2Cost = "Free"
           request.session.Rod3Cost = "Free"
       }

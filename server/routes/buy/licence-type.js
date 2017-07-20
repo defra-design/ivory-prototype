@@ -6,7 +6,7 @@ const handlers = {
       request.session.isSenior = true
       request.session.isJunior = false
       request.session.isConcession = true
-    } else if (request.session.startAge < 17) {
+    } else if (request.session.age < 17) {
       request.session.isJunior = true
       request.session.isSenior = false
       request.session.isConcession = true
@@ -44,7 +44,8 @@ const handlers = {
       }
     }
 
-    if (request.session.startAge < 17) {
+  // 12 Junior
+   if (request.session.isJunior === true) {
         request.session.salmonCost = "Free"
         request.session.coarseCost = "Free"
     }

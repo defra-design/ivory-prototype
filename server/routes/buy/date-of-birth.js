@@ -17,30 +17,51 @@ const handlers = {
 
 
     // Calculate age
-    var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var dob = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth - 1, request.session.birthDay));
     var options = {
-        day: "numeric", month: "long", year: "numeric"
+      day: "numeric", month: "long", year: "numeric"
     };
 
     request.session.dateOfBirth = dob.toDateString("en-us", options)
     var today = new Date();
-    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth -1, request.session.birthDay));
+    var birthDate = new Date(Date.UTC(request.session.birthYear, request.session.birthMonth - 1, request.session.birthDay));
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-      }
-
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    
     request.session.age = age
-
+    request.session.isSenior = false
+    request.session.isJunior = false
 
 
     if (returnURL) {
-        return reply.redirect(returnURL)
-      } else {
+      return reply.redirect(returnURL)
+    } else {
       if (request.session.age < 12) {
         return reply.redirect('no-licence-required')
-      } else {
+      } else if (request.session.age < 17) {
+        request.session.licenceLength = '12-months'
+        request.session.isJunior = true
+        request.session.isSenior = false
+
+        var date = new Date();
+        var options = {
+          day: "numeric", month: "long", year: "numeric"
+        };
+
+        request.session.startDate = date.toDateString("en-us", options)
+        //return reply.redirect('licence-type')
+        return reply.redirect('upgrade-licence')
+      } else if (request.session.age > 65) {
+        request.session.isSenior = true
+        request.session.isJunior = false
+        return reply.redirect('find-address')
+      }
+      else {
+        request.session.isSenior = false
+        request.session.isJunior = false
         return reply.redirect('find-address')
       }
     }

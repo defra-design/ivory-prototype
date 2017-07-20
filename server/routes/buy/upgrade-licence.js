@@ -7,6 +7,7 @@ const handlers = {
   },
   post: function (request, reply) {
     request.session.licenceLength = '12-months'
+    request.session.isJunior = true
     request.session.isFull = true
 
     // request.session.startDate = "1 April 2017"
@@ -44,7 +45,7 @@ const handlers = {
     if (request.session.isRenew === true) {
         return reply.redirect('summary')
       } else {
-        return reply.redirect('licence-type')
+        return reply.redirect('find-address')
       }
 
   }
