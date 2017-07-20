@@ -264,8 +264,6 @@
                           No concession
                         {{/if}} {{/if}}
 
-
-
                     {{/if}}
                   </td>
                   <td class="change-answer" id="change-holder-name">
@@ -276,7 +274,6 @@
                   </td>
 
                   {{/if}}
-
                     <tr>
                         <th scope="row">
                             Valid from
@@ -285,15 +282,12 @@
                             {{#if startDate}} {{startDate}} {{startMonth}} {{startYear}} {{else}} Not supplied {{/if}}
                         </td>
                         <td class="change-answer" id="change-start-date">
-                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" data-journey-click="start-date-changed:clicked:start-date:{{startDate}}" id="buy.licence.start">
+                            {{#if isJunior}} {{else}} {{#if isUpgrade}} {{else}} <a href="/buy/licence-start-option?returnUrl=/buy/summary" data-journey-click="start-date-changed:clicked:start-date:{{startDate}} {{startMonth}} {{startYear}}" id="buy.licence.start">
                 Change <span class="visuallyhidden">start date</span>
               </a>{{/if}}{{/if}}
                         </td>
                     </tr>
-
                     {{#if isFull}} {{else}} {{#if isJunior}} {{else}}
-
-
                     <tr>
                         <th scope="row">
                             Time
