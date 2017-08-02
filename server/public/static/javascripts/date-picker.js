@@ -21,7 +21,7 @@ function StartDatePage (options) {
     dateFormat: 'dd/mm/yy',
     showOn: 'button',
     //buttonImage: '/public/images/calendar.png',
-    buttonImage: '/public/images/calendar-two.png',
+    buttonImage: '/public/images/calendar.png',
     buttonImageOnly: false,
     //buttonText: 'Open calendar',
     //buttonText: 'Select from calendar',
