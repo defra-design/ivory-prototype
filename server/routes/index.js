@@ -10,6 +10,8 @@ module.exports = [].concat(
   require('./remove-user-four'),
   require('./landing'),
 
+  require('./buy/licence-length-demo'),
+
 
   // Rod screen
   require('./rod-screen'),
