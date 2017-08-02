@@ -100,7 +100,7 @@ const handlers = {
     var totalCost = costCalc.getTotalCost(request)
 
     return reply.view('summary', {
-      pageTitle: 'Check your licence details',
+      pageTitle: 'Check your new licence details',
       nameOnLicence: request.session.holderName,
       licenceDOB: request.session.dateOfBirth,
       email: request.session.email,
