@@ -23,6 +23,12 @@ module.exports = [].concat(
   // Analytics
   require('./analytics-screen'),
 
+
+  // Direct debit
+  require('./buy/would-you-like-to-set-up-a-direct-debit'),
+  require('./buy/set-up-a-direct-debit'),
+  require('./buy/direct-debit-guarantee'),
+
   // Catch returns
   require('./catch-return/which-licence-do-you-have'),
   require('./catch-return/new-licence-number'),
