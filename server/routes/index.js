@@ -25,6 +25,8 @@ module.exports = [].concat(
 
 
   // Direct debit
+  require('./buy/direct-debit-screen'),
+  require('./buy/licence-length-dd'),
   require('./buy/would-you-like-to-set-up-a-direct-debit'),
   require('./buy/set-up-a-direct-debit'),
   require('./buy/direct-debit-guarantee'),
