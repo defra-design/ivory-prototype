@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('blue-badge', {
       pageTitle: 'What is your Blue Badge number?',
-      errorMessage: 'Enter your blue badge number',
+      errorMessage: 'Enter your Blue Badge number',
       blueBadge: request.session.blueBadge,
     })
   },

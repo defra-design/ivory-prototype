@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('find-address', {
       pageTitle: 'Find your address',
-      errorMessage: 'Enter your house number or name',
+      errorMessage: 'Enter a building name or number',
       errorMessageTwo: 'Enter your postcode',
       premises: request.session.premises,
       postcode: request.session.postcode,

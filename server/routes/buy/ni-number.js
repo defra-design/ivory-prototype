@@ -2,7 +2,7 @@ const handlers = {
   get: function (request, reply) {
     return reply.view('ni-number', {
       pageTitle: 'What is your National Insurance number?',
-      errorMessage: 'Enter your national insurance number',
+      errorMessage: 'Enter your National Insurance number',
       NINumber: request.session.NINumber,
     })
   },

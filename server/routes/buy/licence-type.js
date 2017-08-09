@@ -67,7 +67,7 @@ const handlers = {
 
     return reply.view('licence-type', {
       pageTitle: 'What type of fishing licence do you want?',
-      errorMessage: 'Choose a licence type',
+      errorMessage: 'Choose a type of fishing licence',
       cost: request.session.cost,
       salmonCost: request.session.salmonCost,
       coarseCost: request.session.coarseCost,
