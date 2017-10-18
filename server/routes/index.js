@@ -134,6 +134,10 @@ module.exports = [].concat(
   require('./buy/enter-card-details'),
   require('./buy/confirm-payment'),
 
+  // Static pages
+  require('./static-pages'),
+
+
   // Start pages
   require('./start-screen'),
   require('./start'),
