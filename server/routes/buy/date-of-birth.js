@@ -39,7 +39,7 @@ const handlers = {
     if (returnURL) {
       return reply.redirect(returnURL)
     } else {
-      if (request.session.age < 12) {
+      if (request.session.age < 13) {
         return reply.redirect('no-licence-required')
       } else if (request.session.age < 17) {
         request.session.licenceLength = '12-months'
