@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('fishing-in-scotland-and-northern-ireland.html')
+    return reply.view('fishing-in-scotland-and-northern-ireland.html',  null, { layout: 'layout-start'})
   }
 }
 

@@ -1,6 +1,6 @@
 const handlers = {
   get: function (request, reply) {
-    return reply.view('when-you-need-a-licence.html')
+    return reply.view('when-you-need-a-licence.html',  null, { layout: 'layout-start'})
   }
 }
 
