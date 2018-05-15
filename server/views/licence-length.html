@@ -3,24 +3,30 @@
         {{> common/back}} {{> common/errors}}
         <h1 class="heading-large">{{pageTitle}}</h1>
         <p>
-            12-month licences for children aged between 13 and 16 are free.
+            Licences for children aged between 13 and 16 are free.
         </p>
         <form method="post" autocomplete="off" novalidate>
             <div class="form-group {{#if errors}}error{{/if}}">
                 <fieldset data-required data-error="{{errorMessage}}">
                     <div class="form-group">
-                        {{#each items}}
-                        <label for="{{id}}" class="block-label selection-button-radio" {{#if selectedText}} data-target="{{value}}_text" {{/if}}>
-                      <input id="{{id}}" type="radio" name="{{name}}" value="{{id}}" {{#if checked}}checked{{/if}}>
-                      {{text}}
-                      {{#if subText}}
-                        <br>{{subText}}
-                      {{/if}}
-                    </label> {{#if selectedText}}
-                        <div class="panel panel-border-narrow js-hidden" id="{{value}}_text">
-                            <p>{{selectedText}}</p>
+                        <label for="1-day" class="block-label selection-button-radio" data-target="1-day_text">
+                        <input id="1-day" type="radio" name="licence_length" value="1-day" aria-controls="1-day_text">
+                      1-day licence</label> 
+                        <div class="panel panel-border-narrow js-hidden" id="1-day_text">
+                            <p>1-day licences are valid for a full 24 hours from the start time that you select.</p>
                         </div>
-                        {{/if}} {{/each}}
+                        
+                        <label for="8-days" class="block-label selection-button-radio" data-target="8-days_text">
+                        <input id="8-days" type="radio" name="licence_length" value="8-days" aria-controls="8-days_text">8-day licence</label>
+                        <div class="panel panel-border-narrow js-hidden" id="8-days_text">
+                            <p>8-day licences are valid for 8 consecutive days from the start time that you select.</p>
+                        </div>
+                        <label for="12-months" class="block-label selection-button-radio" data-target="12-months_text">
+                        <input id="12-months" type="radio" name="licence_length" value="12-months" aria-controls="12-months_text">12-month licence</label> 
+                        <div class="panel panel-border-narrow js-hidden" id="12-months_text">
+                            <p>12-month licences are now valid for 365 days from their start date and can be purchased at any time during the year.</p>
+                        </div>
+                         
                     </div>
                 </fieldset>
             </div>
