@@ -2,7 +2,6 @@
   <div class="column-two-thirds reducemargin">
     {{> common/back}}{{> common/errors}}
     <h1 class="heading-large">{{pageTitle}}</h1>
-    <div class="panel panel-border-wide">
 
       {{#if isJunior}}
       <p>
@@ -10,8 +9,7 @@
       </p>
       {{else}} {{#if isFull}}
       <p>
-        Your licence will arrive in the post within 10 working days. You can go fishing before you receive it, but you must be able
-        to produce your licence number.
+        Your licence will arrive in the post within 10 working days. You can go fishing before you receive it, but you must be able to produce your licence number.
       </p>
       <p>
         Choose how you would like to receive this licence number and your expiry reminders.
@@ -23,53 +21,29 @@
       </p>
 
       {{/if}} {{/if}}
-    </div>
 
 
 
 
 
     <form method="post" autocomplete="off" novalidate>
-
-
       <legend class="visually-hidden">Can we send you your licence details?</legend>
       <fieldset>
         <div class="form-group">
-          <label class="block-label selection-button-radio" data-target="contact-by-email" for="example-contact-by-email">
-                <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-                Email or text me my licence details
-              </label>
-          <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-            <label class="form-label" for="contact-email">Email address</label>
-            <!-- <input class="form-control" name="contact-email" type="text" id="contact-email"> -->
-            <input class="form-control" id="email" name="email" value="{{email}}" type="email"> <br>
-            <label class="form-label" for="contact-text-message">Mobile phone number</label>
-            <!-- <input class="form-control" name="contact-text-message" type="text" id="contact-text-message"> -->
-            <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
-            </br>
-            <div class="form-group">
-              <!-- <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true"> Would you like to receive fishing news and updates? -->
-            </div>
-            <p><a href="/buy/data-protection">View our data protection notice</a></p>
-            <input id="contact-checkbox" style="margin-top: 10px;" name="contact-by-text-phone" type="checkbox" value="true">Update
-              me with the latest news on angling and fisheries and how you spend my licence money
-          </div>
-          <label class="block-label selection-button-radio" data-target="write" for="example-contact-by-phone">
-              <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
-              I will write down my licence number
-            </label>
-          <!-- <div class="panel panel-border-narrow js-hidden" id="write">
-                    <p>We will write to you when your licence is about to expire.</p>
-                </div> -->
+          <label class="form-label" for="contact-email">Email address</label>
+          <input class="form-control" id="email" name="email" value="{{email}}" type="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contact-text-message">Mobile phone number</label>
+          <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
         </div>
       </fieldset>
-
-
+      <p><a href="/buy/data-protection">View how we will use your information</a></p>
+      <div class="form-group multiple-choice">
+        <input id="checkbox-opt-in" name="contact-me" type="checkbox" value="true">
+        <label for="checkbox-opt-in">Update me with the latest news on angling and fisheries and how you spend my licence money</label>
+      </div>
       <button type="submit" class="button">Continue</button>
     </form>
-
-
-    <!-- <br>
-    <a href="/buy/data-protection">View our data protection notice</a> -->
   </div>
 </div>
