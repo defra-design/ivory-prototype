@@ -1,32 +1,19 @@
 <div class="grid-row">
   <div class="column-two-thirds reducemargin">
-    {{> common/back}}{{> common/errors}}
+  {{> common/back}}{{> common/errors}}
     <h1 class="heading-large">{{pageTitle}}</h1>
-
-      {{#if isJunior}}
-      <p>
-        We don’t send junior licences in the post, but you must be able to produce your licence number when you go fishing.
-      </p>
-      <p>
-        Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
-      </p>
-      {{else}} {{#if isFull}}
-      <p>
-        Your licence will arrive in the post within 10 working days. In the meantime, you must be able to produce your licence number when you go fishing.
-      </p>
-      <p>
-        Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
-      </p>
-      {{else}}
-
-      <p>
-        We don’t send 1-day or 8-day licences in the post, but you must be able to produce your licence number when you go fishing.
-      </p>
-      <p>
-        Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
-      </p>
-      {{/if}} {{/if}}
-
+    <div class="panel panel-border-wide">
+  {{#if isJunior}}   
+      We don’t send junior licences in the post, but you must be able to produce your licence number when you go fishing.
+  {{else}} {{#if isFull}}
+      Your licence will arrive in the post within 10 working days. In the meantime, you must be able to produce your licence number when you go fishing.
+  {{else}}
+      We don’t send 1-day or 8-day licences in the post, but you must be able to produce your licence number when you go fishing.
+  {{/if}} {{/if}}
+    </div>
+    <p>
+      Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
+    </p>
     <form method="post" autocomplete="off" novalidate>
       <legend class="visually-hidden">Can we send you your licence details?</legend>
       <fieldset>
