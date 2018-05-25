@@ -6,28 +6,63 @@
     <div class="panel panel-border-wide">
       We don’t send junior licences in the post, but you must be able to produce your licence number when you go fishing.
     </div>
+    <div>
+      (we'll show you your licence number once you’ve paid if you want to make a note of it)
+    </div>
     <p>
-      Choose how we send you your licence details (we'll show you your licence number once you’ve paid if you want to make a note of it):
+      Choose how we send you your licence details:
     </p>
   {{else}} {{#if isFull}}
     <div class="panel panel-border-wide">
       Your licence will arrive in the post within 10 working days. In the meantime, you must be able to produce your licence number when you go fishing.
     </div>
     <p>
-      Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
+      Choose how we send you your licence details and expiry reminders:
     </p>
   {{else}}
     <div class="panel panel-border-wide">
       We don’t send 1-day or 8-day licences in the post, but you must be able to produce your licence number when you go fishing.
     </div>
     <p>
-      Choose how we send you your licence details (we'll show you your licence number once you’ve paid if you want to make a note of it):
+      Choose how we send you your licence details:
     </p>
   {{/if}} {{/if}}
     <form method="post" autocomplete="off" novalidate>
       <legend class="visually-hidden">Can we send you your licence details?</legend>
       <!-- <fieldset data-required data-error="{{errorMessage}}"> -->
       <fieldset>
+        <div class="form-group">
+          <label for="contactMe" class="block-label selection-button-radio" data-target="contactMe_text">
+            <input id="contactMe" type="radio"
+              name="contact" value="contactMe">
+              Email or text me my licence details
+          </label>
+          <div class="panel panel-border-narrow js-hidden" id="contactMe_text">
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Email address
+              </label>
+              <input class="form-control" id="email" name="email" value="" type="email">
+            </div>
+            <div class="form-group">
+              <label for="mobile" class="form-label">
+                Mobile phone number
+              </label>
+              <input class="form-control" id="mobile" name="mobile" value="" type="text" maxlength="30">
+            </div>
+            <p><a href="/buy/data-protection">View our data protection notice</a></p>
+            <div class="form-group multiple-choice">
+              <input id="checkbox-opt-in" name="contact-me" type="checkbox" value="true">
+              <label for="checkbox-opt-in">Update me with the latest news on angling and fisheries and how you spend my licence money</label>
+            </div>
+          </div>
+          <label class="block-label selection-button-radio" data-target="contactMe-text" for="example-contact-me-text">
+          <input id="example-contact-me-text" type="radio" name="contact" value="Yes">
+             I will write down my licence number
+          </label>
+        </div>
+      </fieldset>
+      <!-- <fieldset>
         <div class="form-group">
           <label class="form-label" for="contact-email">Email address</label>
           <input class="form-control" id="email" name="email" value="{{email}}" type="email">
@@ -37,12 +72,14 @@
           <input class="form-control" id="mobile" name="mobile" value="{{mobile}}" type="text" maxlength="30">
         </div>
       </fieldset>
-      <p><a href="/buy/data-protection">View how we will use your information</a></p>
+      <p><a href="/buy/data-protection">View our data protection notice</a></p>
       <div class="form-group multiple-choice">
         <input id="checkbox-opt-in" name="contact-me" type="checkbox" value="true">
-        <label for="checkbox-opt-in">I want to be kept up to date with the latest angling news and fisheries updates</label>
+        <label for="checkbox-opt-in">Update me with the latest news on angling and fisheries and how you spend my licence money</label>
+      </div> -->
+      <div class="form-group">
+        <button type="submit" class="button">Continue</button>
       </div>
-      <button type="submit" class="button">Continue</button>
     </form>
   </div>
 </div>
