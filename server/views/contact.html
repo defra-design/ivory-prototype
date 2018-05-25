@@ -2,18 +2,28 @@
   <div class="column-two-thirds reducemargin">
   {{> common/back}}{{> common/errors}}
     <h1 class="heading-large">{{pageTitle}}</h1>
+  {{#if isJunior}}
     <div class="panel panel-border-wide">
-  {{#if isJunior}}   
       We don’t send junior licences in the post, but you must be able to produce your licence number when you go fishing.
+    </div>
+    <p>
+      Choose how we send you your licence details (we'll show you your licence number once you’ve paid if you want to make a note of it):
+    </p>
   {{else}} {{#if isFull}}
+    <div class="panel panel-border-wide">
       Your licence will arrive in the post within 10 working days. In the meantime, you must be able to produce your licence number when you go fishing.
-  {{else}}
-      We don’t send 1-day or 8-day licences in the post, but you must be able to produce your licence number when you go fishing.
-  {{/if}} {{/if}}
     </div>
     <p>
       Choose how we send you your licence details and expiry reminders (we'll show you your licence number once you’ve paid if you want to make a note of it):
     </p>
+  {{else}}
+    <div class="panel panel-border-wide">
+      We don’t send 1-day or 8-day licences in the post, but you must be able to produce your licence number when you go fishing.
+    </div>
+    <p>
+      Choose how we send you your licence details (we'll show you your licence number once you’ve paid if you want to make a note of it):
+    </p>
+  {{/if}} {{/if}}
     <form method="post" autocomplete="off" novalidate>
       <legend class="visually-hidden">Can we send you your licence details?</legend>
       <fieldset>
