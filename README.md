@@ -1,4 +1,4 @@
-# fish-sales-prototype
+# rod-licence-prototype
 
 ## A hapi-based nodejs web server enterprise-ready project boilerplate.
 
@@ -37,9 +37,9 @@ Comes with these opinions out-of-the-box:
 
 ### Getting started
 
-- $ git clone https://github.com/EnvironmentAgency/fish-sales-prototype
+- $ git clone https://github.com/DEFRA/rod-licence-prototype
 
-- $ cd fish-sales-app
+- $ cd rod-licence-prototype
 
 - Install dependencies
 
