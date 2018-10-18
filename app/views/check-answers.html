@@ -1,0 +1,56 @@
+{% extends "layout.html" %} {% block beforeContent %} {% include "includes/ib-head.html" %} {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Check your answers before completing registration</h1>
+
+    <h2 class="govuk-heading-m">Registration</h2>
+
+    <dl class="app-check-your-answers app-check-your-answers--long">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Character type</dt>
+        <dd class="app-check-your-answers__answer">{{registerTypeChosen}}</dd>
+        <dd class="app-check-your-answers__change"><a href="/register-type">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Register's name</dt>
+        <dd class="app-check-your-answers__answer">{{data['firstName']}} {{data['lastName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="/register-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Character title</dt>
+        <dd class="app-check-your-answers__answer">{{data['characterTitle']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="/item-detail">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Character description</dt>
+        <dd class="app-check-your-answers__answer">{{data['characterDescription']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="/item-detail">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Character photo</dt>
+        <dd class="app-check-your-answers__answer">{{data['fileUpload1']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="/upload">Change</a></dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Now send your application</h2>
+    <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+    <form method="post" autocomplete="off" novalidate>
+      <!--<span id="email-hint" class="govuk-hint">On the next page use this mock card: 4000056655665556</span> -->
+      <!--<span id="email-hint" class="govuk-hint">This skips the pays creen for now:</span>-->
+      <button type="submit" class="govuk-button">Complete registration (with database)</button>
+    </form>
+
+    <a href='register-confirmation?submission_id=test'>
+      <button class="govuk-button">Complete registration (without database)</button>
+    </a>
+
+    <p><a href="../main">Cancel payment</a></p>
+
+  </div>
+
+</div>
+
+{% endblock %}

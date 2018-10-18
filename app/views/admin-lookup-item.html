@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <h2 class="govuk-heading-m">Admin console</h2>
+  <h1 class="govuk-heading-l">Lookup registered item</h1>
+
+  <form method="post" autocomplete="off" novalidate>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="submissionId">Submission Id</label>
+      <input class="govuk-input" id="submissionId" name="submissionId" type="text" value="{{data['submissionId']}}" >
+    </div>
+
+    <button class="govuk-button">Search</button>
+
+    <span id="error" class="govuk-error-message">
+      {{message}}
+    </span>
+
+  </form>
+
+</div>
+
+
+{% endblock %}

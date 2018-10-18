@@ -1,0 +1,59 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <h2 class="govuk-heading-m">Admin console</h2>
+
+  <h1 class="govuk-heading-l">Lookup registered item</h1>
+
+  <h2 class="govuk-heading-m">Item</h2>
+
+  <table class="govuk-table">
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Submission Id</th>
+        <td class="govuk-table__cell">{{lookupArray[0].submission_id}}</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Register type</th>
+        <td class="govuk-table__cell">{{registerTypeChosen}}</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Character title</th>
+        <td class="govuk-table__cell">{{lookupArray[0].title}}</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Character description</th>
+        <td class="govuk-table__cell">{{lookupArray[0].description}}</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Submitted datetime</th>
+        <td class="govuk-table__cell">{{lookupArray[0].submitted_datetime}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="govuk-heading-m">Owner</h2>
+
+  <table class="govuk-table">
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Owner Id</th>
+        <td class="govuk-table__cell">{{lookupArray[0].owner_id}}</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" scope="row">Register's name</th>
+        <td class="govuk-table__cell">{{lookupArray[0].name}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href='admin-lookup-item'>
+    <button class="govuk-button">Search again</button>
+  </a>
+
+</div>
+
+
+{% endblock %}

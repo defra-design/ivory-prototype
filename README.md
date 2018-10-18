@@ -1,56 +1,27 @@
-# rod-licence-prototype
+# GOV.UK Prototype Kit · [![Greenkeeper badge](https://badges.greenkeeper.io/alphagov/govuk-prototype-kit.svg)](https://greenkeeper.io/)
 
-## A hapi-based nodejs web server enterprise-ready project boilerplate.
+Go to the [GOV.UK Prototype Kit site](https://govuk-prototype-kit.herokuapp.com/docs) to download the latest version and read the documentation.
 
-### Basics
+## About the Prototype Kit
 
-A hapi-based nodejs web server enterprise-ready project boilerplate.
+The Prototype Kit provides a simple way to make interactive prototypes that look like pages on GOV.UK. These prototypes can be used to show ideas to people you work with, and to do user research.
 
-Comes with these opinions out-of-the-box:
+Read the [project principles](https://govuk-prototype-kit.herokuapp.com/docs/principles).
 
-- [hapijs](https://github.com/hapijs/hapi)
-  - Web framework
-- [standardjs](http://standardjs.com/)
-  - Linting
-- [browserify](https://github.com/substack/node-browserify)
-  - Clientside javascript
-- [pm2](https://github.com/Unitech/pm2)
-  - Process manager
-- [handlebars](http://handlebarsjs.com/)
-  - Template engine
-- [npm-scripts](https://docs.npmjs.com/misc/scripts)
-  - Build tool
+## Security
 
+If you publish your prototypes online, they **must** be protected by a [username and password](https://govuk-prototype-kit.herokuapp.com/docs/publishing-on-heroku). This is to prevent members of the public finding prototypes and thinking they are real services.
 
-### Principles
+You must protect user privacy at all times, even when using prototypes. Prototypes made with the kit look like GOV.UK, but do not have the same security provisions. Always make sure you are handling user data appropriately.
 
-- Production-ready & enterprise quality
-- Keep it Simple - hapi.js is super simple but elegant and powerful too
-- Only intended as a baseline, nothing is mandated, only recommended
+## Installation instructions
 
-### Prerequisites
+- [Installation guide for new users (non technical)](https://govuk-prototype-kit.herokuapp.com/docs/install/introduction)
+- [Installation guide for developers (technical)](https://govuk-prototype-kit.herokuapp.com/docs/install/developer-install-instructions)
 
-- node.js 4.x.x
-- npm
-- pm2 installed globally
+## Community
 
+We have two Slack channels for the Prototype Kit. You'll need a government email address to join them.
 
-### Getting started
-
-- $ git clone https://github.com/DEFRA/rod-licence-prototype
-
-- $ cd rod-licence-prototype
-
-- Install dependencies
-
-- $ npm install
-
-- Build
-
-- $ npm run build
-
-- Start server
-
-- $ node index
-
-- Open http://localhost:3002
+* [Slack channel for users of the Prototype Kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit/)
+* [Slack channel for developers of the Prototype Kit](https://ukgovernmentdigital.slack.com/messages/prototype-kit-dev/)

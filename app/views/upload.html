@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block beforeContent %} {% include "includes/ib-head.html" %} {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Upload a photo of the character</h1>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">What the photo must include</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>The photo must include:</p>
+        <ul class="list list-bullet">
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <img src="/public/images/MickeyMouse.png" width="70%" border='1' height="auto" alt="Example photo">
+      </div>
+    </details>
+
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="fileUpload1">Upload a file</label>
+        <input class="govuk-file-upload" id="fileUpload1" name="fileUpload1" type="file" value="{{data['fileUpload1']}}" >
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
