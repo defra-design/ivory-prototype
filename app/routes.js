@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-//IVORY constants
 registerTypeText1 = 'Pre-digital animation characters'
 registerTypeText2 = 'Digital animation characters'
 registerTypeText3 = 'Pixar characters'
@@ -250,13 +249,95 @@ router.get('/admin-owner', function(request, response) {
 
 
 //////////////////////////////////////////////////////////////////////////////
+// NOTIFY
+router.post('/notify', function(request, response) {
+  console.log('DEBUG.routes.notify');
+
+
+  if (request.session.data['email']) {
+    console.log('DEBUG.routes.notify.email: ' + request.session.data['email'])
+    SendNotifyEmail(request.session.data['email']);
+  } else {
+    console.log('DEBUG.routes.notify.email is null');
+  }
+
+  if (request.session.data['telephoneNumber']) {
+    console.log('DEBUG.routes.notify.telephoneNumber: ' + request.session.data['telephoneNumber'])
+    SendNotifySMS(request.session.data['telephoneNumber']);
+  } else {
+    console.log('DEBUG.routes.notify.email is null');
+  }
+
+  response.render('notify-confirm', {
+    'emailAddress': request.session.data['email'],
+    'telephoneNumber': request.session.data['telephoneNumber']
+  })
+})
+
+
+
+function SendNotifyEmail(emailAddress) {
+  console.log('DEBUG.routes.SendNotifyEmail: ' + emailAddress);
+  //SETUP
+  var apiKey = 'test_demo-65a83de3-679d-45b2-aacf-049a6e3ad760-ccfae7fd-43f3-49ff-8e77-4a109a9e499f';
+  var NotifyClient = require('notifications-node-client').NotifyClient,
+    notifyClient = new NotifyClient(apiKey);
+
+  //SEND MESSAGE - EMAIL
+  var templateId = '67a4de78-d063-4593-976f-7ad8112c30ab';
+
+  notifyClient.sendEmail(templateId, emailAddress, {
+      personalisation: {
+        submissionId: "TEST"
+      }
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
+
+
+function SendNotifySMS(telephoneNumber) {
+  console.log('DEBUG.routes.SendNotifySMS: ' + telephoneNumber);
+  //SETUP
+  var apiKey = 'test_demo-65a83de3-679d-45b2-aacf-049a6e3ad760-ccfae7fd-43f3-49ff-8e77-4a109a9e499f';
+  var NotifyClient = require('notifications-node-client').NotifyClient,
+    notifyClient = new NotifyClient(apiKey);
+
+  //SEND MESSAGE - EMAIL
+  var templateId = 'a5d109c5-ddcb-44b9-ab7d-f921f6b024be';
+
+  notifyClient.sendSms(templateId, telephoneNumber, {
+      personalisation: {
+        submissionId: "TEST"
+      }
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
+
+//////////////////////////////////////////////////////////////////////////////
 // TEST
 router.get('/test', function(request, response) {
 
   console.log('DEBUG.routes.test');
 
+  // const dbOwner = require('./postgres/dbOwner');
+  // var client = dbOwner.getOwnerClient();
+  // client.connect();
+  // client.query('SELECT * FROM owner', (err, res) => {
+  //   if(res.rows[0]) {
+  //       console.log(res.rows[0].owner_id);
+  //   } else {
+  //       console.log('no results');
+  //   }
+  //   client.end();
+  //   response.render('test');
+  // })
 
-  response.render('test');
+  //
+  response.render('test', {
+    'message': 'test'
+  });
 
 })
 
