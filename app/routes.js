@@ -279,12 +279,12 @@ router.post('/notify', function(request, response) {
 function SendNotifyEmail(emailAddress) {
   console.log('DEBUG.routes.SendNotifyEmail: ' + emailAddress);
   //SETUP
-  var apiKey = 'test_demo-65a83de3-679d-45b2-aacf-049a6e3ad760-ccfae7fd-43f3-49ff-8e77-4a109a9e499f';
+  var apiKey = process.env.GOVUK_NOTIFY_API_KEY;
   var NotifyClient = require('notifications-node-client').NotifyClient,
     notifyClient = new NotifyClient(apiKey);
 
   //SEND MESSAGE - EMAIL
-  var templateId = '67a4de78-d063-4593-976f-7ad8112c30ab';
+  var templateId = process.env.GOVUK_NOTIFY_EMAIL_TEMPLATE;
 
   notifyClient.sendEmail(templateId, emailAddress, {
       personalisation: {
@@ -299,12 +299,12 @@ function SendNotifyEmail(emailAddress) {
 function SendNotifySMS(telephoneNumber) {
   console.log('DEBUG.routes.SendNotifySMS: ' + telephoneNumber);
   //SETUP
-  var apiKey = 'test_demo-65a83de3-679d-45b2-aacf-049a6e3ad760-ccfae7fd-43f3-49ff-8e77-4a109a9e499f';
+  var apiKey = process.env.GOVUK_NOTIFY_API_KEY;
   var NotifyClient = require('notifications-node-client').NotifyClient,
     notifyClient = new NotifyClient(apiKey);
 
   //SEND MESSAGE - EMAIL
-  var templateId = 'a5d109c5-ddcb-44b9-ab7d-f921f6b024be';
+  var templateId = process.env.GOVUK_NOTIFY_SMS_TEMPLATE;
 
   notifyClient.sendSms(templateId, telephoneNumber, {
       personalisation: {
