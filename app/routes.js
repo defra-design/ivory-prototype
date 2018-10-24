@@ -284,7 +284,7 @@ function SendNotifyEmail(emailAddress) {
     notifyClient = new NotifyClient(apiKey);
 
   //SEND MESSAGE - EMAIL
-  var templateId = process.env.GOVUK_NOTIFY_EMAIL_TEMPLATE;
+  var templateId = '67a4de78-d063-4593-976f-7ad8112c30ab';
 
   notifyClient.sendEmail(templateId, emailAddress, {
       personalisation: {
@@ -304,7 +304,7 @@ function SendNotifySMS(telephoneNumber) {
     notifyClient = new NotifyClient(apiKey);
 
   //SEND MESSAGE - EMAIL
-  var templateId = process.env.GOVUK_NOTIFY_SMS_TEMPLATE;
+  var templateId = 'a5d109c5-ddcb-44b9-ab7d-f921f6b024be';
 
   notifyClient.sendSms(templateId, telephoneNumber, {
       personalisation: {
