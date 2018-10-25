@@ -172,6 +172,7 @@ router.post('/admin-lookup-item', function(request, response) {
   console.log('DEBUG.routes.admin-lookup-item');
   var submissionId = request.session.data['submissionId'];
 
+  //If nothing is entered it will error the query, so stop
   if (submissionId == '') {
     console.log('DEBUG.routes.admin-lookup-item: no results');
     response.render('admin-lookup-item', {
@@ -323,6 +324,15 @@ function SendNotifySMS(telephoneNumber) {
     .then(response => console.log(response))
     .catch(err => console.error(err));
 }
+
+
+//////////////////////////////////////////////////////////////////////////////
+// PAY
+router.post('/pay', function(request, response) {
+  console.log('DEBUG.routes.pay');
+
+  response.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK);
+})
 
 //////////////////////////////////////////////////////////////////////////////
 // TEST
