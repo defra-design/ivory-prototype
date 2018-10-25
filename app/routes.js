@@ -171,47 +171,56 @@ router.post('/admin-lookup-item', function(request, response) {
 
   console.log('DEBUG.routes.admin-lookup-item');
   var submissionId = request.session.data['submissionId'];
-  console.log('DEBUG.routes.admin-lookup-item.submissionId: ' + submissionId);
 
-  const dbOwner = require('./postgres/dbOwner');
-  var client = dbOwner.getOwnerClient();
-  client.connect();
+  if (submissionId == '') {
+    console.log('DEBUG.routes.admin-lookup-item: no results');
+    response.render('admin-lookup-item', {
+      'message': 'Please enter a submission Id'
+    })
+  } else {
 
-  client.query('SELECT * FROM item LEFT JOIN owner ON item.owner_id = owner.owner_id WHERE item.submission_id=' + submissionId, (err, res) => {
+    console.log('DEBUG.routes.admin-lookup-item.submissionId: ' + submissionId);
 
-    if (res.rows.length == 0) {
-      console.log('DEBUG.routes.admin-lookup-item: no results');
-      response.render('admin-lookup-item', {
-        'message': 'No matching results'
-      })
-    } else {
-      console.log('DEBUG.routes.admin-lookup-item.SELECT FROM...' + res.rows[0].submission_id);
+    const dbOwner = require('./postgres/dbOwner');
+    var client = dbOwner.getOwnerClient();
+    client.connect();
 
-      var registerTypeChosen;
-      switch (res.rows[0].exemption_type) {
-        case 'type1':
-          registerTypeChosen = registerTypeText1;
-          break;
-        case 'type2':
-          registerTypeChosen = registerTypeText2;
-          break;
-        case 'type3':
-          registerTypeChosen = registerTypeText3;
-          break;
-        case 'type4':
-          registerTypeChosen = registerTypeText4;
-          break;
-        default:
-          registerTypeChosen = 'undefined';
+    client.query('SELECT * FROM item LEFT JOIN owner ON item.owner_id = owner.owner_id WHERE item.submission_id=' + submissionId, (err, res) => {
+
+      if (res.rows.length == 0) {
+        console.log('DEBUG.routes.admin-lookup-item: no results');
+        response.render('admin-lookup-item', {
+          'message': 'No matching results'
+        })
+      } else {
+        console.log('DEBUG.routes.admin-lookup-item.SELECT FROM...' + res.rows[0].submission_id);
+
+        var registerTypeChosen;
+        switch (res.rows[0].exemption_type) {
+          case 'type1':
+            registerTypeChosen = registerTypeText1;
+            break;
+          case 'type2':
+            registerTypeChosen = registerTypeText2;
+            break;
+          case 'type3':
+            registerTypeChosen = registerTypeText3;
+            break;
+          case 'type4':
+            registerTypeChosen = registerTypeText4;
+            break;
+          default:
+            registerTypeChosen = 'undefined';
+        }
+
+        response.render('admin-lookup-item2', {
+          'lookupArray': res.rows,
+          'registerTypeChosen': registerTypeChosen
+        })
+        client.end()
       }
-
-      response.render('admin-lookup-item2', {
-        'lookupArray': res.rows,
-        'registerTypeChosen': registerTypeChosen
-      })
-      client.end()
-    }
-  })
+    })
+  }
 })
 
 
