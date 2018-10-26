@@ -355,7 +355,7 @@ router.get('/test', function(request, response) {
 
   //
   response.render('test', {
-    'message': 'test'
+    'message': 'This is a test message'
   });
 
 })
