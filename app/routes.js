@@ -30,6 +30,21 @@ router.get('/start-registration', function(request, response) {
 })
 
 
+// START-PROTOTYPE_1
+router.get('/start-prototype_1', function(request, response) {
+  console.log('DEBUG.routes.start-prototype_1.get');
+
+  request.session.destroy(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log('DEBUG.routes.start-prototype_1.get: previous session destroyed');
+  })
+
+  response.redirect('double-check-1');
+})
+
+
 //*****************************************************
 //DOUBLE-CHECK
 router.get('/double-check', function(request, response) {
