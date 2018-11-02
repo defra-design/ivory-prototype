@@ -53,7 +53,19 @@ router.get('/double-check-1', function(request, response) {
 
 router.post('/double-check-1', function(request, response) {
   console.log('DEBUG.routes.double-check-1.post: ' + request.session.data['doubleCheck']);
-  response.redirect('choose-exemption-1');
+
+
+  switch (request.session.data['doubleCheck']) {
+    case 'buy':
+      response.redirect('buying-ivory-1');
+      break;
+    case 'sell':
+    response.redirect('choose-exemption-1');
+      break;
+    default:
+    response.redirect('choose-exemption-1');
+  }
+
 })
 
 //*****************************************************
