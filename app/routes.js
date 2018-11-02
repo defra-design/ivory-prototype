@@ -53,7 +53,18 @@ router.get('/double-check-1', function(request, response) {
 
 router.post('/double-check-1', function(request, response) {
   console.log('DEBUG.routes.double-check.post: ' + request.session.data['doubleCheck']);
-  response.redirect('register-type');
+  response.redirect('choose-exemption');
+})
+
+//*****************************************************
+//CHOOSE-EXEMPTION
+router.get('/choose-exemption-1', function(request, response) {
+  response.render('choose-exemption-1');
+})
+
+router.post('/choose-exemption-1', function(request, response) {
+  console.log('DEBUG.routes.choose-exemption.post: ' + request.session.data['chooseExemption']);
+  response.redirect('register-name');
 })
 
 //*****************************************************
