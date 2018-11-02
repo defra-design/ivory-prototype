@@ -52,7 +52,7 @@ router.get('/double-check-1', function(request, response) {
 })
 
 router.post('/double-check-1', function(request, response) {
-  console.log('DEBUG.routes.double-check.post: ' + request.session.data['doubleCheck']);
+  console.log('DEBUG.routes.double-check-1.post: ' + request.session.data['doubleCheck']);
   response.redirect('choose-exemption-1');
 })
 
@@ -63,8 +63,30 @@ router.get('/choose-exemption-1', function(request, response) {
 })
 
 router.post('/choose-exemption-1', function(request, response) {
-  console.log('DEBUG.routes.choose-exemption.post: ' + request.session.data['chooseExemption']);
-  response.redirect('register-name');
+  console.log('DEBUG.routes.choose-exemption-1.post: ' + request.session.data['chooseExemption']);
+  response.redirect('add-title-1');
+})
+
+//*****************************************************
+//ADD-TITLE
+router.get('/add-title-1', function(request, response) {
+  response.render('add-title-1');
+})
+
+router.post('/add-title-1', function(request, response) {
+  console.log('DEBUG.routes.add-title-1.post: ' + request.session.data['addTitle']);
+  response.redirect('add-photograph-1');
+})
+
+//*****************************************************
+//ADD-PHOTOGRAPH
+router.get('/add-photograph-1', function(request, response) {
+  response.render('add-photograph-1');
+})
+
+router.post('/add-photograph-1', function(request, response) {
+  console.log('DEBUG.routes.add-photograph-1.post: ' + request.session.data['addPhotograph']);
+  response.redirect('add-description-1');
 })
 
 //*****************************************************

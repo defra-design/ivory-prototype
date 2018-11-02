@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add a photograph</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="fileUpload1">Upload a file</label>
+        <input class="govuk-file-upload" id="fileUpload1" name="fileUpload1" type="file" value="{{data['fileUpload1']}}" >
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
