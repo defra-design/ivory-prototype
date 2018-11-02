@@ -47,11 +47,11 @@ router.get('/start-prototype_1', function(request, response) {
 
 //*****************************************************
 //DOUBLE-CHECK
-router.get('/double-check', function(request, response) {
-  response.render('double-check');
+router.get('/double-check-1', function(request, response) {
+  response.render('double-check-1');
 })
 
-router.post('/double-check', function(request, response) {
+router.post('/double-check-1', function(request, response) {
   console.log('DEBUG.routes.double-check.post: ' + request.session.data['doubleCheck']);
   response.redirect('register-type');
 })
