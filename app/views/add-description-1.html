@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Add a description</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="description">
+          Describe the item
+        </label>
+        <span id="description-hint" class="govuk-hint">
+          Include why you think this meets the exemption.
+        </span>
+        <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="description-hint" value="{{data['description']}}"></textarea>
+      </div>
+
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
