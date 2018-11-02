@@ -6,6 +6,12 @@ registerTypeText2 = 'Digital animation characters'
 registerTypeText3 = 'Pixar characters'
 registerTypeText4 = 'Star Wars characters'
 
+exemptionTypeText1 = 'Less than 10% ivory, pre-1918'
+exemptionTypeText2 = 'Musical instrument, less than 20% ivory, pre-1975'
+exemptionTypeText3 = 'Portrait miniature'
+exemptionTypeText4 = 'To be acquired by a museum'
+exemptionTypeText5 = 'Rarest and most important, pre-1918'
+
 // Add your routes here - above the module.exports line
 
 //*****************************************************
@@ -23,6 +29,17 @@ router.get('/start-registration', function(request, response) {
   response.redirect('register-type');
 })
 
+
+//*****************************************************
+//DOUBLE-CHECK
+router.get('/double-check', function(request, response) {
+  response.render('double-check');
+})
+
+router.post('/double-check', function(request, response) {
+  console.log('DEBUG.routes.double-check.post: ' + request.session.data['doubleCheck']);
+  response.redirect('register-type');
+})
 
 //*****************************************************
 //REGISTER-TYPE
