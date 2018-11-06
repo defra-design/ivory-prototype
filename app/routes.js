@@ -79,6 +79,7 @@ router.post('/choose-exemption-1', function(request, response) {
   response.redirect('add-title-1');
 })
 
+
 //*****************************************************
 //ADD-TITLE
 router.get('/add-title-1', function(request, response) {
@@ -90,6 +91,7 @@ router.post('/add-title-1', function(request, response) {
   response.redirect('add-photograph-1');
 })
 
+
 //*****************************************************
 //ADD-PHOTOGRAPH
 router.get('/add-photograph-1', function(request, response) {
@@ -100,6 +102,34 @@ router.post('/add-photograph-1', function(request, response) {
   console.log('DEBUG.routes.add-photograph-1.post: ' + request.session.data['addPhotograph']);
   response.redirect('add-description-1');
 })
+
+
+//*****************************************************
+//OWNER-NAME
+router.get('/owner-name-1', function(request, response) {
+  response.render('owner-name-1');
+})
+
+router.post('/owner-name-1', function(request, response) {
+  console.log('DEBUG.routes.owner-name-1.post: ' + request.session.data['ownerName']);
+  response.redirect('owner-address-1');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //*****************************************************
 //REGISTER-TYPE

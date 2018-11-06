@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Who owns the item?</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="owner_name">Onwer's name</label>
+        <input class="govuk-input" id="owner_name" name="ownerName" type="text" value="{{data['ownerName']}}" >
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
