@@ -14,6 +14,18 @@
         <input class="govuk-input" id="title" name="title" type="text" value="{{data['title']}}" >
       </div>
 
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="title">
+          Title
+        </label>
+        <span id="title-hint" class="govuk-hint">
+          For example Bechstein upright piano, Chest of drawers
+        </span>
+        <input class="govuk-input" id="title" name="title" type="text" value="{{data['title']}}" aria-describedby="title-hint" />
+      </div>
+
+
       <button class="govuk-button">Continue</button>
 
     </form>

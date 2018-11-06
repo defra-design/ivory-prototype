@@ -41,7 +41,7 @@ router.get('/start-prototype_1', function(request, response) {
     console.log('DEBUG.routes.start-prototype_1.get: previous session destroyed');
   })
 
-  response.redirect('double-check-1');
+  response.redirect('choose-exemption-1');
 })
 
 
