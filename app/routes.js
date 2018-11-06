@@ -459,7 +459,9 @@ function SendNotifySMS(telephoneNumber) {
 router.post('/pay', function(request, response) {
   console.log('DEBUG.routes.pay');
 
-  response.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK);
+  response.redirect('https://products.payments.service.gov.uk/pay/afdf0ef4129a4e1db99af61e392a709f')
+
+  //response.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK);
 })
 
 
