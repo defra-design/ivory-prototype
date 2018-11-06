@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+  <a class="govuk-back-link" href="contact-details.html">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -16,15 +16,11 @@
         Check your answers before declaration and payment
       </h1>
 
-      <!-- only add a heading for a list if there is more than one list -->
-      <h2 class="govuk-heading-m">
-        Heading 2
-      </h2>
-
       <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
       <!--   * `app-check-your-answers--short` for short questions -->
       <!--   * `app-check-your-answers__questions-long` for long questions -->
       <!--   * none for single group of q&a -->
+
       <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
@@ -45,7 +41,7 @@
             Photograph
           </dt>
           <dd class="app-check-your-answers__answer">
-            {{ data['photograph'] }}
+            [Photograph will be here]
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
