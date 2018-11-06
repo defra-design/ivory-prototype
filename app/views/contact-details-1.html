@@ -3,35 +3,38 @@
 {% block content %}
 
 
+<div class="govuk-width-container">
+  <a href="owner-address-1.html" class="govuk-back-link">Back</a>
 
-<a href="owner-address-1.html" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
 
+        <h1 class="govuk-heading-l">How would you like us to contact you?</h1>
+        
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+        <form method="post" autocomplete="off" novalidate>
 
-    <h1 class="govuk-heading-l">How would you like us to contact you?</h1>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="email">
+              Email address
+            </label>
+            <span id="email-hint" class="govuk-hint">
+              We’ll use this to send you a receipt
+            </span>
+            <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+          </div>
 
-    <form method="post" autocomplete="off" novalidate>
+          <button class="govuk-button">Continue</button>
 
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="email">
-          Email address
-        </label>
-        <span id="email-hint" class="govuk-hint">
-          We’ll use this to send you a receipt
-        </span>
-        <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+        </form>
+
+
       </div>
+    </div>
 
-      <button class="govuk-button">Continue</button>
-
-    </form>
-
-
-
-  </div>
+  </main>
 </div>
 
 {% endblock %}
