@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 
+{% block beforeContent %}
+<a href="owner-address-1.html" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
 {% block content %}
 
-
 <div class="govuk-width-container">
-  <a href="owner-address-1.html" class="govuk-back-link">Back</a>
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
@@ -12,7 +15,7 @@
 
 
         <h1 class="govuk-heading-l">How would you like us to contact you?</h1>
-        
+
 
         <form method="post" autocomplete="off" novalidate>
 
