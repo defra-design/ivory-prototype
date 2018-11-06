@@ -118,6 +118,12 @@ router.post('/contact-details-1', function(request, response) {
 
 
 
+//*****************************************************
+//CONFIRMATION
+router.get('/confirmation-1', function(request, response) {
+  response.render('confirmation-1');
+})
+
 
 
 
