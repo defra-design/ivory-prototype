@@ -142,6 +142,19 @@ router.post('/owner-address-1', function(request, response) {
 
 
 
+//*****************************************************
+//CONTACT-PREFERENCE
+router.get('/contact-details-1', function(request, response) {
+  response.render('contact-details-1');
+})
+
+router.post('/contact-details-1', function(request, response) {
+  console.log('DEBUG.routes.contact-details-1.post: ' + request.session.data['email']);
+  response.redirect('check-your-answers-1');
+})
+
+
+
 
 
 

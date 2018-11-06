@@ -13,12 +13,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
+        Check your answers before declaration and payment
       </h1>
 
       <!-- only add a heading for a list if there is more than one list -->
       <h2 class="govuk-heading-m">
-        Personal details
+        Heading 2
       </h2>
 
       <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
@@ -28,31 +28,74 @@
       <dl class="app-check-your-answers app-check-your-answers--short">
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Name
+            Title
           </dt>
           <dd class="app-check-your-answers__answer">
-            Sarah Philips
+            {{ data['title'] }}
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
-              Change<span class="govuk-visually-hidden"> name</span>
+              Change<span class="govuk-visually-hidden"> title</span>
             </a>
           </dd>
         </div>
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
-            Date of birth
+            Photograph
           </dt>
           <dd class="app-check-your-answers__answer">
-            5 January 1978
+            {{ data['photograph'] }}
           </dd>
           <dd class="app-check-your-answers__change">
             <a href="#">
-              Change<span class="govuk-visually-hidden"> date of birth</span>
+              Change<span class="govuk-visually-hidden"> photograph</span>
             </a>
           </dd>
         </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Description
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ data['description'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Change<span class="govuk-visually-hidden"> description</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Owner's name
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ data['ownerName'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Change<span class="govuk-visually-hidden"> owner's name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Owner's address
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ data['addressPostcode'] }}
+          </dd>
+          <dd class="app-check-your-answers__change">
+            <a href="#">
+              Change<span class="govuk-visually-hidden"> owner's address</span>
+            </a>
+          </dd>
+        </div>
+
 
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">
