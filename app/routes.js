@@ -14,20 +14,6 @@ exemptionTypeText5 = 'Rarest and most important, pre-1918'
 
 // Add your routes here - above the module.exports line
 
-//*****************************************************
-// START-REGISTRATION
-router.get('/start-registration', function(request, response) {
-  console.log('DEBUG.routes.start-registration.get');
-
-  request.session.destroy(function(err) {
-    if (err) {
-      console.log(err);
-    }
-    console.log('DEBUG.routes.start-registration.get: previous session destroyed');
-  })
-
-  response.redirect('register-type');
-})
 
 
 // START-PROTOTYPE_1
@@ -44,29 +30,6 @@ router.get('/start-prototype_1', function(request, response) {
   response.redirect('choose-exemption-1');
 })
 
-
-//*****************************************************
-//DOUBLE-CHECK
-router.get('/double-check-1', function(request, response) {
-  response.render('double-check-1');
-})
-
-router.post('/double-check-1', function(request, response) {
-  console.log('DEBUG.routes.double-check-1.post: ' + request.session.data['doubleCheck']);
-
-
-  switch (request.session.data['doubleCheck']) {
-    case 'buy':
-      response.redirect('buying-ivory-1');
-      break;
-    case 'sell':
-    response.redirect('choose-exemption-1');
-      break;
-    default:
-    response.redirect('choose-exemption-1');
-  }
-
-})
 
 //*****************************************************
 //CHOOSE-EXEMPTION
@@ -87,7 +50,7 @@ router.get('/add-title-1', function(request, response) {
 })
 
 router.post('/add-title-1', function(request, response) {
-  console.log('DEBUG.routes.add-title-1.post: ' + request.session.data['addTitle']);
+  console.log('DEBUG.routes.add-title-1.post: ' + request.session.data['title']);
   response.redirect('add-photograph-1');
 })
 
@@ -99,7 +62,7 @@ router.get('/add-photograph-1', function(request, response) {
 })
 
 router.post('/add-photograph-1', function(request, response) {
-  console.log('DEBUG.routes.add-photograph-1.post: ' + request.session.data['addPhotograph']);
+  console.log('DEBUG.routes.add-photograph-1.post: ' + request.session.data['photograph']);
   response.redirect('add-description-1');
 })
 
@@ -168,6 +131,20 @@ router.post('/contact-details-1', function(request, response) {
 
 
 
+//*****************************************************
+// START-REGISTRATION
+router.get('/start-registration', function(request, response) {
+  console.log('DEBUG.routes.start-registration.get');
+
+  request.session.destroy(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    console.log('DEBUG.routes.start-registration.get: previous session destroyed');
+  })
+
+  response.redirect('register-type');
+})
 
 //*****************************************************
 //REGISTER-TYPE
