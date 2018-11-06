@@ -103,6 +103,17 @@ router.post('/add-photograph-1', function(request, response) {
   response.redirect('add-description-1');
 })
 
+//*****************************************************
+//ADD-DESCRIPTION
+router.get('/add-description-1', function(request, response) {
+  response.render('add-description-1');
+})
+
+router.post('/add-description-1', function(request, response) {
+  console.log('DEBUG.routes.add-description-1.post: ' + request.session.data['description']);
+  response.redirect('owner-name-1');
+})
+
 
 //*****************************************************
 //OWNER-NAME
