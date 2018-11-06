@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<a href="owner-address-1.html" class="govuk-back-link">Back</a>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">How would you like us to contact you?</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="email">
+          Email address
+        </label>
+        <span id="email-hint" class="govuk-hint">
+          We’ll use this to send you a receipt
+        </span>
+        <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

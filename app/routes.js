@@ -129,6 +129,20 @@ router.post('/owner-name-1', function(request, response) {
 
 
 
+//*****************************************************
+//OWNER-ADDRESS
+router.get('/owner-address-1', function(request, response) {
+  response.render('owner-address-1');
+})
+
+router.post('/owner-address-1', function(request, response) {
+  console.log('DEBUG.routes.owner-address-1.post: ' + request.session.data['addressPostcode']);
+  response.redirect('contact-details-1');
+})
+
+
+
+
 
 
 
