@@ -21,7 +21,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" autocomplete="off" novalidate>
+    <form method="post" autocomplete="off" {{ data['novalidate'] }}>
 
 
       <div class="govuk-form-group">
@@ -37,7 +37,7 @@
           </span>
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="exemptionTypeText1">
+              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="exemptionTypeText1" required />
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
                 Item with less than 10% ivory made before 1947 <span class="item-cost">£X</span>
               </label>
