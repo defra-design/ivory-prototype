@@ -22,7 +22,7 @@
 
     <h1 class="govuk-heading-l">Add a title</h1>
 
-    <form method="post" autocomplete="off" novalidate>
+    <form method="post" autocomplete="off" {{ data['novalidate'] }}>
 
 
       <div class="govuk-form-group">
@@ -32,7 +32,7 @@
         <span id="title-hint" class="govuk-hint">
           For example 'Bechstein upright piano' or 'Chest of drawers'
         </span>
-        <input class="govuk-input" id="title" name="title" type="text" value="{{data['title']}}" aria-describedby="title-hint" />
+        <input class="govuk-input" id="title" name="title" type="text" value="{{data['title']}}" aria-describedby="title-hint" required />
       </div>
 
 

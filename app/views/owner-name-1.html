@@ -22,11 +22,11 @@
 
     <h1 class="govuk-heading-l">Who owns the item?</h1>
 
-    <form method="post" autocomplete="off" novalidate>
+    <form method="post" autocomplete="off" {{ data['novalidate'] }}>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="owner_name">Owner's name</label>
-        <input class="govuk-input" id="owner_name" name="ownerName" type="text" value="{{data['ownerName']}}" >
+        <input class="govuk-input" id="owner_name" name="ownerName" type="text" value="{{data['ownerName']}}" required />
       </div>
 
       <button class="govuk-button">Continue</button>

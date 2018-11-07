@@ -22,7 +22,7 @@
 
     <h1 class="govuk-heading-l">Add a description</h1>
 
-    <form method="post" autocomplete="off" novalidate>
+    <form method="post" autocomplete="off" {{ data['novalidate'] }}>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="description">
@@ -31,7 +31,7 @@
         <span id="description-hint" class="govuk-hint">
           Include why you think it meets the exemption
         </span>
-        <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="description-hint" value="{{data['description']}}"></textarea>
+        <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="description-hint" value="{{data['description']}}" required></textarea>
       </div>
 
 
