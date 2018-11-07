@@ -1,62 +1,16 @@
- {% extends "layout.html" %}
+{% extends "layout_unbranded.html" %}
 
+{% block pageTitle %}
+  Welcome
+{% endblock %}
 
- {% block content %}
+{% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <h1 class="govuk-heading-xl">Ivory prototypes</h1>
-
-    <h2 class="govuk-heading-m">Prototypes</h2>
-
-    <p>The following have been built using the GOV.UK Prototype Kit v7</p>
-
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col">Prototype</th>
-          <th class="govuk-table__header" scope="col">Description</th>
-          <th class="govuk-table__header" scope="col">Needs database</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="test-1">Alpha - Prototype 1</a></td>
-          <td class="govuk-table__cell">End to end happy path</td>
-          <td class="govuk-table__cell">Yes or no</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="main">Tell us your favourite Disney character</a></td>
-          <td class="govuk-table__cell">Basic flow to registration</td>
-          <td class="govuk-table__cell">Yes or no</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="admin-lookup-item">Admin search for a submission</a></td>
-          <td class="govuk-table__cell">Look up a registered item</td>
-          <td class="govuk-table__cell">Yes</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="notify">Notify integration</a></td>
-          <td class="govuk-table__cell">Uses GOV.UK Notify</td>
-          <td class="govuk-table__cell">No</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="pay">Pay integration</a></td>
-          <td class="govuk-table__cell">Uses GOV.UK Pay</td>
-          <td class="govuk-table__cell">No</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="test">Test</a></td>
-          <td class="govuk-table__cell">Simple test page</td>
-          <td class="govuk-table__cell">No</td>
-        </tr>
-      </tbody>
-    </table>
-
-
-  </div>
-</div>
-
+  <h1 class="govuk-heading-xl">
+    Welcome
+  </h1>
+  <p class="govuk-body-l">
+    <a href="ivory-act-2018">Begin</a>
+  </p>
 
 {% endblock %}
