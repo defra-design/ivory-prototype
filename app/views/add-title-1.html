@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 
+{% set novalidateVal = "novalidate" %}
 
 {% block pageTitle %}
   Add a title
@@ -22,7 +23,7 @@
 
     <h1 class="govuk-heading-l">Add a title</h1>
 
-    <form method="post" autocomplete="off" {{ data['novalidate'] }}>
+    <form method="post" autocomplete="off" {{ data['novalidateVal'] }}>
 
 
       <div class="govuk-form-group">
