@@ -34,7 +34,7 @@
 {% set novalidateVal = "novalidate" %}
 
 {% block header %}
-  <!-- {% include "includes/cookie-banner.html" %} -->
+  {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
   {{ govukHeader({
     homepageUrl: "/",
@@ -42,6 +42,10 @@
     serviceUrl: "/",
     containerClasses: "govuk-width-container"
   }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/stage-banner.html" %}
 {% endblock %}
 
 {% if useAutoStoreData %}
