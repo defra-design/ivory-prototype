@@ -28,16 +28,19 @@ Declaration
 
 
         <h1 class="govuk-heading-l">Declaration</h1>
+        <!-- <h1 class="govuk-heading-l">How does the item meet the criteria?</h1> -->
 
 
-        <p class="govuk-text">Exemption category: <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}</span></p>
+        <!-- <p class="govuk-text">Item type: <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}</span></p> -->
+
+        <!-- <p class="govuk-text">You are confirming that your item is a <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }} </p> -->
 
 
         <form method="post" autocomplete="off" {{ novalidateVal }}>
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="description">
-              How does the item meet this exemption?
+              Explain why you believe your item is a <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}
             </label>
             <!-- <span id="declarationText-hint" class="govuk-hint">
           </span> -->
@@ -49,14 +52,14 @@ Declaration
           <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="declaration-1" name="declarationCheckbox" type="checkbox" value="checked">
             <label class="govuk-label govuk-checkboxes__label" for="declaration-1">
-              Declaration text
+              I confirm that, to the best of my knowledge, the details I am providing are correct
             </label>
           </div>
         </div>
 
-        <p class="govuk-body">
+        <!-- <p class="govuk-body">
           By continuing you are confirming that, to the best of your knowledge, the details you are providing are correct.
-        </p>
+        </p> -->
 
         <button type="submit" class="govuk-button">Confirm and continue</button>
 

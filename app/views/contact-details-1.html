@@ -21,17 +21,17 @@
       <div class="govuk-grid-column-two-thirds">
 
 
-        <h1 class="govuk-heading-l">How can we contact you?</h1>
+        <h1 class="govuk-heading-l">Email address</h1>
 
 
         <form method="post" autocomplete="off" {{ novalidateVal }}>
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="email">
-              Email address
+              <!-- Email address -->
             </label>
             <span id="email-hint" class="govuk-hint">
-              We’ll use this to send you confirmation of your declaration
+              We’ll use this to send you your permit
             </span>
             <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint" value="{{ data['email'] }}" required />
           </div>
