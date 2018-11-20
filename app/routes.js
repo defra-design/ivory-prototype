@@ -467,6 +467,20 @@ router.post('/pay', function(request, response) {
 
 
 
+//*****************************************************
+// ADDRESS-POSTCODE
+router.post('/address-postcode', function(request, response) {
+  console.log('DEBUG.routes.address-postcode.post: ' + request.session.data['address-name-number'] + ' and ' + request.session.data['postcode']);
+  response.redirect('address-select');
+})
+
+//*****************************************************
+// ADDRESS-SELECT
+router.post('/address-select', function(request, response) {
+  console.log('DEBUG.routes.address-select.post: ' + request.session.data['addressSelect']);
+  response.redirect('address-confirm');
+})
+
 
 
 
