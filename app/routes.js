@@ -6,11 +6,11 @@ registerTypeText2 = 'Digital animation characters'
 registerTypeText3 = 'Pixar characters'
 registerTypeText4 = 'Star Wars characters'
 
-exemptionTypeText1 = 'Less than 10% ivory, pre-1918'
-exemptionTypeText2 = 'Musical instrument, less than 20% ivory, pre-1975'
-exemptionTypeText3 = 'Portrait miniature'
-exemptionTypeText4 = 'To be acquired by a museum'
-exemptionTypeText5 = 'Rarest and most important, pre-1918'
+exemptionTypeText1 = 'Item with less than 10% ivory made before 1947'
+exemptionTypeText2 = 'Musical instrument with less than 20% ivory and made before 1975'
+exemptionTypeText3 = 'Portrait miniature made before 1918'
+exemptionTypeText4 = 'Item to be acquired by an accredited museum'
+exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or historical value made before 1918'
 
 // Add your routes here - above the module.exports line
 
@@ -39,8 +39,51 @@ router.get('/choose-exemption-1', function(request, response) {
 
 router.post('/choose-exemption-1', function(request, response) {
   console.log('DEBUG.routes.choose-exemption-1.post: ' + request.session.data['chooseExemption']);
+  response.redirect('declaration');
+})
+
+
+
+//*****************************************************
+//DECLARATION
+router.get('/declaration', function(request, response) {
+
+  console.log('DEBUG.routes.declaration');
+
+  var exemptionTypeChosen;
+
+  switch (request.session.data['exemptionChoice']) {
+    case 'type1':
+      exemptionTypeChosen = exemptionTypeText1;
+      break;
+    case 'type2':
+      exemptionTypeChosen = exemptionTypeText2;
+      break;
+    case 'type3':
+      exemptionTypeChosen = exemptionTypeText3;
+      break;
+    case 'type4':
+      exemptionTypeChosen = exemptionTypeText4;
+      break;
+    case 'type5':
+      exemptionTypeChosen = exemptionTypeText5;
+      break;
+    default:
+      exemptionTypeChosen = 'Not available';
+  }
+
+  response.render('declaration', {
+    'exemptionTypeChosen': exemptionTypeChosen
+  })
+
+
+})
+
+router.post('/declaration', function(request, response) {
+  console.log('DEBUG.routes.declaration.post: ' + request.session.data['declaration']);
   response.redirect('add-title-1');
 })
+
 
 
 //*****************************************************
@@ -115,6 +158,53 @@ router.post('/contact-details-1', function(request, response) {
   console.log('DEBUG.routes.contact-details-1.post: ' + request.session.data['email']);
   response.redirect('check-your-answers-1');
 })
+
+
+
+
+
+
+
+//*****************************************************
+//DECLARATION
+router.get('/check-your-answers-1', function(request, response) {
+
+  console.log('DEBUG.routes.checkYourAnswers');
+
+  var exemptionTypeChosen;
+
+  switch (request.session.data['exemptionChoice']) {
+    case 'type1':
+      exemptionTypeChosen = exemptionTypeText1;
+      break;
+    case 'type2':
+      exemptionTypeChosen = exemptionTypeText2;
+      break;
+    case 'type3':
+      exemptionTypeChosen = exemptionTypeText3;
+      break;
+    case 'type4':
+      exemptionTypeChosen = exemptionTypeText4;
+      break;
+    case 'type5':
+      exemptionTypeChosen = exemptionTypeText5;
+      break;
+    default:
+      exemptionTypeChosen = 'Not available';
+  }
+
+  response.render('check-your-answers-1', {
+    'exemptionTypeChosen': exemptionTypeChosen
+  })
+
+
+})
+
+
+
+
+
+
 
 
 

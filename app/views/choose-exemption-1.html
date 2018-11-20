@@ -27,44 +27,48 @@
       <div class="govuk-form-group">
 
         <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              Which exemption are you applying for?
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              How is the item exempt?
             </h1>
           </legend>
-          <span id="exemption-choice-hint" class="govuk-hint">
+          <span id="exemption-choice-hint" class="govuk-hint govuk-!-margin-bottom-7">
             See <a href="#">exemption details</a> for further information.
           </span>
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="exemptionTypeText1" required />
+              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required />
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
-                Item with less than 10% ivory made before 1947 <span class="item-cost">£X</span>
+                Item with less than 10% ivory made before 1947 <span class="item-cost">(£X)</span>
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText2" name="exemptionChoice" type="radio" value="exemptionTypeText2">
+              <input class="govuk-radios__input" id="exemptionTypeText2" name="exemptionChoice" type="radio" value="type2">
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText2">
-                Musical instrument (including bows) with less than 20% ivory and made before 1975 <span class="item-cost">£X</span>
+                Musical instrument with less than 20% ivory and made before 1975 <span class="item-cost">(£X)</span>
               </label>
+              <span class="govuk-hint govuk-radios__hint">
+                For example pianos, violin bows, flutes
+              </span>
+
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="exemptionTypeText3">
+              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="type3">
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
-                Portrait miniature made before 1918 <span class="item-cost">£X</span>
+                Portrait miniature made before 1918 <span class="item-cost">(£X)</span>
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="exemptionTypeText4">
+              <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4">
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText4">
-                Item to be acquired by accredited museum <span class="item-cost">£X</span>
+                Item to be acquired by accredited museum <span class="item-cost">(£X)</span>
               </label>
             </div>
             <div class="govuk-radios__divider">or</div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText5" name="exemptionChoice" type="radio" value="exemptionTypeText5">
+              <input class="govuk-radios__input" id="exemptionTypeText5" name="exemptionChoice" type="radio" value="type5">
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText5">
-                An item of outstandingly high artistic, cultural or historical value <span class="item-cost">£Y</span>
+                An item of outstandingly high artistic, cultural or historical value made before 1918 <span class="item-cost">(£Y)</span>
               </label>
             </div>
           </div>

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+{% block pageTitle %}
+Declaration
+{% endblock %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag ">alpha</strong>
+    <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it</span>
+  </p>
+</div>
+
+<a href="choose-exemption-1" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">Declaration</h1>
+
+
+        <p class="govuk-text">Exemption category: <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}</span></p>
+
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="description">
+              How does the item meet this exemption?
+            </label>
+            <!-- <span id="declarationText-hint" class="govuk-hint">
+          </span> -->
+          <textarea class="govuk-textarea" id="declarationText" name="declarationText" rows="5" aria-describedby="declarationText-hint" value="{{data['declarationText']}}" required></textarea>
+        </div>
+
+
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="declaration-1" name="declarationCheckbox" type="checkbox" value="checked">
+            <label class="govuk-label govuk-checkboxes__label" for="declaration-1">
+              Declaration text
+            </label>
+          </div>
+        </div>
+
+        <p class="govuk-body">
+          By continuing you are confirming that, to the best of your knowledge, the details you are providing are correct.
+        </p>
+
+        <button type="submit" class="govuk-button">Confirm and continue</button>
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+</main>
+</div>
+
+
+{% endblock %}
