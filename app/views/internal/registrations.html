@@ -1,0 +1,46 @@
+ {% extends "layout-internal.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Internal administration</h1>
+
+    <h2 class="govuk-heading-m">Registrations</h2>
+
+    <p>Search for registrations.</p>
+
+    <p>{{ registrations | length }} registrations found:</p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Registration number</th>
+          <th class="govuk-table__header" scope="col">Type</th>
+          <th class="govuk-table__header" scope="col">Description</th>
+          <th class="govuk-table__header" scope="col">Owner</th>
+          <th class="govuk-table__header" scope="col">Owner address</th>
+          <th class="govuk-table__header" scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% for registration in registrations %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ registration.regId }}</td>
+          <td class="govuk-table__cell">{{ registration.type }}</td>
+          <td class="govuk-table__cell">{{ registration.Description }}</td>
+          <td class="govuk-table__cell">{{ registration.Owner }}</td>
+          <td class="govuk-table__cell">{{ registration.OwnerAddress }}</td>
+          <td class="govuk-table__cell">{{ registration.Status }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -14,6 +14,8 @@ exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or histor
 
 // Add your routes here - above the module.exports line
 
+// LOAD INTERNAL ROUTES (from separate file, as this routes.js is getting busy)
+router.use(require('./routes-internal.js'));
 
 
 // START-PROTOTYPE_1
@@ -570,6 +572,81 @@ router.post('/address-select', function(request, response) {
   console.log('DEBUG.routes.address-select.post: ' + request.session.data['addressSelect']);
   response.redirect('address-confirm');
 })
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+// UPLOAD IMAGE
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+
+const upload = multer({
+  dest: "app/uploads-temp", // temp location for the file to be placed
+  limits: {
+    fileSize: 1 * 1024 * 1024 // 1 MB (max file size in bytes)
+  }
+});
+
+router.post('/upload-image', upload.single('fileToUpload') /* name attribute of <file> element in your form */ , function(request, response) {
+
+  // req.file is the `fileToUpload` file
+  // req.body will hold the text fields, if there were any
+
+  console.log('DEBUG.routes.upload-image');
+
+  // Check a file was uploaded
+  if (!request.file) {
+    console.log('ERROR.routes.upload-image: No file uploaded');
+    response.render('upload-image', {
+      'message': 'Please choose a file to upload'
+    })
+
+    // Check the file type
+  // } else if (path.extname(request.file.originalname).toLowerCase() !== ('.png' || '.jpg' || '.jpeg' || '.gif')) {
+  //   console.log('ERROR.routes.upload-image: Wrong file type');
+  //   response.render('upload-image', {
+  //     'message': 'That file type is not accepted.'
+  //   })
+
+    // Otherwise continue
+  } else {
+
+    const tempPath = request.file.path; // req.file is the form input file from type="file" name="fileUpload"
+    console.log('DEBUG.routes.upload-image: tempPath = ' + tempPath);
+    const targetPath = path.join(__dirname, "./uploads/image.png");
+    console.log('DEBUG.routes.upload-image: targetPath = ' + targetPath);
+
+    //If it passes all validation, move/rename it to the persistent location
+    // if (path.extname(request.file.originalname).toLowerCase() === '.png' || '.jpg' || '.jpeg' || '.gif') {
+
+    fs.rename(tempPath, targetPath, function(err) {
+      if (err) {
+        console.log('ERROR.routes.upload-image: err = ' + err);
+      } else {
+        console.log('DEBUG.routes.upload-image: File successfully uploaded');
+        response.redirect('upload-image2');
+      }
+    });
+
+    // } else {
+    //   fs.unlink(tempPath, function(err) {
+    //     if (err) {
+    //       console.log('ERROR.routes.upload-image: err = ' + err);
+    //     } else {
+    //       console.log('ERROR.routes.upload-image: File type not allowed');
+    //     }
+    //   });
+    // }
+  }
+});
+
+router.get("/image.png", (req, res) => {
+  res.sendFile(path.join(__dirname, "./uploads/image.png"));
+});
+
+
+
 
 
 
