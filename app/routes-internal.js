@@ -15,10 +15,10 @@ router.get('/internal/registrations', function (req, res) {
   });
 });
 
-router.get('internal/item-detail/:id', function (req, res) {
+router.get('/internal/item-detail/:id', function (req, res) {
   console.log('DEBUG.routes-internal.item-detail.get');
 
-  console.log('ID:', req.params.id)
+  console.log('ID:', req.params.id);
 
   res.render('internal/item-detail');
 
