@@ -1,0 +1,36 @@
+ {% extends "layout.html" %}
+
+ //Override the beforeContent section in layout.html to remove the stage-banner
+ {% block beforeContent %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Enter card details</h1>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="owner_name">Card number</label>
+          <input class="govuk-input" id="owner_name" name="ownerName" type="text" value="{{data['ownerName']}}" required />
+        </div>
+
+
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">One-third column</h3>
+        <p class="govuk-body">This is a paragraph inside a one-third wide column</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+
+{% endblock %}

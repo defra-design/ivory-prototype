@@ -3,35 +3,46 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-l">Internal administration</h1>
+    <h1 class="govuk-heading-l">Registrations</h1>
 
-    <h2 class="govuk-heading-m">Registrations</h2>
 
-    <p>Search for registrations.</p>
+    <!-- START FORM -->
+    <form method="post" autocomplete="off" novalidate>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="submissionId">Registration number</label>
+        <input class="govuk-input govuk-input--width-10" id="searchRegId" name="searchRegId" type="text" value="{{data['searchRegId']}}">
+        <button class="govuk-button">Search</button>
+        <span id="error" class="govuk-error-message"> {{message}} </span>
+      </div>
+    </form>
+    <!-- END FORM -->
 
-    <p>{{ registrations | length }} registrations found:</p>
+
+    <!-- START RESULTS -->
+    <!-- <p>{{ registrations | length }} registrations found:</p> -->
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col">Registration number</th>
+
+          <th class="govuk-table__header" scope="col">Reg number</th>
           <th class="govuk-table__header" scope="col">Type</th>
+          <th class="govuk-table__header" scope="col">Title</th>
           <th class="govuk-table__header" scope="col">Description</th>
-          <th class="govuk-table__header" scope="col">Owner</th>
-          <th class="govuk-table__header" scope="col">Owner address</th>
           <th class="govuk-table__header" scope="col">Status</th>
+          <th class="govuk-table__header" scope="col">Submitted</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
 
         {% for registration in registrations %}
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href='/internal/item-detail/5'>{{ registration.regId }}</a></td>
-          <td class="govuk-table__cell">{{ registration.type }}</td>
-          <td class="govuk-table__cell">{{ registration.Description }}</td>
-          <td class="govuk-table__cell">{{ registration.Owner }}</td>
-          <td class="govuk-table__cell">{{ registration.OwnerAddress }}</td>
-          <td class="govuk-table__cell">{{ registration.Status }}</td>
+          <td class="govuk-table__cell"><a href='/internal/item-detail/{{ registration.reg_id }}'>{{ registration.reg_id }}</a></td>
+          <td class="govuk-table__cell">{{ registration.exemption_type_shortname }}</td>
+          <td class="govuk-table__cell">{{ registration.title }}</td>
+          <td class="govuk-table__cell">{{ registration.description }}</td>
+          <td class="govuk-table__cell">{{ registration.status }}</td>
+          <td class="govuk-table__cell">{{ registration.submitted_datetime.toISOString().replace('T', ' ').substr(0, 10) }}</td>
         </tr>
         {% endfor %}
 

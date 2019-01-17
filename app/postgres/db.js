@@ -3,8 +3,8 @@ const connectionString = process.env.DATABASE_CONN;
 
 ////////////////////////////////////////////////////////////
 //GET CLIENT
-exports.getOwnerClient = function() {
-  console.log('DEBUG.dbOwner.getOwnerClient.connectionString: ' + connectionString);
+exports.getClient = function() {
+  console.log('DEBUG.db.getDbClient.connectionString: ' + connectionString);
   var client = new pg.Client({
     connectionString: connectionString
   })
