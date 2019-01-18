@@ -5,11 +5,13 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-// ENTER ROUTES HERE...
 
-function logger(req) {
-  return 'DEBUG.routes ' + req.method + req.route.path;
+function logger(req, msg) {
+  if (!msg) { msg = '' }
+  return 'DEBUG.routes ' + req.method + req.route.path + ': ' + msg;
 }
+
+// ENTER ROUTES HERE...
 
 //////////////////////////////////////////////////////////////////////////////
 // UPLOAD IMAGE
