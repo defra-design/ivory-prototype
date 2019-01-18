@@ -1,16 +1,14 @@
- {% extends "layout.html" %}
-
-
- {% block content %}
+ {% extends "layout.html" %} {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">Ivory prototypes</h1>
 
+    <p>We've built the following using the GOV.UK Prototype Kit v7...</p>
     <h2 class="govuk-heading-m">Prototypes</h2>
 
-    <p>We've built the following using the GOV.UK Prototype Kit v7...</p>
+
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -23,31 +21,53 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="index-1">Alpha - Prototype 1</a></td>
           <td class="govuk-table__cell">End to end happy path</td>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="notify">Notify integration</a></td>
-          <td class="govuk-table__cell">Uses GOV.UK Notify</td>
         </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="pay">Pay integration</a></td>
-          <td class="govuk-table__cell">Uses GOV.UK Pay</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="address-postcode">Address lookup</a></td>
-          <td class="govuk-table__cell">Address lookup screens (NOT YET LINKED, noly uses static data)</td>
-        </tr>
+
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="/internal/registrations">Internal</a></td>
           <td class="govuk-table__cell">Internal users admin pages</td>
         </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="/sandpit/upload-image">Image upload</a></td>
-          <td class="govuk-table__cell">Upload a photo to the server (not yet tested on Heroku, which may not allow it, and flushes temp files regularly)</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="test">Test</a></td>
-          <td class="govuk-table__cell">Simple test page for trying things on</td>
-        </tr>
       </tbody>
+    </table>
+
+
+
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Experiment</th>
+            <th class="govuk-table__header" scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="notify">Notify integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Notify</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="pay">Pay integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Pay</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="address-postcode">Address lookup</a></td>
+            <td class="govuk-table__cell">Address lookup screens (NOT YET LINKED, noly uses static data)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="/sandpit/upload-image">Image upload</a></td>
+            <td class="govuk-table__cell">Upload a photo to the server (not yet tested on Heroku, which may not allow it, and flushes temp files regularly)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="test">Test</a></td>
+            <td class="govuk-table__cell">Simple test page for trying things on</td>
+          </tr>
+
+        </tbody>
     </table>
 
 
