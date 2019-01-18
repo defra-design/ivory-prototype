@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const path = require("path");
+
 registerTypeText1 = 'Pre-digital animation characters'
 registerTypeText2 = 'Digital animation characters'
 registerTypeText3 = 'Pixar characters'
@@ -14,9 +16,9 @@ exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or histor
 
 // Add your routes here - above the module.exports line
 
-// LOAD INTERNAL ROUTES (from separate file, as this routes.js is getting busy)
+// LOAD OTHER ROUTES (from separate files, as this main routes.js is getting busy)
 router.use(require('./routes-internal.js'));
-
+router.use(require('./routes-sandpit.js'));
 
 // START-PROTOTYPE_1
 router.get('/start-prototype_1', function(req, res) {
@@ -317,76 +319,10 @@ router.post('/address-select', function(req, res) {
 })
 
 
-
-//////////////////////////////////////////////////////////////////////////////
-// UPLOAD IMAGE
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
-
-const upload = multer({
-  dest: "app/uploads/temp", // temp location for the file to be placed
-  limits: {
-    fileSize: 1 * 1024 * 1024 // 1 MB (max file size in bytes)
-  }
-});
-
-router.post('/upload-image', upload.single('fileToUpload') /* name attribute of <file> element in your form */ , function(req, res) {
-
-  // req.file is the `fileToUpload` file
-  // req.body will hold the text fields, if there were any
-
-  console.log('DEBUG.routes.upload-image');
-
-  const tempPath = req.file.path; // req.file is the form input file from type="file" name="fileUpload"
-  console.log('DEBUG.routes.upload-image: tempPath = ' + tempPath);
-  const targetPath = path.join(__dirname, "./uploads/image.png");
-  console.log('DEBUG.routes.upload-image: targetPath = ' + targetPath);
-
-  // Check a file was uploaded
-  if (!req.file) {
-    console.log('ERROR.routes.upload-image: No file uploaded');
-    res.render('upload-image', {
-      'message': 'Please choose a file to upload'
-    })
-
-    // Check the file type
-  } else {
-
-    var type = path.extname(req.file.originalname).toLowerCase();
-    console.log('File type = ' + type);
-
-    if (type !== '.png' && type !== '.jpg') {
-      console.log('ERROR.routes.upload-image: Wrong file type');
-
-      fs.unlink(tempPath, err => {
-        if (err) console.log(err)
-      });
-
-      res.render('upload-image', {
-        'message': 'That file type is not accepted.'
-      })
-
-
-      // Otherwise continue
-    } else {
-      //If it passes all validation, move/rename it to the persistent location
-      fs.rename(tempPath, targetPath, function(err) {
-        if (err) {
-          console.log('ERROR.routes.upload-image: err = ' + err);
-        } else {
-          console.log('DEBUG.routes.upload-image: File successfully uploaded');
-          res.redirect('upload-image2');
-        }
-      });
-    }
-  }
-});
-
 //////////////////////////////////////////////////////////////////////////////
 // ACCESS UPLOADED IMAGES
-
-router.get("/routeToImage", (req, res) => {
+router.get("/routeToTempImage", (req, res) => {
+  console.log('DEBUG.routes ' + req.method + req.route.path);
   res.sendFile(path.join(__dirname, "./uploads/image.png"));
 });
 
@@ -394,12 +330,6 @@ router.get("/routeToUploadedImage/:imageId", (req, res) => {
   console.log('DEBUG.routes ' + req.route.path + ', imageId=' + req.params.imageId);
   res.sendFile(path.join(__dirname, "./uploads/" + req.params.imageId + '.png'));
 });
-
-
-
-
-
-
 
 
 
