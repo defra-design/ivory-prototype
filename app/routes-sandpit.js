@@ -23,7 +23,7 @@ router.get('/sandpit/upload-image', function(req, res) {
 const upload = multer({
   dest: "app/uploads/temp", // temp location for the file to be placed
   limits: {
-    fileSize: 1 * 1024 * 1024 // 1 MB (max file size in bytes)
+    fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
   }
 });
 
@@ -52,7 +52,7 @@ router.post('/sandpit/upload-image', upload.single('fileToUpload') /* name attri
     console.log('File type = ' + type);
 
     if (type !== '.png' && type !== '.jpg') {
-      console.log(logger(req) + ':Wrong file type');
+      console.log(logger(req) + 'Wrong file type');
 
       fs.unlink(tempPath, err => {
         if (err) console.log(err)
@@ -69,7 +69,7 @@ router.post('/sandpit/upload-image', upload.single('fileToUpload') /* name attri
         if (err) {
           console.log(logger(req) + 'err = ' + err);
         } else {
-          console.log(logger(req) + ':File successfully uploaded');
+          console.log(logger(req) + 'File successfully uploaded');
           res.redirect('upload-image2');
         }
       });
