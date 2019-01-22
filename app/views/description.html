@@ -1,24 +1,11 @@
 {% extends "layout.html" %}
 
 
-{% block pageTitle %}
-Declaration
-{% endblock %}
-
-
 {% block beforeContent %}
-<div class="govuk-phase-banner">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag ">alpha</strong>
-    <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it</span>
-  </p>
-</div>
+{% include "includes/ib-head.html" %}
+{% endblock %} {% block content %}
 
-<a href="choose-exemption-1" class="govuk-back-link">Back</a>
-{% endblock %}
-
-
-{% block content %}
+<a href="add-title-1" class="govuk-back-link">Back</a>
 
 <div class="govuk-width-container">
 
@@ -26,28 +13,23 @@ Declaration
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-
-        <h1 class="govuk-heading-l">Declaration</h1>
-        <!-- <h1 class="govuk-heading-l">How does the item meet the criteria?</h1> -->
-
-
-        <!-- <p class="govuk-text">Item type: <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}</span></p> -->
-
-        <!-- <p class="govuk-text">You are confirming that your item is a <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }} </p> -->
-
-
         <form method="post" autocomplete="off" {{ novalidateVal }}>
 
           <div class="govuk-form-group">
-            <label class="govuk-label" for="description">
+            <h1 class="govuk-heading-l">Describe the item</h1>
+            <span id="title-hint" class="govuk-hint">
               Explain why you believe your item is a <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}
-            </label>
-            <!-- <span id="declarationText-hint" class="govuk-hint">
-          </span> -->
+
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                </ul>
+            </span>
+
           <textarea class="govuk-textarea" id="declarationText" name="declarationText" rows="5" aria-describedby="declarationText-hint" required>{{data['declarationText']}}</textarea>
         </div>
 
-
+<!--
         <div class="govuk-form-group">
           <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="declaration-1" name="declarationCheckbox" type="checkbox" value="checked">
@@ -55,13 +37,13 @@ Declaration
               I confirm that, to the best of my knowledge, the details I am providing are correct
             </label>
           </div>
-        </div>
+        </div> -->
 
         <!-- <p class="govuk-body">
           By continuing you are confirming that, to the best of your knowledge, the details you are providing are correct.
         </p> -->
 
-        <button type="submit" class="govuk-button">Confirm and continue</button>
+        <button type="submit" class="govuk-button">Continue</button>
 
       </form>
 

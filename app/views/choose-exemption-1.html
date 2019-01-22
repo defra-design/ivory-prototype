@@ -4,12 +4,9 @@
 <!-- Adds a class to increase vertical spacing for pages without a back button -->
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
-
 {% block pageTitle %}
   Choose exemption
 {% endblock %}
-
-
 
 
 {% block content %}
@@ -19,7 +16,7 @@
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
@@ -59,13 +56,6 @@
               <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4">
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText4">
                 Item to be acquired by accredited museum <span class="item-cost">(£X)</span>
-              </label>
-            </div>
-            <div class="govuk-radios__divider">or</div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText5" name="exemptionChoice" type="radio" value="type5">
-              <label class="govuk-label govuk-radios__label" for="exemptionTypeText5">
-                An item of outstandingly high artistic, cultural or historical value made before 1918 <span class="item-cost">(£Y)</span>
               </label>
             </div>
           </div>

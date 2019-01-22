@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const path = require("path");
+const multer = require("multer");
+const fs = require("fs");
 
 registerTypeText1 = 'Pre-digital animation characters'
 registerTypeText2 = 'Digital animation characters'
@@ -38,21 +40,104 @@ router.get('/start-prototype_1', function(req, res) {
 //*****************************************************
 //CHOOSE-EXEMPTION
 router.get('/choose-exemption-1', function(req, res) {
-  res.render('choose-exemption-1');
+  console.log('DEBUG '+req.method+req.route.path);
+  res.render('choose-exemption-1')
 })
 
 router.post('/choose-exemption-1', function(req, res) {
-  console.log('DEBUG.routes.choose-exemption-1.post: ' + req.session.data['chooseExemption']);
-  res.redirect('declaration');
+  console.log('DEBUG '+req.method+req.route.path+':'+req.session.data['chooseExemption']);
+  res.redirect('add-photograph');
 })
 
+
+//////////////////////////////////////////////////////////////////////////////
+// ADD PHOTGRAPH
+router.get('/add-photograph', function(req, res) {
+  console.log('DEBUG '+req.method+req.route.path);
+  res.render('add-photograph');
+})
+
+const upload = multer({
+  dest: "app/uploads/temp", // temp location for the file to be placed
+  limits: {
+    fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
+  }
+}).single('fileToUpload'); /* name attribute of <file> element in your form */
+
+// router.post('/sandpit/upload-image', upload, function(req, res) {
+router.post('/add-photograph', function(req, res) {
+  console.log('DEBUG '+req.method+req.route.path);
+
+  // Upload the chosen file to the multer 'dest'
+  upload(req, res, function(err) {
+    console.log('DEBUG '+req.method+req.route.path + ': File uploaded to temp location');
+    // req.file is the `fileToUpload` file
+    // req.body will hold the text fields, if there were any
+
+    // Check a file was uploaded
+    if (!req.file) {
+      console.log('DEBUG '+req.method+req.route.path + ': No file uploaded');
+      res.render('add-photograph', {
+        errorNoFile: 'Please choose a file to upload'
+      })
+
+    }
+    // A file was uploaded, so continue
+    else {
+
+      const tempPath = req.file.path; // req.file is the form input file from type="file" name="fileUpload"
+      const targetPath = path.join(__dirname, './uploads/image.png');
+      console.log('DEBUG '+req.method+req.route.path+'tempPath=' + tempPath);
+      console.log('DEBUG '+req.method+req.route.path+'targetPath=' + targetPath);
+
+      //Check the file type
+      var type = path.extname(req.file.originalname).toLowerCase();
+      console.log('DEBUG '+req.method+req.route.path+':File type = ' + type);
+
+      if (type !== '.png' && type !== '.jpg') {
+        console.log('DEBUG '+req.method+req.route.path+':Wrong file type');
+
+        fs.unlink(tempPath, err => {
+          if (err) console.log(err)
+        });
+
+        res.render('upload-image', {
+          errorNoFile: 'That file type is not accepted'
+        })
+
+        // Correct file type, so continue
+      } else {
+        //If it passes all validation, move/rename it to the persistent location
+        fs.rename(tempPath, targetPath, function(err) {
+          if (err) {
+            console.log('err = ' + err);
+          } else {
+            console.log('DEBUG '+req.method+req.route.path+':File successfully uploaded');
+            res.redirect('add-photograph2');
+          }
+        });
+      }
+    }
+  })
+});
+
+
+router.get('/add-photograph2', function(req, res) {
+  console.log('DEBUG '+req.method+req.route.path);
+  res.render('add-photograph2');
+})
+
+router.post('/add-photograph2', function(req, res) {
+  console.log('DEBUG '+req.method+req.route.path);
+  res.redirect('/add-title-1');
+})
 
 
 //*****************************************************
 //DECLARATION
-router.get('/declaration', function(req, res) {
+router.get('/description', function(req, res) {
 
-  console.log('DEBUG.routes.declaration');
+  console.log('DEBUG.routes.description');
 
   var exemptionTypeChosen;
 
@@ -76,7 +161,7 @@ router.get('/declaration', function(req, res) {
       exemptionTypeChosen = 'Not available';
   }
 
-  res.render('declaration', {
+  res.render('description', {
     'exemptionTypeChosen': exemptionTypeChosen
   })
 
@@ -98,7 +183,7 @@ router.get('/add-title-1', function(req, res) {
 
 router.post('/add-title-1', function(req, res) {
   console.log('DEBUG.routes.add-title-1.post: ' + req.session.data['title']);
-  res.redirect('add-photograph-1');
+  res.redirect('description');
 })
 
 
