@@ -168,9 +168,9 @@ router.get('/description', function(req, res) {
 
 })
 
-router.post('/declaration', function(req, res) {
-  console.log('DEBUG.routes.declaration.post: ' + req.session.data['declaration']);
-  res.redirect('add-title-1');
+router.post('/description', function(req, res) {
+  console.log('DEBUG.routes.description.post: ' + req.session.data['description']);
+  res.redirect('are-you-the-owner');
 })
 
 
