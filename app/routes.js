@@ -46,12 +46,56 @@ router.get('/start-prototype', function(req, res) {
 })
 
 
+
+
+
+
+
+
+
+
+
 //*****************************************************
 //CHOOSE-EXEMPTION
 router.get('/choose-exemption', function(req, res) {
   logger(req);
-  res.render('choose-exemption')
+
+
+
+  var exemptionType1Checked;
+  var exemptionType2Checked;
+  var exemptionType3Checked;
+  var exemptionType4Checked;
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      exemptionType1Checked = 'checked';
+      break;
+    case 'type2':
+      exemptionType2Checked = 'checked';
+      break;
+    case 'type3':
+      exemptionType3Checked = 'checked';
+      break;
+    case 'type4':
+      exemptionType4Checked = 'checked';
+      break;
+    default:
+      exemptionType1Checked = '';
+      exemptionType2Checked = '';
+      exemptionType3Checked = '';
+      exemptionType4Checked = '';
+  }
+  res.render('choose-exemption', {
+    exemptionType1Checked: exemptionType1Checked,
+    exemptionType2Checked: exemptionType2Checked,
+    exemptionType3Checked: exemptionType3Checked,
+    exemptionType4Checked: exemptionType4Checked,
 })
+
+
+})
+
 
 router.post('/choose-exemption', function(req, res) {
   logger(req, 'Exemption type='+req.session.data['exemptionChoice']);
