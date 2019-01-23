@@ -4,14 +4,14 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">What is the your name?</h1>
+    <h1 class="govuk-heading-l">What is your email address?</h1>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="name">Enter your full name</label>
+        <label class="govuk-label" for="email">Enter your email address</label>
 
-        <input class="govuk-input" id="name" name="ownerName" type="text" value="{{data['ownerName']}}" required />
+        <input class="govuk-input" id="email" name="ownerEmail" type="text" value="{{data['ownerEmail']}}" required />
       </div>
 
       <button class="govuk-button">Continue</button>

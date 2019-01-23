@@ -227,19 +227,6 @@ router.post('/are-you-the-owner', function(req, res) {
 
 
 //*****************************************************
-// OWNER-NAME
-router.get('/owner-name', function(req, res) {
-  res.render('owner-name', {
-    backUrl: 'are-you-the-owner'
-  });
-})
-
-router.post('/owner-name', function(req, res) {
-  res.redirect('');
-})
-
-
-//*****************************************************
 // AGENT-NAME
 router.get('/agent-name', function(req, res) {
   res.render('agent-name', {
@@ -247,8 +234,8 @@ router.get('/agent-name', function(req, res) {
   });
 })
 
-router.post('/owner-name', function(req, res) {
-  res.redirect('');
+router.post('/agent-name', function(req, res) {
+  res.redirect('agent-address');
 })
 
 //*****************************************************
@@ -276,27 +263,26 @@ router.post('/add-description-1', function(req, res) {
 
 //*****************************************************
 //OWNER-NAME
-router.get('/owner-name-1', function(req, res) {
-  res.render('owner-name-1');
+router.get('/owner-name', function(req, res) {
+  res.render('owner-name', {
+    backUrl: 'are-you-the-owner'
+  });
 })
 
-router.post('/owner-name-1', function(req, res) {
-  console.log('DEBUG.routes.owner-name-1.post: ' + req.session.data['ownerName']);
-  res.redirect('owner-address-1');
+router.post('/owner-name', function(req, res) {
+  res.redirect('owner-address');
 })
-
-
-
 
 //*****************************************************
 //OWNER-ADDRESS
-router.get('/owner-address-1', function(req, res) {
-  res.render('owner-address-1');
+router.get('/owner-address', function(req, res) {
+  res.render('owner-address', {
+    backUrl: 'owner-name'
+  });
 })
 
-router.post('/owner-address-1', function(req, res) {
-  console.log('DEBUG.routes.owner-address-1.post: ' + req.session.data['addressPostcode']);
-  res.redirect('contact-details-1');
+router.post('/owner-address', function(req, res) {
+  res.redirect('');
 })
 
 
