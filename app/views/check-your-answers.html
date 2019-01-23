@@ -1,0 +1,75 @@
+{% extends "layout.html" %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers before payment</h1>
+
+    <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+    <!--   * `app-check-your-answers--short` for short questions -->
+    <!--   * `app-check-your-answers__questions-long` for long questions -->
+    <!--   * none for single group of q&a -->
+
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Item type</dt>
+        <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photograph</dt>
+        <dd class="app-check-your-answers__answer"><img src="/routeToTempImage" width='100' border='1' /></dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Title</dt>
+        <dd class="app-check-your-answers__answer">{{data['title']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Description</dt>
+        <dd class="app-check-your-answers__answer">{{data['description']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's name</dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's address</dt>
+        <dd class="app-check-your-answers__answer">{{ data['addressLine1'] }}<br /> {{ data['addressLine2'] }}<br /> {{ data['addressTown'] }}<br /> {{ data['addressCounty'] }}<br /> {{ data['addressPostcode'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's email</dt>
+        <dd class="app-check-your-answers__answer">{{ data['ownerContact'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="#">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+            Email address
+          </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ownerEmail'] }}
+        </dd>
+        <dd class="app-check-your-answers__change">
+          <a href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+        </dd>
+      </div>
+    </dl>
+
+    <a class="govuk-button" role="button">Confirm and continue to payment</a>
+
+  </div>
+</div>
+{% endblock %}
