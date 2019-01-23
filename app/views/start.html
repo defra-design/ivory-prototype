@@ -2,13 +2,13 @@
 
 
 <!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
+<!-- Nunjucks line commented out using {# or now -->
+{# {% set mainClasses = "govuk-main-wrapper--l" %} #}
 
-
-{% block pageTitle %}
-  Buy a permit for the single sale of an item containing ivory
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "includes/stage-banner.html" %}
 {% endblock %}
-
 
 
 {% block content %}
@@ -17,7 +17,7 @@
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">{{serviceName}}</h1>
 
@@ -37,7 +37,7 @@
       <li>a debit or credit card</li>
     </uL>
 
-    <a href="start-prototype_1" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">
+    <a href="start-prototype" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">
           Start now
     </a>
 

@@ -5,11 +5,11 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-
+//////////////////////////////////////////////////////////////////////////////
+// LOGGER
 function logger(req, msg) {
   if (!msg) { msg = '' }
-  if (!req) { msg = '' }
-  // return 'DEBUG.routes ' + req.method + req.route.path + ': ' + msg;
+  // if (!req) { req = '' }
   console.log('DEBUG.routes ' + req.method + req.route.path + ': ' + msg);
 }
 
@@ -93,9 +93,19 @@ router.get('/sandpit/upload-image2', function(req, res) {
   res.render('sandpit/upload-image2');
 })
 
+
 //////////////////////////////////////////////////////////////////////////////
+// TEST
+router.get('/sandpit/test', function(req, res) {
+  logger(req, 'Test message');
 
+  res.render('sandpit/test', {
+    'message': 'This is a test message'
+  });
 
+})
+
+//////////////////////////////////////////////////////////////////////////////
 // END OF ROUTES
 
 module.exports = router

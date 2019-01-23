@@ -1,21 +1,11 @@
 {% extends "layout.html" %}
+{% block content %}
 
-
-{% block beforeContent %}
-{% include "includes/ib-head.html" %}
-{% endblock %} {% block content %}
-
-<a href="add-photograph2" class="govuk-back-link">Back</a>
-
-<div class="govuk-width-container">
-
-  <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
-
 
       <div class="govuk-form-group">
         <h1 class="govuk-heading-l">Add a title</h1>
@@ -25,17 +15,12 @@
         <input class="govuk-input" id="title" name="title" type="text" value="{{data['title']}}" aria-describedby="title-hint" required />
       </div>
 
-
       <button class="govuk-button">Continue</button>
 
     </form>
 
-
-
   </div>
 </div>
 
-</main>
-</div>
 
 {% endblock %}

@@ -16,6 +16,15 @@ exemptionTypeText3 = 'Portrait miniature made before 1918'
 exemptionTypeText4 = 'Item to be acquired by an accredited museum'
 exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or historical value made before 1918'
 
+//////////////////////////////////////////////////////////////////////////////
+// LOGGER (not great, but may help)
+function logger(req, msg) {
+  if (!msg) { msg = '' }
+  // if (!req) { req = '' }
+  console.log('DEBUG.routes ' + req.method + req.route.path + ': ' + msg);
+}
+
+
 // Add your routes here - above the module.exports line
 
 // LOAD OTHER ROUTES (from separate files, as this main routes.js is getting busy)
@@ -23,29 +32,29 @@ router.use(require('./routes-internal.js'));
 router.use(require('./routes-sandpit.js'));
 
 // START-PROTOTYPE_1
-router.get('/start-prototype_1', function(req, res) {
-  console.log('DEBUG.routes.start-prototype_1.get');
+router.get('/start-prototype', function(req, res) {
+  logger(req);
 
   req.session.destroy(function(err) {
     if (err) {
       console.log(err);
     }
-    console.log('DEBUG.routes.start-prototype_1.get: previous session destroyed');
+    logger(req, 'Previous session destroyed');
   })
 
-  res.redirect('choose-exemption-1');
+  res.redirect('choose-exemption');
 })
 
 
 //*****************************************************
 //CHOOSE-EXEMPTION
-router.get('/choose-exemption-1', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path);
-  res.render('choose-exemption-1')
+router.get('/choose-exemption', function(req, res) {
+  logger(req);
+  res.render('choose-exemption')
 })
 
-router.post('/choose-exemption-1', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path+':'+req.session.data['chooseExemption']);
+router.post('/choose-exemption', function(req, res) {
+  logger(req, 'Exemption type='+req.session.data['exemptionChoice']);
   res.redirect('add-photograph');
 })
 
@@ -53,8 +62,10 @@ router.post('/choose-exemption-1', function(req, res) {
 //////////////////////////////////////////////////////////////////////////////
 // ADD PHOTGRAPH
 router.get('/add-photograph', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path);
-  res.render('add-photograph');
+  logger(req);
+  res.render('add-photograph', {
+    backUrl: 'choose-exemption'
+  });
 })
 
 const upload = multer({
@@ -66,7 +77,9 @@ const upload = multer({
 
 // router.post('/sandpit/upload-image', upload, function(req, res) {
 router.post('/add-photograph', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path);
+  logger(req);
+  // Set back button URL
+  req.session.data['backUrl'] = 'add-photograph';
 
   // Upload the chosen file to the multer 'dest'
   upload(req, res, function(err) {
@@ -123,21 +136,38 @@ router.post('/add-photograph', function(req, res) {
 
 
 router.get('/add-photograph2', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path);
-  res.render('add-photograph2');
+  logger(req);
+  res.render('add-photograph2', {
+    backUrl: 'add-photograph'
+  });
 })
 
 router.post('/add-photograph2', function(req, res) {
-  console.log('DEBUG '+req.method+req.route.path);
-  res.redirect('/add-title-1');
+  logger(req);
+  // Set back button URL
+  req.session.data['backUrl'] = 'add-photograph2';
+  res.redirect('/add-title');
+})
+
+
+//*****************************************************
+//ADD-TITLE
+router.get('/add-title', function(req, res) {
+  res.render('add-title', {
+    backUrl: 'add-photograph2'
+  });
+})
+
+router.post('/add-title', function(req, res) {
+  logger(req);
+  res.redirect('description');
 })
 
 
 //*****************************************************
 //DECLARATION
 router.get('/description', function(req, res) {
-
-  console.log('DEBUG.routes.description');
+  logger(req);
 
   var exemptionTypeChosen;
 
@@ -162,30 +192,64 @@ router.get('/description', function(req, res) {
   }
 
   res.render('description', {
-    'exemptionTypeChosen': exemptionTypeChosen
+    'exemptionTypeChosen': exemptionTypeChosen,
+    backUrl: 'add-title'
   })
 
 
 })
 
 router.post('/description', function(req, res) {
-  console.log('DEBUG.routes.description.post: ' + req.session.data['description']);
+  logger(req, 'Description='+req.session.data['description']);
   res.redirect('are-you-the-owner');
 })
 
 
+//*****************************************************
+// ARE YOU THE OWNER
+router.get('/are-you-the-owner', function(req, res) {
+  res.render('are-you-the-owner', {
+    backUrl: 'description'
+  });
+})
+
+router.post('/are-you-the-owner', function(req, res) {
+  logger(req, 'Owner='+req.session.data['ownerAgent']);
+
+  if (req.session.data['ownerAgent']=='owner') {
+    logger(req, "It's the owner, so go down the owner route.")
+    res.redirect('owner-name');
+  } else {
+    logger(req, "It's the agent, so go down the owner route.")
+    res.redirect('agent-name');
+  }
+})
+
 
 //*****************************************************
-//ADD-TITLE
-router.get('/add-title-1', function(req, res) {
-  res.render('add-title-1');
+// OWNER-NAME
+router.get('/owner-name', function(req, res) {
+  res.render('owner-name', {
+    backUrl: 'are-you-the-owner'
+  });
 })
 
-router.post('/add-title-1', function(req, res) {
-  console.log('DEBUG.routes.add-title-1.post: ' + req.session.data['title']);
-  res.redirect('description');
+router.post('/owner-name', function(req, res) {
+  res.redirect('');
 })
 
+
+//*****************************************************
+// AGENT-NAME
+router.get('/agent-name', function(req, res) {
+  res.render('agent-name', {
+    backUrl: 'are-you-the-owner'
+  });
+})
+
+router.post('/owner-name', function(req, res) {
+  res.redirect('');
+})
 
 //*****************************************************
 //ADD-PHOTOGRAPH
@@ -416,33 +480,6 @@ router.get("/routeToUploadedImage/:imageId", (req, res) => {
   res.sendFile(path.join(__dirname, "./uploads/" + req.params.imageId + '.png'));
 });
 
-
-
-//////////////////////////////////////////////////////////////////////////////
-// TEST
-router.get('/test', function(req, res) {
-
-  console.log('DEBUG.routes.test');
-
-  // const dbOwner = require('./postgres/dbOwner');
-  // var client = dbOwner.getOwnerClient();
-  // client.connect();
-  // client.query('SELECT * FROM owner', (err, res) => {
-  //   if(res.rows[0]) {
-  //       console.log(res.rows[0].owner_id);
-  //   } else {
-  //       console.log('no results');
-  //   }
-  //   client.end();
-  //   res.render('test');
-  // })
-
-  //
-  res.render('test', {
-    'message': 'This is a test message'
-  });
-
-})
 
 
 
