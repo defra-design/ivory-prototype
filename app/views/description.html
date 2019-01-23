@@ -7,14 +7,15 @@
         <form method="post" autocomplete="off" {{ novalidateVal }}>
 
           <div class="govuk-form-group">
-            <h1 class="govuk-heading-l">Describe the item</h1>
-            <span id="title-hint" class="govuk-hint">
-              Explain why you believe your item is a <span class="govuk-!-font-weight-bold">{{ exemptionTypeChosen }}
 
-                <ul>
-                  <li>1</li>
-                  <li>2</li>
-                </ul>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="description">
+                Describe the item
+              </label>
+            </h1>
+
+            <span id="title-hint" class="govuk-hint">
+              Include any distinguishing features
             </span>
 
           <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="declarationText-hint" required>{{data['description']}}</textarea>

@@ -165,44 +165,106 @@ router.post('/add-title', function(req, res) {
 
 
 //*****************************************************
-//DECLARATION
+//DESCRIPTION
 router.get('/description', function(req, res) {
   logger(req);
+  res.render('description', {
+    backUrl: 'add-title'
+  })
+})
 
-  var exemptionTypeChosen;
+router.post('/description', function(req, res) {
+  logger(req, 'Description='+req.session.data['description']);
+  res.redirect('ivory-age');
+})
+
+
+
+//*****************************************************
+//IVORY AGE
+router.get('/ivory-age', function(req, res) {
+  logger(req);
+
+  var ivoryYear;
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
-      exemptionTypeChosen = exemptionTypeText1;
+      ivoryYear = '1947';
       break;
     case 'type2':
-      exemptionTypeChosen = exemptionTypeText2;
+      ivoryYear = '1975';
       break;
     case 'type3':
-      exemptionTypeChosen = exemptionTypeText3;
+      ivoryYear = '1918';
       break;
     case 'type4':
-      exemptionTypeChosen = exemptionTypeText4;
+      ivoryYear = '';
       break;
     case 'type5':
-      exemptionTypeChosen = exemptionTypeText5;
+      ivoryYear = '';
       break;
     default:
-      exemptionTypeChosen = 'Not available';
+      ivoryYear = 'Not available';
   }
 
-  res.render('description', {
-    'exemptionTypeChosen': exemptionTypeChosen,
-    backUrl: 'add-title'
+  res.render('ivory-age', {
+    'ivoryYear': ivoryYear,
+    backUrl: 'description'
   })
 
 
 })
 
-router.post('/description', function(req, res) {
-  logger(req, 'Description='+req.session.data['description']);
+
+router.post('/ivory-age', function(req, res) {
+  res.redirect('ivory-volume');
+})
+
+
+
+//*****************************************************
+//IVORY AGE
+router.get('/ivory-volume', function(req, res) {
+  logger(req);
+
+  var ivoryVolume;
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryVolume = '10%';
+      break;
+    case 'type2':
+      ivoryVolume = '20%';
+      break;
+    case 'type3':
+      ivoryVolume = '320cm2';
+      break;
+    case 'type4':
+      ivoryVolume = '';
+      break;
+    case 'type5':
+      ivoryVolume = '';
+      break;
+    default:
+      ivoryVolume = 'Not available';
+  }
+
+  res.render('ivory-volume', {
+    'ivoryVolume': ivoryVolume,
+    backUrl: 'description'
+  })
+
+
+})
+
+
+router.post('/ivory-volume', function(req, res) {
   res.redirect('are-you-the-owner');
 })
+
+
+
+
 
 
 //*****************************************************
