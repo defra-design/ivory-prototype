@@ -282,33 +282,28 @@ router.get('/owner-address', function(req, res) {
 })
 
 router.post('/owner-address', function(req, res) {
-  res.redirect('');
+  res.redirect('owner-contact');
+})
+
+
+//*****************************************************
+//OWNER-CONTACT
+router.get('/owner-contact', function(req, res) {
+  res.render('owner-contact', {
+    backUrl: 'owner-address'
+  });
+})
+
+router.post('/owner-contact', function(req, res) {
+  res.redirect('check-your-answers');
 })
 
 
 
 //*****************************************************
-//CONTACT-PREFERENCE
-router.get('/contact-details-1', function(req, res) {
-  res.render('contact-details-1');
-})
-
-router.post('/contact-details-1', function(req, res) {
-  console.log('DEBUG.routes.contact-details-1.post: ' + req.session.data['email']);
-  res.redirect('check-your-answers-1');
-})
-
-
-
-
-
-
-
-//*****************************************************
-//DECLARATION
-router.get('/check-your-answers-1', function(req, res) {
-
-  console.log('DEBUG.routes.checkYourAnswers');
+//CHECK YOUR ANSWERS
+router.get('/check-your-answers', function(req, res) {
+  logger(req);
 
   var exemptionTypeChosen;
 
@@ -332,11 +327,14 @@ router.get('/check-your-answers-1', function(req, res) {
       exemptionTypeChosen = 'Not available';
   }
 
-  res.render('check-your-answers-1', {
-    'exemptionTypeChosen': exemptionTypeChosen
+  res.render('check-your-answers', {
+    exemptionTypeChosen: exemptionTypeChosen,
+    backUrl: 'owner-contact'
   })
+})
 
-
+router.post('/check-your-answers', function(req, res) {
+  res.redirect('');
 })
 
 
