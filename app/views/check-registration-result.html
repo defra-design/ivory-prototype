@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %} {% include "includes/stage-banner.html" %} {% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <h1 class="govuk-heading-l">Registration: {{data['regNumber']}}</h1> -->
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">✓ Registration complete</h1>
+      <div class="govuk-panel__body">This item can be bought, sold or hired</div>
+      </div>
+
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Registration number:</td>
+          <td class="govuk-table__header">{{data['regNumber']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Item type</td>
+          <td class="govuk-table__header">{{data['exemptionTypeText']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Photograph</td>
+          <td class="govuk-table__header"><img src="/routeToTempImage" width='200' border='1' /></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Title</td>
+          <td class="govuk-table__header">{{data['title']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Description</td>
+          <td class="govuk-table__header">{{data['description']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Age of ivory</td>
+          <td class="govuk-table__header">{{data['ivoryAge']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Volume of ivory</td>
+          <td class="govuk-table__header">{{data['ivoryVolume']}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href='index' class="govuk-button">Return to GOV.UK</a>
+
+    <p class="govuk-body"><a href=''>Print this page</a></p>
+    <p class="govuk-body"><a href='check-registration-search'>Search for another registration</a></p>
+
+  </div>
+</div>
+{% endblock %}

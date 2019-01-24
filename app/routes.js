@@ -320,13 +320,13 @@ router.get('/are-you-the-owner', function(req, res) {
 })
 
 router.post('/are-you-the-owner', function(req, res) {
-  logger(req, 'Owner=' + req.session.data['ownerAgent']);
+  logger(req);
 
   if (req.session.data['ownerAgent'] == 'owner') {
     logger(req, "It's the owner, so go down the owner route.")
     res.redirect('owner-name');
   } else {
-    logger(req, "It's the agent, so go down the owner route.")
+    logger(req, "It's the agent, so go down the agent route.")
     res.redirect('agent');
   }
 })
@@ -502,6 +502,8 @@ router.get('/check-your-answers', function(req, res) {
       exemptionTypeChosen = 'Not available';
   }
 
+  req.session.data['exemptionTypeText'] = exemptionTypeChosen;
+
   res.render('check-your-answers', {
     exemptionTypeChosen: exemptionTypeChosen,
     backUrl: backUrl,
@@ -534,7 +536,21 @@ router.post('/declaration', function(req, res) {
 //*****************************************************
 //CONFIRMATION
 router.get('/confirmation', function(req, res) {
-  res.render('confirmation');
+  logger(req);
+
+  var contactEmail;
+  if (req.session.data['ownerAgent']='owner'){
+    contactEmail = req.session.data['ownerEmail']
+    logger(req, 'Owner email='+req.session.data['ownerEmail'])
+  } else if (req.session.data['ownerAgent']='agent') {
+    contactEmail = req.session.data['agentEmail']
+    logger(req, 'Agent email='+req.session.data['agentEmail'])
+  }
+  logger(req, 'ownerAgent='+req.session.data['ownerAgent']+', therefore contact email='+contactEmail);
+
+  res.render('confirmation', {
+    contactEmail: contactEmail
+  });
 })
 
 
@@ -639,6 +655,50 @@ router.post('/pay', function(req, res) {
   //res.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK);
 })
 
+
+//*****************************************************
+// CHECK REGISTRATION SEARCH
+router.get('/check-registration-search', function(req, res) {
+  res.render('check-registration-search')
+})
+
+router.post('/check-registration-search', function(req, res) {
+  logger(req)
+  res.redirect('/check-registration-result')
+
+  // res.redirect('check-registration-result', {
+  //   sessionDataExists: sessionDataExists
+  // });
+
+})
+
+//*****************************************************
+// CHECK REGISTRATION RESULT
+router.get('/check-registration-result', function(req, res) {
+  logger(req);
+
+  // If there's no session data set some
+  // var sessionDataExists;
+  // if (req.session.data['exemptionChoice']) {
+  //   logger(req, 'Exemption choice exists, so stick with session variables')
+  //   sessionDataExists = true;
+  //
+  // } else {
+  //   logger(req, 'Exemption choice does NOT exist, so create some static example session variables')
+  //   req.session.data['exemptionTypeText'] = 'Musical instrument with less than 20% ivory and made before 1975'
+  //   req.session.data['title'] = 'Piano'
+  //   req.session.data['description'] = 'An upright piano with ivory keys'
+  //   req.session.data['ivoryAge'] = 'Manufacture dated on 1902'
+  //   req.session.data['ivoryVolume'] = 'Expert assessed the volume about 5%'
+  //   sessionDataExists = false;
+  // }
+
+  // res.render('check-registration-result', {
+  //   sessionDataExists: sessionDataExists
+  // })
+
+  res.render('check-registration-result')
+})
 
 
 
