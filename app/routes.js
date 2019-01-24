@@ -125,7 +125,7 @@ router.post('/add-photograph', function(req, res) {
       fs.unlink(targetPath, err => {
         if (err) console.log(err)
       });
-      res.redirect('add-photograph2');
+      res.redirect('add-title');
 
       // FORCE A PHOTO AND THROW AN ERROR
       // res.render('add-photograph', {
@@ -510,25 +510,32 @@ router.get('/check-your-answers', function(req, res) {
 })
 
 router.post('/check-your-answers', function(req, res) {
-  res.redirect('');
+  logger(req);
+  res.redirect('declaration');
 })
 
 
+//*****************************************************
+//DECLARATION
+router.get('/declaration', function(req, res) {
+  logger(req);
+  res.render('declaration', {
+    backUrl: 'check-your-answers'
+  });
+})
 
-
-
-
+router.post('/declaration', function(req, res) {
+  logger(req);
+  res.redirect('govpay-lookalike-1');
+})
 
 
 
 //*****************************************************
 //CONFIRMATION
-router.get('/confirmation-1', function(req, res) {
-  res.render('confirmation-1');
+router.get('/confirmation', function(req, res) {
+  res.render('confirmation');
 })
-
-
-
 
 
 
@@ -598,6 +605,28 @@ function SendNotifySMS(telephoneNumber) {
     .then(res => console.log(res))
     .catch(err => console.error(err));
 }
+
+
+//*****************************************************
+// GOVPAY LOOKALIKE 1
+router.get('/govpay-lookalike-1', function(req, res) {
+  res.render('govpay-lookalike-1')
+})
+
+router.post('/govpay-lookalike-1', function(req, res) {
+  res.redirect('govpay-lookalike-2');
+})
+
+
+//*****************************************************
+// GOVPAY LOOKALIKE 2
+router.get('/govpay-lookalike-2', function(req, res) {
+  res.render('govpay-lookalike-2')
+})
+
+router.post('/govpay-lookalike-2', function(req, res) {
+  res.redirect('confirmation');
+})
 
 
 //////////////////////////////////////////////////////////////////////////////
