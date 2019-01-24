@@ -1,4 +1,11 @@
- {% extends "layout.html" %} {% block content %}
+ {% extends "layout.html" %}
+
+ <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+ {% block beforeContent %}
+   {% include "includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">

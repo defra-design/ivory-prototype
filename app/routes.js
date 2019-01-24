@@ -284,7 +284,7 @@ router.get('/ivory-volume', function(req, res) {
 
   res.render('ivory-volume', {
     'ivoryVolume': ivoryVolume,
-    backUrl: 'description'
+    backUrl: 'ivory-age'
   })
 
 
@@ -313,7 +313,7 @@ router.get('/are-you-the-owner', function(req, res) {
   }
 
   res.render('are-you-the-owner', {
-    backUrl: 'description',
+    backUrl: 'ivory-volume',
     ownerChecked: ownerChecked,
     agentChecked: agentChecked
   });

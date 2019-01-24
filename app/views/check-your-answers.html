@@ -37,13 +37,13 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Age of ivory</dt>
-        <dd class="app-check-your-answers__answer">{{data['ivory-age']}}</dd>
+        <dd class="app-check-your-answers__answer">{{data['ivoryAge']}}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Volume of ivory</dt>
-        <dd class="app-check-your-answers__answer">{{data['ivory-volume']}}</dd>
+        <dd class="app-check-your-answers__answer">{{data['ivoryVolume']}}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
@@ -80,11 +80,13 @@
         <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
+      {% if agentOwner == 'owner' %}
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Owner's email</dt>
         <dd class="app-check-your-answers__answer">{{ data['ownerEmail'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
       </div>
+      {% endif %}
     </dl>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>

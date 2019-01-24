@@ -13,7 +13,7 @@
         <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
 
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="ivory-volume">
+          <label class="govuk-label govuk-label--l" for="ivoryVolume">
             Explain why you believe the item is less than {{ ivoryVolume }} ivory by volume
           </label>
         </h1>
@@ -21,7 +21,8 @@
         <!-- <span id="ivory-age-hint" class="govuk-hint">
 
         </span> -->
-        <textarea class="govuk-textarea" id="ivory-volume" name="ivory-volume" value="{{data['ivoryVolume']}}"  rows="5"></textarea>
+        <textarea class="govuk-textarea" id="ivoryVolume" name="ivoryVolume" rows="5" required>{{data['ivoryVolume']}}</textarea>
+        <!-- <textarea class="govuk-textarea" id="ivory-volume" name="ivory-volume" value="{{data['ivoryVolume']}}"  rows="5"></textarea> -->
         <!-- <textarea class="govuk-textarea" id="ivory-age" name="ivory-age" value="{{data['ivoryAge']}}"  rows="5" aria-describedby="ivory-age-hint"></textarea> -->
 
       </div>
