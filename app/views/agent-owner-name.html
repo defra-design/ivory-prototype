@@ -4,13 +4,13 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">{You're the agent text...} what is the your name?</h1>
+    <h1 class="govuk-heading-l">{You're the agent text...} what is the owner's name?</h1>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="agentName">Enter your full name</label>
-        <input class="govuk-input" id="agentName" name="agentName" type="text" value="{{data['agentName']}}" required />
+        <label class="govuk-label" for="ownerName">Enter the owner's full name</label>
+        <input class="govuk-input" id="ownerName" name="ownerName" type="text" value="{{data['ownerName']}}" required />
       </div>
 
       <button class="govuk-button">Continue</button>

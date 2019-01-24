@@ -5,11 +5,6 @@ const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
 
-registerTypeText1 = 'Pre-digital animation characters'
-registerTypeText2 = 'Digital animation characters'
-registerTypeText3 = 'Pixar characters'
-registerTypeText4 = 'Star Wars characters'
-
 exemptionTypeText1 = 'Item with less than 10% ivory made before 1947'
 exemptionTypeText2 = 'Musical instrument with less than 20% ivory and made before 1975'
 exemptionTypeText3 = 'Portrait miniature made before 1918'
@@ -19,7 +14,9 @@ exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or histor
 //////////////////////////////////////////////////////////////////////////////
 // LOGGER (not great, but may help)
 function logger(req, msg) {
-  if (!msg) { msg = '' }
+  if (!msg) {
+    msg = ''
+  }
   // if (!req) { req = '' }
   console.log('DEBUG.routes ' + req.method + req.route.path + ': ' + msg);
 }
@@ -47,20 +44,10 @@ router.get('/start-prototype', function(req, res) {
 
 
 
-
-
-
-
-
-
-
-
 //*****************************************************
 //CHOOSE-EXEMPTION
 router.get('/choose-exemption', function(req, res) {
   logger(req);
-
-
 
   var exemptionType1Checked;
   var exemptionType2Checked;
@@ -91,14 +78,11 @@ router.get('/choose-exemption', function(req, res) {
     exemptionType2Checked: exemptionType2Checked,
     exemptionType3Checked: exemptionType3Checked,
     exemptionType4Checked: exemptionType4Checked,
+  })
 })
-
-
-})
-
 
 router.post('/choose-exemption', function(req, res) {
-  logger(req, 'Exemption type='+req.session.data['exemptionChoice']);
+  logger(req, 'Exemption type=' + req.session.data['exemptionChoice']);
   res.redirect('add-photograph');
 })
 
@@ -112,64 +96,69 @@ router.get('/add-photograph', function(req, res) {
   });
 })
 
-const upload = multer({
-  dest: "app/uploads/temp", // temp location for the file to be placed
-  limits: {
-    fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
-  }
-}).single('fileToUpload'); /* name attribute of <file> element in your form */
-
-// router.post('/sandpit/upload-image', upload, function(req, res) {
 router.post('/add-photograph', function(req, res) {
   logger(req);
   // Set back button URL
   req.session.data['backUrl'] = 'add-photograph';
 
+  //Prepare for the photo upload code
+  const upload = multer({
+    dest: "app/uploads/temp", // temp location for the file to be placed
+    limits: {
+      fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
+    }
+  }).single('fileToUpload'); /* name attribute of <file> element in the html form */
+
   // Upload the chosen file to the multer 'dest'
+  // req.file is the `fileToUpload` file
   upload(req, res, function(err) {
-    console.log('DEBUG '+req.method+req.route.path + ': File uploaded to temp location');
-    // req.file is the `fileToUpload` file
-    // req.body will hold the text fields, if there were any
+    logger(req, 'Uploading the chosen file');
+
+    const targetPath = path.join(__dirname, './uploads/image.png');
 
     // Check a file was uploaded
     if (!req.file) {
-      console.log('DEBUG '+req.method+req.route.path + ': No file uploaded');
-      res.render('add-photograph', {
-        errorNoFile: 'Please choose a file to upload'
-      })
+      logger(req, 'No file was chosen/uploaded');
+
+      // ALLOW NO PHOTOS
+      // Remove the previous entry ... a temp fudge to handle that uploads from previous users are all called 'image.png'
+      fs.unlink(targetPath, err => {
+        if (err) console.log(err)
+      });
+      res.redirect('add-photograph2');
+
+      // FORCE A PHOTO AND THROW AN ERROR
+      // res.render('add-photograph', {
+      //   errorNoFile: 'Please choose a file'
+      // })
 
     }
     // A file was uploaded, so continue
     else {
 
       const tempPath = req.file.path; // req.file is the form input file from type="file" name="fileUpload"
-      const targetPath = path.join(__dirname, './uploads/image.png');
-      console.log('DEBUG '+req.method+req.route.path+'tempPath=' + tempPath);
-      console.log('DEBUG '+req.method+req.route.path+'targetPath=' + targetPath);
 
       //Check the file type
       var type = path.extname(req.file.originalname).toLowerCase();
-      console.log('DEBUG '+req.method+req.route.path+':File type = ' + type);
+      logger(req, 'File type = ' + type);
 
-      if (type !== '.png' && type !== '.jpg') {
-        console.log('DEBUG '+req.method+req.route.path+':Wrong file type');
-
+      if (type !== '.png' && type !== '.jpg' && type !== '.jpeg' && type !== '.gif') {
+        logger(req, 'Wrong file type');
         fs.unlink(tempPath, err => {
           if (err) console.log(err)
         });
-
         res.render('upload-image', {
           errorNoFile: 'That file type is not accepted'
         })
 
-        // Correct file type, so continue
       } else {
+        // Correct file type, so continue
         //If it passes all validation, move/rename it to the persistent location
         fs.rename(tempPath, targetPath, function(err) {
           if (err) {
             console.log('err = ' + err);
           } else {
-            console.log('DEBUG '+req.method+req.route.path+':File successfully uploaded');
+            logger(req, 'File successfully uploaded to ' + targetPath);
             res.redirect('add-photograph2');
           }
         });
@@ -218,7 +207,7 @@ router.get('/description', function(req, res) {
 })
 
 router.post('/description', function(req, res) {
-  logger(req, 'Description='+req.session.data['description']);
+  logger(req, 'Description=' + req.session.data['description']);
   res.redirect('ivory-age');
 })
 
@@ -314,34 +303,107 @@ router.post('/ivory-volume', function(req, res) {
 //*****************************************************
 // ARE YOU THE OWNER
 router.get('/are-you-the-owner', function(req, res) {
+
+  var ownerChecked = '';
+  var agentChecked = '';
+  if (req.session.data['ownerAgent']=='owner') {
+    ownerChecked = 'checked'
+  } else if (req.session.data['ownerAgent']=='agent') {
+    agentChecked = 'checked'
+  }
+
   res.render('are-you-the-owner', {
-    backUrl: 'description'
+    backUrl: 'description',
+    ownerChecked: ownerChecked,
+    agentChecked: agentChecked
   });
 })
 
 router.post('/are-you-the-owner', function(req, res) {
-  logger(req, 'Owner='+req.session.data['ownerAgent']);
+  logger(req, 'Owner=' + req.session.data['ownerAgent']);
 
-  if (req.session.data['ownerAgent']=='owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     logger(req, "It's the owner, so go down the owner route.")
     res.redirect('owner-name');
   } else {
     logger(req, "It's the agent, so go down the owner route.")
-    res.redirect('agent-name');
+    res.redirect('agent');
   }
 })
 
+
+
+//*****************************************************
+// AGENT
+router.get('/agent', function(req, res) {
+  res.render('agent', {
+    backUrl: 'are-you-the-owner'
+  });
+})
+
+router.post('/agent', function(req, res) {
+  res.redirect('agent-name');
+})
 
 //*****************************************************
 // AGENT-NAME
 router.get('/agent-name', function(req, res) {
   res.render('agent-name', {
-    backUrl: 'are-you-the-owner'
+    backUrl: 'agent'
   });
 })
 
 router.post('/agent-name', function(req, res) {
   res.redirect('agent-address');
+})
+
+//*****************************************************
+// AGENT-ADDRESS
+router.get('/agent-address', function(req, res) {
+  res.render('agent-address', {
+    backUrl: 'agent-name'
+  });
+})
+
+router.post('/agent-address', function(req, res) {
+  res.redirect('agent-contact');
+})
+
+//*****************************************************
+// AGENT-CONTACT
+router.get('/agent-contact', function(req, res) {
+  res.render('agent-contact', {
+    backUrl: 'agent-address'
+  });
+})
+
+router.post('/agent-contact', function(req, res) {
+  res.redirect('agent-owner-name');
+})
+
+
+//*****************************************************
+// AGENT-OWNER-NAME
+router.get('/agent-owner-name', function(req, res) {
+  res.render('agent-owner-name', {
+    backUrl: 'agent-address'
+  });
+})
+
+router.post('/agent-owner-name', function(req, res) {
+  res.redirect('agent-owner-address');
+})
+
+//*****************************************************
+// AGENT-OWNER-ADDRESS
+router.get('/agent-owner-address', function(req, res) {
+  res.render('agent-owner-address', {
+    backUrl: 'agent-owner-name'
+  });
+})
+
+router.post('/agent-owner-address', function(req, res) {
+  res.redirect('check-your-answers');
 })
 
 //*****************************************************
@@ -411,6 +473,13 @@ router.post('/owner-contact', function(req, res) {
 router.get('/check-your-answers', function(req, res) {
   logger(req);
 
+  var backUrl;
+  if (req.session.data['ownerAgent'] == 'owner') {
+    backUrl = 'owner-contact'
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    backUrl = 'agent-owner-address'
+  }
+
   var exemptionTypeChosen;
 
   switch (req.session.data['exemptionChoice']) {
@@ -435,7 +504,8 @@ router.get('/check-your-answers', function(req, res) {
 
   res.render('check-your-answers', {
     exemptionTypeChosen: exemptionTypeChosen,
-    backUrl: 'owner-contact'
+    backUrl: backUrl,
+    agentOwner: req.session.data['ownerAgent'],
   })
 })
 

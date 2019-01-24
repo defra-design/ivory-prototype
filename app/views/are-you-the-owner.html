@@ -15,13 +15,13 @@
           </legend>
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ownerAgent1" name="ownerAgent" type="radio" value="owner" required />
+              <input class="govuk-radios__input" id="ownerAgent1" name="ownerAgent" type="radio" value="owner" required {{ownerChecked}}/>
               <label class="govuk-label govuk-radios__label" for="ownerAgent1">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ownerAgent2" name="ownerAgent" type="radio" value="agent">
+              <input class="govuk-radios__input" id="ownerAgent2" name="ownerAgent" type="radio" value="agent" {{agentChecked}}>
               <label class="govuk-label govuk-radios__label" for="ownerAgent2">
                 No
               </label>
