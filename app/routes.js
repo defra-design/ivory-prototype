@@ -334,17 +334,74 @@ router.post('/who-owns-item', function(req, res) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //*****************************************************
-// AGENT
+//AGENT
 router.get('/agent', function(req, res) {
+  logger(req);
+
+  var agentIs1Checked;
+  var agentIs2Checked;
+  var agentIs3Checked;
+  var agentIs4Checked;
+
+  switch (req.session.data['agentIs']) {
+    case 'Professional advisor':
+      agentIs1Checked = 'checked';
+      break;
+    case 'Executor':
+      agentIs2Checked = 'checked';
+      break;
+    case 'Trustee':
+      agentIs3Checked = 'checked';
+      break;
+    case 'Friend or relative':
+      agentIs4Checked = 'checked';
+      break;
+    default:
+      agentIs1Checked = '';
+      agentIs2Checked = '';
+      agentIs3Checked = '';
+      agentIs4Checked = '';
+  }
   res.render('agent', {
-    backUrl: 'who-owns-item'
-  });
+    backUrl: 'who-owns-item',
+    agentIs1Checked: agentIs1Checked,
+    agentIs2Checked: agentIs2Checked,
+    agentIs3Checked: agentIs3Checked,
+    agentIs4Checked: agentIs4Checked,
+  })
 })
 
 router.post('/agent', function(req, res) {
+  logger(req, 'Agent is = ' + req.session.data['agentIs']);
   res.redirect('agent-name');
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 //*****************************************************
 // AGENT-NAME
@@ -434,7 +491,7 @@ router.post('/add-description-1', function(req, res) {
 //OWNER-NAME
 router.get('/owner-name', function(req, res) {
   res.render('owner-name', {
-    backUrl: 'are-you-the-owner'
+    backUrl: 'who-owns-item'
   });
 })
 

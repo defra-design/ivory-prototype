@@ -4,14 +4,14 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">{You're the agent text...} What is your email address?</h1>
+    <h1 class="govuk-heading-l">Your email address</h1>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="agentEmail">Enter your email address</label>
-        <span id="email-hint" class="govuk-hint">We’ll use this to confirm your registration</span>
-        <input class="govuk-input" id="agentEmail" name="agentEmail" type="text" value="{{data['agentEmail']}}" required />
+        <label class="govuk-label govuk-visually-hidden" for="agentEmail">Your email address</label>
+        <span id="email-hint" class="govuk-hint">We’ll use this to send you the payment receipt and confirmation of registration</span>
+        <input class="govuk-input" id="agentEmail" name="agentEmail" type="email" value="{{data['agentEmail']}}" required />
       </div>
 
       <button class="govuk-button">Continue</button>

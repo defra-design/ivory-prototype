@@ -19,15 +19,15 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Photograph</dt>
-        <dd class="app-check-your-answers__answer"><img src="/routeToTempImage" width='100' border='1' /></dd>
+        <dd class="app-check-your-answers__answer"><img src="/routeToTempImage" height="200" border="0" /></dd>
         <dd class="app-check-your-answers__change"><a href="add-photograph">Change</a></dd>
       </div>
 
-      <div class="app-check-your-answers__contents">
+      <!-- <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Title</dt>
         <dd class="app-check-your-answers__answer">{{data['title']}}</dd>
         <dd class="app-check-your-answers__change"><a href="add-title">Change</a></dd>
-      </div>
+      </div> -->
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Description</dt>
@@ -49,19 +49,25 @@
 
       {% if agentOwner == 'agent' %}
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Agent's name</dt>
+        <dt class="app-check-your-answers__question">On behalf of owner</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentIs']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your name</dt>
         <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Agent's address</dt>
+        <dt class="app-check-your-answers__question">Your address</dt>
         <dd class="app-check-your-answers__answer">{{ data['agentAddressLine1'] }}<br /> {{ data['agentAddressLine2'] }}<br /> {{ data['agentAddressTown'] }}<br /> {{ data['agentAddressCounty'] }}<br /> {{ data['agentAddressPostcode'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Agent's email</dt>
+        <dt class="app-check-your-answers__question">Your email address</dt>
         <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
@@ -69,20 +75,30 @@
 
 
       <div class="app-check-your-answers__contents">
+        {% if agentOwner == 'agent' %}
         <dt class="app-check-your-answers__question">Owner's name</dt>
+        {% endif %}
+        {% if agentOwner == 'owner' %}
+        <dt class="app-check-your-answers__question">Your name</dt>
+        {% endif %}
         <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
+        {% if agentOwner == 'agent' %}
         <dt class="app-check-your-answers__question">Owner's address</dt>
+        {% endif %}
+        {% if agentOwner == 'owner' %}
+        <dt class="app-check-your-answers__question">Your address</dt>
+        {% endif %}
         <dd class="app-check-your-answers__answer">{{ data['addressLine1'] }}<br /> {{ data['addressLine2'] }}<br /> {{ data['addressTown'] }}<br /> {{ data['addressCounty'] }}<br /> {{ data['addressPostcode'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
       {% if agentOwner == 'owner' %}
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Owner's email</dt>
+        <dt class="app-check-your-answers__question">Your email</dt>
         <dd class="app-check-your-answers__answer">{{ data['ownerEmail'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
       </div>
