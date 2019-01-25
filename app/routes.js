@@ -125,7 +125,8 @@ router.post('/add-photograph', function(req, res) {
       fs.unlink(targetPath, err => {
         if (err) console.log(err)
       });
-      res.redirect('add-title');
+      // res.redirect('add-title');
+      res.redirect('description');
 
       // FORCE A PHOTO AND THROW AN ERROR
       // res.render('add-photograph', {
@@ -292,7 +293,7 @@ router.get('/ivory-volume', function(req, res) {
 
 
 router.post('/ivory-volume', function(req, res) {
-  res.redirect('are-you-the-owner');
+  res.redirect('who-owns-item');
 })
 
 
@@ -302,7 +303,7 @@ router.post('/ivory-volume', function(req, res) {
 
 //*****************************************************
 // ARE YOU THE OWNER
-router.get('/are-you-the-owner', function(req, res) {
+router.get('/who-owns-item', function(req, res) {
 
   var ownerChecked = '';
   var agentChecked = '';
@@ -312,14 +313,14 @@ router.get('/are-you-the-owner', function(req, res) {
     agentChecked = 'checked'
   }
 
-  res.render('are-you-the-owner', {
+  res.render('who-owns-item', {
     backUrl: 'ivory-volume',
     ownerChecked: ownerChecked,
     agentChecked: agentChecked
   });
 })
 
-router.post('/are-you-the-owner', function(req, res) {
+router.post('/who-owns-item', function(req, res) {
   logger(req);
 
   if (req.session.data['ownerAgent'] == 'owner') {
@@ -337,7 +338,7 @@ router.post('/are-you-the-owner', function(req, res) {
 // AGENT
 router.get('/agent', function(req, res) {
   res.render('agent', {
-    backUrl: 'are-you-the-owner'
+    backUrl: 'who-owns-item'
   });
 })
 

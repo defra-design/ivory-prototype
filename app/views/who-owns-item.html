@@ -10,20 +10,20 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              Are you the owner?
+              Who owns the item?
             </h1>
           </legend>
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="ownerAgent1" name="ownerAgent" type="radio" value="owner" required {{ownerChecked}}/>
               <label class="govuk-label govuk-radios__label" for="ownerAgent1">
-                Yes
+                I own it
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="ownerAgent2" name="ownerAgent" type="radio" value="agent" {{agentChecked}}>
               <label class="govuk-label govuk-radios__label" for="ownerAgent2">
-                No
+                Someone else owns it
               </label>
             </div>
           </div>
