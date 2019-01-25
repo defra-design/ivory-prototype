@@ -6,10 +6,12 @@
 
     <!-- <h1 class="govuk-heading-l">Registration: {{data['regNumber']}}</h1> -->
 
-    <div class="govuk-panel govuk-panel--confirmation">
+    <!-- <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">✓ Registration complete</h1>
       <div class="govuk-panel__body">This item can be bought, sold or hired</div>
-      </div>
+      </div> -->
+
+<img src="/routeToTempImage" border="1" />
 
 
     <table class="govuk-table">
@@ -19,12 +21,12 @@
           <td class="govuk-table__header">{{data['regNumber']}}</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Item type</td>
-          <td class="govuk-table__header">{{data['exemptionTypeText']}}</td>
+          <td class="govuk-table__cell">Registration status:</td>
+          <td class="govuk-table__header">Awaiting confirmation</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Photograph</td>
-          <td class="govuk-table__header"><img src="/routeToTempImage" width='200' border='1' /></td>
+          <td class="govuk-table__cell">Item type</td>
+          <td class="govuk-table__header">{{data['exemptionTypeText']}}</td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">Title</td>

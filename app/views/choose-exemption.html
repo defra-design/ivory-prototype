@@ -26,14 +26,14 @@
         <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              What type of item is it?
+              What type of item are you selling or hiring?
             </h1>
           </legend>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required {{exemptionType1Checked}} />
-              <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
-                Item with less than 10% ivory made before 1947
+              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="type3"  {{exemptionType3Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
+                Portrait miniature made before 1918
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -44,18 +44,17 @@
               <span class="govuk-hint govuk-radios__hint">
                 For example piano, violin bow, flute
               </span>
-
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="type3"  {{exemptionType3Checked}} />
-              <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
-                Portrait miniature made before 1918
+              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required {{exemptionType1Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
+                Item with less than 10% ivory made before 1947
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4" {{exemptionType4Checked}} />
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText4">
-                Item to be acquired by accredited museum
+                Item to be acquired by an accredited museum
               </label>
             </div>
           </div>

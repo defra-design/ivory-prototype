@@ -1,9 +1,19 @@
 {% extends "layout.html" %}
 
+
+{% set serviceName %}
+Check an ivory registration
+{% endset%}
+
+
 <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
 {% block beforeContent %}
   {% include "includes/stage-banner.html" %}
 {% endblock %}
+
+
+
+
 
 {% block content %}
 
@@ -14,8 +24,12 @@
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <h1 class="govuk-heading-l">Enter the registration number</h1>
-        <label class="govuk-label" for="regNumber">Registration Number</label>
+
+
+        <h1 class="govuk-heading-l">Check an ivory registration</h1>
+
+
+        <label class="govuk-label" for="regNumber">Enter a registration number</label>
         <span class="govuk-hint">For example XKCDWRVS</span>
         <input class="govuk-input govuk-input--width-10" id="regNumber" name="regNumber" type="text" />
       </div>
