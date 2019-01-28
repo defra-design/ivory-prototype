@@ -100,10 +100,22 @@ router.post('/choose-exemption', function(req, res) {
 // ADD PHOTGRAPH
 router.get('/add-photograph', function(req, res) {
   logger(req);
+
+  // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
+  if (req.session.data['imageName']) {
+    const imagePath = path.join(__dirname, './uploads/',req.session.data['imageName']);
+    fs.unlink(imagePath, err => {
+      if (err) logger(req, err)
+      else logger(req, 'Image removed = '+imagePath)
+    });
+  }
+
   res.render('add-photograph', {
     backUrl: 'choose-exemption'
   });
 })
+
+
 
 router.post('/add-photograph', function(req, res) {
   logger(req);
@@ -192,25 +204,6 @@ router.post('/add-photograph', function(req, res) {
 
 
 //////////////////////////////////////////////////////////////////////////////
-// USE A DIFFERENT PHOTO
-// Not a real page, just a route to remove the photo from storage
-router.get('/use-a-different-photo-route', function(req, res) {
-  logger(req);
-
-  // Remove previously uploaded photo (saves them sitting unused)
-  if (req.session.data['imageName']) {
-    const imagePath = path.join(__dirname, './uploads/',req.session.data['imageName']);
-    fs.unlink(imagePath, err => {
-      if (err) logger(req, err)
-      else logger(req, 'Image removed = '+imagePath)
-    });
-  }
-
-  res.redirect('add-photograph');
-})
-
-
-//////////////////////////////////////////////////////////////////////////////
 // ADD PHOTGRAPH 2
 router.get('/add-photograph2', function(req, res) {
   logger(req);
@@ -245,8 +238,17 @@ router.post('/add-photograph2', function(req, res) {
 //DESCRIPTION
 router.get('/description', function(req, res) {
   logger(req);
+
+  // Temp fudge while we don't have validation on (and you can skip uploading a photo)
+  var backUrl;
+  if (req.session.data['imageName']) {
+    backUrl = 'add-photograph2'
+  } else {
+    backUrl = 'add-photograph'
+  }
+
   res.render('description', {
-    backUrl: 'add-photograph2'
+    backUrl: backUrl
   })
 })
 
