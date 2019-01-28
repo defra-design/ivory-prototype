@@ -180,22 +180,22 @@ router.post('/add-photograph2', function(req, res) {
   logger(req);
   // Set back button URL
   req.session.data['backUrl'] = 'add-photograph2';
-  res.redirect('/add-title');
+  res.redirect('/description');
 })
 
 
 //*****************************************************
 //ADD-TITLE
-router.get('/add-title', function(req, res) {
-  res.render('add-title', {
-    backUrl: 'add-photograph2'
-  });
-})
-
-router.post('/add-title', function(req, res) {
-  logger(req);
-  res.redirect('description');
-})
+// router.get('/add-title', function(req, res) {
+//   res.render('add-title', {
+//     backUrl: 'add-photograph2'
+//   });
+// })
+//
+// router.post('/add-title', function(req, res) {
+//   logger(req);
+//   res.redirect('description');
+// })
 
 
 //*****************************************************
@@ -203,7 +203,7 @@ router.post('/add-title', function(req, res) {
 router.get('/description', function(req, res) {
   logger(req);
   res.render('description', {
-    backUrl: 'add-title'
+    backUrl: 'add-photograph2'
   })
 })
 
@@ -464,6 +464,9 @@ router.post('/agent-owner-address', function(req, res) {
   res.redirect('check-your-answers');
 })
 
+
+
+
 //*****************************************************
 //ADD-PHOTOGRAPH
 router.get('/add-photograph-1', function(req, res) {
@@ -474,6 +477,10 @@ router.post('/add-photograph-1', function(req, res) {
   console.log('DEBUG.routes.add-photograph-1.post: ' + req.session.data['photograph']);
   res.redirect('add-description-1');
 })
+
+
+
+
 
 //*****************************************************
 //ADD-DESCRIPTION
@@ -499,6 +506,9 @@ router.post('/owner-name', function(req, res) {
   res.redirect('owner-address');
 })
 
+
+
+
 //*****************************************************
 //OWNER-ADDRESS
 router.get('/owner-address', function(req, res) {
@@ -521,8 +531,50 @@ router.get('/owner-contact', function(req, res) {
 })
 
 router.post('/owner-contact', function(req, res) {
+  res.redirect('dealing-intent');
+})
+
+
+
+//*****************************************************
+//DEALING-INTENT
+router.get('/dealing-intent', function(req, res) {
+  logger(req);
+
+  var backUrl;
+  if (req.session.data['ownerAgent'] == 'owner') {
+    backUrl = 'owner-contact'
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    backUrl = 'agent-contact'
+  }
+
+  var intentSellChecked;
+  var intentHireOutChecked;
+
+  switch (req.session.data['dealingIntent']) {
+    case 'Sell it':
+      intentSellChecked = 'checked';
+      break;
+    case 'Hire it out':
+      intentHireOutChecked = 'checked';
+      break;
+    default:
+      intentSellChecked = '';
+      intentHireOutChecked = '';
+  }
+  res.render('dealing-intent', {
+    backUrl: backUrl,
+    intentSellChecked: intentSellChecked,
+    intentHireOutChecked: intentHireOutChecked,
+  })
+})
+
+router.post('/dealing-intent', function(req, res) {
+  logger(req, 'Dealing intent = ' + req.session.data['dealingIntent']);
   res.redirect('check-your-answers');
 })
+
+
 
 
 
@@ -533,9 +585,9 @@ router.get('/check-your-answers', function(req, res) {
 
   var backUrl;
   if (req.session.data['ownerAgent'] == 'owner') {
-    backUrl = 'owner-contact'
+    backUrl = 'dealing-intent'
   } else if (req.session.data['ownerAgent'] == 'agent') {
-    backUrl = 'agent-owner-address'
+    backUrl = 'dealing-intent'
   }
 
   var exemptionTypeChosen;
@@ -571,23 +623,24 @@ router.get('/check-your-answers', function(req, res) {
 
 router.post('/check-your-answers', function(req, res) {
   logger(req);
-  res.redirect('declaration');
+  // res.redirect('declaration');
+  res.redirect('govpay-lookalike-1');
 })
 
 
 //*****************************************************
 //DECLARATION
-router.get('/declaration', function(req, res) {
-  logger(req);
-  res.render('declaration', {
-    backUrl: 'check-your-answers'
-  });
-})
+// router.get('/declaration', function(req, res) {
+//   logger(req);
+//   res.render('declaration', {
+//     backUrl: 'check-your-answers'
+//   });
+// })
 
-router.post('/declaration', function(req, res) {
-  logger(req);
-  res.redirect('govpay-lookalike-1');
-})
+// router.post('/declaration', function(req, res) {
+//   logger(req);
+//   res.redirect('govpay-lookalike-1');
+// })
 
 
 

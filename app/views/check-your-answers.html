@@ -2,7 +2,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Check your answers</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Check your answers</h1>
 
     <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
     <!--   * `app-check-your-answers--short` for short questions -->
@@ -75,24 +75,35 @@
 
 
       <div class="app-check-your-answers__contents">
-        {% if agentOwner == 'agent' %}
-        <dt class="app-check-your-answers__question">Owner's name</dt>
-        {% endif %}
-        {% if agentOwner == 'owner' %}
-        <dt class="app-check-your-answers__question">Your name</dt>
-        {% endif %}
+        <dt class="app-check-your-answers__question">
+          {% if agentOwner == 'agent' %}
+          Owner's
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          Your
+          {% endif %} name
+        </dt>
         <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
-        {% if agentOwner == 'agent' %}
-        <dt class="app-check-your-answers__question">Owner's address</dt>
-        {% endif %}
-        {% if agentOwner == 'owner' %}
-        <dt class="app-check-your-answers__question">Your address</dt>
-        {% endif %}
-        <dd class="app-check-your-answers__answer">{{ data['addressLine1'] }}<br /> {{ data['addressLine2'] }}<br /> {{ data['addressTown'] }}<br /> {{ data['addressCounty'] }}<br /> {{ data['addressPostcode'] }}</dd>
+        <dt class="app-check-your-answers__question">
+          {% if agentOwner == 'agent' %}
+          Owner's
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          Your
+          {% endif %}
+          address
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['addressLine1'] }}<br />
+          {{ data['addressLine2'] }}<br />
+          {{ data['addressTown'] }}<br />
+          {{ data['addressCounty'] }}<br />
+          {{ data['addressPostcode'] }}
+        </dd>
         <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
@@ -103,6 +114,13 @@
         <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
       </div>
       {% endif %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Intention</dt>
+        <dd class="app-check-your-answers__answer">{{ data['dealingIntent'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
+      </div>
+
     </dl>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
