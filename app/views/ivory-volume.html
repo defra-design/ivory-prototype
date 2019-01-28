@@ -17,18 +17,26 @@
         <div class="govuk-form-group defra-input-unit-cm ">
 
           <label class="govuk-label" for="item-width">
-            Width <span class="govuk-visually-hidden"> to the nearest centimetre</span>
+            Width in centimetres
           </label>
-          <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" value="{{ data['itemWidth'] }}" />
+
+          <div class="input-type input-type--unit">
+            <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" pattern="[0-9]*" value="{{ data['itemWidth'] }}" />
+            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
+          </div>
 
         </div>
 
         <div class="govuk-form-group defra-input-unit-cm ">
 
           <label class="govuk-label" for="item-height">
-            Height <span class="govuk-visually-hidden"> to the nearest centimetre</span>
+            Height in centimetres
           </label>
-          <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" value="{{ data['itemHeight'] }}" />
+
+          <div class="input-type input-type--unit">
+            <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" pattern="[0-9]*" value="{{ data['itemHeight'] }}" />
+            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
+          </div>
 
         </div>
 

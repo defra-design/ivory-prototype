@@ -64,7 +64,25 @@ th, td{
 .defra-input-unit-cm{
 }
 
-.defra-input-unit-cm::after{
+
+.input-type__type-cm{
+
+  border: 2px solid #333;
+  border-left: none;
+  background-color: #f5f5f5;
+
+  padding: 0.33rem 0.5rem;
+  // padding-bottom: 0.45rem;
+  margin-left: -0.25rem;
+
+  font-family: "nta", Arial, sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+
+
+.xdefra-input-unit-cm::after{
   content: "cm";
   font-family: "nta", Arial, sans-serif;
   font-size: 1.2rem;
