@@ -99,6 +99,14 @@ router.get('/sandpit/upload-image2', function(req, res) {
 router.get('/sandpit/test', function(req, res) {
   logger(req, 'Test message');
 
+  var imageName = new Date().getTime().toString() + '.png'; //getTime() gives the milliseconds since 1970...
+  const targetPath = path.join(__dirname, './uploads/',imageName);
+  logger(req, 'targetPath='+targetPath)
+
+  //
+  // var randomNumber = Math.floor(Math.random() * 1000000001);
+  // logger(req, 'randomNumber = '+randomNumber)
+
   res.render('sandpit/test', {
     'message': 'This is a test message'
   });

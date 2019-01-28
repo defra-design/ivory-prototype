@@ -21,22 +21,31 @@ function logger(req, msg) {
   console.log('DEBUG.routes ' + req.method + req.route.path + ': ' + msg);
 }
 
-
+//////////////////////////////////////////////
 // Add your routes here - above the module.exports line
 
 // LOAD OTHER ROUTES (from separate files, as this main routes.js is getting busy)
 router.use(require('./routes-internal.js'));
 router.use(require('./routes-sandpit.js'));
 
+//////////////////////////////////////////////
 // START-PROTOTYPE_1
 router.get('/start-prototype', function(req, res) {
   logger(req);
 
+  // Remove the previous photo (no need to store it for the ptototype.  Heroku will remove them everytime it restarts anyway, but might as well be tidy)
+  // This isn't perfect, but removes most of the images floating about unnecessarily.
+  if (req.session.data['imageName']) {
+    const imagePath = path.join(__dirname, './uploads/',req.session.data['imageName']);
+    fs.unlink(imagePath, err => {
+      if (err) logger(req, err)
+      else logger(req, 'Image removed = '+imagePath)
+    });
+  }
+
   req.session.destroy(function(err) {
-    if (err) {
-      console.log(err);
-    }
-    logger(req, 'Previous session destroyed');
+    if (err) logger(req, err)
+    else logger(req, 'Previous session destroyed');
   })
 
   res.redirect('choose-exemption');
@@ -114,21 +123,23 @@ router.post('/add-photograph', function(req, res) {
   upload(req, res, function(err) {
     logger(req, 'Uploading the chosen file');
 
-    const targetPath = path.join(__dirname, './uploads/image.png');
+    // This error handling is a bit rough...
+    if (err) {
+      logger(req, 'Multer threw an error = '+err);
+    }
 
-    // Check a file was uploaded
+    // Check a file was successfully uploaded
     if (!req.file) {
       logger(req, 'No file was chosen/uploaded');
 
       // ALLOW NO PHOTOS
       // Remove the previous entry ... a temp fudge to handle that uploads from previous users are all called 'image.png'
-      fs.unlink(targetPath, err => {
-        if (err) console.log(err)
-      });
+      // fs.unlink(targetPath, err => {
+      //   if (err) console.log(err)
+      // });
       // res.redirect('add-title');
       res.redirect('description');
-
-      // FORCE A PHOTO AND THROW AN ERROR
+      // FORCE A PHOTO TO BE UPLOAD AND THROW AN ERROR
       // res.render('add-photograph', {
       //   errorNoFile: 'Please choose a file'
       // })
@@ -155,11 +166,22 @@ router.post('/add-photograph', function(req, res) {
       } else {
         // Correct file type, so continue
         //If it passes all validation, move/rename it to the persistent location
+
+        // Choose temporary file name (it would likely be the registration/application reference in live)
+        var imageName = new Date().getTime().toString() + '.png'; //getTime() gives the milliseconds since 1970...
+        req.session.data['imageName'] = imageName;
+        logger(req, 'New session variable imageName = '+imageName);
+
+        // Set target location for photo
+        const targetPath = path.join(__dirname, './uploads/',imageName);
+        logger(req, 'targetPath = '+targetPath);
+
+        // Move photo from temp location to 'permenant' location
         fs.rename(tempPath, targetPath, function(err) {
           if (err) {
             console.log('err = ' + err);
           } else {
-            logger(req, 'File successfully uploaded to ' + targetPath);
+            logger(req, 'File successfully uploaded');
             res.redirect('add-photograph2');
           }
         });
@@ -169,6 +191,27 @@ router.post('/add-photograph', function(req, res) {
 });
 
 
+//////////////////////////////////////////////////////////////////////////////
+// USE A DIFFERENT PHOTO
+// Not a real page, just a route to remove the photo from storage
+router.get('/use-a-different-photo-route', function(req, res) {
+  logger(req);
+
+  // Remove previously uploaded photo (saves them sitting unused)
+  if (req.session.data['imageName']) {
+    const imagePath = path.join(__dirname, './uploads/',req.session.data['imageName']);
+    fs.unlink(imagePath, err => {
+      if (err) logger(req, err)
+      else logger(req, 'Image removed = '+imagePath)
+    });
+  }
+
+  res.redirect('add-photograph');
+})
+
+
+//////////////////////////////////////////////////////////////////////////////
+// ADD PHOTGRAPH 2
 router.get('/add-photograph2', function(req, res) {
   logger(req);
   res.render('add-photograph2', {
@@ -830,9 +873,13 @@ router.post('/address-select', function(req, res) {
 
 //////////////////////////////////////////////////////////////////////////////
 // ACCESS UPLOADED IMAGES
-router.get("/routeToTempImage", (req, res) => {
-  console.log('DEBUG.routes ' + req.method + req.route.path);
-  res.sendFile(path.join(__dirname, "./uploads/image.png"));
+router.get("/routeToImage", (req, res) => {
+  // Takes a query parameter, e.g. http://localhost:3000/routeToImage?imageName=1548686882219.png
+  var imageName = req.query.imageName;
+  logger(req, 'imageName = '+imageName);
+  var imagePath = path.join(__dirname, './uploads/',imageName);
+  logger(req, 'imagePath = '+imagePath);
+  res.sendFile(imagePath);
 });
 
 router.get("/routeToUploadedImage/:imageId", (req, res) => {
