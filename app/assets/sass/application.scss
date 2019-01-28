@@ -53,3 +53,24 @@ dd{
 th, td{
   vertical-align: top;
 }
+
+
+
+
+
+
+
+
+.defra-input-unit-cm{
+}
+
+.defra-input-unit-cm::after{
+  content: "cm";
+  font-family: "nta", Arial, sans-serif;
+  font-size: 1.2rem;
+  display: inline-block;
+  background-color: #ddd;
+  border: 2px solid #ddd;
+  padding: 0.3rem;
+  // margin-left: -0.25rem;
+}

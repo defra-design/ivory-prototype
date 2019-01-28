@@ -41,11 +41,33 @@
         <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
       </div>
 
+
+
+      {% if data['exemptionChoice'] == 'type3' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Width</dt>
+        <dd class="app-check-your-answers__answer">{{data['itemWidth']}} cm</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-width">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Height</dt>
+        <dd class="app-check-your-answers__answer">{{data['itemHeight']}} cm</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-height">Change</a></dd>
+      </div>
+
+      {% else %}
+
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Volume of ivory</dt>
         <dd class="app-check-your-answers__answer">{{data['ivoryVolume']}}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
+
+      {% endif %}
+
+
 
       {% if agentOwner == 'agent' %}
       <div class="app-check-your-answers__contents">

@@ -10,7 +10,29 @@
 
       <div class="govuk-form-group">
 
-        <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
+        {% if data['exemptionChoice'] == 'type3' %}
+
+        <h1 class="govuk-heading-l">What size is the portrait miniature?</h1>
+
+        <div class="govuk-form-group defra-input-unit-cm ">
+
+          <label class="govuk-label" for="item-width">
+            Width <span class="govuk-visually-hidden"> to the nearest centimetre</span>
+          </label>
+          <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" value="{{ data['itemWidth'] }}" />
+
+        </div>
+
+        <div class="govuk-form-group defra-input-unit-cm ">
+
+          <label class="govuk-label" for="item-height">
+            Height <span class="govuk-visually-hidden"> to the nearest centimetre</span>
+          </label>
+          <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" value="{{ data['itemHeight'] }}" />
+
+        </div>
+
+        {% else %}
 
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="ivoryVolume">
@@ -24,6 +46,8 @@
         <textarea class="govuk-textarea" id="ivoryVolume" name="ivoryVolume" rows="5" required>{{data['ivoryVolume']}}</textarea>
         <!-- <textarea class="govuk-textarea" id="ivory-volume" name="ivory-volume" value="{{data['ivoryVolume']}}"  rows="5"></textarea> -->
         <!-- <textarea class="govuk-textarea" id="ivory-age" name="ivory-age" value="{{data['ivoryAge']}}"  rows="5" aria-describedby="ivory-age-hint"></textarea> -->
+
+        {% endif %}
 
       </div>
 
