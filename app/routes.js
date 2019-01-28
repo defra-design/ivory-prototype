@@ -461,7 +461,7 @@ router.get('/agent-owner-address', function(req, res) {
 })
 
 router.post('/agent-owner-address', function(req, res) {
-  res.redirect('check-your-answers');
+  res.redirect('dealing-intent');
 })
 
 
@@ -545,7 +545,7 @@ router.get('/dealing-intent', function(req, res) {
   if (req.session.data['ownerAgent'] == 'owner') {
     backUrl = 'owner-contact'
   } else if (req.session.data['ownerAgent'] == 'agent') {
-    backUrl = 'agent-contact'
+    backUrl = 'agent-owner-address'
   }
 
   var intentSellChecked;
