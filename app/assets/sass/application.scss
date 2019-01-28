@@ -29,6 +29,27 @@ dd{
 
 
 
+
+
+.defra-dl{
+  display: block;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: "nta", Arial, sans-serif;
+}
+
+.defra-dt{
+  display: inline-block;
+}
+
+.defra-dd{
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+
+
 th, td{
   vertical-align: top;
 }
