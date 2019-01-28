@@ -35,4 +35,4 @@ node_modules/
 /tags
 
 # Ignore temporary uploaded photo
-app/uploads/image.png
+app/uploads/*
