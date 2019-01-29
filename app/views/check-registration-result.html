@@ -1,11 +1,18 @@
 {% extends "layout.html" %}
+
+
+{% set serviceName %}
+Check an ivory registration
+{% endset%}
+
+
 <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
 {% block beforeContent %} {% include "includes/stage-banner.html" %} {% endblock %} {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
 
-    <img src="/routeToImage?imageName={{data['imageName']}}" width="100%" border="1" />
+    <!-- <img src="/routeToImage?imageName={{data['imageName']}}" width="100%" border="1" /> -->
 
 
 
@@ -20,12 +27,27 @@
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Registration status</dt>
-    <dd class="app-check-your-answers__answer">Awaiting confirmation</dd>
+    <dd class="app-check-your-answers__answer">Registered for a single sale or hire</dd>
+    <!-- <dd class="app-check-your-answers__answer">Awaiting confirmation</dd> -->
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Date registered</dt>
+    <dd class="app-check-your-answers__answer">29 January 2019</dd>
   </div>
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Item type</dt>
     <dd class="app-check-your-answers__answer">{{data['exemptionTypeText']}}</dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Photograph</dt>
+    <dd class="app-check-your-answers__answer">
+      <img src="/routeToImage?imageName={{data['imageName']}}" height="200" border="0" />
+      <br />
+      <a href="#">See larger photograph</a>
+    </dd>
   </div>
 
   <div class="app-check-your-answers__contents">
