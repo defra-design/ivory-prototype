@@ -92,3 +92,15 @@ th, td{
   padding: 0.3rem;
   // margin-left: -0.25rem;
 }
+
+
+.invisible-link a:link, .invisible-link a:visited{
+
+  color: #fff;
+
+}
+.invisible-link a:focus{
+
+  color: #005ea5;
+
+}
