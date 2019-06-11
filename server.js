@@ -172,7 +172,7 @@ if (useV6) {
 // Add global variable to determine if DoNotTrack is enabled.
 // This indicates a user has explicitly opted-out of tracking.
 // Therefore we can avoid injecting third-party scripts that do not respect this decision.
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT
   res.locals.doNotTrackEnabled = (req.header('DNT') === '1')
   next()
@@ -213,7 +213,7 @@ if (useAutoStoreData === 'true') {
 }
 
 // Clear all data in session if you open /prototype-admin/clear-data
-app.get('/prototype-admin/clear-data', function(req, res) {
+app.get('/prototype-admin/clear-data', function (req, res) {
   req.session.destroy()
   res.render('prototype-admin/clear-data')
 })
@@ -224,31 +224,31 @@ if (promoMode === 'true') {
 
   app.locals.cookieText = 'GOV.UK uses cookies to make the site simpler. <a href="/docs/cookies">Find out more about cookies</a>'
 
-  app.get('/', function(req, res) {
+  app.get('/', function (req, res) {
     res.redirect('/docs')
   })
 
   // Allow search engines to index the Prototype Kit promo site
-  app.get('/robots.txt', function(req, res) {
+  app.get('/robots.txt', function (req, res) {
     res.type('text/plain')
     res.send('User-agent: *\nAllow: /')
   })
 } else {
   // Prevent search indexing
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     // Setting headers stops pages being indexed even if indexed pages link to them.
     res.setHeader('X-Robots-Tag', 'noindex')
     next()
   })
 
-  app.get('/robots.txt', function(req, res) {
+  app.get('/robots.txt', function (req, res) {
     res.type('text/plain')
     res.send('User-agent: *\nDisallow: /')
   })
 }
 
 // Load routes (found in app/routes.js)
-if (typeof(routes) !== 'function') {
+if (typeof (routes) !== 'function') {
   console.log(routes.bind)
   console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
   routes.bind(app)
@@ -283,7 +283,7 @@ if (useV6) {
 }
 
 // Strip .html and .htm if provided
-app.get(/\.html?$/i, function(req, res) {
+app.get(/\.html?$/i, function (req, res) {
   var path = req.path
   var parts = path.split('.')
   parts.pop()
@@ -294,13 +294,13 @@ app.get(/\.html?$/i, function(req, res) {
 // Auto render any view that exists
 
 // App folder routes get priority
-app.get(/^([^.]+)$/, function(req, res, next) {
+app.get(/^([^.]+)$/, function (req, res, next) {
   utils.matchRoutes(req, res, next)
 })
 
 if (useDocumentation) {
   // Documentation  routes
-  documentationApp.get(/^([^.]+)$/, function(req, res, next) {
+  documentationApp.get(/^([^.]+)$/, function (req, res, next) {
     if (!utils.matchMdRoutes(req, res)) {
       utils.matchRoutes(req, res, next)
     }
@@ -309,25 +309,25 @@ if (useDocumentation) {
 
 if (useV6) {
   // App folder routes get priority
-  v6App.get(/^([^.]+)$/, function(req, res, next) {
+  v6App.get(/^([^.]+)$/, function (req, res, next) {
     utils.matchRoutes(req, res, next)
   })
 }
 
 // Redirect all POSTs to GETs - this allows users to use POST for autoStoreData
-app.post(/^\/([^.]+)$/, function(req, res) {
+app.post(/^\/([^.]+)$/, function (req, res) {
   res.redirect('/' + req.params[0])
 })
 
 // Catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error(`Page not found: ${req.path}`)
   err.status = 404
   next(err)
 })
 
 // Display error
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   console.error(err.message)
   res.status(err.status || 500)
   res.send(err.message)
@@ -337,12 +337,12 @@ console.log('\nGOV.UK Prototype Kit v' + releaseVersion)
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')
 
 // Find a free port and start the server
-utils.findAvailablePort(app, function(port) {
+utils.findAvailablePort(app, function (port) {
   console.log('Listening on port ' + port + '   url: http://localhost:' + port)
   if (env === 'production' || useBrowserSync === 'false') {
     app.listen(port)
   } else {
-    app.listen(port - 50, function() {
+    app.listen(port - 50, function () {
       browserSync({
         proxy: 'localhost:' + (port - 50),
         port: port,
