@@ -36,3 +36,6 @@ node_modules/
 
 # Ignore temporary uploaded photo
 app/uploads/*
+
+# Ignore Webstorm IDE files
+.idea

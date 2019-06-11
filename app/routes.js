@@ -718,9 +718,7 @@ router.post('/govpay-lookalike-2', function (req, res) {
 router.post('/pay', function (req, res) {
   console.log('DEBUG.routes.pay')
 
-  res.redirect('https://products.payments.service.gov.uk/pay/afdf0ef4129a4e1db99af61e392a709f')
-
-  // res.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK);
+  res.redirect(process.env.GOVUK_PAY_PROTOTYPE_LINK)
 })
 
 //* ****************************************************
@@ -744,7 +742,7 @@ router.get('/check-registration-result', function (req, res) {
   logger(req)
 
   // If there's no session data set some
-  // var sessionDataExists;
+  // let sessionDataExists;
   // if (req.session.data['exemptionChoice']) {
   //   logger(req, 'Exemption choice exists, so stick with session variables')
   //   sessionDataExists = true;
