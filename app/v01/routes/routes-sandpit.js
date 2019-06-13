@@ -20,7 +20,7 @@ function logger (req, msg) {
 
 /// ///////////////////////////////////////////////////////////////////////////
 // TEST
-router.get('/sandpit/test', function (req, res) {
+router.get('/test', function (req, res) {
   logger(req, 'Test message')
 
   var imageName = new Date().getTime().toString() + '.png' // getTime() gives the milliseconds since 1970...

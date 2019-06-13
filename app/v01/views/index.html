@@ -1,4 +1,4 @@
- {% extends "./layout.html" %}
+ {% extends "./index-layout.html" %}
 
  <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
  {% block beforeContent %}
@@ -24,7 +24,7 @@
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="index-welcome">{{serviceName}}</a></td>
+          <td class="govuk-table__cell"><a href="external/index-welcome">{{serviceName}}</a></td>
           <td class="govuk-table__cell">Alpha prototype 3 for public users</td>
         </tr>
 
@@ -51,23 +51,23 @@
         <tbody class="govuk-table__body">
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="check-registration-search">Check a registration</a></td>
+            <td class="govuk-table__cell"><a href="external/check-registration-search">Check a registration</a></td>
             <td class="govuk-table__cell">Alpha prototype for public users</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="notify">Notify integration</a></td>
+            <td class="govuk-table__cell"><a href="external/notify">Notify integration</a></td>
             <td class="govuk-table__cell">Uses GOV.UK Notify</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="pay">Pay integration</a></td>
-            <td class="govuk-table__cell">Uses GOV.UK Pay</td>
+            <td class="govuk-table__cell"><a href="external/pay">Pay integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Pay (so needs the .env variable set)</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="address-postcode">Address lookup</a></td>
-            <td class="govuk-table__cell">Address lookup screens (NOT YET LINKED, only uses static data)</td>
+            <td class="govuk-table__cell"><a href="external/address-postcode">Address lookup</a></td>
+            <td class="govuk-table__cell">Address lookup screens (not a real lookup, just static data)</td>
           </tr>
 
           <tr class="govuk-table__row">
