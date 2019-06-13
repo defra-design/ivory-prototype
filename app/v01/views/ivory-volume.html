@@ -1,0 +1,71 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+      <div class="govuk-form-group">
+
+        {% if data['exemptionChoice'] == 'type3' %}
+
+        <h1 class="govuk-heading-l">What size is the portrait miniature?</h1>
+
+        <div class="govuk-form-group defra-input-unit-cm ">
+
+          <label class="govuk-label" for="item-width">
+            Width in centimetres
+          </label>
+
+          <div class="input-type input-type--unit">
+            <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" pattern="[0-9]*" value="{{ data['itemWidth'] }}" />
+            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
+          </div>
+
+        </div>
+
+        <div class="govuk-form-group defra-input-unit-cm ">
+
+          <label class="govuk-label" for="item-height">
+            Height in centimetres
+          </label>
+
+          <div class="input-type input-type--unit">
+            <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" pattern="[0-9]*" value="{{ data['itemHeight'] }}" />
+            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
+          </div>
+
+        </div>
+
+        {% else %}
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="ivoryVolume">
+            Why do you believe the item contains less than {{ ivoryVolume }} ivory?
+          </label>
+        </h1>
+
+        <!-- <span id="ivory-age-hint" class="govuk-hint">
+
+        </span> -->
+        <textarea class="govuk-textarea" id="ivoryVolume" name="ivoryVolume" rows="5" required>{{data['ivoryVolume']}}</textarea>
+        <!-- <textarea class="govuk-textarea" id="ivory-volume" name="ivory-volume" value="{{data['ivoryVolume']}}"  rows="5"></textarea> -->
+        <!-- <textarea class="govuk-textarea" id="ivory-age" name="ivory-age" value="{{data['ivoryAge']}}"  rows="5" aria-describedby="ivory-age-hint"></textarea> -->
+
+        {% endif %}
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
