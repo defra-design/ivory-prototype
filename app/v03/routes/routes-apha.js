@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const data = require('../views/internal/registrationsData.json')
+const data = require('../views/apha/registrationsData.json')
 const path = require('path')
 
 const projectDirectory = path.dirname(require.main.filename) // Used for adding & removing the uploads
 
 // Set the views with a relative path (haven't yet found a better way of doing this yet)
-const viewsFolder = __dirname + '/../views/'
+const viewsFolder = __dirname + '/../views/apha/'
 
 function logger (req) {
   return 'DEBUG.routes ' + req.method + ' ' + req.route.path
@@ -18,9 +18,9 @@ function logger (req) {
 router.get('/registrations', function (req, res) {
   console.log(logger(req))
 
-  console.log(viewsFolder + 'internal/registrations')
+  console.log(viewsFolder + 'registrations')
 
-  res.render(viewsFolder + 'internal/registrations', data)
+  res.render(viewsFolder + 'registrations', data)
 })
 
 /**
@@ -36,7 +36,7 @@ router.get('/item-detail/:regId', function (req, res) {
     return item.reg_id === regId
   })
 
-  res.render(viewsFolder + 'internal/item-detail', {
+  res.render(viewsFolder + 'item-detail', {
     registration: registration
   })
 })

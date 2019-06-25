@@ -9,8 +9,8 @@ router.get('/', function (req, res) {
   res.render(viewsFolder + 'index')
 })
 
-router.use('/external', require('./routes-external.js'))
-router.use('/internal', require('./routes-internal.js'))
-router.use('/sandpit', require('./routes-sandpit.js'))
+router.use('/public', require('./routes-public.js'))
+router.use('/apha', require('./routes-apha.js'))
+router.use('/experiments', require('./routes-experiments.js'))
 
 module.exports = router

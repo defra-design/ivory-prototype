@@ -1,5 +1,5 @@
 {% set serviceName %}
-Ivory service
+Register an item containing ivory for sale or hire
 {% endset%}
 
 {% extends "template.njk" %}
@@ -28,8 +28,7 @@ Ivory service
 {% from "warning-text/macro.njk"  import govukWarningText %}
 
 {% block head %}
-<!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
-<!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
+  {% include "./includes/head.html" %}
 {% endblock %}
 
 {% block pageTitle %}
@@ -39,12 +38,18 @@ Ivory service
 {% set novalidateVal = "novalidate" %}
 
 {% block header %}
+  {% include "./includes/cookie-banner.html" %}
   {{ govukHeader({
     homepageUrl: "/",
-    serviceName: "Ivory service prototypes",
+    serviceName: serviceName,
     serviceUrl: "./",
     containerClasses: "govuk-width-container"
   }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "./includes/stage-banner.html" %}
+  <a href="{{ backUrl }}" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% if useAutoStoreData %}
@@ -66,3 +71,10 @@ Ivory service
   {% endblock %}
 {% endif %}
 
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "./includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
+{% endblock %}

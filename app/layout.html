@@ -1,5 +1,5 @@
 {% set serviceName %}
-Register an item containing ivory for sale or hire
+Ivory service
 {% endset%}
 
 {% extends "template.njk" %}
@@ -15,8 +15,8 @@ Register an item containing ivory for sale or hire
 {% from "fieldset/macro.njk"      import govukFieldset %}
 {% from "file-upload/macro.njk"   import govukFileUpload %}
 {% from "input/macro.njk"         import govukInput %}
-{% from "inset-text/macro.njk"    import govukInsetText %}
 {% from "panel/macro.njk"         import govukPanel %}
+{% from "inset-text/macro.njk"    import govukInsetText %}
 {% from "phase-banner/macro.njk"  import govukPhaseBanner %}
 {% from "radios/macro.njk"        import govukRadios %}
 {% from "select/macro.njk"        import govukSelect %}
@@ -28,7 +28,8 @@ Register an item containing ivory for sale or hire
 {% from "warning-text/macro.njk"  import govukWarningText %}
 
 {% block head %}
-  {% include "./includes/head.html" %}
+<!--[if lte IE 8]><link href="/public/stylesheets/application-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if gt IE 8]><!--><link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->
 {% endblock %}
 
 {% block pageTitle %}
@@ -38,19 +39,12 @@ Register an item containing ivory for sale or hire
 {% set novalidateVal = "novalidate" %}
 
 {% block header %}
-  {% include "./includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
   {{ govukHeader({
     homepageUrl: "/",
-    serviceName: serviceName,
+    serviceName: "Ivory service prototypes",
     serviceUrl: "./",
     containerClasses: "govuk-width-container"
   }) }}
-{% endblock %}
-
-{% block beforeContent %}
-  {% include "./includes/stage-banner.html" %}
-  <a href="{{ backUrl }}" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% if useAutoStoreData %}
@@ -72,10 +66,3 @@ Register an item containing ivory for sale or hire
   {% endblock %}
 {% endif %}
 
-{% block bodyEnd %}
-  {% block scripts %}
-    {% include "./includes/scripts.html" %}
-    {% block pageScripts %}{% endblock %}
-  {% endblock %}
-  <!-- GOV.UK Prototype Kit {{releaseVersion}} -->
-{% endblock %}
