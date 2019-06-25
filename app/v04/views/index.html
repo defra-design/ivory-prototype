@@ -1,0 +1,86 @@
+ {% extends "./layout.html" %}
+
+ <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+ {% block beforeContent %}
+   {% include "./includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Ivory prototypes</h1>
+
+    <p>We've built the following using the GOV.UK Prototype Kit v7.</p>
+    <h2 class="govuk-heading-m">Prototypes</h2>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Prototype</th>
+          <th class="govuk-table__header" scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/index-welcome">{{serviceName}}</a></td>
+          <td class="govuk-table__cell">Alpha prototype 3 for public users</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="apha/registrations">Ivory Register</a></td>
+          <td class="govuk-table__cell">Service for APHA users</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+<br>
+<h2 class="govuk-heading-m">Experiments</h2>
+
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Experiment</th>
+            <th class="govuk-table__header" scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="public/check-registration-search">Check a registration</a></td>
+            <td class="govuk-table__cell">Alpha prototype for public users</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/notify">Notify integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Notify</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="public/pay">Pay integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Pay (so needs the .env variable set)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/address-postcode">Address lookup</a></td>
+            <td class="govuk-table__cell">Address lookup screens (not a real lookup, just static data)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/test">Test</a></td>
+            <td class="govuk-table__cell">Simple test page for trying things on</td>
+          </tr>
+
+        </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
