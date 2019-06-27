@@ -12,6 +12,12 @@ $govuk-global-styles: true;
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
+
+// From Blue Badge prototype
+
+@import "custom/govuk-panels";
+
+
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 dl{
@@ -120,3 +126,6 @@ margin-top: 1rem;
 margin-bottom: 0.5rem;
 
 }
+
+
+.hidden{display: none;}
