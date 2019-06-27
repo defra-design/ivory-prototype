@@ -38,7 +38,6 @@
             <span id="hint" class="govuk-hint">Must be JPG or PNG format with a maximum size of 5 MB</span> {% if errorNoFile %}
             <span id="errorNoFile" class="govuk-error-message">{{errorNoFile}}</span> {% endif %}
             <!-- <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*' onchange='submit()'> -->
-            <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*'>
 
 
             <div id="drop-area" class="hide-no-js">
@@ -55,6 +54,7 @@
                 <div class="upload-section-text">
                   <p class="govuk-body">
                     <input type="file" class="govuk-visually-hidden" id="fileElem" multiple="" accept="image/*,application/pdf" onchange="handleFiles(this.files)">
+                    <!-- <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*'> -->
                     <label class="govuk-button upload-label" for="fileElem">
                       <span class="tablet-upload-text">Upload from this computer</span>
                       <span class="mobile-upload-text hidden">Take photo or upload using this device</span>

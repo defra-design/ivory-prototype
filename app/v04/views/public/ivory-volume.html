@@ -42,11 +42,37 @@
 
         {% else %}
 
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="ivoryVolume">
-            Why do you believe the item contains less than {{ ivoryVolume }} ivory?
-          </label>
+        <h1 class="govuk-heading-l">
+            The item must contain less than {{ ivoryVolume }} ivory
         </h1>
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Legal declaration
+            </legend>
+            <div class="govuk-checkboxes" data-module="checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
+                <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-1">
+                  I declare the item contains less than {{ ivoryVolume }} ivory by volume
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <br /><br /><br />
+
+
+
+        <label class="govuk-label govuk-label--m" for="ivoryVolume">
+          How do you know the item contains less than {{ ivoryVolume }}?
+        </label>
+
+
 
         <!-- <span id="ivory-age-hint" class="govuk-hint">
 

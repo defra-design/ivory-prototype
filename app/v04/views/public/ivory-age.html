@@ -12,15 +12,37 @@
 
         <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
 
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="ivoryAge">
-            Why do you believe the item was made before {{ ivoryYear }}?
-          </label>
+        <h1 class="govuk-heading-l">
+            The item must have been made before {{ ivoryYear }}
         </h1>
 
         <!-- <span id="ivory-age-hint" class="govuk-hint">
 
         </span> -->
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Legal declaration
+            </legend>
+            <div class="govuk-checkboxes" data-module="checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="citizenship-conditional-1" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
+                <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-1">
+                  I declare the item was made before {{ ivoryYear }}
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <br /><br /><br />
+
+        <label class="govuk-label govuk-label-" for="ivoryAge">
+          How do you know the item was made before {{ ivoryYear }}?
+        </label>
+
         <textarea class="govuk-textarea" id="ivoryAge" name="ivoryAge" rows="5" required>{{data['ivoryAge']}}</textarea>
         <!-- <textarea class="govuk-textarea" id="ivoryAge" name="ivoryAge" value={{data['ivoryAge']}}  rows="5"></textarea> -->
         <!-- <textarea class="govuk-textarea" id="ivory-age" name="ivory-age" value="{{data['ivoryAge']}}"  rows="5" aria-describedby="ivory-age-hint"></textarea> -->
