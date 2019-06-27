@@ -738,4 +738,9 @@ router.get('/routeToUploadedImage/:imageId', (req, res) => {
   res.sendFile(path.join(projectDirectory, '/app/uploads/' + req.params.imageId + '.png'))
 })
 
+
+
+/// ///////////////////////////////////////////////////////////////////////////
+// END OF ROUTES
+
 module.exports = router

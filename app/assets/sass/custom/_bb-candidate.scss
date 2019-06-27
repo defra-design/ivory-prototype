@@ -1,0 +1,302 @@
+// File upload
+.file-upload__input {
+  display: none;
+}
+
+.govuk-link {
+	&.fake-link {
+		cursor: pointer;
+		color: $govuk-link-colour;
+		text-decoration: underline;
+	}
+}
+
+.hide-no-js {
+  display: none;
+  .js-enabled & {
+    display: block;
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+.app-task-list__task-name.app-task-list--inactivelink {
+  color: govuk-colour(black);
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+.js-hidden {
+  .js-enabled & {
+    display: none;
+  }
+}
+
+.govuk-radios--has-items {
+  > .govuk-radios__item {
+    display: none;
+  }
+  > .govuk-radios__conditional {
+    border: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.hidden {display: none;}
+
+.responsive-image {
+  max-width: 100%;
+}
+
+.passport-photo {
+  margin-bottom: 30px;
+  max-width: 150px;
+}
+
+.passport-help-photo {
+  margin-bottom: 30px;
+}
+
+.summary-trigger {
+  @include govuk-font(19);
+  img {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 80px;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.govuk-check-your-answers.no-border {
+  .govuk-check-your-answers__contents, dd {
+    border: none;
+  }
+  .govuk-table {
+    margin-bottom: 0;
+  }
+}
+
+.summary-trigger + .govuk-details .govuk-details__summary {
+  display: none;
+}
+
+.countdown-timer {
+  @include govuk-font(80);
+  font-size: 120px !important;
+  text-align: center;
+}
+
+.input-capitals {
+  text-transform: uppercase;
+}
+
+.govuk-button.govuk-button--secondary{
+  background-color: govuk-colour(grey-3);
+  color: govuk-colour(black);
+  box-shadow: govuk-colour(grey-2) 0px 2px 0px 0px;
+}
+
+.govuk-button--addition {
+  background-color: govuk-colour(blue);
+  &:hover, &:focus {
+    background-color: darken(govuk-colour(blue), 5%);
+  }
+}
+
+.govuk-details.hidden {
+  display: none;
+}
+
+.save-progress-container {
+  @include govuk-font(19, $weight: bold);
+  margin-top: govuk-spacing(2);
+  &.hidden-mobile {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  a {
+    // text-decoration: none;
+    // border-bottom: 1px solid $govuk-blue;
+  }
+  &.align-right {
+    @include govuk-font(19);
+    @media (min-width: 640px) {
+      text-align: right;  
+    }
+  }
+}
+
+// Loader
+.loading {
+  text-align: center;
+  &__text {
+    font-weight: 600;
+    margin-top: -10px;
+  }
+  &__spinner {
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    background: url('../images/loading.gif') no-repeat 0 0;
+    background-size: 100% 100%;
+  }
+}
+
+.citizen-info-panel {
+  background: govuk-colour(blue);
+  padding: govuk-spacing(4);
+  padding-bottom: 1px;
+  p, a {
+    color: govuk-colour(white);  
+  }
+  a:hover {
+    color: darken(govuk-colour(white), 10%);
+  }
+}
+
+// Styles for webcam capture. Start
+.video-container {
+  overflow: hidden;
+  display: block;
+  width: 191px;
+  height: 255px;
+}
+
+.video-container video {
+  margin-left: -36%;
+  transform: rotateY(180deg);
+}
+
+.photo-container {
+  overflow: hidden;
+  display: block;
+  height: 255px;
+  width: 191px;
+  position: relative;
+}
+
+.photo-container img {
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
+
+.photo-container #blackbox {
+  position: absolute;
+  top: 0px;
+  bottom: 16px;
+  left: 0px;
+  right: 0px;
+  background: black;
+}
+
+@media (min-width: 640px) {
+  .video-help-text {
+    margin-top: 69px;
+  }
+}
+
+.hidden-touch {
+  display: none;
+  .is-desktop & {
+    display: block;
+  }
+}
+.hidden-mouse {
+  display: none;
+  .is-mobile & {
+    display: block;
+  }
+}
+
+.hidden-mobile,
+.hidden-tablet {
+  display: none;
+}
+
+@include mq($from: tablet) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+@include mq($until: tablet) {
+  .hidden-tablet {
+    display: block;
+  }
+}
+
+.govuk-details {
+	&.file-upload {
+		margin-bottom: govuk-spacing(1);
+	}
+}
+
+.govuk-list {
+  label & {
+    margin-bottom: 0;
+  }
+}
+
+.task-list-deactivated-item {
+  p {
+    margin-bottom: 0;
+  }
+  + a {
+    display: none;
+  }
+}
+
+.read-out-individually i {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.satisfaction-score {
+  display: block;
+  @include govuk-font(36, $weight: bold);
+}
+
+.feedback-layout {
+  background: white;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  .top-header-paragraph {
+    margin: 0;
+  }
+  body {
+    flex: 1;
+  }
+  .govuk-width-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+  }
+  .govuk-main-wrapper {
+    width: 100%;
+  }
+  .govuk-heading-l {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.wide-screen-true .govuk-width-container {
+  max-width: 1200px;
+}

@@ -1,91 +1,149 @@
 {% extends "./layout.html" %}
 
 {% block pageTitle %}
-  Add a photograph
+Add a photograph
 {% endblock %}
 
 {% block content %}
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-
-        <h1 class="govuk-heading-l">Add a photograph of the item</h1>
-
-        <!--<details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">What the photograph must include</span>
-      </summary>
-      <div class="govuk-details__text">
-        <p>The photo must include:</p>
-        <ul class="list list-bullet">
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-          <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </div>
-    </details>-->
-        <!-- image placed in /app/assets/images, which is then copied to /public/images on start/deploy.  Not sure what best practice is?-->
-        <!-- <img src="/public/images/MickeyMouse.png" width="70%" border='1' height="auto" alt="Example photo"> -->
-
-        <p class="govuk-body">You may add up to 3 photographs.</p>
-
-        <p class="govuk-body govuk-!-margin-bottom-5">The ivory in the item must be clearly visible.</p>
-
-        <form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
-
-          <div class="govuk-form-group {% if errorNoFile %}govuk-form-group--error{% endif %}">
-            <label class="govuk-label" for="fileToUpload">Upload a photograph</label>
-            <span id="hint" class="govuk-hint">Must be JPG or PNG format with a maximum size of 5 MB</span> {% if errorNoFile %}
-            <span id="errorNoFile" class="govuk-error-message">{{errorNoFile}}</span> {% endif %}
-            <!-- <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*' onchange='submit()'> -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
 
-            <div id="drop-area" class="hide-no-js">
-              <div id="dragDropInstructions">
-                <div class="upload-arrow-container">
-                  <div class="icon--upload-arrow">
-                    <svg id="icon-arrow-up" class="icon-arrow-down" viewBox="0 0 32 32">
-            	<title>arrow-down</title>
-            	<path d="M16 1l-15 15h9v16h12v-16h9z"></path>
-            </svg>
-                    <svg aria-hidden="true" data-prefix="fas" data-icon="camera" class="svg-inline--fa fa-camera fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg>
-                  </div>
-                </div>
-                <div class="upload-section-text">
-                  <p class="govuk-body">
-                    <input type="file" class="govuk-visually-hidden" id="fileElem" multiple="" accept="image/*,application/pdf" onchange="handleFiles(this.files)">
-                    <!-- <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*'> -->
-                    <label class="govuk-button upload-label" for="fileElem">
-                      <span class="tablet-upload-text">Upload from this computer</span>
-                      <span class="mobile-upload-text hidden">Take photo or upload using this device</span>
-                      <span class="mobile-upload-alternative-text hidden">Upload photo using this device</span>
-                    </label>
-                    <br>
+    <!--<details class="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">What the photograph must include</span>
+  </summary>
+  <div class="govuk-details__text">
+  <p>The photo must include:</p>
+  <ul class="list list-bullet">
+  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+</ul>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+</details>-->
+<!-- image placed in /app/assets/images, which is then copied to /public/images on start/deploy.  Not sure what best practice is?-->
+<!-- <img src="/public/images/MickeyMouse.png" width="70%" border='1' height="auto" alt="Example photo"> -->
 
-                  </p>
-                </div>
-              </div>
-              <div id="progressContainer" class="hidden">
-                <h3 class="govuk-heading-s">Upload progress</h3>
-                <progress id="progress-bar" max="100" value="0" class=""></progress>
-              </div>
-            </div>
+<!-- <p class="govuk-body">You may add up to 3 photographs.</p> -->
+
+
+<form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
+
+
+  <label class="govuk-label" for="fileToUpload">
+    <h1 class="govuk-heading-l">Add a photograph of the item</h1>
+  </label>
+
+  <p class="govuk-body govuk-!-margin-bottom-5">The ivory in the item must be clearly visible.</p>
 
 
 
+  <div class="govuk-form-group {% if errorNoFile %}govuk-form-group--error{% endif %}">
+    <!-- <span id="hint" class="govuk-hint">Must be JPG or PNG format with a maximum size of 5 MB</span> {% if errorNoFile %} -->
+    <span id="errorNoFile" class="govuk-error-message">{{errorNoFile}}</span> {% endif %}
+    <!-- <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*' onchange='submit()'> -->
 
 
-          </div>
+    <div id="hiddenCaughtInputs"></div>
 
-          <button class="govuk-button">Continue</button>
+    <!-- <div class="govuk-error-summary">
+    <h2 class="govuk-error-summary__title">There's been a problem</h2>
+    <p class="govuk-body">Your file wasn't successfully uploaded. Try again, or refresh the page.</p>
+  </div>
+-->
 
-
-
-
-        </form>
-
+<div id="drop-area" class="hide-no-js">
+  <div id="dragDropInstructions">
+    <div class="upload-arrow-container">
+      <div class="icon--upload-arrow">
+        <svg id="icon-arrow-up" class="icon-arrow-down" viewBox="0 0 32 32">
+          <title>arrow-down</title>
+          <path d="M16 1l-15 15h9v16h12v-16h9z"></path>
+        </svg>
+        <svg aria-hidden="true" data-prefix="fas" data-icon="camera" class="svg-inline--fa fa-camera fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg>
       </div>
     </div>
+    <div class="upload-section-text">
+      <p class="govuk-body">
+        <input type="file" class="govuk-visually-hidden" id="fileElem" multiple accept="image/*,application/pdf" onchange="handleFiles(this.files)">
+        <label class="govuk-button upload-label" for="fileElem">
+          <span class="tablet-upload-text">Upload from this computer</span>
+          <span class="mobile-upload-text">Take photo or upload using this device</span>
+          <span class="mobile-upload-alternative-text">Upload photo using this device</span>
+        </label>
+        <br>
+
+      </p>
+    </div>
+  </div>
+  <div id="progressContainer" class="hidden">
+    <h3 class="govuk-heading-s">Upload progress</h3>
+    <progress id="progress-bar" max=100 value=0 class=""></progress>
+  </div>
+</div>
+
+
+
+
+
+<div class="js-hidden">
+
+
+  <div class="govuk-form-group">
+
+    <label class="govuk-label" for="file-upload-1">
+      Upload photo or scan
+    </label>
+
+    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+
+  </div>
+
+  <button type="submit" class="govuk-button">
+    Continue
+  </button>
+
+
+</div>
+
+
+
+<div id="fileUploadedBox" class="hidden">
+
+
+  <h3 class="govuk-heading-m" id="thisUploadHeading">This is your photograph</h3>
+
+
+  <div id="gallery"/></div>
+
+
+  <p class="govuk-body">
+    <a href="?identity-done=false">Use a different photo</a>
+  </p>
+
+
+  <input type="hidden" name="proveIdentity" value="upload">
+
+  <input type="text" class="govuk-visually-hidden" readonly id="theNameOfFile" name="your-identity-file-upload" value="">
+
+
+  <button type="submit" class="govuk-button">
+    Continue
+  </button>
+
+
+</div>
+
+
+
+
+
+</form>
+
+</div>
+</div>
 
 
 
