@@ -1,0 +1,39 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+      <div class="govuk-form-group">
+
+        <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="ivoryAge">
+            Why do you believe the item was made before {{ ivoryYear }}?
+          </label>
+        </h1>
+
+        <!-- <span id="ivory-age-hint" class="govuk-hint">
+
+        </span> -->
+        <textarea class="govuk-textarea" id="ivoryAge" name="ivoryAge" rows="5" required>{{data['ivoryAge']}}</textarea>
+        <!-- <textarea class="govuk-textarea" id="ivoryAge" name="ivoryAge" value={{data['ivoryAge']}}  rows="5"></textarea> -->
+        <!-- <textarea class="govuk-textarea" id="ivory-age" name="ivory-age" value="{{data['ivoryAge']}}"  rows="5" aria-describedby="ivory-age-hint"></textarea> -->
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

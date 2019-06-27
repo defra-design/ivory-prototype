@@ -1,0 +1,50 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="description">
+                Describe the item
+              </label>
+            </h1>
+
+            <span id="title-hint" class="govuk-hint">
+              Include any distinguishing features
+            </span>
+
+          <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="declarationText-hint" required>{{data['description']}}</textarea>
+        </div>
+
+<!--
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="declaration-1" name="declarationCheckbox" type="checkbox" value="checked">
+            <label class="govuk-label govuk-checkboxes__label" for="declaration-1">
+              I confirm that, to the best of my knowledge, the details I am providing are correct
+            </label>
+          </div>
+        </div> -->
+
+        <!-- <p class="govuk-body">
+          By continuing you are confirming that, to the best of your knowledge, the details you are providing are correct.
+        </p> -->
+
+        <button type="submit" class="govuk-button">Continue</button>
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
