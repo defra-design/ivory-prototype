@@ -121,7 +121,7 @@ router.get('/add-photograph', function (req, res) {
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
   if (req.session.data['imageName']) {
     const imagePath = projectDirectory + '/app/uploads/' + req.session.data['imageName']
-    console.log('Found a previously upload photo to remove at image path: ' + imagePath)
+    console.log('Found a previously uploaded photo to remove at image path: ' + imagePath)
     fs.unlink(imagePath, err => {
       if (err) logger(req, err)
       else logger(req, 'Image removed = ' + imagePath)
@@ -135,6 +135,7 @@ router.get('/add-photograph', function (req, res) {
 
 router.post('/add-photograph', function (req, res) {
   logger(req)
+
   // Set back button URL
   req.session.data['backUrl'] = 'add-photograph'
 
@@ -205,7 +206,17 @@ router.post('/add-photograph', function (req, res) {
             console.log('err = ' + err)
           } else {
             logger(req, 'File successfully uploaded')
-            res.redirect('add-photograph2')
+            req.session.data['photoUploaded'] = 'true'
+
+            // testing
+            // if ( req.session.data['photoAlreadyPreviewed'] === 'true' ) {
+            //   res.redirect('description')
+            // } else {
+            //   res.redirect('check-photograph')
+            // }
+
+            res.redirect('description')
+
           }
         })
       }
@@ -215,17 +226,17 @@ router.post('/add-photograph', function (req, res) {
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTOGRAPH 2
-router.get('/add-photograph2', function (req, res) {
+router.get('/check-photograph', function (req, res) {
   logger(req)
-  res.render(viewsFolder + 'add-photograph2', {
+  res.render(viewsFolder + 'check-photograph', {
     backUrl: 'add-photograph'
   })
 })
 
-router.post('/add-photograph2', function (req, res) {
+router.post('/check-photograph', function (req, res) {
   logger(req)
   // Set back button URL
-  req.session.data['backUrl'] = 'add-photograph2'
+  req.session.data['backUrl'] = 'check-photograph'
   res.redirect('description')
 })
 

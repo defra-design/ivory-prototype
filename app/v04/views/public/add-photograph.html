@@ -1,3 +1,5 @@
+{% set uploadPage = true %}
+
 {% extends "./layout.html" %}
 
 {% block pageTitle %}
@@ -10,26 +12,9 @@ Add a photograph
   <div class="govuk-grid-column-two-thirds">
 
 
-    <!--<details class="govuk-details">
-    <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">What the photograph must include</span>
-  </summary>
-  <div class="govuk-details__text">
-  <p>The photo must include:</p>
-  <ul class="list list-bullet">
-  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-  <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-</ul>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
-</details>-->
-<!-- image placed in /app/assets/images, which is then copied to /public/images on start/deploy.  Not sure what best practice is?-->
-<!-- <img src="/public/images/MickeyMouse.png" width="70%" border='1' height="auto" alt="Example photo"> -->
-
-<!-- <p class="govuk-body">You may add up to 3 photographs.</p> -->
 
 
-<form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
+  <form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
 
 
   <label class="govuk-label" for="fileToUpload">
@@ -51,8 +36,8 @@ Add a photograph
     <!-- <div class="govuk-error-summary">
     <h2 class="govuk-error-summary__title">There's been a problem</h2>
     <p class="govuk-body">Your file wasn't successfully uploaded. Try again, or refresh the page.</p>
-  </div>
--->
+    </div>
+    -->
 
 <div id="drop-area" class="hide-no-js">
   <div id="dragDropInstructions">
@@ -67,7 +52,7 @@ Add a photograph
     </div>
     <div class="upload-section-text">
       <p class="govuk-body">
-        <input type="file" class="govuk-visually-hidden" id="fileElem" multiple accept="image/*,application/pdf" onchange="handleFiles(this.files)">
+        <input type="file" name="fileToUpload" class="govuk-visually-hidden" id="fileElem" multiple accept="image/*,application/pdf" onchange="handleFiles(this.files)">
         <label class="govuk-button upload-label" for="fileElem">
           <span class="tablet-upload-text">Upload from this computer</span>
           <span class="mobile-upload-text">Take photo or upload using this device</span>
@@ -119,10 +104,6 @@ Add a photograph
   <div id="gallery"/></div>
 
 
-  <p class="govuk-body">
-    <a href="?identity-done=false">Use a different photo</a>
-  </p>
-
 
   <input type="hidden" name="proveIdentity" value="upload">
 
@@ -130,8 +111,14 @@ Add a photograph
 
 
   <button type="submit" class="govuk-button">
-    Continue
+    Use this photograph
   </button>
+
+
+  <p class="govuk-body">
+    <a href="?identity-done=false">Use a different photograph</a>
+  </p>
+
 
 
 </div>
