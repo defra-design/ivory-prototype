@@ -21,7 +21,7 @@
           </label>
 
           <div class="input-type input-type--unit">
-            <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" pattern="[0-9]*" value="{{ data['itemWidth'] }}" />
+            <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" pattern="[0-9]*" value="{{ data['itemWidth'] }}" required />
             <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
           </div>
 
@@ -34,7 +34,7 @@
           </label>
 
           <div class="input-type input-type--unit">
-            <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" pattern="[0-9]*" value="{{ data['itemHeight'] }}" />
+            <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" pattern="[0-9]*" value="{{ data['itemHeight'] }}" required />
             <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
           </div>
 
@@ -56,9 +56,9 @@
               <div class="govuk-checkboxes__item">
 
                 {% if data['volume-declaration'] == 'Declared' %}
-                <input class="govuk-checkboxes__input" id="volume-declaration" checked name="volume-declaration" type="checkbox" value="Declared">
+                <input class="govuk-checkboxes__input" id="volume-declaration" checked name="volume-declaration" type="checkbox" value="Declared" required>
                 {% else %}
-                <input class="govuk-checkboxes__input" id="volume-declaration" name="volume-declaration" type="checkbox" value="Declared">
+                <input class="govuk-checkboxes__input" id="volume-declaration" name="volume-declaration" type="checkbox" value="Declared" required>
                 {% endif %}
 
                 <label class="govuk-label govuk-checkboxes__label" for="volume-declaration">
@@ -82,7 +82,7 @@
             </legend>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="volumeExplanation1" name="volumeExplanation" type="radio" value="type1"  {{volumeType1Checked}} />
+                <input class="govuk-radios__input" id="volumeExplanation1" name="volumeExplanation" type="radio" value="type1"  {{volumeType1Checked}} required />
                 <label class="govuk-label govuk-radios__label" for="volumeExplanation1">
                   Estimate of ivory content by eye
                 </label>

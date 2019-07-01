@@ -28,9 +28,9 @@
             <div class="govuk-checkboxes" data-module="checkboxes">
               <div class="govuk-checkboxes__item">
                 {% if data['volume-declaration'] == 'Declared' %}
-                <input class="govuk-checkboxes__input" id="age-declaration" checked name="age-declaration" type="checkbox" value="Declared">
+                <input class="govuk-checkboxes__input" id="age-declaration" checked name="age-declaration" type="checkbox" value="Declared" required>
                 {% else %}
-                <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared">
+                <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
                 {% endif %}
                 <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
                   I declare the item was made before {{ ivoryYear }}
@@ -52,7 +52,7 @@
               </legend>
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="ageExplanation1" name="ageExplanation" type="radio" value="type1"  {{ageType1Checked}} />
+                  <input class="govuk-radios__input" id="ageExplanation1" name="ageExplanation" type="radio" value="type1"  {{ageType1Checked}} required />
                   <label class="govuk-label govuk-radios__label" for="ageExplanation1">
                     Date mark on the item
                   </label>

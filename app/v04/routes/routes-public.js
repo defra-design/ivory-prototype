@@ -700,8 +700,94 @@ router.get('/check-your-answers', function (req, res) {
 
   req.session.data['exemptionTypeText'] = exemptionTypeChosen
 
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      ivoryVolume = '10%'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      ivoryVolume = '20%'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      ivoryVolume = '320cm2'
+      break
+    case 'type4':
+      ivoryYear = ''
+      break
+    case 'type5':
+      ivoryYear = ''
+      break
+    default:
+      ivoryYear = 'xxxx'
+      ivoryVolume = 'xxxx'
+  }
+
+
+
+  switch (req.session.data['ageExplanation']) {
+    case 'type1':
+      ageExplanation = 'Date mark on the item'
+      break
+    case 'type2':
+    ageExplanation = 'Information from previous owners, for example where the item was a family heirloom'
+      break
+      case 'type3':
+        ageExplanation = 'Receipt or bill from before' + ivoryYear
+        break
+      case 'type4':
+      ageExplanation = 'Article published before ' + ivoryYear + ' with photographs or a description of the item'
+        break
+        case 'type5':
+          ageExplanation = 'Written verification from an expert'
+          break
+        case 'type6':
+        ageExplanation = 'Evidence in a photograph'
+          break
+    case 'type7':
+    ageExplanation = 'Other'
+      break
+    default:
+    ageExplanation = 'Not available'
+  }
+
+
+
+
+
+  switch (req.session.data['volumeExplanation']) {
+    case 'type1':
+      volumeExplanation = 'Estimate of ivory content by eye'
+      break
+    case 'type2':
+    volumeExplanation = 'Measured the item to work out the volume'
+      break
+    case 'type3':
+    volumeExplanation = 'Other'
+      break
+    default:
+    volumeExplanation = 'Not available'
+  }
+
+
+  switch (req.session.data['dealingIntent']) {
+    case 'Sell it':
+      dealingIntent = 'To sell the item'
+      break
+    case 'Hire it out':
+    dealingIntent = 'To hire the item out'
+      break
+    dealingIntent = 'Not available'
+  }
+
   res.render(viewsFolder + 'check-your-answers', {
     exemptionTypeChosen: exemptionTypeChosen,
+    ivoryYear: ivoryYear,
+    ageExplanation: ageExplanation,
+    ivoryVolume: ivoryVolume,
+    volumeExplanation: volumeExplanation,
+    dealingIntent: dealingIntent,
     backUrl: backUrl,
     agentOwner: req.session.data['ownerAgent']
   })
