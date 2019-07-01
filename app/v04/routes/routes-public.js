@@ -15,6 +15,13 @@ const exemptionTypeText3 = 'Portrait miniature made before 1918'
 const exemptionTypeText4 = 'Item to be acquired by an accredited museum'
 const exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or historical value made before 1918'
 
+
+
+
+
+
+
+
 /// ///////////////////////////////////////////////////////////////////////////
 // LOGGER (not great, but may help)
 function logger (req, msg) {
@@ -303,7 +310,57 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = 'xxxx'
   }
 
+  var ageType1Checked
+  var ageType2Checked
+  var ageType3Checked
+  var ageType4Checked
+  var ageType5Checked
+  var ageType6Checked
+  var ageType7Checked
+
+
+  switch (req.session.data['ageExplanation']) {
+    case 'type1':
+      ageType1Checked = 'checked'
+      break
+    case 'type2':
+      ageType2Checked = 'checked'
+      break
+    case 'type3':
+      ageType3Checked = 'checked'
+      break
+    case 'type4':
+      ageType4Checked = 'checked'
+      break
+    case 'type5':
+      ageType5Checked = 'checked'
+      break
+    case 'type6':
+      ageType6Checked = 'checked'
+      break
+    case 'type7':
+      ageType7Checked = 'checked'
+      break
+    default:
+    ageType1Checked = ''
+    ageType2Checked = ''
+    ageType3Checked = ''
+    ageType4Checked = ''
+    ageType5Checked = ''
+    ageType6Checked = ''
+    ageType7Checked = ''
+  }
+
+
+
   res.render(viewsFolder + 'ivory-age', {
+    ageType1Checked: ageType1Checked,
+    ageType2Checked: ageType2Checked,
+    ageType3Checked: ageType3Checked,
+    ageType4Checked: ageType4Checked,
+    ageType5Checked: ageType5Checked,
+    ageType6Checked: ageType6Checked,
+    ageType7Checked: ageType7Checked,
     'ivoryYear': ivoryYear,
     backUrl: 'description'
   })
@@ -317,6 +374,31 @@ router.post('/ivory-age', function (req, res) {
 // IVORY AGE
 router.get('/ivory-volume', function (req, res) {
   logger(req)
+
+
+
+  var volumeType1Checked
+  var volumeType2Checked
+  var volumeType3Checked
+
+
+  switch (req.session.data['volumeExplanation']) {
+    case 'type1':
+      volumeType1Checked = 'checked'
+      break
+    case 'type2':
+      volumeType2Checked = 'checked'
+      break
+    case 'type3':
+      volumeType3Checked = 'checked'
+      break
+    default:
+      volumeType1Checked = ''
+      volumeType2Checked = ''
+      volumeType3Checked = ''
+  }
+
+
 
   var ivoryVolume
 
@@ -341,6 +423,9 @@ router.get('/ivory-volume', function (req, res) {
   }
 
   res.render(viewsFolder + 'ivory-volume', {
+    volumeType1Checked: volumeType1Checked,
+    volumeType2Checked: volumeType2Checked,
+    volumeType3Checked: volumeType3Checked,
     'ivoryVolume': ivoryVolume,
     backUrl: 'ivory-age'
   })

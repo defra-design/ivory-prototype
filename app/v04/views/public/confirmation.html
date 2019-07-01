@@ -1,3 +1,9 @@
+
+{% block pageTitle %}
+Registraiton complete
+{% endblock %}
+
+
 {% extends "./layout.html" %}
 <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
 {% block beforeContent %}
@@ -8,23 +14,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-panel govuk-panel--confirmation">
-      <h1 class="govuk-panel__title">Payment complete</h1>
+      <h1 class="govuk-panel__title">Registration complete</h1>
       <div class="govuk-panel__body">
-        Your payment reference
-        <br><strong>XKCDWRVS</strong>
+        Registration number
+        <br><strong>IVR329134</strong>
+        <!-- <br><strong>XKCDWRVS</strong> -->
       </div>
     </div>
 
     <!-- <p class="govuk-body">Your application and payment were successful.</p> -->
 
-    <p class="govuk-body">We’ve sent you an email with the payment reference.</p>
+    <p class="govuk-body">We’ve sent you an email with a payment reference and confirmation of registration.</p>
 
     <!-- <dl class="govuk-body defra-dl">
       <dt class="defra-dt">Registration status:</dt>
       <dd class="defra-dd">Awaiting confirmation</dd>
     </dl> -->
 
-    <h3 class="govuk-heading-m">What happens next</h3>
+    <!-- <h3 class="govuk-heading-m">What happens next</h3>
 
     <p class="govuk-body">
       Your registration is awaiting confirmation.
@@ -36,7 +43,7 @@
 
     <p class="govuk-body govuk-!-margin-bottom-9">
       You cannot sell or hire the item until you have this registration number.
-    </p>
+    </p> -->
 
     <!-- <div class="govuk-warning-text govuk-!-margin-bottom-9">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
