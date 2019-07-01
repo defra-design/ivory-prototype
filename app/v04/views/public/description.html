@@ -9,33 +9,26 @@
           <div class="govuk-form-group">
 
             <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--l" for="description">
+              <label class="govuk-label govuk-label--l govuk-!-margin-bottom-6" for="description">
                 Describe the item
               </label>
             </h1>
 
-            <span id="title-hint" class="govuk-hint">
+            <p id="descriptionText-hint" class="govuk-body">
               Include any distinguishing features
-            </span>
+            </p>
 
-          <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="declarationText-hint" required>{{data['description']}}</textarea>
+            <p class="govuk-body">
+              A distinguishing feature is anything which would help to identify the item and make it stand out from similar items.
+            </p>
+
+          <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint" required>{{data['description']}}</textarea>
+
         </div>
 
-<!--
-        <div class="govuk-form-group">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="declaration-1" name="declarationCheckbox" type="checkbox" value="checked">
-            <label class="govuk-label govuk-checkboxes__label" for="declaration-1">
-              I confirm that, to the best of my knowledge, the details I am providing are correct
-            </label>
-          </div>
-        </div> -->
-
-        <!-- <p class="govuk-body">
-          By continuing you are confirming that, to the best of your knowledge, the details you are providing are correct.
-        </p> -->
 
         <button type="submit" class="govuk-button">Continue</button>
+
 
       </form>
 

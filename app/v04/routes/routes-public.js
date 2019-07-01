@@ -261,7 +261,7 @@ router.get('/description', function (req, res) {
   // Temp fudge while we don't have validation on (and you can skip uploading a photo)
   var backUrl
   if (req.session.data['imageName']) {
-    backUrl = 'add-photograph2'
+    backUrl = 'add-photograph'
   } else {
     backUrl = 'add-photograph'
   }
@@ -300,7 +300,7 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = ''
       break
     default:
-      ivoryYear = 'Not available'
+      ivoryYear = 'xxxx'
   }
 
   res.render(viewsFolder + 'ivory-age', {
@@ -337,7 +337,7 @@ router.get('/ivory-volume', function (req, res) {
       ivoryVolume = ''
       break
     default:
-      ivoryVolume = 'Not available'
+      ivoryVolume = 'x%'
   }
 
   res.render(viewsFolder + 'ivory-volume', {

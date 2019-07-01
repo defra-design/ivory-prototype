@@ -3,7 +3,7 @@ let dropArea = document.getElementById("drop-area")
 
 // Prevent default drag behaviors
 ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-  dropArea.addEventListener(eventName, preventDefaults, false)
+  dropArea.addEventListener(eventName, preventDefaults, false)   
   document.body.addEventListener(eventName, preventDefaults, false)
 })
 
@@ -92,43 +92,31 @@ function previewFile(file) {
 
     if(fileType.includes('image') ) {
       img.src = reader.result
-      // req.session.data['photoAlreadyPreviewed'] = 'true'
     } else {
       $('#gallery').append('<p class="govuk-body">'+fileName+'<br>(Preview unavailable)</p>')
     }
-
+    
     document.getElementById('fileUploadedBox').classList.remove('hidden')
     $('[name="select-file-type"]').closest('.govuk-radios').parent('fieldset').closest('.govuk-radios').addClass('govuk-radios--has-items');
     $('.govuk-fieldset__legend--m').hide();
 
     if(document.getElementById('help-uploading')) {
-      document.getElementById('cantUploadDetails').classList.add('hidden')
+      document.getElementById('cantUploadDetails').classList.add('hidden')  
       document.getElementById('help-uploading').classList.add('hidden')
     }
-
+    
     document.getElementById('drop-area').classList.add('hidden')
-
+    
     if(fileType.includes('image') ) {
       document.getElementById('gallery').appendChild(img)
     }
     document.getElementById('theNameOfFile').value = "File uploaded: " + file.name
-    document.getElementById('theNameOfFile').focus()
+    document.getElementById('theNameOfFile').focus()  
   }
 }
 
-
 function uploadFile(file, i) {
-
- // not using this...
-}
-
-
-
-
-
-function uploadFileX(file, i) {
-  // var url = 'https://api.cloudinary.com/v1_1/henryneves/image/upload'
-  var url = '../uploads/'
+  var url = 'https://api.cloudinary.com/v1_1/henryneves/image/upload'
   var xhr = new XMLHttpRequest()
   var formData = new FormData()
   xhr.open('POST', url, true)
@@ -160,6 +148,6 @@ $('.upload-arrow-container').on('click', function() {
 $('#saveUploadTypeBtn button').on('click', function(e) {
   e.preventDefault();
   $(this).hide();
-  $('#addMoreBtnContainer').show();
+  $('#addMoreBtnContainer').show();  
   $('[name="select-file-type"]').prop('checked', false).closest('.govuk-form-group').hide();
 })
