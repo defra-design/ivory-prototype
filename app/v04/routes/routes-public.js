@@ -773,11 +773,12 @@ router.get('/check-your-answers', function (req, res) {
 
   switch (req.session.data['dealingIntent']) {
     case 'Sell it':
-      dealingIntent = 'To sell the item'
+      dealingIntent = 'Sale'
       break
     case 'Hire it out':
-    dealingIntent = 'To hire the item out'
+    dealingIntent = 'Hire'
       break
+      default:
     dealingIntent = 'Not available'
   }
 
