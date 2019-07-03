@@ -688,52 +688,61 @@ router.get('/check-your-answers', function (req, res) {
 
 
   var ageDetail
-  ageDetail = (req.session.data['ageDetail'])
+  ageDetail = req.session.data['ageDetail']
 
+  var ivoryAge
 
-  switch (req.session.data['ageExplanation']) {
-    case 'type1':
-      ageExplanation = 'Date mark on the item'
-      break
-    case 'type2':
-    ageExplanation = 'Information from previous owners, for example where the item was a family heirloom'
-      break
-      case 'type3':
-        ageExplanation = 'Receipt or bill from before' + ivoryYear
-        break
-      case 'type4':
-      ageExplanation = 'Article published before ' + ivoryYear + ' with photographs or a description of the item'
-        break
-        case 'type5':
-          ageExplanation = 'Written verification from an expert'
-          break
-        case 'type6':
-        ageExplanation = 'Evidence in a photograph'
-          break
-    case 'type7':
-    ageExplanation = 'Other'
-      break
-    default:
-    ageExplanation = 'Not available'
-  }
+  ivoryAge = (req.session.data['ivoryAge'])
+  console.log( ivoryAge )
+
+  var ageDetail
+  ageDetail = req.session.data['ageDetail']
 
 
 
+  // switch (req.session.data['ageExplanation']) {
+  //   case 'type1':
+  //     ageExplanation = 'Date mark on the item'
+  //     break
+  //   case 'type2':
+  //   ageExplanation = 'Information from previous owners, for example where the item was a family heirloom'
+  //     break
+  //     case 'type3':
+  //       ageExplanation = 'Receipt or bill from before' + ivoryYear
+  //       break
+  //     case 'type4':
+  //     ageExplanation = 'Article published before ' + ivoryYear + ' with photographs or a description of the item'
+  //       break
+  //       case 'type5':
+  //         ageExplanation = 'Written verification from an expert'
+  //         break
+  //       case 'type6':
+  //       ageExplanation = 'Evidence in a photograph'
+  //         break
+  //   case 'type7':
+  //   ageExplanation = 'Other'
+  //     break
+  //   default:
+  //   ageExplanation = 'Not available'
+  // }
 
 
-  switch (req.session.data['volumeExplanation']) {
-    case 'type1':
-      volumeExplanation = 'Estimate of ivory content by eye'
-      break
-    case 'type2':
-    volumeExplanation = 'Measured the item to work out the volume'
-      break
-    case 'type3':
-    volumeExplanation = 'Other'
-      break
-    default:
-    volumeExplanation = 'Not available'
-  }
+
+
+
+  // switch (req.session.data['volumeExplanation']) {
+  //   case 'type1':
+  //     volumeExplanation = 'Estimate of ivory content by eye'
+  //     break
+  //   case 'type2':
+  //   volumeExplanation = 'Measured the item to work out the volume'
+  //     break
+  //   case 'type3':
+  //   volumeExplanation = 'Other'
+  //     break
+  //   default:
+  //   volumeExplanation = 'Not available'
+  // }
 
 
   switch (req.session.data['dealingIntent']) {
@@ -750,9 +759,9 @@ router.get('/check-your-answers', function (req, res) {
   res.render(viewsFolder + 'check-your-answers', {
     exemptionTypeChosen: exemptionTypeChosen,
     ivoryYear: ivoryYear,
+    ivoryAge: ivoryAge,
     ageDetail: ageDetail,
     ivoryVolume: ivoryVolume,
-    volumeExplanation: volumeExplanation,
     dealingIntent: dealingIntent,
     backUrl: backUrl,
     agentOwner: req.session.data['ownerAgent']

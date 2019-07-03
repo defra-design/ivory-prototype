@@ -53,6 +53,33 @@
 
       </fieldset>
 
+
+      <!-- {% from "details/macro.njk" import govukDetails %}
+
+      {{ govukDetails({
+        summaryText: "The address is outside the UK",
+        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+      }) }} -->
+
+
+      <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">The address is outside the UK</span>
+    </summary>
+    <div class="govuk-details__text">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="address">
+          Owners address
+        </label>
+        <textarea class="govuk-textarea" id="address" name="address" rows="5" autocomplete="street-address"></textarea>
+      </div>
+
+    </div>
+  </details>
+
+
+
       <button class="govuk-button">Continue</button>
 
     </form>

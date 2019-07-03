@@ -12,7 +12,37 @@
 
         {% if data['exemptionChoice'] == 'type3' %}
 
-        <h1 class="govuk-heading-l">What size is the portrait miniature?</h1>
+        <h1 class="govuk-heading-l">The portrait miniature must be less than 320cm<sup>2</sup></h1>
+
+
+        {{ govukCheckboxes({
+          name: "volume-declaration",
+          fieldset: {
+            legend: {
+              text: "Legal declaration",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Declared",
+              text: "I declare the portrait miniature is less than 320cm2",
+              id: "volume-declaration",
+              checked: checked("volume-declaration", "Declared")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <p class="govuk-fieldset__heading">
+              What size is the portrait miniature?
+            </p>
+          </legend>
 
         <div class="govuk-form-group defra-input-unit-cm ">
 
@@ -40,6 +70,8 @@
 
         </div>
 
+        </fieldset>
+
         {% else %}
 
         <h1 class="govuk-heading-l">
@@ -47,7 +79,7 @@
         </h1>
 
 
-        <div class="govuk-form-group govuk-!-margin-bottom-9">
+        <!-- <div class="govuk-form-group govuk-!-margin-bottom-9">
           <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               Legal declaration
@@ -67,7 +99,31 @@
               </div>
             </div>
           </fieldset>
-        </div>
+        </div> -->
+
+
+
+        {{ govukCheckboxes({
+          name: "volume-declaration",
+          fieldset: {
+            legend: {
+              text: "Legal declaration",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Declared",
+              text: "I declare the item contains less than" + ivoryVolume + " ivory by volume",
+              id: "volume-declaration",
+              checked: checked("volume-declaration", "Declared")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
 
 
         {{ govukCheckboxes({
@@ -104,13 +160,19 @@
               value: "Other",
               text: "Other",
               id: "ivory-age-other",
-              checked: checked("ivoryAge", "Other")
+              checked: checked("ivoryVolume", "Other")
             }
           ]
         }) }}
 
 
-        <!-- <textarea class="govuk-textarea" id="ivoryVolume" name="ivoryVolume" rows="5" required>{{data['ivoryVolume']}}</textarea> -->
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            Please provide any other supporting information (optional)
+          </label>
+          <textarea class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
 
 
         {% endif %}
