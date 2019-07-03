@@ -70,44 +70,47 @@
         </div>
 
 
-
-
-        <div class="govuk-form-group govuk-!-margin-bottom-9">
-
-          <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <p class="govuk-fieldset__heading govuk-!-margin-bottom-">
-                How do you know the item contains less than {{ ivoryVolume }} ivory?
-              </p>
-            </legend>
-            <div class="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="volumeExplanation1" name="volumeExplanation" type="radio" value="type1"  {{volumeType1Checked}} required />
-                <label class="govuk-label govuk-radios__label" for="volumeExplanation1">
-                  Estimate of ivory content by eye
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="volumeExplanation2" name="volumeExplanation" type="radio" value="type2" required {{volumeType2Checked}} />
-                <label class="govuk-label govuk-radios__label" for="volumeExplanation2">
-                  Measured the item to work out the volume
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="volumeExplanation3" name="volumeExplanation" type="radio" value="type3"  {{volumeType3Checked}} />
-                <label class="govuk-label govuk-radios__label" for="volumeExplanation3">
-                  Other
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
+        {{ govukCheckboxes({
+          name: "ivoryVolume",
+          fieldset: {
+            legend: {
+              text: "How do you know the item contains less than " + ivoryVolume + " ivory?",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          items: [
+            {
+              value: "Estimate of ivory content by eye",
+              text: "Estimate of ivory content by eye",
+              id: "ivory-volume-eye",
+              checked: checked("ivoryVolume", "Estimate of ivory content by eye")
+            },
+            {
+              value: "Measured the item to work out the volume",
+              text: "Measured the item to work out the volume",
+              id: "ivory-volume-measured",
+              checked: checked("ivoryVolume", "Measured the item to work out the volume")
+            },
+            {
+              value: "Written verification from an expert",
+              text: "Written verification from an expert",
+              id: "ivory-volume-expert",
+              checked: checked("ivoryVolume", "Written verification from an expert")
+            },
+            {
+              value: "Other",
+              text: "Other",
+              id: "ivory-age-other",
+              checked: checked("ivoryAge", "Other")
+            }
+          ]
+        }) }}
 
 
         <!-- <textarea class="govuk-textarea" id="ivoryVolume" name="ivoryVolume" rows="5" required>{{data['ivoryVolume']}}</textarea> -->
-
-
 
 
         {% endif %}

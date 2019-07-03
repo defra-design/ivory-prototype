@@ -310,57 +310,8 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = 'xxxx'
   }
 
-  var ageType1Checked
-  var ageType2Checked
-  var ageType3Checked
-  var ageType4Checked
-  var ageType5Checked
-  var ageType6Checked
-  var ageType7Checked
-
-
-  switch (req.session.data['ageExplanation']) {
-    case 'type1':
-      ageType1Checked = 'checked'
-      break
-    case 'type2':
-      ageType2Checked = 'checked'
-      break
-    case 'type3':
-      ageType3Checked = 'checked'
-      break
-    case 'type4':
-      ageType4Checked = 'checked'
-      break
-    case 'type5':
-      ageType5Checked = 'checked'
-      break
-    case 'type6':
-      ageType6Checked = 'checked'
-      break
-    case 'type7':
-      ageType7Checked = 'checked'
-      break
-    default:
-    ageType1Checked = ''
-    ageType2Checked = ''
-    ageType3Checked = ''
-    ageType4Checked = ''
-    ageType5Checked = ''
-    ageType6Checked = ''
-    ageType7Checked = ''
-  }
-
-
 
   res.render(viewsFolder + 'ivory-age', {
-    ageType1Checked: ageType1Checked,
-    ageType2Checked: ageType2Checked,
-    ageType3Checked: ageType3Checked,
-    ageType4Checked: ageType4Checked,
-    ageType5Checked: ageType5Checked,
-    ageType6Checked: ageType6Checked,
-    ageType7Checked: ageType7Checked,
     'ivoryYear': ivoryYear,
     backUrl: 'description'
   })
@@ -664,6 +615,17 @@ router.post('/dealing-intent', function (req, res) {
   res.redirect('check-your-answers')
 })
 
+
+//* ****************************************************
+// CYA nunjucks
+router.get('/cya', function (req, res) {
+  res.render(viewsFolder + 'cya', {
+    backUrl: ''
+  })
+})
+
+
+
 //* ****************************************************
 // CHECK YOUR ANSWERS
 router.get('/check-your-answers', function (req, res) {
@@ -725,6 +687,9 @@ router.get('/check-your-answers', function (req, res) {
   }
 
 
+  var ageDetail
+  ageDetail = (req.session.data['ageDetail'])
+
 
   switch (req.session.data['ageExplanation']) {
     case 'type1':
@@ -785,7 +750,7 @@ router.get('/check-your-answers', function (req, res) {
   res.render(viewsFolder + 'check-your-answers', {
     exemptionTypeChosen: exemptionTypeChosen,
     ivoryYear: ivoryYear,
-    ageExplanation: ageExplanation,
+    ageDetail: ageDetail,
     ivoryVolume: ivoryVolume,
     volumeExplanation: volumeExplanation,
     dealingIntent: dealingIntent,

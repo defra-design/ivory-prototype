@@ -31,7 +31,19 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Age of ivory</dt>
-        <dd class="app-check-your-answers__answer">I declare the item was made before {{ ivoryYear }}<br><br>{{ ageExplanation }}</dd>
+        <dd class="app-check-your-answers__answer">
+          I declare the item was made before {{ ivoryYear }}
+          <br><br>
+          Evidence:
+          <br>
+          {{ data['ivoryAge'] }}
+          {% if ageDetail != '' %}
+          <br><br>
+          Other supporting evidence:
+          <br>
+          {{ ageDetail }}
+          {% endif %}
+        </dd>
         <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
       </div>
 
@@ -55,7 +67,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Volume of ivory</dt>
-        <dd class="app-check-your-answers__answer">I declare the item is less than {{ ivoryVolume }} by volume. <br/><br/>{{ volumeExplanation }}</dd>
+        <dd class="app-check-your-answers__answer">I declare the item is less than {{ ivoryVolume }} by volume. <br><br>Evidence:<br>{{ data['ivoryVolume'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
@@ -115,7 +127,7 @@
           address
         </dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['addressBusiness']}}<br /> 
+          {{ data['addressBusiness']}}<br />
           {{ data['addressLine1'] }}<br />
           {{ data['addressLine2'] }}<br />
           {{ data['addressTown'] }}<br />
