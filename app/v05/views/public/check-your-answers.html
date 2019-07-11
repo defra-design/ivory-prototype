@@ -1,0 +1,190 @@
+{% extends "./layout.html" %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Check your answers</h1>
+
+    <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+    <!--   * `app-check-your-answers--short` for short questions -->
+    <!--   * `app-check-your-answers__questions-long` for long questions -->
+    <!--   * none for single group of q&a -->
+
+    <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Item type</dt>
+        <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
+        <dd class="app-check-your-answers__change"><a href="choose-exemption">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photograph</dt>
+        <dd class="app-check-your-answers__answer"><img src="routeToImage?imageName={{data['imageName']}}" height="200" border="0" /></dd>
+        <dd class="app-check-your-answers__change"><a href="add-photograph">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Description</dt>
+        <dd class="app-check-your-answers__answer">{{data['description']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="description">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Age of ivory</dt>
+        <dd class="app-check-your-answers__answer">
+          I declare the item was made before {{ ivoryYear }}
+          <br><br>
+          Evidence:
+          <br>
+          <ul>
+          {% for reason in ivoryAge %}
+            <li>{{ reason }}</li>
+          {% else %}
+            <li>Not available</li>
+          {% endfor %}
+          </ul>
+
+          {% if ageDetail != '' %}
+          <br>
+          Other supporting evidence:
+          <br><br>
+          {{ ageDetail }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
+      </div>
+
+
+
+      {% if data['exemptionChoice'] == 'type3' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Width</dt>
+        <dd class="app-check-your-answers__answer">{{data['itemWidth']}} cm</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-width">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Height</dt>
+        <dd class="app-check-your-answers__answer">{{data['itemHeight']}} cm</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-height">Change</a></dd>
+      </div>
+
+      {% else %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Volume of ivory</dt>
+        <dd class="app-check-your-answers__answer">
+          I declare the item is less than {{ ivoryVolume }} by volume.
+          <br><br>
+          Evidence:
+          <br>
+          <ul>
+          {% for reason in data['ivoryVolume'] %}
+            <li>{{ reason }}</li>
+          {% else %}
+            <li>Not available</li>
+          {% endfor %}
+          </ul>
+
+          {% if data['volumeDetail'] != '' %}
+          <br>
+          Other supporting evidence:
+          <br><br>
+          {{ data['volumeDetail'] }}
+          {% endif %}
+
+
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+
+      {% endif %}
+
+
+
+      {% if agentOwner == 'agent' %}
+      <div class="app-check-your-answers__contents">
+        <!-- <dt class="app-check-your-answers__question">On behalf of owner</dt> -->
+        <dt class="app-check-your-answers__question">Acting as</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentIs']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your name</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">{{ data['agentAddressBusiness']}}<br> {{ data['agentAddressLine1'] }}<br> {{ data['agentAddressLine2'] }}<br> {{ data['agentAddressTown'] }}<br /> {{ data['agentAddressCounty'] }}<br /> {{ data['agentAddressPostcode'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email address</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+      {% endif %}
+
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          {% if agentOwner == 'agent' %}
+          Owner's
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          Your
+          {% endif %} name
+        </dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          {% if agentOwner == 'agent' %}
+          Owner's
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          Your
+          {% endif %}
+          address
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['addressBusiness']}}<br />
+          {{ data['addressLine1'] }}<br />
+          {{ data['addressLine2'] }}<br />
+          {{ data['addressTown'] }}<br />
+          {{ data['addressCounty'] }}<br />
+          {{ data['addressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+      </div>
+
+      {% if agentOwner == 'owner' %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email</dt>
+        <dd class="app-check-your-answers__answer">{{ data['ownerEmail'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
+      </div>
+      {% endif %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Intention</dt>
+        <dd class="app-check-your-answers__answer">{{ dealingIntent }}</dd>
+        <dd class="app-check-your-answers__change"><a href="dealing-intent">Change</a></dd>
+      </div>
+
+    </dl>
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+      <button class="govuk-button">Confirm and continue</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

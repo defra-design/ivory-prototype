@@ -1,0 +1,43 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l govuk-!-margin-bottom-6" for="description">
+                Describe the item
+              </label>
+            </h1>
+
+            <p id="descriptionText-hint" class="govuk-body">
+              Include any distinguishing features
+            </p>
+
+            <p class="govuk-body">
+              A distinguishing feature is anything which would help to identify the item and make it stand out from similar items.
+            </p>
+
+          <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint" required>{{data['description']}}</textarea>
+
+        </div>
+
+
+        <button type="submit" class="govuk-button">Continue</button>
+
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

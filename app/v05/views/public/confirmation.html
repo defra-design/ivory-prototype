@@ -1,0 +1,84 @@
+
+{% block pageTitle %}
+Registraiton complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Registration complete</h1>
+      <div class="govuk-panel__body">
+        Registration number
+        <br><strong>IVR329134</strong>
+        <!-- <br><strong>XKCDWRVS</strong> -->
+      </div>
+    </div>
+
+    <!-- <p class="govuk-body">Your application and payment were successful.</p> -->
+
+    <p class="govuk-body">We’ve sent you an email with confirmation or registration and a payment receipt.</p>
+
+    <!-- <dl class="govuk-body defra-dl">
+      <dt class="defra-dt">Registration status:</dt>
+      <dd class="defra-dd">Awaiting confirmation</dd>
+    </dl> -->
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+
+    <h4 class="govuk-heading-s">Selling the item</h4>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>You may now sell or hire the item.</li>
+      <li>This registration is valid for a single sale of the item.</li>
+      <li>Before a buyer can sell the item they must complete a new registration.</li>
+    </ul>
+
+
+
+    <h4 class="govuk-heading-s">Hiring the item out</h4>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>You may hire the item out as many times as you wish.</li>
+    </ul>
+
+    <!--
+    <p class="govuk-body">
+      We’ll send you an email with the registration number within 2 working days.
+    </p>
+
+    <p class="govuk-body govuk-!-margin-bottom-9">
+      You cannot sell or hire the item until you have this registration number.
+    </p> -->
+
+    <!-- <div class="govuk-warning-text govuk-!-margin-bottom-9">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        You cannot sell or hire the item until you have this registration number.
+      </strong>
+    </div> -->
+
+
+    <p class="govuk-body govuk-!-margin-top-9">
+      <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+    </p>
+    <p class="govuk-body invisible-link">
+      <a href="check-registration-search" class="govuk-link">Check an ivory registration</a>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

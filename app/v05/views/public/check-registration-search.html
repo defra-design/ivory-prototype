@@ -1,0 +1,45 @@
+{% extends "./layout.html" %}
+
+
+{% set serviceName %}
+Check an ivory registration
+{% endset%}
+
+
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+
+        <h1 class="govuk-heading-l">Check an ivory registration</h1>
+
+
+        <label class="govuk-label" for="regNumber">Enter a registration number</label>
+        <span class="govuk-hint">For example IVR3W9128B</span>
+        <input class="govuk-input govuk-input--width-10" id="regNumber" name="regNumber" type="text" />
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
