@@ -1,0 +1,28 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">Declaration</h1>
+        <!-- <span id="title-hint" class="govuk-hint">hint needed here?</span> -->
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="declaration" name="declaration" type="checkbox" value="{{data['declaration']}}">
+          <label class="govuk-label govuk-checkboxes__label" for="waste-1">I confirm...</label>
+        </div>
+
+      </div>
+
+      <button class="govuk-button">Continue to payment</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
