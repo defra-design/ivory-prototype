@@ -1,5 +1,14 @@
 {% extends "./layout.html" %}
 
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+<!-- Nunjucks line commented out using {# or now -->
+{# {% set mainClasses = "govuk-main-wrapper--l" %} #}
+
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+
 {% block pageTitle %}
   Selling, hiring and buying ivory
 {% endblock %}
