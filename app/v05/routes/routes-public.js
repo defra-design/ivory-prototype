@@ -44,6 +44,14 @@ router.get('/guidance', function (req, res) {
 })
 
 /// ////////////////////////////////////////////
+// SELLING, HIRING, BUYING IVORY
+router.get('/selling-hiring-buying-ivory', function (req, res) {
+  res.render(viewsFolder + 'selling-hiring-buying-ivory')
+})
+
+
+
+/// ////////////////////////////////////////////
 // BUYING IVORY
 router.get('/buying-ivory-1', function (req, res) {
   res.render(viewsFolder + 'buying-ivory-1')
