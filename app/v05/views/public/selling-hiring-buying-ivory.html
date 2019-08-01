@@ -1,3 +1,9 @@
+
+{% set tocPage = true %}
+
+
+
+
 {% extends "./layout.html" %}
 
 <!-- Adds a class to increase vertical spacing for pages without a back button -->
@@ -48,6 +54,10 @@
 
 
 
+    <div id="toc" class="toc"></div>
+
+
+
     <p class="govuk-body">You must <a href="start">register or apply for a certificate</a> to:
 
       <ul class="govuk-list govuk-list--bullet">
@@ -75,7 +85,7 @@
     <p class="govuk-body govuk-!-margin-top-7">If you’re not sure your item has ivory in it, you can ask a professional to assess it for you.</p>
 
 
-    <h2 class="govuk-heading-l">How to register or apply for a certificate</h2>
+    <h2 id="how-to" class="govuk-heading-l">How to register or apply for a certificate</h2>
 
     <p class="govuk-body">It's easier to <a href="start">do it online</a>. You can also <a href="#">use a paper form</a></p>
 
@@ -139,58 +149,133 @@
     <p class="govuk-body">You can register or apply for a certificate on behalf of someone else - for example if you’re an auction house.</p>
 
 
-    <h2 class="govuk-heading-l">Items you can register</h2>
-
-
-    <p class="govuk-body"> </p>
-    <p class="govuk-body"> </p>
-    <p class="govuk-body"> </p>
 
 
 
-    <h2 class="govuk-heading-l">Items that need a certificate</h2>
 
+    <h2 id="register" class="govuk-heading-l">Items you can register</h2>
 
-
-    <h3 class="govuk-heading-m">Registration</h3>
-
-    <h3 class="govuk-heading-m">Applying for a certificate</h3>
 
     <h3 class="govuk-heading-m">Items made before 1947 with less than 10% ivory</h3>
 
+
     <h4 class="govuk-heading-s">Items made before 1947</h4>
+
 
     <h4 class="govuk-heading-s">Items with less than 10% ivory</h4>
 
-    <h2 class="govuk-heading-l">How to measure ivory volume</h2>
 
-    <h2 class="govuk-heading-l">Musical instruments made before 1975 with less than 20% ivory</h2>
+    <h5 class="govuk-heading-s">Items likely to have less than 10% ivory</h5>
 
-    <h3 class="govuk-heading-m">Proof it was made before 1975</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
 
-    <h3 class="govuk-heading-m">Less than 20% ivory</h3>
 
-    <h2 class="govuk-heading-l">Portrait miniatures made before 1918</h2>
+    <h5 class="govuk-heading-s">Items likely to have more than 10% ivory</h5>
 
-    <h3 class="govuk-heading-m">How to measure a portrait miniature</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+    </ul>
 
-    <h2 class="govuk-heading-l">Selling or hiring to selected museums</h2>
 
-    <h2 class="govuk-heading-l">Items of outstanding artistic, cultural or historical value and importance</h2>
+
+    <h3 class="govuk-heading-m">Musical instruments made before 1975 with less than 20% ivory</h3>
+
+    <h4 class="govuk-heading-s">Proof it was made before 1975</h4>
+
+    <h4 class="govuk-heading-s">Less than 20% ivory</h4>
+
+
+
+    <h3 class="govuk-heading-m">Portrait miniatures made before 1918</h3>
+
+    <h4 class="govuk-heading-s">How to measure a portrait miniature</h4>
+
+
+    <h3 class="govuk-heading-m">Items you'll sell or hire to selected museums</h3>
+
+
+
+
+
+
+    <h2 id="certificate" class="govuk-heading-l">Items that need a certificate</h2>
+
+
+    <h3 class="govuk-heading-m">Outstanding artistic, cultural or historical value and importance</h3>
+
 
     <h3 class="govuk-heading-m">Items considered rare</h3>
 
+
+
+    <h3 class="govuk-heading-m">Applying for a certificate</h3>
+
+
+
     <h3 class="govuk-heading-m">Items that do not meet the criteria</h3>
 
-    <h2 class="govuk-heading-l">Reporting changes</h2>
 
-    <h2 class="govuk-heading-l">Importing or exporting an ivory item</h2>
+    <h3 class="govuk-heading-m">How to appeal</h3>
 
-    <h2 class="govuk-heading-l">Buying an ivory item</h2>
 
-    <h2 class="govuk-heading-l">How to appeal</h2>
 
-    <h2 class="govuk-heading-l">How to complain</h2>
+
+
+
+    <h2 id="measuring-volume" class="govuk-heading-l">How to measure ivory volume</h2>
+
+    <h3 class="govuk-heading-m">What should not be included</h3>
+
+    <h3 class="govuk-heading-m">Avoiding damage</h3>
+
+    <h3 class="govuk-heading-m">Ivory must be integral</h3>
+
+
+
+
+
+
+    <h2 id="buying-ivory" class="govuk-heading-l">Buying an ivory item</h2>
+
+
+
+
+
+    <h2 id="report-changes" class="govuk-heading-l">Reporting changes</h2>
+
+
+
+
+
+
+    <h2 id="import-export" class="govuk-heading-l">Importing or exporting an ivory item</h2>
+
+
+
+
+
+
+    <h2 id="complaints" class="govuk-heading-l">How to complain</h2>
+
+
+
+
+
+
+    <h2 id="foi" class="govuk-heading-l">Freedom of information</h2>
+
+
+
+
+        <p class="govuk-body"> </p>
+        <p class="govuk-body"> </p>
+        <p class="govuk-body"> </p>
 
 
 
@@ -200,6 +285,10 @@
 
 
 </div>
+
+
+
+
 
 
 {% endblock %}

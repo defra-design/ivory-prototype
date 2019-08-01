@@ -35,6 +35,36 @@ dd{
 }
 
 
+.toc{
+
+border-bottom: 1px solid #ccc;
+margin-bottom: 2rem;
+
+}
+
+.defra-toc{
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.defra-toc-ol{
+  font-family: "nta", Arial, sans-serif;
+  margin-left: 25px;
+  margin-bottom: 3rem;
+}
+
+.defra-toc-ol li{
+  font-family: "nta", Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.defra-toc-ol li::before {
+    content: "— ";
+    margin-left: -25px;
+    padding-right: 5px;
+}
 
 
 
