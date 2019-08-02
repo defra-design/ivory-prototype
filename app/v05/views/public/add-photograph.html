@@ -3,7 +3,7 @@
 {% extends "./layout.html" %}
 
 {% block pageTitle %}
-Add a photograph
+Add a photo
 {% endblock %}
 
 {% block content %}
@@ -18,13 +18,13 @@ Add a photograph
 
 
   <label class="govuk-label" for="fileToUpload">
-    <h1 class="govuk-heading-l">Add a photograph of the item</h1>
+    <h1 class="govuk-heading-l">Add a photo of the item</h1>
   </label>
 
   <p class="govuk-body govuk-!-margin-bottom-5">The ivory in the item must be clearly visible.</p>
 
 
-  <p class="govuk-body govuk-!-margin-bottom-5">You may add up to three photographs.</p>
+  <p class="govuk-body govuk-!-margin-bottom-5">You may add between 1 and 6 photos.</p>
 
 
 
@@ -101,7 +101,7 @@ Add a photograph
 <div id="fileUploadedBox" class="hidden">
 
 
-  <h3 class="govuk-heading-m" id="thisUploadHeading">This is your photograph</h3>
+  <h3 class="govuk-heading-m" id="thisUploadHeading">This is your photo</h3>
 
 
   <div id="gallery"/></div>
@@ -112,10 +112,10 @@ Add a photograph
 
   <input type="text" class="govuk-visually-hidden" readonly id="theNameOfFile" name="your-identity-file-upload" value="">
 
-  <span class="govuk-body"><a href="?identity-done=false">Replace this photograph</a></p>
+  <span class="govuk-body"><a href="?identity-done=false">Change this photo</a></span>
 
     <p class="govuk-body">
-      <a href="?identity-done=false">Add a second photograph</a>
+      <a href="?identity-done=false">Add a second photo</a>
     </p>
 
 
