@@ -59,8 +59,17 @@ router.get('/buying-ivory-1', function (req, res) {
 
 /// ////////////////////////////////////////////
 // WELCOME
+
 router.get('/start', function (req, res) {
   res.render(viewsFolder + 'start')
+})
+
+router.get('/start-b', function (req, res) {
+  res.render(viewsFolder + 'start-b')
+})
+
+router.get('/start-c', function (req, res) {
+  res.render(viewsFolder + 'start-c')
 })
 
 /// ///////////////////////////////////////////
