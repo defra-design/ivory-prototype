@@ -40,7 +40,7 @@ router.get('/index-welcome', function (req, res) {
 /// ////////////////////////////////////////////
 // GUIDANCE
 router.get('/guidance', function (req, res) {
-  res.render(viewsFolder + 'guidance')
+  res.render(viewsFolder + 'selling-hiring-buying-ivory')
 })
 
 /// ////////////////////////////////////////////
@@ -48,6 +48,7 @@ router.get('/guidance', function (req, res) {
 router.get('/selling-hiring-buying-ivory', function (req, res) {
   res.render(viewsFolder + 'selling-hiring-buying-ivory')
 })
+
 
 
 
@@ -61,6 +62,10 @@ router.get('/buying-ivory-1', function (req, res) {
 // WELCOME
 
 router.get('/start', function (req, res) {
+  res.render(viewsFolder + 'start')
+})
+
+router.get('/start-a', function (req, res) {
   res.render(viewsFolder + 'start')
 })
 
