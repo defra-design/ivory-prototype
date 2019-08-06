@@ -62,11 +62,11 @@ router.get('/buying-ivory-1', function (req, res) {
 // WELCOME
 
 router.get('/start', function (req, res) {
-  res.render(viewsFolder + 'start')
+  res.render(viewsFolder + 'start-b')
 })
 
 router.get('/start-a', function (req, res) {
-  res.render(viewsFolder + 'start')
+  res.render(viewsFolder + 'start-a')
 })
 
 router.get('/start-b', function (req, res) {
