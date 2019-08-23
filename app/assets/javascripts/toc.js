@@ -1,9 +1,9 @@
 
 
   var ToC =
-    '<nav role="navigation" class="table-of-contents">' +
-      '<h2 class="defra-toc">Contents</h2>' +
-      '<ol class="govuk-list defra-toc-ol">';
+    '<nav role="navigation" class="gem-c-contents-list gem-c-contents-list--no-underline">' +
+      '<h2 class="gem-c-contents-list__title">Contents</h2>' +
+      '<ol class="gem-c-contents-list__list">';
 
   var newLine, el, title, link;
 
@@ -17,7 +17,7 @@
 
     newLine =
       '<li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">' +
-        '<a href="' + link + '">' +
+        '<a class="gem-c-contents-list__link " href="' + link + '">' +
           title +
         '</a>' +
       '</li>';
@@ -28,7 +28,7 @@
   });
 
   ToC +=
-     '</ul>' +
+     '</ol>' +
     '</nav>';
 
 

@@ -1,0 +1,89 @@
+{% extends "./layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+<!-- Nunjucks line commented out using {# or now -->
+{# {% set mainClasses = "govuk-main-wrapper--l" %} #}
+
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <!-- <a href="#" class="govuk-back-link">Back</a> -->
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              What type of item are you registering?
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText2" name="exemptionChoice" type="radio" value="type2"  {{exemptionType2Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText2">
+                Musical instrument made before 1975 with less than 20% ivory
+              </label>
+              <span class="govuk-hint govuk-radios__hint">
+                For example piano, violin bow, flute
+              </span>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required {{exemptionType1Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
+                Item made before 1947 with less than 10% ivory
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="type3"  {{exemptionType3Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
+                Portrait miniature made before 1918
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4" {{exemptionType4Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText4">
+                Item to be acquired by a qualifying museum
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText5" name="exemptionChoice" type="radio" value="type5" {{exemptionType4Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText5">
+                Item of outstanding artistic, cultural or historical value made before 1918
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+    <p class="govuk-body">If the item isn't any of these types, you won't be able to sell it or hire it out.</p>
+
+    <p class="govuk-body"><a class="govuk-link" href="selling-hiring-buying-ivory">Read the guide</a> for further information.</p>
+
+  </div>
+</div>
+
+</main>
+</div>
+
+
+{% endblock %}

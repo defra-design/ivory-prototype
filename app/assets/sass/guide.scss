@@ -1,0 +1,221 @@
+
+#global-header .header-wrapper .header-global .site-search {
+    float: right;
+    width: 49%;
+}
+@media (min-width: 769px) {
+#global-header .header-wrapper .header-global .site-search {
+    width: 33.33%;
+}
+}
+@media screen and (max-width: 379px) {
+#global-header .header-wrapper .header-global .site-search {
+    float: none;
+    width: auto;
+}
+}
+#global-header .header-wrapper .header-global .site-search .content {
+    margin: 0 15px;
+}
+#global-header.with-proposition #search {
+    margin-top: 4px;
+}
+#global-header .search-toggle {
+    display: none;
+}
+@media screen and (max-width: 379px) {
+#global-header .search-toggle {
+    background-color: #005ea5;
+    background-image: url("https://assets.publishing.service.gov.uk/static/search-button-ca89b2a79f944909ceb7370d3f0b78811d32b96e883348fcd8886f63dd619585.png");
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    display: block;
+    float: right;
+    height: 30px;
+    margin: -32px 15px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -5000px;
+    width: 36px;
+}
+body.search #global-header .search-toggle {
+    display: none;
+}
+}
+@media not all, only screen and (max-width: 379px) and (min--moz-device-pixel-ratio: 2), not all, not all, only screen and (max-width: 379px) and (min-resolution: 192dpi), only screen and (max-width: 379px) and (min-resolution: 2dppx) {
+#global-header .search-toggle {
+    background-position: 100% 50%;
+    background-size: 52.5px 35px;
+}
+}
+#global-header .search-toggle:hover {
+    background-color: #004f8c;
+}
+#global-header .search-toggle.js-hidden {
+    display: none;
+}
+#global-header form#search .content {
+    background: #fff none repeat scroll 0 0;
+    position: relative;
+}
+#global-header form#search label {
+    display: block;
+    float: left;
+    line-height: 35px;
+    margin-right: 10px;
+    min-height: 36px;
+    overflow: hidden;
+    text-indent: 15px;
+}
+.js-enabled #global-header form#search label {
+    float: none;
+    left: 0;
+    margin-right: 0;
+    position: absolute;
+    top: 1px;
+    width: 100%;
+    z-index: 1;
+}
+#global-header form#search input {
+    -moz-appearance: none;
+    border: 0 none;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    margin: 0;
+    min-height: 36px;
+    min-width: 0;
+    padding: 6px 0;
+    width: 50%;
+}
+#global-header form#search input#site-search-text {
+    background: transparent none repeat scroll 0 0;
+    font-family: "nta",Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.76923;
+    padding: 6px;
+    position: relative;
+    text-transform: none;
+    z-index: 3;
+}
+@media (min-width: 641px) {
+#global-header form#search input#site-search-text {
+    font-size: 16px;
+    line-height: 1.4375;
+}
+}
+#global-header form#search input#site-search-text.focus, #global-header form#search input#site-search-text:focus {
+    background: #fff none repeat scroll 0 0;
+}
+.js-enabled #global-header form#search input#site-search-text {
+    width: calc(100% - 37px);
+}
+#global-header form#search input.submit {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #005ea5;
+    background-image: url("https://assets.publishing.service.gov.uk/static/search-button-ca89b2a79f944909ceb7370d3f0b78811d32b96e883348fcd8886f63dd619585.png");
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    border-color: #005ea5 #005ea5 #005ea5 #222;
+    border-image: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    color: #fff;
+    height: 36px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: -5000px;
+    top: 0;
+    width: 36px;
+    z-index: 4;
+}
+@media not all, only screen and (min--moz-device-pixel-ratio: 2), not all, not all, only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+#global-header form#search input.submit {
+    background-position: 100% 50%;
+    background-size: 52.5px 35px;
+}
+}
+#global-header form#search input.submit:hover {
+    background-color: #004f8c;
+}
+@media screen and (max-width: 379px) {
+#global-header form#search {
+    display: none;
+    width: 100%;
+}
+#global-header form#search #site-search-text {
+    width: 80%;
+}
+}
+#global-header form#search.js-visible {
+    display: block;
+}
+.call-to-action {
+    background: #dee0e2;
+    margin: 30px 0;
+    padding: 10px 60px 10px 15px;
+    position: relative;
+}
+.data-exchange-protocol h3.group-document-list-item-title {
+    font-size: 19px;
+    line-height: 1.31579;
+}
+.group-document-list-item-attributes li {
+    font-size: 14px;
+    line-height: 1.42857;
+}
+.group-document-list-item {
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bfc1c3;
+}
+.data-exchange-protocol h3.group-title {
+    margin-top: 45px;
+    margin-bottom: 20px;
+		font-size: 27px;
+		line-height: 1.11111;
+}
+p.applylink{
+	margin-bottom:0.3em;
+}
+
+.govuk-metadata {
+    margin-bottom: 45px;
+}
+
+.govuk-metadata{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:12px;line-height:1.25;margin-bottom:15px}@media (min-width: 641px){.govuk-metadata{font-size:14px;line-height:1.42857}}@media (min-width: 641px){.govuk-metadata{margin-bottom:45px}}.govuk-metadata.direction-rtl{direction:rtl;text-align:start}.govuk-metadata dt{float:left;clear:left;width:auto;min-width:120px}@media (min-width: 641px){.govuk-metadata dt{padding-right:10px}}.govuk-metadata.direction-rtl dt{float:right;clear:right}@media (min-width: 641px){.govuk-metadata.direction-rtl dt{padding-left:10px;padding-right:0}}.govuk-metadata dd{float:left;width:55%}@media (min-width: 641px){.govuk-metadata dd{width:70%}}.govuk-metadata.direction-rtl dd{float:right}
+
+.govuk-metadata {
+    margin-bottom: 45px;
+}
+
+.govuk-metadata:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.section-title {
+    font-size: 27px;
+    line-height: 1.11111;
+    font-weight: 700;
+}
+
+.wp_meta_head{
+    font-size: 16px;
+    margin:0;
+    padding:0;
+}
+
+.govuk-govspeak .attachment{position:relative;margin:30px 0;padding:15px 0 0 129px}.govuk-govspeak .attachment:first-child{margin-top:0;padding-top:0}.govuk-govspeak .attachment .attachment-thumb{position:relative;float:left;margin-top:5px;margin-left:-124px;padding-bottom:15px}.govuk-govspeak .attachment .attachment-thumb img{display:block;width:99px;height:140px;background:#fff;outline:5px solid rgba(11,12,12,0.1);-webkit-box-shadow:0 2px 2px rgba(11,12,12,0.4);-moz-box-shadow:0 2px 2px rgba(11,12,12,0.4);box-shadow:0 2px 2px rgba(11,12,12,0.4)}.govuk-govspeak .attachment .attachment-details h2{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:20px;line-height:1.11111;margin:0}@media (min-width: 641px){.govuk-govspeak .attachment .attachment-details h2{font-size:27px;line-height:1.11111}}.govuk-govspeak .attachment .attachment-details p{margin:10px 0}.govuk-govspeak .attachment .attachment-details .metadata{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:12px;line-height:1.25}@media (min-width: 641px){.govuk-govspeak .attachment .attachment-details .metadata{font-size:14px;line-height:1.42857}}.govuk-govspeak .attachment .attachment-details .changed,.govuk-govspeak .attachment .attachment-details .references,.govuk-govspeak .attachment .attachment-details .unnumbered-paper{display:block}.govuk-govspeak .attachment .attachment-details .preview,.govuk-govspeak .attachment .attachment-details .download{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:16px;line-height:1.25}@media (min-width: 641px){.govuk-govspeak .attachment .attachment-details .preview,.govuk-govspeak .attachment .attachment-details .download{font-size:19px;line-height:1.31579}}.govuk-govspeak .attachment .attachment-details .preview strong,.govuk-govspeak .attachment .attachment-details .download strong{font-weight:bold}.govuk-govspeak .attachment .attachment-details .preview{padding-right:15px}.govuk-govspeak .attachment .attachment-details .opendocument-help{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:12px;line-height:1.25}@media (min-width: 641px){.govuk-govspeak .attachment .attachment-details .opendocument-help{font-size:14px;line-height:1.42857}}.govuk-govspeak .attachment .attachment-details .accessibility-warning h2{font-family:"nta", Arial, sans-serif;font-weight:400;text-transform:none;font-size:12px;line-height:1.25;margin:0}@media (min-width: 641px){.govuk-govspeak .attachment .attachment-details .accessibility-warning h2{font-size:14px;line-height:1.42857}}.govuk-govspeak.direction-rtl .attachment{padding:15px 129px 0 0}
+
+#site-search-text{
+background-color:#fff !important;
+}
