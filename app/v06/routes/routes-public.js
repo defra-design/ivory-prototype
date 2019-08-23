@@ -82,7 +82,7 @@ router.get('/buying-ivory-1', function (req, res) {
 // START (old)
 
 router.get('/start', function (req, res) {
-  res.render(viewsFolder + 'start-b')
+  res.render(viewsFolder + 'apply-to-sell-or-hire-an-ivory-item')
 })
 
 router.get('/start-a', function (req, res) {
