@@ -1,14 +1,5 @@
 {% extends "./layout.html" %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-
-{% set mainClasses = "govuk-main-wrapper--l" %}
-
-<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
-{% block beforeContent %}
-{% include "../includes/stage-banner.html" %}
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -17,17 +8,14 @@
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       {{ govukRadios({
-        idPrefix: "musicalInstrument",
-        name: "musicalInstrument",
+        idPrefix: "pre-1975",
+        name: "pre-1975",
         fieldset: {
           legend: {
-            text: "Is it a musical instrument?",
+            text: "Was it made before 1975?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
-        },
-        hint: {
-          text: "This includes violin bows."
         },
         items: [
         {
@@ -37,6 +25,10 @@
         {
           value: "no",
           text: "No"
+        },
+        {
+          value: "I'm not sure",
+          text: "I'm not sure"
         }
         ]
       }) }}

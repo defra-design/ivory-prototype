@@ -17,11 +17,6 @@ const exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or 
 
 
 
-
-
-
-
-
 /// ///////////////////////////////////////////////////////////////////////////
 // LOGGER (not great, but may help)
 function logger (req, msg) {
@@ -74,8 +69,25 @@ router.get('/apply-to-sell-or-hire-an-ivory-item', function (req, res) {
 
 /// ////////////////////////////////////////////
 // check-item-musical-instrument
-router.get('/check-item', function (req, res) {
+
+router.get('/check-item-musical-instrument', function (req, res) {
   res.render(viewsFolder + 'check-item-musical-instrument')
+})
+
+
+router.post('/check-item-musical-instrument', function (req, res) {
+  logger(req, 'musicalInstrument=' + req.session.data['musicalInstrument'])
+  res.redirect('check-item-pre-1975')
+})
+
+
+
+
+// check-item-pre-1975
+router.get('/check-item-pre-1975', function (req, res) {
+  res.render(viewsFolder + 'check-item-pre-1975', {
+  backUrl: 'check-item-musical-instrument'
+  })
 })
 
 
