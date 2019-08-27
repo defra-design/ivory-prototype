@@ -332,7 +332,6 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = 'xxxx'
   }
 
-
   res.render(viewsFolder + 'ivory-age', {
     'ivoryYear': ivoryYear,
     backUrl: 'description'
@@ -343,17 +342,65 @@ router.post('/ivory-age', function (req, res) {
   res.redirect('ivory-volume')
 })
 
+
+
 //* ****************************************************
-// IVORY AGE
-router.get('/ivory-volume', function (req, res) {
+// IVORY AGE CUT DOWN FOR RED
+router.get('/ivory-age-red', function (req, res) {
   logger(req)
 
+  var ivoryYear
 
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      break
+    case 'type4':
+      ivoryYear = ''
+      break
+    case 'type5':
+      ivoryYear = ''
+      break
+    default:
+      ivoryYear = 'xxxx'
+  }
+
+  res.render(viewsFolder + 'ivory-age-red', {
+    'ivoryYear': ivoryYear,
+    backUrl: 'description'
+  })
+})
+
+router.post('/ivory-age-red', function (req, res) {
+  res.redirect('ivory-volume')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+//* ****************************************************
+// IVORY VOLUME
+router.get('/ivory-volume', function (req, res) {
+  logger(req)
 
   var volumeType1Checked
   var volumeType2Checked
   var volumeType3Checked
-
 
   switch (req.session.data['volumeExplanation']) {
     case 'type1':
@@ -370,8 +417,6 @@ router.get('/ivory-volume', function (req, res) {
       volumeType2Checked = ''
       volumeType3Checked = ''
   }
-
-
 
   var ivoryVolume
 
@@ -407,6 +452,85 @@ router.get('/ivory-volume', function (req, res) {
 router.post('/ivory-volume', function (req, res) {
   res.redirect('who-owns-item')
 })
+
+
+
+
+
+
+
+
+
+
+//* ****************************************************
+// IVORY VOLUME CUT DOWN FOR RED
+router.get('/ivory-volume-red', function (req, res) {
+  logger(req)
+
+  var volumeType1Checked
+  var volumeType2Checked
+  var volumeType3Checked
+
+  switch (req.session.data['volumeExplanation']) {
+    case 'type1':
+      volumeType1Checked = 'checked'
+      break
+    case 'type2':
+      volumeType2Checked = 'checked'
+      break
+    case 'type3':
+      volumeType3Checked = 'checked'
+      break
+    default:
+      volumeType1Checked = ''
+      volumeType2Checked = ''
+      volumeType3Checked = ''
+  }
+
+  var ivoryVolume
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryVolume = '10%'
+      break
+    case 'type2':
+      ivoryVolume = '20%'
+      break
+    case 'type3':
+      ivoryVolume = '320cm2'
+      break
+    case 'type4':
+      ivoryVolume = ''
+      break
+    case 'type5':
+      ivoryVolume = ''
+      break
+    default:
+      ivoryVolume = 'x%'
+  }
+
+  res.render(viewsFolder + 'ivory-volume-red', {
+    volumeType1Checked: volumeType1Checked,
+    volumeType2Checked: volumeType2Checked,
+    volumeType3Checked: volumeType3Checked,
+    'ivoryVolume': ivoryVolume,
+    backUrl: 'ivory-age'
+  })
+})
+
+router.post('/ivory-volume-red', function (req, res) {
+  res.redirect('who-owns-item')
+})
+
+
+
+
+
+
+
+
+
+
 
 //* ****************************************************
 // ARE YOU THE OWNER

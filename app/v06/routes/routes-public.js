@@ -51,14 +51,15 @@ router.get('/index-welcome', function (req, res) {
 /// ////////////////////////////////////////////
 // GUIDANCE
 router.get('/guidance', function (req, res) {
-  res.render(viewsFolder + 'selling-hiring-buying-ivory')
+  res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })
 
 /// ////////////////////////////////////////////
 // SELLING, HIRING, BUYING IVORY
-router.get('/selling-hiring-buying-ivory', function (req, res) {
-  res.render(viewsFolder + 'selling-hiring-buying-ivory')
+router.get('/a-guide-to-selling-hiring-and-buying-items-containing-ivory', function (req, res) {
+  res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })
+
 
 
 
@@ -71,11 +72,22 @@ router.get('/apply-to-sell-or-hire-an-ivory-item', function (req, res) {
 
 
 
+/// ////////////////////////////////////////////
+// check-item-musical-instrument
+router.get('/check-item', function (req, res) {
+  res.render(viewsFolder + 'check-item-musical-instrument')
+})
+
+
+
+
+
+
 
 /// ////////////////////////////////////////////
 // BUYING IVORY
-router.get('/buying-ivory-1', function (req, res) {
-  res.render(viewsFolder + 'buying-ivory-1')
+router.get('/check-before-you-buy-an-ivory-item', function (req, res) {
+  res.render(viewsFolder + 'check-before-you-buy-an-ivory-item')
 })
 
 /// ////////////////////////////////////////////

@@ -1,0 +1,63 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+      <div class="govuk-form-group">
+
+        <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
+
+        <h1 class="govuk-heading-l">
+          Confirm the item was made before {{ ivoryYear }}
+        </h1>
+
+        <!-- <span id="ivory-age-hint" class="govuk-hint">
+
+      </span> -->
+
+      <div class="govuk-form-group govuk-!-margin-bottom-9">
+        <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Legal declaration
+          </legend>
+          <div class="govuk-checkboxes" data-module="checkboxes">
+            <div class="govuk-checkboxes__item">
+              {% if data['age-declaration'] == 'Declared' %}
+              <input class="govuk-checkboxes__input" id="age-declaration" checked name="age-declaration" type="checkbox" value="Declared" required>
+              {% else %}
+              <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
+              {% endif %}
+              <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
+                I declare the item was made before {{ ivoryYear }}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="age-detail">
+          Explain how you know the item was made before {{ ivoryYear }}
+        </label>
+        <textarea class="govuk-textarea" id="age-detail" name="ageDetail" rows="5" aria-describedby="age-detail-hint">{{ data['ageDetail'] }}</textarea>
+      </div>
+
+
+    </div>
+
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}
