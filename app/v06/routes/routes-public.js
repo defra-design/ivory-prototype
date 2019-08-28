@@ -26,11 +26,6 @@ function logger (req, msg) {
   console.log('DEBUG.routes ' + req.method + req.route.path + ': ' + msg)
 }
 
-/// ////////////////////////////////////////////
-// rules permit
-router.get('/rules-permit', function (req, res) {
-  res.render(viewsFolder + 'rules-permit')
-})
 
 
 
@@ -43,11 +38,17 @@ router.get('/index-welcome', function (req, res) {
   res.render(viewsFolder + 'index-welcome')
 })
 
+
+
+
 /// ////////////////////////////////////////////
 // GUIDANCE
 router.get('/guidance', function (req, res) {
   res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })
+
+
+
 
 /// ////////////////////////////////////////////
 // SELLING, HIRING, BUYING IVORY
@@ -55,13 +56,15 @@ router.get('/a-guide-to-selling-hiring-and-buying-items-containing-ivory', funct
   res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })
 
-
-
-
-
 router.get('/apply-to-sell-or-hire-an-ivory-item', function (req, res) {
   res.render(viewsFolder + 'apply-to-sell-or-hire-an-ivory-item')
 })
+
+
+
+
+
+
 
 
 
@@ -388,7 +391,7 @@ router.post('/ivory-age', function (req, res) {
 })
 
 //* ****************************************************
-// IVORY AGE
+// IVORY VOLUME
 router.get('/ivory-volume', function (req, res) {
   logger(req)
 
