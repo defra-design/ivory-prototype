@@ -1,8 +1,22 @@
-{% extends "./layout.html" %} {% block content %}
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Check your answers" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Check your answers</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-9">{{ thisPageTitle }}</h1>
 
     <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
     <!--   * `app-check-your-answers--short` for short questions -->

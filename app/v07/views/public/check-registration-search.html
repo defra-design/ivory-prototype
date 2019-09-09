@@ -1,9 +1,18 @@
 {% extends "./layout.html" %}
 
 
-{% set serviceName %}
-Check an ivory registration
-{% endset%}
+
+{% block header %}
+  {% include "../includes/cookie-banner.html" %}
+  {{ govukHeader({
+    homepageUrl: "",
+    serviceName: "Check an ivory registration",
+    serviceUrl: "",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+
 
 
 <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->

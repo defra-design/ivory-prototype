@@ -1,4 +1,14 @@
 {% extends "./layout.html" %}
+
+{% set thisPageTitle = "Describe the item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
 {% block content %}
 
     <div class="govuk-grid-row">
@@ -10,7 +20,7 @@
 
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--l govuk-!-margin-bottom-6" for="description">
-                Describe the item
+                {{ thisPageTitle }}
               </label>
             </h1>
 
