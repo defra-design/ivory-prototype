@@ -5,7 +5,7 @@
   {% include "../includes/cookie-banner.html" %}
   {{ govukHeader({
     homepageUrl: "",
-    serviceName: "Check an ivory registration",
+    serviceName: "Check before you buy an ivory item",
     serviceUrl: "",
     containerClasses: "govuk-width-container"
   }) }}
@@ -36,7 +36,6 @@ IVR3W9128B
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question"></dt>
-    <!-- <dd class="app-check-your-answers__answer">{{data['regNumber']}}</dd> -->
     <dd class="app-check-your-answers__answer"></dd>
   </div>
 
@@ -48,18 +47,20 @@ IVR3W9128B
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Date registered</dt>
-    <dd class="app-check-your-answers__answer">29 January 2019</dd>
+    <dd class="app-check-your-answers__answer">29 August 2019</dd>
   </div>
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Item type</dt>
-    <dd class="app-check-your-answers__answer">{{data['exemptionTypeText']}}</dd>
+    <!-- <dd class="app-check-your-answers__answer">{{data['exemptionTypeText']}}</dd> -->
+    <dd class="app-check-your-answers__answer">Musical instrument made before 1975 with less than 20% ivory</dd>
   </div>
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Photograph</dt>
     <dd class="app-check-your-answers__answer">
-      <img src="routeToImage?imageName={{data['imageName']}}" height="200" border="0" />
+      <!-- <img src="routeToImage?imageName={{data['imageName']}}" height="200" border="0" /> -->
+      <img src="routeToImage?imageName=1563274821468.png" height="300" border="0" />
       <br />
       <a href="#">See larger photograph</a>
     </dd>
@@ -67,12 +68,14 @@ IVR3W9128B
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Description</dt>
-    <dd class="app-check-your-answers__answer">{{data['description']}}</dd>
+    <!-- <dd class="app-check-your-answers__answer">{{data['description']}}</dd> -->
+    <dd class="app-check-your-answers__answer">A wonderful upright piano which has been in our family for several generations.</dd>
   </div>
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Age of ivory</dt>
-    <dd class="app-check-your-answers__answer">{{data['ivoryAge']}}</dd>
+    <!-- <dd class="app-check-your-answers__answer">{{data['ivoryAge']}}</dd> -->
+    <dd class="app-check-your-answers__answer">Piano registered in 1921 by Bechstein</dd>
   </div>
 
   {% if data['exemptionChoice'] == 'type3' %}
@@ -91,7 +94,10 @@ IVR3W9128B
 
   <div class="app-check-your-answers__contents">
     <dt class="app-check-your-answers__question">Volume of ivory</dt>
-    <dd class="app-check-your-answers__answer">{{data['ivoryVolume']}}</dd>
+    <!-- <dd class="app-check-your-answers__answer">{{data['ivoryVolume']}}</dd> -->
+    <dd class="app-check-your-answers__answer">
+      Only the key tops are made of ivory, which make up much less than 20% of the material volume of the piano.
+    </dd></dd>
   </div>
 
   {% endif %}

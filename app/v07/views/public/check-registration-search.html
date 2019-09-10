@@ -1,12 +1,12 @@
 {% extends "./layout.html" %}
 
-
+{% set serviceName = "Check before you buy an ivory item" %}
 
 {% block header %}
   {% include "../includes/cookie-banner.html" %}
   {{ govukHeader({
     homepageUrl: "",
-    serviceName: "Check an ivory registration",
+    serviceName: "Check before you buy an ivory item",
     serviceUrl: "",
     containerClasses: "govuk-width-container"
   }) }}
@@ -35,7 +35,7 @@
       <div class="govuk-form-group">
 
 
-        <h1 class="govuk-heading-l">Check an ivory registration</h1>
+        <h1 class="govuk-heading-l">Check before you buy an ivory item</h1>
 
 
         <label class="govuk-label" for="regNumber">Enter a registration number</label>
