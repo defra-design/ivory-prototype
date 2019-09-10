@@ -100,9 +100,38 @@
 
 
 
+
+
+
+
+
+					{% elif checker == '22' %}
+
+					<!-- 22. Can't apply -->
+
+
+
+
+
+
+
+
+
+
+
+
 			{% else %}
 
-			<h1 class="govuk-heading-xl">How did you get here?</h1>
+			<h1 class="govuk-heading-xl">Choose an outcome for the checker</h1>
+
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="based-on-your-answers?o=1">Musical instrument, age ok, volume ok</li>
+				<li><a href="based-on-your-answers?o=2">Musical instrument, age not sure, volume ok</li>
+				<li><a href="based-on-your-answers?o=3">Musical instrument, age ok, volume not sure</li>
+			</ul>
+
+
 
 			{% endif %}
 
