@@ -40,6 +40,22 @@ router.get('/index-welcome', function (req, res) {
 
 
 
+/// ////////////////////////////////////////////
+// Gumtree sell
+router.get('/gumtree-sell', function (req, res) {
+  res.render(viewsFolder + 'gumtree-sell')
+})
+
+
+
+/// ////////////////////////////////////////////
+// Gumtree buy
+router.get('/gumtree-buy', function (req, res) {
+  res.render(viewsFolder + 'gumtree-buy')
+})
+
+
+
 
 /// ////////////////////////////////////////////
 // GUIDANCE
@@ -96,8 +112,6 @@ router.get('/check-item-pre-1975', function (req, res) {
 
 // Checker outcome page
 
-
-
 router.get('/based-on-your-answers', function (req, res) {
   var outcome = req.query.o
   var checker = outcome
@@ -107,9 +121,14 @@ router.get('/based-on-your-answers', function (req, res) {
 })
 
 
-router.post('/based-on-your-answers-1', function (req, res) {
+router.post('/based-on-your-answers', function (req, res) {
+  var outcome = req.query.o
+
+  if ( outcome == '1' ){
   logger(req, 'Checker: musical instrument, meets both criteria')
   res.redirect('choose-exemption')
+  }
+
 })
 
 
