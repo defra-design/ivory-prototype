@@ -94,6 +94,43 @@ router.get('/check-item-pre-1975', function (req, res) {
 })
 
 
+// Checker outcome page
+
+router.get('/based-on-your-answers', function (req, res) {
+  var checker = ''
+  res.render(viewsFolder + 'based-on-your-answers', {
+    checker: checker
+  })
+})
+
+router.get('/based-on-your-answers-1', function (req, res) {
+  var checker = '1'
+  res.render(viewsFolder + 'based-on-your-answers', {
+    checker: checker
+  })
+})
+
+router.post('/based-on-your-answers-1', function (req, res) {
+  logger(req, 'Checker: musical instrument, meets both criteria')
+  res.redirect('choose-exemption')
+})
+
+
+router.get('/based-on-your-answers-2', function (req, res) {
+  var checker = '2'
+  res.render(viewsFolder + 'based-on-your-answers', {
+    checker: checker
+  })
+})
+
+router.get('/based-on-your-answers-3', function (req, res) {
+  var checker = '3'
+  res.render(viewsFolder + 'based-on-your-answers', {
+    checker: checker
+  })
+})
+
+
 
 
 
