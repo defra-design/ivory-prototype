@@ -32,26 +32,63 @@
 
 			</form>
 
+
 			{% elif checker == '2' %}
 
-			<!-- 1. Musical instrument, age not sure, volume ok -->
+			<!-- 2. Can't sell or hire item, too much ivory -->
+
+			<h1 class="govuk-heading-xl">You can't sell or hire this item</h1>
+
+			<div class="govuk-inset-text">
+
+				<p class="govuk-body">Based on your answers, it is illegal to sell or hire this musical instrument because:</p>
+
+				<ul class="govuk-list govuk-list--bullet">
+					<li>it has more than 20% ivory by volume</li>
+				</ul>
+
+			</div>
+
+			<div class="govuk-warning-text">
+				<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+				<strong class="govuk-warning-text__text">
+					<span class="govuk-warning-text__assistive">Warning </span>
+					You can be fined up to £250,000 or sent to prison, or both, if you go on to sell or hire the ivory item.
+				</strong>
+			</div>
+
+
+
+			<p class="govuk-body">Read the <a href="guidance">guide to selling, hiring and buying ivory items</a>.</p>
+
+			<h2 class="govuk-heading-m">If you made a mistake</h2>
+
+			<p class="govuk-body">Makre sure you have the correct information, <a href="check-item-musical-instrument">check again</a>.
+
+
+
+
+
+
+			{% elif checker == '3' %}
+
+			<!-- 3. Not ready, musical instrument, not sure about ivory volume -->
 
 			<h1 class="govuk-heading-xl">You are not ready to apply</h1>
 
-			<p class="govuk-body">Based on your answers, you're not ready to apply.</p>
+			<div class="govuk-inset-text">
 
-			<p class="govuk-body">You need to be sure the musical instrument was made before 1975.</p>
+				<p class="govuk-body">Based on your answers, you're not ready to apply.</p>
 
-			<h2 class="govuk-heading-m">How to prove it was made before 1975</h2>
+				<p class="govuk-body">You need to be sure the musical instrument has less than 20% ivory by volume.</p>
 
-			<p class="govuk-body">You can use:</p>
+			</div>
+
+			<p class="govuk-body">Musical instruments likely to have less than 20% ivory</p>
 
 			<ul class="govuk-list govuk-list--bullet">
-				<li>an original receipt or bill</li>
-				<li>a date mark on the item</li>
-				<li>written verification from an expert, such as an antiques specialist or museum curator</li>
-				<li>knowledge that it’s been in the family since 1974 or before</li>
-				<li>an article published before 1 January 1975 with photos or detailed description of the item</li>
+				<li>a piano with ivory keys</li>
+				<li>a violin bow with ivory and the end of the bow, known as the face</li>
 			</ul>
 
 			<p class="govuk-body">You must prove that you made all efforts to assess the item correctly.</p>
@@ -65,25 +102,73 @@
 			<p class="govuk-body">If you are sure you have the correct information, <a href="check-item-musical-instrument">check again</a>.
 
 
-				{% elif checker == '3' %}
 
-				<!-- 3. Musical instrument, age ok, volume not sure -->
+
+
+				{% elif checker == '4' %}
+
+				<!-- 4. Can't sell or hire item, made after 1975 -->
+
+				<h1 class="govuk-heading-xl">You can't sell or hire this item</h1>
+
+				<div class="govuk-inset-text">
+
+					<p class="govuk-body">Based on your answers, it is illegal to sell or hire this musical instrument because:</p>
+
+					<ul class="govuk-list govuk-list--bullet">
+						<li>it was made after 1975</li>
+					</ul>
+
+				</div>
+
+				<div class="govuk-warning-text">
+					<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+					<strong class="govuk-warning-text__text">
+						<span class="govuk-warning-text__assistive">Warning </span>
+						You can be fined up to £250,000 or sent to prison, or both, if you go on to sell or hire the ivory item.
+					</strong>
+				</div>
+
+
+
+				<p class="govuk-body">Read the <a href="guidance">guide to selling, hiring and buying ivory items</a>.</p>
+
+				<h2 class="govuk-heading-m">If you made a mistake</h2>
+
+				<p class="govuk-body">Makre sure you have the correct information, <a href="check-item-musical-instrument">check again</a>.
+
+
+
+
+
+
+
+				{% elif checker == '5' %}
+
+				<!-- 5. Not ready, musical instrument, not sure if made before 1975 -->
 
 				<h1 class="govuk-heading-xl">You are not ready to apply</h1>
 
-				<p class="govuk-body">Based on your answers, you're not ready to apply.</p>
 
-				<p class="govuk-body">You need to be sure the musical instrument has less than 20% ivory by volume.</p>
+				<div class="govuk-inset-text">
 
+					<p class="govuk-body">Based on your answers, you're not ready to apply.</p>
 
-				<p class="govuk-body">Musical instruments likely to have less than 20% ivory</p>
+					<p class="govuk-body">You need to be sure the musical instrument was made before 1975.</p>
+
+				</div>
+
+				<h2 class="govuk-heading-m">How to prove it was made before 1975</h2>
+
+				<p class="govuk-body">You can use:</p>
 
 				<ul class="govuk-list govuk-list--bullet">
-					<li>a piano with ivory keys</li>
-					<li>a violin bow with ivory and the end of the bow, known as the face</li>
+					<li>an original receipt or bill</li>
+					<li>a date mark on the item</li>
+					<li>written verification from an expert, such as an antiques specialist or museum curator</li>
+					<li>knowledge that it’s been in the family since 1974 or before</li>
+					<li>an article published before 1 January 1975 with photos or detailed description of the item</li>
 				</ul>
-
-
 
 
 
@@ -100,6 +185,56 @@
 
 
 
+					{% elif checker == '7' %}
+
+					<!-- 7. Not ready musical instrument, not sure about volume or age -->
+
+					<h1 class="govuk-heading-xl">You are not ready to apply</h1>
+
+
+					<div class="govuk-inset-text">
+
+						<p class="govuk-body">Based on your answers, you're not ready to apply.</p>
+
+						<p class="govuk-body">You need to be sure the musical instrument:</p>
+
+						<ul class="govuk-list govuk-list--bullet">
+							<li>was made before 1975</li>
+							<li>has less than 20% ivory by volume</li>
+						</ul>
+
+					</div>
+
+					<h2 class="govuk-heading-m">How to prove it was made before 1975</h2>
+
+					<p class="govuk-body">You can use:</p>
+
+					<ul class="govuk-list govuk-list--bullet">
+						<li>an original receipt or bill</li>
+						<li>a date mark on the item</li>
+						<li>written verification from an expert, such as an antiques specialist or museum curator</li>
+						<li>knowledge that it’s been in the family since 1974 or before</li>
+						<li>an article published before 1 January 1975 with photos or detailed description of the item</li>
+					</ul>
+
+					<h2 class="govuk-heading-m">Musical instruments likely to have less than 20% ivory</h2>
+
+					<ul class="govuk-list govuk-list--bullet">
+						<li>a piano with ivory keys</li>
+						<li>a violin bow with ivory and the end of the bow, known as the face</li>
+					</ul>
+
+					<p class="govuk-body">You must prove that you made all efforts to assess the item correctly.</p>
+
+					<h2 class="govuk-heading-m">Still not sure<h2>
+
+					<p class="govuk-body">Read the <a href="guidance">guide to selling, hiring and buying ivory items</a>.</p>
+
+					<h2 class="govuk-heading-m">If you’re now sure</h2>
+
+					<p class="govuk-body">If you are sure you have the correct information, <a href="check-item-musical-instrument">check again</a>.
+
+
 
 
 
@@ -111,16 +246,19 @@
 
 					<h1 class="govuk-heading-xl">You can’t sell or hire the ivory item</h1>
 
-					<p class="govuk-body">Based on your answers, it is illegal to sell or hire the item because it is not any of these:</p>
+					<div class="govuk-inset-text">
 
-					<ul class="govuk-list govuk-list--bullet">
-						<li>a musical instrument made before 1975 with less than 20% ivory</li>
-						<li>an item made before 1947 with less than 10% ivory</li>
-						<li>a portrait miniature made before 1918</li>
-						<li>an item you’ll sell or hire to an approved museum</li>
-						<li>an item of outstanding artistic, cultural or historical value made before 1918</li>
-					</ul>
+						<p class="govuk-body">Based on your answers, it is illegal to sell or hire the item because it is not any of these:</p>
 
+						<ul class="govuk-list govuk-list--bullet">
+							<li>a musical instrument made before 1975 with less than 20% ivory</li>
+							<li>an item made before 1947 with less than 10% ivory</li>
+							<li>a portrait miniature made before 1918</li>
+							<li>an item you’ll sell or hire to an approved museum</li>
+							<li>an item of outstanding artistic, cultural or historical value made before 1918</li>
+						</ul>
+
+					</div>
 
 					<div class="govuk-warning-text">
 			      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -154,9 +292,13 @@
 
 
 			<ol class="govuk-list govuk-list--number">
-				<li><a href="based-on-your-answers?o=1">Musical instrument, age ok, volume ok</li>
-				<li><a href="based-on-your-answers?o=2">Musical instrument, age not sure, volume ok</li>
-				<li><a href="based-on-your-answers?o=3">Musical instrument, age ok, volume not sure</li>
+				<li><a href="based-on-your-answers?o=1">Musical instrument, volume and age ok</a></li>
+				<li><a href="based-on-your-answers?o=3">Musical instrument, can't register, more than 20% ivory</a></li>
+				<li><a href="based-on-your-answers?o=3">Musical instrument, not sure about volume</a></li>
+				<li><a href="based-on-your-answers?o=4">Musical instrument, can't register, made after 1975</a></li>
+				<li><a href="based-on-your-answers?o=5">Musical instrument, not sure about age</a></li>
+				<li><a href="based-on-your-answers?o=2">Musical instrument, can't register, too much ivory</a> (same as 2, but different route to outcome)</li>
+				<li><a href="based-on-your-answers?o=7">Musical instrument, not sure about volume or age</a></li>
 			</ul>
 
 
