@@ -1,0 +1,48 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      {{ govukRadios({
+        idPrefix: "pre-1975",
+        name: "pre-1975",
+        fieldset: {
+          legend: {
+            text: "Was it made before 1975?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        },
+        {
+          value: "I'm not sure",
+          text: "I'm not sure"
+        }
+        ]
+      }) }}
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+    <p class="govuk-body govuk-!-padding-top-9"><a href="based-on-your-answers">List of outcomes</a></p>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

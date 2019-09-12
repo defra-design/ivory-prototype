@@ -1,0 +1,49 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Describe the item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l govuk-!-margin-bottom-6" for="description">
+                {{ thisPageTitle }}
+              </label>
+            </h1>
+
+            <p id="descriptionText-hint" class="govuk-body">
+              Explain what the item is, including any features that make it stand out.
+            </p>
+
+          <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint" required>{{data['description']}}</textarea>
+
+        </div>
+
+
+        <button type="submit" class="govuk-button">Continue</button>
+
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

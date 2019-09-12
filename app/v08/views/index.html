@@ -1,0 +1,110 @@
+ {% extends "./layout.html" %}
+
+ <!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+ {% block beforeContent %}
+   {% include "./includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Ivory V7 prototypes</h1>
+
+    <p>We've built the following using the GOV.UK Prototype Kit v7.</p>
+    <h2 class="govuk-heading-m">Prototypes</h2>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Selling ivory items</th>
+          <th class="govuk-table__header" scope="col">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/apply-to-sell-or-hire-an-ivory-item">{{serviceName}}</a></td>
+          <td class="govuk-table__cell">e.g. newsagent</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-sell">Sell on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for sellers</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Buying ivory items</th>
+          <th class="govuk-table__header" scope="col">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/check-before-you-buy-an-ivory-item">Check before buying an ivory item</a></td>
+          <td class="govuk-table__cell">e.g. Google search for "buying ivory items"</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-buy">Buy on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for buyers</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+<!--
+<h2 class="govuk-heading-m">Experiments</h2>
+
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Experiment</th>
+            <th class="govuk-table__header" scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="public/check-registration-search">Check a registration</a></td>
+            <td class="govuk-table__cell">Alpha prototype for public users</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/notify">Notify integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Notify</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="public/pay">Pay integration</a></td>
+            <td class="govuk-table__cell">Uses GOV.UK Pay (so needs the .env variable set)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/address-postcode">Address lookup</a></td>
+            <td class="govuk-table__cell">Address lookup screens (not a real lookup, just static data)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="experiments/test">Test</a></td>
+            <td class="govuk-table__cell">Simple test page for trying things on</td>
+          </tr>
+
+        </tbody>
+    </table>
+-->
+
+  </div>
+</div>
+
+
+{% endblock %}
