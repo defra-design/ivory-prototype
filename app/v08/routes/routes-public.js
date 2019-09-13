@@ -228,12 +228,29 @@ router.get('/choose-exemption', function (req, res) {
 
 router.post('/choose-exemption', function (req, res) {
   logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
-  res.redirect('add-photograph')
+  res.redirect('add-photo')
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTGRAPH
-router.get('/add-photograph', function (req, res) {
+router.get('/add-photo', function (req, res) {
   logger(req)
 
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
@@ -246,16 +263,16 @@ router.get('/add-photograph', function (req, res) {
     })
   }
 
-  res.render(viewsFolder + 'add-photograph', {
+  res.render(viewsFolder + 'add-photo', {
     backUrl: 'choose-exemption'
   })
 })
 
-router.post('/add-photograph', function (req, res) {
+router.post('/add-photo', function (req, res) {
   logger(req)
 
   // Set back button URL
-  req.session.data['backUrl'] = 'add-photograph'
+  req.session.data['backUrl'] = 'add-photo'
 
   // Prepare for the photo upload code
   const upload = multer({
@@ -285,9 +302,9 @@ router.post('/add-photograph', function (req, res) {
       //   if (err) console.log(err)
       // });
       // res.redirect('add-title');
-      res.redirect('description')
+      res.redirect('check-photo')
       // FORCE A PHOTO TO BE UPLOAD AND THROW AN ERROR
-      // res.render(viewsFolder + 'add-photograph', {
+      // res.render(viewsFolder + 'add-photo', {
       //   errorNoFile: 'Please choose a file'
       // })
     } else { // A file was uploaded, so continue
@@ -330,10 +347,10 @@ router.post('/add-photograph', function (req, res) {
             // if ( req.session.data['photoAlreadyPreviewed'] === 'true' ) {
             //   res.redirect('description')
             // } else {
-            //   res.redirect('check-photograph')
+            //   res.redirect('check-photo')
             // }
 
-            res.redirect('description')
+            res.redirect('check-photo')
 
           }
         })
@@ -344,17 +361,17 @@ router.post('/add-photograph', function (req, res) {
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTOGRAPH 2
-router.get('/check-photograph', function (req, res) {
+router.get('/check-photo', function (req, res) {
   logger(req)
-  res.render(viewsFolder + 'check-photograph', {
-    backUrl: 'add-photograph'
+  res.render(viewsFolder + 'check-photo', {
+    backUrl: 'add-photo'
   })
 })
 
-router.post('/check-photograph', function (req, res) {
+router.post('/check-photo', function (req, res) {
   logger(req)
   // Set back button URL
-  req.session.data['backUrl'] = 'check-photograph'
+  req.session.data['backUrl'] = 'check-photo'
   res.redirect('description')
 })
 
@@ -362,7 +379,7 @@ router.post('/check-photograph', function (req, res) {
 // ADD-TITLE
 // router.get('/add-title', function(req, res) {
 //   res.render(viewsFolder + 'add-title', {
-//     backUrl: 'add-photograph2'
+//     backUrl: 'add-photo2'
 //   });
 // })
 //
@@ -379,9 +396,9 @@ router.get('/description', function (req, res) {
   // Temp fudge while we don't have validation on (and you can skip uploading a photo)
   var backUrl
   if (req.session.data['imageName']) {
-    backUrl = 'add-photograph'
+    backUrl = 'add-photo'
   } else {
-    backUrl = 'add-photograph'
+    backUrl = 'add-photo'
   }
 
   res.render(viewsFolder + 'description', {
@@ -631,13 +648,13 @@ router.post('/agent-owner-address', function (req, res) {
 })
 
 //* ****************************************************
-// ADD-PHOTOGRAPH
-router.get('/add-photograph-1', function (req, res) {
-  res.render(viewsFolder + 'add-photograph-1')
+// add-photo
+router.get('/add-photo-1', function (req, res) {
+  res.render(viewsFolder + 'add-photo-1')
 })
 
-router.post('/add-photograph-1', function (req, res) {
-  console.log('DEBUG.routes.add-photograph-1.post: ' + req.session.data['photograph'])
+router.post('/add-photo-1', function (req, res) {
+  console.log('DEBUG.routes.add-photo-1.post: ' + req.session.data['photograph'])
   res.redirect('add-description')
 })
 
