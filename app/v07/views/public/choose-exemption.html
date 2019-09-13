@@ -1,3 +1,9 @@
+{% set pageTitle = "What type of item are you registering?" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
 {% extends "./layout.html" %}
 
 <!-- Adds a class to increase vertical spacing for pages without a back button -->
@@ -22,7 +28,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              What type of item are you registering?
+              {{ pageTitle }}
             </h1>
           </legend>
           <div class="govuk-radios">
