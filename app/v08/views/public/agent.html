@@ -1,5 +1,18 @@
 {% extends "./layout.html" %}
 
+
+{% set thisPageTitle = "How are you acting on behalf of the owner?" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -13,7 +26,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              How are you acting on behalf of the owner?
+              {{ thisPageTitle }}
             </h1>
           </legend>
           <div class="govuk-radios govuk-radios--inlinex">
