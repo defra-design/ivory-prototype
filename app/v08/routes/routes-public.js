@@ -186,7 +186,8 @@ router.get('/start-prototype', function (req, res) {
     else logger(req, 'Previous session destroyed')
   })
 
-  res.redirect('choose-exemption')
+  // res.redirect('choose-exemption')
+  res.redirect('check-item-musical-instrument')
 })
 
 //* ****************************************************
