@@ -135,7 +135,6 @@ router.post('/was-it-made-before-1975', function (req, res) {
     res.redirect('does-it-have-less-than-20-percent-ivory')
   }
 
-  // res.redirect('does-it-have-less-than-20-percent-ivory')
 })
 
 
@@ -160,16 +159,32 @@ router.get('/does-it-have-less-than-20-percent-ivory', function (req, res) {
 router.post('/does-it-have-less-than-20-percent-ivory', function (req, res) {
   logger(req)
 
-  if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
-    logger(req, "It has less than 20% ivory")
-    res.redirect('based-on-your-answers?o=1')
-  } else if (req.session.data['less-than-20-percent-ivory'] === 'No') {
+
+  if (req.session.data['less-than-20-percent-ivory'] === 'No') {
     logger(req, "It has more than 20% ivory")
     res.redirect('based-on-your-answers?o=2')
-  } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
-    logger(req, "Not sure if less than 20% ivory")
-    res.redirect('based-on-your-answers?o=3')
   }
+
+
+  if (req.session.data['pre-1975'] === 'Yes'){
+    if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
+      logger(req, "It has less than 20% ivory")
+      res.redirect('based-on-your-answers?o=1')
+    } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
+      logger(req, "Not sure if less than 20% ivory")
+      res.redirect('based-on-your-answers?o=3')
+    }
+  } else if (req.session.data['pre-1975'] === 'Not sure'){
+    if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
+      logger(req, "It has less than 20% ivory")
+      res.redirect('based-on-your-answers?o=5')
+    } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
+      logger(req, "Not sure if less than 20% ivory")
+      res.redirect('based-on-your-answers?o=7')
+    }
+  }
+
+
 })
 
 
@@ -188,8 +203,30 @@ router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
 })
 
 
+router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
+  logger(req)
+
+  if (req.session.data['portrait-miniature'] === 'Yes') {
+    logger(req, "It's a portrait miniature made before 1918.")
+    res.redirect('is-its-surface-area-less-than-320-cm-squared')
+  } else {
+    logger(req, "It's NOT a portrait miniature.")
+    res.redirect('was-it-made-before-1947')
+  }
+})
 
 
+
+
+
+
+// Was it made before 1947?
+
+router.get('/was-it-made-before-1947', function (req, res) {
+  res.render(viewsFolder + 'was-it-made-before-1947', {
+  backUrl: 'is-it-a-portrait-miniature-made-before-1918'
+  })
+})
 
 
 
