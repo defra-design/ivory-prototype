@@ -46,8 +46,6 @@ router.get('/gumtree-sell', function (req, res) {
   res.render(viewsFolder + 'gumtree-sell')
 })
 
-
-
 /// ////////////////////////////////////////////
 // Gumtree buy
 router.get('/gumtree-buy', function (req, res) {
@@ -58,7 +56,7 @@ router.get('/gumtree-buy', function (req, res) {
 
 
 /// ////////////////////////////////////////////
-// GUIDANCE
+// DETAILED GUIDANCE
 router.get('/guidance', function (req, res) {
   res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })

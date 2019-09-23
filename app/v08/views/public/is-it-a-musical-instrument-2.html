@@ -1,13 +1,14 @@
 {% extends "./layout.html" %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
 
-{% set mainClasses = "govuk-main-wrapper--l" %}
+{% set thisPageTitle = "Is it a musical instrument?" %}
 
-<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
-{% block beforeContent %}
-{% include "../includes/stage-banner.html" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
 {% endblock %}
+
+
 
 {% block content %}
 
@@ -21,13 +22,10 @@
         name: "musicalInstrument",
         fieldset: {
           legend: {
-            text: "Is it a musical instrument?",
+            text: thisPageTitle,
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
-        },
-        hint: {
-          text: "This includes violin bows."
         },
         items: [
         {
@@ -47,7 +45,7 @@
     </form>
 
 
-    <p class="govuk-body govuk-!-padding-top-9"><a href="based-on-your-answers">List of outcomes</a></p>
+    <!-- <p class="govuk-body govuk-!-padding-top-9"><a href="based-on-your-answers">List of outcomes</a></p> -->
 
 
 

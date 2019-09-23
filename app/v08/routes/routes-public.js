@@ -58,7 +58,7 @@ router.get('/gumtree-buy', function (req, res) {
 
 
 /// ////////////////////////////////////////////
-// GUIDANCE
+// DETAILED GUIDANCE
 router.get('/guidance', function (req, res) {
   res.render(viewsFolder + 'a-guide-to-selling-hiring-and-buying-items-containing-ivory')
 })
@@ -80,34 +80,98 @@ router.get('/apply-to-sell-or-hire-an-ivory-item', function (req, res) {
 
 
 
-
-
-
-
-
-
 /// ////////////////////////////////////////////
-// check-item-musical-instrument
-
-router.get('/check-item-musical-instrument', function (req, res) {
-  res.render(viewsFolder + 'check-item-musical-instrument')
-})
-
-
-router.post('/check-item-musical-instrument', function (req, res) {
-  logger(req, 'musicalInstrument=' + req.session.data['musicalInstrument'])
-  res.redirect('check-item-pre-1975')
-})
 
 
 
+// Is it a musical instrument?
 
-// check-item-pre-1975
-router.get('/check-item-pre-1975', function (req, res) {
-  res.render(viewsFolder + 'check-item-pre-1975', {
-  backUrl: 'check-item-musical-instrument'
+router.get('/is-it-a-musical-instrument', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-musical-instrument', {
+  backUrl: 'apply-to-sell-or-hire-an-ivory-item'
   })
 })
+
+
+router.post('/is-it-a-musical-instrument', function (req, res) {
+  logger(req)
+
+  if (req.session.data['musical-instrument'] === 'Yes') {
+    logger(req, "It's a musical instrument.")
+    res.redirect('was-it-made-before-1975')
+  } else {
+    logger(req, "It's NOT a musical instrument.")
+    res.redirect('is-it-a-portrait-miniature-made-before-1918')
+  }
+})
+
+
+
+
+// Was it made before 1975?
+
+router.get('/was-it-made-before-1975', function (req, res) {
+  res.render(viewsFolder + 'was-it-made-before-1975', {
+  backUrl: 'is-it-a-musical-instrument'
+  })
+})
+
+router.post('/was-it-made-before-1975', function (req, res) {
+  logger(req, 'pre-1975=' + req.session.data['pre-1975'])
+  res.redirect('does-it-have-less-than-20-percent-ivory')
+})
+
+
+
+// Does it have less than 20% ivory?
+
+router.get('/does-it-have-less-than-20-percent-ivory', function (req, res) {
+  res.render(viewsFolder + 'does-it-have-less-than-20-percent-ivory', {
+  backUrl: 'was-it-made-before-1975'
+  })
+})
+
+router.post('/does-it-have-less-than-20-percent-ivory', function (req, res) {
+  logger(req)
+
+  if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
+    logger(req, "It has less than 20% ivory")
+    res.redirect('based-on-your-answers?o=1')
+  } else if (req.session.data['less-than-20-percent-ivory'] === 'No') {
+    logger(req, "It has more than 20% ivory")
+    res.redirect('based-on-your-answers?o=2')
+  } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
+    logger(req, "Not sure if less than 20% ivory")
+    res.redirect('based-on-your-answers?o=3')
+  }
+})
+
+
+
+
+
+
+
+
+// Is it a portrait miniature made before 1918?
+
+router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-portrait-miniature-made-before-1918', {
+  backUrl: 'is-it-a-musical-instrument'
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Checker outcome page
@@ -115,8 +179,17 @@ router.get('/check-item-pre-1975', function (req, res) {
 router.get('/based-on-your-answers', function (req, res) {
   var outcome = req.query.o
   var checker = outcome
+
+  var backUrl
+  if ( checker === '1' ){
+
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+
+  }
+
   res.render(viewsFolder + 'based-on-your-answers', {
-    checker: checker
+    checker: checker,
+    backUrl: backUrl
   })
 })
 
@@ -187,7 +260,7 @@ router.get('/start-prototype', function (req, res) {
   })
 
   // res.redirect('choose-exemption')
-  res.redirect('check-item-musical-instrument')
+  res.redirect('is-it-a-musical-instrument')
 })
 
 //* ****************************************************

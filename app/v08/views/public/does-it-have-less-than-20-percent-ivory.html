@@ -1,5 +1,14 @@
 {% extends "./layout.html" %}
 
+{% set thisPageTitle = "Does it have less than 20% ivory?" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -8,27 +17,30 @@
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       {{ govukRadios({
-        idPrefix: "pre-1975",
-        name: "pre-1975",
+        idPrefix: "less-than-20-perecent-ivory",
+        name: "less-than-20-percent-ivory",
         fieldset: {
           legend: {
-            text: "Was it made before 1975?",
+            text: thisPageTitle,
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
         {
-          value: "yes",
-          text: "Yes"
+          value: "Yes",
+          text: "Yes",
+          checked: checked("less-than-20-percent-ivory", "Yes")
         },
         {
-          value: "no",
-          text: "No"
+          value: "No",
+          text: "No",
+          checked: checked("less-than-20-percent-ivory", "No")
         },
         {
-          value: "I'm not sure",
-          text: "I'm not sure"
+          value: "Not sure",
+          text: "I'm not sure",
+          checked: checked("less-than-20-percent-ivory", "Not sure")
         }
         ]
       }) }}
