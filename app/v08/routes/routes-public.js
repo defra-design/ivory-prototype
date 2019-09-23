@@ -108,6 +108,14 @@ router.post('/is-it-a-musical-instrument', function (req, res) {
 
 
 
+
+
+
+
+
+
+
+
 // Was it made before 1975?
 
 router.get('/was-it-made-before-1975', function (req, res) {
@@ -118,8 +126,26 @@ router.get('/was-it-made-before-1975', function (req, res) {
 
 router.post('/was-it-made-before-1975', function (req, res) {
   logger(req, 'pre-1975=' + req.session.data['pre-1975'])
-  res.redirect('does-it-have-less-than-20-percent-ivory')
+
+  if (req.session.data['pre-1975'] === 'Yes') {
+    res.redirect('does-it-have-less-than-20-percent-ivory')
+  } else if (req.session.data['pre-1975'] === 'No') {
+    res.redirect('based-on-your-answers?o=4')
+  } else if (req.session.data['pre-1975'] === 'Not sure') {
+    res.redirect('does-it-have-less-than-20-percent-ivory')
+  }
+
+  // res.redirect('does-it-have-less-than-20-percent-ivory')
 })
+
+
+
+
+
+
+
+
+
 
 
 
