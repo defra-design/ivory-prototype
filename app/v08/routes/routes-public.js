@@ -94,7 +94,6 @@ router.get('/is-it-a-musical-instrument', function (req, res) {
 
 
 router.post('/is-it-a-musical-instrument', function (req, res) {
-  logger(req)
 
   if (req.session.data['musical-instrument'] == 'Yes') {
     logger(req, "It's a musical instrument.")
@@ -157,8 +156,6 @@ router.get('/does-it-have-less-than-20-percent-ivory', function (req, res) {
 })
 
 router.post('/does-it-have-less-than-20-percent-ivory', function (req, res) {
-  logger(req)
-
 
   if (req.session.data['less-than-20-percent-ivory'] == 'No') {
     logger(req, "It has more than 20% ivory")
@@ -204,7 +201,6 @@ router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
 
 
 router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
-  logger(req)
 
   if (req.session.data['portrait-miniature'] == 'Yes') {
     logger(req, "It's a portrait miniature made before 1918.")
@@ -227,7 +223,6 @@ router.get('/is-its-surface-area-less-than-320-cm-squared', function (req, res) 
 })
 
 router.post('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
-  // logger(req)
 
   if (req.session.data['less-than-320-cm-squared'] == 'Yes') {
     logger(req, "Surface area LESS THAN 320cm squared")
@@ -289,7 +284,6 @@ router.get('/does-it-have-less-than-10-percent-ivory', function (req, res) {
 })
 
 router.post('/does-it-have-less-than-10-percent-ivory', function (req, res) {
-  logger(req)
 
   if (req.session.data['pre-1947'] == 'Yes'){
     if (req.session.data['less-than-10-percent-ivory'] == 'Yes') {
@@ -389,10 +383,13 @@ router.get('/based-on-your-answers', function (req, res) {
 router.post('/based-on-your-answers', function (req, res) {
   var outcome = req.query.o
 
-  if ( outcome == '1' ){
-  logger(req, 'Checker: musical instrument, meets both criteria')
+  // if ( outcome == '1' ){
+  // logger(req, 'Checker: musical instrument, meets both criteria')
+  // res.redirect('choose-exemption')
+  // }
+
   res.redirect('choose-exemption')
-  }
+
 
 })
 
@@ -434,7 +431,6 @@ router.get('/start-c', function (req, res) {
 /// ///////////////////////////////////////////
 // START-PROTOTYPE_1
 router.get('/start-prototype', function (req, res) {
-  logger(req)
 
   // Remove the previous photo (no need to store it for the prototype.  Heroku will remove them everytime it restarts anyway, but might as well be tidy)
   // This isn't perfect, but removes most of the images floating about unnecessarily.
@@ -458,7 +454,6 @@ router.get('/start-prototype', function (req, res) {
 //* ****************************************************
 // CHOOSE-EXEMPTION
 router.get('/choose-exemption', function (req, res) {
-  logger(req)
 
   var exemptionType1Checked
   var exemptionType2Checked
@@ -517,7 +512,6 @@ router.post('/choose-exemption', function (req, res) {
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTGRAPH
 router.get('/add-photo', function (req, res) {
-  logger(req)
 
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
   if (req.session.data['imageName']) {
@@ -535,7 +529,6 @@ router.get('/add-photo', function (req, res) {
 })
 
 router.post('/add-photo', function (req, res) {
-  logger(req)
 
   // Set back button URL
   req.session.data['backUrl'] = 'add-photo'
@@ -628,14 +621,12 @@ router.post('/add-photo', function (req, res) {
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTOGRAPH 2
 router.get('/check-photo', function (req, res) {
-  logger(req)
   res.render(viewsFolder + 'check-photo', {
     backUrl: 'add-photo'
   })
 })
 
 router.post('/check-photo', function (req, res) {
-  logger(req)
   // Set back button URL
   req.session.data['backUrl'] = 'check-photo'
   res.redirect('description')
@@ -657,7 +648,6 @@ router.post('/check-photo', function (req, res) {
 //* ****************************************************
 // DESCRIPTION
 router.get('/description', function (req, res) {
-  logger(req)
 
   // Temp fudge while we don't have validation on (and you can skip uploading a photo)
   var backUrl
@@ -680,7 +670,6 @@ router.post('/description', function (req, res) {
 //* ****************************************************
 // IVORY AGE
 router.get('/ivory-age', function (req, res) {
-  logger(req)
 
   var ivoryYear
 
@@ -718,8 +707,6 @@ router.post('/ivory-age', function (req, res) {
 //* ****************************************************
 // IVORY VOLUME
 router.get('/ivory-volume', function (req, res) {
-  logger(req)
-
 
 
   var volumeType1Checked
@@ -799,7 +786,6 @@ router.get('/who-owns-item', function (req, res) {
 })
 
 router.post('/who-owns-item', function (req, res) {
-  logger(req)
 
   if (req.session.data['ownerAgent'] == 'owner') {
     logger(req, "It's the owner, so go down the owner route.")
@@ -813,7 +799,6 @@ router.post('/who-owns-item', function (req, res) {
 //* ****************************************************
 // AGENT
 router.get('/agent', function (req, res) {
-  logger(req)
 
   var agentIs1Checked
   var agentIs2Checked
@@ -974,7 +959,6 @@ router.post('/owner-contact', function (req, res) {
 //* ****************************************************
 // DEALING-INTENT
 router.get('/dealing-intent', function (req, res) {
-  logger(req)
 
   var backUrl
   if (req.session.data['ownerAgent'] == 'owner') {
@@ -1023,7 +1007,6 @@ router.get('/cya', function (req, res) {
 //* ****************************************************
 // CHECK YOUR ANSWERS
 router.get('/check-your-answers', function (req, res) {
-  logger(req)
 
   var backUrl
   if (req.session.data['ownerAgent'] == 'owner') {
@@ -1163,7 +1146,6 @@ router.get('/check-your-answers', function (req, res) {
 })
 
 router.post('/check-your-answers', function (req, res) {
-  logger(req)
   // res.redirect('declaration');
   res.redirect('govpay-lookalike-1')
 })
@@ -1185,7 +1167,6 @@ router.post('/check-your-answers', function (req, res) {
 //* ****************************************************
 // CONFIRMATION
 router.get('/confirmation', function (req, res) {
-  logger(req)
 
   var contactEmail
   if (req.session.data['ownerAgent'] == 'owner') {
@@ -1237,7 +1218,6 @@ router.get('/check-registration-search', function (req, res) {
 })
 
 router.post('/check-registration-search', function (req, res) {
-  logger(req)
   res.redirect('check-registration-result')
 
   // res.redirect('check-registration-result', {
@@ -1248,7 +1228,6 @@ router.post('/check-registration-search', function (req, res) {
 //* ****************************************************
 // CHECK REGISTRATION RESULT
 router.get('/check-registration-result', function (req, res) {
-  logger(req)
 
   // If there's no session data set some
   // let sessionDataExists;
