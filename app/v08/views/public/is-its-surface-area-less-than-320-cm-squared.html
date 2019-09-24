@@ -1,7 +1,6 @@
 {% extends "./layout.html" %}
 
-
-{% set thisPageTitle = "Is it a portrait miniature made before 1918?" %}
+{% set thisPageTitle = "Is its surface area less than 320cm squared?" %}
 
 
 {% block pageTitle %}
@@ -15,11 +14,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <form class="form" method="post" {{ novalidateVal }}>
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       {{ govukRadios({
-        idPrefix: "portrait-miniature",
-        name: "portrait-miniature",
+        idPrefix: "less-than-320-cm-squared",
+        name: "less-than-320-cm-squared",
         fieldset: {
           legend: {
             text: thisPageTitle,
@@ -31,12 +30,17 @@
         {
           value: "Yes",
           text: "Yes",
-          checked: checked("portrait-miniature", "Yes")
+          checked: checked("less-than-320-cm-squared", "Yes")
         },
         {
           value: "No",
           text: "No",
-          checked: checked("portrait-miniature", "No")
+          checked: checked("less-than-320-cm-squared", "No")
+        },
+        {
+          value: "Not sure",
+          text: "I'm not sure",
+          checked: checked("less-than-320-cm-squared", "Not sure")
         }
         ]
       }) }}
@@ -45,11 +49,6 @@
       <button class="govuk-button">Continue</button>
 
     </form>
-
-
-    <!-- <p class="govuk-body govuk-!-padding-top-9"><a href="based-on-your-answers">List of outcomes</a></p> -->
-
-
 
   </div>
 </div>

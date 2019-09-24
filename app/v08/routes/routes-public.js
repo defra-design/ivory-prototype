@@ -218,6 +218,36 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
 
 
 
+// Is its surface area less than 320cm squared?
+
+router.get('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
+  res.render(viewsFolder + 'is-its-surface-area-less-than-320-cm-squared', {
+  backUrl: 'is-it-a-portrait-miniature-made-before-1918'
+  })
+})
+
+router.post('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
+  logger(req)
+
+  if (req.session.data['less-than-320-cm-squared'] === 'Yes') {
+    logger(req, "Surface area LESS THAN 320cm squared")
+    res.redirect('based-on-your-answers?o=8')
+  } else if (req.session.data['less-than-320-cm-squared'] === 'No') {
+    logger(req, "Surface area MORE THAN 320cm squared")
+    res.redirect('based-on-your-answers?o=9')
+  } else if (req.session.data['less-than-320-cm-squared'] === 'Not sure') {
+    logger(req, "Not sure about surface area")
+    res.redirect('based-on-your-answers?o=10')
+  }
+
+})
+
+
+
+
+
+
+
 
 
 // Was it made before 1947?
@@ -227,6 +257,68 @@ router.get('/was-it-made-before-1947', function (req, res) {
   backUrl: 'is-it-a-portrait-miniature-made-before-1918'
   })
 })
+
+
+
+
+router.post('/was-it-made-before-1947', function (req, res) {
+  logger(req, 'pre-1947=' + req.session.data['pre-1947'])
+
+  if (req.session.data['pre-1947'] === 'Yes') {
+    res.redirect('does-it-have-less-than-10-percent-ivory')
+  } else if (req.session.data['pre-1947'] === 'No') {
+    res.redirect('based-on-your-answers?o=14')
+  } else if (req.session.data['pre-1947'] === 'Not sure') {
+    res.redirect('does-it-have-less-than-10-percent-ivory')
+  }
+
+})
+
+
+
+
+
+
+
+// Does it have less than 10% ivory?
+
+router.get('/does-it-have-less-than-10-percent-ivory', function (req, res) {
+  res.render(viewsFolder + 'does-it-have-less-than-10-percent-ivory', {
+  backUrl: 'was-it-made-before-1947'
+  })
+})
+
+router.post('/does-it-have-less-than-10-percent-ivory', function (req, res) {
+  logger(req)
+
+  if (req.session.data['pre-1947'] === 'Yes'){
+    if (req.session.data['less-than-10-percent-ivory'] === 'Yes') {
+      logger(req, "It has less than 10% ivory")
+      res.redirect('based-on-your-answers?o=11')
+    } else if (req.session.data['less-than-10-percent-ivory'] === 'No') {
+      logger(req, "More than 10% ivory")
+      res.redirect('based-on-your-answers?o=12')
+    } else if (req.session.data['less-than-10-percent-ivory'] === 'Not sure') {
+      logger(req, "Not sure if less than 10% ivory")
+      res.redirect('based-on-your-answers?o=13')
+    }
+  } else if (req.session.data['pre-1947'] === 'Not sure'){
+    if (req.session.data['less-than-10-percent-ivory'] === 'Yes') {
+      logger(req, "It has less than 10% ivory")
+      res.redirect('based-on-your-answers?o=15')
+    } else if (req.session.data['less-than-10-percent-ivory'] === 'No') {
+      logger(req, "More than 10% ivory")
+      res.redirect('based-on-your-answers?o=16')
+    } else if (req.session.data['less-than-10-percent-ivory'] === 'Not sure') {
+      logger(req, "Not sure if less than 20% ivory")
+      res.redirect('based-on-your-answers?o=17')
+    }
+  }
+
+
+})
+
+
 
 
 
@@ -243,17 +335,25 @@ router.get('/based-on-your-answers', function (req, res) {
   var outcome = req.query.o
   var checker = outcome
 
+
   var backUrl
   if ( checker === '1' ){
-
     backUrl = 'does-it-have-less-than-20-percent-ivory'
-
+  } else if ( checker === '2' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker === '3' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker === '4' ){
+    backUrl = 'was-it-made-before-1975'
   }
+
 
   res.render(viewsFolder + 'based-on-your-answers', {
     checker: checker,
     backUrl: backUrl
   })
+
+
 })
 
 
