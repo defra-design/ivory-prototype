@@ -96,7 +96,7 @@ router.get('/is-it-a-musical-instrument', function (req, res) {
 router.post('/is-it-a-musical-instrument', function (req, res) {
   logger(req)
 
-  if (req.session.data['musical-instrument'] === 'Yes') {
+  if (req.session.data['musical-instrument'] == 'Yes') {
     logger(req, "It's a musical instrument.")
     res.redirect('was-it-made-before-1975')
   } else {
@@ -127,11 +127,11 @@ router.get('/was-it-made-before-1975', function (req, res) {
 router.post('/was-it-made-before-1975', function (req, res) {
   logger(req, 'pre-1975=' + req.session.data['pre-1975'])
 
-  if (req.session.data['pre-1975'] === 'Yes') {
+  if (req.session.data['pre-1975'] == 'Yes') {
     res.redirect('does-it-have-less-than-20-percent-ivory')
-  } else if (req.session.data['pre-1975'] === 'No') {
+  } else if (req.session.data['pre-1975'] == 'No') {
     res.redirect('based-on-your-answers?o=4')
-  } else if (req.session.data['pre-1975'] === 'Not sure') {
+  } else if (req.session.data['pre-1975'] == 'Not sure') {
     res.redirect('does-it-have-less-than-20-percent-ivory')
   }
 
@@ -160,25 +160,25 @@ router.post('/does-it-have-less-than-20-percent-ivory', function (req, res) {
   logger(req)
 
 
-  if (req.session.data['less-than-20-percent-ivory'] === 'No') {
+  if (req.session.data['less-than-20-percent-ivory'] == 'No') {
     logger(req, "It has more than 20% ivory")
     res.redirect('based-on-your-answers?o=2')
   }
 
 
-  if (req.session.data['pre-1975'] === 'Yes'){
-    if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
+  if (req.session.data['pre-1975'] == 'Yes'){
+    if (req.session.data['less-than-20-percent-ivory'] == 'Yes') {
       logger(req, "It has less than 20% ivory")
       res.redirect('based-on-your-answers?o=1')
-    } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
+    } else if (req.session.data['less-than-20-percent-ivory'] == 'Not sure') {
       logger(req, "Not sure if less than 20% ivory")
       res.redirect('based-on-your-answers?o=3')
     }
-  } else if (req.session.data['pre-1975'] === 'Not sure'){
-    if (req.session.data['less-than-20-percent-ivory'] === 'Yes') {
+  } else if (req.session.data['pre-1975'] == 'Not sure'){
+    if (req.session.data['less-than-20-percent-ivory'] == 'Yes') {
       logger(req, "It has less than 20% ivory")
       res.redirect('based-on-your-answers?o=5')
-    } else if (req.session.data['less-than-20-percent-ivory'] === 'Not sure') {
+    } else if (req.session.data['less-than-20-percent-ivory'] == 'Not sure') {
       logger(req, "Not sure if less than 20% ivory")
       res.redirect('based-on-your-answers?o=7')
     }
@@ -206,7 +206,7 @@ router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
 router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
   logger(req)
 
-  if (req.session.data['portrait-miniature'] === 'Yes') {
+  if (req.session.data['portrait-miniature'] == 'Yes') {
     logger(req, "It's a portrait miniature made before 1918.")
     res.redirect('is-its-surface-area-less-than-320-cm-squared')
   } else {
@@ -227,16 +227,16 @@ router.get('/is-its-surface-area-less-than-320-cm-squared', function (req, res) 
 })
 
 router.post('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
-  logger(req)
+  // logger(req)
 
-  if (req.session.data['less-than-320-cm-squared'] === 'Yes') {
+  if (req.session.data['less-than-320-cm-squared'] == 'Yes') {
     logger(req, "Surface area LESS THAN 320cm squared")
     res.redirect('based-on-your-answers?o=8')
-  } else if (req.session.data['less-than-320-cm-squared'] === 'No') {
+  } else if (req.session.data['less-than-320-cm-squared'] == 'No') {
     logger(req, "Surface area MORE THAN 320cm squared")
     res.redirect('based-on-your-answers?o=9')
-  } else if (req.session.data['less-than-320-cm-squared'] === 'Not sure') {
-    logger(req, "Not sure about surface area")
+  } else if (req.session.data['less-than-320-cm-squared'] == 'Not sure') {
+    logger(req, "Surface area - Not sure")
     res.redirect('based-on-your-answers?o=10')
   }
 
@@ -264,11 +264,11 @@ router.get('/was-it-made-before-1947', function (req, res) {
 router.post('/was-it-made-before-1947', function (req, res) {
   logger(req, 'pre-1947=' + req.session.data['pre-1947'])
 
-  if (req.session.data['pre-1947'] === 'Yes') {
+  if (req.session.data['pre-1947'] == 'Yes') {
     res.redirect('does-it-have-less-than-10-percent-ivory')
-  } else if (req.session.data['pre-1947'] === 'No') {
+  } else if (req.session.data['pre-1947'] == 'No') {
     res.redirect('based-on-your-answers?o=14')
-  } else if (req.session.data['pre-1947'] === 'Not sure') {
+  } else if (req.session.data['pre-1947'] == 'Not sure') {
     res.redirect('does-it-have-less-than-10-percent-ivory')
   }
 
@@ -291,25 +291,25 @@ router.get('/does-it-have-less-than-10-percent-ivory', function (req, res) {
 router.post('/does-it-have-less-than-10-percent-ivory', function (req, res) {
   logger(req)
 
-  if (req.session.data['pre-1947'] === 'Yes'){
-    if (req.session.data['less-than-10-percent-ivory'] === 'Yes') {
+  if (req.session.data['pre-1947'] == 'Yes'){
+    if (req.session.data['less-than-10-percent-ivory'] == 'Yes') {
       logger(req, "It has less than 10% ivory")
       res.redirect('based-on-your-answers?o=11')
-    } else if (req.session.data['less-than-10-percent-ivory'] === 'No') {
+    } else if (req.session.data['less-than-10-percent-ivory'] == 'No') {
       logger(req, "More than 10% ivory")
       res.redirect('based-on-your-answers?o=12')
-    } else if (req.session.data['less-than-10-percent-ivory'] === 'Not sure') {
+    } else if (req.session.data['less-than-10-percent-ivory'] == 'Not sure') {
       logger(req, "Not sure if less than 10% ivory")
       res.redirect('based-on-your-answers?o=13')
     }
-  } else if (req.session.data['pre-1947'] === 'Not sure'){
-    if (req.session.data['less-than-10-percent-ivory'] === 'Yes') {
+  } else if (req.session.data['pre-1947'] == 'Not sure'){
+    if (req.session.data['less-than-10-percent-ivory'] == 'Yes') {
       logger(req, "It has less than 10% ivory")
       res.redirect('based-on-your-answers?o=15')
-    } else if (req.session.data['less-than-10-percent-ivory'] === 'No') {
+    } else if (req.session.data['less-than-10-percent-ivory'] == 'No') {
       logger(req, "More than 10% ivory")
       res.redirect('based-on-your-answers?o=16')
-    } else if (req.session.data['less-than-10-percent-ivory'] === 'Not sure') {
+    } else if (req.session.data['less-than-10-percent-ivory'] == 'Not sure') {
       logger(req, "Not sure if less than 20% ivory")
       res.redirect('based-on-your-answers?o=17')
     }
@@ -339,23 +339,39 @@ router.get('/based-on-your-answers', function (req, res) {
 
   var backUrl
 
-  if ( checker === '1' ){
+  if ( checker == '1' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '2' ){
+  } else if ( checker == '2' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '3' ){
+  } else if ( checker == '3' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '5' ){
-    backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '6' ){
-    backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '7' ){
-    backUrl = 'does-it-have-less-than-20-percent-ivory'
-  } else if ( checker === '4' ){
+  } else if ( checker == '4' ){
     backUrl = 'was-it-made-before-1975'
-  } else if ( checker === '8' ){
+  } else if ( checker == '5' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker == '6' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker == '7' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker == '8' ){
     backUrl = 'is-its-surface-area-less-than-320-cm-squared'
-  } else if ( checker === '11' ){
+  } else if ( checker == '9' ){
+    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+  } else if ( checker == '10' ){
+    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+  } else if ( checker == '11' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
+  } else if ( checker == '12' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
+  } else if ( checker == '13' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
+  } else if ( checker == '14' ){
+    backUrl = 'was-it-made-before-1947'
+  } else if ( checker == '15' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
+  } else if ( checker == '16' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
+  } else if ( checker == '17' ){
     backUrl = 'does-it-have-less-than-10-percent-ivory'
   }
 
@@ -594,7 +610,7 @@ router.post('/add-photo', function (req, res) {
             req.session.data['photoUploaded'] = 'true'
 
             // testing
-            // if ( req.session.data['photoAlreadyPreviewed'] === 'true' ) {
+            // if ( req.session.data['photoAlreadyPreviewed'] == 'true' ) {
             //   res.redirect('description')
             // } else {
             //   res.redirect('check-photo')
@@ -769,9 +785,9 @@ router.post('/ivory-volume', function (req, res) {
 router.get('/who-owns-item', function (req, res) {
   var ownerChecked = ''
   var agentChecked = ''
-  if (req.session.data['ownerAgent'] === 'owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     ownerChecked = 'checked'
-  } else if (req.session.data['ownerAgent'] === 'agent') {
+  } else if (req.session.data['ownerAgent'] == 'agent') {
     agentChecked = 'checked'
   }
 
@@ -785,7 +801,7 @@ router.get('/who-owns-item', function (req, res) {
 router.post('/who-owns-item', function (req, res) {
   logger(req)
 
-  if (req.session.data['ownerAgent'] === 'owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     logger(req, "It's the owner, so go down the owner route.")
     res.redirect('owner-name')
   } else {
@@ -961,9 +977,9 @@ router.get('/dealing-intent', function (req, res) {
   logger(req)
 
   var backUrl
-  if (req.session.data['ownerAgent'] === 'owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     backUrl = 'owner-contact'
-  } else if (req.session.data['ownerAgent'] === 'agent') {
+  } else if (req.session.data['ownerAgent'] == 'agent') {
     backUrl = 'agent-owner-address'
   }
 
@@ -1010,9 +1026,9 @@ router.get('/check-your-answers', function (req, res) {
   logger(req)
 
   var backUrl
-  if (req.session.data['ownerAgent'] === 'owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     backUrl = 'dealing-intent'
-  } else if (req.session.data['ownerAgent'] === 'agent') {
+  } else if (req.session.data['ownerAgent'] == 'agent') {
     backUrl = 'dealing-intent'
   }
 
@@ -1172,10 +1188,10 @@ router.get('/confirmation', function (req, res) {
   logger(req)
 
   var contactEmail
-  if (req.session.data['ownerAgent'] === 'owner') {
+  if (req.session.data['ownerAgent'] == 'owner') {
     contactEmail = req.session.data['ownerEmail']
     logger(req, 'Owner email=' + req.session.data['ownerEmail'])
-  } else if (req.session.data['ownerAgent'] === 'agent') {
+  } else if (req.session.data['ownerAgent'] == 'agent') {
     contactEmail = req.session.data['agentEmail']
     logger(req, 'Agent email=' + req.session.data['agentEmail'])
   }
