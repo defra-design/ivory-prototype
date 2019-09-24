@@ -332,20 +332,33 @@ router.post('/does-it-have-less-than-10-percent-ivory', function (req, res) {
 // Checker outcome page
 
 router.get('/based-on-your-answers', function (req, res) {
+
   var outcome = req.query.o
+
   var checker = outcome
 
-
   var backUrl
+
   if ( checker === '1' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
   } else if ( checker === '2' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
   } else if ( checker === '3' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker === '5' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker === '6' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
+  } else if ( checker === '7' ){
+    backUrl = 'does-it-have-less-than-20-percent-ivory'
   } else if ( checker === '4' ){
     backUrl = 'was-it-made-before-1975'
+  } else if ( checker === '8' ){
+    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+  } else if ( checker === '11' ){
+    backUrl = 'does-it-have-less-than-10-percent-ivory'
   }
+
 
 
   res.render(viewsFolder + 'based-on-your-answers', {
