@@ -26,10 +26,6 @@ Registraiton complete
 
     <p class="govuk-body">We’ve sent you an email with confirmation of registration and a payment receipt.</p>
 
-    <!-- <dl class="govuk-body defra-dl">
-      <dt class="defra-dt">Registration status:</dt>
-      <dd class="defra-dd">Awaiting confirmation</dd>
-    </dl> -->
 
     <h3 class="govuk-heading-m">What happens next</h3>
 
@@ -37,7 +33,14 @@ Registraiton complete
     <h4 class="govuk-heading-s">Selling the item</h4>
 
     <ul class="govuk-list govuk-list--bullet">
+
+      {% if data['exemptionChoice'] == 'type2' %}
+
       <li>If your musical instrument was made between 1947 and 1975, check if you need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a <abbr title="Convention on International Trade in Endangered Species of Wild Fauna and Flora">CITES</abbr> commercial use certificate</a>.</li>
+
+      {% endif %}
+
+
       <li>This registration is valid for a single sale of the item.</li>
       <li>Each owner must make a new registration before selling the item.</li>
     </ul>
