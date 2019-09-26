@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Is its surface area less than 320cm squared?" %}
+{% set thisPageTitle = "Is its surface area less than 320 square centimetres?" %}
 
 
 {% block pageTitle %}
@@ -17,8 +17,8 @@
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       {{ govukRadios({
-        idPrefix: "less-than-320-cm-squared",
-        name: "less-than-320-cm-squared",
+        idPrefix: "less-than-320-square-centimetres",
+        name: "less-than-320-square-centimetres",
         fieldset: {
           legend: {
             text: thisPageTitle,
@@ -30,17 +30,17 @@
         {
           value: "Yes",
           text: "Yes",
-          checked: checked("less-than-320-cm-squared", "Yes")
+          checked: checked("less-than-320-square-centimetres", "Yes")
         },
         {
           value: "No",
           text: "No",
-          checked: checked("less-than-320-cm-squared", "No")
+          checked: checked("less-than-320-square-centimetres", "No")
         },
         {
           value: "Not sure",
           text: "I'm not sure",
-          checked: checked("less-than-320-cm-squared", "Not sure")
+          checked: checked("less-than-320-square-centimetres", "Not sure")
         }
         ]
       }) }}

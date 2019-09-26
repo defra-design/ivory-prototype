@@ -204,7 +204,7 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
 
   if (req.session.data['portrait-miniature'] == 'Yes') {
     logger(req, "It's a portrait miniature made before 1918.")
-    res.redirect('is-its-surface-area-less-than-320-cm-squared')
+    res.redirect('is-its-surface-area-less-than-320-square-centimetres')
   } else {
     logger(req, "It's NOT a portrait miniature.")
     res.redirect('was-it-made-before-1947')
@@ -214,23 +214,23 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
 
 
 
-// Is its surface area less than 320cm squared?
+// Is its surface area less than 320 square centimetres?
 
-router.get('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
-  res.render(viewsFolder + 'is-its-surface-area-less-than-320-cm-squared', {
+router.get('/is-its-surface-area-less-than-320-square-centimetres', function (req, res) {
+  res.render(viewsFolder + 'is-its-surface-area-less-than-320-square-centimetres', {
   backUrl: 'is-it-a-portrait-miniature-made-before-1918'
   })
 })
 
-router.post('/is-its-surface-area-less-than-320-cm-squared', function (req, res) {
+router.post('/is-its-surface-area-less-than-320-square-centimetres', function (req, res) {
 
-  if (req.session.data['less-than-320-cm-squared'] == 'Yes') {
-    logger(req, "Surface area LESS THAN 320cm squared")
+  if (req.session.data['less-than-320-square-centimetres'] == 'Yes') {
+    logger(req, "Surface area LESS THAN 320 square centimetres")
     res.redirect('based-on-your-answers?o=8')
-  } else if (req.session.data['less-than-320-cm-squared'] == 'No') {
-    logger(req, "Surface area MORE THAN 320cm squared")
+  } else if (req.session.data['less-than-320-square-centimetres'] == 'No') {
+    logger(req, "Surface area MORE THAN 320 square centimetres")
     res.redirect('based-on-your-answers?o=9')
-  } else if (req.session.data['less-than-320-cm-squared'] == 'Not sure') {
+  } else if (req.session.data['less-than-320-square-centimetres'] == 'Not sure') {
     logger(req, "Surface area - Not sure")
     res.redirect('based-on-your-answers?o=10')
   }
@@ -348,11 +348,11 @@ router.get('/based-on-your-answers', function (req, res) {
   } else if ( checker == '7' ){
     backUrl = 'does-it-have-less-than-20-percent-ivory'
   } else if ( checker == '8' ){
-    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+    backUrl = 'is-its-surface-area-less-than-320-square-centimetres'
   } else if ( checker == '9' ){
-    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+    backUrl = 'is-its-surface-area-less-than-320-square-centimetres'
   } else if ( checker == '10' ){
-    backUrl = 'is-its-surface-area-less-than-320-cm-squared'
+    backUrl = 'is-its-surface-area-less-than-320-square-centimetres'
   } else if ( checker == '11' ){
     backUrl = 'does-it-have-less-than-10-percent-ivory'
   } else if ( checker == '12' ){
@@ -742,7 +742,7 @@ router.get('/ivory-volume', function (req, res) {
       ivoryVolume = '20%'
       break
     case 'type3':
-      ivoryVolume = '320cm2'
+      ivoryVolume = '320 square centimetres'
       break
     case 'type4':
       ivoryVolume = ''
@@ -1050,7 +1050,7 @@ router.get('/check-your-answers', function (req, res) {
       break
     case 'type3':
       ivoryYear = '1918'
-      ivoryVolume = '320cm2'
+      ivoryVolume = '320 square centimetres'
       break
     case 'type4':
       ivoryYear = ''

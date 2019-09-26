@@ -312,7 +312,7 @@ router.get('/ivory-volume', function (req, res) {
       ivoryVolume = '20%'
       break
     case 'type3':
-      ivoryVolume = '320cm2'
+      ivoryVolume = '320 square centimetres'
       break
     case 'type4':
       ivoryVolume = ''
