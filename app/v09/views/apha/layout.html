@@ -1,0 +1,11 @@
+{% extends "../layout.html" %}
+
+{% block header %}
+  {% include "../includes/cookie-banner.html" %}
+  {{ govukHeader({
+    homepageUrl: "",
+    serviceName: "Ivory service administration",
+    serviceUrl: "",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}

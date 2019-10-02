@@ -1,0 +1,70 @@
+
+{% block pageTitle %}
+Registraiton complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Registration complete</h1>
+      <div class="govuk-panel__body">
+        Registration number
+        <br><strong>4HCP37NL</strong>
+        <!-- <br><strong>XKCDWRVS</strong> -->
+      </div>
+    </div>
+
+    <!-- <p class="govuk-body">Your application and payment were successful.</p> -->
+
+    <p class="govuk-body">We’ve sent you an email with confirmation of registration and a payment receipt.</p>
+
+
+    <h3 class="govuk-heading-m">What happens next</h3>
+
+
+    <h4 class="govuk-heading-s">Selling the item</h4>
+
+    <ul class="govuk-list govuk-list--bullet">
+
+      {% if data['exemptionChoice'] == 'type2' %}
+
+      <li>If your musical instrument was made between 1947 and 1975, check if you need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a <abbr title="Convention on International Trade in Endangered Species of Wild Fauna and Flora">CITES</abbr> commercial use certificate</a>.</li>
+
+      {% endif %}
+
+
+      <li>This registration is valid for a single sale of the item.</li>
+      <li>Each owner must make a new registration before selling the item.</li>
+    </ul>
+
+
+
+    <h4 class="govuk-heading-s">Hiring the item out</h4>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>The owner may hire the item out as many times as they wish.</li>
+    </ul>
+
+
+    <p class="govuk-body govuk-!-margin-top-9">
+      <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+    </p>
+    <p class="govuk-body invisible-link">
+      <a href="check-registration-search" class="govuk-link">Check an ivory registration</a>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
