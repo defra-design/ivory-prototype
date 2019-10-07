@@ -1183,6 +1183,37 @@ router.get('/confirmation', function (req, res) {
   })
 })
 
+
+
+//* ****************************************************
+// CONFIRMATION EMAIL
+router.get('/confirmation-email', function (req, res) {
+
+  var contactEmail
+  if (req.session.data['ownerAgent'] == 'owner') {
+    contactEmail = req.session.data['ownerEmail']
+    logger(req, 'Owner email=' + req.session.data['ownerEmail'])
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    contactEmail = req.session.data['agentEmail']
+    logger(req, 'Agent email=' + req.session.data['agentEmail'])
+  }
+  logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
+
+  res.render(viewsFolder + 'confirmation-email', {
+    contactEmail: contactEmail
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
 //* ****************************************************
 // GOVPAY LOOKALIKE 1
 router.get('/govpay-lookalike-1', function (req, res) {
