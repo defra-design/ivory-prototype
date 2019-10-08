@@ -25,31 +25,72 @@ Registraiton complete
     <p class="govuk-body">We’ve sent you emails to confirm your registration and payment.</p>
 
 
-    <h3 class="govuk-heading-m">What happens next</h3>
+    <h3 class="govuk-heading-s">What happens next</h3>
 
-
-    <h4 class="govuk-heading-s">Selling the item</h4>
 
     <ul class="govuk-list govuk-list--bullet">
 
-      {% if data['exemptionChoice'] == 'type2' %}
+      <li><a href="https://www.gov.uk/download/xhasdf34asdf987987987asdfad">Download the registration document</a></li>
 
-      <li>If your musical instrument was made between 1947 and 1975, check if you need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a <abbr title="Convention on International Trade in Endangered Species of Wild Fauna and Flora">CITES</abbr> commercial use certificate</a>.</li>
+      <li>You can now sell the item because you have said it
 
-      {% endif %}
+        {% if data['exemptionChoice'] == 'type1' %}
+        was made before 1947 with less than 10% ivory
+        {% endif %}
+
+        {% if data['exemptionChoice'] == 'type2' %}
+        is a musical instrument made before 1975 with less than 20% ivory
+        {% endif %}
+
+        {% if data['exemptionChoice'] == 'type3' %}
+        is a portrait miniature made before 1918 and less than 320 square centimetres
+        {% endif %}
+
+      </li>
+    </ul>
+
+    {% if data['exemptionChoice'] == 'type2' %}
 
 
-      <li>This registration is valid for a single sale of the item.</li>
-      <li>Each owner must make a new registration before selling the item.</li>
+    <h3 class="govuk-heading-s">You must have a <abbr title="Convention on International Trade in Endangered Species of Wild Fauna and Flora">CITES</abbr> certificate</h3>
+
+    <p class="govuk-body">If your musical instrument was made between 1947 and 1975, you must now also apply for a <a href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use"><abbr title="Convention on International Trade in Endangered Species of Wild Fauna and Flora">CITES</abbr> 'Article 10' certificate</a> before you can sell or hire it.</p>
+
+
+    {% endif %}
+
+
+    <h3 class="govuk-heading-s">What to tell interested buyers</h3>
+
+    <p class="govuk-body">Buyers can <a href="check-registration-search.html">enter the item’s registration number into our online system</a> to check if it’s genuine.</p>
+
+
+
+
+    <h3 class="govuk-heading-s">What to tell the new owner when you sell the item</h3>
+
+
+    <p class="govuk-body">This registration expires after the item is sold. Each new owner must register the item again before selling it.</p>
+
+    <p class="govuk-body">The registration will not expire if you hire out the item.</p>
+
+    <p class="govuk-body">The new owner must <a href="https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/access-and-opening">contact APHA</a> to give their name and address</p>
+
+
+
+    <h3 class="govuk-heading-s">Report changes</h3>
+
+
+    <p class="govuk-body">You must <a href="https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/access-and-opening">contact APHA</a> to report any changes if:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the item no longer meets the criteria for registration</li>
+      <li>your information has changed, for example name or address</li>
+      <li>you did not provide relevant information about the item in your application</li>
     </ul>
 
 
 
-    <h4 class="govuk-heading-s">Hiring the item out</h4>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>The owner may hire the item out as many times as they wish.</li>
-    </ul>
 
 
     <p class="govuk-body govuk-!-margin-top-9">
