@@ -1,4 +1,22 @@
 {% extends "./layout.html" %}
+
+
+
+
+{% set thisPageTitle = "Confirm the volume of ivory" %}
+
+
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -37,6 +55,16 @@
         <div class="govuk-!-margin-bottom-9"></div>
 
 
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            Explain how you know surface area of the portrait miniature is less than 320 square centimetres
+          </label>
+          <textarea class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+        <!--
+
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <p class="govuk-fieldset__heading">
@@ -71,6 +99,8 @@
         </div>
 
         </fieldset>
+
+        -->
 
         {% else %}
 
