@@ -1189,7 +1189,9 @@ router.get('/confirmation', function (req, res) {
 // CONFIRMATION EMAIL
 router.get('/confirmation-email', function (req, res) {
 
-  var contactEmail
+  var exemption = req.query.e
+
+  var contactEmail = "jacky.turner@boltsandratchets.co.uk"
   if (req.session.data['ownerAgent'] == 'owner') {
     contactEmail = req.session.data['ownerEmail']
     logger(req, 'Owner email=' + req.session.data['ownerEmail'])
@@ -1200,6 +1202,7 @@ router.get('/confirmation-email', function (req, res) {
   logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
 
   res.render(viewsFolder + 'confirmation-email', {
+    exemption: exemption,
     contactEmail: contactEmail
   })
 })

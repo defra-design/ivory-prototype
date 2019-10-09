@@ -52,8 +52,28 @@ dd{
 
 .defra-dd{
   display: inline-block;
+    //display: block;
   margin-left: 0.5rem;
   font-weight: 600;
+}
+
+
+.defra-email-header{
+    padding-bottom: 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px #999 solid;
+}
+
+.defra-dt__email-header{
+    margin-left: 0rem;
+}
+
+.defra-dt__email-header::after{
+    content: ": ";
+}
+
+.defra-dd__email-header{
+    margin-left: 2rem;
 }
 
 
