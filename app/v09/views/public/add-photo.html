@@ -22,7 +22,12 @@
 
         <!-- <span id="hint" class="govuk-hint">Must be JPG or PNG format with a maximum size of 5 MB</span> -->
 
+        {% if data['exemptionChoice'] != 'type3' %}
+
         <span id="hint" class="govuk-hint">The ivory in the item must be clearly visible</span>
+
+        {% endif %}
+
 
         {% if errorNoFile %}
 
