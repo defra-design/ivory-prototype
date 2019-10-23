@@ -1,0 +1,45 @@
+{
+   "registrations": [
+      {
+         "reg_id": "IVR0001",
+         "exemption_type": "1",
+         "title": "Violin",
+         "description": "1912 ash violin with some ivory in the bow",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Mickey Mouse",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS"
+      },{
+         "reg_id": "IVR0002",
+         "exemption_type": "1",
+         "title": "Piano",
+         "description": "Steinway grand piano made in 1894. It has ivory on most of the keys. Some replacements have been made with bovine bone in recent years.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Donald Duck",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS"
+      },{
+         "reg_id": "IVR0003",
+         "exemption_type": "1",
+         "title": "Portrait miniature",
+         "description": "Ivory portrait miniature of a victorian lady holding an angry looking cat.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Buzz Lightyear",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS"
+      },{
+         "reg_id": "IVR0004",
+         "exemption_type": "1",
+         "title": "Ivory figure of a boy",
+         "description": "A lovely ivory figure of a boy. In good overall condition. Exact age unknown.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Kermit Frog",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS"
+      }
+   ]
+}

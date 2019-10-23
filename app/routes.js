@@ -14,5 +14,6 @@ router.use('/v06', require('./v06/routes/routes'))
 router.use('/v07', require('./v07/routes/routes'))
 router.use('/v08', require('./v08/routes/routes'))
 router.use('/v09', require('./v09/routes/routes'))
+router.use('/v10', require('./v10/routes/routes'))
 
 module.exports = router

@@ -1,0 +1,105 @@
+{% extends "./layout_unbranded.html" %}
+
+{% set registrationNumber = "4HCP37NL" %}
+
+{% block pageTitle %}
+  Confirmation of application to register an ivory item
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-m">
+    Your ivory item registration - {{ registrationNumber }}
+  </h1>
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header">Animal Plant Health Agency</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Date</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Wed 09/10/2019 11:02</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+  </dl>
+
+
+
+
+
+<p class="govuk-body">
+  You have registered your ivory item.
+</p>
+
+
+<p class="govuk-body">
+  The registration number is: {{ registrationNumber }}
+</p>
+
+<p class="govuk-body">
+  Download the registration document at: <a href="https://www.gov.uk/download/IRJBFKS8473JSBSKITS3VFDDSDF">https://www.gov.uk/download/IRJBFKS8473JSBSKITS3VFDDSDF</a>
+</p>
+
+
+
+
+<p class="govuk-body">
+
+  You can now sell the item because you said it
+
+  {% if exemption == 'type1' %}
+  was made before 1947 and has less than 10% ivory.
+
+  {% elseif exemption == 'type2' %}
+  is a musical instrument made before 1975 with less than 20% ivory.
+
+  {% elseif exemption == 'type3' %}
+  is a portrait miniature made before 1918 with a surface area less than 320 square centimetres.
+
+  {% else %}
+  {% endif %}
+
+</p>
+
+
+<p class="govuk-body">
+
+  You have registered the item that you described as:
+
+  <br><br>
+
+  {{ data['description'] }}
+
+</p>
+
+
+<!--
+
+[if musical instrument made between 1947 and 1975]
+You must have a CITES certificate
+The [musical instrument] you’ve registered was made between 1947 and 1975. You must now also apply for a CITES ‘Article 10’ certificate before you can sell or hire it.
+[end if]
+[Grey bar] - You must tell us if any details change
+To contact us, reply this email or go to https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/access-and-opening
+
+
+You have registered the item that you described as:
+‘That thing that has the bit of ivory where the whatever is…’ [more text]
+You can now sell this item because you have said it is a musical instrument made before 1975 with less than 20% ivory.
+
+
+
+
+-->
+
+
+
+
+
+{% endblock %}
