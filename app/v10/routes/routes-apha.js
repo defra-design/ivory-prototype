@@ -12,16 +12,22 @@ function logger (req) {
   return 'DEBUG.routes ' + req.method + ' ' + req.route.path
 }
 
+
+
+
+
 /**
  * REGISTRATIONS
  */
 router.get('/registrations', function (req, res) {
   console.log(logger(req))
-
   console.log(viewsFolder + 'registrations')
-
   res.render(viewsFolder + 'registrations', data)
 })
+
+
+
+
 
 /**
  * ITEM-DETAIL
@@ -40,6 +46,18 @@ router.get('/item-detail/:regId', function (req, res) {
     registration: registration
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ACCESS UPLOADED IMAGES

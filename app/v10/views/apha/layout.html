@@ -4,8 +4,13 @@
   {% include "../includes/cookie-banner.html" %}
   {{ govukHeader({
     homepageUrl: "",
-    serviceName: "Ivory service administration",
+    serviceName: "Ivory registrations",
     serviceUrl: "",
     containerClasses: "govuk-width-container"
   }) }}
 {% endblock %}
+
+{% block beforeContent %}
+{% include "../includes/stage-banner-prototype.html" %}
+{% endblock %}
+
