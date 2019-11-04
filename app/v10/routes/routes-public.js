@@ -687,7 +687,7 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = ''
       break
     case 'type5':
-      ivoryYear = ''
+      ivoryYear = '1918'
       break
     default:
       ivoryYear = 'xxxx'
