@@ -609,7 +609,7 @@ router.post('/add-photo', function (req, res) {
             //   res.redirect('check-photo')
             // }
 
-            res.redirect('check-photo')
+            res.redirect('description')
 
           }
         })
