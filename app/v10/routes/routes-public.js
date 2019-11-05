@@ -1054,9 +1054,11 @@ router.get('/check-your-answers', function (req, res) {
       break
     case 'type4':
       ivoryYear = ''
+      ivoryVolume = ''
       break
     case 'type5':
-      ivoryYear = ''
+      ivoryYear = '1918'
+      ivoryVolume = ''
       break
     default:
       ivoryYear = 'xxxx'
