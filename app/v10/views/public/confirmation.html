@@ -11,6 +11,64 @@ Registraiton complete
 {% endblock %}
 {% block content %}
 
+
+{% if data['exemptionChoice'] == 'type5' %}
+<!-- RMI -->
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application complete</h1>
+      <div class="govuk-panel__body">
+        Application number
+        <br><strong>4HCP37NL</strong>
+        <!-- <br><strong>XKCDWRVS</strong> -->
+      </div>
+    </div>
+
+    <p class="govuk-body">We’ve sent you emails to confirm your application and payment.</p>
+
+
+    <h3 class="govuk-heading-s">What happens next</h3>
+
+
+    <ul class="govuk-list govuk-list--bullet">
+
+      <li>APHA will pass your application to an approved assessor</li>
+      <li>We will let you know if your application for a certificate is approved within 30 days</li>
+    </ul>
+
+
+
+    <p class="govuk-body govuk-!-margin-top-9">
+      <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+    </p>
+    <p class="govuk-body invisible-link">
+      <a href="confirmation-email?e={{ data['exemptionChoice'] }}" class="govuk-link">View confirmation email</a>
+    </p>
+    <p class="govuk-body invisible-link">
+      <a href="check-registration-search" class="govuk-link">Check an ivory registration</a>
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% else %}
+<!-- standard categories -->
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-panel govuk-panel--confirmation">
@@ -108,7 +166,7 @@ Registraiton complete
   </div>
 </div>
 
-
+{% endif %}
 
 
 

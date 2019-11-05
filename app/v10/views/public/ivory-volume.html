@@ -58,10 +58,26 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="volume-detail">
-            Explain how you know surface area of the portrait miniature is less than 320 square centimetres
+            What evidence can you provide to support your application?
           </label>
           <textarea class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
         </div>
+
+
+
+        <h2 class="govuk-heading-m">Add up to 3 files</h2>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+
+
+
+
 
 
         {% elseif data['exemptionChoice'] == 'type3' %}

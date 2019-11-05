@@ -80,6 +80,46 @@
 <!--      </div>-->
 
 
+
+      {% if data['exemptionChoice'] == 'type5' %}
+
+      <!-- RMI -->
+
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Volume of ivory</dt>
+        <dd class="app-check-your-answers__answer">
+          I declare the item is the rarest and most important of its kind.
+
+          {% if data['volumeDetail'] != '' %}
+          <br>
+          Explanation:
+          <br><br>
+          {{ data['volumeDetail'] }}
+          {% endif %}
+
+          <br><br>
+
+          Uploads:
+          <br>
+          <ul>
+            <li>Example-document-1.pdf</li>
+          </ul>
+
+
+
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+
+
+
+
+
+      {% else %}
+
+      <!-- Standard categories -->
+
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Volume of ivory</dt>
         <dd class="app-check-your-answers__answer">
@@ -117,6 +157,8 @@
         </dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
+
+      {% endif %}
 
 
       {% if agentOwner == 'agent' %}
