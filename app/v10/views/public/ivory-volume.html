@@ -28,7 +28,43 @@
 
       <div class="govuk-form-group">
 
-        {% if data['exemptionChoice'] == 'type3' %}
+        {% if data['exemptionChoice'] == 'type5' %}
+
+        <h1 class="govuk-heading-l">Declare the item is the rarest and most important of its kind</h1>
+
+
+
+        {{ govukCheckboxes({
+        name: "volume-declaration",
+        fieldset: {
+        legend: {
+        text: "Legal declaration",
+        classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+        }
+        },
+        items: [
+        {
+        value: "Declared",
+        text: "I declare the item is the rarest and most important of its kind",
+        id: "volume-declaration",
+        checked: checked("volume-declaration", "Declared")
+        }
+        ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            Explain how you know surface area of the portrait miniature is less than 320 square centimetres
+          </label>
+          <textarea class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+        {% elseif data['exemptionChoice'] == 'type3' %}
 
         <h1 class="govuk-heading-l">Confirm the portrait miniature is less than 320 square centimetres</h1>
 
