@@ -609,7 +609,7 @@ router.post('/add-photo', function (req, res) {
             //   res.redirect('check-photo')
             // }
 
-            res.redirect('check-photo')
+            res.redirect('description')
 
           }
         })
@@ -687,7 +687,7 @@ router.get('/ivory-age', function (req, res) {
       ivoryYear = ''
       break
     case 'type5':
-      ivoryYear = ''
+      ivoryYear = '1918'
       break
     default:
       ivoryYear = 'xxxx'
