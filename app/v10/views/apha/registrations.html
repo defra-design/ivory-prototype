@@ -42,7 +42,7 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">
             <a href='item-detail/{{ registration.reg_id }}'>
-            <img src="../photos/{{ registration.photo }}" alt="[alt text]" class="item-list-thumbnail" />
+            <img src="{{baseUrl}}/photos/{{ registration.photo }}" alt="[alt text]" class="item-list-thumbnail" />
               <!-- had to fudge the above URL from the item details page and remove a dot? -->
             <br />
            {{ registration.reg_id }}
