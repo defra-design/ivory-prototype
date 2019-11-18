@@ -1,4 +1,4 @@
-@import "node_modules/govuk-frontend/all";
+@import "node_modules/govuk-frontend/govuk/all";
 
 img{
   max-width: 100%;
@@ -26,17 +26,18 @@ img{
   display: block !important;
 }
 
-.app-code {
-  font-size: 16px;
-  position: relative;
-  margin: 0;
-  padding: govuk-spacing(3);
-  overflow: auto;
-  border: 1px solid $govuk-border-colour;
-  background-color: govuk-colour("grey-4");
-  max-width: 38em;
-  @include govuk-responsive-margin(5, "bottom");
-}
+// Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-3 didn't no longer existed)
+//.app-code {
+//  font-size: 16px;
+//  position: relative;
+//  margin: 0;
+//  padding: govuk-spacing(3);
+//  overflow: auto;
+//  border: 1px solid $govuk-border-colour;
+//  background-color: govuk-colour("grey-4");
+//  max-width: 38em;
+//  @include govuk-responsive-margin(5, "bottom");
+//}
 
 .app-prose-scope {
 
@@ -88,15 +89,17 @@ img{
     @extend %govuk-section-break--xl;
   }
 
-  pre {
-    @extend .app-code;
-  }
+  // Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (app-code no longer exists)
+  //pre {
+  //  @extend .app-code;
+  //}
 
-  p code {
-    border: 1px solid $govuk-border-colour;
-    background-color: govuk-colour("grey-4");
-    padding: 0 govuk-spacing(2);
-  }
+  // Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-4 no longer exists)
+  //p code {
+  //  border: 1px solid $govuk-border-colour;
+  //  background-color: govuk-colour("grey-4");
+  //  padding: 0 govuk-spacing(2);
+  //}
 
   // TODO: Blockquotes are likely the most semantic element to be using, update to use the inset component directly.
   blockquote {
