@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-
 const path = require('path')
 const multer = require('multer')
 const fs = require('fs')
-const projectDirectory = path.dirname(require.main.filename) // Used for adding & removing the uploads
-
-// Set the views with a relative path (haven't yet found a better way of doing this yet)
-const viewsFolder = __dirname + '/../views/public/'
+const projectDirectory = path.dirname(require.main.filename) // Used when a full path is required, i.e. /Users/dave/Documents/NODE/projects/DEFRA/ivory-prototype
+const viewsFolder = path.join(__dirname, '/../views/public/') // Set the views with a relative path (haven't yet found a better way of doing this yet)
+const version = __dirname.match(/app\/(.*?)\/routes/)[1] // Gets the version, e.g. v10
 
 const exemptionTypeText1 = 'Item with less than 10% ivory made before 1947'
 const exemptionTypeText2 = 'Musical instrument with less than 20% ivory and made before 1975'
@@ -515,7 +513,7 @@ router.get('/add-photo', function (req, res) {
 
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
   if (req.session.data['imageName']) {
-    const imagePath = projectDirectory + '/app/uploads/' + req.session.data['imageName']
+    const imagePath = path.join(projectDirectory, 'app/', version, '/photos/', req.session.data['imageName'])
     console.log('Found a previously uploaded photo to remove at image path: ' + imagePath)
     fs.unlink(imagePath, err => {
       if (err) logger(req, err)
@@ -535,86 +533,53 @@ router.post('/add-photo', function (req, res) {
 
   // Prepare for the photo upload code
   const upload = multer({
-    dest: path.join(projectDirectory, '/app/uploads/temp'), // temp location for the file to be placed
+    dest: path.join(projectDirectory, 'app/', version, '/photos'),
     limits: {
       fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
     }
   }).single('fileToUpload') /* name attribute of <file> element in the html form */
 
   // Upload the chosen file to the multer 'dest'
-  // req.file is the `fileToUpload` file
   upload(req, res, function (err) {
-    logger(req, 'Uploading the chosen file')
 
-    // This error handling is a bit rough...
+    // Handle errors
     if (err) {
-      logger(req, 'Multer threw an error = ' + err)
+      logger(req, 'Multer threw an error' + err)
     }
 
-    // Check a file was successfully uploaded
+    // Handle no file chosen
     if (!req.file) {
       logger(req, 'No file was chosen/uploaded')
-
-      // ALLOW NO PHOTOS
-      // Remove the previous entry ... a temp fudge to handle that uploads from previous users are all called 'image.png'
-      // fs.unlink(targetPath, err => {
-      //   if (err) console.log(err)
-      // });
-      // res.redirect('add-title');
-      res.redirect('check-photo')
-      // FORCE A PHOTO TO BE UPLOAD AND THROW AN ERROR
-      // res.render(viewsFolder + 'add-photo', {
-      //   errorNoFile: 'Please choose a file'
-      // })
-    } else { // A file was uploaded, so continue
-      const tempPath = req.file.path // req.file is the form input file from type="file" name="fileUpload"
-
-      // Check the file type
-      var type = path.extname(req.file.originalname).toLowerCase()
-      logger(req, 'File type = ' + type)
-
-      if (type !== '.png' && type !== '.jpg' && type !== '.jpeg' && type !== '.gif') {
-        logger(req, 'Wrong file type')
-        fs.unlink(tempPath, err => {
-          if (err) console.log(err)
-        })
-        res.render(viewsFolder + 'upload-image', {
-          errorNoFile: 'That file type is not accepted'
-        })
-      } else {
-        // Correct file type, so continue
-        // If it passes all validation, move/rename it to the persistent location
-
-        // Choose temporary file name (it would likely be the registration/application reference in live)
-        var imageName = new Date().getTime().toString() + '.png' // getTime() gives the milliseconds since 1970...
-        req.session.data['imageName'] = imageName
-        logger(req, 'New session variable imageName = ' + imageName)
-
-        // Set target location for photo
-        const targetPath = projectDirectory + '/app/uploads/' + imageName
-        logger(req, 'targetPath = ' + targetPath)
-
-        // Move photo from temp location to 'permenant' location
-        fs.rename(tempPath, targetPath, function (err) {
-          if (err) {
-            console.log('err = ' + err)
-          } else {
-            logger(req, 'File successfully uploaded')
-            req.session.data['photoUploaded'] = 'true'
-
-            // testing
-            // if ( req.session.data['photoAlreadyPreviewed'] == 'true' ) {
-            //   res.redirect('description')
-            // } else {
-            //   res.redirect('check-photo')
-            // }
-
-            res.redirect('description')
-
-          }
-        })
-      }
+      res.redirect('check-photo') // We're not enforcing uploads
     }
+
+    // Handle a wrong file type
+    const multerDestPath = req.file.path
+    var fileExt = path.extname(req.file.originalname).toLowerCase()
+    if (fileExt !== '.png' && fileExt !== '.jpg' && fileExt !== '.jpeg') {
+      logger(req, 'Wrong file type')
+      fs.unlink(multerDestPath, err => {
+        if (err) console.log(err)
+      })
+      res.render(viewsFolder + 'add-photo', {
+        errorNoFile: 'The selected file must be a JPG or PNG'
+      })
+    }
+
+    // Passes all validation, so move/rename it to the persistent location
+    // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
+    var imageName = new Date().getTime().toString() + fileExt // getTime() gives the milliseconds since 1970...
+    req.session.data['imageName'] = imageName // New session variable imageName
+    const targetPath = path.join(projectDirectory, 'app/', version, '/photos/', imageName)
+
+    fs.rename(multerDestPath, targetPath, function (err) {
+      if (err) {
+        console.log('err = ' + err)
+      } else {
+        logger(req, 'File successfully uploaded')
+        res.redirect('description')
+      }
+    })
   })
 })
 
@@ -1287,23 +1252,6 @@ router.get('/check-registration-result', function (req, res) {
 
   res.render(viewsFolder + 'check-registration-result')
 })
-
-/// ///////////////////////////////////////////////////////////////////////////
-// ACCESS UPLOADED IMAGES
-router.get('/routeToImage', (req, res) => {
-  // Takes a query parameter, e.g. http://localhost:3000/routeToImage?imageName=1548686882219.png
-  var imageName = req.query.imageName
-  logger(req, 'imageName = ' + imageName)
-  var imagePath = path.join(projectDirectory, '/app/uploads/', imageName)
-  logger(req, 'imagePath = ' + imagePath)
-  res.sendFile(imagePath)
-})
-
-router.get('/routeToUploadedImage/:imageId', (req, res) => {
-  console.log('DEBUG.routes ' + req.route.path + ', imageId=' + req.params.imageId)
-  res.sendFile(path.join(projectDirectory, '/app/uploads/' + req.params.imageId + '.png'))
-})
-
 
 
 /// ///////////////////////////////////////////////////////////////////////////

@@ -10,6 +10,7 @@
          "owner_name": "Mickey Mouse",
          "owner_address": "1 London Street, London, SA1 1AB",
          "owner_postcode": "PA1 3IS"
+         "photo": "PW82THCV.jpg"
       },{
          "reg_id": "CAX482PL",
          "exemption_type": "Musical instrument",
@@ -19,7 +20,8 @@
          "submitted_datetime": "2019-01-12 11:10:00",
          "owner_name": "Donald Duck",
          "owner_address": "1 London Street, London, SA1 1AB",
-         "owner_postcode": "PA1 3IS"
+         "owner_postcode": "PA1 3IS",
+         "photo": "CAX482PL.jpg"
       },{
          "reg_id": "9UVE426A",
          "exemption_type": "Portrait miniature",
@@ -29,7 +31,8 @@
          "submitted_datetime": "2019-01-12 11:10:00",
          "owner_name": "Buzz Lightyear",
          "owner_address": "1 London Street, London, SA1 1AB",
-         "owner_postcode": "PA1 3IS"
+         "owner_postcode": "PA1 3IS",
+         "photo": "9UVE426A.jpg"
       },{
          "reg_id": "3FR42W9K",
          "exemption_type": "De minimis",
@@ -39,7 +42,8 @@
          "submitted_datetime": "2019-01-12 11:10:00",
          "owner_name": "Kermit Frog",
          "owner_address": "1 London Street, London, SA1 1AB",
-         "owner_postcode": "PA1 3IS"
+         "owner_postcode": "PA1 3IS",
+         "photo": "3FR42W9K.jpg"
       }
    ]
 }

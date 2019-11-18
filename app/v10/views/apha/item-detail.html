@@ -2,7 +2,7 @@
 
 {% block beforeContent %}
 {% include "../includes/stage-banner-prototype.html" %}
-<a href="../registrations" class="govuk-back-link">Back</a>
+<a href="{{baseUrl}}/apha/registrations" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
 
       <!-- <img class="govuk-!-margin-bottom-5" src="https://farm8.staticflickr.com/7353/27096944865_ee6c27f42d_z.jpg" width="640" height="480" alt="Upright Bechstein"> -->
       <!-- <img class="govuk-!-margin-bottom-5" src="/public/images/piano.jpg" width="640" height="480" alt="Upright Bechstein"> -->
-      <img class="item-detail-main govuk-!-margin-bottom-5" src="../routeToUploadedImage/{{ registration.reg_id }}" alt="[First x characters of descritpion?]">
+      <img class="item-detail-main govuk-!-margin-bottom-5" src="{{baseUrl}}/photos/{{ registration.photo }}" alt="[First x characters of descritpion?]">
 
       <table class="govuk-table">
         <tbody class="govuk-table__body">
