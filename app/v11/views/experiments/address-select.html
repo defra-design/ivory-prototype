@@ -1,0 +1,66 @@
+{% extends "./layout.html" %} {% block beforeContent %}
+{% include "../includes/ib-head.html" %} {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">What is the owner's address?</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <!-- <h2 class="govuk-heading-m">Postcode</h2> -->
+      <!-- <p>Postcode: <b>{{data['postcode']}} </b> <a href='postcode'>Change</a></p>
+
+      <div class="govuk-form-group">
+        <select class="govuk-select" id="address" name="address">
+
+          <option value="1" selected>1 test street</option>
+          <option value="2">2 test street</option>
+          <option value="3">3 test street</option>
+          <option value="4">4 test street</option>
+
+        </select>
+      </div> -->
+
+      <p><b>1 address found for {{data['address-name-number']}} and {{data['postcode']}}</b></p>
+
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <div class="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="addressSelect" name="addressSelect" type="radio" value="{{data['address-name-number']}} Test Street, Test Town, {{data['postcode']}}">
+                    <label class="govuk-label govuk-radios__label" for="addressSelect-1">
+                    {{data['address-name-number']}} Test Street, Test Town, {{data['postcode']}}
+                  </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <button class="govuk-button">Continue</button>
+
+          </form>
+
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">I can't find my address in the list</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>help and guidance...</p>
+        <ul class="list list-bullet">
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        </ul>
+        <p><a href="">Enter your address manually</a></p>
+      </div>
+    </details>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
