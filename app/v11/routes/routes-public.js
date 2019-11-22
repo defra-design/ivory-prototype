@@ -497,7 +497,7 @@ router.post('/choose-exemption', function (req, res) {
 
   if (req.session.data['exemptionChoice'] == 'type4') {
     logger(req, "It's a museum piece.")
-    res.redirect('register-museum-item')
+    res.redirect('apply-to-register-to-sell-an-item-to-a-museum')
   } else if (req.session.data['exemptionChoice'] == 'type5') {
       logger(req, "It's rare and most important.")
       res.redirect('apply-for-an-rmi-certificate')
@@ -515,9 +515,9 @@ router.post('/choose-exemption', function (req, res) {
 
 //* ****************************************************
 // REGISTER MUSEUM ITEM
-router.get('/register-museum-item', function (req, res) {
+router.get('/apply-to-register-to-sell-an-item-to-a-museum', function (req, res) {
 
-  res.render(viewsFolder + 'register-museum-item', {
+  res.render(viewsFolder + 'apply-to-register-to-sell-an-item-to-a-museum', {
     backUrl: 'choose-exemption',
   })
 })

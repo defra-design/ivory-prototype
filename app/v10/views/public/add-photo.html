@@ -18,13 +18,19 @@ Add a photo
 
 
       <label class="govuk-label" for="fileToUpload">
-        <h1 class="govuk-heading-l">Add a photo of the item</h1>
+        <h1 class="govuk-heading-l">Add a photo</h1>
       </label>
 
-      <p class="govuk-body govuk-!-margin-bottom-5">The ivory in the item must be clearly visible.</p>
 
 
-      <p class="govuk-body govuk-!-margin-bottom-5">You may add between 1 and 6 photos.</p>
+      {% if data['exemptionChoice'] != 'type3' %}
+
+      <span id="hint" class="govuk-hint">The ivory in the item must be visible.</span>
+
+      {% endif %}
+
+
+      <p class="govuk-hint govuk-!-margin-bottom-5">You may add between 1 and 6 photos.</p>
 
 
 
