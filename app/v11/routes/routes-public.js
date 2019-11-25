@@ -3,7 +3,7 @@ const router = express.Router()
 const path = require('path')
 const multer = require('multer')
 const fs = require('fs')
-const projectDirectory = path.dirname(require.main.filename) // Used when a full path is required, i.e. /Users/dave/Documents/NODE/projects/DEFRA/ivory-prototype
+const rootAppDirectory = require('../../config').rootAppDirectory // Used when a full path is required, e.g. '/Users/dave/Documents/NODE/projects/DEFRA/ivory-prototype/app' or '/app/app' on Heroku
 const viewsFolder = path.join(__dirname, '/../views/public/') // Set the views with a relative path (haven't yet found a better way of doing this yet)
 const version = __dirname.match(/app\/(.*?)\/routes/)[1] // Gets the version, e.g. v10
 
@@ -546,7 +546,7 @@ router.get('/add-photo', function (req, res) {
 
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
   if (req.session.data['imageName']) {
-    const imagePath = path.join(projectDirectory, 'app/', version, '/photos/', req.session.data['imageName'])
+    const imagePath = path.join(rootAppDirectory, version, '/photos/', req.session.data['imageName'])
     console.log('Found a previously uploaded photo to remove at image path: ' + imagePath)
     fs.unlink(imagePath, err => {
       if (err) logger(req, err)
@@ -566,7 +566,7 @@ router.post('/add-photo', function (req, res) {
 
   // Prepare for the photo upload code
   const upload = multer({
-    dest: path.join(projectDirectory, 'app/', version, '/photos'),
+    dest: path.join(rootAppDirectory, version, '/photos'),
     limits: {
       fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
     }
@@ -603,7 +603,7 @@ router.post('/add-photo', function (req, res) {
     // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
     var imageName = new Date().getTime().toString() + fileExt // getTime() gives the milliseconds since 1970...
     req.session.data['imageName'] = imageName // New session variable imageName
-    const targetPath = path.join(projectDirectory, 'app/', version, '/photos/', imageName)
+    const targetPath = path.join(rootAppDirectory, version, '/photos/', imageName)
 
     fs.rename(multerDestPath, targetPath, function (err) {
       if (err) {

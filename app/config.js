@@ -26,6 +26,9 @@ module.exports = {
   cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a>',
 
   // Enable or disable Browser Sync
-  useBrowserSync: 'true'
+  useBrowserSync: 'true',
 
+  // Get the absolute path of the root application directory
+  // (Beware an alternative way of setting this using 'path.dirname(require.main.filename)' is different on localhost and Heroku)
+  rootAppDirectory: __dirname
 }
