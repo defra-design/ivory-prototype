@@ -35,7 +35,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Description</dt>
-        <dd class="app-check-your-answers__answer">{{ description }}</dd>
+        <dd class="app-check-your-answers__answer">{{ data['description'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="description">Change</a></dd>
       </div>
 
@@ -64,27 +64,9 @@
         <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
       </div>
 
-
-
-
-<!--      <div class="app-check-your-answers__contents">-->
-<!--        <dt class="app-check-your-answers__question">Width</dt>-->
-<!--        <dd class="app-check-your-answers__answer">{{data['itemWidth']}} cm</dd>-->
-<!--        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-width">Change</a></dd>-->
-<!--      </div>-->
-
-<!--      <div class="app-check-your-answers__contents">-->
-<!--        <dt class="app-check-your-answers__question">Height</dt>-->
-<!--        <dd class="app-check-your-answers__answer">{{data['itemHeight']}} cm</dd>-->
-<!--        <dd class="app-check-your-answers__change"><a href="ivory-volume#item-height">Change</a></dd>-->
-<!--      </div>-->
-
-
-
       {% if data['exemptionChoice'] == 'type5' %}
 
       <!-- RMI -->
-
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Evidence for item being the rarest and most important of its kind</dt>
@@ -112,10 +94,6 @@
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
-
-
-
-
       {% else %}
 
       <!-- Standard categories -->
@@ -124,9 +102,10 @@
         <dt class="app-check-your-answers__question">Volume of ivory</dt>
         <dd class="app-check-your-answers__answer">
           {% if data['exemptionChoice'] == 'type3' %}
-          I declare the item is less than {{ ivoryVolume }} by volume.
-          {% else %}
+          <!-- Portrait miniature -->
           I declare the surface area of the portrait miniature is less than 320 square centimetres.
+          {% else %}
+          I declare the item is less than {{ ivoryVolume }} by volume.
           {% endif %}
 
           <br><br>
@@ -158,13 +137,21 @@
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
+      <br /><br /><br />
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Who owns the item?</dt>
+        <dd class="app-check-your-answers__answer">Someone else owns it{{data['agentOwner']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="who-owns-item">Change</a></dd>
+      </div>
+
       {% endif %}
 
 
       {% if agentOwner == 'agent' %}
+      <!-- We have an agent -->
       <div class="app-check-your-answers__contents">
-        <!-- <dt class="app-check-your-answers__question">On behalf of owner</dt> -->
-        <dt class="app-check-your-answers__question">Acting as</dt>
+        <dt class="app-check-your-answers__question">I'm acting on the owner's behalf as</dt>
         <dd class="app-check-your-answers__answer">{{data['agentIs']}}</dd>
         <dd class="app-check-your-answers__change"><a href="agent">Change</a></dd>
       </div>
@@ -172,7 +159,7 @@
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Your name</dt>
         <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
-        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
@@ -185,13 +172,13 @@
           {{ data['agentAddressCounty'] }}<br />
           {{ data['agentAddressPostcode'] }}
         </dd>
-        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Your email address</dt>
         <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
-        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+        <dd class="app-check-your-answers__change"><a href="agent-contact">Change</a></dd>
       </div>
       {% endif %}
 
@@ -199,25 +186,33 @@
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
           {% if agentOwner == 'agent' %}
-          Owner's
+          Owner's name
           {% endif %}
           {% if agentOwner == 'owner' %}
-          Your
-          {% endif %} name
+          Your name
+          {% endif %}
         </dt>
         <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
-        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+        <dd class="app-check-your-answers__change">
+          {% if agentOwner == 'agent' %}
+          <a href="agent-owner-name">Change</a>
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          <a href="owner-name">Change</a>
+          {% endif %}
+
+
+        </dd>
       </div>
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">
           {% if agentOwner == 'agent' %}
-          Owner's
+          Owner's address
           {% endif %}
           {% if agentOwner == 'owner' %}
-          Your
+          Your address
           {% endif %}
-          address
         </dt>
         <dd class="app-check-your-answers__answer">
           {{ data['addressBusiness']}}<br />
@@ -227,7 +222,14 @@
           {{ data['addressCounty'] }}<br />
           {{ data['addressPostcode'] }}
         </dd>
-        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+        <dd class="app-check-your-answers__change">
+          {% if agentOwner == 'agent' %}
+          <a href="agent-owner-address">Change</a>
+          {% endif %}
+          {% if agentOwner == 'owner' %}
+          <a href="owner-address">Change</a>
+          {% endif %}
+        </dd>
       </div>
 
       {% if agentOwner == 'owner' %}

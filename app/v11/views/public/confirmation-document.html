@@ -9,7 +9,7 @@
 {% block content %}
 
   <h1 class="govuk-heading-m">
-    Your ivory item registration: {{ registrationNumber }}
+    Your ivory item registration - {{ registrationNumber }}
   </h1>
 
   <dl class="defra-dl defra-email-header">
@@ -49,28 +49,23 @@
 
 
 
-<p class="govuk-body">You can now sell the item because you have said it:</p>
+<p class="govuk-body">
 
-<ul class="govuk-list govuk-list--bullet">
+  You can now sell the item because you said it
 
-  {% if data['exemptionChoice'] == 'type1' %}
-  <!-- De minimis -->
-  <li>was made before 1947</li>
-  <li>with less than 10% ivory</li>
-  {% endif %}
-  {% if data['exemptionChoice'] == 'type2' %}
-  <!-- Musical instrument -->
-  <li>is a musical instrument</li>
-  <li>was made before 1975</li>
-  <li>with less than 20% ivory</li>
-  {% endif %}
-  {% if data['exemptionChoice'] == 'type3' %}
-  <!-- Portrait miniature -->
-  <li>was made before 1918</li>
-  <li>has a surface area less than 320 square centimetres</li>
-  {% endif %}
-</ul>
+  {% if exemption == 'type1' %}
+  was made before 1947 and has less than 10% ivory.
 
+  {% elseif exemption == 'type2' %}
+  is a musical instrument made before 1975 with less than 20% ivory.
+
+  {% elseif exemption == 'type3' %}
+  is a portrait miniature made before 1918 with a surface area less than 320 square centimetres.
+
+  {% else %}
+  {% endif %}
+
+</p>
 
 
 <p class="govuk-body">
