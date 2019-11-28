@@ -39,3 +39,6 @@ app/uploads/temp
 
 # Ignore Webstorm IDE files
 .idea
+
+# Ignore the public folder (which is generated every time it starts)
+public
