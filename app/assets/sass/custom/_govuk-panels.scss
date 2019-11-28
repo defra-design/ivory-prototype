@@ -44,18 +44,19 @@
 	}
 }
 
-.form-section, .split-section {
-	border-bottom: 1px solid govuk-colour(grey-3);
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	@include mq($from: tablet) {
-		margin-bottom: govuk-spacing(6);
-	}
-	&:last-of-type {
-		border: none;
-		margin-bottom: 0;
-	}
-}
+// Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-3 no longer exists)
+//.form-section, .split-section {
+//	border-bottom: 1px solid govuk-colour(grey-3);
+//	padding-top: 1rem;
+//	padding-bottom: 1rem;
+//	@include mq($from: tablet) {
+//		margin-bottom: govuk-spacing(6);
+//	}
+//	&:last-of-type {
+//		border: none;
+//		margin-bottom: 0;
+//	}
+//}
 .split-section {
 	border: none;
 }
@@ -176,21 +177,23 @@
 	}
 }
 
-progress {
-	padding: 0;
-	border: none;
-	border-radius: 0;
-
-	display: block;
-	color: $govuk-link-colour;
-	background-color: govuk-colour(grey-3);
-	width: 100%;
-}
+// Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-3 no longer exists)
+//progress {
+//	padding: 0;
+//	border: none;
+//	border-radius: 0;
+//
+//	display: block;
+//	color: $govuk-link-colour;
+//	background-color: govuk-colour(grey-3);
+//	width: 100%;
+//}
 
 /* Chrome */
-progress::-webkit-progress-bar {
-    background-color: govuk-colour(grey-3);
-}
+// Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-3 no longer exists)
+//progress::-webkit-progress-bar {
+//    background-color: govuk-colour(grey-3);
+//}
 
 progress::-moz-progress-bar {
   background-color: $govuk-link-colour;

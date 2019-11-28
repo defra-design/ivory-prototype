@@ -95,11 +95,12 @@
   text-transform: uppercase;
 }
 
-.govuk-button.govuk-button--secondary{
-  background-color: govuk-colour(grey-3);
-  color: govuk-colour(black);
-  box-shadow: govuk-colour(grey-2) 0px 2px 0px 0px;
-}
+// Commented out when upgrading from govuk-frontend 2.11.0 to 3.3.0 (grey-3 no longer exists)
+//.govuk-button.govuk-button--secondary{
+//  background-color: govuk-colour(grey-3);
+//  color: govuk-colour(black);
+//  box-shadow: govuk-colour(grey-2) 0px 2px 0px 0px;
+//}
 
 .govuk-button--addition {
   background-color: govuk-colour(blue);
