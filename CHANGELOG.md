@@ -57,7 +57,7 @@ You will need to:
 
 - update `app/views/includes/scripts.html` file and add the following line to include the JavaScript file
 ```
-<script src="/node_modules/govuk-frontend/all.js"></script>
+<script src="/node_modules/govuk-frontend/govuk/all.js"></script>
 ```
 - modify `app/assets/javascripts/application.js` file to initialise the JavaScript
 ```
