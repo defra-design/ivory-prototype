@@ -1187,6 +1187,8 @@ router.get('/check-your-answers-filled', function (req, res) {
 
   req.session.data['ageDetail'] = '[ageDetail]'
 
+  // need to add the checkbox answers to each of these age and volume
+
   req.session.data['volumeDetail'] = '[volumeDetail]'
 
   req.session.data['ownerAgent'] = 'agent'
@@ -1206,9 +1208,6 @@ router.get('/check-your-answers-filled', function (req, res) {
   req.session.data['addressTown'] = 'Wirral'
   req.session.data['addressCounty'] = 'Merseyside'
   req.session.data['addressPostcode'] = 'CH60 1PL'
-
-
-
 
   req.session.data['dealingIntent'] = 'Sell it'
 
