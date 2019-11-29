@@ -1150,6 +1150,183 @@ router.post('/check-your-answers', function (req, res) {
   res.redirect('govpay-lookalike-1')
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// * Check your answers pre-filled *********************
+
+
+//* ****************************************************
+// CHECK YOUR ANSWERS FILLED
+router.get('/check-your-answers-filled', function (req, res) {
+
+  // * let's pre-fill all the data - this is super-clunky but'll do for now...
+
+  /* type1 = De minimis */
+  // req.session.data['exemptionChoice'] = 'type1'
+
+  /* type2 = Musical instrument */
+  // req.session.data['exemptionChoice'] = 'type2'
+
+  /* type3 = Portrait miniature */
+  req.session.data['exemptionChoice'] = 'type3'
+
+
+
+  req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory frog'
+
+  req.session.data['ageDetail'] = '[ageDetail]'
+
+  req.session.data['volumeDetail'] = '[volumeDetail]'
+
+  req.session.data['ownerAgent'] = 'agent'
+
+  req.session.data['agentName'] = 'Stella Rimmington'
+  req.session.data['agentAddressBusiness'] = 'Acme Auctioneers Ltd'
+  req.session.data['agentAddressLine1'] = '65 Primrose Avenue'
+  req.session.data['agentAddressLine2'] = ''
+  req.session.data['agentAddressTown'] = 'Hoddingbridge'
+  req.session.data['agentAddressCounty'] = ''
+  req.session.data['agentAddressPostcode'] = 'WE11 2DO'
+
+  req.session.data['ownerName'] = 'Jim Bowen'
+  req.session.data['addressBusiness'] = 'On the Oche'
+  req.session.data['addressLine1'] = '29 Bull End'
+  req.session.data['addressLine2'] = 'Heswall'
+  req.session.data['addressTown'] = 'Wirral'
+  req.session.data['addressCounty'] = 'Merseyside'
+  req.session.data['addressPostcode'] = 'CH60 1PL'
+
+
+
+
+  req.session.data['dealingIntent'] = 'Sell it'
+
+
+
+
+  var backUrl
+  if (req.session.data['ownerAgent'] == 'owner') {
+    backUrl = 'dealing-intent'
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    backUrl = 'dealing-intent'
+  }
+
+  var exemptionTypeChosen
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      exemptionTypeChosen = exemptionTypeText1
+      break
+    case 'type2':
+      exemptionTypeChosen = exemptionTypeText2
+      break
+    case 'type3':
+      exemptionTypeChosen = exemptionTypeText3
+      break
+    case 'type4':
+      exemptionTypeChosen = exemptionTypeText4
+      break
+    case 'type5':
+      exemptionTypeChosen = exemptionTypeText5
+      break
+    default:
+      exemptionTypeChosen = 'Not available'
+  }
+
+  req.session.data['exemptionTypeText'] = exemptionTypeChosen
+
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      ivoryVolume = '10%'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      ivoryVolume = '20%'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      ivoryVolume = '320 square centimetres'
+      break
+    case 'type4':
+      ivoryYear = ''
+      ivoryVolume = ''
+      break
+    case 'type5':
+      ivoryYear = '1918'
+      ivoryVolume = ''
+      break
+    default:
+      ivoryYear = 'xxxx'
+      ivoryVolume = 'xxxx'
+  }
+
+  var ageDetail
+  ageDetail = req.session.data['ageDetail']
+
+  var ivoryAge
+
+  ivoryAge = (req.session.data['ivoryAge'])
+  console.log( ivoryAge )
+
+  var ageDetail
+  ageDetail = req.session.data['ageDetail']
+
+  switch (req.session.data['dealingIntent']) {
+    case 'Sell it':
+      dealingIntent = 'Sale'
+      break
+    case 'Hire it out':
+      dealingIntent = 'Hire'
+      break
+    default:
+      dealingIntent = 'Not available'
+  }
+
+  res.render(viewsFolder + 'check-your-answers-filled', {
+    exemptionTypeChosen: exemptionTypeChosen,
+    ivoryYear: ivoryYear,
+    ivoryAge: ivoryAge,
+    ageDetail: ageDetail,
+    ivoryVolume: ivoryVolume,
+    dealingIntent: dealingIntent,
+    backUrl: backUrl,
+    agentOwner: req.session.data['ownerAgent']
+  })
+})
+
+router.post('/check-your-answers-filled', function (req, res) {
+  res.redirect('confirmation')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //* ****************************************************
 // DECLARATION
 // router.get('/declaration', function(req, res) {
