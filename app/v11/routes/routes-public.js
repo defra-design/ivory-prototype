@@ -1176,20 +1176,26 @@ router.get('/check-your-answers-filled', function (req, res) {
   // req.session.data['exemptionChoice'] = 'type1'
 
   /* type2 = Musical instrument */
-  // req.session.data['exemptionChoice'] = 'type2'
+  req.session.data['exemptionChoice'] = 'type2'
+  req.session.data['imageName'] = '7BFR12QA.jpg'
+  req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory tip'
+  req.session.data['ageDetail'] = 'Hallmark on the wooden handle dates the bow to 1894.'
+  req.session.data['volumeDetail'] = 'I can see that the bow contains less than 20% ivory.'
+
+
+
 
   /* type3 = Portrait miniature */
-  req.session.data['exemptionChoice'] = 'type3'
+  // req.session.data['exemptionChoice'] = 'type3'
+  // req.session.data['imageName'] = '3UJS18CV.jpg'
 
 
 
-  req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory frog'
 
-  req.session.data['ageDetail'] = '[ageDetail]'
+
 
   // need to add the checkbox answers to each of these age and volume
 
-  req.session.data['volumeDetail'] = '[volumeDetail]'
 
   req.session.data['ownerAgent'] = 'agent'
 
