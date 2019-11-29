@@ -29,9 +29,7 @@ Registraiton complete
     <h3 class="govuk-heading-s">What happens next</h3>
 
 
-    <p class="govuk-body"><a href="https://www.gov.uk/download/xhasdf34asdf987987987asdfad">Open your registration document</a></p>
-
-
+    <p class="govuk-body"><a href="registration">Open your registration document</a></p>
 
 
     <p class="govuk-body">You can now sell the item because you have said it:</p>
@@ -41,13 +39,13 @@ Registraiton complete
       {% if data['exemptionChoice'] == 'type1' %}
       <!-- De minimis -->
       <li>was made before 1947</li>
-      <li>with less than 10% ivory</li>
+      <li>has less than 10% ivory</li>
       {% endif %}
       {% if data['exemptionChoice'] == 'type2' %}
       <!-- Musical instrument -->
       <li>is a musical instrument</li>
       <li>was made before 1975</li>
-      <li>with less than 20% ivory</li>
+      <li>has less than 20% ivory</li>
       {% endif %}
       {% if data['exemptionChoice'] == 'type3' %}
       <!-- Portrait miniature -->
@@ -58,9 +56,15 @@ Registraiton complete
       {% endif %}
     </ul>
 
+    {% if data['dealingIntent'] != 'Sell it' %}
 
+    <p class="govuk-body">This registration does not expire when you hire out the item. It’s valid until you sell the item.</p>
 
+    {% else %}
 
+    <p class="govuk-body">This registration expires when you sell the item.</p>
+
+    {% endif  %}
 
     <p class="govuk-body govuk-!-margin-top-9">
       <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
@@ -68,9 +72,7 @@ Registraiton complete
     <p class="govuk-body invisible-link">
       <a href="confirmation-email?e={{ data['exemptionChoice'] }}" class="govuk-link">View confirmation email</a>
     </p>
-    <p class="govuk-body invisible-link">
-      <a href="check-registration-search" class="govuk-link">Check an ivory registration</a>
-    </p>
+
   </div>
 </div>
 

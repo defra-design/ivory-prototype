@@ -1206,6 +1206,7 @@ router.get('/check-your-answers-filled', function (req, res) {
   req.session.data['agentAddressTown'] = 'Hoddingbridge'
   req.session.data['agentAddressCounty'] = ''
   req.session.data['agentAddressPostcode'] = 'WE11 2DO'
+  req.session.data['agentEmail'] = 's.rimmington@boltsandratchets.co.uk'
 
   req.session.data['ownerName'] = 'Jim Bowen'
   req.session.data['addressBusiness'] = 'On the Oche'
@@ -1214,6 +1215,7 @@ router.get('/check-your-answers-filled', function (req, res) {
   req.session.data['addressTown'] = 'Wirral'
   req.session.data['addressCounty'] = 'Merseyside'
   req.session.data['addressPostcode'] = 'CH60 1PL'
+  req.session.data['ownerEmail'] = 'jim.bowen@gmole.com'
 
   req.session.data['dealingIntent'] = 'Sell it'
 
@@ -1346,17 +1348,27 @@ router.post('/check-your-answers-filled', function (req, res) {
 //   res.redirect('govpay-lookalike-1');
 // })
 
+
+
+
+
+
+
+
+
+
 //* ****************************************************
 // CONFIRMATION
 router.get('/confirmation', function (req, res) {
 
   var contactEmail
+
   if (req.session.data['ownerAgent'] == 'owner') {
     contactEmail = req.session.data['ownerEmail']
-    logger(req, 'Owner email=' + req.session.data['ownerEmail'])
+    contactName = req.session.data['ownerName']
   } else if (req.session.data['ownerAgent'] == 'agent') {
     contactEmail = req.session.data['agentEmail']
-    logger(req, 'Agent email=' + req.session.data['agentEmail'])
+    contactName = req.session.data['agentName']
   }
   logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
 
@@ -1374,18 +1386,66 @@ router.get('/confirmation-email', function (req, res) {
   var exemption = req.query.e
 
   var contactEmail = "jacky.turner@boltsandratchets.co.uk"
+
+  var contactName
+  var contactBusiness
+
+
   if (req.session.data['ownerAgent'] == 'owner') {
     contactEmail = req.session.data['ownerEmail']
-    logger(req, 'Owner email=' + req.session.data['ownerEmail'])
+    contactName = req.session.data['ownerName']
+    contactBusiness = req.session.data['addressBusiness']
   } else if (req.session.data['ownerAgent'] == 'agent') {
     contactEmail = req.session.data['agentEmail']
-    logger(req, 'Agent email=' + req.session.data['agentEmail'])
+    contactName = req.session.data['agentName']
+    contactBusiness = req.session.data['agentAddressBusiness']
   }
   logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
 
+
+
   res.render(viewsFolder + 'confirmation-email', {
     exemption: exemption,
-    contactEmail: contactEmail
+    contactEmail: contactEmail,
+    contactName: contactName,
+    contactBusiness: contactBusiness
+  })
+})
+
+
+
+
+
+//* ****************************************************
+// REGISTRATION
+router.get('/registration', function (req, res) {
+
+  var exemption = req.query.e
+
+  var contactEmail = "jacky.turner@boltsandratchets.co.uk"
+
+  var contactName
+  var contactBusiness
+
+
+  if (req.session.data['ownerAgent'] == 'owner') {
+    contactEmail = req.session.data['ownerEmail']
+    contactName = req.session.data['ownerName']
+    contactBusiness = req.session.data['addressBusiness']
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    contactEmail = req.session.data['agentEmail']
+    contactName = req.session.data['agentName']
+    contactBusiness = req.session.data['agentAddressBusiness']
+  }
+  logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
+
+
+
+  res.render(viewsFolder + 'registration', {
+    exemption: exemption,
+    contactEmail: contactEmail,
+    contactName: contactName,
+    contactBusiness: contactBusiness
   })
 })
 

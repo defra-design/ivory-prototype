@@ -9,18 +9,19 @@
 {% block content %}
 
   <h1 class="govuk-heading-m">
-    Your ivory item registration: {{ registrationNumber }}
+    Ivory registration: {{ registrationNumber }}
   </h1>
 
   <dl class="defra-dl defra-email-header">
 
-    <dt class="defra-dt defra-dt__email-header">From</dt>
-    <dd class="defra-dd defra-dd__email-header">Animal Plant Health Agency</dd>
+<!--    <dt class="defra-dt defra-dt__email-header">From</dt>-->
+<!--    <dd class="defra-dd defra-dd__email-header">Animal Plant Health Agency</dd>-->
 
-    <br>
+<!--    <br>-->
 
     <dt class="defra-dt defra-dt__email-header">Date</dt>
-    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Wed 09/10/2019 11:02</dd>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Tuesday 3 December 2019</dd>
+<!--    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">{{ date }}</dd>-->
 
     <br>
 
@@ -32,10 +33,33 @@
 
 
 
+<p class="govuk-body">
+  Dear {{ contactName }}
+
+  {% if contactBusiness != '' %}
+
+  of {{ contactBusiness }}
+
+  {% endif %}
+
+</p>
+
+<br />
+<br />
 
 <p class="govuk-body">
-  You have registered your ivory item.
+  You have registered the item you described as:
+
+  <br />
+  <br />
+
+  {{ data['description'] }}
+
 </p>
+
+
+<br />
+<br />
 
 
 <p class="govuk-body">
@@ -43,67 +67,21 @@
 </p>
 
 <p class="govuk-body">
-  Download the registration document at: <a href="https://www.gov.uk/download/IRJBFKS8473JSBSKITS3VFDDSDF">https://www.gov.uk/download/IRJBFKS8473JSBSKITS3VFDDSDF</a>
+  The registration expires when you sell the item.
 </p>
-
-
-
-
-<p class="govuk-body">You can now sell the item because you have said it:</p>
-
-<ul class="govuk-list govuk-list--bullet">
-
-  {% if data['exemptionChoice'] == 'type1' %}
-  <!-- De minimis -->
-  <li>was made before 1947</li>
-  <li>with less than 10% ivory</li>
-  {% endif %}
-  {% if data['exemptionChoice'] == 'type2' %}
-  <!-- Musical instrument -->
-  <li>is a musical instrument</li>
-  <li>was made before 1975</li>
-  <li>with less than 20% ivory</li>
-  {% endif %}
-  {% if data['exemptionChoice'] == 'type3' %}
-  <!-- Portrait miniature -->
-  <li>was made before 1918</li>
-  <li>has a surface area less than 320 square centimetres</li>
-  {% endif %}
-</ul>
-
-
 
 <p class="govuk-body">
-
-  You have registered the item that you described as:
-
-  <br><br>
-
-  {{ data['description'] }}
-
+  Open the registration document: <a href="registration">https://www.gov.uk/download/IRJBFKS8473JSBSKITS3VFDDSDF</a>
 </p>
 
 
-<!--
+<p class="govuk-body call-to-action" style="border-left: 10px solid #dee0e2; padding: 1em 0 1em 1em; margin: 2em 0;">
+  You must tell us if any details change.
+</p>
 
-[if musical instrument made between 1947 and 1975]
-You must have a CITES certificate
-The [musical instrument] you’ve registered was made between 1947 and 1975. You must now also apply for a CITES ‘Article 10’ certificate before you can sell or hire it.
-[end if]
-[Grey bar] - You must tell us if any details change
-To contact us, reply this email or go to https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/access-and-opening
-
-
-You have registered the item that you described as:
-‘That thing that has the bit of ivory where the whatever is…’ [more text]
-You can now sell this item because you have said it is a musical instrument made before 1975 with less than 20% ivory.
-
-
-
-
--->
-
-
+<p class="govuk-body">
+  To contact us email ivory@apha.gov.uk
+</p>
 
 
 
