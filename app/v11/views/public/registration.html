@@ -1,0 +1,200 @@
+{% extends "./layout_unbranded.html" %}
+
+{% set registrationNumber = "4HCP37NL" %}
+
+{% block pageTitle %}
+  Confirmation of application to register an ivory item
+{% endblock %}
+
+{% block content %}
+
+<!--
+
+APHA logo and other info?
+
+-->
+
+<header>
+
+  <div class="govuk-body reg-doc-logo">
+    <img src="{{baseUrl}}/photos/org_crest_18px.png" />
+    <br />
+    Animal &amp;
+    <br />
+    Plant Health
+    <br />
+    Agency
+  </div>
+
+</header>
+
+  <h1 class="govuk-heading-l reg-doc reg-doc-centre">
+    Ivory registration
+      <span class="reg-doc-number">
+    {{ registrationNumber }}
+      </span>
+  </h1>
+
+<p class="govuk-body reg-doc-date reg-doc-centre">
+Date of registration: 3 December 2019
+</p>
+
+
+
+<h2 class="govuk-heading-l">
+  Owner details
+</h2>
+
+
+<p class="govuk-body">
+  {{ data['ownerName'] }}
+</p>
+
+<p class="govuk-body">
+  {{ data['addressBusiness']}},
+  {{ data['addressLine1'] }},
+  {{ data['addressLine2'] }},
+  {{ data['addressTown'] }},
+  {{ data['addressCounty'] }},
+  {{ data['addressPostcode'] }}
+</p>
+
+
+
+<h2 class="govuk-heading-l">
+  Item details
+</h2>
+
+<p class="govuk-body">
+  <img src="{{baseUrl}}/photos/{{data['imageName']}}" height="200" border="0" />
+</p>
+
+
+
+<p class="govuk-body">
+  {{ data['description'] }}
+</p>
+
+
+
+
+
+
+<!--
+
+
+This item has been registered and declared as an item made before 1947 with less than 10% ivory .
+
+Evidence it was made before 1947:
+My own expert evaluation
+
+Other supporting evidence:
+[Add the free text ‘give details’ here.]
+
+Evidence it has less than 10% ivory:
+Estimate of ivory content by eye
+
+Other supporting evidence:
+[Add the free text ‘give details’ here.]
+
+
+
+-->
+
+
+
+
+
+
+<h2 class="govuk-heading-l">
+  What you need to do
+</h2>
+
+
+
+<h3 class="govuk-heading-m">
+  Seller information
+</h3>
+
+
+<p class="govuk-body">
+  You can sell this item based on the details in this registration document being correct.
+</p>
+
+<p class="govuk-body">
+  This registration expires when you sell the item.
+</p>
+
+<p class="govuk-body">
+  The registration will not expire if you hire out the item.
+</p>
+
+
+<h4 class="govuk-heading-s">
+  Report changes
+</h4>
+
+<p class="govuk-body">
+  You must tell Animal and Plant Health Agency (APHA) if:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>any information about you or the item changes</li>
+<li>the item no longer meets the criteria for registration</li>
+</ul>
+
+
+<br />
+<br />
+
+<h3 class="govuk-heading-m">
+  Buyer information
+</h3>
+
+
+
+<p class="govuk-body">
+  Before you buy an ivory item, you must check:
+</p>
+
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the registration document matches the item</li>
+  <li>the owner’s details are correct</li>
+  <li>you agree the item was made before 1947 and has less than 10% ivory</li>
+</ul>
+
+
+<h4 class="govuk-heading-s">
+  After the sale
+</h4>
+
+<p class="govuk-body">
+  As the new owner you must:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>contact APHA to give them your name and address</li>
+  <li>register the item again if you plan to sell it</li>
+</ul>
+
+
+
+<h3 class="govuk-heading-m">
+  Read the guidance
+</h3>
+
+<p class="govuk-body">
+  Find out what to do if you want to sell, hire or buy ivory items. https://www.gov.uk/guidance/a-guide-to-selling-hiring-and-buying-items-containing-ivory
+</p>
+
+<h3 class="govuk-heading-m">
+  Contact us
+</h3>
+
+<p class="govuk-body">
+  To contact us email ivory@apha.gov.uk
+</p>
+
+
+{% endblock %}
