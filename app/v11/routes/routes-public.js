@@ -1179,20 +1179,20 @@ router.get('/check-your-answers-filled', function (req, res) {
   req.session.data['exemptionChoice'] = 'type2'
   req.session.data['imageName'] = '7BFR12QA.jpg'
   req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory tip'
+
+
+  req.session.data['age-declaration'] = 'Declared'
+  req.session.data['ivoryAge'] = ['Date mark on the item', 'It\'s been in the family since 1974 or before']
   req.session.data['ageDetail'] = 'Hallmark on the wooden handle dates the bow to 1894.'
+
+  req.session.data['volume-declaration'] = 'Declared'
   req.session.data['volumeDetail'] = 'I can see that the bow contains less than 20% ivory.'
-
-
+  req.session.data['ivoryVolume'] = ['Estimate of ivory content by eye']
 
 
   /* type3 = Portrait miniature */
   // req.session.data['exemptionChoice'] = 'type3'
   // req.session.data['imageName'] = '3UJS18CV.jpg'
-
-
-
-
-
 
   // need to add the checkbox answers to each of these age and volume
 
@@ -1404,12 +1404,27 @@ router.get('/confirmation-email', function (req, res) {
 
 
 
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const dayLong = date.toLocaleString('default', { weekday: 'long' })
+  const day = date.toLocaleString('default', { day: 'numeric' })
+  const month = date.toLocaleString('default', { month: 'long' })
+  const year = date.getFullYear()
+  const timeOfRegistration = `${hours}:${minutes}`
+  const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
+
+
+
   res.render(viewsFolder + 'confirmation-email', {
     exemption: exemption,
     contactEmail: contactEmail,
     contactName: contactName,
-    contactBusiness: contactBusiness
+    contactBusiness: contactBusiness,
+    dateOfRegistration: dateOfRegistration,
+    timeOfRegistration: timeOfRegistration,
   })
+
 })
 
 
@@ -1422,30 +1437,20 @@ router.get('/registration', function (req, res) {
 
   var exemption = req.query.e
 
-  var contactEmail = "jacky.turner@boltsandratchets.co.uk"
-
-  var contactName
-  var contactBusiness
-
-
-  if (req.session.data['ownerAgent'] == 'owner') {
-    contactEmail = req.session.data['ownerEmail']
-    contactName = req.session.data['ownerName']
-    contactBusiness = req.session.data['addressBusiness']
-  } else if (req.session.data['ownerAgent'] == 'agent') {
-    contactEmail = req.session.data['agentEmail']
-    contactName = req.session.data['agentName']
-    contactBusiness = req.session.data['agentAddressBusiness']
-  }
-  logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
-
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const dayLong = date.toLocaleString('default', { weekday: 'long' })
+  const day = date.toLocaleString('default', { day: 'numeric' })
+  const month = date.toLocaleString('default', { month: 'long' })
+  const year = date.getFullYear()
+  const timeOfRegistration = `${hours}:${minutes}`
+  const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
 
 
   res.render(viewsFolder + 'registration', {
     exemption: exemption,
-    contactEmail: contactEmail,
-    contactName: contactName,
-    contactBusiness: contactBusiness
+    dateOfRegistration: dateOfRegistration,
   })
 })
 

@@ -14,7 +14,9 @@ APHA logo and other info?
 
 -->
 
-<header>
+
+
+<div class="reg-doc-header">
 
   <div class="govuk-body reg-doc-logo">
     <img src="{{baseUrl}}/photos/org_crest_18px.png" />
@@ -26,20 +28,29 @@ APHA logo and other info?
     Agency
   </div>
 
-</header>
+
 
   <h1 class="govuk-heading-l reg-doc reg-doc-centre">
     Ivory registration
-      <span class="reg-doc-number">
+    <span class="reg-doc-number">
     {{ registrationNumber }}
       </span>
   </h1>
 
-<p class="govuk-body reg-doc-date reg-doc-centre">
-Date of registration: 3 December 2019
-</p>
+  <p class="govuk-body reg-doc-date reg-doc-centre">
+    Date of registration: {{dateOfRegistration}}
+  </p>
 
 
+
+</div>
+
+
+
+<div class="reg-doc-main">
+
+
+  <div class="reg-doc-section">
 
 <h2 class="govuk-heading-l">
   Owner details
@@ -59,9 +70,11 @@ Date of registration: 3 December 2019
   {{ data['addressPostcode'] }}
 </p>
 
+  </div>
 
+  <div class="reg-doc-section">
 
-<h2 class="govuk-heading-l">
+<h2 class="govuk-heading-l ">
   Item details
 </h2>
 
@@ -80,28 +93,186 @@ Date of registration: 3 December 2019
 
 
 
-<!--
-
-
-This item has been registered and declared as an item made before 1947 with less than 10% ivory .
-
-Evidence it was made before 1947:
-My own expert evaluation
-
-Other supporting evidence:
-[Add the free text ‘give details’ here.]
-
-Evidence it has less than 10% ivory:
-Estimate of ivory content by eye
-
-Other supporting evidence:
-[Add the free text ‘give details’ here.]
 
 
 
--->
+
+{% if data['exemptionChoice'] == 'type1' %}
+<!-- de minimis -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as an item made before 1947 with less than 10% ivory.
+</p>
+
+<p class="govuk-body">
+  Evidence it was made before 1947:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
 
 
+
+
+<p class="govuk-body">
+  Evidence it has less than 10% ivory:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryVolume'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+{% if data['exemptionChoice'] == 'type2' %}
+<!-- Musical instrument -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as a musical instrument made before 1975 with less than 20% ivory.
+</p>
+
+<p class="govuk-body">
+  Evidence it was made before 1975:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
+
+
+
+<p class="govuk-body">
+  Evidence it has less than 20% ivory:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryVolume'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% if data['exemptionChoice'] == 'type3' %}
+<!-- Portrait miniature -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as a portrait miniature made before 1918 with a surface area less than 320 square centimetres.
+</p>
+
+<p class="govuk-body">
+  Evidence it was made before 1918:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
+
+
+
+
+
+<p class="govuk-body">
+  Evidence it has a surface ara less than 320 square centimetres:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+
+
+
+
+{% endif %}
+
+
+
+  </div>
+
+  <div class="reg-doc-section">
 
 
 
@@ -185,7 +356,7 @@ Other supporting evidence:
 </h3>
 
 <p class="govuk-body">
-  Find out what to do if you want to sell, hire or buy ivory items. https://www.gov.uk/guidance/a-guide-to-selling-hiring-and-buying-items-containing-ivory
+  Find out what to do if you want to sell, hire or buy ivory items <a href="a-guide-to-selling-hiring-and-buying-items-containing-ivory">https://www.gov.uk/guidance/a-guide-to-selling-hiring-and-buying-items-containing-ivory</a>
 </p>
 
 <h3 class="govuk-heading-m">
@@ -193,8 +364,12 @@ Other supporting evidence:
 </h3>
 
 <p class="govuk-body">
-  To contact us email ivory@apha.gov.uk
+  To contact us email <a href="mailto:ivory@apha.gov.uk">ivory@apha.gov.uk</a>
 </p>
 
+  </div>
+
+
+</div>
 
 {% endblock %}
