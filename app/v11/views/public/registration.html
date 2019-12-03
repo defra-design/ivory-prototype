@@ -332,7 +332,18 @@ APHA logo and other info?
 <ul class="govuk-list govuk-list--bullet">
   <li>the registration document matches the item</li>
   <li>the owner’s details are correct</li>
+  {% if data['exemptionChoice'] == 'type1' %}
+  <!-- de minimis -->
   <li>you agree the item was made before 1947 and has less than 10% ivory</li>
+  {% endif %}
+  {% if data['exemptionChoice'] == 'type2' %}
+  <!-- musical instrument -->
+  <li>you agree the item is a musical instrument made before 1975 and has less than 20% ivory</li>
+  {% endif %}
+  {% if data['exemptionChoice'] == 'type3' %}
+  <!-- portrait miniature -->
+  <li>you agree the item is a portrait miniature made before 1918 and has a surface area less than 320 square centimetres</li>
+  {% endif %}
 </ul>
 
 
