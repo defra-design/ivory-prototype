@@ -790,7 +790,8 @@ router.post('/who-owns-item', function (req, res) {
     res.redirect('owner-name')
   } else {
     logger(req, "It's the agent, so go down the agent route.")
-    res.redirect('agent')
+    // res.redirect('agent')
+    res.redirect('agent-name')
   }
 })
 
@@ -840,7 +841,8 @@ router.post('/agent', function (req, res) {
 // AGENT-NAME
 router.get('/agent-name', function (req, res) {
   res.render(viewsFolder + 'agent-name', {
-    backUrl: 'agent'
+    // backUrl: 'agent'
+    backUrl: 'who-owns-item'
   })
 })
 
@@ -1077,50 +1079,6 @@ router.get('/check-your-answers', function (req, res) {
 
 
 
-  // switch (req.session.data['ageExplanation']) {
-  //   case 'type1':
-  //     ageExplanation = 'Date mark on the item'
-  //     break
-  //   case 'type2':
-  //   ageExplanation = 'Information from previous owners, for example where the item was a family heirloom'
-  //     break
-  //     case 'type3':
-  //       ageExplanation = 'Receipt or bill from before' + ivoryYear
-  //       break
-  //     case 'type4':
-  //     ageExplanation = 'Article published before ' + ivoryYear + ' with photographs or a description of the item'
-  //       break
-  //       case 'type5':
-  //         ageExplanation = 'Written verification from an expert'
-  //         break
-  //       case 'type6':
-  //       ageExplanation = 'Evidence in a photograph'
-  //         break
-  //   case 'type7':
-  //   ageExplanation = 'Other'
-  //     break
-  //   default:
-  //   ageExplanation = 'Not available'
-  // }
-
-
-
-
-
-  // switch (req.session.data['volumeExplanation']) {
-  //   case 'type1':
-  //     volumeExplanation = 'Estimate of ivory content by eye'
-  //     break
-  //   case 'type2':
-  //   volumeExplanation = 'Measured the item to work out the volume'
-  //     break
-  //   case 'type3':
-  //   volumeExplanation = 'Other'
-  //     break
-  //   default:
-  //   volumeExplanation = 'Not available'
-  // }
-
 
   switch (req.session.data['dealingIntent']) {
     case 'Sell it':
@@ -1318,45 +1276,6 @@ router.post('/check-your-answers-filled', function (req, res) {
   res.redirect('confirmation')
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//* ****************************************************
-// DECLARATION
-// router.get('/declaration', function(req, res) {
-//   logger(req);
-//   res.render(viewsFolder + 'declaration', {
-//     backUrl: 'check-your-answers'
-//   });
-// })
-
-// router.post('/declaration', function(req, res) {
-//   logger(req);
-//   res.redirect('govpay-lookalike-1');
-// })
-
-
-
-
-
-
-
-
-
-
 //* ****************************************************
 // CONFIRMATION
 router.get('/confirmation', function (req, res) {
@@ -1377,19 +1296,14 @@ router.get('/confirmation', function (req, res) {
   })
 })
 
-
-
 //* ****************************************************
 // CONFIRMATION EMAIL
-router.get('/confirmation-email', function (req, res) {
+router.get('/confirmation-email', function (req, res){
 
   var exemption = req.query.e
-
   var contactEmail = "jacky.turner@boltsandratchets.co.uk"
-
   var contactName
   var contactBusiness
-
 
   if (req.session.data['ownerAgent'] == 'owner') {
     contactEmail = req.session.data['ownerEmail']
@@ -1402,8 +1316,6 @@ router.get('/confirmation-email', function (req, res) {
   }
   logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
 
-
-
   const date = new Date()
   const hours = date.getHours()
   const minutes = date.getMinutes()
@@ -1414,22 +1326,15 @@ router.get('/confirmation-email', function (req, res) {
   const timeOfRegistration = `${hours}:${minutes}`
   const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
 
-
-
   res.render(viewsFolder + 'confirmation-email', {
     exemption: exemption,
     contactEmail: contactEmail,
     contactName: contactName,
     contactBusiness: contactBusiness,
     dateOfRegistration: dateOfRegistration,
-    timeOfRegistration: timeOfRegistration,
+    timeOfRegistration: timeOfRegistration
   })
-
 })
-
-
-
-
 
 //* ****************************************************
 // REGISTRATION
@@ -1447,22 +1352,11 @@ router.get('/registration', function (req, res) {
   const timeOfRegistration = `${hours}:${minutes}`
   const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
 
-
   res.render(viewsFolder + 'registration', {
     exemption: exemption,
-    dateOfRegistration: dateOfRegistration,
+    dateOfRegistration: dateOfRegistration
   })
 })
-
-
-
-
-
-
-
-
-
-
 
 //* ****************************************************
 // GOVPAY LOOKALIKE 1
@@ -1532,7 +1426,6 @@ router.get('/check-registration-result', function (req, res) {
 
   res.render(viewsFolder + 'check-registration-result')
 })
-
 
 /// ///////////////////////////////////////////////////////////////////////////
 // END OF ROUTES
