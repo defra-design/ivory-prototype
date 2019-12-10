@@ -1211,6 +1211,8 @@ router.get('/check-your-answers-filled', function (req, res) {
 
   req.session.data['exemptionTypeText'] = exemptionTypeChosen
 
+  var ivoryYear
+  var ivoryVolume
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
@@ -1239,15 +1241,16 @@ router.get('/check-your-answers-filled', function (req, res) {
   }
 
   var ageDetail
-  ageDetail = req.session.data['ageDetail']
-
   var ivoryAge
+  var dealingIntent
+
+  ageDetail = req.session.data['ageDetail']
 
   ivoryAge = (req.session.data['ivoryAge'])
   console.log( ivoryAge )
 
-  var ageDetail
-  ageDetail = req.session.data['ageDetail']
+  var volumeDetail
+  volumeDetail = req.session.data['volumeDetail']
 
   switch (req.session.data['dealingIntent']) {
     case 'Sell it':
@@ -1265,6 +1268,7 @@ router.get('/check-your-answers-filled', function (req, res) {
     ivoryYear: ivoryYear,
     ivoryAge: ivoryAge,
     ageDetail: ageDetail,
+    volumeDetail: volumeDetail,
     ivoryVolume: ivoryVolume,
     dealingIntent: dealingIntent,
     backUrl: backUrl,

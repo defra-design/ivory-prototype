@@ -10,11 +10,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Item details</h1>
+      <h1 class="govuk-heading-l">
+        {{ registration.exemption_type }}
+
+        <span class="govuk-heading-m govuk-!-margin-top-5">Reg no: {{ registration.reg_id }}</span>
+
+      </h1>
 
       <!-- <img class="govuk-!-margin-bottom-5" src="https://farm8.staticflickr.com/7353/27096944865_ee6c27f42d_z.jpg" width="640" height="480" alt="Upright Bechstein"> -->
       <!-- <img class="govuk-!-margin-bottom-5" src="/public/images/piano.jpg" width="640" height="480" alt="Upright Bechstein"> -->
-      <img class="item-detail-main govuk-!-margin-bottom-5" src="{{baseUrl}}/photos/{{ registration.photo }}" alt="[First x characters of descritpion?]">
+      <img class="item-detail-main govuk-!-margin-bottom-5" src="{{baseUrl}}/photos/{{ registration.photo }}" alt="{{ registration.description }}">
 
       <table class="govuk-table">
         <tbody class="govuk-table__body">
@@ -24,14 +29,19 @@
             <td class="govuk-table__cell">{{ registration.reg_id }}</td>
           </tr>
 
+<!--          <tr class="govuk-table__row">-->
+<!--            <th class="govuk-table__header" scope="row">Status</th>-->
+<!--            <td class="govuk-table__cell">{{ registration.status }}</td>-->
+<!--          </tr>-->
+
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Status</th>
-            <td class="govuk-table__cell">{{ registration.status }}</td>
+            <th class="govuk-table__header" scope="row">Item type</th>
+            <td class="govuk-table__cell">{{ registration.exemption_type }}</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Ivory type</th>
-            <td class="govuk-table__cell">{{ registration.exemption_type }}</td>
+            <th class="govuk-table__header" scope="row">Description</th>
+            <td class="govuk-table__cell">{{ registration.description }}</td>
           </tr>
 
           <tr class="govuk-table__row">
@@ -42,11 +52,6 @@
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row">Ivory explanation</th>
             <td class="govuk-table__cell">{{ registration.ivory_explanation }}</td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Description</th>
-            <td class="govuk-table__cell">{{ registration.description }}</td>
           </tr>
 
           <tr class="govuk-table__row">
@@ -66,7 +71,7 @@
 
           <tr class="govuk-table__row apha-only">
             <th class="govuk-table__header" scope="row">Owner's&#160;address</th>
-            <td class="govuk-table__cell">{{ registration.owner_address }}, {{ registration.owner_postcode }}</td>
+            <td class="govuk-table__cell">{{ registration.owner_address }} <br />{{ registration.owner_postcode }}</td>
           </tr>
 
         </tbody>
