@@ -1,6 +1,6 @@
  {% extends "./layout.html" %}
 
- {% set thisPageTitle = "Ivory V10 prototypes" %}
+ {% set thisPageTitle = "Ivory V12 prototypes" %}
 
 
  {% block pageTitle %}
@@ -17,12 +17,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-xl">{{ thisPageTitle }}</h1>
+    <h1 class="govuk-heading-xl">
+      {{ thisPageTitle }}
+    </h1>
 
-    <p>We've built the following using the GOV.UK Prototype Kit v7.</p>
-    <h2 class="govuk-heading-m">Prototypes</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-9">Add and manage photos</h2>
 
-    <table class="govuk-table">
+    <table class="govuk-table govuk-!-margin-bottom-9">
       <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th class="govuk-table__header" width="40%" scope="col">APHA (Backstage)</th>
@@ -37,7 +38,7 @@
       </tbody>
     </table>
 
-    <table class="govuk-table">
+    <table class="govuk-table govuk-!-margin-bottom-9">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th class="govuk-table__header" width="40%" scope="col">Selling ivory items</th>
@@ -48,7 +49,7 @@
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="public/apply-to-sell-or-hire-an-ivory-item">{{serviceName}}</a></td>
-          <td class="govuk-table__cell">e.g. newsagent</td>
+          <td class="govuk-table__cell">e.g. 'Joe public piano seller'</td>
         </tr>
 
         <tr class="govuk-table__row">
@@ -57,18 +58,18 @@
         </tr>
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="public/choose-exemption">What type of item is it?</a></td>
-          <td class="govuk-table__cell">Jump over the checker and choose RMI to see early prototype ideas</td>
+          <td class="govuk-table__cell"><a href="public/check-your-answers-filled">Check your answers pre-filled with data</a></td>
+          <td class="govuk-table__cell">A shortcut for the confirmation UX and Check your answers scenarios. <br /><br />If the data doesn't show properly first time, refresh the Check your answers page and it should work fine.</td>
         </tr>
 
       </tbody>
     </table>
 
 
-    <table class="govuk-table">
+    <table class="govuk-table govuk-!-margin-bottom-9">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th class="govuk-table__header" width="40%" scope="col">Buying ivory items</th>
+          <th class="govuk-table__header" width="40%" scope="col">Buying ivory items (Out of scope)</th>
           <th class="govuk-table__header" scope="col">Scenario</th>
         </tr>
       </thead>
@@ -129,6 +130,8 @@
         </tbody>
     </table>
 -->
+
+    <p>We built these using the GOV.UK Prototype Kit v7.</p>
 
   </div>
 </div>
