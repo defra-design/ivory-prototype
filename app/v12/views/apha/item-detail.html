@@ -42,19 +42,21 @@ text: registration.reg_id + " - " + registration.exemption_type
       <!-- <img class="govuk-!-margin-bottom-5" src="/public/images/piano.jpg" width="640" height="480" alt="Upright Bechstein"> -->
       <img class="item-detail-main govuk-!-margin-bottom-5" src="{{baseUrl}}/photos/{{ registration.photo }}" alt="{{ registration.description }}">
 
+    {% set age_explanation_label = "Age explanation" %}
+    {% set ivory_explanation_label = "Ivory explanation" %}
+
       <table class="govuk-table">
         <tbody class="govuk-table__body">
-
 
 <!--          <tr class="govuk-table__row">-->
 <!--            <th class="govuk-table__header" scope="row">Status</th>-->
 <!--            <td class="govuk-table__cell">{{ registration.status }}</td>-->
 <!--          </tr>-->
 
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Item type</th>
-            <td class="govuk-table__cell">{{ registration.exemption_type }}</td>
-          </tr>
+<!--          <tr class="govuk-table__row">-->
+<!--            <th class="govuk-table__header" scope="row">Item type</th>-->
+<!--            <td class="govuk-table__cell">{{ registration.exemption_type }}</td>-->
+<!--          </tr>-->
 
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="row">Description</th>
@@ -62,12 +64,34 @@ text: registration.reg_id + " - " + registration.exemption_type
           </tr>
 
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Age explanation</th>
+            <th class="govuk-table__header" scope="row">
+              {% if registration.exemption_type_id == "1" %}
+              Pre-1947
+              {% elseif registration.exemption_type_id == "2" %}
+              Pre-1975
+              {% elseif registration.exemption_type_id == "3" %}
+              Pre-1918
+              {% else %}
+              Age
+              {% endif %}
+              explanation
+            </th>
             <td class="govuk-table__cell">{{ registration.age_explanation }}</td>
           </tr>
 
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Ivory explanation</th>
+            <th class="govuk-table__header" scope="row">
+              {% if registration.exemption_type_id == "1" %}
+              Less than 10% ivory
+              {% elseif registration.exemption_type_id == "2" %}
+              Less than 20% ivory
+              {% elseif registration.exemption_type_id == "3" %}
+              Surface area less than 320 square centimetres
+              {% else %}
+              Volume
+              {% endif %}
+              explanation
+            </th>
             <td class="govuk-table__cell">{{ registration.ivory_explanation }}</td>
           </tr>
 
@@ -86,10 +110,10 @@ text: registration.reg_id + " - " + registration.exemption_type
             <td class="govuk-table__cell">{{ registration.owner_address }} <br />{{ registration.owner_postcode }}</td>
           </tr>
 
-<tr class="govuk-table__row">
-  <th class="govuk-table__header" scope="row">Registration&#160;number</th>
-  <td class="govuk-table__cell">{{ registration.reg_id }}</td>
-</tr>
+<!--<tr class="govuk-table__row">-->
+<!--  <th class="govuk-table__header" scope="row">Registration&#160;number</th>-->
+<!--  <td class="govuk-table__cell">{{ registration.reg_id }}</td>-->
+<!--</tr>-->
 
 <tr class="govuk-table__row">
   <th class="govuk-table__header" scope="row">Submitted</th>
