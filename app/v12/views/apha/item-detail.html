@@ -1,4 +1,11 @@
+{% set pageTitle = "Ivory registration: " + registration.reg_id + " (" + registration.exemption_type + ")" %}
+
 {% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }}
+{% endblock %}
+
 
 {% block beforeContent %}
 {% include "../includes/stage-banner-prototype.html" %}
