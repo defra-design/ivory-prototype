@@ -229,7 +229,7 @@ router.get('/apply-for-an-rmi-certificate', function (req, res) {
 
 
 /// ///////////////////////////////////////////////////////////////////////////
-// ADD PHOTGRAPH
+// ADD PHOTO
 router.get('/add-photo', function (req, res) {
 
   // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
@@ -341,9 +341,6 @@ router.post('/your-photos', function (req, res) {
   }
 
 })
-
-
-
 
 
 

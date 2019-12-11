@@ -9,7 +9,21 @@
 
 {% block beforeContent %}
 {% include "../includes/stage-banner-prototype.html" %}
-<a href="{{baseUrl}}/apha/registrations" class="govuk-back-link">Back</a>
+
+{{ govukBreadcrumbs({
+items: [
+{
+text: "Ivory registrations",
+href: baseUrl + "/apha/registrations"
+},
+{
+text: registration.reg_id + " - " + registration.exemption_type
+}
+]
+}) }}
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -18,9 +32,9 @@
   <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        {{ registration.exemption_type }}
+        {{ registration.reg_id }} - {{ registration.exemption_type }}
 
-        <span class="govuk-heading-m govuk-!-margin-top-5">Reg no: {{ registration.reg_id }}</span>
+<!--        <span class="govuk-heading-m govuk-!-margin-top-5">Reg no: {{ registration.reg_id }}</span>-->
 
       </h1>
 
@@ -31,10 +45,6 @@
       <table class="govuk-table">
         <tbody class="govuk-table__body">
 
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Registration&#160;number</th>
-            <td class="govuk-table__cell">{{ registration.reg_id }}</td>
-          </tr>
 
 <!--          <tr class="govuk-table__row">-->
 <!--            <th class="govuk-table__header" scope="row">Status</th>-->
@@ -61,11 +71,6 @@
             <td class="govuk-table__cell">{{ registration.ivory_explanation }}</td>
           </tr>
 
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="row">Submitted</th>
-            <td class="govuk-table__cell">{{ registration.submitted_datetime }}</td>
-          </tr>
-
           <tr class="govuk-table__row apha-only">
             <th class="govuk-table__header" scope="row">Owner</th>
             <td class="govuk-table__cell">{{ registration.owner_name }}</td>
@@ -80,6 +85,18 @@
             <th class="govuk-table__header" scope="row">Owner's&#160;address</th>
             <td class="govuk-table__cell">{{ registration.owner_address }} <br />{{ registration.owner_postcode }}</td>
           </tr>
+
+<tr class="govuk-table__row">
+  <th class="govuk-table__header" scope="row">Registration&#160;number</th>
+  <td class="govuk-table__cell">{{ registration.reg_id }}</td>
+</tr>
+
+<tr class="govuk-table__row">
+  <th class="govuk-table__header" scope="row">Submitted</th>
+  <td class="govuk-table__cell">{{ registration.submitted_datetime }}</td>
+</tr>
+
+
 
         </tbody>
       </table>
