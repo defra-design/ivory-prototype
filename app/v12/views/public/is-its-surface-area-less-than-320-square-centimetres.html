@@ -1,0 +1,61 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Is its surface area less than 320cm²?" %}
+
+{% set thisPageTitle = "Is its surface area less than 320 square centimetres?" %}
+
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      {{ govukRadios({
+        idPrefix: "less-than-320-square-centimetres",
+        name: "less-than-320-square-centimetres",
+        fieldset: {
+          legend: {
+            text: thisPageTitle,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          checked: checked("less-than-320-square-centimetres", "Yes")
+        },
+        {
+          value: "No",
+          text: "No",
+          checked: checked("less-than-320-square-centimetres", "No")
+        },
+        {
+          value: "Not sure",
+          text: "I'm not sure",
+          checked: checked("less-than-320-square-centimetres", "Not sure")
+        }
+        ]
+      }) }}
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
