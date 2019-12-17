@@ -222,25 +222,30 @@ router.get('/apply-for-an-rmi-certificate', function (req, res) {
 })
 
 
+/// ///////////////////////////////////////////////////////////////////////////
+// COMMON PHOTO FUNCTIONS
+function deletePhoto (req, photo) {
 
+  // Remove photo from photos array session variable
+  const indexOfPhoto = req.session.data.photos.indexOf(photo)
+  req.session.data.photos.splice(indexOfPhoto, 1)
 
+  // Delete photo from storage
+  const photoPath = path.join(rootAppDirectory, version, '/photos/', photo)
+  fs.unlink(photoPath, err => {
+    if (err) {
+      console.log(err)
+    }
+  })
 
-
+  console.log(`photo deleted: ${photo}`)
+  console.log(`photos array: ${req.session.data.photos}`)
+}
 
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTO
 router.get('/add-photo', function (req, res) {
-
-  // If returning to this page, remove previously uploaded photo (saves them sitting around unused)
-  if (req.session.data['imageName']) {
-    const imagePath = path.join(rootAppDirectory, version, '/photos/', req.session.data['imageName'])
-    console.log('Found a previously uploaded photo to remove at image path: ' + imagePath)
-    fs.unlink(imagePath, err => {
-      if (err) logger(req, err)
-      else logger(req, 'Image removed = ' + imagePath)
-    })
-  }
 
   res.render(viewsFolder + 'add-photo', {
     backUrl: 'choose-exemption'
@@ -271,44 +276,56 @@ router.post('/add-photo', function (req, res) {
     // Handle no file chosen
     if (!req.file) {
       logger(req, 'No file was chosen/uploaded')
-      res.redirect('check-photo') // We're not enforcing uploads
-    }
-
-    // Handle a wrong file type
-    const multerDestPath = req.file.path
-    var fileExt = path.extname(req.file.originalname).toLowerCase()
-    if (fileExt !== '.png' && fileExt !== '.jpg' && fileExt !== '.jpeg') {
-      logger(req, 'Wrong file type')
-      fs.unlink(multerDestPath, err => {
-        if (err) console.log(err)
-      })
       res.render(viewsFolder + 'add-photo', {
-        errorNoFile: 'The selected file must be a JPG or PNG'
+        errorNoFile: 'Please choose a photo'
       })
-    }
+    } else {
 
-    // Passes all validation, so move/rename it to the persistent location
-    // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
-    var imageName = new Date().getTime().toString() + fileExt // getTime() gives the milliseconds since 1970...
-    req.session.data['imageName'] = imageName // New session variable imageName
-    const targetPath = path.join(rootAppDirectory, version, '/photos/', imageName)
-
-    fs.rename(multerDestPath, targetPath, function (err) {
-      if (err) {
-        console.log('err = ' + err)
-      } else {
-        logger(req, 'File successfully uploaded')
-        res.redirect('check-photo')
+      // Handle a wrong file type
+      const multerDestPath = req.file.path
+      var fileExt = path.extname(req.file.originalname).toLowerCase()
+      if (fileExt !== '.png' && fileExt !== '.jpg' && fileExt !== '.jpeg') {
+        logger(req, 'Wrong file type')
+        fs.unlink(multerDestPath, err => {
+          if (err) console.log(err)
+        })
+        res.render(viewsFolder + 'add-photo', {
+          errorNoFile: 'The selected file must be a JPG or PNG'
+        })
       }
-    })
+
+      // Passes all validation, so move/rename it to the persistent location
+      // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
+      var photo = new Date().getTime().toString() + fileExt // getTime() gives the milliseconds since 1970...
+      const targetPath = path.join(rootAppDirectory, version, '/photos/', photo)
+
+      fs.rename(multerDestPath, targetPath, function (err) {
+        if (err) {
+          console.log('err = ' + err)
+        } else {
+          res.redirect('check-photo')
+        }
+      })
+
+      // Handle session variables
+      // Add a photo to the photos array (and create array if it doesn't exist yet)
+      if (!req.session.data.photos) {
+        req.session.data.photos = []
+      }
+      req.session.data.photos.push(photo)
+      console.log(`photo added: ${photo}`)
+      console.log(`photo array: ${req.session.data.photos}`)
+    }
   })
 })
 
 /// ///////////////////////////////////////////////////////////////////////////
 // CHECK PHOTO
 router.get('/check-photo', function (req, res) {
+
   res.render(viewsFolder + 'check-photo', {
-    backUrl: 'add-photo'
+    backUrl: 'add-photo',
+    photo: req.session.data.photos[req.session.data.photos.length - 1]
   })
 })
 
@@ -319,21 +336,61 @@ router.post('/check-photo', function (req, res) {
 })
 
 
+/// ///////////////////////////////////////////////////////////////////////////
+// USE A DIFFERENT PHOTO
+router.get('/use-different-photo', function (req, res) {
+  const photo = req.session.data.photos[req.session.data.photos.length - 1] // the last photo uploaded
+  deletePhoto(req, photo)
+  res.redirect('add-photo')
+})
+
 
 /// ///////////////////////////////////////////////////////////////////////////
 // YOUR PHOTOS
 router.get('/your-photos', function (req, res) {
-  res.render(viewsFolder + 'your-photos', {
-    backUrl: 'check-photo'
-  })
+
+  // If there are photos in the array, build the array expected by the GOV.UK summary list
+  if (req.session.data.photos && req.session.data.photos.length) {
+    const photosSummaryList = req.session.data.photos.map((photo, position) => {
+      return {
+        key: {
+          classes: 'your-photos-key',
+          text: `Photo ${position + 1}`
+        },
+        value: {
+          classes: 'your-photos-value',
+          html: `<img class='your-photos-img' src='${res.locals.baseUrl}/photos/${photo}'>`
+        },
+        actions: {
+          classes: 'your-photos-actions',
+          items: [
+            {
+              href: `${res.locals.baseUrl}/public/remove-photo/${photo}`,
+              text: 'remove',
+              visuallyHiddenText: `Photo ${position + 1}`
+            }
+          ]
+        }
+      }
+    })
+
+    res.render(viewsFolder + 'your-photos', {
+      backUrl: 'check-photo',
+      photosSummaryList: photosSummaryList
+    })
+
+  // If there are no photos in the array, redirect to add-photo
+  } else {
+    res.redirect('add-photo')
+  }
 })
 
 router.post('/your-photos', function (req, res) {
   // Set back button URL
   req.session.data['backUrl'] = 'your-photos'
 
-  if (req.session.data['photos-what-next'] == 'Add another photo') {
-    logger(req, "Add another photo")
+  if (req.session.data['photos-what-next'] === 'Add another photo') {
+    logger(req, 'Add another photo')
     res.redirect('add-photo')
   } else {
     logger(req, "I'm done with photos... for now thanks")
@@ -343,9 +400,13 @@ router.post('/your-photos', function (req, res) {
 })
 
 
-
-
-
+/// ///////////////////////////////////////////////////////////////////////////
+// DELETE PHOTOS
+router.get('/remove-photo/:filename', (req, res) => {
+  const photo = req.params.filename
+  deletePhoto(req, photo)
+  res.redirect(`${res.locals.baseUrl}/public/your-photos`) // Dave: This is an explicit path because my computer/browser was having problems with relative paths, which was particularly confusing when the relative path was appended to 'delete-photo'.
+})
 
 
 //* ****************************************************
@@ -354,7 +415,7 @@ router.get('/description', function (req, res) {
 
   // Temp fudge while we don't have validation on (and you can skip uploading a photo)
   var backUrl
-  if (req.session.data['imageName']) {
+  if (req.session.data.photos && req.session.data.photos.length) {
     backUrl = 'your-photos'
   } else {
     backUrl = 'add-photo'
@@ -840,7 +901,7 @@ router.get('/check-your-answers-filled', function (req, res) {
 
   /* type2 = Musical instrument */
   req.session.data['exemptionChoice'] = 'type2'
-  req.session.data['imageName'] = '7BFR12QA.jpg'
+  req.session.data['photos'] = ['7BFR12QA.jpg', '1DEW99TX.jpg', '2APS78QY.jpg', '4DFH21BN.jpg', '8PPL07GB.jpg', '9WAS18NJ.jpg']
   req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory tip'
 
 
@@ -855,7 +916,7 @@ router.get('/check-your-answers-filled', function (req, res) {
 
   /* type3 = Portrait miniature */
   // req.session.data['exemptionChoice'] = 'type3'
-  // req.session.data['imageName'] = '3UJS18CV.jpg'
+  // req.session.data['photos'] = ['3UJS18CV.jpg']
 
   // need to add the checkbox answers to each of these age and volume
 

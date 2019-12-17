@@ -36,9 +36,11 @@
 
       </div>
 
-
       <button class="govuk-button">Continue</button>
 
+      {% if data.photos.length > 0 %}
+        <p class="govuk-body"><a href='{{baseUrl}}/public/your-photos'>Cancel and return to your photos</a></p>
+      {%  endif %}
 
     </form>
 

@@ -535,6 +535,36 @@ input:focus,textarea:focus,select:focus,button:focus {
     border: 2px solid #222
 }
 
+/* your-photos styles */
+
+.your-photos-img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.your-photos-key {
+    vertical-align: top;
+}
+
+.your-photos-value{
+    // this is a placeholder for now
+}
+
+.your-photos-actions{
+    vertical-align: top;
+}
+
+
+/* check-your-answers styles */
+.check-your-answers-img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.check-your-answers-change{
+    vertical-align: top;
+}
+
 
 /* APHA screens */
 
