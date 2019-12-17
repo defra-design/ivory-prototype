@@ -28,7 +28,11 @@
 
             <div class="app-check-your-answers__contents">
                 <dt class="app-check-your-answers__question">Photograph</dt>
-                <dd class="app-check-your-answers__answer"><img src="{{baseUrl}}/photos/{{data['imageName']}}" height="200" border="0" /></dd>
+                <dd class="app-check-your-answers__answer check-your-answers-change">
+                    {% for photo in data['photos'] %}
+                        <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
+                    {%  endfor %}
+                </dd>
                 <dd class="app-check-your-answers__change"><a href="add-photo">Change</a></dd>
             </div>
 
