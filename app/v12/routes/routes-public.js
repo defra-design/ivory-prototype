@@ -359,14 +359,14 @@ router.get('/your-photos', function (req, res) {
         },
         value: {
           classes: 'your-photos-value',
-          html: `<img class='your-photos-img' src='${res.locals.baseUrl}/photos/${photo}'>`
+          html: `<img class="your-photos-img" src="${res.locals.baseUrl}/photos/${photo}" />`
         },
         actions: {
           classes: 'your-photos-actions',
           items: [
             {
               href: `${res.locals.baseUrl}/public/remove-photo/${photo}`,
-              text: 'remove',
+              text: 'Remove',
               visuallyHiddenText: `Photo ${position + 1}`
             }
           ]
