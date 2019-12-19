@@ -349,6 +349,9 @@ router.get('/use-different-photo', function (req, res) {
 // YOUR PHOTOS
 router.get('/your-photos', function (req, res) {
 
+  // Reset the what next decision
+  req.session.data['photos-what-next'] = ''
+
   // If there are photos in the array, build the array expected by the GOV.UK summary list
   if (req.session.data.photos && req.session.data.photos.length) {
     const photosSummaryList = req.session.data.photos.map((photo, position) => {
