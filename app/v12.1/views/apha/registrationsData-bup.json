@@ -1,0 +1,49 @@
+{
+   "registrations": [
+      {
+         "reg_id": "PW82THCV",
+         "exemption_type": "Musical instrument",
+         "title": "Violin",
+         "description": "1912 ash violin with some ivory in the bow",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Mickey Mouse",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS"
+         "photo": "PW82THCV.jpg"
+      },{
+         "reg_id": "CAX482PL",
+         "exemption_type": "Musical instrument",
+         "title": "Piano",
+         "description": "Steinway grand piano made in 1894. It has ivory on most of the keys. Some replacements have been made with bovine bone in recent years.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Donald Duck",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS",
+         "photo": "CAX482PL.jpg"
+      },{
+         "reg_id": "9UVE426A",
+         "exemption_type": "Portrait miniature",
+         "title": "Portrait miniature",
+         "description": "Ivory portrait miniature of a victorian lady holding an angry looking cat.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Buzz Lightyear",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS",
+         "photo": "9UVE426A.jpg"
+      },{
+         "reg_id": "3FR42W9K",
+         "exemption_type": "De minimis",
+         "title": "Ivory figure of a boy",
+         "description": "A lovely ivory figure of a boy. In good overall condition. Exact age unknown.",
+         "status": "APPLIED",
+         "submitted_datetime": "2019-01-12 11:10:00",
+         "owner_name": "Kermit Frog",
+         "owner_address": "1 London Street, London, SA1 1AB",
+         "owner_postcode": "PA1 3IS",
+         "photo": "3FR42W9K.jpg"
+      }
+   ]
+}
