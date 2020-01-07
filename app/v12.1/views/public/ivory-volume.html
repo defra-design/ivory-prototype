@@ -116,75 +116,12 @@
         </div>
 
 
-        <!--
-
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <p class="govuk-fieldset__heading">
-              What size is the portrait miniature?
-            </p>
-          </legend>
-
-        <div class="govuk-form-group defra-input-unit-cm ">
-
-          <label class="govuk-label" for="item-width">
-            Width in centimetres
-          </label>
-
-          <div class="input-type input-type--unit">
-            <input class="govuk-input govuk-input--width-3 " id="item-width" name="itemWidth" type="number" pattern="[0-9]*" value="{{ data['itemWidth'] }}" required />
-            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
-          </div>
-
-        </div>
-
-        <div class="govuk-form-group defra-input-unit-cm ">
-
-          <label class="govuk-label" for="item-height">
-            Height in centimetres
-          </label>
-
-          <div class="input-type input-type--unit">
-            <input class="govuk-input govuk-input--width-3 " id="item-height" name="itemHeight" type="number" pattern="[0-9]*" value="{{ data['itemHeight'] }}" required />
-            <abbr title="Centimetres" class="input-type__type-cm"> cm</abbr>
-          </div>
-
-        </div>
-
-        </fieldset>
-
-        -->
 
         {% else %}
 
         <h1 class="govuk-heading-l">
           Confirm the item has less than {{ ivoryVolume }} ivory
         </h1>
-
-
-        <!-- <div class="govuk-form-group govuk-!-margin-bottom-9">
-          <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Legal declaration
-            </legend>
-            <div class="govuk-checkboxes" data-module="checkboxes">
-              <div class="govuk-checkboxes__item">
-
-                {% if data['volume-declaration'] == 'Declared' %}
-                <input class="govuk-checkboxes__input" id="volume-declaration" checked name="volume-declaration" type="checkbox" value="Declared" required>
-                {% else %}
-                <input class="govuk-checkboxes__input" id="volume-declaration" name="volume-declaration" type="checkbox" value="Declared" required>
-                {% endif %}
-
-                <label class="govuk-label govuk-checkboxes__label" for="volume-declaration">
-                  I declare the item contains less than {{ ivoryVolume }} ivory by volume
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div> -->
-
-
 
         {{ govukCheckboxes({
           name: "volume-declaration",
@@ -207,8 +144,6 @@
 
         <div class="govuk-!-margin-bottom-9"></div>
 
-
-
         {{ govukCheckboxes({
           name: "ivoryVolume",
           fieldset: {
@@ -218,7 +153,7 @@
             }
           },
           hint: {
-            text: "Select all that apply"
+            text: "Select all that apply."
           },
           items: [
             {

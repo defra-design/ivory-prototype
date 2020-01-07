@@ -133,13 +133,14 @@ router.get('/start-prototype', function (req, res) {
     else logger(req, 'Previous session destroyed')
   })
 
-  res.redirect('choose-exemption')
+  res.redirect('what-type-of-item-is-it')
+  // res.redirect('choose-exemption')
   // res.redirect('is-it-a-musical-instrument')
 })
 
 //* ****************************************************
-// CHOOSE-EXEMPTION
-router.get('/choose-exemption', function (req, res) {
+// WHAT TYPE OF ITEM IS IT?
+router.get('/what-type-of-item-is-it', function (req, res) {
 
   var exemptionType1Checked
   var exemptionType2Checked
@@ -170,7 +171,7 @@ router.get('/choose-exemption', function (req, res) {
       exemptionType4Checked = ''
       exemptionType5Checked = ''
   }
-  res.render(viewsFolder + 'choose-exemption', {
+  res.render(viewsFolder + 'what-type-of-item-is-it', {
     exemptionType1Checked: exemptionType1Checked,
     exemptionType2Checked: exemptionType2Checked,
     exemptionType3Checked: exemptionType3Checked,
@@ -181,7 +182,7 @@ router.get('/choose-exemption', function (req, res) {
 
 
 
-router.post('/choose-exemption', function (req, res) {
+router.post('/what-type-of-item-is-it', function (req, res) {
 
   if (req.session.data['exemptionChoice'] == 'type4') {
     logger(req, "It's a museum piece.")
@@ -206,7 +207,7 @@ router.post('/choose-exemption', function (req, res) {
 router.get('/apply-to-register-to-sell-an-item-to-a-museum', function (req, res) {
 
   res.render(viewsFolder + 'apply-to-register-to-sell-an-item-to-a-museum', {
-    backUrl: 'choose-exemption',
+    backUrl: 'what-type-of-item-is-it',
   })
 })
 
@@ -217,7 +218,7 @@ router.get('/apply-to-register-to-sell-an-item-to-a-museum', function (req, res)
 router.get('/apply-for-an-rmi-certificate', function (req, res) {
 
   res.render(viewsFolder + 'apply-for-an-rmi-certificate', {
-    backUrl: 'choose-exemption',
+    backUrl: 'what-type-of-item-is-it',
   })
 })
 
@@ -248,7 +249,7 @@ function deletePhoto (req, photo) {
 router.get('/add-photo', function (req, res) {
 
   res.render(viewsFolder + 'add-photo', {
-    backUrl: 'choose-exemption'
+    backUrl: 'what-type-of-item-is-it'
   })
 })
 
@@ -397,7 +398,7 @@ router.post('/your-photos', function (req, res) {
     res.redirect('add-photo')
   } else {
     logger(req, "I'm done with photos... for now thanks")
-    res.redirect('description')
+    res.redirect('describe-the-item')
   }
 
 })
@@ -413,8 +414,8 @@ router.get('/remove-photo/:filename', (req, res) => {
 
 
 //* ****************************************************
-// DESCRIPTION
-router.get('/description', function (req, res) {
+// DESCRIBE THE ITEM
+router.get('/describe-the-item', function (req, res) {
 
   // Temp fudge while we don't have validation on (and you can skip uploading a photo)
   var backUrl
@@ -424,12 +425,12 @@ router.get('/description', function (req, res) {
     backUrl = 'add-photo'
   }
 
-  res.render(viewsFolder + 'description', {
+  res.render(viewsFolder + 'describe-the-item', {
     backUrl: backUrl
   })
 })
 
-router.post('/description', function (req, res) {
+router.post('/describe-the-item', function (req, res) {
   logger(req, 'Description=' + req.session.data['description'])
   res.redirect('ivory-age')
 })
@@ -463,7 +464,7 @@ router.get('/ivory-age', function (req, res) {
 
   res.render(viewsFolder + 'ivory-age', {
     'ivoryYear': ivoryYear,
-    backUrl: 'description'
+    backUrl: 'describe-the-item'
   })
 })
 
