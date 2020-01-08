@@ -21,7 +21,13 @@
 
     <form method="post" autocomplete="off" novalidate >
 
-      {% if photosSummaryList.length < 6 %}
+      {% if photosSummaryList.length < 3 %}
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        <a href="add-photo">Add another photo</a>
+      </p>
+
+      <!--
 
       {{ govukRadios({
         idPrefix: "photos-what-next",
@@ -44,6 +50,8 @@
             }
         ]
       }) }}
+
+      -->
 
       {%  endif %}
 
