@@ -440,30 +440,38 @@ router.post('/describe-the-item', function (req, res) {
 router.get('/ivory-age', function (req, res) {
 
   var ivoryYear
+  var ivoryType
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
       ivoryYear = '1947'
+      ivoryType = 'item'
       break
     case 'type2':
       ivoryYear = '1975'
+      ivoryType = 'musical instrument'
       break
     case 'type3':
       ivoryYear = '1918'
+      ivoryType = 'portrait miniature'
       break
     case 'type4':
       ivoryYear = ''
+      ivoryYear = 'item'
       break
     case 'type5':
       ivoryYear = '1918'
+      ivoryYear = 'item'
       break
     default:
       ivoryYear = 'xxxx'
+      ivoryType = 'item'
   }
 
 
   res.render(viewsFolder + 'ivory-age', {
     'ivoryYear': ivoryYear,
+    'ivoryType': ivoryType,
     backUrl: 'describe-the-item'
   })
 })

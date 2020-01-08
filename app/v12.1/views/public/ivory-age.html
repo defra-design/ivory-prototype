@@ -1,4 +1,11 @@
+{% set pageTitle = "Confirm and declare ivory age" %}
+
 {% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">
@@ -12,7 +19,7 @@
       <div class="govuk-form-group">
 
         <h1 class="govuk-heading-l">
-          Confirm the item was made before {{ ivoryYear }}
+          Confirm the {{ ivoryType }} was made before {{ ivoryYear }}
         </h1>
 
       <div class="govuk-form-group govuk-!-margin-bottom-9">
@@ -28,7 +35,15 @@
               <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
               {% endif %}
               <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
-                I declare the item was made before {{ ivoryYear }}
+                {% if data['exemptionChoice'] == '2' or data['exemptionChoice'] == '3' %}
+
+                I declare the item is a {{ ivoryType }} that was made before {{ ivoryYear }}
+
+                {% else %}
+
+                I declare the {{ ivoryType }} was made before {{ ivoryYear }}
+
+                {% endif %}
               </label>
             </div>
           </div>
@@ -39,7 +54,7 @@
         name: "ivoryAge",
         fieldset: {
           legend: {
-            text: "How do you know the item was made before " + ivoryYear + "?",
+            text: "How do you know the " + ivoryType + " was made before " + ivoryYear + "?",
             classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
           }
         },
