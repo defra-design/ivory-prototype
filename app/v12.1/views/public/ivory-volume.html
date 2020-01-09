@@ -1,20 +1,12 @@
 {% extends "./layout.html" %}
 
 
-
-
 {% set thisPageTitle = "Confirm the volume of ivory" %}
-
-
 
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
 {% endblock %}
-
-
-
-
 
 
 {% block content %}
@@ -110,7 +102,7 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="volume-detail">
-            Explain how you know surface area of the portrait miniature is less than 320 square centimetres
+            Explain how you know the surface area of the portrait miniature is less than 320 square centimetres
           </label>
           <textarea required class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
         </div>
@@ -120,7 +112,7 @@
         {% else %}
 
         <h1 class="govuk-heading-l">
-          Confirm the item has less than {{ ivoryVolume }} ivory
+          Confirm the {{ ivoryType }}  has less than {{ ivoryVolume }} ivory
         </h1>
 
         {{ govukCheckboxes({
@@ -134,7 +126,7 @@
           items: [
             {
               value: "Declared",
-              text: "I declare the item has less than " + ivoryVolume + " ivory by volume",
+              text: "I declare the " + ivoryType + " has less than " + ivoryVolume + " ivory by volume",
               id: "volume-declaration",
               checked: checked("volume-declaration", "Declared")
             }
@@ -148,7 +140,7 @@
           name: "ivoryVolume",
           fieldset: {
             legend: {
-              text: "How do you know the item has less than " + ivoryVolume + " ivory?",
+              text: "How do you know the " + ivoryType + " has less than " + ivoryVolume + " ivory?",
               classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
             }
           },

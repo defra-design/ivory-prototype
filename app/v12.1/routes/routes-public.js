@@ -193,7 +193,11 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     } else {
     logger(req, "It's a standard section 10 non-museum.")
     logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
-    res.redirect('add-photo')
+    if (req.session.data.photos && req.session.data.photos.length) {
+      res.redirect('your-photos')
+    } else {
+      res.redirect('add-photo')
+    }
   }
 })
 
@@ -246,11 +250,34 @@ function deletePhoto (req, photo) {
 
 /// ///////////////////////////////////////////////////////////////////////////
 // ADD PHOTO
+
+
+
+
+// if (req.session.data.photos && req.session.data.photos.length) {
+
+
+
+
 router.get('/add-photo', function (req, res) {
 
-  res.render(viewsFolder + 'add-photo', {
-    backUrl: 'what-type-of-item-is-it'
-  })
+  if ( req.session.data.photos && req.session.data.photos.length ) {
+
+    res.render(viewsFolder + 'add-photo', {
+      backUrl: 'what-type-of-item-is-it'
+    })
+
+  } else {
+
+      res.render(viewsFolder + 'add-photo', {
+        backUrl: 'what-type-of-item-is-it'
+      })
+
+    }
+
+
+
+
 })
 
 router.post('/add-photo', function (req, res) {
@@ -379,7 +406,7 @@ router.get('/your-photos', function (req, res) {
     })
 
     res.render(viewsFolder + 'your-photos', {
-      backUrl: 'add-photo',
+      backUrl: 'what-type-of-item-is-it',
       photosSummaryList: photosSummaryList
     })
 
@@ -524,25 +551,33 @@ router.get('/ivory-volume', function (req, res) {
 
 
   var ivoryVolume
+  var ivoryType
+
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
       ivoryVolume = '10%'
+      ivoryType = 'item'
       break
     case 'type2':
       ivoryVolume = '20%'
+      ivoryType = 'musical instrument'
       break
     case 'type3':
       ivoryVolume = '320 square centimetres'
+      ivoryType = 'portrait miniature'
       break
     case 'type4':
       ivoryVolume = ''
+      ivoryType = 'item'
       break
     case 'type5':
       ivoryVolume = ''
+      ivoryType = 'item'
       break
     default:
       ivoryVolume = 'x%'
+      ivoryType = 'item'
   }
 
   res.render(viewsFolder + 'ivory-volume', {
@@ -550,6 +585,7 @@ router.get('/ivory-volume', function (req, res) {
     volumeType2Checked: volumeType2Checked,
     volumeType3Checked: volumeType3Checked,
     'ivoryVolume': ivoryVolume,
+    'ivoryType': ivoryType,
     backUrl: 'ivory-age'
   })
 })
