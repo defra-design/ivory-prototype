@@ -35,13 +35,17 @@
               <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
               {% endif %}
               <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
-                {% if data['exemptionChoice'] == '2' or data['exemptionChoice'] == '3' %}
+                {% if ( data['exemptionChoice'] == 'type2' ) or ( data['exemptionChoice'] == 'type3' ) %}
 
-                I declare the item is a {{ ivoryType }} that was made before {{ ivoryYear }}
+                I declare the item is a {{ ivoryType }} that was made before {{ ivoryDate }}
+
+                {% elseif ( data['exemptionChoice'] == 'type1' ) %}
+
+                I declare the {{ ivoryType }} was made before {{ ivoryDate }} and the ivory is integral to the item
 
                 {% else %}
 
-                I declare the {{ ivoryType }} was made before {{ ivoryYear }}
+                I declare the {{ ivoryType }} was made before {{ ivoryDate }}
 
                 {% endif %}
               </label>
@@ -54,7 +58,7 @@
         name: "ivoryAge",
         fieldset: {
           legend: {
-            text: "How do you know the " + ivoryType + " was made before " + ivoryYear + "?",
+            text: "How do you know the " + ivoryType + " was made before " + ivoryDate + "?",
             classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
           }
         },
@@ -69,10 +73,10 @@
             checked: checked("ivoryAge", "Date mark on the item")
           },
           {
-            value: "It's been in the family since " + ( ivoryYear - 1 ) + " or before",
-            text: "It's been in the family since " + ( ivoryYear - 1 ) + " or before",
+            value: "It's been in the family since " + ivoryBeforeDate + " or before",
+            text: "It's been in the family since " + ivoryBeforeDate + " or before",
             id: "ivory-age-family",
-            checked: checked("ivoryAge", "It's been in the family since " + ( ivoryYear - 1 ) + " or before")
+            checked: checked("ivoryAge", "It's been in the family since " + ivoryBeforeDate + " or before")
           },
           {
             value: "Written verification from an expert",
