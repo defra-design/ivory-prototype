@@ -639,3 +639,8 @@ img.item-detail-main{
     font-weight: 500;
 }
 
+
+/* We need this because otherwise the 'Change' link is vertically middle aligned win the CYA page */
+.app-check-your-answers__change{
+    vertical-align: top;
+}

@@ -396,7 +396,7 @@ router.get('/your-photos', function (req, res) {
           classes: 'your-photos-actions',
           items: [
             {
-              href: `${res.locals.baseUrl}/public/remove-photo/${photo}`,
+              href: `${res.locals.baseUrl}/public/confirm-remove-photo/${photo}`,
               text: 'Remove',
               visuallyHiddenText: `Photo ${position + 1}`
             }
@@ -429,6 +429,34 @@ router.post('/your-photos', function (req, res) {
   }
 
 })
+
+
+
+
+
+/// ///////////////////////////////////////////////////////////////////////////
+// CONFIRM REMOVE PHOTO
+router.get('/confirm-remove-photo/:filename', function (req, res) {
+
+  res.render(viewsFolder + 'confirm-remove-photo', {
+
+    // backUrl:  'your-photos',
+    // const photo = req.params.filename
+
+    backUrl: `${res.locals.baseUrl}/public/your-photos`,
+    photo: req.params.filename
+    // photo: req.session.data.photos[req.session.data.photos.length - 1]
+  })
+})
+
+router.post('/confirm-remove-photo/:filename', function (req, res) {
+  // Set back button URL
+  // req.session.data['backUrl'] = 'what-type-of-item-is-it'
+  // res.redirect('your-photos')
+  const photo = req.params.filename
+  res.redirect(`${res.locals.baseUrl}/public/remove-photo/` + photo)
+})
+
 
 
 /// ///////////////////////////////////////////////////////////////////////////

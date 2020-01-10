@@ -1,0 +1,36 @@
+{% set pageTitle = "Confirm you want to remove this photo" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <h1 class="govuk-heading-l">Remove this photo?</h1>
+
+
+    <div class="check-photo">
+      <img src="{{baseUrl}}/photos/{{photo}}" />
+    </div>
+
+
+    <form method="post" autocomplete="off" novalidate >
+      <button class="govuk-button">Remove photo</button>
+
+      <a href="../your-photos">Cancel</a>
+
+    </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
