@@ -377,6 +377,13 @@ router.get('/use-different-photo', function (req, res) {
 // YOUR PHOTOS
 router.get('/your-photos', function (req, res) {
 
+  // If we've come from the CYA page, make that the Back link destination
+  var backUrl
+  backUrl = 'what-type-of-item-is-it'
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    backUrl = 'check-your-answers'
+  }
+
   // Reset the what next decision
   req.session.data['photos-what-next'] = ''
 
@@ -406,8 +413,10 @@ router.get('/your-photos', function (req, res) {
     })
 
     res.render(viewsFolder + 'your-photos', {
-      backUrl: 'what-type-of-item-is-it',
+
+      backUrl: backUrl,
       photosSummaryList: photosSummaryList
+
     })
 
     // If there are no photos in the array, redirect to add-photo
@@ -416,15 +425,23 @@ router.get('/your-photos', function (req, res) {
   }
 })
 
+
 router.post('/your-photos', function (req, res) {
   // Set back button URL
   req.session.data['backUrl'] = 'your-photos'
 
-  if (req.session.data['photos-what-next'] === 'Add another photo') {
-    logger(req, 'Add another photo')
-    res.redirect('add-photo')
-  } else {
-    logger(req, "I'm done with photos... for now thanks")
+  // if (req.session.data['photos-what-next'] === 'Add another photo') {
+  //   logger(req, 'Add another photo')
+  //   res.redirect('add-photo')
+  // } else {
+  //   logger(req, "I'm done with photos... for now thanks")
+  //   res.redirect('describe-the-item')
+  // }
+
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  }else{
     res.redirect('describe-the-item')
   }
 
@@ -865,6 +882,10 @@ router.get('/cya', function (req, res) {
 // CHECK YOUR ANSWERS
 router.get('/check-your-answers', function (req, res) {
 
+
+  req.session.data['checkYourAnswers'] = 'hub'
+
+
   var backUrl
   if (req.session.data['ownerAgent'] == 'owner') {
     backUrl = 'dealing-intent'
@@ -984,6 +1005,8 @@ router.post('/check-your-answers', function (req, res) {
 //* ****************************************************
 // CHECK YOUR ANSWERS FILLED
 router.get('/check-your-answers-filled', function (req, res) {
+
+  req.session.data['checkYourAnswers'] = 'hub'
 
   // * let's pre-fill all the data - this is super-clunky but'll do for now...
 
