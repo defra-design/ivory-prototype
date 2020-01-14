@@ -1156,6 +1156,198 @@ router.post('/check-your-answers-filled', function (req, res) {
   res.redirect('confirmation')
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// * Check your answers pre-filled *********************
+
+
+//* ****************************************************
+// CHECK YOUR ANSWERS FILLED
+router.get('/check-your-answers-violin', function (req, res) {
+
+  req.session.data['checkYourAnswers'] = 'hub'
+
+  // * let's pre-fill all the data - this is super-clunky but'll do for now...
+
+  /* type1 = De minimis */
+  // req.session.data['exemptionChoice'] = 'type1'
+
+  /* type2 = Musical instrument */
+  req.session.data['exemptionChoice'] = 'type2'
+  req.session.data['photos'] = ['violin_01.jpg', 'violin_02.jpg', 'violin_03.jpg', 'violin_04.jpg', 'violin_05.jpg', 'violin_06.jpg']
+  req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory tip'
+
+
+  req.session.data['age-declaration'] = 'Declared'
+  req.session.data['ivoryAge'] = ['Date mark on the item', 'It\'s been in the family since 1974 or before']
+  req.session.data['ageDetail'] = 'Hallmark on the wooden handle dates the bow to 1894.'
+
+  req.session.data['volume-declaration'] = 'Declared'
+  req.session.data['volumeDetail'] = 'I can see that the bow contains less than 20% ivory.'
+  req.session.data['ivoryVolume'] = ['Estimate of ivory content by eye']
+
+
+  /* type3 = Portrait miniature */
+  // req.session.data['exemptionChoice'] = 'type3'
+  // req.session.data['photos'] = ['3UJS18CV.jpg']
+
+  // need to add the checkbox answers to each of these age and volume
+
+
+  req.session.data['ownerAgent'] = 'agent'
+
+  req.session.data['agentName'] = 'Stella Rimmington'
+  req.session.data['agentAddressBusiness'] = 'Acme Auctioneers Ltd'
+  req.session.data['agentAddressLine1'] = '65 Primrose Avenue'
+  req.session.data['agentAddressLine2'] = ''
+  req.session.data['agentAddressTown'] = 'Hoddingbridge'
+  req.session.data['agentAddressCounty'] = ''
+  req.session.data['agentAddressPostcode'] = 'WE11 2DO'
+  req.session.data['agentEmail'] = 's.rimmington@boltsandratchets.co.uk'
+
+  req.session.data['ownerName'] = 'Jim Bowen'
+  req.session.data['addressBusiness'] = 'On the Oche'
+  req.session.data['addressLine1'] = '29 Bull End'
+  req.session.data['addressLine2'] = 'Heswall'
+  req.session.data['addressTown'] = 'Wirral'
+  req.session.data['addressCounty'] = 'Merseyside'
+  req.session.data['addressPostcode'] = 'CH60 1PL'
+  req.session.data['ownerEmail'] = 'jim.bowen@gmole.com'
+
+  req.session.data['dealingIntent'] = 'Sell it'
+
+
+
+
+  var backUrl
+  if (req.session.data['ownerAgent'] == 'owner') {
+    backUrl = 'dealing-intent'
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    backUrl = 'dealing-intent'
+  }
+
+  var exemptionTypeChosen
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      exemptionTypeChosen = exemptionTypeText1
+      break
+    case 'type2':
+      exemptionTypeChosen = exemptionTypeText2
+      break
+    case 'type3':
+      exemptionTypeChosen = exemptionTypeText3
+      break
+    case 'type4':
+      exemptionTypeChosen = exemptionTypeText4
+      break
+    case 'type5':
+      exemptionTypeChosen = exemptionTypeText5
+      break
+    default:
+      exemptionTypeChosen = 'Not available'
+  }
+
+  req.session.data['exemptionTypeText'] = exemptionTypeChosen
+
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      ivoryVolume = '10%'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      ivoryVolume = '20%'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      ivoryVolume = '320 square centimetres'
+      break
+    case 'type4':
+      ivoryYear = ''
+      ivoryVolume = ''
+      break
+    case 'type5':
+      ivoryYear = '1918'
+      ivoryVolume = ''
+      break
+    default:
+      ivoryYear = 'xxxx'
+      ivoryVolume = 'xxxx'
+  }
+
+  var ageDetail
+  ageDetail = req.session.data['ageDetail']
+
+  var ivoryAge
+
+  ivoryAge = (req.session.data['ivoryAge'])
+  console.log( ivoryAge )
+
+  var ageDetail
+  ageDetail = req.session.data['ageDetail']
+
+  switch (req.session.data['dealingIntent']) {
+    case 'Sell it':
+      dealingIntent = 'Sale'
+      break
+    case 'Hire it out':
+      dealingIntent = 'Hire'
+      break
+    default:
+      dealingIntent = 'Not available'
+  }
+
+  res.render(viewsFolder + 'check-your-answers-violin', {
+    exemptionTypeChosen: exemptionTypeChosen,
+    ivoryYear: ivoryYear,
+    ivoryAge: ivoryAge,
+    ageDetail: ageDetail,
+    ivoryVolume: ivoryVolume,
+    dealingIntent: dealingIntent,
+    backUrl: backUrl,
+    agentOwner: req.session.data['ownerAgent']
+  })
+})
+
+router.post('/check-your-answers-violin', function (req, res) {
+  res.redirect('confirmation')
+})
+
+
+
+
+
+
+
+
+
+
 //* ****************************************************
 // CONFIRMATION
 router.get('/confirmation', function (req, res) {
@@ -1175,6 +1367,18 @@ router.get('/confirmation', function (req, res) {
     contactEmail: contactEmail
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 //* ****************************************************
 // CONFIRMATION EMAIL
