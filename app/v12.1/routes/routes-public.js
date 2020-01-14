@@ -1198,7 +1198,7 @@ router.get('/check-your-answers-violin', function (req, res) {
 
   /* type2 = Musical instrument */
   req.session.data['exemptionChoice'] = 'type2'
-  req.session.data['photos'] = ['violin_01.jpg', 'violin_02.jpg', 'violin_03.jpg', 'violin_04.jpg', 'violin_05.jpg', 'violin_06.jpg']
+  req.session.data['photos'] = ['violin_01.jpg', 'violin_02.jpg', 'violin_03.jpg', 'violin_04.jpg', 'violin_05.jpg']
   req.session.data['description'] = 'An antique violin bow made with tabebuia wood and horsehair with an ivory tip'
 
 
