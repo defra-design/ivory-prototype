@@ -261,24 +261,22 @@ function deletePhoto (req, photo) {
 
 router.get('/add-photo', function (req, res) {
 
-  if ( req.session.data.photos && req.session.data.photos.length ) {
+  var backUrl
+  backUrl = 'what-type-of-item-is-it'
 
-    res.render(viewsFolder + 'add-photo', {
-      backUrl: 'what-type-of-item-is-it'
-    })
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    backUrl = 'your-photos'
+  }
 
-  } else {
-
-      res.render(viewsFolder + 'add-photo', {
-        backUrl: 'what-type-of-item-is-it'
-      })
-
-    }
-
-
-
+  res.render(viewsFolder + 'add-photo', {
+    backUrl: backUrl
+  })
 
 })
+
+
+
+
 
 router.post('/add-photo', function (req, res) {
 
