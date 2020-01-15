@@ -1,0 +1,96 @@
+ {% extends "./layout.html" %}
+
+ {% set thisPageTitle = "Ivory V12.2 prototypes" %}
+
+
+ {% block pageTitle %}
+ {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+ {% endblock %}
+
+
+ {% block beforeContent %}
+   {% include "./includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ thisPageTitle }}
+    </h1>
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-9">Add and manage photos</h2>
+
+    <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" width="40%" scope="col">APHA (Backstage)</th>
+        <th class="govuk-table__header" scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="apha/registrations">Ivory Register</a></td>
+        <td class="govuk-table__cell">Service for APHA users</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Selling ivory items</th>
+          <th class="govuk-table__header" scope="col">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/apply-to-sell-or-hire-an-ivory-item">{{serviceName}}</a></td>
+          <td class="govuk-table__cell">e.g. 'Joe public piano seller'</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-sell">Sell on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for sellers</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/check-your-answers-violin">Check your answers pre-filled with violin data</a></td>
+          <td class="govuk-table__cell">A shortcut for the confirmation UX and Check your answers scenarios. <br /><br />If the data doesn't show properly first time, refresh the Check your answers page and it should work fine.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Buying ivory items (Out of scope)</th>
+          <th class="govuk-table__header" scope="col">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/check-before-you-buy-an-ivory-item">Check before buying an ivory item</a></td>
+          <td class="govuk-table__cell">e.g. Google search for "buying ivory items"</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-buy">Buy on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for buyers</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <p>We built these using the GOV.UK Prototype Kit v7.</p>
+
+  </div>
+</div>
+
+
+{% endblock %}

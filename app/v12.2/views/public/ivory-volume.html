@@ -1,0 +1,201 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Confirm the volume of ivory" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <!--    <form method="post" autocomplete="off" {{ novalidateVal }}>-->
+    <form method="post" autocomplete="off">
+
+
+      <div class="govuk-form-group">
+
+        {% if data['exemptionChoice'] == 'type5' %}
+
+        <h1 class="govuk-heading-l">Declare the item is the rarest and most important of its kind</h1>
+
+
+
+        {{ govukCheckboxes({
+        name: "volume-declaration",
+        fieldset: {
+        legend: {
+        text: "Legal declaration",
+        classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+        }
+        },
+        items: [
+        {
+        value: "Declared",
+        text: "I declare the item is the rarest and most important of its kind",
+        id: "volume-declaration",
+        checked: checked("volume-declaration", "Declared")
+        }
+        ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            What evidence can you provide to support your application?
+          </label>
+          <textarea required class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+
+        <h2 class="govuk-heading-m">Add up to 3 files</h2>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+
+
+
+
+
+
+        {% elseif data['exemptionChoice'] == 'type3' %}
+
+        <h1 class="govuk-heading-l">Confirm the portrait miniature is less than 320 square centimetres</h1>
+
+
+        {{ govukCheckboxes({
+          name: "volume-declaration",
+          fieldset: {
+            legend: {
+              text: "Legal declaration",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Declared",
+              text: "I declare the portrait miniature is less than 320 square centimetres",
+              id: "volume-declaration",
+              checked: checked("volume-declaration", "Declared")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            Explain how you know the surface area of the portrait miniature is less than 320 square centimetres
+          </label>
+          <textarea required class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+
+        {% else %}
+
+        <h1 class="govuk-heading-l">
+          Confirm the {{ ivoryType }}  has less than {{ ivoryVolume }} ivory
+        </h1>
+
+        {{ govukCheckboxes({
+          name: "volume-declaration",
+          fieldset: {
+            legend: {
+              text: "Legal declaration",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Declared",
+              text: "I declare the " + ivoryType + " has less than " + ivoryVolume + " ivory by volume",
+              id: "volume-declaration",
+              checked: checked("volume-declaration", "Declared")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-!-margin-bottom-9"></div>
+
+        {{ govukCheckboxes({
+          name: "ivoryVolume",
+          fieldset: {
+            legend: {
+              text: "How do you know the " + ivoryType + " has less than " + ivoryVolume + " ivory?",
+              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Estimate of ivory content by eye",
+              text: "Estimate of ivory content by eye",
+              id: "ivory-volume-eye",
+              checked: checked("ivoryVolume", "Estimate of ivory content by eye")
+            },
+            {
+              value: "Measured the item to work out the volume",
+              text: "Measured the item to work out the volume",
+              id: "ivory-volume-measured",
+              checked: checked("ivoryVolume", "Measured the item to work out the volume")
+            },
+            {
+              value: "Written verification from an expert",
+              text: "Written verification from an expert",
+              id: "ivory-volume-expert",
+              checked: checked("ivoryVolume", "Written verification from an expert")
+            },
+            {
+              value: "Other",
+              text: "Other",
+              id: "ivory-age-other",
+              checked: checked("ivoryVolume", "Other")
+            }
+          ]
+        }) }}
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="volume-detail">
+            Give details
+          </label>
+          <textarea required class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+
+        {% endif %}
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

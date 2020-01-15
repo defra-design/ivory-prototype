@@ -23,9 +23,27 @@
 
       {% if photosSummaryList.length < 6 %}
 
-      <p class="govuk-body govuk-!-margin-bottom-7">
-        <a href="add-photo">Add another photo</a>
-      </p>
+      {{ govukRadios({
+        idPrefix: "photos-what-next",
+        name: "photos-what-next",
+        fieldset: {
+          legend: {
+            text: "What next?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+          items: [
+            {
+              value: "Add another photo",
+              text: "Add another photo"
+            },
+            {
+              value: "Next question",
+              text: "Next question"
+            }
+        ]
+      }) }}
 
       {%  endif %}
 
