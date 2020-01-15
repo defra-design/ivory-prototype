@@ -300,11 +300,13 @@ router.post('/add-photo', function (req, res) {
     }
 
     // Handle no file chosen
-    if (!req.files) {
+    if (!req.files.length) {
+
       logger(req, 'No file chosen/uploaded')
       res.render(viewsFolder + 'add-photo', {
         errorNoFile: 'Choose a photo'
       })
+
     } else {
 
       for ( i=0; i < req.files.length; i++ ) {
@@ -318,7 +320,7 @@ router.post('/add-photo', function (req, res) {
             if (err) console.log(err)
           })
           res.render(viewsFolder + 'add-photo', {
-            errorNoFile: 'The photo must be a JPG or PNG'
+            errorNoFile: 'The photo must be JPG, JPEG or PNG'
           })
         }
 
@@ -344,7 +346,14 @@ router.post('/add-photo', function (req, res) {
 
       }
 
-      res.redirect('your-photos')
+
+      if (err) {
+        console.log('err = ' + err)
+      } else {
+
+        res.redirect('your-photos')
+
+      }
 
     }
   })
