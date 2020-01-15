@@ -289,7 +289,7 @@ router.post('/add-photo', function (req, res) {
     limits: {
       fileSize: 8 * 1024 * 1024 // 8 MB (max file size in bytes)
     }
-  }).single('fileToUpload') /* name attribute of <file> element in the html form */
+  }).array('fileToUpload') /* name attribute of <file> element in the html form */
 
   // Upload the chosen file to the multer 'dest'
   upload(req, res, function (err) {
@@ -300,47 +300,52 @@ router.post('/add-photo', function (req, res) {
     }
 
     // Handle no file chosen
-    if (!req.file) {
+    if (!req.files) {
       logger(req, 'No file chosen/uploaded')
       res.render(viewsFolder + 'add-photo', {
         errorNoFile: 'Choose a photo'
       })
     } else {
 
-      // Handle a wrong file type
-      const multerDestPath = req.file.path
-      var fileExt = path.extname(req.file.originalname).toLowerCase()
-      if (fileExt !== '.png' && fileExt !== '.jpg' && fileExt !== '.jpeg') {
-        logger(req, 'Wrong file type')
-        fs.unlink(multerDestPath, err => {
-          if (err) console.log(err)
-        })
-        res.render(viewsFolder + 'add-photo', {
-          errorNoFile: 'The photo must be a JPG or PNG'
-        })
-      }
+      for ( i=0; i < req.files.length; i++ ) {
 
-      // Passes all validation, so move/rename it to the persistent location
-      // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
-      var photo = new Date().getTime().toString() + fileExt // getTime() gives the milliseconds since 1970...
-      const targetPath = path.join(rootAppDirectory, version, '/photos/', photo)
-
-      fs.rename(multerDestPath, targetPath, function (err) {
-        if (err) {
-          console.log('err = ' + err)
-        } else {
-          res.redirect('your-photos')
+        // Handle a wrong file type
+        const multerDestPath = req.files[i].path
+        var fileExt = path.extname(req.files[i].originalname).toLowerCase()
+        if (fileExt !== '.png' && fileExt !== '.jpg' && fileExt !== '.jpeg') {
+          logger(req, 'Wrong file type')
+          fs.unlink(multerDestPath, err => {
+            if (err) console.log(err)
+          })
+          res.render(viewsFolder + 'add-photo', {
+            errorNoFile: 'The photo must be a JPG or PNG'
+          })
         }
-      })
 
-      // Handle session variables
-      // Add a photo to the photos array (and create array if it doesn't exist yet)
-      if (!req.session.data.photos) {
-        req.session.data.photos = []
+        // Passes all validation, so move/rename it to the persistent location
+        // (We need to initially save it somewhere to get the file extension otherwise we'd need an additional module to handle the multipart upload)
+        var photo = new Date().getTime().toString() + i + fileExt // getTime() gives the milliseconds since 1970...
+        const targetPath = path.join(rootAppDirectory, version, '/photos/', photo)
+
+        fs.rename(multerDestPath, targetPath, function (err) {
+          if (err) {
+            console.log('err = ' + err)
+          }
+        })
+
+        // Handle session variables
+        // Add a photo to the photos array (and create array if it doesn't exist yet)
+        if (!req.session.data.photos) {
+          req.session.data.photos = []
+        }
+        req.session.data.photos.push(photo)
+        console.log(`photo added: ${photo}`)
+        console.log(`photo array: ${req.session.data.photos}`)
+
       }
-      req.session.data.photos.push(photo)
-      console.log(`photo added: ${photo}`)
-      console.log(`photo array: ${req.session.data.photos}`)
+
+      res.redirect('your-photos')
+
     }
   })
 })
