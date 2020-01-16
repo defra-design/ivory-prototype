@@ -25,14 +25,22 @@ Registraiton complete
 
     <p class="govuk-body">We’ve sent you emails to confirm your registration and payment.</p>
 
+    <p class="govuk-body"><a href="registration">Open your registration document</a></p>
 
     <h3 class="govuk-heading-s">What happens next</h3>
 
 
-    <p class="govuk-body"><a href="registration">Open your registration document</a></p>
 
+    {% if data['dealingIntent'] == 'Sell it' %}
 
     <p class="govuk-body">You can now sell the item because you have said it:</p>
+
+    {% else %}
+
+    <p class="govuk-body">You can now sell or hire the item because you have said it:</p>
+
+    {% endif %}
+
 
     <ul class="govuk-list govuk-list--bullet">
 
@@ -65,6 +73,7 @@ Registraiton complete
     <p class="govuk-body">This registration expires when you sell the item.</p>
 
     {% endif  %}
+    <p class="govuk-body">You can give the registration number to a buyer so they can <a href="check-before-you-buy-an-ivory-item">check the item before they buy it</a>.</p>
 
     <p class="govuk-body govuk-!-margin-top-9">
       <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)

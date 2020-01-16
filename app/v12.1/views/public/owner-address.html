@@ -58,6 +58,25 @@
           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" value="{{ data['addressPostcode'] }}" required />
         </div>
 
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">The address is outside the UK</span>
+          </summary>
+          <div class="govuk-details__text">
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="owner-non-uk">
+                Your address
+              </label>
+              <textarea class="govuk-textarea" id="owner-non-uk" name="owner-non-uk" rows="5" autocomplete="owner-non-uk"></textarea>
+            </div>
+
+          </div>
+        </details>
+
+
+
       </fieldset>
 
       <button class="govuk-button">Continue</button>
