@@ -194,7 +194,7 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     logger(req, "It's a standard section 10 non-museum.")
     logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
 
-    if ( req.session.data['checkYourAnswers'] = 'hub' ){
+    if ( req.session.data['checkYourAnswers'] == 'hub' ){
 
       // clear out the data from the declaration pages
       // and redirect to ivory age i.e. first declaration page
