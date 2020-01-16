@@ -193,6 +193,17 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     } else {
     logger(req, "It's a standard section 10 non-museum.")
     logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
+
+    if ( req.session.data['checkYourAnswers'] = 'hub' ){
+
+      // clear out the data from the declaration pages
+      // and redirect to ivory age i.e. first declaration page
+
+
+      res.redirect('ivory-age')
+
+    }
+
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
@@ -359,30 +370,9 @@ router.post('/add-photo', function (req, res) {
   })
 })
 
-/// ///////////////////////////////////////////////////////////////////////////
-// CHECK PHOTO
-router.get('/check-photo', function (req, res) {
-
-  res.render(viewsFolder + 'check-photo', {
-    backUrl: 'add-photo',
-    photo: req.session.data.photos[req.session.data.photos.length - 1]
-  })
-})
-
-router.post('/check-photo', function (req, res) {
-  // Set back button URL
-  req.session.data['backUrl'] = 'check-photo'
-  res.redirect('your-photos')
-})
 
 
-/// ///////////////////////////////////////////////////////////////////////////
-// USE A DIFFERENT PHOTO
-router.get('/use-different-photo', function (req, res) {
-  const photo = req.session.data.photos[req.session.data.photos.length - 1] // the last photo uploaded
-  deletePhoto(req, photo)
-  res.redirect('add-photo')
-})
+
 
 
 /// ///////////////////////////////////////////////////////////////////////////
@@ -497,6 +487,15 @@ router.get('/remove-photo/:filename', (req, res) => {
 })
 
 
+
+
+
+
+
+
+
+
+
 //* ****************************************************
 // DESCRIBE THE ITEM
 router.get('/describe-the-item', function (req, res) {
@@ -576,8 +575,38 @@ router.get('/ivory-age', function (req, res) {
 })
 
 router.post('/ivory-age', function (req, res) {
+
+
+
+  if (req.session.data['exemptionChoice'] == 'type1') {
+
+    res.redirect('ivory-is-integral')
+
+  } else {
+
+    res.redirect('ivory-volume')
+
+  }
+
+})
+
+
+
+//* ****************************************************
+// IVORY IS INTEGRAL - Only for Pre-1947 less than 10% items
+router.get('/ivory-is-integral', function (req, res) {
+
+  res.render(viewsFolder + 'ivory-is-integral', {
+    backUrl: 'ivory-age'
+  })
+})
+
+router.post('/ivory-is-integral', function (req, res) {
   res.redirect('ivory-volume')
 })
+
+
+
 
 //* ****************************************************
 // IVORY VOLUME
@@ -609,12 +638,15 @@ router.get('/ivory-volume', function (req, res) {
 
   var ivoryVolume
   var ivoryType
+  var backUrl
 
+  backUrl = 'ivory-age'
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
       ivoryVolume = '10%'
       ivoryType = 'item'
+      backUrl = 'ivory-is-integral'
       break
     case 'type2':
       ivoryVolume = '20%'
@@ -637,13 +669,15 @@ router.get('/ivory-volume', function (req, res) {
       ivoryType = 'item'
   }
 
+
+
   res.render(viewsFolder + 'ivory-volume', {
     volumeType1Checked: volumeType1Checked,
     volumeType2Checked: volumeType2Checked,
     volumeType3Checked: volumeType3Checked,
     'ivoryVolume': ivoryVolume,
     'ivoryType': ivoryType,
-    backUrl: 'ivory-age'
+    backUrl: backUrl
   })
 })
 
@@ -1313,16 +1347,25 @@ router.get('/check-your-answers-violin', function (req, res) {
       ivoryVolume = 'xxxx'
   }
 
+
+
+
   var ageDetail
   ageDetail = req.session.data['ageDetail']
 
   var ivoryAge
-
   ivoryAge = (req.session.data['ivoryAge'])
   console.log( ivoryAge )
 
-  var ageDetail
-  ageDetail = req.session.data['ageDetail']
+  var ivoryIntegralDetail
+  ivoryIntegralDetail = req.session.data['ivoryIntegralDetail']
+
+  var ivoryVolume
+  ivoryVolume = (req.session.data['ivoryVolume'])
+  //console.log( ivoryAge )
+
+
+
 
   switch (req.session.data['dealingIntent']) {
     case 'Sell it':
@@ -1341,6 +1384,7 @@ router.get('/check-your-answers-violin', function (req, res) {
     ivoryAge: ivoryAge,
     ageDetail: ageDetail,
     ivoryVolume: ivoryVolume,
+    ivoryIntegralDetail: ivoryIntegralDetail,
     dealingIntent: dealingIntent,
     backUrl: backUrl,
     agentOwner: req.session.data['ownerAgent']

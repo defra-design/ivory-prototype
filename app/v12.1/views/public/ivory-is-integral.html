@@ -1,0 +1,69 @@
+{% set pageTitle = "Confirm the ivory is integral to the item" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+<!--    <form method="post" autocomplete="off" {{ novalidateVal }}>-->
+      <form method="post" autocomplete="off">
+
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          {{ pageTitle }}
+        </h1>
+
+      <div class="govuk-form-group govuk-!-margin-bottom-9">
+        <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Legal declaration
+          </legend>
+          <div class="govuk-checkboxes" data-module="checkboxes">
+            <div class="govuk-checkboxes__item">
+              {% if data['ivory-integral-declaration'] == 'Declared' %}
+              <input class="govuk-checkboxes__input" id="ivory-integral-declaration" checked name="ivory-integral-declaration" type="checkbox" value="Declared" required>
+              {% else %}
+              <input class="govuk-checkboxes__input" id="ivory-integral-declaration" name="ivory-integral-declaration" type="checkbox" value="Declared" required>
+              {% endif %}
+              <label class="govuk-label govuk-checkboxes__label" for="ivory-integral-declaration">
+                I declare the ivory is integral to the item
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="integral-detail">
+          Give details
+        </label>
+        <!-- <span id="age-detail-hint" class="govuk-hint">
+          Do not include personal or financial information, like your National Insurance number or credit card details.
+        </span> -->
+        <textarea required class="govuk-textarea" id="integral-detail" name="ivoryIntegralDetail" rows="5" aria-describedby="integral-detail-hint">{{ data['ivoryIntegralDetail'] }}</textarea>
+      </div>
+
+
+    </div>
+
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}

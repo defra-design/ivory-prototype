@@ -287,7 +287,6 @@ APHA logo and other info?
   Seller information
 </h3>
 
-
 <p class="govuk-body">
   You can sell this item based on the details in this registration document being correct.
 </p>
@@ -300,8 +299,13 @@ APHA logo and other info?
   The registration will not expire if you hire out the item.
 </p>
 
+<p class="govuk-body">
+  You can give the registration number to a buyer so they can <a href="check-before-you-buy-an-ivory-item">check the item before they buy it</a>.
+</p>
 
-<h4 class="govuk-heading-s">
+
+
+    <h4 class="govuk-heading-s">
   Report changes
 </h4>
 
@@ -330,8 +334,8 @@ APHA logo and other info?
 
 
 <ul class="govuk-list govuk-list--bullet">
-  <li>the registration document matches the item</li>
-  <li>the owner’s details are correct</li>
+  <li>the item is registered - and matches the description in the registration</li>
+  <!--  <li>the owner’s details are correct</li>-->
   {% if data['exemptionChoice'] == 'type1' %}
   <!-- de minimis -->
   <li>you agree the item was made before 1947 and has less than 10% ivory</li>
@@ -347,7 +351,12 @@ APHA logo and other info?
 </ul>
 
 
-<h4 class="govuk-heading-s">
+<p class="govuk-body">
+  Use <a href="check-before-you-buy-an-ivory-item">check before you buy an ivory item</a> to view details of the item.
+</p>
+
+
+    <h4 class="govuk-heading-s">
   After the sale
 </h4>
 
