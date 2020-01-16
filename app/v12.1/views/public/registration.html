@@ -103,7 +103,7 @@ APHA logo and other info?
   This item has been registered and declared as an item made before 1947 with less than 10% ivory.
 </p>
 
-<p class="govuk-body">
+<p class="govuk-body govuk-!-margin-top-9">
   Evidence it was made before 1947:
 </p>
 
@@ -126,7 +126,21 @@ APHA logo and other info?
 
 
 
+
+
+
+<p class="govuk-body govuk-!-margin-top-9">
+  Evidence the ivory is integral to the item:
+</p>
+
 <p class="govuk-body">
+  {{ data['ivoryIntegralDetail'] }}
+</p>
+
+
+
+
+    <p class="govuk-body govuk-!-margin-top-9">
   Evidence it has less than 10% ivory:
 </p>
 
@@ -208,10 +222,6 @@ APHA logo and other info?
   {{ data['volumeDetail'] }}
 </p>
 
-
-
-
-
 {% endif %}
 
 
@@ -250,10 +260,6 @@ APHA logo and other info?
   {{ data['ageDetail'] }}
 </p>
 
-
-
-
-
 <p class="govuk-body">
   Evidence it has a surface ara less than 320 square centimetres:
 </p>
@@ -261,10 +267,6 @@ APHA logo and other info?
 <p class="govuk-body">
   {{ data['volumeDetail'] }}
 </p>
-
-
-
-
 
 {% endif %}
 
