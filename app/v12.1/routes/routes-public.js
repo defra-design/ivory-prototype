@@ -199,7 +199,6 @@ router.post('/what-type-of-item-is-it', function (req, res) {
       // clear out the data from the declaration pages
       // and redirect to ivory age i.e. first declaration page
 
-
       res.redirect('ivory-age')
 
     }
@@ -514,9 +513,32 @@ router.get('/describe-the-item', function (req, res) {
 })
 
 router.post('/describe-the-item', function (req, res) {
+
   logger(req, 'Description=' + req.session.data['description'])
-  res.redirect('ivory-age')
+
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('ivory-age')
+  }
+
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //* ****************************************************
 // IVORY AGE
@@ -682,7 +704,14 @@ router.get('/ivory-volume', function (req, res) {
 })
 
 router.post('/ivory-volume', function (req, res) {
-  res.redirect('who-owns-item')
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('who-owns-item')
+
+  }
+
 })
 
 //* ****************************************************
@@ -767,7 +796,13 @@ router.get('/agent-name', function (req, res) {
 })
 
 router.post('/agent-name', function (req, res) {
-  res.redirect('agent-address')
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('agent-address')
+  }
+
 })
 
 //* ****************************************************
@@ -779,7 +814,11 @@ router.get('/agent-address', function (req, res) {
 })
 
 router.post('/agent-address', function (req, res) {
-  res.redirect('agent-contact')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('agent-contact')
+  }
 })
 
 //* ****************************************************
@@ -791,7 +830,12 @@ router.get('/agent-contact', function (req, res) {
 })
 
 router.post('/agent-contact', function (req, res) {
-  res.redirect('agent-owner-name')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('agent-owner-name')
+  }
+
 })
 
 //* ****************************************************
@@ -803,7 +847,12 @@ router.get('/agent-owner-name', function (req, res) {
 })
 
 router.post('/agent-owner-name', function (req, res) {
-  res.redirect('agent-owner-address')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('agent-owner-address')
+  }
+
 })
 
 //* ****************************************************
@@ -815,7 +864,14 @@ router.get('/agent-owner-address', function (req, res) {
 })
 
 router.post('/agent-owner-address', function (req, res) {
-  res.redirect('dealing-intent')
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('dealing-intent')
+  }
+
+
 })
 
 //* ****************************************************
@@ -849,7 +905,14 @@ router.get('/owner-name', function (req, res) {
 })
 
 router.post('/owner-name', function (req, res) {
-  res.redirect('owner-address')
+
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('owner-address')
+  }
+
 })
 
 //* ****************************************************
@@ -861,7 +924,11 @@ router.get('/owner-address', function (req, res) {
 })
 
 router.post('/owner-address', function (req, res) {
-  res.redirect('owner-contact')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('owner-contact')
+  }
 })
 
 //* ****************************************************
@@ -873,7 +940,12 @@ router.get('/owner-contact', function (req, res) {
 })
 
 router.post('/owner-contact', function (req, res) {
-  res.redirect('dealing-intent')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('dealing-intent')
+  }
+
 })
 
 //* ****************************************************
