@@ -78,9 +78,13 @@ APHA logo and other info?
   Item details
 </h2>
 
-<p class="govuk-body">
-  <img src="{{baseUrl}}/photos/{{data['imageName']}}" height="200" border="0" />
-</p>
+    <ul class="govuk-list">
+      {% for photo in data['photos'] %}
+      <li>
+        <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
+      </li>
+      {%  endfor %}
+    </ul>
 
 
 
