@@ -79,13 +79,16 @@ APHA logo and other info?
 </h2>
 
 
-    <p class="govuk-body">
+    <ul class="ivory-photos-list">
+
 
       {% for photo in data['photos'] %}
-      <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
+      <li class="ivory-photo-item">
+        <img class="ivory-photo" src="{{baseUrl}}/photos/{{photo}}" />
+      </li>
       {%  endfor %}
 
-    </p>
+    </ul>
 
 
 
@@ -306,8 +309,22 @@ APHA logo and other info?
   The registration will not expire if you hire out the item.
 </p>
 
+
+    <!--
+
+
+    Does the reader need the "Check before you buy" URL spelt out?
+    In print only, or on screen and in print?
+    We can use print styles to show/hide the URL...
+    Faking it at mo with www.gov.uk/guidance/check-before-you-buy-ivory
+
+
+    -->
+
 <p class="govuk-body">
   You can give the registration number to a buyer so they can <a href="check-before-you-buy-an-ivory-item">check the item before they buy it</a>.
+  <br />
+  <span class="print-only">www.gov.uk/guidance/check-before-you-buy-ivory</span>
 </p>
 
 
@@ -360,6 +377,8 @@ APHA logo and other info?
 
 <p class="govuk-body">
   Use <a href="check-before-you-buy-an-ivory-item">check before you buy an ivory item</a> to view details of the item.
+  <br />
+  <span class="print-only">www.gov.uk/guidance/check-before-you-buy-ivory</span>
 </p>
 
 
