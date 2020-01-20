@@ -38,7 +38,7 @@ APHA logo and other info?
   </h1>
 
   <p class="govuk-body reg-doc-date reg-doc-centre">
-    Date of registration: {{dateOfRegistration}}
+    Date of registration: {{ dateOfRegistration }}
   </p>
 
 
@@ -78,13 +78,14 @@ APHA logo and other info?
   Item details
 </h2>
 
-    <ul class="govuk-list">
+
+    <p class="govuk-body">
+
       {% for photo in data['photos'] %}
-      <li>
-        <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
-      </li>
+      <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
       {%  endfor %}
-    </ul>
+
+    </p>
 
 
 
