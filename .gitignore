@@ -41,4 +41,4 @@ app/uploads/temp
 .idea
 
 # Ignore the public folder (which is generated every time it starts)
-public
+./public
