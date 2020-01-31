@@ -154,6 +154,8 @@ margin-bottom: 0.5rem;
 
 
 
+// for URLs and things we only want to display when printing
+
 @media screen {
     .print-only {
         display: none;
@@ -173,6 +175,26 @@ margin-bottom: 0.5rem;
 .ivory-photo{
     max-width: 480px;
 }
+
+
+@media print{
+
+    .ivory-photos-list{
+        margin: 0 0 1em 0;
+        padding: 0;
+    }
+
+    .ivory-photo-item{
+        list-style: none;
+    }
+
+    .ivory-photo{
+        max-width: 100%;
+    }
+}
+
+
+
 
 
 /* Detailed guidance CSS */
