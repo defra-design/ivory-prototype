@@ -1,0 +1,114 @@
+{% extends "./layout.html" %}
+
+
+{% block header %}
+  {% include "../includes/cookie-banner.html" %}
+  {{ govukHeader({
+    homepageUrl: "",
+    serviceName: "Check before you buy an ivory item",
+    serviceUrl: "",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+
+
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %} {% include "../includes/stage-banner.html" %} {% endblock %} {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <!-- <img src="{{baseUrl}}/photos/{{data['imageName']}}" width="100%" border="1" /> -->
+
+
+<h1 class="govuk-heading-l">
+  <span class="heading-label">
+Ivory registration number
+  </span>
+  <span class="heading-title">
+4HCP37NL
+  </span>
+</h1>
+
+
+<dl class="app-check-your-answers app-check-your-answers--short">
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question"></dt>
+    <dd class="app-check-your-answers__answer"></dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Registration status</dt>
+    <dd class="app-check-your-answers__answer">Registered for a single sale or hire</dd>
+    <!-- <dd class="app-check-your-answers__answer">Awaiting confirmation</dd> -->
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Date registered</dt>
+    <dd class="app-check-your-answers__answer">29 August 2019</dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Item type</dt>
+    <!-- <dd class="app-check-your-answers__answer">{{data['exemptionTypeText']}}</dd> -->
+    <dd class="app-check-your-answers__answer">Musical instrument made before 1975 with less than 20% ivory</dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Photo</dt>
+    <dd class="app-check-your-answers__answer">
+      <!-- <img src="{{baseUrl}}./photos/{{data['imageName']}}" height="200" border="0" /> -->
+      <img src="{{baseUrl}}/photos/4BHP37TR.jpg" width="100%" border="0" />
+      <!-- <br />
+      <a href="#">See larger photograph</a> -->
+    </dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Description</dt>
+    <!-- <dd class="app-check-your-answers__answer">{{data['description']}}</dd> -->
+    <dd class="app-check-your-answers__answer">A wonderful upright piano which has been in our family for several generations.</dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Age of ivory</dt>
+    <!-- <dd class="app-check-your-answers__answer">{{data['ivoryAge']}}</dd> -->
+    <dd class="app-check-your-answers__answer">Piano registered in 1921 by Bechstein</dd>
+  </div>
+
+  {% if data['exemptionChoice'] == 'type3' %}
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Width</dt>
+    <dd class="app-check-your-answers__answer">{{data['itemWidth']}} cm</dd>
+  </div>
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Height</dt>
+    <dd class="app-check-your-answers__answer">{{data['itemHeight']}} cm</dd>
+  </div>
+
+  {% else %}
+
+  <div class="app-check-your-answers__contents">
+    <dt class="app-check-your-answers__question">Volume of ivory</dt>
+    <!-- <dd class="app-check-your-answers__answer">{{data['ivoryVolume']}}</dd> -->
+    <dd class="app-check-your-answers__answer">
+      Only the key tops are made of ivory, which make up much less than 20% of the material volume of the piano.
+    </dd></dd>
+  </div>
+
+  {% endif %}
+
+</dl>
+
+    <!-- <a href='index' class="govuk-button">Return to GOV.UK</a> -->
+
+    <p class="govuk-body"><a href=''>Print this page</a></p>
+    <p class="govuk-body"><a href='check-registration-search'>Check another registration</a></p>
+
+  </div>
+</div>
+{% endblock %}
