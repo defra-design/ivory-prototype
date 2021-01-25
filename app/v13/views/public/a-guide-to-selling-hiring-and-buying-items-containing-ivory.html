@@ -10,6 +10,8 @@
 <link href="/public/stylesheets/govuk-template.css" media="screen" rel="stylesheet" type="text/css">
 <link href="/public/stylesheets/core-layout.css" media="screen" rel="stylesheet" type="text/css">
 <link href="/public/stylesheets/publisher.css" media="screen" rel="stylesheet" type="text/css">
+<link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css">
+
 
 {% endblock %}
 
@@ -30,10 +32,9 @@ A guide to selling, hiring and buying items containing ivory
 <div id="global-header-bar"></div>
 
 
-<div class="gem-c-contextual-breadcrumbs">
 
-  <div class="gem-c-breadcrumbs govuk-breadcrumbs " data-module="track-click">
-    <ol class="govuk-breadcrumbs__list">
+  <div class="govuk-breadcrumbs " data-module="track-click">
+    <ol class="govuk-breadcrumbs__list" style="font-size: 16px">
       <li class="govuk-breadcrumbs__list-item" aria-current="false">
         <a data-track-category="homeLinkClicked" data-track-action="homeBreadcrumb" data-track-label="" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="/">Home</a>
       </li>
@@ -47,7 +48,6 @@ A guide to selling, hiring and buying items containing ivory
   </div>
 
 
-</div>
 
 {% endblock %}
 
@@ -119,8 +119,12 @@ A guide to selling, hiring and buying items containing ivory
 
       <div class="govspeak">
 
-        <div role="note" aria-label="Help" class="application-notice help-notice">
-          <p>Under the <a href="https://www.legislation.gov.uk/ukpga/2018/30/contents/enacted">Ivory Act 2018</a>, you can be fined up to £250,000 and/or sent to prison if you buy, sell or hire an ivory item that does not have a valid registration or certificate.</p>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true" style="margin-top: -20px; min-width: 32px">!</span>
+          <strong class="govuk-warning-text__text" style="font-size: 19px; padding-left: 53px">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Under the <a href="https://www.legislation.gov.uk/ukpga/2018/30/contents/enacted">Ivory Act 2018</a>, you can be fined up to £250,000 and/or sent to prison if you buy, sell or hire an ivory item that does not have a valid registration or certificate.
+          </strong>
         </div>
 
 
@@ -128,7 +132,7 @@ A guide to selling, hiring and buying items containing ivory
 
         <h2 id="selling-an-ivory-item">Selling an ivory item</h2>
 
-        <p>You must <a href="apply-to-sell-or-hire-an-ivory-item">register or apply for a certificate</a> to:</p>
+        <p>You must <a href="beta/start-new">register or apply for a certificate</a> to:</p>
 
         <ul>
           <li>sell or hire an ivory item</li>
@@ -152,8 +156,6 @@ A guide to selling, hiring and buying items containing ivory
 
         <h2 id="the-difference-between-registrations-and-certificates">The difference between registrations and certificates</h2>
 
-        <!-- <p>Add in something about users not needing</p> -->
-
         <h3 id="registrations">Registrations</h3>
 
         <p>You can register an ivory item if its in any of these categories:</p>
@@ -173,7 +175,7 @@ A guide to selling, hiring and buying items containing ivory
 
         <ul>
           <li>it was made before 1918</li>
-          <li>it has an outstanding artistic, cultural or historical value<sup><a href="" id="cmnt_ref1">[a]</a></sup>
+          <li>it has an <a class="govuk-link" href="#" id="cmnt_ref1">outstanding artistic, cultural or historical value</a>
         </li>
         </ul>
 
@@ -537,7 +539,7 @@ A guide to selling, hiring and buying items containing ivory
 
         <h2 id="how-to-register">How to register</h2>
 
-        <p>The easiest way is <a href="apply-to-sell-or-hire-an-ivory-item">online</a>. You can also register by post.</p>
+        <p>The easiest way is <a href="beta/start-new">online</a>. You can also register by post.</p>
 
         <p>Before starting the online process, you’ll need:</p>
 
@@ -562,7 +564,7 @@ A guide to selling, hiring and buying items containing ivory
 
         <h2 id="how-to-apply-for-a-certificate">How to apply for a certificate</h2>
 
-        <p>The easiest way is <a href="apply-to-sell-or-hire-an-ivory-item">online</a>. You can also register by post.</p>
+        <p>The easiest way is <a href="beta/start-new">online</a>. You can also register by post.</p>
 
         <p>Before starting the online process, you’ll need:</p>
 
@@ -583,13 +585,13 @@ A guide to selling, hiring and buying items containing ivory
 
         <p>The process should take no more than [insert length of process] although in some cases this may be longer.</p>
 
-        <p>If you disagree with a decision that has been made, you have the right to appeal<sup><a href="" id="cmnt_ref3">[c]</a></sup> that decision.</p>
+        <p>If you disagree with a decision that has been made, you have the right to <a class="govuk-link" href="#" id="cmnt_ref3">appeal</a> that decision.</p>
 
         <p>A certificate given can be cancelled if the owner of an item gave inaccurate or incomplete information.</p>
 
         <p>If you can’t find your certificate, you can request a replacement but you must state the reason.</p>
 
-        <h3 id="reporting-changes">Reporting changes</h3>
+        <!-- <h3 id="reporting-changes">Reporting changes</h3>
 
         <p>You must report any changes if:</p>
 
@@ -682,7 +684,7 @@ A guide to selling, hiring and buying items containing ivory
 
             </p>
           </div>
-        </div>
+        </div> -->
 
 
       </div>
@@ -698,7 +700,7 @@ A guide to selling, hiring and buying items containing ivory
 
 
 
-    <div class="govuk-grid-column-one-third">
+    <!-- <div class="govuk-grid-column-one-third">
 
 
 
@@ -743,7 +745,7 @@ A guide to selling, hiring and buying items containing ivory
 
 
 
-</div>
+</div> -->
 
 
 

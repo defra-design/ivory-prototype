@@ -1639,7 +1639,15 @@ router.get('/check-registration-result', function (req, res) {
   res.render(viewsFolder + 'check-registration-result')
 })
 
-/// ///////////////////////////////////////////////////////////////////////////
-// END OF ROUTES
+
+
+
+// BETA ROUTES - JORDAN //
+
+// NEW START PAGE
+router.get('/beta/start-new', function (req, res) {
+  res.render(viewsFolder + 'beta/start-new')
+})
+
 
 module.exports = router
