@@ -29,59 +29,44 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        Start new {% if serviceName %} {{ serviceName }} {% endif %}
-      </h1>
+      <h1 class="govuk-heading-xl">Tell us you want to trade ivory</h1>
 
-      <p>Use this service to:</p>
+      <h2 class="govuk-heading-m">Registering an exempt item</h2>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>do something</li>
-        <li>update your name, address or other details</li>
-        <li>do something else</li>
-      </ul>
+        <p>Use this service if you have one of the following items to trade:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a musical instrument made before 1975 with less than 20% ivory by volume</li>
+          <li>an item made before 1947 with less than 10% ivory by volume</li>
+          <li>a portrait miniature made before 1918 with a surface area smaller than 320 square centimetres</li>
+          <li>an item that a qualifying museum intends to buy or hire</li>
+        </ul>
 
-      <p>Registering takes around 5 minutes.</p>
+        <p>This costs £xx.</p>
 
-      <a href="#" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
+        <div class="govuk-inset-text">
+          You’ll get your registration number as soon as we receive payment. We check registrations retrospectively to ensure they comply with the law.
+        </div>
+
+      <h2 class="govuk-heading-m">Applying to certify a rare and important item</h2>
+
+        <p>You can also use the service if you intend to trade any ivory item made before 1918 that is rare and important. </p>
+        <p>This costs £xxx and you’ll get an exemption certificate if an expert approves your application, usually within 30 days.</p>
 
       <h2 class="govuk-heading-m">Before you start</h2>
 
-      <p>You can also <a href="#">register by post</a>.</p>
+        <p>You'll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a photo that shows the whole item</li>
+          <li>extra photos, if it’s not clear from the main photo how much ivory is in the item</li>
+          <li>a debit or credit card to make payment</li>
+        </ul>
 
-      <p>The online service is also available in <a href="#">Welsh (Cymraeg)</a>.</p>
-
-      <p>You can’t register for this service if you’re in the UK illegally.</p>
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start" data-module="govuk-button">Start now
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
 
     </div>
+
   </div>
 {% endblock %}
