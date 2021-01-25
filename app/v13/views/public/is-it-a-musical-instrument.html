@@ -1,59 +1,52 @@
 {% extends "./layout.html" %}
 
-
 {% set thisPageTitle = "Is it a musical instrument?" %}
-
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
 {% endblock %}
 
 
-
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+<div class="govuk-width-container">
 
-    <form class="form" method="post" {{ novalidateVal }}>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-      {{ govukRadios({
-        idPrefix: "musical-instrument",
-        name: "musical-instrument",
-        fieldset: {
-          legend: {
-            text: thisPageTitle,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-        {
-          value: "Yes",
-          text: "Yes",
-          checked: checked("musical-instrument", "Yes")
-        },
-        {
-          value: "No",
-          text: "No",
-          checked: checked("musical-instrument", "No")
-        }
-        ]
-      }) }}
+        <form class="form" method="post" novalidate>
 
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  {{ thisPageTitle }}
+                </h1>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMusical-yes" name="isitMusical" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitMusical-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMusical-no" name="isitMusical" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitMusical-no">
+                    No
+                  </label>
+                </div>
+              </div>
 
-      <button class="govuk-button">Continue</button>
+            </fieldset>
+          </div>
 
-    </form>
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-
-    <!-- <p class="govuk-body govuk-!-padding-top-9"><a href="based-on-your-answers">List of outcomes</a></p> -->
-
-
-
-  </div>
+        </form>
+      </div>
+    </div>
 </div>
-
 
 
 {% endblock %}

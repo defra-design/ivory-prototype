@@ -5,14 +5,7 @@
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
 {% endblock %}
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
 
-{% set mainClasses = "govuk-main-wrapper--l" %}
-
-<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
-{% block beforeContent %}
-  {% include "../includes/stage-banner.html" %}
-{% endblock %}
 
 {% block content %}
 
@@ -20,9 +13,7 @@
       <div class="govuk-grid-column-full">
 
 
-        <!-- Nic here... I want to update this page to use the nunjucks code... just need a spare 20 mins at some point... -->
-
-    <form method="post" autocomplete="off" {{ novalidateVal }}>
+    <form class="form" method="post" novalidate>
 
 
       <div class="govuk-form-group">

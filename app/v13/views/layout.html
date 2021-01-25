@@ -50,7 +50,7 @@
 
 {% block beforeContent %}
   {% include "./includes/stage-banner.html" %}
-  <a href="{{ backUrl }}" class="govuk-back-link">Back</a>
+  <a id="back" class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
 {% if useAutoStoreData %}

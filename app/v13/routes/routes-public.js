@@ -1642,12 +1642,66 @@ router.get('/check-registration-result', function (req, res) {
 
 
 
-// BETA ROUTES - JORDAN //
+////////////////////////////////////////////     BETA ROUTES - JORDAN /////////////////////////////////////////////
 
 // NEW START PAGE
-router.get('/beta/start-new', function (req, res) {
-  res.render(viewsFolder + 'beta/start-new')
+router.get('/start-new', function (req, res) {
+  res.render(viewsFolder + 'start-new')
 })
 
+/////    ELIGILITY CHECKER   /////////
+
+// KNOW ITEM IS EXEMPT
+router.get('/know-items-exempt', function (req, res) {
+  res.render(viewsFolder + 'know-items-exempt')
+})
+
+router.post('/know-items-exempt', function (req, res) {
+
+  let knowItemsExempt = req.session.data['knowItemsExempt']
+
+  if (knowItemsExempt === 'yes') {
+    res.redirect('what-type-of-item-is-it')
+  } else {
+    res.redirect('is-it-a-musical-instrument')
+  }
+})
+
+// MUSICAL INSTRUMENT?
+router.get('/is-it-a-musical-instrument', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-musical-instrument')
+})
+
+router.post('/is-it-a-musical-instrument', function (req, res) {
+
+  let isitMusical = req.session.data['isitMusical']
+
+  if (isitMusical === 'yes') {
+    res.redirect('eligibility-end')
+  } else {
+    res.redirect('was-it-made-before-1947')
+  }
+})
+
+// BEFORE 1947
+router.get('/was-it-made-before-1947', function (req, res) {
+  res.render(viewsFolder + 'was-it-made-before-1947')
+})
+
+router.post('/was-it-made-before-1947', function (req, res) {
+
+  let isitBefore1947 = req.session.data['isitBefore1947']
+
+  if (isitBefore1947 === 'yes') {
+    res.redirect('eligibility-end')
+  } else {
+    res.redirect('was-it-made-before-1947')
+  }
+})
+
+// ELIGIBILITY END
+router.get('/eligibility-end', function (req, res) {
+  res.render(viewsFolder + 'eligibility-end')
+})
 
 module.exports = router

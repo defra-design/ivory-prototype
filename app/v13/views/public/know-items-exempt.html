@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Was it made before 1947?" %}
+{% set thisPageTitle = "Do you know your item is exempt from the ivory ban?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -23,17 +23,17 @@
                   {{ thisPageTitle }}
                 </h1>
               </legend>
-              <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitBefore1947-yes" name="isitBefore1947" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="isitBefore1947-yes">
+                  <input class="govuk-radios__input" id="knowItemsExempt-yes" name="knowItemsExempt" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="knowItemsExempt-yes">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitBefore1947-no" name="isitBefore1947" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="isitBefore1947-no">
-                    No
+                  <input class="govuk-radios__input" id="knowItemsExempt-no" name="knowItemsExempt" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="knowItemsExempt-no">
+                    No, I'm not sure
                   </label>
                 </div>
               </div>
