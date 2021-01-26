@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Was it made before 1947?" %}
+{% set thisPageTitle = "Was your item made before 1947 with less than 10% ivory??" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -17,12 +17,52 @@
         <form class="form" method="post" novalidate>
 
           <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                  {{ thisPageTitle }}
-                </h1>
-              </legend>
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+            <p class="govuk-body">The ivory must be integral to the item. This means either:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>you cannot remove the ivory easily or without risk of damage</li>
+                <li>the ivory is essential to the design or function of the item</li>
+              </ul>
+
+            <p class="govuk-body">For example, a detachable ivory knob on a teapot or measuring instrument.</p>
+
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How do I know if the item was made before 1947?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">You can use:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>an original receipt or bill</li>
+                    <li>a date mark on the item</li>
+                    <li>written proof from an expert, such as an antiques specialist</li>
+                    <li>personal knowledge or evidence that it’s been in the family since 1947 or before</li>
+                    <li>an article or a catalogue published before 1 January 1947 with photos or a detailed description of the item</li>
+                    <li>carbon dating</li>
+                  </ul>
+              </div>
+            </details>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How can I tell if the item has less than 10% ivory?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">You must give a reasonable assessment of the volume of ivory in your item. In some cases, it’s easy to do this by eye. In others, you’ll need to take measurements.</p>
+
+                <p class="govuk-body">Do not include any empty spaces, for instance the space within a chest of drawers or a teapot.</p>
+
+                <p class="govuk-body">If it’s difficult to calculate ivory volume without damaging the item, you can make an assessment based on knowledge of similar items.</p>
+              </div>
+            </details>
+
+
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="isitBefore1947-yes" name="isitBefore1947" type="radio" value="yes">
@@ -38,7 +78,6 @@
                 </div>
               </div>
 
-            </fieldset>
           </div>
 
           <button class="govuk-button" data-module="govuk-button">Continue</button>
