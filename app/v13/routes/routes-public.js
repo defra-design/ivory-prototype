@@ -1695,13 +1695,54 @@ router.post('/was-it-made-before-1947', function (req, res) {
   if (isitBefore1947 === 'yes') {
     res.redirect('eligibility-end')
   } else {
-    res.redirect('was-it-made-before-1947')
+    res.redirect('is-it-a-portrait-miniature-made-before-1918')
+  }
+})
+
+// PORTRAIT MINIATURE
+router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-portrait-miniature-made-before-1918')
+})
+
+router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
+
+  let isitPortrait = req.session.data['isitPortrait']
+
+  if (isitPortrait === 'yes') {
+    res.redirect('eligibility-end')
+  } else {
+    res.redirect('is-it-RMI')
+  }
+})
+
+// RMI
+router.get('/is-it-RMI', function (req, res) {
+  res.render(viewsFolder + 'is-it-RMI')
+})
+
+router.post('/is-it-RMI', function (req, res) {
+
+  let isitRMI = req.session.data['isitRMI']
+
+  if (isitRMI === 'yes') {
+    res.redirect('eligibility-end')
+  } else {
+    res.redirect('based-on-your-answers')
   }
 })
 
 // ELIGIBILITY END
 router.get('/eligibility-end', function (req, res) {
   res.render(viewsFolder + 'eligibility-end')
+})
+
+router.post('/eligibility-end', function (req, res) {
+  res.redirect('add-photo')
+})
+
+// BASED ON YOUR ANSWERS - DROP OUT
+router.get('/based-on-your-answers', function (req, res) {
+  res.render(viewsFolder + 'based-on-your-answers')
 })
 
 module.exports = router
