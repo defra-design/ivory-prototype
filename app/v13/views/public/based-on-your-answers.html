@@ -1,6 +1,7 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Drop out" %}
+{% set thisPageTitle = "You cannot trade this item
+" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -12,12 +13,27 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">{{ thisPageTitle }}</h1>
+      <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
+      <p class="govuk-body">It is illegal to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>sell or hire it out</li>
+          <li>offer to sell or hire it out</li>
+          <li>exchange it for goods or services</li>
+          <li>keep it for sale or hire</li>
+          <li>export or import it with the intention to sell or hire it out</li>
+        </ul>
 
+      <h2 class="govuk-heading-m">What you can do with this item</h2>
 
+      <p class="govuk-body">Your options include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>keeping it</li>
+          <li>giving it away as a gift</li>
+          <li>giving it to someone in your will</li>
+        </ul>
 
-      <a href="know-items-exempt" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">Finish
+      <a href="guidance" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">Finish
       </a>
 
     </div>
