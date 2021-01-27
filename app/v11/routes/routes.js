@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 const viewsFolder = path.join(__dirname, '/../views/') // Set the views with a relative path (haven't yet found a better way of doing this yet)
-const version = __dirname.match(/app\/(.[^\/]*?)\/routes/)[1]// Gets the version, e.g. v10 (ensure this handles Heroku's __direname being /app/app/vXX/routes)
+let versionRegex = process.platform === 'win32' ? /app\\(.[^\\]*?)\\routes/ : /app\/(.[^\/]*?)\/routes/
+const version = __dirname.match(versionRegex)[1]// Gets the version, e.g. v10 (ensure this handles Heroku's __direname being /app/app/vXX/routes)
 
 // Set the version and baseUrl.  We can use the {{baseURL}} to use absolute paths, rather than the confusing relative paths.
 // This is picked up by all routes and then available in the template using {{ version }} or {{ baseURL }} etc.
