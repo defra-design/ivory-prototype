@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Is your item rare, culturally important and made before 1918?" %}
+{% set thisPageTitle = "Are you selling or hiring out your item to a museum?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -25,14 +25,14 @@
               </legend>
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
+                  <input class="govuk-radios__input" id="isitMuseum-yes" name="isitMuseum" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitMuseum-yes">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="isitRMI-no">
+                  <input class="govuk-radios__input" id="isitMuseum-no" name="isitMuseum" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitMuseum-no">
                     No
                   </label>
                 </div>

@@ -1711,6 +1711,22 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
   if (isitPortrait === 'yes') {
     res.redirect('eligibility-end')
   } else {
+    res.redirect('is-it-being-sold-to-museum')
+  }
+})
+
+// SOLD TO MUSEUM
+router.get('/is-it-being-sold-to-museum', function (req, res) {
+  res.render(viewsFolder + 'is-it-being-sold-to-museum')
+})
+
+router.post('/is-it-being-sold-to-museum', function (req, res) {
+
+  let isitMuseum = req.session.data['isitMuseum']
+
+  if (isitMuseum === 'yes') {
+    res.redirect('apply-to-register-to-sell-an-item-to-a-museum')
+  } else {
     res.redirect('is-it-RMI')
   }
 })
@@ -1725,7 +1741,7 @@ router.post('/is-it-RMI', function (req, res) {
   let isitRMI = req.session.data['isitRMI']
 
   if (isitRMI === 'yes') {
-    res.redirect('eligibility-end')
+    res.redirect('apply-for-an-RMI-certificate')
   } else {
     res.redirect('based-on-your-answers')
   }
