@@ -148,6 +148,7 @@ router.get('/what-type-of-item-is-it', function (req, res) {
   var exemptionType3Checked
   var exemptionType4Checked
   var exemptionType5Checked
+  var exemptionType6Checked
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
@@ -165,19 +166,24 @@ router.get('/what-type-of-item-is-it', function (req, res) {
     case 'type5':
       exemptionType5Checked = 'checked'
       break
+    case 'type6':
+      exemptionType6Checked = 'checked'
+      break
     default:
       exemptionType1Checked = ''
       exemptionType2Checked = ''
       exemptionType3Checked = ''
       exemptionType4Checked = ''
       exemptionType5Checked = ''
+      exemptionType6Checked = ''
   }
   res.render(viewsFolder + 'what-type-of-item-is-it', {
     exemptionType1Checked: exemptionType1Checked,
     exemptionType2Checked: exemptionType2Checked,
     exemptionType3Checked: exemptionType3Checked,
     exemptionType4Checked: exemptionType4Checked,
-    exemptionType5Checked: exemptionType5Checked
+    exemptionType5Checked: exemptionType5Checked,
+    exemptionType6Checked: exemptionType6Checked
   })
 })
 
@@ -191,6 +197,9 @@ router.post('/what-type-of-item-is-it', function (req, res) {
   } else if (req.session.data['exemptionChoice'] == 'type5') {
       logger(req, "It's rare and most important.")
       res.redirect('apply-for-an-rmi-certificate')
+  } else if (req.session.data['exemptionChoice'] == 'type6') {
+      logger(req, "It's none of the exemption types.")
+      res.redirect('based-on-your-answers')
     } else {
     logger(req, "It's a standard section 10 non-museum.")
     logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
@@ -1650,6 +1659,12 @@ router.get('/start-new', function (req, res) {
   res.render(viewsFolder + 'start-new')
 })
 
+router.post('/start-new', function (req, res) {
+  req.session.haltTrigger = req.body.haltTrigger
+  res.redirect('know-items-exempt')
+})
+
+
 /////    ELIGILITY CHECKER   /////////
 
 // KNOW ITEM IS EXEMPT
@@ -1750,16 +1765,33 @@ router.post('/is-it-RMI', function (req, res) {
 
 // ELIGIBILITY END
 router.get('/eligibility-end', function (req, res) {
-  res.render(viewsFolder + 'eligibility-end')
-})
+  res.render(viewsFolder + 'eligibility-end', {
+    'haltTrigger': req.session.haltTrigger
+  })
+});
+
 
 router.post('/eligibility-end', function (req, res) {
-  res.redirect('add-photo')
+  if (req.session.haltTrigger == 'noHalt') {
+    res.redirect('add-photo')
+  } else {
+    res.redirect('legal-haltpage')
+  }
 })
 
 // BASED ON YOUR ANSWERS - DROP OUT
 router.get('/based-on-your-answers', function (req, res) {
   res.render(viewsFolder + 'based-on-your-answers')
 })
+
+// LEGAL HALTPAGE
+router.get('/legal-haltpage', function (req, res) {
+  res.render(viewsFolder + 'legal-haltpage')
+})
+
+router.post('/legal-haltpage', function (req, res) {
+  res.redirect('add-photo')
+})
+
 
 module.exports = router

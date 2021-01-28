@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Eligibility end" %}
+{% set thisPageTitle = "You can register to trade your item" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -15,15 +15,44 @@
       <form class="form" method="post" novalidate>
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ thisPageTitle }}
-              </h1>
-            </legend>
 
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
-          </fieldset>
+            {% if data['haltTrigger'] == "noHalt" %}
+              <p class="govuk-body">Based on your answers, you can register your item so it’s exempt from the ivory ban.</p>
+
+              <h2 class="govuk-heading-m">Your legal responsibilities</h2>
+
+              <p class="govuk-body">You must:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>ensuring your item meets the exemption criteria</li>
+                <li>providing accurate information to prove it</li>
+              </ul>
+
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Legal warning</span>
+                  You could be fined or prosecuted if we later find out that you should not have registered your item, or that you’ve given us wrong information.
+                </strong>
+              </div>
+
+            {% else %}
+              <p class="govuk-body">Based on your answers, you can register your item so it’s exempt from the ivory ban.</p>
+
+              <p class="govuk-body">We’ll now ask you to:</p>
+
+              <p class="govuk-body">This does not include:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>describe the item</li>
+                  <li>declare legally that it meets the exemption criteria</li>
+                  <li>pay an administration fee</li>
+                </ul>
+
+              <p class="govuk-body">Immediately after receiving payment, we’ll send you a registration number so that you can trade the item.</p>
+
+            {% endif %}
+
         </div>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
