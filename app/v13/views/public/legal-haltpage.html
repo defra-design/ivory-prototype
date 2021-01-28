@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Legal haltpage" %}
+{% set thisPageTitle = "It’s your legal responsibility to ensure your item meets the exemption criteria" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -15,19 +15,22 @@
       <form class="form" method="post" novalidate>
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ thisPageTitle }}
-              </h1>
-            </legend>
 
-        
+          <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
-          </fieldset>
+          <p class="govuk-body">Do not continue with this registration if you are not sure.</p>
+
+          <p class="govuk-body">When you finish the registration, we’ll process it immediately. However, you could be fined or prosecuted if we later find out that:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>your item does not meet the exemption criteria</li>
+            <li>you’ve given us wrong information</li>
+          </ul>
+
         </div>
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body"><a href="guidance-new" class="govuk-link">Cancel this registration</a></p>
 
       </form>
 

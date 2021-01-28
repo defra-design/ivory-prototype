@@ -1664,6 +1664,10 @@ router.post('/start-new', function (req, res) {
   res.redirect('know-items-exempt')
 })
 
+// GUIDANCE NEW
+router.get('/guidance-new', function (req, res) {
+  res.render(viewsFolder + 'guidance-new')
+})
 
 /////    ELIGILITY CHECKER   /////////
 
