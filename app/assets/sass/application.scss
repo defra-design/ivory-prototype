@@ -684,3 +684,100 @@ img.item-detail-main{
 .app-check-your-answers__change{
     vertical-align: top;
 }
+
+
+///// INTERRUPT PATTERN - FLASH CARD //////
+
+.flash-card {
+  margin-top: -1em;
+  padding: 30px;
+  background: #005EA5;
+  color: #FFF;
+
+  header {
+    background-color: inherit;
+  }
+
+  p {
+    color: #FFF;
+  }
+
+  ul {
+    color: #FFF;
+
+    h2 {
+      margin: 0;
+      margin-bottom: 0;
+      padding: 0;
+      color: #FFF;
+      font-size: 28px;
+    }
+
+    li {
+      color: #FFF;
+    }
+  }
+
+  h1 {
+    color: #FFF;
+    &:first-of-type {
+      margin-top: 0 !important;
+    }
+  }
+
+  a {
+    color: #FFF;
+    &:visited, &:hover, &:active {
+      color: #FFF; }
+    }
+    details {
+      // margin-bottom: 1em;
+      summary {
+        color: #FFF;
+      }
+      .panel {
+        border-left-color: #FFF;
+      }
+    }
+
+    button {
+      color: #FFF;
+      &:visited, &:hover, &:active {
+        color: #FFF; }
+      }
+      details {
+        // margin-bottom: 1em;
+        summary {
+          color: #FFF;
+        }
+        .panel {
+          border-left-color: #FFF;
+        }
+      }
+  }
+
+  @media (min-width: 769px) {
+    .flash-card {
+      // margin-top: 1.25em;
+      padding: 50px;
+    }
+  }
+
+
+.button-white {
+  box-shadow: 0 1px 0 #0b0c0c;
+  border: #0b0c0c 1px solid;
+	background-color: #FFF;
+	color: #0b0c0c;
+	&[disabled]{
+		background-color: #FFF;
+	}
+}
+
+.button-white:hover {
+	background-color: darken(#FFF, 5%);
+	color: #0b0c0c;
+	&[disabled]{
+		background-color: #FFF;
+	}
+}
