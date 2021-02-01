@@ -1772,7 +1772,7 @@ router.get('/eligibility-end', function (req, res) {
   res.render(viewsFolder + 'eligibility-end', {
     'haltTrigger': req.session.haltTrigger
   })
-});
+})
 
 
 router.post('/eligibility-end', function (req, res) {
@@ -1785,7 +1785,9 @@ router.post('/eligibility-end', function (req, res) {
 
 // BASED ON YOUR ANSWERS - DROP OUT
 router.get('/based-on-your-answers', function (req, res) {
-  res.render(viewsFolder + 'based-on-your-answers')
+  res.render(viewsFolder + 'based-on-your-answers', {
+    'haltTrigger': req.session.haltTrigger
+  })
 })
 
 // LEGAL HALTPAGE
