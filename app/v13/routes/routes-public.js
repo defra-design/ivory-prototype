@@ -216,7 +216,12 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
-      res.redirect('add-photo')
+      // V13 LEGAL HALT PAGE vs NO HALT PAGE TEST LOGIC
+      if (req.session.haltTrigger == 'noHalt') {
+        res.redirect('add-photo')
+      } else {
+        res.redirect('legal-haltpage')
+      }
     }
   }
 })
@@ -1697,6 +1702,7 @@ router.post('/is-it-a-musical-instrument', function (req, res) {
   let isitMusical = req.session.data['isitMusical']
 
   if (isitMusical === 'yes') {
+    req.session.data['exemptionChoice'] = 'type2'
     res.redirect('eligibility-end')
   } else {
     res.redirect('was-it-made-before-1947')
@@ -1713,6 +1719,7 @@ router.post('/was-it-made-before-1947', function (req, res) {
   let isitBefore1947 = req.session.data['isitBefore1947']
 
   if (isitBefore1947 === 'yes') {
+    req.session.data['exemptionChoice'] = 'type1'
     res.redirect('eligibility-end')
   } else {
     res.redirect('is-it-a-portrait-miniature-made-before-1918')
@@ -1729,6 +1736,7 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
   let isitPortrait = req.session.data['isitPortrait']
 
   if (isitPortrait === 'yes') {
+    req.session.data['exemptionChoice'] = 'type3'
     res.redirect('eligibility-end')
   } else {
     res.redirect('is-it-being-sold-to-museum')
@@ -1745,6 +1753,7 @@ router.post('/is-it-being-sold-to-museum', function (req, res) {
   let isitMuseum = req.session.data['isitMuseum']
 
   if (isitMuseum === 'yes') {
+    req.session.data['exemptionChoice'] = 'type4'
     res.redirect('apply-to-register-to-sell-an-item-to-a-museum')
   } else {
     res.redirect('is-it-RMI')
@@ -1761,6 +1770,7 @@ router.post('/is-it-RMI', function (req, res) {
   let isitRMI = req.session.data['isitRMI']
 
   if (isitRMI === 'yes') {
+    req.session.data['exemptionChoice'] = 'type5'
     res.redirect('apply-for-an-RMI-certificate')
   } else {
     res.redirect('based-on-your-answers')
