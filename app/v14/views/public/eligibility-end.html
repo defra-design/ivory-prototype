@@ -1,0 +1,73 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "You can register to sell or hire out your item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+            {% if data['haltTrigger'] == "noHalt" %}
+              <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">You are legally responsible for:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>ensuring your item meets the exemption criteria</li>
+                <li>providing accurate information to prove it</li>
+              </ul>
+
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-warning-text__assistive">Legal warning</span>
+                  You could be fined or prosecuted if we later find out that you should not have registered your item, or that you’ve given us wrong information.
+                </strong>
+              </div>
+
+            {% else %}
+              <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">We’ll now ask you to:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>describe the item</li>
+                  <li>declare legally that it meets the exemption criteria</li>
+                  <li>pay an administration fee</li>
+                </ul>
+
+              <p class="govuk-body">Immediately after receiving payment, we’ll send you a registration number so that you can sell the item or hire it out.</p>
+
+              <h2 class="govuk-heading-m">Before you start</h2>
+
+                <p class="govuk-body">You'll need:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>a photo that shows the whole item</li>
+                  <li>extra photos, if it’s not clear from the main photo how much ivory is in the item</li>
+                  <li>a debit or credit card to make payment</li>
+                </ul>
+
+
+            {% endif %}
+
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

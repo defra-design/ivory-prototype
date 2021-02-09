@@ -1,0 +1,74 @@
+{% set pageTitle = "Ivory registrations" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Ivory registrations</h1>
+
+
+    <!-- START FORM -->
+<!--    <form method="post" autocomplete="off" novalidate>-->
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label" for="submissionId">Registration number</label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-10" id="searchRegId" name="searchRegId" type="text" value="{{data['searchRegId']}}">-->
+<!--        <button class="govuk-button">Search</button>-->
+<!--        <span id="error" class="govuk-error-message"> {{message}} </span>-->
+<!--      </div>-->
+<!--    </form>-->
+    <!-- END FORM -->
+
+
+    <!-- START RESULTS -->
+    <!-- <p>{{ registrations | length }} registrations found:</p> -->
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th class="govuk-table__header" scope="col">Photo / registration number</th>
+          <th class="govuk-table__header" scope="col">Item type</th>
+<!--          <th class="govuk-table__header" scope="col">Title</th>-->
+          <th class="govuk-table__header" scope="col">Description</th>
+<!--          <th class="govuk-table__header" scope="col">Status</th>-->
+          <th class="govuk-table__header" scope="col">Submitted</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% for registration in registrations %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            <a href='item-detail/{{ registration.reg_id }}'>
+            <img src="{{baseUrl}}/photos/{{ registration.photo }}" alt="{{ registration.description }}" class="item-list-thumbnail" />
+              <!-- had to fudge the above URL from the item details page and remove a dot? -->
+            <br />
+           {{ registration.reg_id }}
+            </a>
+          </td>
+          <td class="govuk-table__cell">{{ registration.exemption_type }}</td>
+<!--          <td class="govuk-table__cell">{{ registration.title }}</td>-->
+          <td class="govuk-table__cell">{{ registration.description }}</td>
+<!--          <td class="govuk-table__cell">{{ registration.status }}</td>-->
+          <td class="govuk-table__cell">{{ registration.submitted_datetime }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

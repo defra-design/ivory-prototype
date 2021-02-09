@@ -1,0 +1,70 @@
+{% set pageTitle = "Confirm the ivory is integral to the item" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+     <form method="post" autocomplete="off">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          {{ pageTitle }}
+        </h1>
+
+        <p class="govuk-body">
+          Integral means, either:
+        </p>
+
+        <ul class="govuk-body govuk-!-margin-bottom-7">
+          <li>you cannot remove the ivory easily or without risk of damage</li>
+          <li>the ivory is essential to the design or function of the item</li>
+        </ul>
+
+        {{ govukCheckboxes({
+        name: "ivory-integral-declaration",
+        fieldset: {
+        legend: {
+        text: "Legal declaration",
+        classes: "govuk-fieldset__legend govuk-fieldset__legend--m govuk-!-margin-bottom-5"
+        }
+        },
+        items: [
+        {
+        value: "Declared",
+        text: "I declare the ivory is integral to the item",
+        id: "ivory-integral-declaration",
+        checked: checked("ivory-integral-declaration", "Declared")
+        }
+        ]
+        }) }}
+
+
+
+      <div class="govuk-form-group govuk-!-margin-top-7">
+        <label class="govuk-label" for="integral-detail">
+          Give details
+        </label>
+        <textarea required class="govuk-textarea" id="integral-detail" name="ivoryIntegralDetail" rows="5" aria-describedby="integral-detail-hint">{{ data['ivoryIntegralDetail'] }}</textarea>
+      </div>
+
+
+    </div>
+
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}
