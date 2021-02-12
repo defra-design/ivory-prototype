@@ -1001,15 +1001,6 @@ router.post('/dealing-intent', function (req, res) {
 })
 
 
-//* ****************************************************
-// CYA nunjucks
-router.get('/cya', function (req, res) {
-  res.render(viewsFolder + 'cya', {
-    backUrl: ''
-  })
-})
-
-
 
 //* ****************************************************
 // CHECK YOUR ANSWERS

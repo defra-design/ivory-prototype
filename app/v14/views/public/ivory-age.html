@@ -1,4 +1,4 @@
-{% set pageTitle = "Confirm and declare ivory age" %}
+{% set pageTitle = "Confirm ivory age" %}
 
 {% extends "./layout.html" %}
 
@@ -12,17 +12,16 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-<!--    <form method="post" autocomplete="off" {{ novalidateVal }}>-->
       <form method="post" autocomplete="off">
 
 
       <div class="govuk-form-group">
 
         <h1 class="govuk-heading-l">
-          Confirm the {{ ivoryType }} was made before {{ ivoryYear }}
+          How do you know the {{ ivoryType }} was made before {{ ivoryYear }}?
         </h1>
 
-      <div class="govuk-form-group govuk-!-margin-bottom-9">
+      <!-- <div class="govuk-form-group govuk-!-margin-bottom-9">
         <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             Legal declaration
@@ -52,18 +51,24 @@
             </div>
           </div>
         </fieldset>
-      </div>
+      </div> -->
 
-      {{ govukCheckboxes({
+      {% set ivoryAgeOtherHtml %}
+      {{ govukTextarea({
+        id: "ageDetail",
+        name: "ageDetail",
+        classes: "govuk-!-width-full",
+        value: data['ageDetail'],
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
         name: "ivoryAge",
-        fieldset: {
-          legend: {
-            text: "How do you know the " + ivoryType + " was made before " + ivoryDate + "?",
-            classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
-          }
-        },
         hint: {
-          text: "Select all that apply."
+          text: "If you have multiple reasons, just choose one."
         },
         items: [
           {
@@ -94,22 +99,21 @@
             value: "Other",
             text: "Other",
             id: "ivory-age-other",
-            checked: checked("ivoryAge", "Other")
+            checked: checked("ivoryAge", "Other"),
+            conditional: {
+              html: ivoryAgeOtherHtml
+            }
           }
         ]
       }) }}
 
 
-
-      <div class="govuk-form-group">
+      <!-- <div class="govuk-form-group">
         <label class="govuk-label" for="age-detail">
           Give details
         </label>
-        <!-- <span id="age-detail-hint" class="govuk-hint">
-          Do not include personal or financial information, like your National Insurance number or credit card details.
-        </span> -->
-        <textarea required class="govuk-textarea" id="age-detail" name="ageDetail" rows="5" aria-describedby="age-detail-hint">{{ data['ageDetail'] }}</textarea>
-      </div>
+        <textarea required class="govuk-textarea" id="ageDetail" name="ageDetail" rows="5" aria-describedby="ageDetail-hint">{{ data['ageDetail'] }}</textarea>
+      </div> -->
 
 
     </div>
