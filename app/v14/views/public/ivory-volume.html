@@ -21,7 +21,7 @@
 
       <div class="govuk-form-group">
 
-        {% if data['exemptionChoice'] == 'type5' %}
+        <!-- {% if data['exemptionChoice'] == 'type5' %}
 
         <h1 class="govuk-heading-l">Declare the item is the rarest and most important of its kind</h1>
 
@@ -71,9 +71,9 @@
 
 
 
+ -->
 
-
-        {% elseif data['exemptionChoice'] == 'type3' %}
+        <!-- {% elseif data['exemptionChoice'] == 'type3' %}
 
         <h1 class="govuk-heading-l">Confirm the portrait miniature is less than 320 square centimetres</h1>
 
@@ -109,13 +109,13 @@
 
 
 
-        {% else %}
+        {% else %} -->
 
         <h1 class="govuk-heading-l">
-          Confirm the {{ ivoryType }}  has less than {{ ivoryVolume }} ivory
+          How do you know the {{ ivoryType }} has less than {{ ivoryVolume }} ivory?
         </h1>
 
-        {{ govukCheckboxes({
+        <!-- {{ govukCheckboxes({
           name: "volume-declaration",
           fieldset: {
             legend: {
@@ -131,21 +131,24 @@
               checked: checked("volume-declaration", "Declared")
             }
           ]
+        }) }} -->
+
+        {% set ivoryVolumeOtherHtml %}
+        {{ govukTextarea({
+          id: "volumeDetail",
+          name: "volumeDetail",
+          classes: "govuk-!-width-full",
+          value: data['volumeDetail'],
+          label: {
+            text: "Give details"
+          }
         }) }}
+        {% endset -%}
 
-
-        <div class="govuk-!-margin-bottom-9"></div>
-
-        {{ govukCheckboxes({
+        {{ govukRadios({
           name: "ivoryVolume",
-          fieldset: {
-            legend: {
-              text: "How do you know the " + ivoryType + " has less than " + ivoryVolume + " ivory?",
-              classes: "govuk-fieldset__legend govuk-fieldset__legend--m"
-            }
-          },
           hint: {
-            text: "Select all that apply."
+            text: "If you have multiple reasons, just choose one."
           },
           items: [
             {
@@ -170,18 +173,21 @@
               value: "Other",
               text: "Other",
               id: "ivory-age-other",
-              checked: checked("ivoryVolume", "Other")
+              checked: checked("ivoryVolume", "Other"),
+              conditional: {
+                html: ivoryVolumeOtherHtml
+              }
             }
           ]
         }) }}
 
 
-        <div class="govuk-form-group">
+        <!-- <div class="govuk-form-group">
           <label class="govuk-label" for="volume-detail">
             Give details
           </label>
           <textarea required class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="5" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
-        </div>
+        </div> -->
 
 
 

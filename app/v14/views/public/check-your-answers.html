@@ -50,9 +50,10 @@
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Proof of age</dt>
         <dd class="app-check-your-answers__answer">
-          {{ ivoryAge }}
+          {{ data['ivoryAge'] }}
 
-          {% if ageDetail != '' %}
+          {% if data['ivoryAge'] != 'Other' %}
+          {% else %}
           <br><br>
           Details: {{ ageDetail }}
           {% endif %}
@@ -67,11 +68,12 @@
         <dt class="app-check-your-answers__question">Ivory is integral</dt>
         <dd class="app-check-your-answers__answer">
           I declare the item is integral to the item
-          {% if ivoryIntegralDetail != '' %}
+          {% if data['ivoryIntegralDetail'] != '' %}
           <br><br>
           Details:
           <br><br>
           {{ data['ivoryIntegralDetail'] }}
+          {% else %}
           {% endif %}
         </dd>
         <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
@@ -92,39 +94,15 @@
       <!-- Standard categories -->
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Volume of ivory</dt>
+        <dt class="app-check-your-answers__question">Proof of ivory volume</dt>
         <dd class="app-check-your-answers__answer">
-          {% if data['exemptionChoice'] == 'type3' %}
-          <!-- Portrait miniature -->
-          I declare the surface area of the portrait miniature is less than 320 square centimetres.
+          {{ data['ivoryVolume'] }}
+
+          {% if data['ivoryVolume'] != 'Other' %}
           {% else %}
-          I declare the item is less than {{ ivoryVolume }} by volume.
-          {% endif %}
-
-          <br /><br />
-
-          {% if data['exemptionChoice'] == 'type3' %}
-          {% else %}
-
-          Evidence:
-          <br />
-          <ul>
-          {% for reason in data['ivoryVolume'] %}
-            <li>{{ reason }}</li>
-          {% else %}
-            <li>Not available</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
-
-          {% if data['volumeDetail'] != '' %}
-          <br>
-          Details:
           <br><br>
-          {{ data['volumeDetail'] }}
+          Details: {{ data['volumeDetail'] }}
           {% endif %}
-
-
         </dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
