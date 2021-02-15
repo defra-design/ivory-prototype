@@ -612,19 +612,7 @@ router.get('/ivory-age', function (req, res) {
 })
 
 router.post('/ivory-age', function (req, res) {
-
-
-
-  if (req.session.data['exemptionChoice'] == 'type1') {
-
-    res.redirect('ivory-is-integral')
-
-  } else {
-
     res.redirect('ivory-volume')
-
-  }
-
 })
 
 
@@ -639,7 +627,11 @@ router.get('/ivory-is-integral', function (req, res) {
 })
 
 router.post('/ivory-is-integral', function (req, res) {
-  res.redirect('ivory-volume')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+    res.redirect('who-owns-item')
+  }
 })
 
 
@@ -720,14 +712,14 @@ router.get('/ivory-volume', function (req, res) {
 
 router.post('/ivory-volume', function (req, res) {
 
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
+  if (req.session.data['exemptionChoice'] == 'type1') {
+    res.redirect('ivory-is-integral')
   } else {
     res.redirect('who-owns-item')
-
   }
 
 })
+
 
 //* ****************************************************
 // ARE YOU THE OWNER

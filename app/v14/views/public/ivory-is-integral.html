@@ -1,4 +1,4 @@
-{% set pageTitle = "Confirm the ivory is integral to the item" %}
+{% set pageTitle = "How is ivory integral to the item?" %}
 
 {% extends "./layout.html" %}
 
@@ -19,16 +19,7 @@
           {{ pageTitle }}
         </h1>
 
-        <p class="govuk-body">
-          Integral means, either:
-        </p>
-
-        <ul class="govuk-body govuk-!-margin-bottom-7">
-          <li>you cannot remove the ivory easily or without risk of damage</li>
-          <li>the ivory is essential to the design or function of the item</li>
-        </ul>
-
-        {{ govukCheckboxes({
+        <!-- {{ govukCheckboxes({
         name: "ivory-integral-declaration",
         fieldset: {
         legend: {
@@ -44,16 +35,47 @@
         checked: checked("ivory-integral-declaration", "Declared")
         }
         ]
+        }) }} -->
+
+
+        {% set ivoryIntegralOtherHtml %}
+        {{ govukTextarea({
+          id: "ivoryIntegralDetail",
+          name: "ivoryIntegralDetail",
+          classes: "govuk-!-width-full",
+          value: data['volumeDetail'],
+          label: {
+            text: "Give details"
+          }
         }) }}
+        {% endset -%}
 
-
-
-      <div class="govuk-form-group govuk-!-margin-top-7">
-        <label class="govuk-label" for="integral-detail">
-          Give details
-        </label>
-        <textarea required class="govuk-textarea" id="integral-detail" name="ivoryIntegralDetail" rows="5" aria-describedby="integral-detail-hint">{{ data['ivoryIntegralDetail'] }}</textarea>
-      </div>
+        {{ govukRadios({
+          name: "ivoryIntegral",
+          items: [
+            {
+              value: "You cannot remove the ivory easily or without risk of damage",
+              text: "You cannot remove the ivory easily or without risk of damage",
+              id: "ivory-integral-damage",
+              checked: checked("ivoryIntegral", "You cannot remove the ivory easily or without risk of damage")
+            },
+            {
+              value: "The ivory is essential to the design or function of the item",
+              text: "The ivory is essential to the design or function of the item",
+              id: "ivory-integral-function",
+              checked: checked("ivoryIntegral", "The ivory is essential to the design or function of the item")
+            },
+            {
+              value: "Other",
+              text: "Other",
+              id: "ivory-age-other",
+              checked: checked("ivoryIntegral", "Other"),
+              conditional: {
+                html: ivoryIntegralOtherHtml
+              }
+            }
+          ]
+        }) }}
 
 
     </div>

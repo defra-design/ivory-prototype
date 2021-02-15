@@ -62,28 +62,6 @@
       </div>
 
 
-      {% if data['exemptionChoice'] == 'type1' %}
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Ivory is integral</dt>
-        <dd class="app-check-your-answers__answer">
-          I declare the item is integral to the item
-          {% if data['ivoryIntegralDetail'] != '' %}
-          <br><br>
-          Details:
-          <br><br>
-          {{ data['ivoryIntegralDetail'] }}
-          {% else %}
-          {% endif %}
-        </dd>
-        <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
-      </div>
-
-      {% endif %}
-
-
-
-
 
       {% if data['exemptionChoice'] == 'type5' %}
 
@@ -107,9 +85,25 @@
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
       </div>
 
-      <br />
-      <br />
-      <br />
+
+      {% if data['exemptionChoice'] == 'type1' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory is integral</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ivoryIntegral'] }}
+
+          {% if data['ivoryIntegral'] != 'Other' %}
+          {% else %}
+          <br><br>
+          Details: {{ data['ivoryIntegralDetail'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
+      </div>
+
+      {% endif %}
+      
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Who owns the item?</dt>
