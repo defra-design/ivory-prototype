@@ -1760,7 +1760,7 @@ router.post('/ivory-added', function (req, res) {
   } else if (ivoryAdded === 'yes'){
     res.redirect('ivory-added-2')
   } else {
-    res.redirect('based-on-your-answers')
+    res.redirect('cannot-continue')
   }
 })
 
@@ -1802,8 +1802,10 @@ router.post('/ivory-added-2', function (req, res) {
     res.redirect('eligibility-end')
   } else if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
     res.redirect('describe-the-item')
-  } else {
+  } else if (ivoryAdded2 === 'yes'){
     res.redirect('based-on-your-answers')
+  } else {
+    res.redirect('cannot-continue')
   }
 })
 
@@ -1823,6 +1825,12 @@ router.post('/eligibility-end', function (req, res) {
 router.get('/based-on-your-answers', function (req, res) {
   res.render(viewsFolder + 'based-on-your-answers', {
     'haltTrigger': req.session.haltTrigger
+  })
+})
+
+  // CANNOT CONTINUE - REPLACEMENT IVORY DROP OUT
+router.get('/cannot-continue', function (req, res) {
+  res.render(viewsFolder + 'cannot-continue', {
   })
 })
 
