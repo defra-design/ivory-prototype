@@ -216,12 +216,7 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
-      // V13 LEGAL HALT PAGE vs NO HALT PAGE TEST LOGIC
-      if (req.session.haltTrigger == 'noHalt') {
-        res.redirect('add-photo')
-      } else {
-        res.redirect('legal-haltpage')
-      }
+      res.redirect('add-photo')
     }
   }
 })
@@ -1648,8 +1643,7 @@ router.get('/start-new', function (req, res) {
 })
 
 router.post('/start-new', function (req, res) {
-  req.session.haltTrigger = req.body.haltTrigger
-  res.redirect('know-items-exempt')
+  res.redirect('legal-haltpage')
 })
 
 // GUIDANCE NEW
@@ -1769,11 +1763,7 @@ router.get('/eligibility-end', function (req, res) {
 
 
 router.post('/eligibility-end', function (req, res) {
-  if (req.session.haltTrigger == 'noHalt') {
     res.redirect('add-photo')
-  } else {
-    res.redirect('legal-haltpage')
-  }
 })
 
 // BASED ON YOUR ANSWERS - DROP OUT
@@ -1789,7 +1779,7 @@ router.get('/legal-haltpage', function (req, res) {
 })
 
 router.post('/legal-haltpage', function (req, res) {
-  res.redirect('add-photo')
+  res.redirect('know-items-exempt')
 })
 
 
