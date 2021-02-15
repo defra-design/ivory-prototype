@@ -295,9 +295,6 @@ router.get('/add-photo', function (req, res) {
 })
 
 
-
-
-
 router.post('/add-photo', function (req, res) {
 
   // Set back button URL
@@ -453,7 +450,7 @@ router.post('/your-photos', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   }else{
-    res.redirect('describe-the-item')
+    res.redirect('ivory-age')
   }
 
 })
@@ -497,56 +494,23 @@ router.get('/remove-photo/:filename', (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 //* ****************************************************
 // DESCRIBE THE ITEM
 router.get('/describe-the-item', function (req, res) {
-
-  // Temp fudge while we don't have validation on (and you can skip uploading a photo)
-  var backUrl
-  if (req.session.data.photos && req.session.data.photos.length) {
-    backUrl = 'your-photos'
-  } else {
-    backUrl = 'add-photo'
-  }
-
-  res.render(viewsFolder + 'describe-the-item', {
-    backUrl: backUrl
-  })
+  res.render(viewsFolder + 'describe-the-item')
 })
 
 router.post('/describe-the-item', function (req, res) {
-
   logger(req, 'Description=' + req.session.data['description'])
-
 
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else {
-    res.redirect('ivory-age')
+    res.redirect('add-photo')
   }
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1792,7 +1756,7 @@ router.post('/ivory-added', function (req, res) {
   if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'no') {
     res.redirect('eligibility-end')
   } else if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
-    res.redirect('add-photo')
+    res.redirect('describe-the-item')
   } else if (ivoryAdded === 'yes'){
     res.redirect('ivory-added-2')
   } else {
@@ -1837,7 +1801,7 @@ router.post('/ivory-added-2', function (req, res) {
   if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'no') {
     res.redirect('eligibility-end')
   } else if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
-    res.redirect('add-photo')
+    res.redirect('describe-the-item')
   } else {
     res.redirect('based-on-your-answers')
   }
@@ -1852,7 +1816,7 @@ router.get('/eligibility-end', function (req, res) {
 
 
 router.post('/eligibility-end', function (req, res) {
-    res.redirect('add-photo')
+    res.redirect('describe-the-item')
 })
 
 // BASED ON YOUR ANSWERS - DROP OUT
