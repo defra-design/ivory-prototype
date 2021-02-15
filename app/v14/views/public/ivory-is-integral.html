@@ -38,18 +38,6 @@
         }) }} -->
 
 
-        {% set ivoryIntegralOtherHtml %}
-        {{ govukTextarea({
-          id: "ivoryIntegralDetail",
-          name: "ivoryIntegralDetail",
-          classes: "govuk-!-width-full",
-          value: data['volumeDetail'],
-          label: {
-            text: "Give details"
-          }
-        }) }}
-        {% endset -%}
-
         {{ govukRadios({
           name: "ivoryIntegral",
           items: [
@@ -65,15 +53,6 @@
               id: "ivory-integral-function",
               checked: checked("ivoryIntegral", "The ivory is essential to the design or function of the item")
             },
-            {
-              value: "Other",
-              text: "Other",
-              id: "ivory-age-other",
-              checked: checked("ivoryIntegral", "Other"),
-              conditional: {
-                html: ivoryIntegralOtherHtml
-              }
-            }
           ]
         }) }}
 
