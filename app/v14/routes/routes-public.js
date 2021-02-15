@@ -216,7 +216,7 @@ router.post('/what-type-of-item-is-it', function (req, res) {
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
-      res.redirect('add-photo')
+      res.redirect('ivory-added')
     }
   }
 })
@@ -1680,7 +1680,7 @@ router.post('/is-it-a-musical-instrument', function (req, res) {
 
   if (isitMusical === 'yes') {
     req.session.data['exemptionChoice'] = 'type2'
-    res.redirect('eligibility-end')
+    res.redirect('ivory-added')
   } else {
     res.redirect('was-it-made-before-1947')
   }
@@ -1697,7 +1697,7 @@ router.post('/was-it-made-before-1947', function (req, res) {
 
   if (isitBefore1947 === 'yes') {
     req.session.data['exemptionChoice'] = 'type1'
-    res.redirect('eligibility-end')
+    res.redirect('ivory-added')
   } else {
     res.redirect('is-it-a-portrait-miniature-made-before-1918')
   }
@@ -1714,7 +1714,7 @@ router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) 
 
   if (isitPortrait === 'yes') {
     req.session.data['exemptionChoice'] = 'type3'
-    res.redirect('eligibility-end')
+    res.redirect('ivory-added')
   } else {
     res.redirect('is-it-being-sold-to-museum')
   }
@@ -1749,6 +1749,95 @@ router.post('/is-it-RMI', function (req, res) {
   if (isitRMI === 'yes') {
     req.session.data['exemptionChoice'] = 'type5'
     res.redirect('apply-for-an-RMI-certificate')
+  } else {
+    res.redirect('based-on-your-answers')
+  }
+})
+
+
+// IVORY ADDED
+router.get('/ivory-added', function (req, res) {
+
+  var ivoryYear
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      break
+    case 'type4':
+      ivoryYear = 'n/a'
+      break
+    case 'type5':
+      ivoryYear = '1918'
+      break
+    default:
+      ivoryYear = 'YYYY'
+  }
+
+  res.render(viewsFolder + 'ivory-added', {
+    'ivoryYear': ivoryYear,
+  })
+})
+
+router.post('/ivory-added', function (req, res) {
+
+  let ivoryAdded = req.session.data['ivoryAdded']
+
+  if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'no') {
+    res.redirect('eligibility-end')
+  } else if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
+    res.redirect('add-photo')
+  } else if (ivoryAdded === 'yes'){
+    res.redirect('ivory-added-2')
+  } else {
+    res.redirect('based-on-your-answers')
+  }
+})
+
+// IVORY ADDED 2
+router.get('/ivory-added-2', function (req, res) {
+
+  var ivoryYear
+
+  switch (req.session.data['exemptionChoice']) {
+    case 'type1':
+      ivoryYear = '1947'
+      break
+    case 'type2':
+      ivoryYear = '1975'
+      break
+    case 'type3':
+      ivoryYear = '1918'
+      break
+    case 'type4':
+      ivoryYear = 'n/a'
+      break
+    case 'type5':
+      ivoryYear = '1918'
+      break
+    default:
+      ivoryYear = 'YYYY'
+  }
+
+  res.render(viewsFolder + 'ivory-added-2', {
+    'ivoryYear': ivoryYear,
+  })
+})
+
+router.post('/ivory-added-2', function (req, res) {
+
+  let ivoryAdded2 = req.session.data['ivoryAdded2']
+
+  if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'no') {
+    res.redirect('eligibility-end')
+  } else if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
+    res.redirect('add-photo')
   } else {
     res.redirect('based-on-your-answers')
   }
