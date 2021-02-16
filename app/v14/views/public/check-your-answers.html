@@ -119,6 +119,11 @@
         <dd class="app-check-your-answers__answer">
           Name: {{data['agentName']}}
           <br/>
+          {% if data['agentNameBusiness'] != '' %}
+          Business name: {{data['agentNameBusiness']}}
+          <br/>
+          {% else %}
+          {% endif %}
           Email: {{data['agentEmail']}}
         </dd>
         <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
@@ -165,6 +170,11 @@
         <dd class="app-check-your-answers__answer">
           Name: {{data['agentName']}}
           <br/>
+          {% if data['agentNameBusiness'] != '' %}
+          Business name: {{data['agentNameBusiness']}}
+          <br/>
+          {% else %}
+          {% endif %}
           Email: {{data['agentEmail']}}
         </dd>
         <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
