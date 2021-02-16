@@ -1726,5 +1726,11 @@ router.post('/legal-haltpage', function (req, res) {
   res.redirect('know-items-exempt')
 })
 
+// LEGAL HALTPAGE
+router.get('/confirmation-document', function (req, res) {
+  res.render(viewsFolder + 'confirmation-document')
+})
+
+
 
 module.exports = router
