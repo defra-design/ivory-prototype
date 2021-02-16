@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "It’s your legal responsibility to check your item is exempt from the ivory ban" %}
+{% set thisPageTitle = "You are legally responsible for the accuracy of all the information you provide" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -8,28 +8,6 @@
 
 
 {% block content %}
-<!-- <div class="govuk-width-container">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" method="post" novalidate> -->
-
-
-          <!-- <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
-
-          <p class="govuk-body">Do not continue with this registration if you are not sure.</p>
-
-          <p class="govuk-body">When you finish the registration, we’ll process it immediately. However, you could be fined or prosecuted if we later find out that:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>your item does not meet the exemption criteria</li>
-            <li>you’ve given us wrong information</li>
-          </ul>
-
-        </div>
-
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-        <p class="govuk-body"><a href="guidance-new" class="govuk-link">Cancel this registration</a></p> -->
 
       <form class="form" method="post" novalidate>
         <div class="flash-card">
@@ -47,19 +25,15 @@
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-              <p class="govuk-body">Do not continue with this registration if you are not sure.</p>
+              <p class="govuk-body">At any point in this service, if you’re unsure about the right answer to give, do not continue.</p>
 
-              <p class="govuk-body">When you finish the registration, we’ll process it immediately. However, you could be fined or prosecuted if we later find out that:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>your item is not exempt</li>
-                <li>you’ve given us wrong information</li>
-              </ul>
+              <p class="govuk-body">You could be fined or prosecuted if we later find out that you’ve given us false information.</p>
 
               <div class="form-group">
                 <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
               </div>
 
-              <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel this registration</a></p>
+              <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
 
             </div>
           </div>
