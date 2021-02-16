@@ -113,95 +113,75 @@
 
 
       {% if agentOwner == 'agent' %}
-      <!-- We have an agent -->
-<!--      <div class="app-check-your-answers__contents">-->
-<!--        <dt class="app-check-your-answers__question">I'm acting on the owner's behalf as</dt>-->
-<!--        <dd class="app-check-your-answers__answer">{{data['agentIs']}}</dd>-->
-<!--        <dd class="app-check-your-answers__change"><a href="agent">Change</a></dd>-->
-<!--      </div>-->
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your name</dt>
-        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dt class="app-check-your-answers__question">Your contact details</dt>
+        <dd class="app-check-your-answers__answer">
+          Name: {{data['agentName']}}
+          <br/>
+          Email: {{data['agentEmail']}}
+        </dd>
         <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Your address</dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['agentAddressBusiness']}}<br />
-          {{ data['agentAddressLine1'] }}<br />
-          {{ data['agentAddressLine2'] }}<br />
-          {{ data['agentAddressTown'] }}<br />
-          {{ data['agentAddressCounty'] }}<br />
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressCounty'] }}<br/>
           {{ data['agentAddressPostcode'] }}
         </dd>
         <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
       </div>
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your email address</dt>
-        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
-        <dd class="app-check-your-answers__change"><a href="agent-contact">Change</a></dd>
-      </div>
-      {% endif %}
-
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          {% if agentOwner == 'agent' %}
-          Owner's name
-          {% endif %}
-          {% if agentOwner == 'owner' %}
-          Your name
-          {% endif %}
-        </dt>
-        <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
-        <dd class="app-check-your-answers__change">
-          {% if agentOwner == 'agent' %}
-          <a href="agent-owner-name">Change</a>
-          {% endif %}
-          {% if agentOwner == 'owner' %}
-          <a href="owner-name">Change</a>
-          {% endif %}
-
-
-        </dd>
-      </div>
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          {% if agentOwner == 'agent' %}
-          Owner's address
-          {% endif %}
-          {% if agentOwner == 'owner' %}
-          Your address
-          {% endif %}
-        </dt>
+        <dt class="app-check-your-answers__question">Owner's contact details</dt>
         <dd class="app-check-your-answers__answer">
-          {{ data['addressBusiness']}}<br />
-          {{ data['addressLine1'] }}<br />
-          {{ data['addressLine2'] }}<br />
-          {{ data['addressTown'] }}<br />
-          {{ data['addressCounty'] }}<br />
+          Name: {{data['ownerName']}}
+          <br>
+          Email: {{data['ownerEmail']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['addressLine1'] }}<br/>
+          {{ data['addressLine2'] }}<br/>
+          {{ data['addressTown'] }}<br/>
+          {{ data['addressCounty'] }}<br/>
           {{ data['addressPostcode'] }}
         </dd>
-        <dd class="app-check-your-answers__change">
-          {% if agentOwner == 'agent' %}
-          <a href="agent-owner-address">Change</a>
-          {% endif %}
-          {% if agentOwner == 'owner' %}
-          <a href="owner-address">Change</a>
-          {% endif %}
-        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
-      {% if agentOwner == 'owner' %}
+      {% else %}
+
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your email</dt>
-        <dd class="app-check-your-answers__answer">{{ data['ownerEmail'] }}</dd>
-        <dd class="app-check-your-answers__change"><a href="owner-contact">Change</a></dd>
+        <dt class="app-check-your-answers__question">Your contact details</dt>
+        <dd class="app-check-your-answers__answer">
+          Name: {{data['agentName']}}
+          <br/>
+          Email: {{data['agentEmail']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressCounty'] }}<br/>
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+
       {% endif %}
 
       <div class="app-check-your-answers__contents">

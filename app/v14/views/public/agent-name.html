@@ -1,7 +1,7 @@
 {% extends "./layout.html" %}
 
 {% block pageTitle %}
-  Contact name - {{ serviceName }} - GOV.UK
+  Your contact details - {{ serviceName }} - GOV.UK
 {% endblock %}
 
 
@@ -13,13 +13,24 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Contact name</h1>
+    <h1 class="govuk-heading-l">Your contact details</h1>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="agentName">Your full name</label>
+        <label class="govuk-label" for="agentName">Enter full name</label>
         <input class="govuk-input" id="agentName" name="agentName" type="text" value="{{data['agentName']}}" required />
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="agentEmail">Enter your email address</label>
+        <span id="email-hint" class="govuk-hint">We’ll use this to send you the payment receipt and registration confirmation</span>
+        <input class="govuk-input" id="agentEmail" name="agentEmail" type="email" value="{{data['agentEmail']}}" required />
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="agentEmailConfirm">Confirm your email address</label>
+        <input class="govuk-input" id="agentEmailConfirm" name="agentEmailConfirm" type="email" value="{{data['agentEmail']}}" required />
       </div>
 
       <button class="govuk-button">Continue</button>

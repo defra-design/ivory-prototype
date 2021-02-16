@@ -11,7 +11,11 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {% if data['ownerAgent'] === "agent" %}
+              What does the owner plan to do with the item?
+              {% else %}
               What do you plan to do with the item?
+              {% endif %}
             </h1>
           </legend>
           <div class="govuk-radios">

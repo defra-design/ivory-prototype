@@ -18,24 +18,18 @@
           </h1>
         </legend>
 
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="agent-address-business">
-            Business name (if applicable)
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="agent-address-business" name="agentAddressBusiness" type="text" value="{{ data['agentAddressBusiness'] }}" />
-        </div>
+        <p class="govuk-body">If you're completing this registration on behalf of a business you own or work for, enter the business address.</p>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-1">
-            Building and street
-            <span class="govuk-visually-hidden">line 1 of 2</span>
+            Address line 1
           </label>
           <input class="govuk-input" id="address-line-1" name="agentAddressLine1" type="text" value="{{ data['agentAddressLine1'] }}" />
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-2">
-            <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+            Address line 2
           </label>
           <input class="govuk-input" id="address-line-2" name="agentAddressLine2" type="text" value="{{ data['agentAddressLine2'] }}" />
         </div>
@@ -47,12 +41,12 @@
           <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="agentAddressTown" type="text" value="{{ data['agentAddressTown'] }}" />
         </div>
 
-        <div class="govuk-form-group">
+        <!-- <div class="govuk-form-group">
           <label class="govuk-label" for="address-county">
             County
           </label>
           <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="agentAddressCounty" type="text" value="{{ data['agentAddressCounty'] }}" />
-        </div>
+        </div> -->
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
@@ -63,21 +57,8 @@
 
       </fieldset>
 
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">The address is outside the UK</span>
-        </summary>
-        <div class="govuk-details__text">
+      <p class="govuk-body govuk-!-margin-bottom-6"><a href="#">The address is outside the UK</a></p>
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="agent-address-non-uk">
-              Your address
-            </label>
-            <textarea class="govuk-textarea" id="agent-address-non-uk" name="agent-address-non-uk" rows="5" autocomplete="agent-address-non-uk"></textarea>
-          </div>
-
-        </div>
-      </details>
 
       <button class="govuk-button">Continue</button>
 

@@ -699,57 +699,7 @@ router.get('/who-owns-item', function (req, res) {
 })
 
 router.post('/who-owns-item', function (req, res) {
-
-  if (req.session.data['ownerAgent'] == 'owner') {
-    logger(req, "It's the owner, so go down the owner route.")
-    res.redirect('owner-name')
-  } else {
-    logger(req, "It's the agent, so go down the agent route.")
-    // res.redirect('agent')
     res.redirect('agent-name')
-  }
-})
-
-//* ****************************************************
-// AGENT
-router.get('/agent', function (req, res) {
-
-  var agentIs1Checked
-  var agentIs2Checked
-  var agentIs3Checked
-  var agentIs4Checked
-
-  switch (req.session.data['agentIs']) {
-    case 'Professional advisor':
-      agentIs1Checked = 'checked'
-      break
-    case 'Executor':
-      agentIs2Checked = 'checked'
-      break
-    case 'Trustee':
-      agentIs3Checked = 'checked'
-      break
-    case 'Friend or relative':
-      agentIs4Checked = 'checked'
-      break
-    default:
-      agentIs1Checked = ''
-      agentIs2Checked = ''
-      agentIs3Checked = ''
-      agentIs4Checked = ''
-  }
-  res.render(viewsFolder + 'agent', {
-    backUrl: 'who-owns-item',
-    agentIs1Checked: agentIs1Checked,
-    agentIs2Checked: agentIs2Checked,
-    agentIs3Checked: agentIs3Checked,
-    agentIs4Checked: agentIs4Checked
-  })
-})
-
-router.post('/agent', function (req, res) {
-  logger(req, 'Agent is = ' + req.session.data['agentIs'])
-  res.redirect('agent-name')
 })
 
 //* ****************************************************
@@ -782,63 +732,15 @@ router.get('/agent-address', function (req, res) {
 router.post('/agent-address', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else {
-    res.redirect('agent-contact')
-  }
-})
-
-//* ****************************************************
-// AGENT-CONTACT
-router.get('/agent-contact', function (req, res) {
-  res.render(viewsFolder + 'agent-contact', {
-    backUrl: 'agent-address'
-  })
-})
-
-router.post('/agent-contact', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
-    res.redirect('agent-owner-name')
-  }
-
-})
-
-//* ****************************************************
-// AGENT-OWNER-NAME
-router.get('/agent-owner-name', function (req, res) {
-  res.render(viewsFolder + 'agent-owner-name', {
-    backUrl: 'agent-address'
-  })
-})
-
-router.post('/agent-owner-name', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
-    res.redirect('agent-owner-address')
-  }
-
-})
-
-//* ****************************************************
-// AGENT-OWNER-ADDRESS
-router.get('/agent-owner-address', function (req, res) {
-  res.render(viewsFolder + 'agent-owner-address', {
-    backUrl: 'agent-owner-name'
-  })
-})
-
-router.post('/agent-owner-address', function (req, res) {
-
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    // some else ones it - so gather 2 sets of data
+    res.redirect('owner-name')
   } else {
     res.redirect('dealing-intent')
   }
-
-
 })
+
+
 
 //* ****************************************************
 // add-photo
@@ -866,12 +768,10 @@ router.post('/add-description', function (req, res) {
 // OWNER-NAME
 router.get('/owner-name', function (req, res) {
   res.render(viewsFolder + 'owner-name', {
-    backUrl: 'who-owns-item'
   })
 })
 
 router.post('/owner-name', function (req, res) {
-
 
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
@@ -885,7 +785,6 @@ router.post('/owner-name', function (req, res) {
 // OWNER-ADDRESS
 router.get('/owner-address', function (req, res) {
   res.render(viewsFolder + 'owner-address', {
-    backUrl: 'owner-name'
   })
 })
 
@@ -893,26 +792,10 @@ router.post('/owner-address', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else {
-    res.redirect('owner-contact')
-  }
-})
-
-//* ****************************************************
-// OWNER-CONTACT
-router.get('/owner-contact', function (req, res) {
-  res.render(viewsFolder + 'owner-contact', {
-    backUrl: 'owner-address'
-  })
-})
-
-router.post('/owner-contact', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
     res.redirect('dealing-intent')
   }
-
 })
+
 
 //* ****************************************************
 // DEALING-INTENT

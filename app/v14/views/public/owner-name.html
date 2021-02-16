@@ -4,23 +4,23 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">Your contact information</h1>
+    <h1 class="govuk-heading-l">The owner's contact information</h1>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="name">Full name</label>
+        <label class="govuk-label" for="name">Enter full name or business name</label>
         <input class="govuk-input" id="name" name="ownerName" type="text" value="{{data['ownerName']}}" required />
       </div>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="ownerEmail">Enter your email address</label>
-        <span id="email-hint" class="govuk-hint">We’ll use this to send you the payment receipt and confirmation of registration</span>
+        <label class="govuk-label" for="ownerEmail">Enter the owner's email address</label>
+        <span id="email-hint" class="govuk-hint">We’ll use this to send them a copy of the registration confirmation</span>
         <input class="govuk-input" id="ownerEmail" name="ownerEmail" type="email" value="{{data['ownerEmail']}}" required />
       </div>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="ownerEmailConfirm">Confirm your email address</label>
+        <label class="govuk-label" for="ownerEmailConfirm">Confirm the owner's email address</label>
         <input class="govuk-input" id="ownerEmailConfirm" name="ownerEmailConfirm" type="email" value="{{data['ownerEmail']}}" required />
       </div>
 
