@@ -18,7 +18,11 @@
           </h1>
         </legend>
 
-        <p class="govuk-body">If your business owns the item or is helping someone else sell their item, give the business address.</p>
+        {% if data['ownerAgent'] != 'agent' %}
+        <p class="govuk-body">If your business owns the item, give your business address.</p>
+        {% else %}
+        <p class="govuk-body">If your business is helping someone else sell their item, give your business address</p>
+        {% endif %}
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-1">
