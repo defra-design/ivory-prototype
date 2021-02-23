@@ -1,0 +1,43 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "You can register to sell or hire out your item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">We’ll now ask you to:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>describe the item</li>
+                  <li>upload some photos of it</li>
+                  <li>declare legally that it meets the exemption criteria</li>
+                  <li>provide contact details</li>
+                  <li>pay an administration fee</li>
+                </ul>
+
+              <p class="govuk-body">Immediately after receiving payment, we’ll send you a registration number so that you can sell the item or hire it out.</p>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

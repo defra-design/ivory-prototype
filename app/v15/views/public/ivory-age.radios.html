@@ -1,0 +1,116 @@
+{% extends "./layout.html" %}
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+      <div class="govuk-form-group">
+
+        <!-- <h1 class="govuk-heading-l">Age of ivory in the item</h1> -->
+
+        <h1 class="govuk-heading-l">
+            The item must have been made before {{ ivoryYear }}
+        </h1>
+
+        <!-- <span id="ivory-age-hint" class="govuk-hint">
+
+        </span> -->
+
+        <div class="govuk-form-group govuk-!-margin-bottom-9">
+          <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Legal declaration
+            </legend>
+            <div class="govuk-checkboxes" data-module="checkboxes">
+              <div class="govuk-checkboxes__item">
+                {% if data['volume-declaration'] == 'Declared' %}
+                <input class="govuk-checkboxes__input" id="age-declaration" checked name="age-declaration" type="checkbox" value="Declared" required>
+                {% else %}
+                <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
+                {% endif %}
+                <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
+                  I declare the item was made before {{ ivoryYear }}
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+
+          <div class="govuk-form-group govuk-!-margin-bottom-9">
+
+            <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <p class="govuk-fieldset__heading govuk-!-margin-bottom-">
+                   How do you know the item was made before {{ ivoryYear }}?
+                </p>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation1" name="ageExplanation" type="radio" value="type1"  {{ageType1Checked}} required />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation1">
+                    Date mark on the item
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation2" name="ageExplanation" type="radio" value="type2" required {{ageType2Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation2">
+                    Information from previous owners, for example where the item was a family heirloom
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation3" name="ageExplanation" type="radio" value="type3"  {{ageType3Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation3">
+                    Receipt or bill from before {{ ivoryYear }}
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation4" name="ageExplanation" type="radio" value="type4" {{ageType4Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation4">
+                    Article published before {{ ivoryYear }} with photographs or a description of the item
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation5" name="ageExplanation" type="radio" value="type5" {{ageType5Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation5">
+                    Written verification from an expert
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation6" name="ageExplanation" type="radio" value="type6" {{ageType6Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation6">
+                    Evidence in a photograph
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="ageExplanation7" name="ageExplanation" type="radio" value="type7" {{ageType7Checked}} />
+                  <label class="govuk-label govuk-radios__label" for="ageExplanation7">
+                    Other
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+
+          <!-- <textarea class="govuk-textarea" id="ivoryAge" name="ivoryAge" rows="5" required>{{data['ivoryAge']}}</textarea> -->
+
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

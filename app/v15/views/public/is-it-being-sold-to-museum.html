@@ -1,0 +1,48 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Are you selling or hiring out your item to a museum?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMuseum-yes" name="isitMuseum" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitMuseum-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMuseum-no" name="isitMuseum" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitMuseum-no">
+                    No
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
