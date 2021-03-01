@@ -732,11 +732,11 @@ router.get('/agent-address', function (req, res) {
 router.post('/agent-address', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['ownerAgent'] == 'agent') {
-    // some else ones it - so gather 2 sets of data
-    res.redirect('owner-name')
   } else {
-    res.redirect('dealing-intent')
+    req.session.data['agentAddressLine1'] = '19 Grosvenor Road'
+    req.session.data['agentAddressTown'] = 'Solihull'
+    req.session.data['agentAddressPostcode'] = 'B91 3PU'
+    res.redirect('agent-address-confirm')
   }
 })
 
@@ -792,7 +792,7 @@ router.post('/owner-address', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else {
-    res.redirect('dealing-intent')
+    res.redirect('owner-address-choose')
   }
 })
 
@@ -1729,6 +1729,51 @@ router.post('/legal-haltpage', function (req, res) {
 // LEGAL HALTPAGE
 router.get('/confirmation-document', function (req, res) {
   res.render(viewsFolder + 'confirmation-document')
+})
+
+
+/////////////////     ADDRESS LOOKUP     ///////////////////////////////////
+
+
+// INTERNATIONAL ADDRESS
+router.get('/international-address', function (req, res) {
+  res.render(viewsFolder + 'international-address')
+})
+
+// AGENT ADDRESS CONFIRM
+router.get('/agent-address-confirm', function (req, res) {
+  res.render(viewsFolder + 'agent-address-confirm')
+})
+
+router.post('/agent-address-confirm', function (req, res) {
+  if (req.session.data['ownerAgent'] == 'agent') {
+    // someone else ones it - so gather 2 sets of data
+    res.redirect('owner-name')
+  } else {
+    res.redirect('dealing-intent')
+  }
+})
+
+// AGENT ADDRESS MANUAL
+router.get('/agent-address-manual', function (req, res) {
+  res.render(viewsFolder + 'agent-address-manual')
+})
+
+router.post('/agent-address-manual', function (req, res) {
+    res.redirect('dealing-intent')
+})
+
+// OWNER ADDRESS CHOOSE
+router.get('/owner-address-choose', function (req, res) {
+  res.render(viewsFolder + 'owner-address-choose')
+})
+
+router.post('/owner-address-choose', function (req, res) {
+  req.session.data['addressLine1'] = '17'
+  req.session.data['addressLine2'] = 'Whitchurch Road'
+  req.session.data['addressTown'] = 'Wellington'
+  req.session.data['addressPostcode'] = 'TF1 3DS'
+    res.redirect('dealing-intent')
 })
 
 
