@@ -730,14 +730,10 @@ router.get('/agent-address', function (req, res) {
 })
 
 router.post('/agent-address', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
     req.session.data['agentAddressLine1'] = '19 Grosvenor Road'
     req.session.data['agentAddressTown'] = 'Solihull'
     req.session.data['agentAddressPostcode'] = 'B91 3PU'
     res.redirect('agent-address-confirm')
-  }
 })
 
 
@@ -789,11 +785,7 @@ router.get('/owner-address', function (req, res) {
 })
 
 router.post('/owner-address', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
     res.redirect('owner-address-choose')
-  }
 })
 
 
@@ -1746,11 +1738,13 @@ router.get('/agent-address-confirm', function (req, res) {
 })
 
 router.post('/agent-address-confirm', function (req, res) {
-  if (req.session.data['ownerAgent'] == 'agent') {
-    // someone else ones it - so gather 2 sets of data
-    res.redirect('owner-name')
-  } else {
-    res.redirect('dealing-intent')
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+      // someone else ones it - so gather 2 sets of data
+      res.redirect('owner-name')
+    } else {
+      res.redirect('dealing-intent')
   }
 })
 
@@ -1769,11 +1763,15 @@ router.get('/owner-address-choose', function (req, res) {
 })
 
 router.post('/owner-address-choose', function (req, res) {
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
   req.session.data['addressLine1'] = '17'
   req.session.data['addressLine2'] = 'Whitchurch Road'
   req.session.data['addressTown'] = 'Wellington'
   req.session.data['addressPostcode'] = 'TF1 3DS'
     res.redirect('dealing-intent')
+  }
 })
 
 
