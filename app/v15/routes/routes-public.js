@@ -1503,8 +1503,10 @@ router.post('/know-items-exempt', function (req, res) {
 
   if (knowItemsExempt === 'yes') {
     res.redirect('what-type-of-item-is-it')
-  } else {
+  } else if (knowItemsExempt === 'unsure'){
     res.redirect('is-it-a-musical-instrument')
+  } else {
+    res.redirect('find-out-more')
   }
 })
 
@@ -1772,6 +1774,12 @@ router.post('/owner-address-choose', function (req, res) {
   req.session.data['addressPostcode'] = 'TF1 3DS'
     res.redirect('dealing-intent')
   }
+})
+
+
+//  FIND OUT MORE DROPOUT
+router.get('/find-out-more', function (req, res) {
+  res.render(viewsFolder + 'find-out-more')
 })
 
 

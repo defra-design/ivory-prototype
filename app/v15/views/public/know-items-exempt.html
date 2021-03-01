@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Would you like extra help to check if you’re allowed to sell or hire out your item?" %}
+{% set thisPageTitle = "How certain are you that your item is exempt from the ivory ban?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -20,19 +20,27 @@
 
               <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
-              <p class="govuk-body">We’ll guide you through a series of questions to give you a better idea about whether your item is exempt from the ivory ban.</p>
+              <p class="govuk-body">To use this service, you must be completely certain.</p>
 
-              <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="knowItemsExempt-no" name="knowItemsExempt" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="knowItemsExempt-no">
-                    Yes
-                  </label>
-                </div>
+              <p class="govuk-body">If you’re still unsure, we can help you decide.</p>
+
+              <div class="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="knowItemsExempt-yes" name="knowItemsExempt" type="radio" value="yes">
                   <label class="govuk-label govuk-radios__label" for="knowItemsExempt-yes">
-                    No
+                    Certain
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="knowItemsExempt-unsure" name="knowItemsExempt" type="radio" value="unsure">
+                  <label class="govuk-label govuk-radios__label" for="knowItemsExempt-unsure">
+                    Somewhat
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="knowItemsExempt-no" name="knowItemsExempt" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="knowItemsExempt-no">
+                    Not at all
                   </label>
                 </div>
               </div>
