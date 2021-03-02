@@ -1635,7 +1635,9 @@ router.post('/ivory-added', function (req, res) {
     res.redirect('eligibility-end')
   } else if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
     res.redirect('describe-the-item')
-  } else if (ivoryAdded === 'yes'){
+  } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] === 'type2'){
+    res.redirect('based-on-your-answers')
+  } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] != 'type2'){
     res.redirect('ivory-added-2')
   } else {
     res.redirect('cannot-continue')
