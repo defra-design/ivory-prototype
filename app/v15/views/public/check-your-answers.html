@@ -199,19 +199,45 @@
     </dl>
 
 
-    <!-- LEGAL DECLARATION -->
+<!-- LEGAL DECLARATIONS-->
+
 
     <h2 class="govuk-heading-m">Legal declaration</h2>
 
       <p class="govuk-body">Before you continue, you must agree to the following:</p>
 
+      <!-- less than 10% -->
+      {% if data['exemptionChoice'] == 'type1' %}
+
       <ul class="govuk-list govuk-list--bullet">
         <li>the item you are registering was made before 1947</li>
         <li>the item contains less than 10% ivory by volume</li>
         <li>all the ivory in the item is integral to it</li>
-        <li>no ivory was added on or after 1 January 1947</li>
-        <li>the information you've provided is complete and correct</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
       </ul>
+
+      <!-- musical instrument -->
+      {% elseif data['exemptionChoice'] == 'type2' %}
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the musical instrument you are registering was made before 1975</li>
+        <li>the instrument contains less than 20% ivory by volume</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
+      </ul>
+
+      <!-- portrait miniature -->
+      {% else %}
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the portrait miniature you are registering was made before 1918</li>
+        <li>the surface area of ivory on the miniature is less than 320 square centimetres</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
+      </ul>
+
+      {% endif %}
 
       <div class="govuk-form-group">
         <div class="govuk-checkboxes">
