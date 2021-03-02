@@ -730,7 +730,8 @@ router.get('/agent-address', function (req, res) {
 })
 
 router.post('/agent-address', function (req, res) {
-    req.session.data['agentAddressLine1'] = '19 Grosvenor Road'
+    req.session.data['agentAddressLine1'] = '19'
+    req.session.data['agentAddressLine2'] = 'Grosvenor Road'
     req.session.data['agentAddressTown'] = 'Solihull'
     req.session.data['agentAddressPostcode'] = 'B91 3PU'
     res.redirect('agent-address-confirm')
