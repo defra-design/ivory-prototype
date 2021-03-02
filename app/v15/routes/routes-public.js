@@ -209,14 +209,14 @@ router.post('/what-type-of-item-is-it', function (req, res) {
       // clear out the data from the declaration pages
       // and redirect to ivory age i.e. first declaration page
 
-      res.redirect('ivory-age')
+      res.redirect('eligibility-end')
 
     }
 
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
-      res.redirect('ivory-added')
+      res.redirect('eligibility-end')
     }
   }
 })
@@ -1630,7 +1630,7 @@ router.post('/ivory-added', function (req, res) {
 
   let ivoryAdded = req.session.data['ivoryAdded']
 
-  if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'no') {
+  if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'unsure') {
     res.redirect('eligibility-end')
   } else if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
     res.redirect('describe-the-item')
