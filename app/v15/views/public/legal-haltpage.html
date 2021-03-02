@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "The owner of the item is legally responsible for the accuracy of all information provided" %}
+{% set thisPageTitle = "The item’s owner is legally responsible for the information you’re about to give" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -25,9 +25,13 @@
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
 
-              <p class="govuk-body">At any point in this service, if you’re unsure about the right answer to give, do not continue.</p>
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
 
-              <p class="govuk-body">The owner could be fined or prosecuted if we later find out any information provided is false.</p>
+              <p class="govuk-body">We will not check your information before accepting this self-assessment, and we’ll assume your item is exempt.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that the item is not exempt, the item’s owner could be fined or prosecuted.</p>
+              </div>
 
               <div class="form-group">
                 <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">

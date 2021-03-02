@@ -1695,7 +1695,7 @@ router.get('/eligibility-end', function (req, res) {
 
 
 router.post('/eligibility-end', function (req, res) {
-    res.redirect('describe-the-item')
+    res.redirect('legal-haltpage')
 })
 
 // BASED ON YOUR ANSWERS - DROP OUT
@@ -1717,7 +1717,7 @@ router.get('/legal-haltpage', function (req, res) {
 })
 
 router.post('/legal-haltpage', function (req, res) {
-  res.redirect('know-items-exempt')
+  res.redirect('describe-the-item')
 })
 
 // LEGAL HALTPAGE
