@@ -10,7 +10,7 @@
 {% block content %}
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
+      <div class="govuk-grid-column-two-thirds">
 
 
     <form class="form" method="post" novalidate>
@@ -30,6 +30,9 @@
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText2">
                 Musical instrument made before 1975 with less than 20% ivory
               </label>
+              <div id="exemptionTypeText1-hint" class="govuk-hint govuk-radios__hint">
+                Any replacement ivory must have been harvested before 1 January 1975.
+              </div>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required {{exemptionType1Checked}} />
@@ -37,7 +40,7 @@
                 Item made before 1947 with less than 10% ivory
               </label>
               <div id="exemptionTypeText1-hint" class="govuk-hint govuk-radios__hint">
-                The ivory must be integral to the item
+                The ivory must be integral to the item. Any replacement ivory must have been harvested before 1 January 1975.
               </div>
             </div>
             <div class="govuk-radios__item">
@@ -45,6 +48,9 @@
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
                 Portrait miniature made before 1918 with a surface area less than 320 square centimetres
               </label>
+              <div id="exemptionTypeText1-hint" class="govuk-hint govuk-radios__hint">
+                Any replacement ivory must have been harvested before 1 January 1975.
+              </div>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4" {{exemptionType4Checked}} />
@@ -58,6 +64,9 @@
               <label class="govuk-label govuk-radios__label" for="exemptionTypeText5">
                 Item made before 1918 that has outstandingly high artistic, cultural or historical value
               </label>
+              <div id="exemptionTypeText1-hint" class="govuk-hint govuk-radios__hint">
+                Any replacement ivory must have been harvested before 1 January 1975.
+              </div>
             </div>
 
             <div class="govuk-radios__item">
