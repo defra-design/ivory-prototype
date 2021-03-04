@@ -681,7 +681,7 @@ router.post('/ivory-volume', function (req, res) {
 
 
 //* ****************************************************
-// ARE YOU THE OWNER
+// WHO OWNS ITEM
 router.get('/who-owns-item', function (req, res) {
   var ownerChecked = ''
   var agentChecked = ''
@@ -699,7 +699,12 @@ router.get('/who-owns-item', function (req, res) {
 })
 
 router.post('/who-owns-item', function (req, res) {
+
+    if (req.session.data['ownerAgent'] == 'owner'){
     res.redirect('agent-name')
+    } else {
+    res.redirect('owner-name')
+    }
 })
 
 //* ****************************************************
@@ -1745,9 +1750,6 @@ router.get('/agent-address-confirm', function (req, res) {
 router.post('/agent-address-confirm', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['ownerAgent'] == 'agent') {
-      // someone else ones it - so gather 2 sets of data
-      res.redirect('owner-name')
     } else {
       res.redirect('dealing-intent')
   }
@@ -1775,7 +1777,7 @@ router.post('/owner-address-choose', function (req, res) {
   req.session.data['addressLine2'] = 'Whitchurch Road'
   req.session.data['addressTown'] = 'Wellington'
   req.session.data['addressPostcode'] = 'TF1 3DS'
-    res.redirect('dealing-intent')
+    res.redirect('agent-name')
   }
 })
 
