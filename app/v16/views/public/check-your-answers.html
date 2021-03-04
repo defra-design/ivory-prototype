@@ -1,0 +1,259 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Check your answers" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-9">{{ thisPageTitle }}</h1>
+
+    <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-7">
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Item type</dt>
+        <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
+        <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory added</dt>
+        <dd class="app-check-your-answers__answer">No</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-added">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Description</dt>
+        <dd class="app-check-your-answers__answer">{{ data['description'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photos</dt>
+        <dd class="app-check-your-answers__answer">
+          <ul class="govuk-list">
+          {% for photo in data['photos'] %}
+            <li>
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
+            </li>
+          {%  endfor %}
+          </ul>
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="your-photos">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Proof of age</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ivoryAge'] }}
+
+          {% if data['ivoryAge'] != 'Other' %}
+          {% else %}
+          <br><br>
+          Details: {{ ageDetail }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
+      </div>
+
+
+
+      {% if data['exemptionChoice'] == 'type5' %}
+
+      <!-- RMI -->
+
+      {% else %}
+
+      <!-- Standard categories -->
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Proof of ivory volume</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ivoryVolume'] }}
+
+          {% if data['ivoryVolume'] != 'Other' %}
+          {% else %}
+          <br><br>
+          Details: {{ data['volumeDetail'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+
+
+      {% if data['exemptionChoice'] == 'type1' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory is integral</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ivoryIntegral'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
+      </div>
+
+      {% endif %}
+
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Who owns the item?</dt>
+        {% if agentOwner == 'agent' %}
+        <dd class="app-check-your-answers__answer">Someone else owns it</dd>
+        {% else %}
+        <dd class="app-check-your-answers__answer">I own it</dd>
+        {% endif %}
+        <dd class="app-check-your-answers__change"><a href="who-owns-item">Change</a></dd>
+      </div>
+
+      {% endif %}
+
+
+      {% if agentOwner == 'agent' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your contact details</dt>
+        <dd class="app-check-your-answers__answer">
+          Name: {{data['agentName']}}
+          <br/>
+          Email: {{data['agentEmail']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          <!-- {{ data['agentAddressCounty'] }}<br/> -->
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's contact details</dt>
+        <dd class="app-check-your-answers__answer">
+          Name: {{data['ownerName']}}
+          <br>
+          Email: {{data['ownerEmail']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['addressLine1'] }}<br/>
+          {{ data['addressLine2'] }}<br/>
+          {{ data['addressTown'] }}<br/>
+          <!-- {{ data['addressCounty'] }}<br/> -->
+          {{ data['addressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+      </div>
+
+      {% else %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your contact details</dt>
+        <dd class="app-check-your-answers__answer">
+          Name: {{data['agentName']}}
+          <br/>
+          {% if data['agentNameBusiness'] != '' %}
+          Business name: {{data['agentNameBusiness']}}
+          <br/>
+          {% else %}
+          {% endif %}
+          Email: {{data['agentEmail']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressCounty'] }}<br/>
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+
+      {% endif %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Intention</dt>
+        <dd class="app-check-your-answers__answer">{{ dealingIntent }}</dd>
+        <dd class="app-check-your-answers__change"><a href="dealing-intent">Change</a></dd>
+      </div>
+
+    </dl>
+
+
+<!-- LEGAL DECLARATIONS-->
+
+
+    <h2 class="govuk-heading-m">Legal declaration</h2>
+
+      <p class="govuk-body">Before you continue, you must agree to the following:</p>
+
+      <!-- less than 10% -->
+      {% if data['exemptionChoice'] == 'type1' %}
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the item you are registering was made before 1947</li>
+        <li>the item contains less than 10% ivory by volume</li>
+        <li>all the ivory in the item is integral to it</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
+      </ul>
+
+      <!-- musical instrument -->
+      {% elseif data['exemptionChoice'] == 'type2' %}
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the musical instrument you are registering was made before 1975</li>
+        <li>the instrument contains less than 20% ivory by volume</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
+      </ul>
+
+      <!-- portrait miniature -->
+      {% else %}
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the portrait miniature you are registering was made before 1918</li>
+        <li>the surface area of ivory on the miniature is less than 320 square centimetres</li>
+        <li>any replacement ivory was harvested before 1 January 1975</li>
+        <li>the information you’ve provided is complete and correct</li>
+      </ul>
+
+      {% endif %}
+
+      <div class="govuk-form-group">
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="legalDec" name="legalDec" type="checkbox" value="agree">
+            <label class="govuk-label govuk-checkboxes__label" for="legalDec">
+              I agree
+            </label>
+          </div>
+        </div>
+      </div>
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+      <button class="govuk-button">Agree and submit</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

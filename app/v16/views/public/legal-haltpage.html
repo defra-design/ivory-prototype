@@ -1,0 +1,57 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "The item’s owner is legally responsible for the information you’re about to give" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+      <form class="form" method="post" novalidate>
+        <div class="flash-card">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full"
+
+            <header>
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+            </header>
+
+            </div>
+          </div>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+              <p class="govuk-body">We do not check all self-assessments, so the owner is responsible for ensuring the item is exempt.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that the item is not exempt, the item’s owner could be fined or prosecuted.</p>
+              </div>
+
+              <div class="form-group">
+                <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
+              </div>
+
+              <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
+
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <!-- </form>
+
+    </div>
+  </div>
+</div> -->
+
+
+
+
+{% endblock %}

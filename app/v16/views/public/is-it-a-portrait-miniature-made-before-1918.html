@@ -1,0 +1,83 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Is your item a portrait miniature made before 1918 with a surface area smaller than 320 square centimetres?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+            <p class="govuk-body">Portrait miniatures are small portraits, popular in the 18th or 19th century, that were often painted on very thin pieces of ivory</p>
+
+            <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How do I know if the portrait was made before 1918?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">You can use:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>an original receipt or bill</li>
+                    <li>a date mark on the item</li>
+                    <li>written proof from an expert, such as an antiques specialist</li>
+                    <li>personal knowledge or evidence that it’s been in the family since 1918 or before</li>
+                    <li>an article or a catalogue published before 1 January 1918 with photos or a detailed description of the item</li>
+                    <li>carbon dating</li>
+                  </ul>
+              </div>
+            </details>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How can I measure the surface area of the portrait?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Only measure the parts of the portrait you can see. Do not include the frame or areas covered by the frame.</p>
+
+                <p class="govuk-body">If you are using inches to do your calculation, you can convert it to square centimetres by multiplying by 6.45.</p>
+              </div>
+            </details>
+
+
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitPortrait-yes" name="isitPortrait" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitPortrait-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitPortrait-no" name="isitPortrait" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitPortrait-no">
+                    No
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
