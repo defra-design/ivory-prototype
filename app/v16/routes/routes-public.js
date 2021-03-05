@@ -1638,8 +1638,6 @@ router.post('/ivory-added', function (req, res) {
 
   if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'unsure') {
     res.redirect('eligibility-end')
-  } else if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
-    res.redirect('describe-the-item')
   } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] === 'type2'){
     res.redirect('based-on-your-answers')
   } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] != 'type2'){
@@ -1683,10 +1681,8 @@ router.post('/ivory-added-2', function (req, res) {
 
   let ivoryAdded2 = req.session.data['ivoryAdded2']
 
-  if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'no') {
+  if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'unsure') {
     res.redirect('eligibility-end')
-  } else if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'yes'){
-    res.redirect('describe-the-item')
   } else if (ivoryAdded2 === 'yes'){
     res.redirect('based-on-your-answers')
   } else {
