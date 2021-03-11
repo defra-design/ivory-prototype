@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Are you selling or hiring the item out to a museum?" %}
+{% set thisPageTitle = "Are you selling or hiring the item out on behalf of an accredited museum?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -20,7 +20,7 @@
 
               <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
-              <p class="govuk-body">The museum must be accredited by one of the following:</p>
+              <p class="govuk-body">This is a museum accredited by one of the following:</p>
 
               <ul class="govuk-list govuk-list--bullet">
                 <li>Arts Council England</li>
@@ -32,14 +32,14 @@
 
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitMuseum-yes" name="isitMuseum" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="isitMuseum-yes">
+                  <input class="govuk-radios__input" id="areyouMuseum-yes" name="areyouMuseum" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="areyouMuseum-yes">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitMuseum-no" name="isitMuseum" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="isitMuseum-no">
+                  <input class="govuk-radios__input" id="areyouMuseum-no" name="areyouMuseum" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="areyouMuseum-no">
                     No
                   </label>
                 </div>

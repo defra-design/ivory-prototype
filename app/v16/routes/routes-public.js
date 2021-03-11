@@ -1509,12 +1509,29 @@ router.post('/know-items-exempt', function (req, res) {
 
   if (knowItemsExempt === 'yes') {
     res.redirect('what-type-of-item-is-it')
-  } else if (knowItemsExempt === 'unsure'){
-    res.redirect('is-it-a-musical-instrument')
   } else {
-    res.redirect('find-out-more')
+    res.redirect('sure-its-elephant')
   }
 })
+
+// SURE ITS ELEPHANT IVORY
+router.get('/sure-its-elephant', function (req, res) {
+  res.render(viewsFolder + 'sure-its-elephant')
+})
+
+router.post('/sure-its-elephant', function (req, res) {
+
+  let isitElephant = req.session.data['isitElephant']
+
+  if (isitElephant === 'yes') {
+    res.redirect('is-it-being-sold-to-museum')
+  } else if (isitElephant === 'idk'){
+    res.redirect('cannot-continue')
+  } else {
+    res.redirect('dont-need-service')
+  }
+})
+
 
 // MUSICAL INSTRUMENT?
 router.get('/is-it-a-musical-instrument', function (req, res) {
@@ -1578,9 +1595,25 @@ router.post('/is-it-being-sold-to-museum', function (req, res) {
 
   if (isitMuseum === 'yes') {
     req.session.data['exemptionChoice'] = 'type4'
-    res.redirect('apply-to-register-to-sell-an-item-to-a-museum')
+    res.redirect('are-you-a-museum')
   } else {
-    res.redirect('is-it-RMI')
+    res.redirect('is-it-a-musical-instrument')
+  }
+})
+
+// ARE YOU A MUSEUM
+router.get('/are-you-a-museum', function (req, res) {
+  res.render(viewsFolder + 'are-you-a-museum')
+})
+
+router.post('/are-you-a-museum', function (req, res) {
+
+  let areyouMuseum = req.session.data['areyouMuseum']
+
+  if (areyouMuseum === 'yes') {
+    res.redirect('dont-need-service')
+  } else {
+    res.redirect('eligibility-end')
   }
 })
 
@@ -1781,6 +1814,11 @@ router.post('/owner-address-choose', function (req, res) {
 //  FIND OUT MORE DROPOUT
 router.get('/find-out-more', function (req, res) {
   res.render(viewsFolder + 'find-out-more')
+})
+
+//  DONT NEED SERVICE DROPOUT
+router.get('/dont-need-service', function (req, res) {
+  res.render(viewsFolder + 'dont-need-service')
 })
 
 
