@@ -1,7 +1,7 @@
 {% extends "./layout.html" %}
 
 
-{% set thisPageTitle = "Is it a musical instrument?" %}
+{% set thisPageTitle = "Was the item made on or after 1 January 1975?" %}
 
 
 {% block pageTitle %}
@@ -15,29 +15,34 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <form class="form" method="post" {{ novalidateVal }}>
+    <form class="form" method="post">
 
-      {{ govukRadios({
-        idPrefix: "musicalInstrument",
-        name: "musicalInstrument",
-        fieldset: {
-          legend: {
-            text: thisPageTitle,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-        ]
-      }) }}
+      <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="after1975-yes" name="after1975" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="after1975-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="after1975-no" name="after1975" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="after1975-no">
+              No
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="after1975-idk" name="after1975" type="radio" value="idk">
+            <label class="govuk-label govuk-radios__label" for="after1975-idk">
+             I don't know
+            </label>
+          </div>
+        </div>
+
+      </div>
 
 
       <button class="govuk-button">Continue</button>

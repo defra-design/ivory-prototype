@@ -1,7 +1,5 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Is your item rare, culturally important and made before 1918?" %}
-
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
 {% endblock %}
@@ -18,22 +16,26 @@
 
           <div class="govuk-form-group">
 
-            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+            {% if data['pre1918'] === "yes" %}
+            <h1 class="govuk-heading-l">Is your item rare and extremely valuable?</h1>
+            {% else %}
+            <h1 class="govuk-heading-l">Is your item rare, extremely valuable and made before 1918?</h1>
+            {% endif %}
 
-              <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="isitRMI-no">
-                    No
-                  </label>
-                </div>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
+                  Yes
+                </label>
               </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="isitRMI-no">
+                  No
+                </label>
+              </div>
+            </div>
 
           </div>
 

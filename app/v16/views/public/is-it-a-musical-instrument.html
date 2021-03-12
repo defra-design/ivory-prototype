@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Is your item a musical instrument made before 1975 that has less than 20% ivory?" %}
+{% set thisPageTitle = "Is your item a musical instrument?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -29,7 +29,7 @@
                   <li>parts of musical instruments, like individual piano keys</li>
                 </ul>
 
-              <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+              <!-- <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     How do I know if the instrument was made before 1975?
@@ -61,9 +61,9 @@
 
                   <p class="govuk-body">If it’s difficult to calculate ivory volume without damaging the item, you can make an assessment based on knowledge of similar items.</p>
                 </div>
-              </details>
+              </details> -->
 
-              <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="isitMusical-yes" name="isitMusical" type="radio" value="yes">
                   <label class="govuk-label govuk-radios__label" for="isitMusical-yes">

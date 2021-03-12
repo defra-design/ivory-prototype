@@ -1544,13 +1544,14 @@ router.post('/is-it-a-musical-instrument', function (req, res) {
 
   if (isitMusical === 'yes') {
     req.session.data['exemptionChoice'] = 'type2'
-    res.redirect('ivory-added')
-  } else {
     res.redirect('was-it-made-before-1947')
+  } else {
+    res.redirect('less-than-10-percent')
   }
 })
 
-// BEFORE 1947
+
+// IS IT PRE 1947?
 router.get('/was-it-made-before-1947', function (req, res) {
   res.render(viewsFolder + 'was-it-made-before-1947')
 })
@@ -1559,11 +1560,71 @@ router.post('/was-it-made-before-1947', function (req, res) {
 
   let isitBefore1947 = req.session.data['isitBefore1947']
 
-  if (isitBefore1947 === 'yes') {
+  if (isitBefore1947 === 'yes' && req.session.data['isitMusical'] === 'yes' ) {
+    res.redirect('less-than-20-percent')
+  } else if (isitBefore1947 === 'no' && req.session.data['isitMusical'] === 'yes' ){
+    res.redirect('is-it-a-musical-instrument-2')
+  } else if (isitBefore1947 === 'yes' && req.session.data['lessthan10percent'] === 'yes' ){
+    res.redirect('ivory-added')
+  } else if (isitBefore1947 === 'no' && req.session.data['lessthan10percent'] === 'yes' ){
+    res.redirect('based-on-your-answers')
+  } else {
+    res.redirect('cannot-continue')
+  }
+})
+
+// MUSICAL INSTRUMENT 2 (1975 date question for CITES)
+router.get('/is-it-a-musical-instrument-2', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-musical-instrument-2')
+})
+
+router.post('/is-it-a-musical-instrument-2', function (req, res) {
+
+  let after1975 = req.session.data['after1975']
+
+  if (after1975 === 'yes') {
+    res.redirect('based-on-your-answers')
+  } else if (after1975 === 'no'){
+    res.redirect('less-than-20-percent')
+  } else {
+    res.redirect('cannot-continue')
+  }
+})
+
+// LESS THAN 10 PERCENT
+router.get('/less-than-10-percent', function (req, res) {
+  res.render(viewsFolder + 'less-than-10-percent')
+})
+
+router.post('/less-than-10-percent', function (req, res) {
+
+  let lessthan10percent = req.session.data['lessthan10percent']
+
+  if (lessthan10percent === 'yes') {
     req.session.data['exemptionChoice'] = 'type1'
     res.redirect('ivory-added')
   } else {
     res.redirect('is-it-a-portrait-miniature-made-before-1918')
+  }
+})
+
+// LESS THAN 20 PERCENT
+router.get('/less-than-20-percent', function (req, res) {
+  res.render(viewsFolder + 'less-than-20-percent')
+})
+
+router.post('/less-than-20-percent', function (req, res) {
+
+  let lessthan20percent = req.session.data['lessthan20percent']
+
+  if (lessthan20percent === 'yes') {
+    res.redirect('ivory-added')
+  } else if (lessthan20percent === 'no' && req.session.data['isitBefore1947'] === 'yes'){
+    res.redirect('is-it-RMI')
+  } else if (lessthan20percent === 'no' && req.session.data['isitBefore1947'] === 'no'){
+    res.redirect('based-on-your-answers')
+  } else {
+    res.redirect('cannot-continue')
   }
 })
 
