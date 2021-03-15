@@ -1602,9 +1602,11 @@ router.post('/less-than-10-percent', function (req, res) {
 
   if (lessthan10percent === 'yes') {
     req.session.data['exemptionChoice'] = 'type1'
-    res.redirect('ivory-added')
+    res.redirect('was-it-made-before-1947')
+  } else if (lessthan10percent === 'no'){
+    res.redirect('is-it-a-portrait-miniature')
   } else {
-    res.redirect('is-it-a-portrait-miniature-made-before-1918')
+    res.redirect('cannot-continue')
   }
 })
 
@@ -1629,19 +1631,60 @@ router.post('/less-than-20-percent', function (req, res) {
 })
 
 // PORTRAIT MINIATURE
-router.get('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
-  res.render(viewsFolder + 'is-it-a-portrait-miniature-made-before-1918')
+router.get('/is-it-a-portrait-miniature', function (req, res) {
+  res.render(viewsFolder + 'is-it-a-portrait-miniature')
 })
 
-router.post('/is-it-a-portrait-miniature-made-before-1918', function (req, res) {
+router.post('/is-it-a-portrait-miniature', function (req, res) {
 
   let isitPortrait = req.session.data['isitPortrait']
 
   if (isitPortrait === 'yes') {
     req.session.data['exemptionChoice'] = 'type3'
-    res.redirect('ivory-added')
+    res.redirect('was-it-made-before-1918')
+  } else if (isitPortrait === 'no'){
+    res.redirect('was-it-made-before-1918')
   } else {
-    res.redirect('is-it-being-sold-to-museum')
+    res.redirect('cannot-continue')
+  }
+})
+
+
+// WAS IT MADE BEFORE 1918
+router.get('/was-it-made-before-1918', function (req, res) {
+  res.render(viewsFolder + 'was-it-made-before-1918')
+})
+
+router.post('/was-it-made-before-1918', function (req, res) {
+
+  let isitBefore1918 = req.session.data['isitBefore1918']
+
+  if (isitBefore1918 === 'yes' && req.session.data['isitPortrait'] === 'yes') {
+    res.redirect('less-than-320-square-centimetres')
+  } else if (isitBefore1918 === 'yes' && req.session.data['isitPortrait'] === 'no'){
+    res.redirect('is-it-RMI')
+  } else if (isitBefore1918 === 'no'){
+    res.redirect('based-on-your-answers')
+  } else {
+    res.redirect('cannot-continue')
+  }
+})
+
+// LESS THAN 320 SQUARE CENTIMETRES
+router.get('/less-than-320-square-centimetres', function (req, res) {
+  res.render(viewsFolder + 'less-than-320-square-centimetres')
+})
+
+router.post('/less-than-320-square-centimetres', function (req, res) {
+
+  let lessthan320 = req.session.data['lessthan320']
+
+  if (lessthan320 === 'yes'){
+    res.redirect('ivory-added')
+  } else if (lessthan320 === 'no'){
+    res.redirect('is-it-RMI')
+  } else {
+    res.redirect('cannot-continue')
   }
 })
 

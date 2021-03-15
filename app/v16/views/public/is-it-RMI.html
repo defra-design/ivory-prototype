@@ -12,11 +12,11 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" method="post" novalidate>
+        <form method="post">
 
           <div class="govuk-form-group">
 
-            {% if data['pre1918'] === "yes" %}
+            {% if data['isitBefore1918'] === "yes" %}
             <h1 class="govuk-heading-l">Is your item rare and extremely valuable?</h1>
             {% else %}
             <h1 class="govuk-heading-l">Is your item rare, extremely valuable and made before 1918?</h1>
