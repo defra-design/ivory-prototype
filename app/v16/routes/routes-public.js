@@ -443,7 +443,9 @@ router.post('/your-photos', function (req, res) {
 
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  }else{
+  } else if (req.session.data['exemptionChoice'] = 'type4'){
+    res.redirect('who-owns-item')
+  } else {
     res.redirect('ivory-age')
   }
 
@@ -1514,6 +1516,7 @@ router.get('/sure-its-elephant', function (req, res) {
 })
 
 router.post('/sure-its-elephant', function (req, res) {
+  req.session.data['knowItemsExempt'] = 'unsure'
 
   let isitElephant = req.session.data['isitElephant']
 
