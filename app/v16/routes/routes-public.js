@@ -191,15 +191,9 @@ router.get('/what-type-of-item-is-it', function (req, res) {
 
 router.post('/what-type-of-item-is-it', function (req, res) {
 
-  if (req.session.data['exemptionChoice'] == 'type4') {
-    logger(req, "It's a museum piece.")
-    res.redirect('apply-to-register-to-sell-an-item-to-a-museum')
-  } else if (req.session.data['exemptionChoice'] == 'type5') {
+if (req.session.data['exemptionChoice'] == 'type5') {
       logger(req, "It's rare and most important.")
       res.redirect('apply-for-an-rmi-certificate')
-  } else if (req.session.data['exemptionChoice'] == 'type6') {
-      logger(req, "It's none of the exemption types.")
-      res.redirect('based-on-your-answers')
     } else {
     logger(req, "It's a standard section 10 non-museum.")
     logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
