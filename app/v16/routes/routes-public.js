@@ -792,39 +792,22 @@ router.post('/owner-address', function (req, res) {
 
 
 //* ****************************************************
+
+// IS ITEM OUTSIDE UK
+router.get('/is-item-outside-uk', function (req, res) {
+  res.render(viewsFolder + 'is-item-outside-uk')
+})
+
+router.post('/is-item-outside-uk', function (req, res) {
+  res.redirect('dealing-intent')
+})
+
 // DEALING-INTENT
 router.get('/dealing-intent', function (req, res) {
-
-  var backUrl
-  if (req.session.data['ownerAgent'] == 'owner') {
-    backUrl = 'owner-contact'
-  } else if (req.session.data['ownerAgent'] == 'agent') {
-    backUrl = 'agent-owner-address'
-  }
-
-  var intentSellChecked
-  var intentHireOutChecked
-
-  switch (req.session.data['dealingIntent']) {
-    case 'Sell it':
-      intentSellChecked = 'checked'
-      break
-    case 'Hire it out':
-      intentHireOutChecked = 'checked'
-      break
-    default:
-      intentSellChecked = ''
-      intentHireOutChecked = ''
-  }
-  res.render(viewsFolder + 'dealing-intent', {
-    backUrl: backUrl,
-    intentSellChecked: intentSellChecked,
-    intentHireOutChecked: intentHireOutChecked
-  })
+  res.render(viewsFolder + 'dealing-intent')
 })
 
 router.post('/dealing-intent', function (req, res) {
-  logger(req, 'Dealing intent = ' + req.session.data['dealingIntent'])
   res.redirect('check-your-answers')
 })
 
@@ -836,7 +819,6 @@ router.get('/check-your-answers', function (req, res) {
 
 
   req.session.data['checkYourAnswers'] = 'hub'
-
 
   var backUrl
   if (req.session.data['ownerAgent'] == 'owner') {
@@ -1881,7 +1863,7 @@ router.post('/agent-address-confirm', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
     } else {
-      res.redirect('dealing-intent')
+      res.redirect('is-item-outside-uk')
   }
 })
 
@@ -1891,7 +1873,7 @@ router.get('/agent-address-manual', function (req, res) {
 })
 
 router.post('/agent-address-manual', function (req, res) {
-    res.redirect('dealing-intent')
+    res.redirect('is-item-outside-uk')
 })
 
 // OWNER ADDRESS CHOOSE

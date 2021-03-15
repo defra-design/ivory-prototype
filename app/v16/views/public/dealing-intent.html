@@ -4,7 +4,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" autocomplete="off" {{ novalidateVal }}>
+    <form method="post">
 
       <div class="govuk-form-group">
 
@@ -12,23 +12,29 @@
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
               {% if data['ownerAgent'] === "agent" %}
-              What does the owner plan to do with the item?
+              Who is the owner planning to sell or hire out the item to?
               {% else %}
-              What do you plan to do with the item?
+              Who are you planning to sell or hire out the item to?
               {% endif %}
             </h1>
           </legend>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="intentSell" name="dealingIntent" type="radio" value="Sell it" required {{intentSellChecked}}/>
-              <label class="govuk-label govuk-radios__label" for="intentSell">
-                Sell it
+              <input class="govuk-radios__input" id="dealingIntent-UK" name="dealingIntent" type="radio" value="Sell it"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-UK">
+                A person or organisation within the UK
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="intentHireOut" name="dealingIntent" type="radio" value="Hire it out" {{intentHireOutChecked}} />
-              <label class="govuk-label govuk-radios__label" for="intentHireOut">
-                Hire it out
+              <input class="govuk-radios__input" id="dealingIntent-NonUK" name="dealingIntent" type="radio" value="Hire it out"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-NonUK">
+                A person or organisation outside the UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dealingIntent-idk" name="dealingIntent" type="radio" value="I don't know"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-idk">
+                I don't know
               </label>
             </div>
           </div>
