@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "You must now make a self-assessment to sell or hire out your item" %}
+<!-- {% set thisPageTitle = "You must now make a self-assessment to sell or hire out your item" %} -->
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -16,14 +16,20 @@
 
         <div class="govuk-form-group">
 
-            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
 
             {% if data['knowItemsExempt'] === "unsure" %}
+            <h1 class="govuk-heading-l">You can now make a self-assessment to sell or hire out your item</h1>
+
               <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">If you want to sell or hire out your item, you’ll need to:</p>
             {% else %}
-            {% endif %}
+            <h1 class="govuk-heading-l">You must now make a self-assessment to sell or hire out your item</h1>
 
               <p class="govuk-body">You’ll need to:</p>
+            {% endif %}
+
 
                 <ul class="govuk-list govuk-list--bullet">
                   <li>describe the item</li>
