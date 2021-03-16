@@ -29,7 +29,7 @@ Registration complete
     <p class="govuk-body">We’ve also sent these details to:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>{{data['agentEmail']}}</li>
-      {% if data['ownerEmail'] != '' %}
+      {% if data['ownerEmail'] != null %}
       <li>{{data['ownerEmail']}}</li>
       {% else %}
       {% endif %}
