@@ -1682,6 +1682,7 @@ router.post('/is-it-being-sold-to-museum', function (req, res) {
     req.session.data['exemptionChoice'] = 'type4'
     res.redirect('are-you-a-museum')
   } else {
+    req.session.data['exemptionChoice'] = ''
     res.redirect('is-it-a-musical-instrument')
   }
 })
