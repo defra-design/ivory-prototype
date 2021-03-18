@@ -1540,8 +1540,10 @@ router.post('/was-it-made-before-1947', function (req, res) {
   let isitBefore1947 = req.session.data['isitBefore1947']
 
   if (isitBefore1947 === 'yes' && req.session.data['isitMusical'] === 'yes' ) {
+    req.session.data['exemptionChoice'] = 'type2'
     res.redirect('less-than-20-percent')
   } else if (isitBefore1947 === 'no' && req.session.data['isitMusical'] === 'yes' ){
+    req.session.data['exemptionChoice'] = 'type2'
     res.redirect('is-it-a-musical-instrument-2')
   } else if (isitBefore1947 === 'yes' && req.session.data['lessthan10percent'] === 'yes' ){
     res.redirect('ivory-added')
@@ -1720,43 +1722,16 @@ router.post('/is-it-RMI', function (req, res) {
 
 // IVORY ADDED
 router.get('/ivory-added', function (req, res) {
-
-  var ivoryYear
-
-  switch (req.session.data['exemptionChoice']) {
-    case 'type1':
-      ivoryYear = '1947'
-      break
-    case 'type2':
-      ivoryYear = '1975'
-      break
-    case 'type3':
-      ivoryYear = '1918'
-      break
-    case 'type4':
-      ivoryYear = 'n/a'
-      break
-    case 'type5':
-      ivoryYear = '1918'
-      break
-    default:
-      ivoryYear = 'YYYY'
-  }
-
-  res.render(viewsFolder + 'ivory-added', {
-    'ivoryYear': ivoryYear,
-  })
+  res.render(viewsFolder + 'ivory-added')
 })
 
 router.post('/ivory-added', function (req, res) {
 
   let ivoryAdded = req.session.data['ivoryAdded']
 
-  if (ivoryAdded === 'no' && req.session.data['knowItemsExempt'] === 'unsure') {
+  if (ivoryAdded === 'no'){
     res.redirect('eligibility-end')
-  } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] === 'type2'){
-    res.redirect('based-on-your-answers')
-  } else if (ivoryAdded === 'yes' && req.session.data['exemptionChoice'] != 'type2'){
+  } else if (ivoryAdded === 'yes'){
     res.redirect('ivory-added-2')
   } else {
     res.redirect('cannot-continue')
