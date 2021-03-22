@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+<!-- {% set thisPageTitle = "You must now make a self-assessment to sell or hire out your item" %} -->
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <div class="govuk-form-group">
+
+
+
+            {% if data['knowItemsExempt'] === "unsure" %}
+            <h1 class="govuk-heading-l">You can now make a self-assessment to sell or hire out your item</h1>
+
+              <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">If you want to sell or hire out your item, you’ll need to:</p>
+            {% else %}
+            <h1 class="govuk-heading-l">You must now make a self-assessment to sell or hire out your item</h1>
+
+              <p class="govuk-body">You’ll need to:</p>
+            {% endif %}
+
+
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>describe the item</li>
+                  <li>upload some photos of it</li>
+                  <li>demonstrate how it meets the exemption criteria</li>
+                  <li>provide contact details</li>
+                  <li>pay an administration fee of £20</li>
+                </ul>
+
+              <p class="govuk-body">As soon as you successfully make the payment, you’ll be able to sell the item or hire it out.</p>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {% if data['ownerAgent'] === "agent" %}
+              Who is the owner planning to sell or hire out the item to?
+              {% else %}
+              Who are you planning to sell or hire out the item to?
+              {% endif %}
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dealingIntent-UK" name="dealingIntent" type="radio" value="Within the UK"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-UK">
+                A person or organisation within the UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dealingIntent-NonUK" name="dealingIntent" type="radio" value="Outside the UK"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-NonUK">
+                A person or organisation outside the UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dealingIntent-idk" name="dealingIntent" type="radio" value="I don't know"/>
+              <label class="govuk-label govuk-radios__label" for="dealingIntent-idk">
+                I don't know
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

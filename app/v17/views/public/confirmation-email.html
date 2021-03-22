@@ -1,0 +1,49 @@
+{% extends "./layout_unbranded.html" %}
+
+{% set registrationNumber = "4HCP37NL" %}
+
+{% block pageTitle %}
+  Confirmation of application to register an ivory item
+{% endblock %}
+
+{% block content %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory registration: 4HCP37NL</dd>
+
+  </dl>
+
+    <p class="govuk-body">{{ contactName }},</p>
+    <p class="govuk-body">You have registered an ivory item and have legally declared that:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the item was made before 1947</li>
+      <li>the item contains less than 10% ivory by volume</li>
+      <li>the ivory is integral to the item</li>
+      <li>no ivory has been added to the item on or after 1 January 1947</li>
+    </ul>
+
+    <p class="govuk-body">Providing this is true, you can sell or hire out the item.</p>
+
+    <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">View details of this registration</a></p>
+
+    <p class="govuk-body">This registration expires when the owner of the item changes.</p>
+
+
+
+
+
+
+{% endblock %}

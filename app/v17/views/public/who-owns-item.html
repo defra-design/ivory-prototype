@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Who owns the item?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ownerAgent1" name="ownerAgent" type="radio" value="owner" required {{ownerChecked}}/>
+              <label class="govuk-label govuk-radios__label" for="ownerAgent1">
+                I own it
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ownerAgent2" name="ownerAgent" type="radio" value="agent" {{agentChecked}}>
+              <label class="govuk-label govuk-radios__label" for="ownerAgent2">
+                Someone else owns it
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
