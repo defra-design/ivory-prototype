@@ -148,7 +148,6 @@ router.get('/what-type-of-item-is-it', function (req, res) {
   var exemptionType3Checked
   var exemptionType4Checked
   var exemptionType5Checked
-  var exemptionType6Checked
 
   switch (req.session.data['exemptionChoice']) {
     case 'type1':
@@ -166,24 +165,19 @@ router.get('/what-type-of-item-is-it', function (req, res) {
     case 'type5':
       exemptionType5Checked = 'checked'
       break
-    case 'type6':
-      exemptionType6Checked = 'checked'
-      break
     default:
       exemptionType1Checked = ''
       exemptionType2Checked = ''
       exemptionType3Checked = ''
       exemptionType4Checked = ''
       exemptionType5Checked = ''
-      exemptionType6Checked = ''
   }
   res.render(viewsFolder + 'what-type-of-item-is-it', {
     exemptionType1Checked: exemptionType1Checked,
     exemptionType2Checked: exemptionType2Checked,
     exemptionType3Checked: exemptionType3Checked,
     exemptionType4Checked: exemptionType4Checked,
-    exemptionType5Checked: exemptionType5Checked,
-    exemptionType6Checked: exemptionType6Checked
+    exemptionType5Checked: exemptionType5Checked
   })
 })
 
@@ -191,28 +185,11 @@ router.get('/what-type-of-item-is-it', function (req, res) {
 
 router.post('/what-type-of-item-is-it', function (req, res) {
 
-if (req.session.data['exemptionChoice'] == 'type5') {
-      logger(req, "It's rare and most important.")
-      res.redirect('apply-for-an-rmi-certificate')
-    } else {
-    logger(req, "It's a standard section 10 non-museum.")
-    logger(req, 'Exemption type=' + req.session.data['exemptionChoice'])
-
-    if ( req.session.data['checkYourAnswers'] == 'hub' ){
-
-      // clear out the data from the declaration pages
-      // and redirect to ivory age i.e. first declaration page
-
-      res.redirect('eligibility-end')
-
-    }
-
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
     } else {
       res.redirect('eligibility-end')
     }
-  }
 })
 
 
@@ -432,21 +409,12 @@ router.post('/your-photos', function (req, res) {
   // Set back button URL
   req.session.data['backUrl'] = 'your-photos'
 
-  // if (req.session.data['photos-what-next'] === 'Add another photo') {
-  //   logger(req, 'Add another photo')
-  //   res.redirect('add-photo')
-  // } else {
-  //   logger(req, "I'm done with photos... for now thanks")
-  //   res.redirect('describe-the-item')
-  // }
-
-
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['exemptionChoice'] = 'type4'){
-    res.redirect('who-owns-item')
-  } else {
+  } else if (req.session.data['exemptionChoice'] != 'type4'){
     res.redirect('ivory-age')
+  } else {
+    res.redirect('who-owns-item')
   }
 
 })
@@ -1714,7 +1682,7 @@ router.post('/is-it-RMI', function (req, res) {
 
   if (isitRMI === 'yes') {
     req.session.data['exemptionChoice'] = 'type5'
-    res.redirect('apply-for-an-RMI-certificate')
+    res.redirect('eligibility-end')
   } else {
     res.redirect('based-on-your-answers')
   }

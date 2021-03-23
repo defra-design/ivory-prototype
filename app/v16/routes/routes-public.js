@@ -432,21 +432,12 @@ router.post('/your-photos', function (req, res) {
   // Set back button URL
   req.session.data['backUrl'] = 'your-photos'
 
-  // if (req.session.data['photos-what-next'] === 'Add another photo') {
-  //   logger(req, 'Add another photo')
-  //   res.redirect('add-photo')
-  // } else {
-  //   logger(req, "I'm done with photos... for now thanks")
-  //   res.redirect('describe-the-item')
-  // }
-
-
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['exemptionChoice'] = 'type4'){
-    res.redirect('who-owns-item')
-  } else {
+  } else if (req.session.data['exemptionChoice'] != 'type4'){
     res.redirect('ivory-age')
+  } else {
+    res.redirect('who-owns-item')
   }
 
 })
