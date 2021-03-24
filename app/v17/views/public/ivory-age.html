@@ -21,37 +21,6 @@
           How do you know the {{ ivoryType }} was made before {{ ivoryYear }}?
         </h1>
 
-      <!-- <div class="govuk-form-group govuk-!-margin-bottom-9">
-        <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Legal declaration
-          </legend>
-          <div class="govuk-checkboxes" data-module="checkboxes">
-            <div class="govuk-checkboxes__item">
-              {% if data['age-declaration'] == 'Declared' %}
-              <input class="govuk-checkboxes__input" id="age-declaration" checked name="age-declaration" type="checkbox" value="Declared" required>
-              {% else %}
-              <input class="govuk-checkboxes__input" id="age-declaration" name="age-declaration" type="checkbox" value="Declared" required>
-              {% endif %}
-              <label class="govuk-label govuk-checkboxes__label" for="age-declaration">
-                {% if ( data['exemptionChoice'] == 'type2' ) or ( data['exemptionChoice'] == 'type3' ) %}
-
-                I declare the item is a {{ ivoryType }} that was made before {{ ivoryDate }}
-
-                {% elseif ( data['exemptionChoice'] == 'type1' ) %}
-
-                I declare the {{ ivoryType }} was made before {{ ivoryDate }}
-
-                {% else %}
-
-                I declare the {{ ivoryType }} was made before {{ ivoryDate }}
-
-                {% endif %}
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div> -->
 
       {% set ivoryAgeOtherHtml %}
       {{ govukTextarea({
