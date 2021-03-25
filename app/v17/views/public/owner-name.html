@@ -8,8 +8,17 @@
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
+      {% if data['exemptionChoice'] == "type5" %}
+
+      <p class="govuk-body">You are legally required to give this information.</p>
+      <p class="govuk-body">If the owner is a business, give the business details.</p>
+
+      {% else %}
+
       <p class="govuk-body">We need these because the owner is legally responsible for all the information you provide.</p>
       <p class="govuk-body">If the owner is a business, give the business details.</p>
+
+      {% endif %}
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="name">Full name or business name</label>
