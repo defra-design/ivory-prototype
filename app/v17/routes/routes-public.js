@@ -1281,6 +1281,13 @@ router.get('/confirmation', function (req, res) {
 })
 
 
+//* ****************************************************
+// CONFIRMATION-RMI
+router.get('/confirmation-RMI', function (req, res) {
+  res.render(viewsFolder + 'confirmation-RMI')
+})
+
+
 
 
 
