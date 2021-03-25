@@ -1,22 +1,48 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "The item’s owner is legally responsible for the information you’re about to give" %}
-
 {% block pageTitle %}
-{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+Legal warning - {{ serviceName }} - GOV.UK
 {% endblock %}
 
 
 {% block content %}
 
-      <form class="form" method="post" novalidate>
-        <div class="flash-card">
+  <form class="form" method="post" novalidate>
+    <div class="flash-card">
+
+
+        {% if data['exemptionChoice'] === "type5" %}
 
           <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full"
+            <div class="govuk-grid-column-full">
 
             <header>
-              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+              <h1 class="govuk-heading-l">The person doing this application is legally responsible for the information in it</h1>
+            </header>
+
+            </div>
+          </div>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">If you’re acting on behalf of someone else, you must be certain that the information is accurate.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that the information you’ve given is not accurate, you could be fined or prosecuted.</p>
+              </div>
+
+
+          {% else %}
+
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+
+            <header>
+              <h1 class="govuk-heading-l">The item’s owner is legally responsible for the information you’re about to give</h1>
             </header>
 
             </div>
@@ -33,23 +59,20 @@
                 <p>If we later find out that the item is not exempt, the item’s owner could be fined or prosecuted.</p>
               </div>
 
-              <div class="form-group">
-                <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
-              </div>
+          {% endif %}
 
-              <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
-
-            </div>
+          <div class="form-group">
+            <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
           </div>
 
-        </div>
-      </form>
+          <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
 
-      <!-- </form>
+        </div>
+      </div>
+
 
     </div>
-  </div>
-</div> -->
+  </form>
 
 
 
