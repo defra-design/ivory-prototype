@@ -1378,7 +1378,11 @@ router.get('/govpay-lookalike-2', function (req, res) {
 })
 
 router.post('/govpay-lookalike-2', function (req, res) {
-  res.redirect('confirmation')
+    if (req.session.data['exemptionChoice'] == 'type5') {
+      res.redirect('confirmation-RMI')
+      } else {
+        res.redirect('confirmation')
+    }
 })
 
 /// ///////////////////////////////////////////////////////////////////////////
@@ -1791,10 +1795,6 @@ router.post('/legal-haltpage', function (req, res) {
   res.redirect('describe-the-item')
 })
 
-// LEGAL HALTPAGE
-router.get('/confirmation-document', function (req, res) {
-  res.render(viewsFolder + 'confirmation-document')
-})
 
 
 /////////////////     ADDRESS LOOKUP     ///////////////////////////////////
