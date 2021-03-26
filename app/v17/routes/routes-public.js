@@ -1340,6 +1340,88 @@ router.get('/confirmation-email', function (req, res){
 })
 
 //* ****************************************************
+// CONFIRMATION EMAIL RMI - SUCCESS
+router.get('/confirmation-email-RMI-success', function (req, res){
+
+  var exemption = req.query.e
+  var contactEmail = "jacky.turner@boltsandratchets.co.uk"
+  var contactName
+  var contactBusiness
+
+  if (req.session.data['ownerAgent'] == 'owner') {
+    contactEmail = req.session.data['ownerEmail']
+    contactName = req.session.data['ownerName']
+    contactBusiness = req.session.data['addressBusiness']
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    contactEmail = req.session.data['agentEmail']
+    contactName = req.session.data['agentName']
+    contactBusiness = req.session.data['agentAddressBusiness']
+  }
+  logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
+
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const dayLong = date.toLocaleString('default', { weekday: 'long' })
+  const day = date.toLocaleString('default', { day: 'numeric' })
+  const month = date.toLocaleString('default', { month: 'long' })
+  const year = date.getFullYear()
+  const timeOfRegistration = `${hours}:${minutes}`
+  const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
+
+  res.render(viewsFolder + 'confirmation-email-RMI-success', {
+    exemption: exemption,
+    contactEmail: contactEmail,
+    contactName: contactName,
+    contactBusiness: contactBusiness,
+    dateOfRegistration: dateOfRegistration,
+    timeOfRegistration: timeOfRegistration
+  })
+})
+
+
+//* ****************************************************
+// CONFIRMATION EMAIL RMI - REJECT
+router.get('/confirmation-email-RMI-reject', function (req, res){
+
+  var exemption = req.query.e
+  var contactEmail = "jacky.turner@boltsandratchets.co.uk"
+  var contactName
+  var contactBusiness
+
+  if (req.session.data['ownerAgent'] == 'owner') {
+    contactEmail = req.session.data['ownerEmail']
+    contactName = req.session.data['ownerName']
+    contactBusiness = req.session.data['addressBusiness']
+  } else if (req.session.data['ownerAgent'] == 'agent') {
+    contactEmail = req.session.data['agentEmail']
+    contactName = req.session.data['agentName']
+    contactBusiness = req.session.data['agentAddressBusiness']
+  }
+  logger(req, 'ownerAgent=' + req.session.data['ownerAgent'] + ', therefore contact email=' + contactEmail)
+
+  const date = new Date()
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const dayLong = date.toLocaleString('default', { weekday: 'long' })
+  const day = date.toLocaleString('default', { day: 'numeric' })
+  const month = date.toLocaleString('default', { month: 'long' })
+  const year = date.getFullYear()
+  const timeOfRegistration = `${hours}:${minutes}`
+  const dateOfRegistration = `${dayLong} ${day} ${month} ${year}`
+
+  res.render(viewsFolder + 'confirmation-email-RMI-reject', {
+    exemption: exemption,
+    contactEmail: contactEmail,
+    contactName: contactName,
+    contactBusiness: contactBusiness,
+    dateOfRegistration: dateOfRegistration,
+    timeOfRegistration: timeOfRegistration
+  })
+})
+
+
+//* ****************************************************
 // REGISTRATION
 router.get('/registration', function (req, res) {
 
