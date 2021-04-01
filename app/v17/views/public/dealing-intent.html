@@ -10,30 +10,33 @@
 
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              {% if data['ownerAgent'] === "agent" %}
-              Who is the owner planning to sell or hire out the item to?
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              {% if data['outsideUK'] == "Yes" %}
+              By selling or hiring out the item, will it move into Great Britain?
               {% else %}
-              Who are you planning to sell or hire out the item to?
+              By selling or hiring out the item, will it move out of Great Britain?
               {% endif %}
             </h1>
           </legend>
+
+          <p class="govuk-body">Great Britain is England, Wales and Scotland.</p>
+
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="dealingIntent-UK" name="dealingIntent" type="radio" value="Within the UK"/>
-              <label class="govuk-label govuk-radios__label" for="dealingIntent-UK">
-                A person or organisation within the UK
+              <input class="govuk-radios__input" id="permit-yes" name="permit" type="radio" value="Yes"/>
+              <label class="govuk-label govuk-radios__label" for="permit-yes">
+                Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="dealingIntent-NonUK" name="dealingIntent" type="radio" value="Outside the UK"/>
-              <label class="govuk-label govuk-radios__label" for="dealingIntent-NonUK">
-                A person or organisation outside the UK
+              <input class="govuk-radios__input" id="permit-no" name="permit" type="radio" value="No"/>
+              <label class="govuk-label govuk-radios__label" for="permit-no">
+                No
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="dealingIntent-idk" name="dealingIntent" type="radio" value="I don't know"/>
-              <label class="govuk-label govuk-radios__label" for="dealingIntent-idk">
+              <input class="govuk-radios__input" id="permit-idk" name="permit" type="radio" value="I don't know"/>
+              <label class="govuk-label govuk-radios__label" for="permit-idk">
                 I don't know
               </label>
             </div>

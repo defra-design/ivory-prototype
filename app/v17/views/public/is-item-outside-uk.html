@@ -10,19 +10,22 @@
 
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              Is the item currently outside the UK?
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              Is the item currently in Great Britain?
             </h1>
           </legend>
+
+          <p class="govuk-body">Great Britain is England, Wales and Scotland.</p>
+          <!-- Had to flip radios values as the question has been flipped now -->
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="outsideUK-yes" name="outsideUK" type="radio" value="Yes"/>
+              <input class="govuk-radios__input" id="outsideUK-yes" name="outsideUK" type="radio" value="No"/>
               <label class="govuk-label govuk-radios__label" for="outsideUK-yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="outsideUK-no" name="outsideUK" type="radio" value="No"/>
+              <input class="govuk-radios__input" id="outsideUK-no" name="outsideUK" type="radio" value="Yes"/>
               <label class="govuk-label govuk-radios__label" for="outsideUK-no">
                 No
               </label>
