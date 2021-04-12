@@ -471,6 +471,8 @@ router.post('/describe-the-item', function (req, res) {
     res.redirect('check-your-answers')
   } else if (req.session.data['exemptionChoice'] == 'type4'){
     res.redirect('add-photo')
+  } else if (req.session.data['exemptionChoice'] == 'type3'){
+    res.redirect('ivory-age')
   } else {
     res.redirect('ivory-volume')
   }
