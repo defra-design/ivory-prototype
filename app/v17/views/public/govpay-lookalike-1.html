@@ -81,7 +81,11 @@
         <h3 class="govuk-heading-m">Payment summary</h3>
         <p class="govuk-heading-s">{{ serviceName }}</p>
         <p class="govuk-heading-s">Total amount:</p>
-        <p class="govuk-heading-l">£X.XX</p>
+        {% if data['exemptionChoice'] == 'type5' %}
+        <p class="govuk-heading-l">£250.00</p>
+        {% else %}
+        <p class="govuk-heading-l">£20.00</p>
+        {% endif %}
       </div>
     </div>
 
