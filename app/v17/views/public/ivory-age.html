@@ -34,10 +34,10 @@
       }) }}
       {% endset -%}
 
-      {{ govukRadios({
+      {{ govukCheckboxes({
         name: "ivoryAge",
         hint: {
-          text: "If you have multiple reasons, just choose one"
+          text: "Select all that apply"
         },
         items: [
           {

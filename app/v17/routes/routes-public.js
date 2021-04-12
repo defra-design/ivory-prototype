@@ -412,7 +412,7 @@ router.post('/your-photos', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else if (req.session.data['exemptionChoice'] != 'type4'){
-    res.redirect('ivory-age')
+    res.redirect('who-owns-item')
   } else {
     res.redirect('who-owns-item')
   }
@@ -469,8 +469,10 @@ router.post('/describe-the-item', function (req, res) {
 
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else {
+  } else if (req.session.data['exemptionChoice'] == 'type4'){
     res.redirect('add-photo')
+  } else {
+    res.redirect('ivory-volume')
   }
 
 
@@ -535,7 +537,7 @@ router.get('/ivory-age', function (req, res) {
 })
 
 router.post('/ivory-age', function (req, res) {
-    res.redirect('ivory-volume')
+    res.redirect('add-photo')
 })
 
 
@@ -553,7 +555,7 @@ router.post('/ivory-is-integral', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else {
-    res.redirect('who-owns-item')
+    res.redirect('ivory-age')
   }
 })
 
@@ -638,7 +640,7 @@ router.post('/ivory-volume', function (req, res) {
   if (req.session.data['exemptionChoice'] == 'type1') {
     res.redirect('ivory-is-integral')
   } else {
-    res.redirect('who-owns-item')
+    res.redirect('ivory-age')
   }
 
 })
