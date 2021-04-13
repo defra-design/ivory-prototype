@@ -30,7 +30,7 @@
                 What is the item?
               </label>
               <div id="item-type-hint" class="govuk-hint">
-                For example, ‘sword’
+                For example, ‘sword’, ‘chest of drawers’
               </div>
               <input class="govuk-input" id="describe-itemType" name="describe-itemType" type="text">
             </div>
@@ -40,17 +40,17 @@
                 Where is the ivory on it?
               </label>
               <div id="item-type-hint" class="govuk-hint">
-                For example, ‘the scabbard’
+                For example, ‘the scabbard’, ‘chest has ivory knobs’
               </div>
               <input class="govuk-input" id="describe-ivory" name="describe-ivory" type="text">
             </div>
 
             <div class="govuk-form-group">
               <label class="govuk-label govuk-label--s" for="describe-features">
-                Any defining features (optional)
+                Describe any unique, identifying features (optional)
               </label>
               <div id="item-type-hint" class="govuk-hint">
-                For example, ‘a dent on the handle’
+                For example, ‘a dent on the handle’, ‘crack in base of top-left drawer’
               </div>
               <input class="govuk-input" id="describe-features" name="describe-features" type="text">
             </div>
@@ -60,7 +60,7 @@
                 Where was it made? (optional)
               </label>
               <div id="item-type-hint" class="govuk-hint">
-                For example, ‘Japan’
+                For example, ‘Japan’, ‘Europe’
               </div>
               <input class="govuk-input" id="describe-where" name="describe-where" type="text">
             </div>
@@ -84,7 +84,7 @@
               Include any features that help identify the item, like the maker's mark, engravings.
             </p>
 
-            <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint" required>{{data['description']}}</textarea>
+            <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint">{{data['description']}}</textarea>
 
     {% endif %}
 
