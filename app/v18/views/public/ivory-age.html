@@ -1,0 +1,99 @@
+{% set pageTitle = "Confirm ivory age" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" autocomplete="off">
+
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          How do you know the {{ ivoryType }} was made before {{ ivoryYear }}?
+        </h1>
+
+
+      {% set ivoryAgeOtherHtml %}
+      {{ govukTextarea({
+        id: "ageDetail",
+        name: "ageDetail",
+        classes: "govuk-!-width-full",
+        value: data['ageDetail'],
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "ivoryAge",
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Date mark on the item",
+            text: "Date mark on the item",
+            id: "ivory-age-datemark",
+            checked: checked("ivoryAge", "Date mark on the item")
+          },
+          {
+            value: "It's been in the family since " + ivoryBeforeDate + " or before",
+            text: "It's been in the family since " + ivoryBeforeDate + " or before",
+            id: "ivory-age-family",
+            checked: checked("ivoryAge", "It's been in the family since " + ivoryBeforeDate + " or before")
+          },
+          {
+            value: "Written verification from an expert",
+            text: "Written verification from an expert",
+            id: "ivory-age-written",
+            checked: checked("ivoryAge", "Written verification from an expert")
+          },
+          {
+            value: "My own expert evaluation",
+            text: "My own expert evaluation",
+            id: "ivory-age-my-evaluation",
+            checked: checked("ivoryAge", "My own expert evaluation")
+          },
+          {
+            value: "Other",
+            text: "Other",
+            id: "ivory-age-other",
+            checked: checked("ivoryAge", "Other"),
+            conditional: {
+              html: ivoryAgeOtherHtml
+            }
+          }
+        ]
+      }) }}
+
+
+      <!-- <div class="govuk-form-group">
+        <label class="govuk-label" for="age-detail">
+          Give details
+        </label>
+        <textarea required class="govuk-textarea" id="ageDetail" name="ageDetail" rows="5" aria-describedby="ageDetail-hint">{{ data['ageDetail'] }}</textarea>
+      </div> -->
+
+
+    </div>
+
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,262 @@
+
+{% block pageTitle %}
+Registration complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+      <h1 class="govuk-panel__title">Self-assessment complete</h1>
+      <!-- <div class="govuk-panel__body">
+        Registration number
+        <br><strong>4HCP37NL</strong>
+      </div> -->
+    </div>
+
+
+    <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">View details of this self-assessment</a></p>
+
+    <p class="govuk-body">We’ve also sent these details to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{data['agentEmail']}}</li>
+      {% if data['ownerEmail'] != null %}
+      <li>{{data['ownerEmail']}}</li>
+      {% else %}
+      {% endif %}
+    </ul>
+
+<!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT 1947-1975, IMPORT TO UK)-->
+{% if (data['outsideUK'] == "Yes") and (data['permit'] == "Yes") and (data['after1975'] == "no") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because your item was made between 3 March 1947 and 1 January 1975.</p>
+
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be imported into Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT 1947-1975, unsure about intent)-->
+    {% elseif (data['outsideUK'] == "Yes") and (data['permit'] == "I don't know") and (data['after1975'] == "no") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You have other legal obligations</h2>
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">This is because your item was made between 3 March 1947 and 1 January 1975.</p>
+
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+          <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+          <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT 1947-1975, EXPORT FROM UK)-->
+{% elseif (data['outsideUK'] == "No") and (data['permit'] == "Yes") and (data['after1975'] == "no") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because your item was made between 3 March 1947 and 1 January 1975.</p>
+
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be re-exported out of Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT 1947-1975, unsure about intent)-->
+    {% elseif (data['outsideUK'] == "No") and (data['permit'] == "I don't know") and (data['after1975'] == "no") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You have other legal obligations</h2>
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">This is because your item was made between 3 March 1947 and 1 January 1975.</p>
+
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+          <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+          <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT - WE DON'T KNOW DATE, EXPORT FROM UK)-->
+{% elseif (data['outsideUK'] == "No") and (data['permit'] == "Yes") and (data['exemptionChoice'] == "type2") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">You only need to do this if your item was made between 3 March 1947 and 1 January 1975.</p>
+
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be re-exported out of Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+    <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+    <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT - WE DON'T KNOW DATE, unsure about intent)-->
+    {% elseif (data['outsideUK'] == "No") and (data['permit'] == "I don't know") and (data['exemptionChoice'] == "type2") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item was made between 3 March 1947 and 1 January 1975.</p>
+
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+          <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+          <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT - WE DON'T KNOW DATE, IMPORT TO UK)-->
+{% elseif (data['outsideUK'] == "Yes") and (data['permit'] == "Yes") and (data['exemptionChoice'] == "type2") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">You only need to do this if your item was made between 3 March 1947 and 1 January 1975.</p>
+
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be imported into Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- BOTH CITES PERMIT AND CERTIFICATE (MUSICAL INSTRUMENT - WE DON'T KNOW DATE, unsure about intent)-->
+    {% elseif (data['outsideUK'] == "Yes") and (data['permit'] == "I don't know") and (data['exemptionChoice'] == "type2") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item was made between 3 March 1947 and 1 January 1975.</p>
+
+          <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+          <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+          <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+          <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- CITES PERMIT (EXPORT FROM UK) -->
+{% elseif (data['outsideUK'] == "No") and (data['permit'] == "Yes") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+    <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+    <p class="govuk-body">This is because you’ve told us the item is going to be re-exported out of Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+    <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+    <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- CITES PERMIT (unsure about intent) -->
+    {% elseif (data['outsideUK'] == "No") and (data['permit'] == "I don't know") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+        <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+        <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+        <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- CITES PERMIT (IMPORT TO UK) -->
+{% elseif (data['outsideUK'] == "Yes") and (data['permit'] == "Yes") %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be imported into Great Britain.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+    <!-- CITES PERMIT (unsure about intent) -->
+    {% elseif (data['outsideUK'] == "Yes") and (data['permit'] == "I don't know") %}
+        <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+        <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+        <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+        <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+        <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+        <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- CITES CERTIFICATE (MUSICAL INSTRUMENT, 1947-1975) -->
+{% elseif data['after1975'] == "no" %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because your item was made between 3 March 1947 and 1 January 1975.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+<!-- CITES CERTIFICATE (MUSICAL INSTRUMENT, WE DON'T KNOW DATE)-->
+{% elseif data['exemptionChoice'] == "type2" %}
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+    <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class=govuk-link target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">You only need to do this if your item was made between 3 March 1947 and 1 January 1975.</p>
+
+    <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+      <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+      <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+{% else %}
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+    <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+{% endif %}
+
+
+
+    <p class="govuk-body invisible-link">
+          <a href="confirmation-email" class="govuk-link">View confirmation email</a>
+    </p>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

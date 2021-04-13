@@ -1,0 +1,57 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Does the portrait miniature have an ivory surface area of less than 320 square centimetres?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+      <p class="govuk-body">Only measure the parts of the portrait you can see. Do not include the frame or areas covered by the frame.</p>
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="lessthan320-yes" name="lessthan320" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="lessthan320-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="lessthan320-no" name="lessthan320" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="lessthan320-no">
+              No
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="lessthan320-idk" name="lessthan320" type="radio" value="idk">
+            <label class="govuk-label govuk-radios__label" for="lessthan320-idk">
+              I don't know
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

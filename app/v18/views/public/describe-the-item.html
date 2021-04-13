@@ -1,0 +1,104 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Tell us about the item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l govuk-!-margin-bottom-6" for="description">
+                {{ thisPageTitle }}
+              </label>
+            </h1>
+
+    {% if data['exemptionChoice'] == "type5" %}
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-itemType">
+                What is the item?
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘sword’, ‘chest of drawers’
+              </div>
+              <input class="govuk-input" id="describe-itemType" name="describe-itemType" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-ivory">
+                Where is the ivory on it?
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘the scabbard’, ‘chest has ivory knobs’
+              </div>
+              <input class="govuk-input" id="describe-ivory" name="describe-ivory" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-features">
+                Describe any unique, identifying features (optional)
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘a dent on the handle’, ‘crack in base of top-left drawer’
+              </div>
+              <input class="govuk-input" id="describe-features" name="describe-features" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-where">
+                Where was it made? (optional)
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘Japan’, ‘Europe’
+              </div>
+              <input class="govuk-input" id="describe-where" name="describe-where" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-when">
+                When was it made? (optional)
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘5th century’, ‘Georgian era’
+              </div>
+              <input class="govuk-input" id="describe-when" name="describe-when" type="text">
+            </div>
+
+
+    {% else %}
+            <p class="govuk-body">
+              Explain what the item is.
+              <br />
+              <br />
+              Include any features that help identify the item, like the maker's mark, engravings.
+            </p>
+
+            <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint">{{data['description']}}</textarea>
+
+    {% endif %}
+
+        </div>
+
+
+        <button type="submit" class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
