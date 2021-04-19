@@ -1549,9 +1549,14 @@ router.get('/guidance-understanding-exemption-criteria', function (req, res) {
   res.render(viewsFolder + 'guidance-understanding-exemption-criteria')
 })
 
-// GUIDANCE PUBLICATIONS PAGE
+// GUIDANCE RMI
 router.get('/guidance-rmi', function (req, res) {
   res.render(viewsFolder + 'guidance-rmi')
+})
+
+// GUIDANCE BUYING
+router.get('/guidance-buying', function (req, res) {
+  res.render(viewsFolder + 'guidance-buying')
 })
 
 /////    ELIGILITY CHECKER   /////////
