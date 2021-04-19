@@ -1534,6 +1534,11 @@ router.post('/start-new', function (req, res) {
   res.redirect('legal-haltpage')
 })
 
+// GUIDANCE PUBLICATIONS PAGE
+router.get('/guidance-publications', function (req, res) {
+  res.render(viewsFolder + 'guidance-publications')
+})
+
 // GUIDANCE NEW
 router.get('/guidance-new', function (req, res) {
   res.render(viewsFolder + 'guidance-new')
