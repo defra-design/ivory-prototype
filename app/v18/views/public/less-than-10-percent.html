@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Does the item have less than 10% ivory by volume?" %}
+{% set thisPageTitle = "Is the item less than 10% ivory?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -29,6 +29,19 @@
               <p class="govuk-body">If it’s difficult to calculate ivory volume without damaging the item, you can make an assessment based on knowledge of similar items.</p>
 
               <p class="govuk-body">Do not include any empty spaces, for instance, the space within a chest of drawers or a teapot.</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                   What kinds of item have less than 10% ivory?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Items likely to have less than 10% ivory include furniture with ivory inlay.</p>
+                  <p class="govuk-body">You will not be able to sell items like chess sets with ivory pieces or cutlery with ivory handles, because these usually have more than 10% ivory.</p>
+                </div>
+              </details>
+
 
               <div class="govuk-radios">
                 <div class="govuk-radios__item">
