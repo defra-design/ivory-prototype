@@ -24,6 +24,12 @@
               </label>
             </h1>
 
+            <!-- <div class="govuk-inset-text">
+              You will be able to add photos to support your descriptions later in the service.
+            </div> -->
+
+            <p class="govuk-body">You'll be able to add photos to support your answers, later in the service.</p>
+
     {% if data['exemptionChoice'] == "type5" %}
             <div class="govuk-form-group">
               <label class="govuk-label govuk-label--s" for="describe-itemType">
@@ -77,14 +83,35 @@
 
 
     {% else %}
-            <p class="govuk-body">
-              Explain what the item is.
-              <br />
-              <br />
-              Include any features that help identify the item, like the maker's mark, engravings.
-            </p>
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-itemType">
+                What is the item?
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘sword’, ‘chest of drawers’
+              </div>
+              <input class="govuk-input" id="describe-itemType" name="describe-itemType" type="text">
+            </div>
 
-            <textarea class="govuk-textarea" id="description" name="description" rows="5" aria-describedby="descriptionText-hint">{{data['description']}}</textarea>
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-ivory">
+                Where is the ivory on it?
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘the scabbard’, ‘chest has ivory knobs’
+              </div>
+              <input class="govuk-input" id="describe-ivory" name="describe-ivory" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--s" for="describe-features">
+                Describe any unique, identifying features (optional)
+              </label>
+              <div id="item-type-hint" class="govuk-hint">
+                For example, ‘a dent on the handle’, ‘crack in base of top-left drawer’
+              </div>
+              <input class="govuk-input" id="describe-features" name="describe-features" type="text">
+            </div>
 
     {% endif %}
 
