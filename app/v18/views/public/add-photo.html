@@ -1,4 +1,4 @@
-{% set pageTitle = "Add a photo" %}
+{% set pageTitle = "Add up to 6 photos of your item" %}
 
 {% extends "./layout.html" %}
 
@@ -40,13 +40,20 @@
 
         <span id="hint" class="govuk-body">
 
-          <p class="govuk-body">You can add up to 6 photos.</p>
+          <p class="govuk-body">These must include a photo of:</p>
 
-          <p class="govuk-body">You must show:</p>
-
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+          <ul class="govuk-list govuk-list--bullet">
             <li>the whole item</li>
-            <li>any features that help identify the item, like maker's mark, engravings</li>
+            <li>any distinguishing features, including where the ivory is</li>
+          </ul>
+
+          <h2 class="govuk-heading-m">Upload photos</h2>
+
+          <p class="govuk-body">Photos must be:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>in JPEG or PNG format</li>
+            <li>smaller than 2mb</li>
           </ul>
 
         </span>
