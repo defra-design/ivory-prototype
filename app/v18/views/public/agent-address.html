@@ -22,7 +22,7 @@
         {% endif %}
 
         <div class="govuk-form-group">
-          <label class="govuk-label " for="address-line-1">
+          <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
             Property name or number
           </label>
           <div id="address-line-1-hint" class="govuk-hint">
@@ -31,29 +31,8 @@
           <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="agentAddressLine1" type="text" value="{{ data['agentAddressLine1'] }}" />
         </div>
 
-        <!-- <div class="govuk-form-group">
-          <label class="govuk-label" for="address-line-2">
-            Address line 2
-          </label>
-          <input class="govuk-input" id="address-line-2" name="agentAddressLine2" type="text" value="{{ data['agentAddressLine2'] }}" />
-        </div>
-
         <div class="govuk-form-group">
-          <label class="govuk-label" for="address-town">
-            Town or city
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="agentAddressTown" type="text" value="{{ data['agentAddressTown'] }}" />
-        </div> -->
-
-        <!-- <div class="govuk-form-group">
-          <label class="govuk-label" for="address-county">
-            County
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="agentAddressCounty" type="text" value="{{ data['agentAddressCounty'] }}" />
-        </div> -->
-
-        <div class="govuk-form-group">
-          <label class="govuk-label " for="address-postcode">
+          <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
             Postcode
           </label>
           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="agentAddressPostcode" type="text" value="{{ data['agentAddressPostcode'] }}" required />
