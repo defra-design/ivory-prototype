@@ -19,11 +19,11 @@
 
 {% if data['exemptionChoice'] == "type1" %}
         <h1 class="govuk-heading-l">
-          How do you know the {{ ivoryType }} was made before 3 March {{ ivoryYear }}?
+          How do you know the item was made before 3 March {{ ivoryYear }}?
         </h1>
 {% else %}
         <h1 class="govuk-heading-l">
-          How do you know the {{ ivoryType }} was made before {{ ivoryYear }}?
+          How do you know the item was made before {{ ivoryYear }}?
         </h1>
 {% endif %}
 
@@ -98,6 +98,7 @@
       {{ govukTextarea({
         id: "ageDetail",
         name: "ageDetail",
+        rows: "2",
         classes: "govuk-!-width-full",
         value: data['ageDetail'],
         label: {
@@ -162,6 +163,7 @@
       {{ govukTextarea({
         id: "ageDetail",
         name: "ageDetail",
+        rows: "2",
         classes: "govuk-!-width-full",
         value: data['ageDetail'],
         label: {

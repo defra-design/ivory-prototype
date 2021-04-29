@@ -71,7 +71,7 @@
 
 
         <h1 class="govuk-heading-l">
-          How do you know the {{ ivoryType }} has less than {{ ivoryVolume }} ivory?
+          How do you know the item has less than {{ ivoryVolume }} ivory by volume?
         </h1>
 
 
@@ -79,6 +79,7 @@
         {{ govukTextarea({
           id: "volumeDetail",
           name: "volumeDetail",
+          rows: "2",
           classes: "govuk-!-width-full",
           value: data['volumeDetail'],
           label: {
@@ -89,27 +90,24 @@
 
         {{ govukRadios({
           name: "ivoryVolume",
-          hint: {
-            text: "If you have multiple reasons, just choose one"
-          },
           items: [
             {
-              value: "Estimate of ivory content by eye",
-              text: "Estimate of ivory content by eye",
+              value: "It’s clear from looking at it",
+              text: "It’s clear from looking at it",
               id: "ivory-volume-eye",
-              checked: checked("ivoryVolume", "Estimate of ivory content by eye")
+              checked: checked("ivoryVolume", "It’s clear from looking at it")
             },
             {
-              value: "Measured the item to work out the volume",
-              text: "Measured the item to work out the volume",
+              value: "I measured it",
+              text: "I measured it",
               id: "ivory-volume-measured",
-              checked: checked("ivoryVolume", "Measured the item to work out the volume")
+              checked: checked("ivoryVolume", "I measured it")
             },
             {
-              value: "Written verification from an expert",
-              text: "Written verification from an expert",
+              value: "I have written verification from a relevant expert",
+              text: "I have written verification from a relevant expert",
               id: "ivory-volume-expert",
-              checked: checked("ivoryVolume", "Written verification from an expert")
+              checked: checked("ivoryVolume", "I have written verification from a relevant expert")
             },
             {
               value: "Other",
