@@ -1,4 +1,4 @@
-{% set pageTitle = "Confirm you want to remove this photo" %}
+{% set pageTitle = "Are you sure you want to remove this photo?" %}
 
 {% extends "./layout.html" %}
 
@@ -13,7 +13,7 @@
   <div class="govuk-grid-column-full">
 
 
-    <h1 class="govuk-heading-l">Remove this photo?</h1>
+    <h1 class="govuk-heading-l">Are you sure you want to remove this photo?</h1>
 
 
     <div class="check-photo">
@@ -22,9 +22,9 @@
 
 
     <form method="post" autocomplete="off" novalidate >
-      <button class="govuk-button govuk-!-margin-right-5">Remove photo</button>
+      <button class="govuk-button govuk-!-margin-bottom-4">Remove photo</button>
 
-      <a href="../your-photos">Cancel</a>
+      <p class="govuk-body"><a class="govuk-link" href="../your-photos">Cancel</a><p/>
 
     </form>
 
