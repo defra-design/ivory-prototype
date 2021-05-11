@@ -382,7 +382,7 @@ router.get('/your-photos', function (req, res) {
           classes: 'your-photos-actions',
           items: [
             {
-              href: `${res.locals.baseUrl}/public/confirm-remove-photo/${photo}`,
+              href: `${res.locals.baseUrl}/public/remove-photo/${photo}`,
               text: 'Remove',
               visuallyHiddenText: `Photo ${position + 1}`
             }
