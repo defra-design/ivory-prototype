@@ -1,0 +1,58 @@
+{% set pageTitle = "How is the ivory integral to the item?" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+     <form method="post" autocomplete="off">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">
+          {{ pageTitle }}
+        </h1>
+
+        {{ govukRadios({
+          name: "ivoryIntegral",
+          items: [
+            {
+              value: "The ivory is essential to the design or function of the item",
+              text: "The ivory is essential to the design or function of the item",
+              id: "ivory-integral-function",
+              checked: checked("ivoryIntegral", "The ivory is essential to the design or function of the item")
+            },
+            {
+              value: "You cannot remove the ivory easily or without damaging the item",
+              text: "You cannot remove the ivory easily or without damaging the item",
+              id: "ivory-integral-damage",
+              checked: checked("ivoryIntegral", "You cannot remove the ivory easily or without risk of damage")
+            },
+            {
+              value: "Both reasons - You cannot remove the ivory easily or without risk of damage and the ivory is essential to the design or function of the item",
+              text: "Both of the above",
+              id: "ivory-integral-both",
+              checked: checked("ivoryIntegral", "Both reasons - You cannot remove the ivory easily or without risk of damage and the ivory is essential to the design or function of the item")
+            }
+          ]
+        }) }}
+
+
+    </div>
+
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}

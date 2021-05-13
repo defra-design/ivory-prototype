@@ -1,0 +1,86 @@
+
+{% block pageTitle %}
+Registration complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+      <h1 class="govuk-panel__title">Application received</h1>
+      <div class="govuk-panel__body">
+        Application number
+        <br><strong>4HCP37NL</strong>
+      </div>
+    </div>
+
+    <p class="govuk-body">We’ve sent confirmation of this application to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{data['agentEmail']}}</li>
+      {% if data['ownerEmail'] != null %}
+      <li>{{data['ownerEmail']}}</li>
+      {% else %}
+      {% endif %}
+    </ul>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">An expert will now check your application.</p>
+
+      <p class="govuk-body">Checks usually happen within 30 days, and we may contact you during this time if we require more information.</p>
+
+      <p class="govuk-body">If your application is approved, we will send you an exemption certificate so you can sell or hire out your item.</p>
+
+      <p class="govuk-body">If you have not heard from us within 30 days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>. Make sure you have your application number, so we can find your application.</p>
+
+
+
+<!-- CITES PERMIT (EXPORT FROM UK) -->
+{% if (data['outsideUK'] == "No") and (data['dealingIntent'] == "Yes") %}
+
+    <h2 class="govuk-heading-m">You have other legal obligations</h2>
+      <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">This is because you’ve told us the item is going to be re-exported out of Great Britain.</p>
+
+
+<!-- CITES PERMIT (IMPORT TO UK) -->
+{% elseif (data['outsideUK'] == "Yes") and (data['dealingIntent'] == "Yes") %}
+      <h2 class="govuk-heading-m">You have other legal obligations</h2>
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+        <p class="govuk-body">This is because you’ve told us the item is going to be imported into Great Britain.</p>
+
+<!-- CITES PERMIT (Item inside UK, unsure about intent) -->
+{% else %}
+      <h2 class="govuk-heading-m">You may have other legal obligations</h2>
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a class="govuk-link" target="_blank" href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+        <p class="govuk-body">You only need to do this if your item is going to move into or out of Great Britain when you sell or hire it out.</p>
+
+
+{% endif %}
+
+
+      <h2 class="govuk-heading-m">After your CITES application is approved</h2>
+        <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+        <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+
+
+
+      <p class="govuk-body invisible-link">
+            <a href="confirmation-email?e=type1" class="govuk-link">View confirmation email</a>
+      </p>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

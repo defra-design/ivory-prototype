@@ -1,0 +1,42 @@
+{% extends "./layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Confirmation email
+{% endblock %}
+
+{% block content %}
+
+
+<dl class="defra-dl defra-email-header">
+
+  <dt class="defra-dt defra-dt__email-header">From</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">To</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">Subject</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory application: RMI-238746</dd>
+
+</dl>
+
+  <p class="govuk-body">{{ contactName }},</p>
+
+  <p class="govuk-body">An expert has checked the following application to sell or hire out an ivory item:</p>
+
+  <p class="govuk-body"><a href="#">https://ivory-ban.gov.uk/RMI-238746</a></p>
+
+  <p class="govuk-body">They have approved your application. </p>
+
+  <h2 class="govuk-heading-s">Your exemption certificate</h2>
+
+  <p class="govuk-body">You can now sell or hire out this item, but you must give a copy of the item’s exemption certificate to the new owner.</p>
+
+  <p class="govuk-body"><a href="#">Download exemption certificate for RMI-238746 (PDF, 300KB)</a></p>
+
+
+{% endblock %}
