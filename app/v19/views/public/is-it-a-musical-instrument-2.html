@@ -1,7 +1,7 @@
 {% extends "./layout.html" %}
 
 
-{% set thisPageTitle = "Was the item made on or after 1 January 1975?" %}
+{% set thisPageTitle = "Was the item made before 1 January 1975?" %}
 
 
 {% block pageTitle %}
@@ -18,6 +18,16 @@
     <form class="form" method="post">
 
       <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+      <p class="govuk-body">The following might help you decide:</p>
+      
+        <ul class="govuk-list govuk-list--bullet">
+          <li>an original receipt or bill</li>
+          <li>a date mark on the item</li>
+          <li>written proof from an expert, such as an antiques specialist</li>
+          <li>personal knowledge or evidence that it’s been in the family since before 3 March 1947</li>
+          <li>an article or a catalogue published before 3 March 1947 with photos or a detailed description of the item</li>
+        </ul>
 
       <div class="govuk-form-group">
 

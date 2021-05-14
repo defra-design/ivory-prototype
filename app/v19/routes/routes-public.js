@@ -1608,7 +1608,7 @@ router.post('/is-it-a-musical-instrument', function (req, res) {
 
   if (isitMusical === 'yes') {
     req.session.data['exemptionChoice'] = 'type2'
-    res.redirect('was-it-made-before-1947')
+    res.redirect('is-it-a-musical-instrument-2')
   } else {
     res.redirect('less-than-10-percent')
   }
@@ -1648,9 +1648,9 @@ router.post('/is-it-a-musical-instrument-2', function (req, res) {
 
   let after1975 = req.session.data['after1975']
 
-  if (after1975 === 'yes') {
+  if (after1975 === 'no') {
     res.redirect('based-on-your-answers')
-  } else if (after1975 === 'no'){
+  } else if (after1975 === 'yes'){
     res.redirect('less-than-20-percent')
   } else {
     res.redirect('cannot-continue')
@@ -1687,10 +1687,8 @@ router.post('/less-than-20-percent', function (req, res) {
 
   if (lessthan20percent === 'yes') {
     res.redirect('ivory-added')
-  } else if (lessthan20percent === 'no' && req.session.data['isitBefore1947'] === 'yes'){
+  } else if (lessthan20percent === 'no'){
     res.redirect('is-it-RMI')
-  } else if (lessthan20percent === 'no' && req.session.data['isitBefore1947'] === 'no'){
-    res.redirect('based-on-your-answers')
   } else {
     res.redirect('cannot-continue')
   }
