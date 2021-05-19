@@ -1924,7 +1924,7 @@ router.post('/agent-address-confirm', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
     } else {
-      res.redirect('is-item-outside-uk')
+      res.redirect('sell-or-hire')
   }
 })
 
@@ -1952,6 +1952,15 @@ router.post('/owner-address-choose', function (req, res) {
   req.session.data['addressPostcode'] = 'TF1 3DS'
     res.redirect('agent-name')
   }
+})
+
+// SELL OR HIRE
+router.get('/sell-or-hire', function (req, res) {
+  res.render(viewsFolder + 'sell-or-hire')
+})
+
+router.post('/sell-or-hire', function (req, res) {
+    res.redirect('is-item-outside-uk')
 })
 
 

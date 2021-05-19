@@ -11,10 +11,18 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
-              {% if data['outsideUK'] == "Yes" %}
-              By selling or hiring out the item, will it move into Great Britain?
+              {% if (data['outsideUK'] == "Yes") and (data['sellHire'] == "Sell it") %}
+                By selling the item, will it move into Great Britain?
+              {% elseif (data['outsideUK'] == "Yes") and (data['sellHire'] == "Hire it out") %}
+                By hiring out the item, will it move into Great Britain?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "Sell it") %}
+                By selling the item, will it move out of Great Britain?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "Hire it out") %}
+                By hiring out the item, will it move out of Great Britain?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "I don't know") %}
+                By selling or hiring out the item, will it move out of Great Britain?
               {% else %}
-              By selling or hiring out the item, will it move out of Great Britain?
+                By selling or hiring out the item, will it move into Great Britain?
               {% endif %}
             </h1>
           </legend>
