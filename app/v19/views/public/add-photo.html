@@ -1,4 +1,4 @@
-{% set pageTitle = "Add up to 6 photos of your item" %}
+{% set pageTitle = "Add a photo of your item" %}
 
 {% extends "./layout.html" %}
 
@@ -27,7 +27,7 @@
 
 
 {% if data.photos.length > 0 %}
-    <h1 class="govuk-heading-l">Add up to 5 more photos of your item</h1>
+    <h1 class="govuk-heading-l">Add another photo</h1>
 
     <form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
 
@@ -36,9 +36,9 @@
 
         <span id="hint" class="govuk-body">
 
-          <p class="govuk-body">Each photo must be:</p>
+          <p class="govuk-body">The photo must be:</p>
 
-          <ul class="govuk-list govuk-list--bullet">
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
             <li>in JPG or PNG format</li>
             <li>smaller than 2mb</li>
           </ul>
@@ -52,9 +52,10 @@
         {% endif %}
 
         <div class="field-file-input">
-
+          <label class="govuk-label" style="visibility: hidden; margin-top: -15px;" for="file-upload-1">
+            Upload a photo
+          </label>
           <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" multiple value="" accept='image/*'>
-
         </div>
 
       </div>
@@ -76,6 +77,8 @@
 
         <span id="hint" class="govuk-body">
 
+          <p class="govuk-body">You must add photos one at a time, up to a total of 6.</p>
+
           <p class="govuk-body">These must include a photo of:</p>
 
           <ul class="govuk-list govuk-list--bullet">
@@ -83,13 +86,13 @@
             <li>any distinguishing features, including where the ivory is</li>
           </ul>
 
-          <h2 class="govuk-heading-m">Upload photos</h2>
+          <h2 class="govuk-heading-m">Upload photo</h2>
 
-          <p class="govuk-body">Each photo must be:</p>
+          <p class="govuk-body">The photo must be:</p>
 
-          <ul class="govuk-list govuk-list--bullet">
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
             <li>in JPG or PNG format</li>
-            <li>smaller than 2mb</li>
+            <li>smaller than 32mb</li>
           </ul>
 
         </span>
@@ -102,9 +105,10 @@
         {% endif %}
 
         <div class="field-file-input">
-
+          <label class="govuk-label" style="visibility: hidden; margin-top: -15px;" for="file-upload-1">
+            Upload a photo
+          </label>
           <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" multiple value="" accept='image/*'>
-
         </div>
 
       </div>

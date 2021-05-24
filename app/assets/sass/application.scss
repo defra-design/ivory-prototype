@@ -543,37 +543,37 @@ input:focus,textarea:focus,select:focus,button:focus {
 
 /* add photo input file style from nostyle.herokuapp.com */
 
-.field-file-input{
-  max-width: 26em;
-}
-
-.check-photo{
-  max-width: 26em;
-  margin-bottom: 30px;
-}
-
-.check-photo img{
-  width: 100%;
-}
-
-[type=file] {
-    -webkit-appearance: none;
-    border-radius: 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-size: inherit;
-    // font-family: inherit;
-    line-height: 1.25;
-    padding: .5em;
-    border: 2px solid #eee;
-    background-color: #eee;
-    width: 100%
-}
-
-[type=file]:hover {
-    border: 2px solid #222
-}
+// .field-file-input{
+//   max-width: 26em;
+// }
+//
+// .check-photo{
+//   max-width: 26em;
+//   margin-bottom: 30px;
+// }
+//
+// .check-photo img{
+//   width: 100%;
+// }
+//
+// [type=file] {
+//     -webkit-appearance: none;
+//     border-radius: 0;
+//     box-sizing: border-box;
+//     -moz-box-sizing: border-box;
+//     -webkit-box-sizing: border-box;
+//     font-size: inherit;
+//     // font-family: inherit;
+//     line-height: 1.25;
+//     padding: .5em;
+//     border: 2px solid #eee;
+//     background-color: #eee;
+//     width: 100%
+// }
+//
+// [type=file]:hover {
+//     border: 2px solid #222
+// }
 
 /* your-photos styles */
 
@@ -692,7 +692,7 @@ img.item-detail-main{
   margin-top: -1em;
   padding: 30px;
   margin-bottom: 30px;
-  background: #005EA5;
+  background: #1d70b8;
   color: #FFF;
 
   header {

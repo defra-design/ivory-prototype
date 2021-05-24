@@ -539,7 +539,11 @@ router.get('/ivory-age', function (req, res) {
 })
 
 router.post('/ivory-age', function (req, res) {
+  if (req.session.data['exemptionChoice'] == 'type5') {
+    res.redirect('want-to-add-documents')
+  } else {
     res.redirect('add-photo')
+  }
 })
 
 
@@ -1974,6 +1978,40 @@ router.get('/dont-need-service', function (req, res) {
   res.render(viewsFolder + 'dont-need-service')
 })
 
+
+//////////////// S2 document upload ////////////////
+
+
+// DO YOU WANT TO ADD SUPPORTING DOCUMENTS?
+router.get('/want-to-add-documents', function (req, res) {
+  res.render(viewsFolder + 'want-to-add-documents')
+})
+
+router.post('/want-to-add-documents', function (req, res) {
+  if (req.session.data['documents'] == 'Yes') {
+    res.redirect('add-document')
+    } else {
+      res.redirect('add-photo')
+  }
+})
+
+// ADD DOCUMENT
+router.get('/add-document', function (req, res) {
+  res.render(viewsFolder + 'add-document')
+})
+
+router.post('/add-document', function (req, res) {
+    res.redirect('your-documents')
+})
+
+// YOUR DOCUMENTS
+router.get('/your-documents', function (req, res) {
+  res.render(viewsFolder + 'your-documents')
+})
+
+router.post('/your-documents', function (req, res) {
+    res.redirect('add-photo')
+})
 
 
 module.exports = router
