@@ -16,7 +16,7 @@
     if ( link != '#undefined' ){
 
     newLine =
-      '<li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">' +
+      '<li class="gem-c-contents-list__list-item">' +
         '<a class="gem-c-contents-list__link " href="' + link + '">' +
           title +
         '</a>' +
