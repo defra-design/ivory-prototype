@@ -1941,6 +1941,15 @@ router.post('/agent-address-manual', function (req, res) {
     res.redirect('is-item-outside-uk')
 })
 
+// OWNER ADDRESS MANUAL
+router.get('/owner-address-manual', function (req, res) {
+  res.render(viewsFolder + 'owner-address-manual')
+})
+
+router.post('/owner-address-manual', function (req, res) {
+    res.redirect('agent-name')
+})
+
 // OWNER ADDRESS CHOOSE
 router.get('/owner-address-choose', function (req, res) {
   res.render(viewsFolder + 'owner-address-choose')
