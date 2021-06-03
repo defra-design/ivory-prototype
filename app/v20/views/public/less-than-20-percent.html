@@ -1,0 +1,75 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Is the whole item less than 20% ivory?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <p class="govuk-body">You must give a reasonable assessment of the volume of ivory in your whole item. In some cases, it’s easy to do this by eye. In others, you’ll need to take measurements.</p>
+
+              <p class="govuk-body">If it’s difficult to do this without damaging the item, you can make an assessment based on knowledge of similar items.</p>
+
+              <p class="govuk-body">Do not include any empty spaces, for instance the space within a violin or piano.</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                   What kinds of item have less than 20% ivory?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Items likely to have less than 20% ivory include:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>a piano with ivory keys</li>
+                    <li>a violin bow with ivory at the end of the bow</li>
+                  </ul>
+                </div>
+              </details>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan20percent-yes" name="lessthan20percent" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="lessthan20percent-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan20percent-no" name="lessthan20percent" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="lessthan20percent-no">
+                    No
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan20percent-idk" name="lessthan20percent" type="radio" value="idk">
+                  <label class="govuk-label govuk-radios__label" for="lessthan20percent-idk">
+                   I don't know
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "./layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Confirmation email
+{% endblock %}
+
+{% block content %}
+
+{% if data['exemptionChoice'] == "type5" %}
+
+<dl class="defra-dl defra-email-header">
+
+  <dt class="defra-dt defra-dt__email-header">From</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">To</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">Subject</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory application: RMI-238746</dd>
+
+</dl>
+
+  <p class="govuk-body">{{ contactName }},</p>
+  <p class="govuk-body">You have applied for a certificate so that you can sell or hire out your ivory item. You have legally declared that the item:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>was made before 1918</li>
+    <li>is of outstandingly high artistic, cultural or historical value</li>
+    <li>contains no replacement ivory taken from an elephant on or after 1 January 1975</li>
+  </ul>
+
+  <p class="govuk-body">An expert will now check your application.</p>
+  <p class="govuk-body">Checks usually happen within 30 days, and we may contact you during this time if we require more information.</p>
+  <p class="govuk-body">If your application is approved, we will send you an exemption certificate so you can sell or hire out your item.</p>
+
+  <p class="govuk-body">If you have not heard from us within 30 days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>. Make sure you have your application number, so we can find your details.</p>
+
+
+{% else %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory registration: 4HCP37NL</dd>
+
+  </dl>
+
+    <p class="govuk-body">{{ contactName }},</p>
+    <p class="govuk-body">You have registered an ivory item and have legally declared that:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the item was made before 1947</li>
+      <li>the item contains less than 10% ivory by volume</li>
+      <li>the ivory is integral to the item</li>
+      <li>no ivory has been added to the item on or after 1 January 1947</li>
+    </ul>
+
+    <p class="govuk-body">Providing this is true, you can sell or hire out the item.</p>
+
+    <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">View details of this registration</a></p>
+
+    <p class="govuk-body">This registration expires when the owner of the item changes.</p>
+
+{% endif %}
+
+
+
+{% endblock %}

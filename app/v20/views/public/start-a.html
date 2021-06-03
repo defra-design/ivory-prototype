@@ -1,0 +1,89 @@
+{% extends "./layout.html" %}
+
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+<!-- Nunjucks line commented out using {# or now -->
+{# {% set mainClasses = "govuk-main-wrapper--l" %} #}
+
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{serviceName}}</h1>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        You can be fined up to £250,000 and/or sent to prison if you buy, sell or hire an ivory item that has not been registered or certified.      </strong>
+    </div>
+
+
+
+    <p class="govuk-body">Use this service to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>register an ivory item</li>
+      <li>apply for a certificate for an ivory item</li>
+    </uL>
+
+
+
+        <p class="govuk-body">It costs £## to register or £### to apply for a certificate.</p>
+
+        <p class="govuk-body">You do not have to register and apply for a certificate for the same item. An item would either need registration or a certificate.</p>
+
+        <p class="govuk-body">Read the <a href="selling-hiring-buying-ivory">guide to selling, hiring and buying items with ivory</a>.</p>
+
+        <p class="govuk-body">You'll need:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a photo of the item</li>
+          <li>a debit or credit card</li>
+        </uL>
+
+
+    <a href="start-prototype" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">
+          Start now
+    </a>
+
+
+    <h2 class="govuk-heading-m">Before you start</h1>
+
+    <p class="govuk-body">You can register:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a musical instrument made before 1975 with less than 20% ivory</li>
+      <li>an item made before 1947 with less than 10% ivory</li>
+      <li>a portrait miniature made before 1918</li>
+      <li>an item you’ll sell or hire to an approved museum</li>
+    </ul>
+
+    <p class="govuk-body">You can apply for a certificate if you can prove the item was made before 1918 and has outstanding artistic, cultural or historical value.</p>
+
+    <h2 class="govuk-heading-m">Other ways to apply</h2>
+
+    <p class="govuk-body">You can also register or apply for a certificate using a paper form.</p>
+
+
+
+
+
+  </div>
+</div>
+
+</main>
+</div>
+
+
+{% endblock %}

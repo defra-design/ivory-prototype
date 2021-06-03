@@ -1,0 +1,92 @@
+ {% extends "./layout.html" %}
+
+ {% set thisPageTitle = "Ivory V20 prototypes" %}
+
+
+ {% block pageTitle %}
+ {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+ {% endblock %}
+
+
+ {% block beforeContent %}
+   {% include "./includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ thisPageTitle }}
+    </h1>
+
+    <!-- <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" width="40%" scope="col">APHA (Backstage)</th>
+        <th class="govuk-table__header" scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="apha/registrations">Ivory Register</a></td>
+        <td class="govuk-table__cell">Service for APHA users</td>
+      </tr>
+      </tbody>
+    </table> -->
+
+    <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Selling ivory items</th>
+          <th class="govuk-table__header" scope="col" style="color: white">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/guidance-new">Test 1</a></td>
+          <td class="govuk-table__cell" style="color: white">test</td>
+        </tr>
+
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/guidance-new">Test 2</a></td>
+          <td class="govuk-table__cell" style="color: white">Reworked guidance > Eligibility checker > Halt pages > Service</td>
+        </tr> -->
+
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-sell">Sell on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for sellers</td>
+        </tr> -->
+
+      </tbody>
+    </table>
+
+    <!-- <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" width="40%" scope="col">Buying ivory items (Out of scope)</th>
+          <th class="govuk-table__header" scope="col">Scenario</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/check-before-you-buy-an-ivory-item">Check before buying an ivory item</a></td>
+          <td class="govuk-table__cell">e.g. Google search for "buying ivory items"</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/gumtree-buy">Buy on Gumtree</a></td>
+          <td class="govuk-table__cell">Online interrupt message for buyers</td>
+        </tr>
+
+      </tbody>
+    </table> -->
+
+  </div>
+</div>
+
+
+{% endblock %}
