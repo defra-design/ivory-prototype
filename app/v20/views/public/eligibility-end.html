@@ -35,6 +35,10 @@
 
           <p class="govuk-body">If your application is successful, we will send you an exemption certificate so you can sell or hire out your item.</p>
 
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+          <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
+
 
           <!-- RMI non-checker -->
           {% elseif data['exemptionChoice'] === "type5" %}
@@ -54,6 +58,10 @@
 
           <p class="govuk-body">If your application is successful, we will send you an exemption certificate so you can sell or hire out your item.</p>
 
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+          <!-- <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p> -->
+
 
           <!-- Checker -->
           {% elseif data['knowItemsExempt'] === "unsure" %}
@@ -67,10 +75,14 @@
                 <li>Add up to 6 photos of the item.</li>
                 <li>Describe the item and how it meets the exemption criteria.</li>
                 <li>Provide contact details.</li>
-                <li>Pay an administration fee of £20<./li>
+                <li>Pay an administration fee of £20.</li>
               </ul>
 
             <!-- <p class="govuk-body">As soon as you successfully make the payment, you’ll be able to sell the item or hire it out.</p> -->
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
 
 
             <!-- Non-checker -->
@@ -87,15 +99,16 @@
               </ul>
 
             <!-- <p class="govuk-body">As soon as you successfully make the payment, you’ll be able to sell the item or hire it out.</p> -->
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            <!-- <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p> -->
             {% endif %}
 
 
 
         </div>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-        <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
 
       </form>
 
