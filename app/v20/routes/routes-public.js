@@ -411,10 +411,8 @@ router.post('/your-photos', function (req, res) {
 
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['exemptionChoice'] != 'type4'){
-    res.redirect('who-owns-item')
   } else {
-    res.redirect('who-owns-item')
+    res.redirect('describe-the-item')
   }
 
 })
@@ -542,7 +540,7 @@ router.post('/ivory-age', function (req, res) {
   if (req.session.data['exemptionChoice'] == 'type5') {
     res.redirect('want-to-add-documents')
   } else {
-    res.redirect('add-photo')
+    res.redirect('who-owns-item')
   }
 })
 
@@ -1906,7 +1904,7 @@ router.get('/legal-haltpage', function (req, res) {
 })
 
 router.post('/legal-haltpage', function (req, res) {
-  res.redirect('describe-the-item')
+  res.redirect('add-photo')
 })
 
 
@@ -2000,7 +1998,7 @@ router.post('/want-to-add-documents', function (req, res) {
   if (req.session.data['documents'] == 'Yes') {
     res.redirect('add-document')
     } else {
-      res.redirect('add-photo')
+      res.redirect('who-owns-item')
   }
 })
 
@@ -2019,7 +2017,7 @@ router.get('/your-documents', function (req, res) {
 })
 
 router.post('/your-documents', function (req, res) {
-    res.redirect('add-photo')
+    res.redirect('who-owns-item')
 })
 
 
