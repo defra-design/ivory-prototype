@@ -1806,6 +1806,8 @@ router.post('/is-it-RMI', function (req, res) {
   if (isitRMI === 'yes') {
     req.session.data['exemptionChoice'] = 'type5'
     res.redirect('eligibility-end')
+  } else if (isitRMI === 'idk'){
+    res.redirect('cannot-continue')
   } else {
     res.redirect('based-on-your-answers')
   }
