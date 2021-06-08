@@ -333,7 +333,12 @@
 
     <h2 class="govuk-heading-m">Legal declaration</h2>
 
+      {% if data['ownerAgent'] == 'agent' %}
+      <p class="govuk-body">Before you continue, you must agree that you have permission to act on the owner’s behalf.</p>
+      <p class="govuk-body">You must also agree that the owner confirms the following:</p>
+      {% else %}
       <p class="govuk-body">Before you continue, you must agree to the following:</p>
+      {% endif %}
 
       <!-- less than 10% -->
       {% if data['exemptionChoice'] == 'type1' %}
