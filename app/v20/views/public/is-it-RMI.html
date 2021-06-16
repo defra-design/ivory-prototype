@@ -46,6 +46,27 @@ Does your item have outstandingly high artistic, cultural or historical value? -
                 </div>
               </details>
 
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-no">
+                    No
+                  </label>
+                </div>
+                <!-- <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-idk" name="isitRMI" type="radio" value="idk">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-idk">
+                    I don't know
+                  </label>
+                </div> -->
+              </div>
+
             {% else %}
             <h1 class="govuk-heading-l">Is it a pre-1918 item of outstandingly high artistic, cultural or historical value?</h1>
 
@@ -80,8 +101,6 @@ Does your item have outstandingly high artistic, cultural or historical value? -
               </div>
             </details>
 
-            {% endif %}
-
             <div class="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
@@ -95,13 +114,15 @@ Does your item have outstandingly high artistic, cultural or historical value? -
                   No
                 </label>
               </div>
-              <!-- <div class="govuk-radios__item">
+              <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="isitRMI-idk" name="isitRMI" type="radio" value="idk">
                 <label class="govuk-label govuk-radios__label" for="isitRMI-idk">
                   I don't know
                 </label>
-              </div> -->
+              </div>
             </div>
+
+            {% endif %}
 
           </div>
 
