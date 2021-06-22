@@ -21,24 +21,25 @@
       {% else %}
       {% endif %}
 
-      {% if data['after1975'] === "no" %}
-      <p class="govuk-body">Your item must have been made before 1975.</p>
+      {% if data['isitBefore1947'] === "no" %}
+      <p class="govuk-body">Your item must have been made before 3 March 1947.</p>
 
       {% else %}
+      <p class="govuk-body">Your item does not meet any of the ivory ban exemption criteria.</p>
+
       {% endif %}
 
-      <p class="govuk-body">Your item does not meet any of the ivory ban exemption criteria.</p>
       <p class="govuk-body">Based on your answers, it is illegal to sell it, hire it out or exchange it for goods or services.</p>
 
 
-      <p class="govuk-body">Based on your answers, it is illegal to:</p>
+      <!-- <p class="govuk-body">Based on your answers, it is illegal to:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>sell or hire it out</li>
           <li>offer to sell or hire it out</li>
           <li>exchange it for goods or services</li>
           <li>keep it for sale or hire</li>
           <li>export or import it with the intention to sell or hire it out</li>
-        </ul>
+        </ul> -->
 
       <h2 class="govuk-heading-m">What you can do with this item</h2>
 
