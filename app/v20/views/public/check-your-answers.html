@@ -14,162 +14,27 @@
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-8">{{ thisPageTitle }}</h1>
 
-    <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-7">
-
 
 {% if data['exemptionChoice'] == 'type4' %}
 
 <!-- Museums -->
 
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Item type</dt>
-      <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
-      <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
-    </div>
+<h2 class="govuk-heading-m ">Your item</h2>
 
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Description</dt>
-      <dd class="app-check-your-answers__answer">{{ data['description'] }}</dd>
-      <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Photos</dt>
-      <dd class="app-check-your-answers__answer">
-        <ul class="govuk-list">
-        {% for photo in data['photos'] %}
-          <li>
-            <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
-          </li>
-        {%  endfor %}
-        </ul>
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="your-photos">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Who owns the item?</dt>
-      {% if agentOwner == 'agent' %}
-      <dd class="app-check-your-answers__answer">Someone else owns it</dd>
-      {% else %}
-      <dd class="app-check-your-answers__answer">I own it</dd>
-      {% endif %}
-      <dd class="app-check-your-answers__change"><a href="who-owns-item">Change</a></dd>
-    </div>
-
-
-    {% if agentOwner == 'agent' %}
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Your contact details</dt>
-      <dd class="app-check-your-answers__answer">
-        Name: {{data['agentName']}}
-        <br/>
-        Email: {{data['agentEmail']}}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Your address</dt>
-      <dd class="app-check-your-answers__answer">
-        {{ data['agentAddressLine1'] }}<br/>
-        {{ data['agentAddressLine2'] }}<br/>
-        {{ data['agentAddressTown'] }}<br/>
-        <!-- {{ data['agentAddressCounty'] }}<br/> -->
-        {{ data['agentAddressPostcode'] }}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Owner's contact details</dt>
-      <dd class="app-check-your-answers__answer">
-        Name: {{data['ownerName']}}
-        <br>
-        Email: {{data['ownerEmail']}}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Owner's address</dt>
-      <dd class="app-check-your-answers__answer">
-        {{ data['addressLine1'] }}<br/>
-        {{ data['addressLine2'] }}<br/>
-        {{ data['addressTown'] }}<br/>
-        <!-- {{ data['addressCounty'] }}<br/> -->
-        {{ data['addressPostcode'] }}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
-    </div>
-
-    {% else %}
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Your contact details</dt>
-      <dd class="app-check-your-answers__answer">
-        Name: {{data['agentName']}}
-        <br/>
-        {% if data['agentNameBusiness'] != '' %}
-        Business name: {{data['agentNameBusiness']}}
-        <br/>
-        {% else %}
-        {% endif %}
-        Email: {{data['agentEmail']}}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
-    </div>
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Your address</dt>
-      <dd class="app-check-your-answers__answer">
-        {{ data['agentAddressLine1'] }}<br/>
-        {{ data['agentAddressLine2'] }}<br/>
-        {{ data['agentAddressTown'] }}<br/>
-        {{ data['agentAddressCounty'] }}<br/>
-        {{ data['agentAddressPostcode'] }}
-      </dd>
-      <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
-    </div>
-
-    {% endif %}
-
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Item outside UK</dt>
-      <dd class="app-check-your-answers__answer">{{ data['outsideUK'] }}</dd>
-      <dd class="app-check-your-answers__change"><a href="is-item-outside-uk">Change</a></dd>
-    </div>
-    <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Intention</dt>
-      <dd class="app-check-your-answers__answer">{{ data['dealingIntent'] }}</dd>
-      <dd class="app-check-your-answers__change"><a href="dealing-intent">Change</a></dd>
-    </div>
-
-{% else %}
-
-<!-- standard s10 -->
-
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Item type</dt>
+        <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
       </div>
+  </dl>
 
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Ivory added</dt>
-        <dd class="app-check-your-answers__answer">No</dd>
-        <dd class="app-check-your-answers__change"><a href="ivory-added">Change</a></dd>
-      </div>
 
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Description</dt>
-        <dd class="app-check-your-answers__answer">{{ data['description'] }}</dd>
-        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
-      </div>
+<h2 class="govuk-heading-m ">Photos of the item</h2>
 
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Photos</dt>
+        <dt class="app-check-your-answers__question">Your photos</dt>
         <dd class="app-check-your-answers__answer">
           <ul class="govuk-list">
           {% for photo in data['photos'] %}
@@ -181,9 +46,239 @@
         </dd>
         <dd class="app-check-your-answers__change"><a href="your-photos">Change</a></dd>
       </div>
+  </dl>
+
+<h2 class="govuk-heading-m ">Description of the item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What is it?</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-itemType'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Where's the ivory?</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-ivory'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Unique, identifying features (optional)</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-features'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+  </dl>
+
+
+{% if agentOwner == 'agent' %}
+<h2 class="govuk-heading-m ">Owner and applicant details</h2>
+{% else %}
+<h2 class="govuk-heading-m ">Owner's details</h2>
+{% endif %}
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Proof of age</dt>
+        <dt class="app-check-your-answers__question">Who owns the item?</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if agentOwner == 'agent' %}
+            Someone else owns it
+          {% else %}
+            I own it
+          {% endif %}</dd>
+        <dd class="app-check-your-answers__change"><a href="who-owns-item">Change</a></dd>
+      </div>
+
+
+      {% if agentOwner == 'agent' %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's name</dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's email</dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerEmail']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Owner's address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['addressLine1'] }}<br/>
+          {{ data['addressLine2'] }}<br/>
+          {{ data['addressTown'] }}<br/>
+          {{ data['addressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your name</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Business name (optional)</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['agentNameBusiness'] == '' %}
+            Nothing entered
+          {% else %}
+            {{data['agentNameBusiness']}}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+
+      {% else %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your name</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Business name (optional)</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentNameBusiness']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+      {% endif %}
+    </dl>
+
+
+<h2 class="govuk-heading-m ">What will happen to the item</h2>
+
+    <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What owner intends to do with it</dt>
+        <dd class="app-check-your-answers__answer">{{ data['dealingIntent'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="dealing-intent">Change</a></dd>
+      </div>
+    </dl>
+
+{% else %}
+
+<!-- All other exemptions -->
+
+<h2 class="govuk-heading-m ">Your item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Type of exemption</dt>
+        <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
+        <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
+      </div>
+  </dl>
+
+
+<h2 class="govuk-heading-m ">Photos of the item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your photos</dt>
+        <dd class="app-check-your-answers__answer">
+          <ul class="govuk-list">
+          {% for photo in data['photos'] %}
+            <li>
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/{{photo}}" />
+            </li>
+          {%  endfor %}
+          </ul>
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="your-photos">Change</a></dd>
+      </div>
+  </dl>
+
+<h2 class="govuk-heading-m ">Description of the item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What is it?</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-itemType'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Where's the ivory?</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-ivory'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Unique, identifying features (optional)</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-features'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+
+      {% if data['exemptionChoice'] == 'type5' %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Where was it made?	(optional)</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-where'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">When was it made? (optional)</dt>
+        <dd class="app-check-your-answers__answer">{{ data['describe-when'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="describe-the-item">Change</a></dd>
+      </div>
+      {% else %}
+      {% endif %}
+  </dl>
+
+
+
+<h2 class="govuk-heading-m ">Reasons why item is exempt</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      {% if data['exemptionChoice'] != 'type5' %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Proof it has less than {{ ivoryVolume }} ivory</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['ivoryVolume'] }}
+
+          {% if data['ivoryVolume'] != 'Other' %}
+          {% else %}
+          <br><br>
+          Details: {{ data['volumeDetail'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
+      </div>
+      {% else %}
+      {% endif %}
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Proof it was made before 1 January {{ ivoryYear }}</dt>
         <dd class="app-check-your-answers__answer">
           {{ data['ivoryAge'] }}
 
@@ -196,41 +291,54 @@
         <dd class="app-check-your-answers__change"><a href="ivory-age">Change</a></dd>
       </div>
 
+      {% if data['exemptionChoice'] == 'type5' %}
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Proof of ivory volume</dt>
-        <dd class="app-check-your-answers__answer">
-          {{ data['ivoryVolume'] }}
-
-          {% if data['ivoryVolume'] != 'Other' %}
-          {% else %}
-          <br><br>
-          Details: {{ data['volumeDetail'] }}
-          {% endif %}
-        </dd>
+        <dt class="app-check-your-answers__question">Why it’s of outstandingly high value</dt>
+        <dd class="app-check-your-answers__answer">{{ data['volumeDetail'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="ivory-volume">Change</a></dd>
-      </div>
-
-
-      {% if data['exemptionChoice'] == 'type1' %}
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Ivory is integral</dt>
-        <dd class="app-check-your-answers__answer">
-          {{ data['ivoryIntegral'] }}
-        </dd>
-        <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
       </div>
       {% else %}
       {% endif %}
 
+      {% if data['exemptionChoice'] == 'type3' %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Why all ivory is integral</dt>
+        <dd class="app-check-your-answers__answer">{{ data['ivoryIntegral'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="ivory-is-integral">Change</a></dd>
+      </div>
+      {% else %}
+      {% endif %}
+  </dl>
+
+{% if data['exemptionChoice'] == 'type5' %}
+<h2 class="govuk-heading-m ">Documents to support application</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your documents</dt>
+        <dd class="app-check-your-answers__answer">{{ data['file-upload-1'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="your-documents">Change</a></dd>
+      </div>
+  </dl>
+{% else %}
+{% endif %}
+
+{% if agentOwner == 'agent' %}
+<h2 class="govuk-heading-m ">Owner and applicant details</h2>
+{% else %}
+<h2 class="govuk-heading-m ">Owner's details</h2>
+{% endif %}
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Who owns the item?</dt>
-        {% if agentOwner == 'agent' %}
-        <dd class="app-check-your-answers__answer">Someone else owns it</dd>
-        {% else %}
-        <dd class="app-check-your-answers__answer">I own it</dd>
-        {% endif %}
+        <dd class="app-check-your-answers__answer">
+          {% if agentOwner == 'agent' %}
+            Someone else owns it
+          {% else %}
+            I own it
+          {% endif %}</dd>
         <dd class="app-check-your-answers__change"><a href="who-owns-item">Change</a></dd>
       </div>
 
@@ -238,34 +346,13 @@
       {% if agentOwner == 'agent' %}
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your contact details</dt>
-        <dd class="app-check-your-answers__answer">
-          Name: {{data['agentName']}}
-          <br/>
-          Email: {{data['agentEmail']}}
-        </dd>
-        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+        <dt class="app-check-your-answers__question">Owner's name</dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
       </div>
-
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your address</dt>
-        <dd class="app-check-your-answers__answer">
-          {{ data['agentAddressLine1'] }}<br/>
-          {{ data['agentAddressLine2'] }}<br/>
-          {{ data['agentAddressTown'] }}<br/>
-          <!-- {{ data['agentAddressCounty'] }}<br/> -->
-          {{ data['agentAddressPostcode'] }}
-        </dd>
-        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
-      </div>
-
-      <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Owner's contact details</dt>
-        <dd class="app-check-your-answers__answer">
-          Name: {{data['ownerName']}}
-          <br>
-          Email: {{data['ownerEmail']}}
-        </dd>
+        <dt class="app-check-your-answers__question">Owner's email</dt>
+        <dd class="app-check-your-answers__answer">{{data['ownerEmail']}}</dd>
         <dd class="app-check-your-answers__change"><a href="owner-name">Change</a></dd>
       </div>
 
@@ -275,26 +362,30 @@
           {{ data['addressLine1'] }}<br/>
           {{ data['addressLine2'] }}<br/>
           {{ data['addressTown'] }}<br/>
-          <!-- {{ data['addressCounty'] }}<br/> -->
           {{ data['addressPostcode'] }}
         </dd>
         <dd class="app-check-your-answers__change"><a href="owner-address">Change</a></dd>
       </div>
 
-      {% else %}
-
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Your contact details</dt>
+        <dt class="app-check-your-answers__question">Your name</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Business name (optional)</dt>
         <dd class="app-check-your-answers__answer">
-          Name: {{data['agentName']}}
-          <br/>
-          {% if data['agentNameBusiness'] != '' %}
-          Business name: {{data['agentNameBusiness']}}
-          <br/>
+          {% if data['agentNameBusiness'] == '' %}
+            Nothing entered
           {% else %}
+            {{data['agentNameBusiness']}}
           {% endif %}
-          Email: {{data['agentEmail']}}
         </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
         <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
 
@@ -304,28 +395,57 @@
           {{ data['agentAddressLine1'] }}<br/>
           {{ data['agentAddressLine2'] }}<br/>
           {{ data['agentAddressTown'] }}<br/>
-          {{ data['agentAddressCounty'] }}<br/>
           {{ data['agentAddressPostcode'] }}
         </dd>
         <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
       </div>
 
-      {% endif %}
+      {% else %}
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Item outside UK</dt>
-        <dd class="app-check-your-answers__answer">{{ data['outsideUK'] }}</dd>
-        <dd class="app-check-your-answers__change"><a href="is-item-outside-uk">Change</a></dd>
+        <dt class="app-check-your-answers__question">Your name</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Intention</dt>
+        <dt class="app-check-your-answers__question">Business name (optional)</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentNameBusiness']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your email</dt>
+        <dd class="app-check-your-answers__answer">{{data['agentEmail']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
+      </div>
+
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Your address</dt>
+        <dd class="app-check-your-answers__answer">
+          {{ data['agentAddressLine1'] }}<br/>
+          {{ data['agentAddressLine2'] }}<br/>
+          {{ data['agentAddressTown'] }}<br/>
+          {{ data['agentAddressPostcode'] }}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="agent-address">Change</a></dd>
+      </div>
+      {% endif %}
+    </dl>
+
+
+
+<h2 class="govuk-heading-m ">What will happen to the item</h2>
+
+    <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What owner intends to do with it</dt>
         <dd class="app-check-your-answers__answer">{{ data['dealingIntent'] }}</dd>
         <dd class="app-check-your-answers__change"><a href="dealing-intent">Change</a></dd>
       </div>
+    </dl>
+
 
 {% endif %}
 
-    </dl>
 
 
 <!-- LEGAL DECLARATIONS-->
@@ -373,7 +493,7 @@
       {% elseif data['exemptionChoice'] == 'type5' %}
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>the item was made before 1 January 1918</li>
+        <li>the item was made before 1918</li>
         <li>the item is of outstandingly high artistic, cultural or historical value</li>
         <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
         <li>the information you’ve provided is complete and correct</li>

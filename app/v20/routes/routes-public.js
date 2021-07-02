@@ -8,11 +8,11 @@ const viewsFolder = path.join(__dirname, '/../views/public/') // Set the views w
 let versionRegex = process.platform === 'win32' ? /app\\(.[^\\]*?)\\routes/ : /app\/(.[^\/]*?)\/routes/
 const version = __dirname.match(versionRegex)[1]// Gets the version, e.g. v10 (ensure this handles Heroku's __direname being /app/app/vXX/routes)
 
-const exemptionTypeText1 = 'Item with less than 10% ivory made before 1947'
-const exemptionTypeText2 = 'Musical instrument with less than 20% ivory and made before 1975'
-const exemptionTypeText3 = 'Portrait miniature made before 1918'
-const exemptionTypeText4 = 'Item to be acquired by an accredited museum'
-const exemptionTypeText5 = 'An item of outstandingly high artistic, cultural or historical value made before 1918'
+const exemptionTypeText1 = 'Item made before 3 March 1947 with less than 10% ivory'
+const exemptionTypeText2 = 'Musical instrument made before 1975 with less than 20% ivory'
+const exemptionTypeText3 = 'Portrait miniature made before 1918 with a surface area less than 320 square centimetres'
+const exemptionTypeText4 = 'Item to be sold or hired out to a qualifying museum'
+const exemptionTypeText5 = 'Item made before 1918 that has outstandingly high artistic, cultural or historical value'
 
 
 
@@ -1956,13 +1956,15 @@ router.get('/owner-address-choose', function (req, res) {
 })
 
 router.post('/owner-address-choose', function (req, res) {
-  if (req.session.data['checkYourAnswers'] == 'hub') {
-    res.redirect('check-your-answers')
-  } else {
   req.session.data['addressLine1'] = '17'
   req.session.data['addressLine2'] = 'Whitchurch Road'
   req.session.data['addressTown'] = 'Wellington'
   req.session.data['addressPostcode'] = 'TF1 3DS'
+
+  if (req.session.data['checkYourAnswers'] == 'hub') {
+    res.redirect('check-your-answers')
+  } else {
+
     res.redirect('agent-name')
   }
 })
