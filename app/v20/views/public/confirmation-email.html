@@ -51,7 +51,7 @@
     <br>
 
     <dt class="defra-dt defra-dt__email-header">To</dt>
-    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ data['agentEmail'] }}</dd>
 
     <br>
 
@@ -60,19 +60,33 @@
 
   </dl>
 
-    <p class="govuk-body">{{ contactName }},</p>
-    <p class="govuk-body">You have registered an ivory item and have legally declared that:</p>
+    <p class="govuk-body">{{ data['agentName'] }},</p>
+    <p class="govuk-body">You have told us that you want to sell the following ivory item:</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Type of item</p>
+    <p class="govuk-body">{{ data['describe-itemType'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Description of item</p>
+    <p class="govuk-body">{{ data['describe-ivory'] }}<br>{{ data['describe-features'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Photos of item</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="#">Photo 1</a></li>
+        <li><a class="govuk-link" href="#">Photo 2</a></li>
+      </ul>
+
+    <p class="govuk-body">You have made a legal declaration that the item:</p>
 
     <ul class="govuk-list govuk-list--bullet">
-      <li>the item was made before 1947</li>
-      <li>the item contains less than 10% ivory by volume</li>
-      <li>the ivory is integral to the item</li>
-      <li>no ivory has been added to the item on or after 1 January 1947</li>
+      <li>was made before {{ ivoryYear }}</li>
+      <li>contains less than {{ ivoryVolume }} ivory by volume</li>
+      <!-- <li>the ivory is integral to the item</li> -->
+      <li>has not been repaired with any ivory taken from an elephant on or after 1 January 1975</li>
     </ul>
 
-    <p class="govuk-body">Providing this is true, you can sell or hire out the item.</p>
+    <p class="govuk-body">If any of this is untrue, you must not sell the item.</p>
 
-    <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">View details of this registration</a></p>
+    <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
 
     <p class="govuk-body">This registration expires when the owner of the item changes.</p>
 
