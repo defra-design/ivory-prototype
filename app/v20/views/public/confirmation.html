@@ -12,7 +12,8 @@ Registration complete
 {% block content %}
 
 <!-- BOTH CITES PERMIT AND MAYBE CERTIFICATE (MUSICAL INSTRUMENT)-->
-{% if (data['permit'] == "Yes") or (data['permit'] == "I don't know") or (data['exemptionChoice'] == "type2") %}
+{% if (data['permit'] == "Yes") or (data['permit'] == "I don't know")  %}
+<!-- or (data['exemptionChoice'] == "type2") -->
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -24,7 +25,7 @@ Registration complete
         </div>
       </div>
 
-      <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">Download details of this self-assessment</a></p>
+      <!-- <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">Download details of this self-assessment</a></p> -->
 
       <p class="govuk-body">We’ve also sent these details to:</p>
       <ul class="govuk-list govuk-list--bullet">

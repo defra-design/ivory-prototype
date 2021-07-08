@@ -1974,8 +1974,15 @@ router.get('/sell-or-hire', function (req, res) {
   res.render(viewsFolder + 'sell-or-hire')
 })
 
+// changed to skip cites questions for MVS
+//router.post('/sell-or-hire', function (req, res) {
+//    res.redirect('is-item-outside-uk')
+//})
+
 router.post('/sell-or-hire', function (req, res) {
-    res.redirect('is-item-outside-uk')
+   req.session.data['permit'] = 'no'
+
+   res.redirect('check-your-answers')
 })
 
 
