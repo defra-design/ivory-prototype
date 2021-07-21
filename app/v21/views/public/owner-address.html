@@ -1,0 +1,46 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+        <h1 class="govuk-heading-l">
+          What is the owner's address?
+        </h1>
+
+        <p class="govuk-body">If the owner is a business, give the business address.</p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
+            Property name or number
+          </label>
+          <div id="address-line-1-hint" class="govuk-hint">
+            For example, The Mill, Flat A or 37b
+          </div>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-line-1" name="addressLine1" type="text" value="{{ data['addressLine1'] }}" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" value="{{ data['addressPostcode'] }}" required />
+        </div>
+
+        <button class="govuk-button">Find address</button>
+
+        <p class="govuk-body"><a href="international-address">The address is outside the UK</a></p>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Owner's contact details</h1>
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      {% if data['exemptionChoice'] == "type5" %}
+
+      <p class="govuk-body">Under the Ivory Act 2018, you are legally required to provide this information. However, you must have the owner’s permission to act on their behalf.</p>
+      <p class="govuk-body">If the owner is a business, give the business details.</p>
+
+      {% else %}
+
+      <p class="govuk-body">Under the Ivory Act 2018, you are legally required to provide this information. However, you must have the owner’s permission to act on their behalf.</p>
+      <p class="govuk-body">If the owner is a business, give the business details.</p>
+
+      {% endif %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="name">Full name or business name</label>
+        <input class="govuk-input" id="name" name="ownerName" type="text" value="{{data['ownerName']}}" required />
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="ownerEmail">Email address</label>
+        <input class="govuk-input" id="ownerEmail" name="ownerEmail" type="email" value="{{data['ownerEmail']}}" required />
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="ownerEmailConfirm">Confirm email address</label>
+        <input class="govuk-input" id="ownerEmailConfirm" name="ownerEmailConfirm" type="email" value="{{data['ownerEmail']}}" required />
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

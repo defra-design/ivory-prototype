@@ -1,0 +1,104 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "What is your ivory item?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+    <form class="form" method="post" novalidate>
+
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="exemption-choice-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText2" name="exemptionChoice" type="radio" value="type2"  {{exemptionType2Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText2">
+                Musical instrument made before 1975 with less than 20% ivory
+              </label>
+              <div id="exemptionTypeText1-hint" class="govuk-hint govuk-radios__hint">
+                Any replacement ivory must have been taken from an elephant before 1 January 1975.
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText1" name="exemptionChoice" type="radio" value="type1" required {{exemptionType1Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText1">
+                Item made before 3 March 1947 with less than 10% ivory
+              </label>
+              <div id="exemptionTypeText2-hint" class="govuk-hint govuk-radios__hint">
+                The ivory must be integral to the item. Any replacement ivory must have been taken from an elephant before 1 January 1975.
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText3" name="exemptionChoice" type="radio" value="type3"  {{exemptionType3Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText3">
+                Portrait miniature made before 1918 with a surface area less than 320 square centimetres
+              </label>
+              <div id="exemptionTypeText3-hint" class="govuk-hint govuk-radios__hint">
+                Any replacement ivory must have been taken from an elephant before 1 January 1975.
+              </div>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText4" name="exemptionChoice" type="radio" value="type4" {{exemptionType4Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText4">
+                Item to be sold or hired out to a qualifying museum
+              </label>
+              <div id="exemptionTypeText4-hint" class="govuk-hint govuk-radios__hint">
+                This cannot be raw (‘unworked’) ivory. You don’t need to tell us if you are a qualifying museum that’s selling or hiring out an ivory item to another qualifying museum.
+              </div>
+            </div>
+
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="exemptionTypeText5" name="exemptionChoice" type="radio" value="type5" {{exemptionType5Checked}} />
+              <label class="govuk-label govuk-radios__label" for="exemptionTypeText5">
+                Item made before 1918 that has outstandingly high artistic, cultural or historical value
+              </label>
+              <div id="exemptionTypeText5-hint" class="govuk-hint govuk-radios__hint govuk-!-margin-bottom-0">
+                Any replacement ivory must have been taken from an elephant before 1 January 1975.
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I need more help to work this out
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Use our eligibility checker to <a href="sure-its-elephant" class="govuk-link">check if you can sell or hire out your item</a>.</p>
+        </div>
+      </details>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}

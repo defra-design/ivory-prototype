@@ -1,0 +1,38 @@
+{% extends "./layout.html" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            Enter your address
+        </legend>
+
+        {% if data['ownerAgent'] != 'agent' %}
+        <p class="govuk-body">If your business owns the item, give your business address.</p>
+        {% else %}
+        <p class="govuk-body">If your business is helping someone else sell their item, give your business address</p>
+        {% endif %}
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="international-address">
+          </label>
+          <textarea class="govuk-textarea" id="international-address" name="international-address" rows="5" aria-describedby="international-address-hint" value="{{ data['international-address'] }}"></textarea>
+        </div>
+
+      </fieldset>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

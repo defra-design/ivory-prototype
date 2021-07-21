@@ -1,0 +1,134 @@
+{% extends "./layout.html" %}
+
+<!-- {% set thisPageTitle = "You must now make a self-assessment to sell or hire out your item" %} -->
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+        <div class="govuk-form-group">
+
+          <!-- RMI and checker -->
+          {% if (data['knowItemsExempt'] === "unsure") and (data['exemptionChoice'] === "type5") %}
+          <h1 class="govuk-heading-l">You can now apply for an exemption certificate</h1>
+
+            <p class="govuk-body">Based on your answers, it sounds like your item could be a pre-1918 item of outstandingly high artistic, cultural or historical value.</p>
+
+            <p class="govuk-body">The following pages will guide you through the process.</p>
+
+            <ul class="govuk-list govuk-list--number">
+              <li>Add up to 6 photos of the item.</li>
+              <li>Describe the item and how it meets the exemption criteria.</li>
+              <li>Upload any documents that support your application.</li>
+              <li>Provide contact details.</li>
+              <li>Pay a non-refundable administration fee of £250.</li>
+              <li>Wait 30 days for your application to be approved by an expert.</li>
+            </ul>
+
+            <div class="govuk-inset-text">
+              You can stop half-way through and come back later. We’ll delete your answers if you don’t complete the service within 24 hours.
+            </div>
+
+          <p class="govuk-body">After you’ve paid for your application, you’ll need to wait up to 30 days for it to be approved by an expert. If it is successful, we’ll send you an exemption certificate so you can sell or hire out your item.</p>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+          <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
+
+
+          <!-- RMI non-checker -->
+          {% elseif data['exemptionChoice'] === "type5" %}
+
+          <h1 class="govuk-heading-l">You must now apply for an exemption certificate</h1>
+
+          <p class="govuk-body">The following pages will guide you through the process.</p>
+
+            <ul class="govuk-list govuk-list--number">
+              <li>Add up to 6 photos of the item.</li>
+              <li>Describe the item and how it meets the exemption criteria.</li>
+              <li>Upload any documents that support your application.</li>
+              <li>Provide contact details.</li>
+              <li>Pay a non-refundable administration fee of £250.</li>
+              <li>Wait 30 days for your application to be approved by an expert.</li>
+            </ul>
+
+            <div class="govuk-inset-text">
+              You can stop half-way through and come back later. We’ll delete your answers if you don’t complete the service within 24 hours.
+            </div>
+
+          <p class="govuk-body">After you’ve paid for your application, you’ll need to wait up to 30 days for it to be approved by an expert. If it is successful, we’ll send you an exemption certificate so you can sell or hire out your item.</p>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+          <!-- <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p> -->
+
+
+          <!-- Checker -->
+          {% elseif data['knowItemsExempt'] === "unsure" %}
+            <h1 class="govuk-heading-l">You can now make a self-assessment to sell or hire out your item</h1>
+
+              <p class="govuk-body">Based on your answers, it sounds like your item is exempt from the ivory ban.</p>
+
+              <p class="govuk-body">The following pages will guide you through the process.</p>
+
+              <ul class="govuk-list govuk-list--number">
+                <li>Add up to 6 photos of the item.</li>
+                <li>Describe the item and how it meets the exemption criteria.</li>
+                <li>Provide contact details.</li>
+                <li>Pay an administration fee of £20.</li>
+              </ul>
+
+              <div class="govuk-inset-text">
+                You can stop half-way through and come back later. We’ll delete your answers if you close your browser or take more than 24 hours to complete the service. 
+              </div>
+
+            <!-- <p class="govuk-body">As soon as you successfully make the payment, you’ll be able to sell the item or hire it out.</p> -->
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
+
+
+            <!-- Non-checker -->
+            {% else %}
+            <h1 class="govuk-heading-l">You must now make a self-assessment to sell or hire out your item</h1>
+
+              <p class="govuk-body">The following pages will guide you through the process.</p>
+
+              <ul class="govuk-list govuk-list--number">
+                <li>Add up to 6 photos of the item.</li>
+                <li>Describe the item and how it meets the exemption criteria.</li>
+                <li>Provide contact details.</li>
+                <li>Pay an administration fee of £20.</li>
+              </ul>
+
+              <div class="govuk-inset-text">
+                You can stop half-way through and come back later. We’ll delete your answers if you close your browser or take more than 24 hours to complete the service.
+              </div>
+
+            <!-- <p class="govuk-body">As soon as you successfully make the payment, you’ll be able to sell the item or hire it out.</p> -->
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+            <!-- <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p> -->
+            {% endif %}
+
+
+
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

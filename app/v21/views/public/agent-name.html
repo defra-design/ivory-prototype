@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+  Your contact details - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Your contact details</h1>
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="agentName">Full name</label>
+        <input class="govuk-input" id="agentName" name="agentName" type="text" value="{{data['agentName']}}" required />
+      </div>
+
+      {% if data['ownerAgent'] != 'agent' %}
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="agentNameBusiness">Business name  (optional)</label>
+        <span id="email-hint" class="govuk-hint">We only need this if your business owns the item</span>
+        <input class="govuk-input" id="agentNameBusiness" name="agentNameBusiness" type="text" value="{{data['agentNameBusiness']}}" required />
+      </div>
+      {% else %}
+      {% endif %}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="agentEmail">Email address</label>
+        <input class="govuk-input" id="agentEmail" name="agentEmail" type="email" value="{{data['agentEmail']}}" required />
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="agentEmailConfirm">Confirm email address</label>
+        <input class="govuk-input" id="agentEmailConfirm" name="agentEmailConfirm" type="email" value="{{data['agentEmail']}}" required />
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

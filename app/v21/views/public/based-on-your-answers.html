@@ -1,0 +1,63 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "You are not allowed to sell or hire out your item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+      {% if data['ivoryAdded2'] === "yes" %}
+
+      <p class="govuk-body">Any replacement ivory in your item must have been taken from an elephant before 1 January 1975.</p>
+
+      {% else %}
+      {% endif %}
+
+      {% if data['isitBefore1947'] === "no" %}
+      <p class="govuk-body">Your item must have been made before 3 March 1947.</p>
+
+      {% else %}
+      <p class="govuk-body">Your item does not meet any of the ivory ban exemption criteria.</p>
+
+      {% endif %}
+
+      <p class="govuk-body">Based on your answers, it is illegal to sell it, hire it out or exchange it for goods or services.</p>
+
+
+      <!-- <p class="govuk-body">Based on your answers, it is illegal to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>sell or hire it out</li>
+          <li>offer to sell or hire it out</li>
+          <li>exchange it for goods or services</li>
+          <li>keep it for sale or hire</li>
+          <li>export or import it with the intention to sell or hire it out</li>
+        </ul> -->
+
+      <h2 class="govuk-heading-m">What you can do with this item</h2>
+
+      <p class="govuk-body">Your options include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>keeping it</li>
+          <li>giving it away as a gift</li>
+          <li>leaving it to someone in your will</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">When it may become exempt</h2>
+
+        <p class="govuk-body">If a museum is interested in your item, you may be able to sell or hire it out to them. In this case, you should try and declare it again.</p>
+
+      <a href="guidance-new" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">Finish and return to guidance
+      </a>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Are you selling or hiring the item out on behalf of a museum?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <p class="govuk-body">You must be acting on behalf of a museum that is a member of the International Council of Museums, or accredited by one of the following:</p>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Arts Council England</li>
+                <li>Museums Galleries Scotland</li>
+                <li>Northern Ireland Museums Council</li>
+                <li>the Museums, Archives and Libraries Division of the Welsh Government</li>
+              </ul>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="areyouMuseum-yes" name="areyouMuseum" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="areyouMuseum-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="areyouMuseum-no" name="areyouMuseum" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="areyouMuseum-no">
+                    No
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+Legal warning - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+  <form class="form" method="post" novalidate>
+    <div class="flash-card">
+
+
+        {% if data['exemptionChoice'] === "type5" %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+
+            <header>
+              <h1 class="govuk-heading-l">The person doing this application is legally responsible for the information in it</h1>
+            </header>
+
+            </div>
+          </div>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">The Ivory Act 2018 permits you to do an application for someone else, but you must have permission to act on their behalf.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that the information you’ve given is not accurate, you could be fined or prosecuted.</p>
+              </div>
+
+
+          {% else %}
+
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+
+            <header>
+              <h1 class="govuk-heading-l">The item’s owner is legally responsible for the information you’re about to give</h1>
+            </header>
+
+            </div>
+          </div>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">This is a self-assessment, so the owner is responsible for ensuring the item is exempt.</p>
+
+              <p class="govuk-body">The Ivory Act 2018 permits you to do a self-assessment for someone else, but you must have permission to act on their behalf.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that the item is not exempt, the item’s owner could be fined or prosecuted.</p>
+              </div>
+
+          {% endif %}
+
+          <div class="form-group">
+            <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
+          </div>
+
+          <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
+
+        </div>
+      </div>
+
+
+    </div>
+  </form>
+
+
+
+
+{% endblock %}

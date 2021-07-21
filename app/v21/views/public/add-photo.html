@@ -1,0 +1,128 @@
+{% set pageTitle = "Add a photo of your item" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    {% if errorNoFile %}
+
+    {{ govukErrorSummary({
+    "titleText": "There is a problem",
+    "errorList": [
+    {
+    "text": "You must choose a photo",
+    "href": "#fileToUpload"
+    }
+    ]
+    }) }}
+    {% endif %}
+
+
+{% if data.photos.length > 0 %}
+    <h1 class="govuk-heading-l">Add another photo</h1>
+
+    <form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
+
+
+      <div class="govuk-form-group {% if errorNoFile %}govuk-form-group--error{% endif %}">
+
+        <span id="hint" class="govuk-body">
+
+          <p class="govuk-body">The photo must be:</p>
+
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>in JPG or PNG format</li>
+            <li>smaller than 32mb</li>
+          </ul>
+
+        </span>
+
+        {% if errorNoFile %}
+
+        <span id="errorNoFile" class="govuk-error-message">{{errorNoFile}}</span>
+
+        {% endif %}
+
+        <div class="field-file-input">
+          <label class="govuk-label" style="visibility: hidden; margin-top: -15px;" for="fileToUpload">
+            Upload a photo
+          </label>
+          <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*'>
+        </div>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+      </form>
+
+      <p class="govuk-body"><a href='{{baseUrl}}/public/your-photos'>Cancel and return to ‘Your photos’</a></p>
+
+
+{%  else %}
+
+    <h1 class="govuk-heading-l">{{ pageTitle }}</h1>
+
+    <form method="post" autocomplete="off" novalidate enctype="multipart/form-data">
+
+
+      <div class="govuk-form-group {% if errorNoFile %}govuk-form-group--error{% endif %}">
+
+        <span id="hint" class="govuk-body">
+
+          <p class="govuk-body">You must add photos one at a time, up to a total of 6.</p>
+
+          <p class="govuk-body">These must be clear, well-lit and high-resolution images.</p>
+
+          <p class="govuk-body">You must include a photo of:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>the whole item</li>
+            <li>any distinguishing features, including where the ivory is</li>
+          </ul>
+
+          <h2 class="govuk-heading-m">Upload photo</h2>
+
+          <p class="govuk-body">The photo must be:</p>
+
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>in JPG or PNG format</li>
+            <li>smaller than 32mb</li>
+          </ul>
+
+        </span>
+
+
+        {% if errorNoFile %}
+
+        <span id="errorNoFile" class="govuk-error-message">{{errorNoFile}}</span>
+
+        {% endif %}
+
+        <div class="field-file-input">
+          <label class="govuk-label" style="visibility: hidden; margin-top: -15px;" for="fileToUpload">
+            Upload a photo
+          </label>
+          <input class="govuk-file-upload" id="fileToUpload" name="fileToUpload" type="file" value="" accept='image/*'>
+        </div>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+{%  endif %}
+
+
+
+  </div>
+</div>
+
+{% endblock %}

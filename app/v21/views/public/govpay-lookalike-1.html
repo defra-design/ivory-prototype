@@ -1,0 +1,96 @@
+{% extends "./layout.html" %}
+//Override the beforeContent section in layout.html to remove the stage-banner
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+
+      <!-- DETAILS ON LEFT -->
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Enter card details</h1>
+
+
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Card number</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardNumber" value='{{data['payCardNumber']}}' />
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Expiry date</b></label>
+            <span class="govuk-hint">For example, 10/20</span>
+            <label class="govuk-label">Month / Year</label>
+            <!-- <p>Month / Year</p> -->
+            <input class="govuk-input govuk-input--width-2" type="text" name="payCardMonth" value='{{data['payCardMonth']}}'/> /
+            <input class="govuk-input govuk-input--width-2" type="text" name="payCardYear" value='{{data['payCardYear']}}'/>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Name on card</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardName" value='{{data['payCardName']}}'/>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Card security code</b></label>
+            <span class="govuk-hint">The last 3 digits on the back of the card</span>
+            <input class="govuk-input govuk-input--width-3" type="text" name="payCardSecurity" value='{{data['payCardSecurity']}}' />
+          </div>
+
+          <div class="govuk-form-group">
+            <p class="govuk-heading-m">Billing address</p>
+            <span class="govuk-hint">This is the address associated with the card</span>
+
+            <label class="govuk-label"><b>Country or territory</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardCountry" value='{{data['payCardCountry']}}' />
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Building number or name and street</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardAddressLine1" value='{{data['payCardAddressLine1']}}' /><br><br>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardAddressLine2" value='{{data['payCardAddressLine2']}}'/>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Town or city</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardAddressTown" value='{{data['payCardAddressTown']}}' />
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label"><b>Postcode</b></label>
+            <input class="govuk-input govuk-input--width-20" type="text" name="payCardAddressPostcode" value='{{data['payCardAddressPostcode']}}' />
+          </div>
+
+          <button class="govuk-button">Continue</button>
+
+          </form>
+
+          <p class="govuk-body"><a href='check-your-answers'>Cancel payment</a></p>
+
+
+      </div>
+
+
+
+      <!-- SUMMARY ON RIGHT -->
+      <div class="govuk-grid-column-one-third" style="border: 2px solid grey; border-width: 12px; padding: 20px;">
+        <h3 class="govuk-heading-m">Payment summary</h3>
+        <p class="govuk-heading-s">{{ serviceName }}</p>
+        <p class="govuk-heading-s">Total amount:</p>
+        {% if data['exemptionChoice'] == 'type5' %}
+        <p class="govuk-heading-l">£250.00</p>
+        {% else %}
+        <p class="govuk-heading-l">£20.00</p>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+</div>
+
+
+{% endblock %}

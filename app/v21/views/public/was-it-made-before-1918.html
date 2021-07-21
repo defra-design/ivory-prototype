@@ -1,0 +1,63 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Was your item made before 1 January 1918?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <p class="govuk-body">The following might help you decide:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>a stamp, serial number or signature on the item to prove its age</li>
+                  <li>a dated receipt showing when the item was bought or repaired</li>
+                  <li>a dated publication that shows or describes the item</li>
+                  <li>personal knowledge or evidence that the item has been in the family since before 1 January 1918</li>
+                  <li>written verification from a relevant expert</li>
+                </ul>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitBefore1918-yes" name="isitBefore1918" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitBefore1918-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitBefore1918-no" name="isitBefore1918" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitBefore1918-no">
+                    No
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitBefore1918-idk" name="isitBefore1918" type="radio" value="idk">
+                  <label class="govuk-label govuk-radios__label" for="isitBefore1918-idk">
+                    I don't know
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

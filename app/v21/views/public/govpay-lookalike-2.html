@@ -1,0 +1,71 @@
+ {% extends "./layout.html" %}
+ //Override the beforeContent section in layout.html to remove the stage-banner
+ {% block beforeContent %}
+ {% endblock %}
+ {% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+
+      <!-- DETAILS ON LEFT -->
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Confirm your payment</h1>
+
+
+
+        <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Card number:</td>
+                <td class="govuk-table__header">{{ data['payCardNumber'] }}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Expire date:</td>
+                <td class="govuk-table__header">{{data['payCardMonth']}}/{{data['payCardYear']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Name on card:</td>
+                <td class="govuk-table__header">{{data['payCardName']}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Billing address:</td>
+                <td class="govuk-table__header">{{data['payCardAddressLine1']}}, {{data['payCardAddressLine2']}}, {{data['payCardAddressTown']}}, {{data['payCardAddressPostcode']}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <button class="govuk-button">Confirm payment</button>
+
+        </form>
+
+        <p class="govuk-body"><a href='check-your-answers'>Cancel payment</a></p>
+
+
+      </div>
+
+
+
+      <!-- SUMMARY ON RIGHT -->
+      <div class="govuk-grid-column-one-third" style="border: 2px solid grey; border-width: 12px; padding: 20px;">
+        <h3 class="govuk-heading-m">Payment summary</h3>
+        <p class="govuk-heading-s">{{ serviceName }}</p>
+        <p class="govuk-heading-s">Total amount:</p>
+        {% if data['exemptionChoice'] == 'type5' %}
+        <p class="govuk-heading-l">£250.00</p>
+        {% else %}
+        <p class="govuk-heading-l">£20.00</p>
+        {% endif %}
+      </div>
+    </div>
+
+  </main>
+</div>
+
+
+{% endblock %}

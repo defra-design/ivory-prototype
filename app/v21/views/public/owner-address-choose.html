@@ -1,0 +1,64 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+        <h1 class="govuk-heading-l">
+          Choose the owner's address
+        </h1>
+
+        <div class="govuk-form-group">
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-choose" name="address-choose" type="radio" value="13, Whitchurch Road, Wellington, TF1 3DS">
+                <label class="govuk-label govuk-radios__label" for="address-choose">
+                  13, Whitchurch Road, Wellington, TF1 3DS
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-choose-2" name="address-choose" type="radio" value="The Grove House Hotel, 17, Whitchurch Road, Wellington, TF1 3DS">
+                <label class="govuk-label govuk-radios__label" for="address-choose-2">
+                  17, Whitchurch Road, Wellington, TF1 3DS
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-choose-3" name="address-choose" type="radio" value="Apley, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS">
+                <label class="govuk-label govuk-radios__label" for="address-choose-3">
+                  Apley, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-choose-4" name="address-choose" type="radio" value="Haygate, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS">
+                <label class="govuk-label govuk-radios__label" for="address-choose-4">
+                  Haygate, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="address-choose-5" name="address-choose" type="radio" value="rekin, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS">
+                <label class="govuk-label govuk-radios__label" for="address-choose-5">
+                  Wrekin, Crescent House Apartments, 11 Whitchurch Road, Wellington, TF1 3DS
+                </label>
+              </div>
+
+            </div>
+        </div>
+
+        <p class="govuk-body"><a href="owner-address-manual">The address is not on the list</a></p>
+
+        <button class="govuk-button">Continue</button>
+
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

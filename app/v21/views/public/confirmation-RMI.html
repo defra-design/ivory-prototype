@@ -1,0 +1,97 @@
+
+{% block pageTitle %}
+Registration complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+
+<!-- CITES PERMIT at least a maybe -->
+{% if (data['permit'] == "Yes") or (data['permit'] == "I don't know") %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6" style="background-color: #b1b4b6; color: black">
+      <h1 class="govuk-panel__title">Application received</h1>
+      <div class="govuk-panel__body">
+        Submission reference
+        <br><strong>4HCP37NL</strong>
+      </div>
+    </div>
+
+    <p class="govuk-body">We’ve sent confirmation of this application to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{data['agentEmail']}}</li>
+      {% if data['ownerEmail'] != null %}
+      <li>{{data['ownerEmail']}}</li>
+      {% else %}
+      {% endif %}
+    </ul>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">An expert will now check your application.</p>
+
+      <p class="govuk-body">Checks usually happen within 30 days, and we may contact you during this time if we require more information.</p>
+
+      <p class="govuk-body">If your application is approved, we will send you an exemption certificate so you can sell or hire out your item.</p>
+
+      <p class="govuk-body">If you have not heard from us within 30 days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>. Make sure you have your application number, so we can find your details.</p>
+
+      <a href="confirmation-cites" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">Continue</a>
+
+
+
+{% else %}
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+          <h1 class="govuk-panel__title">Application received</h1>
+          <div class="govuk-panel__body">
+            Submission reference
+            <br><strong>4HCP37NL</strong>
+          </div>
+        </div>
+
+        <p class="govuk-body">We’ve sent confirmation of this application to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{data['agentEmail']}}</li>
+          {% if data['ownerEmail'] != null %}
+          <li>{{data['ownerEmail']}}</li>
+          {% else %}
+          {% endif %}
+        </ul>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">An expert will now check your application.</p>
+
+          <p class="govuk-body">Checks usually happen within 30 days, and we may contact you during this time if we require more information.</p>
+
+          <p class="govuk-body">If your application is approved, we will send you an exemption certificate so you can sell or hire out your item.</p>
+
+          <p class="govuk-body">If you have not heard from us within 30 days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>. Make sure you have your submission reference number, so we can find your details. </p>
+
+    <a href="guidance-new" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">Finish</a>
+
+
+{% endif %}
+
+
+      <p class="govuk-body invisible-link">
+            <a href="confirmation-email?e=type1" class="govuk-link">View confirmation email</a>
+      </p>
+
+
+  </div>
+</div>
+
+
+{% endblock %}

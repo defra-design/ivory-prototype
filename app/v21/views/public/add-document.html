@@ -1,0 +1,55 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Add a supporting document" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" autocomplete="off">
+
+      <div class="govuk-form-group">
+
+        <h1 class="govuk-heading-l">Add a document to support your case</h1>
+
+          <p class="govuk-body">You must add files one at a time, up to a total of 6.</p>
+
+          <div class="govuk-inset-text">
+            Be careful not to upload too much material, as this could affect how long it takes an assessor to review it.
+          </div>
+
+        <h2 class="govuk-heading-m">Upload file</h2>
+
+          <p class="govuk-body">File must be:</p>
+
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>in PDF or DOC format</li>
+            <li>smaller than 32mb</li>
+          </ul>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" style="visibility: hidden; margin-top: -15px;" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

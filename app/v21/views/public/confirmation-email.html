@@ -1,0 +1,121 @@
+{% extends "./layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Confirmation email
+{% endblock %}
+
+{% block content %}
+
+{% if data['exemptionChoice'] == "type5" %}
+
+<dl class="defra-dl defra-email-header">
+
+  <dt class="defra-dt defra-dt__email-header">From</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">To</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">Subject</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory application: RMI-238746</dd>
+
+</dl>
+
+    <p class="govuk-body">{{ data['agentName'] }},</p>
+    <p class="govuk-body">You have told us that you want to sell the following ivory item:</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Type of item</p>
+    <p class="govuk-body">{{ data['describe-itemType'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Description of item</p>
+    <p class="govuk-body">{{ data['describe-ivory'] }}<br>{{ data['describe-features'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Where it was made</p>
+    <p class="govuk-body">{{ data['describe-where'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">When it was made</p>
+    <p class="govuk-body">{{ data['describe-when'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Photos of item</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="#">Photo 1</a></li>
+        <li><a class="govuk-link" href="#">Photo 2</a></li>
+      </ul>
+
+    <p class="govuk-body">You have declared that, in your opinion, the item is of outstandingly high artistic, cultural or historical value.</p>
+    <p class="govuk-body">You’ve also declared that the item:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>was made before 1918</li>
+      <li>has not been repaired with any ivory taken from an elephant on or after 1 January 1975</li>
+    </ul>
+
+    <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, when we check your application.</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">What happens next</p>
+
+      <p class="govuk-body">An expert will now check your application.</p>
+      <p class="govuk-body">Checks usually happen within 30 days, and we may contact you during this time if we require more information.</p>
+      <p class="govuk-body">If your application is approved, we will send you an exemption certificate so you can sell or hire out your item.</p>
+
+      <p class="govuk-body">If you have not heard from us within 30 days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>. Make sure you have your application number, so we can find your details.</p>
+
+
+{% else %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ data['agentEmail'] }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory self-assessment: 4HCP37NL</dd>
+
+  </dl>
+
+    <p class="govuk-body">{{ data['agentName'] }},</p>
+    <p class="govuk-body">You have told us that you want to sell the following ivory item:</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Type of item</p>
+    <p class="govuk-body">{{ data['describe-itemType'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Description of item</p>
+    <p class="govuk-body">{{ data['describe-ivory'] }}<br>{{ data['describe-features'] }}</p>
+
+    <p class="govuk-body govuk-!-font-weight-bold">Photos of item</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="#">Photo 1</a></li>
+        <li><a class="govuk-link" href="#">Photo 2</a></li>
+      </ul>
+
+    <p class="govuk-body">You have made a legal declaration that the item:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>was made before {{ ivoryYear }}</li>
+      <li>contains less than {{ ivoryVolume }} ivory by volume</li>
+      <!-- <li>the ivory is integral to the item</li> -->
+      <li>has not been repaired with any ivory taken from an elephant on or after 1 January 1975</li>
+    </ul>
+
+    <p class="govuk-body">If any of this is untrue, you must not sell the item.</p>
+
+    <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+
+    <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+{% endif %}
+
+
+
+{% endblock %}
