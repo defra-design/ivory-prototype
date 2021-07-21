@@ -673,9 +673,33 @@ router.post('/who-owns-item', function (req, res) {
     if (req.session.data['ownerAgent'] == 'owner'){
     res.redirect('agent-name')
     } else {
-    res.redirect('owner-name')
+    res.redirect('work-for-a-business')
     }
 })
+
+
+// WORK FOR A BUSINESS?
+router.get('/work-for-a-business', function (req, res) {
+  res.render(viewsFolder + 'work-for-a-business')
+})
+
+router.post('/work-for-a-business', function (req, res) {
+  res.redirect('who-selling-on-behalf-of')
+})
+
+
+// WHO ARE YOU SELLING ON BEHALF OF?
+router.get('/who-selling-on-behalf-of', function (req, res) {
+  res.render(viewsFolder + 'who-selling-on-behalf-of')
+})
+
+router.post('/work-for-a-business', function (req, res) {
+  res.redirect('who-selling-on-behalf-of')
+})
+
+
+
+
 
 //* ****************************************************
 // AGENT-NAME

@@ -1,7 +1,7 @@
 {% extends "./layout.html" %}
 
 
-{% set thisPageTitle = "Do you own the item?" %}
+{% set thisPageTitle = "Do you work for a business who is selling or hiring out the item?" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" autocomplete="off" {{ novalidateVal }}>
+    <form method="post" {{ novalidateVal }}>
 
       <div class="govuk-form-group">
 
@@ -23,16 +23,19 @@
               {{ thisPageTitle }}
             </h1>
           </legend>
+
+          <p class="govuk-body">This could be an auction house or antiques dealer, for example.</p>
+
           <div class="govuk-radios govuk-radios--inlinex">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ownerAgent1" name="ownerAgent" type="radio" value="owner" required {{ownerChecked}}/>
-              <label class="govuk-label govuk-radios__label" for="ownerAgent1">
+              <input class="govuk-radios__input" id="workForABusiness-yes" name="workForABusiness" type="radio" value="Yes"/>
+              <label class="govuk-label govuk-radios__label" for="workForABusiness-yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="ownerAgent2" name="ownerAgent" type="radio" value="agent" {{agentChecked}}>
-              <label class="govuk-label govuk-radios__label" for="ownerAgent2">
+              <input class="govuk-radios__input" id="workForABusiness-no" name="workForABusiness" type="radio" value="No"/>
+              <label class="govuk-label govuk-radios__label" for="workForABusiness-no">
                 No
               </label>
             </div>
