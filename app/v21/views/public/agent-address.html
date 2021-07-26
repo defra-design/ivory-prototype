@@ -11,15 +11,21 @@
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
+      {% if data['workForABusiness'] == 'Yes' %}
         <h1 class="govuk-heading-l">
-          What is your address?
+          What's the address of the business you work for?
         </h1>
+      {% else %}
+        <h1 class="govuk-heading-l">
+          What's your address?
+        </h1>
+      {% endif %}
 
-        {% if data['ownerAgent'] != 'agent' %}
+        <!-- {% if data['ownerAgent'] != 'agent' %}
         <p class="govuk-body">If your business is the legal owner of the item, give your business address.</p>
         {% else %}
         <p class="govuk-body">If your business is helping someone else sell their item, give your business address.</p>
-        {% endif %}
+        {% endif %} -->
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">

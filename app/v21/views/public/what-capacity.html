@@ -1,0 +1,64 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "In what capacity are you making this declaration?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="capacity-agent" name="capacity" type="radio" value="Agent"/>
+              <label class="govuk-label govuk-radios__label" for="capacity-agent">
+                Agent
+              </label>
+              <div id="capacity-agent-hint" class="govuk-hint govuk-radios__hint">
+                For example, an antiques dealer or auction house selling the item
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="capacity-executor" name="capacity" type="radio" value="Executor"/>
+              <label class="govuk-label govuk-radios__label" for="capacity-executor">
+                Executor
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="capacity-trustee" name="capacity" type="radio" value="Trustee"/>
+              <label class="govuk-label govuk-radios__label" for="capacity-trustee">
+                Trustee
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -8,9 +8,15 @@
 
     <form method="post">
 
+      {% if data['workForABusiness'] == 'Yes' %}
+        <h1 class="govuk-heading-l">
+          Confirm address
+        </h1>
+      {% else %}
         <h1 class="govuk-heading-l">
           Confirm your address
         </h1>
+      {% endif %}
 
         <p class="govuk-body govuk-!-margin-bottom-0">{{ data['agentAddressLine1'] }} {{ data['agentAddressLine2'] }}</p>
         <p class="govuk-body govuk-!-margin-bottom-0">{{ data['agentAddressTown'] }}</p>

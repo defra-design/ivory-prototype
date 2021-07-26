@@ -693,11 +693,26 @@ router.get('/who-selling-on-behalf-of', function (req, res) {
   res.render(viewsFolder + 'who-selling-on-behalf-of')
 })
 
-router.post('/work-for-a-business', function (req, res) {
-  res.redirect('who-selling-on-behalf-of')
+router.post('/who-selling-on-behalf-of', function (req, res) {
+
+  if (req.session.data['onBehalfOf'] == 'The business I work for'){
+  res.redirect('agent-name')
+  } else if (req.session.data['onBehalfOf'] == 'Other'){
+  res.redirect('what-capacity')
+  } else {
+  res.redirect('owner-name')
+  }
+
 })
 
+// WHAT CAPACITY
+router.get('/what-capacity', function (req, res) {
+  res.render(viewsFolder + 'what-capacity')
+})
 
+router.post('/what-capacity', function (req, res) {
+  res.redirect('agent-name')
+})
 
 
 

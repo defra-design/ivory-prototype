@@ -22,14 +22,13 @@
         <input class="govuk-input" id="agentName" name="agentName" type="text" value="{{data['agentName']}}" required />
       </div>
 
-      <!-- {% if data['ownerAgent'] != 'agent' %}
+      {% if data['workForABusiness'] == 'Yes' %}
       <div class="govuk-form-group">
-        <label class="govuk-label govuk-label--s" for="agentNameBusiness">Business name  (optional)</label>
-        <span id="email-hint" class="govuk-hint">We only need this if your business owns the item</span>
+        <label class="govuk-label govuk-label--s" for="agentNameBusiness">Business name</label>
         <input class="govuk-input" id="agentNameBusiness" name="agentNameBusiness" type="text" value="{{data['agentNameBusiness']}}" required />
       </div>
       {% else %}
-      {% endif %} -->
+      {% endif %}
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--s" for="agentEmail">Email address</label>
