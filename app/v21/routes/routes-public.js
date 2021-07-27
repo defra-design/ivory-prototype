@@ -26,7 +26,14 @@ function logger (req, msg) {
 }
 
 
+// SET JOURNEY
+router.get('/set-journey', function (req, res) {
+  res.render(viewsFolder + 'set-journey')
+})
 
+router.post('/set-journey', function (req, res) {
+  res.redirect('guidance-new')
+})
 
 
 
@@ -539,6 +546,8 @@ router.get('/ivory-age', function (req, res) {
 router.post('/ivory-age', function (req, res) {
   if (req.session.data['exemptionChoice'] == 'type5') {
     res.redirect('want-to-add-documents')
+  } else if (req.session.data['setup'] == '2'){
+    res.redirect('2-whos-selling')
   } else {
     res.redirect('who-owns-item')
   }
@@ -711,7 +720,11 @@ router.get('/what-capacity', function (req, res) {
 })
 
 router.post('/what-capacity', function (req, res) {
+  if (req.session.data['setup'] == '2'){
+  res.redirect('sell-or-hire')
+  } else {
   res.redirect('agent-name')
+  }
 })
 
 
@@ -1966,8 +1979,10 @@ router.get('/agent-address-confirm', function (req, res) {
 router.post('/agent-address-confirm', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
+  } else if (req.session.data['setup'] == '2') {
+    res.redirect('2-does-business-own-item')
     } else {
-      res.redirect('sell-or-hire')
+    res.redirect('sell-or-hire')
   }
 })
 
@@ -2047,6 +2062,8 @@ router.get('/want-to-add-documents', function (req, res) {
 router.post('/want-to-add-documents', function (req, res) {
   if (req.session.data['documents'] == 'Yes') {
     res.redirect('add-document')
+    } else if (req.session.data['setup'] == '2'){
+      res.redirect('2-whos-selling')
     } else {
       res.redirect('who-owns-item')
   }
@@ -2067,7 +2084,51 @@ router.get('/your-documents', function (req, res) {
 })
 
 router.post('/your-documents', function (req, res) {
-    res.redirect('who-owns-item')
+    if (req.session.data['setup'] == '2'){
+    res.redirect('2-whos-selling')
+    } else {
+      res.redirect('who-owns-item')
+    }
+})
+
+
+
+
+//////////////// 3rd party reg test idea ////////////////
+
+// WHO'S SELLING ITEM
+router.get('/2-whos-selling', function (req, res) {
+  res.render(viewsFolder + '2-whos-selling')
+})
+
+router.post('/2-whos-selling', function (req, res) {
+    res.redirect('agent-name')
+})
+
+// DOES THE BUSINESS OWN THE ITEM
+router.get('/2-does-business-own-item', function (req, res) {
+  res.render(viewsFolder + '2-does-business-own-item')
+})
+
+router.post('/2-does-business-own-item', function (req, res) {
+  if (req.session.data['businessOwns'] == 'No') {
+    res.redirect('2-who-selling-on-behalf-of')
+    } else {
+    res.redirect('sell-or-hire')
+    }
+})
+
+// WHO IS BUSINESS SELLING ON BEHALF OF
+router.get('/2-who-selling-on-behalf-of', function (req, res) {
+  res.render(viewsFolder + '2-who-selling-on-behalf-of')
+})
+
+router.post('/2-who-selling-on-behalf-of', function (req, res) {
+  if (req.session.data['onBehalfOf2'] == 'A deceased estate') {
+    res.redirect('what-capacity')
+    } else {
+    res.redirect('owner-name')
+    }
 })
 
 

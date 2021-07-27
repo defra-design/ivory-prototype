@@ -11,9 +11,13 @@
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
-      {% if data['workForABusiness'] == 'Yes' %}
+      {% if (data['workForABusiness'] == 'Yes') or (data['whosSelling'] == 'The business I work for') %}
         <h1 class="govuk-heading-l">
           What's the address of the business you work for?
+        </h1>
+      {% elseif data['whosSelling'] == 'My business' %}
+        <h1 class="govuk-heading-l">
+          What's your business address?
         </h1>
       {% else %}
         <h1 class="govuk-heading-l">

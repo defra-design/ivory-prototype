@@ -8,7 +8,7 @@
 
     <form method="post">
 
-      {% if data['workForABusiness'] == 'Yes' %}
+      {% if (data['workForABusiness'] == 'Yes') or (data['whosSelling'] != 'I am') %}
         <h1 class="govuk-heading-l">
           Confirm address
         </h1>

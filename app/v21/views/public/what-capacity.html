@@ -19,9 +19,15 @@
 
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            {% if data['setup'] == '2' %}
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              {{ thisPageTitle }}
+              What's your connection to the item?
             </h1>
+            {% else %}
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              In what capacity are you making this declaration?
+            </h1>
+            {% endif %}
           </legend>
 
           <div class="govuk-radios govuk-radios--inlinex">
