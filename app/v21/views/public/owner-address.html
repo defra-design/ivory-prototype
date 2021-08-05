@@ -8,11 +8,15 @@
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
 
+      {% if (data['onBehalfOf'] == 'An individual') or (data['onBehalfOf'] == 'A friend or relative') %}
         <h1 class="govuk-heading-l">
           What is the owner's address?
         </h1>
-
-        <p class="govuk-body">If the owner is a business, give the business address.</p>
+      {% else %}
+        <h1 class="govuk-heading-l">
+          What is the address of the business that owns the item?
+        </h1>
+      {% endif %}
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
