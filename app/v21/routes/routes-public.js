@@ -546,8 +546,6 @@ router.get('/ivory-age', function (req, res) {
 router.post('/ivory-age', function (req, res) {
   if (req.session.data['exemptionChoice'] == 'type5') {
     res.redirect('want-to-add-documents')
-  } else if (req.session.data['setup'] == '2'){
-    res.redirect('2-whos-selling')
   } else {
     res.redirect('who-owns-item')
   }
@@ -720,11 +718,7 @@ router.get('/what-capacity', function (req, res) {
 })
 
 router.post('/what-capacity', function (req, res) {
-  if (req.session.data['setup'] == '2'){
-  res.redirect('sell-or-hire')
-  } else {
   res.redirect('agent-name')
-  }
 })
 
 
@@ -1979,9 +1973,7 @@ router.get('/agent-address-confirm', function (req, res) {
 router.post('/agent-address-confirm', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
-  } else if (req.session.data['setup'] == '2') {
-    res.redirect('2-does-business-own-item')
-    } else {
+  } else {
     res.redirect('sell-or-hire')
   }
 })
@@ -2062,9 +2054,7 @@ router.get('/want-to-add-documents', function (req, res) {
 router.post('/want-to-add-documents', function (req, res) {
   if (req.session.data['documents'] == 'Yes') {
     res.redirect('add-document')
-    } else if (req.session.data['setup'] == '2'){
-      res.redirect('2-whos-selling')
-    } else {
+    } else{
       res.redirect('who-owns-item')
   }
 })
@@ -2084,11 +2074,7 @@ router.get('/your-documents', function (req, res) {
 })
 
 router.post('/your-documents', function (req, res) {
-    if (req.session.data['setup'] == '2'){
-    res.redirect('2-whos-selling')
-    } else {
       res.redirect('who-owns-item')
-    }
 })
 
 
