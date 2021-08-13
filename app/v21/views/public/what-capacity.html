@@ -19,18 +19,12 @@
 
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            {% if data['setup'] == '2' %}
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              What's your connection to the item?
-            </h1>
-            {% else %}
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
               In what capacity are you making this declaration?
             </h1>
-            {% endif %}
           </legend>
 
-          <div class="govuk-radios govuk-radios--inlinex">
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="capacity-agent" name="capacity" type="radio" value="Agent"/>
               <label class="govuk-label govuk-radios__label" for="capacity-agent">
@@ -43,7 +37,7 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="capacity-executor" name="capacity" type="radio" value="Executor"/>
               <label class="govuk-label govuk-radios__label" for="capacity-executor">
-                Executor
+                Executor or administrator
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -52,7 +46,23 @@
                 Trustee
               </label>
             </div>
-          </div>
+
+              <div class="govuk-radios__item">
+                 <input class="govuk-radios__input" id="capacity-other" name="capacity" type="radio" value="Other" data-aria-controls="conditional-capacity-other">
+                 <label class="govuk-label govuk-radios__label" for="capacity-other">
+                   Other
+                 </label>
+               </div>
+               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-capacity-other">
+                 <div class="govuk-form-group">
+                   <label class="govuk-label" for="capacity-other-details">
+                     Give details
+                   </label>
+                   <input class="govuk-input govuk-!-width-one-third" id="capacity-other-details" name="capacity-other-details" type="text"/>
+                 </div>
+               </div>
+
+            </div>
         </fieldset>
 
       </div>
