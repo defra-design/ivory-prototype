@@ -13,10 +13,13 @@
 
       <!-- Dynamic H1 needs to say Edit if coming from direct hit screen  -->
         <h1 class="govuk-heading-l">
-          Enter owner's address
+          Enter the address
         </h1>
 
+        {% if data['ownerAgent'] != 'agent' %}
         <p class="govuk-body">If the owner is a business, give the business address.</p>
+        {% else %}
+        {% endif %}
 
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--s" for="address-line-1">

@@ -13,13 +13,12 @@
 
       <!-- Dynamic H1 needs to say Enter if coming from radios screen  -->
         <h1 class="govuk-heading-l">
-          Edit your address
+          Edit the address
         </h1>
 
         {% if data['ownerAgent'] != 'agent' %}
-        <p class="govuk-body">If your business owns the item, give your business address.</p>
+        <p class="govuk-body">If the business you work for owns the item, give the business address.</p>
         {% else %}
-        <p class="govuk-body">If your business is helping someone else sell their item, give your business address</p>
         {% endif %}
 
         <div class="govuk-form-group">
