@@ -453,11 +453,43 @@
 
     <h2 class="govuk-heading-m">Legal declaration</h2>
 
-      {% if data['ownerAgent'] == 'agent' %}
+  <!-- Section 2 -->
+      <!-- RMI -->
+      {% if (data['exemptionChoice'] == 'type5') and (data['ownerAgent'] == 'agent') %}
       <p class="govuk-body">Before you continue, you must agree that you have permission to act on the owner’s behalf.</p>
-      <p class="govuk-body">You must also agree that the owner confirms the following:</p>
+      <p class="govuk-body">Both you and the owner must also agree with the following:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the item was made before 1918</li>
+          <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+          <li>the information you’ve provided is complete and correct</li>
+        </ul>
+      <p class="govuk-body">By making this application, I confirm that I believe:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the item is of outstandingly high artistic, cultural or historical value</li>
+        </ul>
+      {% elseif (data['exemptionChoice'] == 'type5') and (data['ownerAgent'] == 'owner') %}
+      <p class="govuk-body">Before you continue, you must agree with the following:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the item was made before 1918</li>
+          <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+          <li>the information you’ve provided is complete and correct</li>
+        </ul>
+      <p class="govuk-body">By making this application, I confirm that I believe:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the item is of outstandingly high artistic, cultural or historical value</li>
+        </ul>
       {% else %}
+      {% endif %}
+
+
+  <!-- Section 10 -->
+
+    {% if (data['exemptionChoice'] != 'type5') and (data['ownerAgent'] == 'agent') %}
+      <p class="govuk-body">Before you continue, you must agree that you have permission to act on the owner’s behalf.</p>
+      <p class="govuk-body">Both you and the owner must also agree with the following:</p>
+      {% elseif (data['exemptionChoice'] != 'type5') and (data['ownerAgent'] == 'owner') %}
       <p class="govuk-body">Before you continue, you must agree to the following:</p>
+      {% else %}
       {% endif %}
 
       <!-- less than 10% -->
@@ -485,22 +517,12 @@
       {% elseif data['exemptionChoice'] == 'type4' %}
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>you are selling or hiring out the ivory item to a qualifying museum</li>
-        <li>the information you’ve provided is complete and correct</li>
-      </ul>
-
-      <!-- RMI -->
-      {% elseif data['exemptionChoice'] == 'type5' %}
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the item was made before 1918</li>
-        <li>the item is of outstandingly high artistic, cultural or historical value</li>
-        <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+        <li>the item is to be sold or hired out to a qualifying museum</li>
         <li>the information you’ve provided is complete and correct</li>
       </ul>
 
       <!-- portrait miniature -->
-      {% else %}
+      {% elseif data['exemptionChoice'] == 'type3' %}
 
       <ul class="govuk-list govuk-list--bullet">
         <li>the portrait miniature was made before 1918</li>
@@ -509,7 +531,7 @@
         <li>the information you’ve provided is complete and correct</li>
       </ul>
 
-
+      {% else %}
       {% endif %}
 
       <div class="govuk-form-group">
