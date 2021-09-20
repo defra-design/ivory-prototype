@@ -1,0 +1,76 @@
+
+{% block pageTitle %}
+Registration complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Other legal obligations</h1>
+
+      {% if data['exemptionChoice'] == "type2" %}
+        <h2 class="govuk-heading-m">CITES article 10 certificate</h2>
+
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-commercial-use">apply for a CITES article 10 certificate (opens in a new window or tab)</a>.</p>
+
+        <div class="govuk-inset-text">
+          You only need to do this if your item was made between 3 March 1947 and 1 January 1975.
+        </div>
+      {% else %}
+      {% endif %}
+
+      {% if (data['permit'] == "Yes") and (data['exemptionChoice'] == "type2") %}
+        <h2 class="govuk-heading-m">CITES permit</h2>
+
+        <p class="govuk-body">You will also need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+
+        <p class="govuk-body">This is because your item will move into or out of Great Britain when you sell or hire it out.</p>
+
+      {% elseif (data['permit'] == "Yes") and (data['exemptionChoice'] != "type2") %}
+        <h2 class="govuk-heading-m">CITES permit</h2>
+
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you will also need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+
+        <p class="govuk-body">This is because your item will move into or out of Great Britain when you sell or hire it out.</p>
+
+      {% elseif (data['permit'] == "I don't know") and (data['exemptionChoice'] == "type2") %}
+        <h2 class="govuk-heading-m">CITES permit</h2>
+
+        <p class="govuk-body">You may also need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+
+        <p class="govuk-body">You’ll only need to do this if your item will move into or out of Great Britain when you sell or hire it out.</p>
+
+      {% elseif (data['permit'] == "I don't know") and (data['exemptionChoice'] != "type2") %}
+        <h2 class="govuk-heading-m">CITES permit</h2>
+
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may also need to <a href="https://www.gov.uk/government/publications/endangered-species-application-for-import-and-export-permit">apply for a CITES permit (opens in a new window or tab)</a>.</p>
+
+        <p class="govuk-body">You’ll only need to do this if your item will move into or out of Great Britain when you sell or hire it out.</p>
+
+      {% endif %}
+
+      <h2 class="govuk-heading-m">When you can sell your item</h2>
+
+      {% if data['exemptionChoice'] == "type5" %}
+      <p class="govuk-body">If you need to make a CITES application, you’ll need to wait to see if it’s approved. You’ll be able to sell or hire out the item once you’ve received your:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>approved CITES application</li>
+        <li>Ivory Act exemption certificate</li>
+      </ul>
+      {% else %}
+      <p class="govuk-body">If you need to make a CITES application, you’ll need to wait to see if it’s approved. After that, you can sell or hire out the item at your own risk.</p>
+      {% endif %}
+
+      <a href="guidance-new" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">Finish</a>
+
+    </div>
+  </div>
+
+
+{% endblock %}

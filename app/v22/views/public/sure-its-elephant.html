@@ -1,0 +1,74 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Does your item contain elephant ivory?" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" novalidate>
+
+      <div class="govuk-form-group">
+
+          <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+          <p class="govuk-body">Any ivory in your item must be ‘worked’ ivory. This means it has been carved or significantly altered from its original raw state in some way.</p>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                How do I know if my ivory is elephant ivory?
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">It can be extremely difficult to tell the difference between:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>elephant ivory</li>
+                  <li>other types of ivory, such as walrus</li>
+                  <li>fake ivory, such as ivorine</li>
+                  <li>certain types of animal bone</li>
+                </ul>
+              <p>If you are not sure about the item you want to sell or buy, you should consult an expert first, such as a registered antiques dealer or auctioneer who specialises in ivory.</p>
+            </div>
+          </details>
+
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="isitElephant-yes" name="isitElephant" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="isitElephant-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="isitElephant-no" name="isitElephant" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="isitElephant-no">
+                No
+              </label>
+            </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="isitElephant-idk" name="isitElephant" type="radio" value="idk">
+            <label class="govuk-label govuk-radios__label" for="isitElephant-idk">
+              I don't know
+            </label>
+          </div>
+          </div>
+
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

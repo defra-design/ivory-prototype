@@ -1,0 +1,57 @@
+{% set pageTitle = "Your photos" %}
+
+{% extends "./layout.html" %}
+{% from "summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    <h1 class="govuk-heading-l">Your photos</h1>
+
+      {{ govukSummaryList({
+        rows: photosSummaryList
+      }) }}
+
+    <form method="post" autocomplete="off" novalidate >
+
+      {% if photosSummaryList.length < 6 %}
+
+      {{ govukRadios({
+        idPrefix: "photos-what-next",
+        name: "photos-what-next",
+        fieldset: {
+          legend: {
+            text: "What next?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+          items: [
+            {
+              value: "Add another photo",
+              text: "Add another photo"
+            },
+            {
+              value: "Next question",
+              text: "Next question"
+            }
+        ]
+      }) }}
+
+      {%  endif %}
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

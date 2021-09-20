@@ -1,0 +1,90 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Who are you selling or hiring out the item on behalf of?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+  {% if data['whosSelling'] == 'I am' %}
+
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-friend" name="onBehalfOf2" type="radio" value="A friend or relative" />
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-friend">
+                A friend or relative
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-business" name="onBehalfOf2" type="radio" value="A business" >
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-business">
+                A business
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-deceased" name="onBehalfOf2" type="radio" value="A deceased estate" >
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-deceased">
+                A deceased estate
+              </label>
+            </div>
+          </div>
+
+    {% else %}
+
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-individual" name="onBehalfOf2" type="radio" value="An individual" />
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-individual">
+                An individual
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-business" name="onBehalfOf2" type="radio" value="Another business" >
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-business">
+                Another business
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="onBehalfOf2-deceased" name="onBehalfOf2" type="radio" value="A deceased estate" >
+              <label class="govuk-label govuk-radios__label" for="onBehalfOf2-deceased">
+                A deceased estate
+              </label>
+            </div>
+          </div>
+
+      {% endif %}
+
+
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

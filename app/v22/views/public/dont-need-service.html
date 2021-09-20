@@ -1,0 +1,49 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "You don’t need to tell us about this item" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+      {% if data['isitElephant'] === "no" %}
+
+        <p class="govuk-body">You only need to tell us if you are selling or hiring out an item that contains elephant ivory.</p>
+
+      {% else %}
+
+        <p class="govuk-body">Qualifying accredited museums do not need to tell us when they sell or hire out ivory items to each other.</p>
+
+      <h2 class="govuk-heading-m">Other legal obligations when you sell or hire out the item</h2>
+
+        <p class="govuk-body">As part of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), you may need to apply for:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a CITES article 10 certificate, if your item is in the UK and was made after 3 March 1947</li>
+          <li>an EU internal trading certificate, if your item is in an EU country</li>
+          <li>a CITES permit, if your item will cross certain national borders when its sold or hired out</li>
+        </ul>
+
+
+      <p class="govuk-body"><a class="govuk-link" href="https://cites.org/eng">Find out more about applying for CITES permits and certificates</a></p>
+
+
+      {% endif %}
+
+
+      <a href="guidance-new" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">Finish and return to guidance
+      </a>
+
+
+    </div>
+  </div>
+</div>
+{% endblock %}

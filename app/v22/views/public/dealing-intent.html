@@ -1,0 +1,66 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              {% if (data['outsideUK'] == "Yes") and (data['sellHire'] == "Sell it") %}
+                Will the item move into Great Britain when you sell it?
+              {% elseif (data['outsideUK'] == "Yes") and (data['sellHire'] == "Hire it out") %}
+                Will the item move into Great Britain when you hire it out?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "Sell it") %}
+                Will the item move out of Great Britain when you sell it?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "Hire it out") %}
+                Will the item move out of Great Britain when you hire it out?
+              {% elseif (data['outsideUK'] == "No") and (data['sellHire'] == "I don't know") %}
+                Will the item move out of Great Britain when you sell or hire it out?
+              {% else %}
+                Will the item move into Great Britain when you sell or hire it out?
+              {% endif %}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">Great Britain is England, Wales and Scotland.</p>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="permit-yes" name="permit" type="radio" value="Yes"/>
+              <label class="govuk-label govuk-radios__label" for="permit-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="permit-no" name="permit" type="radio" value="No"/>
+              <label class="govuk-label govuk-radios__label" for="permit-no">
+                No
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="permit-idk" name="permit" type="radio" value="I don't know"/>
+              <label class="govuk-label govuk-radios__label" for="permit-idk">
+                I’m not sure yet
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

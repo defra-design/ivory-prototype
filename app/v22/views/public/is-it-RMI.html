@@ -1,0 +1,137 @@
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+Does your item have outstandingly high artistic, cultural or historical value? - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+          <div class="govuk-form-group">
+
+            {% if data['isitBefore1918'] === "yes" %}
+
+            <h1 class="govuk-heading-l">Does your item have outstandingly high artistic, cultural or historical value?</h1>
+              <p class="govuk-body">The item must be a rare and socially significant example of its type.</p>
+
+              <div class="govuk-inset-text">
+                An item that only has sentimental value would not qualify, regardless of how important it is to you personally.
+              </div>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    How do I know if my item has outstandingly high artistic, cultural or historic value?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when approving items for sale or hire.</p>
+                  <p class="govuk-body">They’ll consider various things, such as whether an item:</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>is unique or extremely rare</li>
+                    <li>is of high artistic or aesthetic quality, for example from a known artist, school or studio</li>
+                    <li>is in better condition than other items like it</li>
+                    <li>is part of a well-known collection</li>
+                    <li>has an important history</li>
+                    <li>is important to a specific place or region</li>
+                    <li>has previously been recognised for its value or status, for example being recognised as a national treasure</li>
+                  </ul>
+                </div>
+              </details>
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-no">
+                    No
+                  </label>
+                </div>
+                <!-- <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitRMI-idk" name="isitRMI" type="radio" value="idk">
+                  <label class="govuk-label govuk-radios__label" for="isitRMI-idk">
+                    I don't know
+                  </label>
+                </div> -->
+              </div>
+
+            {% else %}
+            <h1 class="govuk-heading-l">Is it a pre-1918 item of outstandingly high artistic, cultural or historical value?</h1>
+
+            <p class="govuk-body">The item must:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>have been made before 1 January 1918</li>
+              <li>be a rare and socially significant example of its type</li>
+            </ul>
+
+            <div class="govuk-inset-text">
+              An item that only has sentimental value would not qualify, regardless of how important it is to you personally.
+            </div>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  How do I know if my item has outstandingly high artistic, cultural or historic value?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when approving items for sale or hire.</p>
+                <p class="govuk-body">They’ll consider various things, such as whether an item:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>is unique or extremely rare</li>
+                  <li>is of high artistic or aesthetic quality, for example from a known artist, school or studio</li>
+                  <li>is in better condition than other items like it</li>
+                  <li>is part of a well-known collection</li>
+                  <li>has an important history</li>
+                  <li>is important to a specific place or region</li>
+                  <li>has previously been recognised for its value or status, for example being recognised as a national treasure</li>
+                </ul>
+              </div>
+            </details>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="isitRMI-yes" name="isitRMI" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="isitRMI-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="isitRMI-no" name="isitRMI" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="isitRMI-no">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="isitRMI-idk" name="isitRMI" type="radio" value="idk">
+                <label class="govuk-label govuk-radios__label" for="isitRMI-idk">
+                  I don't know
+                </label>
+              </div>
+            </div>
+
+            {% endif %}
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

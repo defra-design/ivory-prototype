@@ -1,0 +1,268 @@
+{% set pageTitle = "Confirm ivory age" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" autocomplete="off">
+
+
+      <div class="govuk-form-group">
+
+{% if data['exemptionChoice'] == "type1" %}
+        <h1 class="govuk-heading-l">
+          How do you know the item was made before 3 March {{ ivoryYear }}?
+        </h1>
+        <p class="govuk-body">You must keep any physical evidence that supports your answer. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+{% elseif data['exemptionChoice'] == "type5" %}
+        <h1 class="govuk-heading-l">
+          How do you know the item was made before {{ ivoryYear }}?
+        </h1>
+        <p class="govuk-body">You must keep any physical evidence that supports your answer. We may ask for it at a later date, when we check your application.</p>
+{% else %}
+        <h1 class="govuk-heading-l">
+          How do you know the item was made before {{ ivoryYear }}?
+        </h1>
+        <p class="govuk-body">You must keep any physical evidence that supports your answer. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+{% endif %}
+
+
+
+{% if data['exemptionChoice'] == "type5" %}
+
+      {% set ivoryAgeOtherHtml %}
+      {{ govukTextarea({
+        id: "ageDetail",
+        name: "ageDetail",
+        classes: "govuk-!-width-full",
+        value: data['ageDetail'],
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "ivoryAge",
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "It has a stamp, serial number or signature to prove its age",
+            text: "It has a stamp, serial number or signature to prove its age",
+            id: "ivory-age-datemark",
+            checked: checked("ivoryAge", "It has a stamp, serial number or signature to prove its age")
+          },
+          {
+            value: "I have a dated receipt showing when it was bought or repaired",
+            text: "I have a dated receipt showing when it was bought or repaired",
+            id: "ivory-age-receipt",
+            checked: checked("ivoryAge", "I have a dated receipt showing when it was bought or repaired")
+          },
+          {
+            value: "I have a dated publication that shows or describes the item",
+            text: "I have a dated publication that shows or describes the item",
+            id: "ivory-age-publication",
+            checked: checked("ivoryAge", "I have a dated publication that shows or describes the item")
+          },
+          {
+            value: "It's been in the family since before " + ivoryYear +"",
+            text: "It's been in the family since before " + ivoryYear +"",
+            id: "ivory-age-family",
+            checked: checked("ivoryAge", "It's been in the family since before " + ivoryYear +"")
+          },
+          {
+            value: "I have written verification from a relevant expert",
+            text: "I have written verification from a relevant expert",
+            id: "ivory-age-written",
+            checked: checked("ivoryAge", "I have written verification from a relevant expert")
+          },
+          {
+            value: "I am an expert, and it’s my professional opinion",
+            text: "I am an expert, and it’s my professional opinion",
+            id: "ivory-age-expert",
+            checked: checked("ivoryAge", "I am an expert, and it’s my professional opinion")
+          },
+          {
+            value: "It's been carbon dated",
+            text: "It's been carbon dated",
+            id: "ivory-age-carbon",
+            checked: checked("ivoryAge", "It's been carbon dated")
+          },
+          {
+            value: "Other reason",
+            text: "Other reason",
+            id: "ivory-age-other",
+            checked: checked("ivoryAge", "Other reason"),
+            conditional: {
+              html: ivoryAgeOtherHtml
+            }
+          }
+        ]
+      }) }}
+
+
+{% elseif data['exemptionChoice'] == "type1" %}
+
+      {% set ivoryAgeOtherHtml %}
+      {{ govukTextarea({
+        id: "ageDetail",
+        name: "ageDetail",
+        rows: "2",
+        classes: "govuk-!-width-full",
+        value: data['ageDetail'],
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "ivoryAge",
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "It has a stamp, serial number or signature to prove its age",
+            text: "It has a stamp, serial number or signature to prove its age",
+            id: "ivory-age-datemark",
+            checked: checked("ivoryAge", "It has a stamp, serial number or signature to prove its age")
+          },
+          {
+            value: "I have a dated receipt showing when it was bought or repaired",
+            text: "I have a dated receipt showing when it was bought or repaired",
+            id: "ivory-age-receipt",
+            checked: checked("ivoryAge", "I have a dated receipt showing when it was bought or repaired")
+          },
+          {
+            value: "I have a dated publication that shows or describes the item",
+            text: "I have a dated publication that shows or describes the item",
+            id: "ivory-age-publication",
+            checked: checked("ivoryAge", "I have a dated publication that shows or describes the item")
+          },
+          {
+            value: "It's been in the family since before 3 March " + ivoryYear +"",
+            text: "It's been in the family since before 3 March " + ivoryYear +"",
+            id: "ivory-age-family",
+            checked: checked("ivoryAge", "It's been in the family since before 3 March " + ivoryYear +"")
+          },
+          {
+            value: "I have written verification from a relevant expert",
+            text: "I have written verification from a relevant expert",
+            id: "ivory-age-written",
+            checked: checked("ivoryAge", "I have written verification from a relevant expert")
+          },
+          {
+            value: "I am an expert, and it’s my professional opinion",
+            text: "I am an expert, and it’s my professional opinion",
+            id: "ivory-age-expert",
+            checked: checked("ivoryAge", "I am an expert, and it’s my professional opinion")
+          },
+          {
+            value: "Other reason",
+            text: "Other reason",
+            id: "ivory-age-other",
+            checked: checked("ivoryAge", "Other reason"),
+            conditional: {
+              html: ivoryAgeOtherHtml
+            }
+          }
+        ]
+      }) }}
+
+
+{% else %}
+
+
+      {% set ivoryAgeOtherHtml %}
+      {{ govukTextarea({
+        id: "ageDetail",
+        name: "ageDetail",
+        rows: "2",
+        classes: "govuk-!-width-full",
+        value: data['ageDetail'],
+        label: {
+          text: "Give details"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "ivoryAge",
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "It has a stamp, serial number or signature to prove its age",
+            text: "It has a stamp, serial number or signature to prove its age",
+            id: "ivory-age-datemark",
+            checked: checked("ivoryAge", "It has a stamp, serial number or signature to prove its age")
+          },
+          {
+            value: "I have a dated receipt showing when it was bought or repaired",
+            text: "I have a dated receipt showing when it was bought or repaired",
+            id: "ivory-age-receipt",
+            checked: checked("ivoryAge", "I have a dated receipt showing when it was bought or repaired")
+          },
+          {
+            value: "I have a dated publication that shows or describes the item",
+            text: "I have a dated publication that shows or describes the item",
+            id: "ivory-age-publication",
+            checked: checked("ivoryAge", "I have a dated publication that shows or describes the item")
+          },
+          {
+            value: "It's been in the family since before " + ivoryYear +"",
+            text: "It's been in the family since before " + ivoryYear +"",
+            id: "ivory-age-family",
+            checked: checked("ivoryAge", "It's been in the family since before " + ivoryYear +"")
+          },
+          {
+            value: "I have written verification from a relevant expert",
+            text: "I have written verification from a relevant expert",
+            id: "ivory-age-written",
+            checked: checked("ivoryAge", "I have written verification from a relevant expert")
+          },
+          {
+            value: "I am an expert, and it’s my professional opinion",
+            text: "I am an expert, and it’s my professional opinion",
+            id: "ivory-age-expert",
+            checked: checked("ivoryAge", "I am an expert, and it’s my professional opinion")
+          },
+          {
+            value: "Other reason",
+            text: "Other reason",
+            id: "ivory-age-other",
+            checked: checked("ivoryAge", "Other reason"),
+            conditional: {
+              html: ivoryAgeOtherHtml
+            }
+          }
+        ]
+      }) }}
+
+
+{% endif %}
+
+
+    </div>
+
+    <button class="govuk-button">Continue</button>
+
+  </form>
+
+</div>
+</div>
+
+
+{% endblock %}
