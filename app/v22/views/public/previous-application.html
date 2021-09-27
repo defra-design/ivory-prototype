@@ -1,0 +1,51 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Enter the application number for the previous application" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-heading-l">
+              <label class="govuk-label govuk-label--l" for="previous-number">{{ thisPageTitle }}</label>
+            </h1>
+
+              <p class="govuk">You can find this on any of the emails related to the application.</p>
+
+              <div class="govuk-form-group">
+                <input class="govuk-input" id="previous-number" name="previous-number" type="text">
+              </div>
+          </div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I don't have the previous application number
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">You must provide the previous application number, as we aim to send all reapplications to a different expert.</p>
+              <p class="govuk-body">If you do not have this number you can contact the Animal Health and Plant Agency (APHA): <a href="#" class="govuk-link">IvoryAct@apha.gov.uk</a> and they will try to find your application.</p>
+            </div>
+          </details>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

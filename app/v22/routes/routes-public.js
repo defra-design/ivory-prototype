@@ -194,6 +194,8 @@ router.post('/what-type-of-item-is-it', function (req, res) {
 
     if (req.session.data.photos && req.session.data.photos.length) {
       res.redirect('your-photos')
+    } else if (req.session.data['exemptionChoice'] == 'type5') {
+      res.redirect('already-certified')
     } else {
       res.redirect('eligibility-end')
     }
@@ -1851,7 +1853,7 @@ router.post('/is-it-RMI', function (req, res) {
 
   if (isitRMI === 'yes') {
     req.session.data['exemptionChoice'] = 'type5'
-    res.redirect('eligibility-end')
+    res.redirect('ivory-added')
   } else if (isitRMI === 'idk'){
     res.redirect('cannot-continue')
   } else {
@@ -1869,7 +1871,9 @@ router.post('/ivory-added', function (req, res) {
 
   let ivoryAdded = req.session.data['ivoryAdded']
 
-  if (ivoryAdded === 'no'){
+  if (ivoryAdded === 'no' && req.session.data['exemptionChoice'] === 'type5'){
+    res.redirect('already-certified')
+  } if (ivoryAdded === 'no' && req.session.data['exemptionChoice'] != 'type5'){
     res.redirect('eligibility-end')
   } else if (ivoryAdded === 'yes'){
     res.redirect('ivory-added-2')
@@ -1912,7 +1916,9 @@ router.post('/ivory-added-2', function (req, res) {
 
   let ivoryAdded2 = req.session.data['ivoryAdded2']
 
-  if (ivoryAdded2 === 'no' && req.session.data['knowItemsExempt'] === 'unsure') {
+  if (ivoryAdded2 === 'no' && req.session.data['exemptionChoice'] === 'type5'){
+    res.redirect('already-certified')
+  } if (ivoryAdded2 === 'no' && req.session.data['exemptionChoice'] != 'type5'){
     res.redirect('eligibility-end')
   } else if (ivoryAdded2 === 'yes'){
     res.redirect('based-on-your-answers')
@@ -2117,5 +2123,41 @@ router.post('/2-who-selling-on-behalf-of', function (req, res) {
     }
 })
 
+////////////////////  RMI additional features  ////////////////////////
+
+// ALREADY CERTIFIED
+router.get('/already-certified', function (req, res) {
+  res.render(viewsFolder + 'already-certified')
+})
+
+router.post('/already-certified', function (req, res) {
+  if (req.session.data['alreadyCertified'] == 'Yes') {
+    res.redirect('eligibility-end')
+    } else {
+    res.redirect('applied-before')
+    }
+})
+
+// APPLIED BEFORE
+router.get('/applied-before', function (req, res) {
+  res.render(viewsFolder + 'applied-before')
+})
+
+router.post('/applied-before', function (req, res) {
+  if (req.session.data['appliedBefore'] == 'Yes') {
+    res.redirect('previous-application')
+    } else {
+    res.redirect('eligibility-end')
+    }
+})
+
+// PREVIOUS APPLICATION
+router.get('/previous-application', function (req, res) {
+  res.render(viewsFolder + 'previous-application')
+})
+
+router.post('/previous-application', function (req, res) {
+  res.redirect('eligibility-end')
+})
 
 module.exports = router

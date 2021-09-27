@@ -1,0 +1,70 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Does the item already have an exemption certificate?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="alreadyCertified-yes" name="alreadyCertified" type="radio" data-aria-controls="conditional-applicationNumber" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="alreadyCertified-yes">
+                    Yes
+                  </label>
+                </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-applicationNumber">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="applicationNumber">
+                          Enter certificate number
+                        </label>
+                        <input class="govuk-input govuk-!-width-one-third" id="applicationNumber" name="applicationNumber">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="alreadyCertified-no" name="alreadyCertified" type="radio" value="No">
+                    <label class="govuk-label govuk-radios__label" for="alreadyCertified-no">
+                      No
+                    </label>
+                  </div>
+              </div>
+
+          </div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                It does but I don't have the certificate or certificate number
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">You can find the certificate number towards the top of the digital certificate we emailed the owner when their application was successful.</p>
+              <p class="govuk-body">If you bought the item, the previous owner should have given you the certificate as part of the transaction. You may have received this by email.</p>
+              <p class="govuk-body">For a replacement certificate, you can contact the Animal Health and Plant Agency (APHA): <a href="#" class="govuk-link">IvoryAct@apha.gov.uk</a>. You will have to prove that you are the owner of the item and there will be an admin fee of £X.</p>
+            </div>
+          </details>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
