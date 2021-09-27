@@ -44,7 +44,7 @@
           <p class="govuk-body"><a class="govuk-link" href="guidance-new">Cancel</p>
 
           <!-- RMI and Checker -->
-          {% if (data['knowItemsExempt'] === "unsure") and (data['exemptionChoice'] === "type5") %}
+          {% elseif (data['knowItemsExempt'] === "unsure") and (data['exemptionChoice'] === "type5") %}
           <h1 class="govuk-heading-l">You can now apply for an exemption certificate</h1>
 
             <p class="govuk-body">Based on your answers, it sounds like your item could be a pre-1918 item of outstandingly high artistic, cultural or historical value.</p>
