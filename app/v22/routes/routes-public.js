@@ -2131,10 +2131,12 @@ router.get('/already-certified', function (req, res) {
 })
 
 router.post('/already-certified', function (req, res) {
-  if (req.session.data['alreadyCertified'] == 'Yes') {
-    res.redirect('eligibility-end')
-    } else {
+  if (req.session.data['alreadyCertified'] == 'No') {
     res.redirect('applied-before')
+    } else if (req.session.data['alreadyCertified'] == 'It used to'){
+    res.redirect('revoked-certificate')
+    } else {
+    res.redirect('eligibility-end')
     }
 })
 
@@ -2157,6 +2159,15 @@ router.get('/previous-application', function (req, res) {
 })
 
 router.post('/previous-application', function (req, res) {
+  res.redirect('eligibility-end')
+})
+
+// REVOKED CERTIFICATE
+router.get('/revoked-certificate', function (req, res) {
+  res.render(viewsFolder + 'revoked-certificate')
+})
+
+router.post('/revoked-certificate', function (req, res) {
   res.redirect('eligibility-end')
 })
 

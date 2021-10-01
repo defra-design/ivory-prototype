@@ -20,6 +20,7 @@
 
               <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
+              <!-- <p class="govuk-body">Answer 'yes' if the item has ever had a certificate, even if this has since been cancelled or 'revoked'.</p> -->
 
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
@@ -33,6 +34,9 @@
                         <label class="govuk-label" for="applicationNumber">
                           Enter certificate number
                         </label>
+                        <div id="event-name-hint" class="govuk-hint">
+                          For example, '10AB010C'
+                        </div>
                         <input class="govuk-input govuk-!-width-one-third" id="applicationNumber" name="applicationNumber">
                     </div>
                   </div>
@@ -41,6 +45,15 @@
                     <label class="govuk-label govuk-radios__label" for="alreadyCertified-no">
                       No
                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="alreadyCertified-usedTo" name="alreadyCertified" type="radio" value="It used to">
+                    <label class="govuk-label govuk-radios__label" for="alreadyCertified-usedTo">
+                      It used to
+                    </label>
+                    <div id="alreadyCertified-usedTo-hint" class="govuk-hint govuk-radios__hint">
+                      The certificate has been cancelled or 'revoked'
+                    </div>
                   </div>
               </div>
 
@@ -55,7 +68,9 @@
             <div class="govuk-details__text">
               <p class="govuk-body">You can find the certificate number towards the top of the digital certificate we emailed the owner when their application was successful.</p>
               <p class="govuk-body">If you bought the item, the previous owner should have given you the certificate as part of the transaction. You may have received this by email.</p>
-              <p class="govuk-body">For a replacement certificate, you can contact the Animal Health and Plant Agency (APHA): <a href="#" class="govuk-link">IvoryAct@apha.gov.uk</a>. You will have to prove that you are the owner of the item and there will be an admin fee of £X.</p>
+              <p class="govuk-body">Without this number, you will have to make a fresh application for your item.</p>
+
+              <!-- <p class="govuk-body">For a replacement certificate, you can contact the Animal Health and Plant Agency (APHA): <a href="#" class="govuk-link">IvoryAct@apha.gov.uk</a>. You will have to prove that you are the owner of the item and there will be an admin fee of £X.</p> -->
             </div>
           </details>
 

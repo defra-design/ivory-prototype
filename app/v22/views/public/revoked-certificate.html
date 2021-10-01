@@ -1,6 +1,6 @@
 {% extends "./layout.html" %}
 
-{% set thisPageTitle = "Enter the submission reference for the previous application" %}
+{% set thisPageTitle = "Enter the certificate number from the cancelled or 'revoked' certficate" %}
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -21,11 +21,11 @@
               <label class="govuk-label govuk-label--l" for="previous-number">{{ thisPageTitle }}</label>
             </h1>
 
-              <p class="govuk">This is a X digit number you can find on any of the emails related to the application.</p>
+              <!-- <p class="govuk">Enter the </p> -->
 
               <div class="govuk-form-group">
                 <div id="event-name-hint" class="govuk-hint">
-                  For example, 'RMI-12345678'
+                  For example, '10AB010C'
                 </div>
                 <input class="govuk-input govuk-!-width-one-third" id="previous-number" name="previous-number" type="text">
               </div>
@@ -34,12 +34,12 @@
           <details class="govuk-details" data-module="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                I don't have the submission reference
+                I don't have the certificate or certificate number
               </span>
             </summary>
             <div class="govuk-details__text">
-              <p class="govuk-body">You must provide the submission reference for the previous application so that we can process your new application.</p>
-              <p class="govuk-body">We aim to send all new applications to a different expert for a fresh opinion.</p>
+              <p class="govuk-body">You can find the certificate number towards the top of the digital certificate we emailed the owner when their original application was successful. You'll also be able to find it referenced in any emails or letters from when the certificate was revoked.</p>
+              <p class="govuk-body">If you bought the item, the previous owner should have given you the certificate as part of the transaction. You may have received this by email.</p>
             </div>
           </details>
 
