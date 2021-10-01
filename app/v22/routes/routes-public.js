@@ -1958,7 +1958,11 @@ router.get('/legal-haltpage', function (req, res) {
 })
 
 router.post('/legal-haltpage', function (req, res) {
-  res.redirect('add-photo')
+  if (req.session.data['alreadyCertified'] == 'Yes') {
+    res.redirect('who-owns-item')
+  } else {
+    res.redirect('add-photo')
+  }
 })
 
 

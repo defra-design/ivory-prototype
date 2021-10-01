@@ -11,13 +11,13 @@ Legal warning - {{ serviceName }} - GOV.UK
     <div class="flash-card">
 
 
-        {% if data['exemptionChoice'] === "type5" %}
+        {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
 
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
 
             <header>
-              <h1 class="govuk-heading-l">Both the owner and applicant are jointly responsible for providing accurate information when making an application</h1>
+              <h1 class="govuk-heading-l">Both the owner and applicant are jointly responsible for providing accurate information</h1>
             </header>
 
             </div>
@@ -33,6 +33,30 @@ Legal warning - {{ serviceName }} - GOV.UK
               <div class="govuk-inset-text" style="border-left: 10px solid white">
                 <p>If we later find out that the information you’ve given is not accurate, the applicant or owner could be fined or prosecuted.</p>
               </div>
+
+
+          {% elseif data['exemptionChoice'] === "type5" %}
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+
+              <header>
+                <h1 class="govuk-heading-l">Both the owner and applicant are jointly responsible for providing accurate information when making an application</h1>
+              </header>
+
+              </div>
+            </div>
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-two-thirds">
+
+                <p class="govuk-body">The Ivory Act 2018 permits you to do an application for someone else, but you must have permission to act on their behalf.</p>
+
+                <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+                <div class="govuk-inset-text" style="border-left: 10px solid white">
+                  <p>If we later find out that the information you’ve given is not accurate, the applicant or owner could be fined or prosecuted.</p>
+                </div>
 
 
           {% else %}
