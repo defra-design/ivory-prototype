@@ -355,6 +355,42 @@
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
       </div>
+    <!-- RMI post MVS features -->
+      {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "No") %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Already has a certficate</dt>
+        <dd class="app-check-your-answers__answer">No</dd>
+        <dd class="app-check-your-answers__change"><a href="already-certified">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Applied before</dt>
+        <dd class="app-check-your-answers__answer">{{ data['appliedBefore'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="applied-before">Change</a></dd>
+      </div>
+      <!-- RMI Revoked application  -->
+      {% elseif (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "It used to") %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">
+          Already has a certficate
+          <br><br>Revoked certificate number
+        </dt>
+        <dd class="app-check-your-answers__answer">
+          It used to
+          <br><br><br>{{data['previous-number']}}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="already-certified">Change</a></dd>
+      </div>
+
+      {% endif %}
+        <!-- RMI Reapplication -->
+      {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "No") and (data['appliedBefore'] === "Yes") %}
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Previous application number</dt>
+        <dd class="app-check-your-answers__answer">{{ data['previous-number'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="previous-application">Change</a></dd>
+      </div>
+      {% else %}
+      {% endif %}
   </dl>
 
 
