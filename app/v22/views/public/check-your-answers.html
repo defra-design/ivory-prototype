@@ -370,15 +370,14 @@
       <!-- RMI Revoked application  -->
       {% elseif (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "It used to") %}
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">
-          Already has a certficate
-          <br><br>Revoked certificate number
-        </dt>
-        <dd class="app-check-your-answers__answer">
-          It used to
-          <br><br><br>{{data['previous-number']}}
-        </dd>
+        <dt class="app-check-your-answers__question">Already has a certficate</dt>
+        <dd class="app-check-your-answers__answer">It used to</dd>
         <dd class="app-check-your-answers__change"><a href="already-certified">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Revoked certificate number</dt>
+        <dd class="app-check-your-answers__answer">{{data['previous-number']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="previous-previous">Change</a></dd>
       </div>
 
       {% endif %}
