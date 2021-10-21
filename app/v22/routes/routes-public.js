@@ -2175,4 +2175,11 @@ router.post('/revoked-certificate', function (req, res) {
   res.redirect('eligibility-end')
 })
 
+
+// PASS DATA TO PI's
+router.get('/pass-data-to-pi', function (req, res) {
+  res.render(viewsFolder + 'pass-data-to-pi')
+})
+
+
 module.exports = router
