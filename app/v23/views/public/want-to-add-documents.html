@@ -1,0 +1,46 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              Do you want to add any documents to support your application?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="documents-yes" name="documents" type="radio" value="Yes"/>
+              <label class="govuk-label govuk-radios__label" for="documents-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="documents-no" name="documents" type="radio" value="No"/>
+              <label class="govuk-label govuk-radios__label" for="documents-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Tell us you want to trade ivory
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs " data-module="track-click">
+  <ol class="govuk-breadcrumbs__list" style="font-size: 16px">
+    <li class="govuk-breadcrumbs__list-item" aria-current="false">
+      <a data-track-category="homeLinkClicked" data-track-action="homeBreadcrumb" data-track-label="" data-track-options="{}" class="govuk-breadcrumbs__link" aria-current="false" href="/">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item" aria-current="false">
+      <a data-track-category="breadcrumbClicked" data-track-action="2" data-track-label="/topic/environmental-management" data-track-options="{&quot;dimension28&quot;:&quot;3&quot;,&quot;dimension29&quot;:&quot;Environmental management &quot;}" class="govuk-breadcrumbs__link" aria-current="false" href="/topic/environmental-management">Environmental management </a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item" aria-current="false">
+      <a data-track-category="breadcrumbClicked" data-track-action="3" data-track-label="/topic/environmental-management/wildlife-habitat-conservation" data-track-options="{&quot;dimension28&quot;:&quot;3&quot;,&quot;dimension29&quot;:&quot;Wildlife and habitat conservation&quot;}" class="govuk-breadcrumbs__link" aria-current="false" href="/topic/environmental-management/wildlife-habitat-conservation">Wildlife and habitat conservation</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item" aria-current="false">
+      <a data-track-category="breadcrumbClicked" data-track-action="3" data-track-label="/topic/environmental-management/wildlife-habitat-conservation" data-track-options="{&quot;dimension28&quot;:&quot;3&quot;,&quot;dimension29&quot;:&quot;Wildlife and habitat conservation&quot;}" class="govuk-breadcrumbs__link" aria-current="false" href="guidance-new">Ivory Act 2018</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" novalidate>
+
+      <h1 class="govuk-heading-xl">Tell us you want to sell or hire out ivory</h1>
+
+      <p>Use this service before you sell or hire out any ivory items that meet the exemption criteria in the Ivory Act 2018.</p>
+
+      <h2 class="govuk-heading-m">What it costs</h2>
+
+      <p>If your item needs to be registered, you’ll need to pay £xx.</p>
+      <p>If your item needs a certificate, you’ll need to pay £xxx.</p>
+
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+        <p>You'll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a photo that shows the whole item</li>
+          <li>extra photos, if it’s not clear from the main photo how much ivory is in the item</li>
+          <li>a debit or credit card to make payment</li>
+        </ul>
+
+
+        <input type="hidden" value="noHalt" name="haltTrigger" />
+        <button class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start" data-module="govuk-button">Start now
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}

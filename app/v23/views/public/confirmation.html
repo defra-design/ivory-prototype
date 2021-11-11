@@ -1,0 +1,93 @@
+
+{% block pageTitle %}
+Registration complete
+{% endblock %}
+
+
+{% extends "./layout.html" %}
+<!-- beforeContent overridden so we don't get the back link (which is in layout.html beforeContent...hmm, maybe clunky) -->
+{% block beforeContent %}
+  {% include "../includes/stage-banner.html" %}
+{% endblock %}
+{% block content %}
+
+<!-- BOTH CITES PERMIT AND MAYBE CERTIFICATE (MUSICAL INSTRUMENT)-->
+{% if (data['permit'] == "Yes") or (data['permit'] == "I don't know")  %}
+<!-- or (data['exemptionChoice'] == "type2") -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6" style="background-color: #b1b4b6; color: black">
+        <h1 class="govuk-panel__title">Self-assessment complete</h1>
+        <div class="govuk-panel__body">
+          Submission reference
+          <br><strong>4HCP37NL</strong>
+        </div>
+      </div>
+
+      <!-- <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">Download details of this self-assessment</a></p> -->
+
+      <p class="govuk-body">We’ve also sent these details to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{data['agentEmail']}}</li>
+        {% if data['ownerEmail'] != null %}
+        <li>{{data['ownerEmail']}}</li>
+        {% else %}
+        {% endif %}
+      </ul>
+
+      <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+      <a href="confirmation-cites" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">Continue</a>
+
+
+
+  {% else %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6">
+        <h1 class="govuk-panel__title">Self-assessment complete</h1>
+        <div class="govuk-panel__body">
+          Submission reference
+          <br><strong>4HCP37NL</strong>
+        </div>
+      </div>
+
+      <!-- <p class="govuk-body"><a href="/public/files/Confirmation.pdf" download">View details of this self-assessment</a></p> -->
+
+      <p class="govuk-body">We’ve also sent these details to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{data['agentEmail']}}</li>
+        {% if data['ownerEmail'] != null %}
+        <li>{{data['ownerEmail']}}</li>
+        {% else %}
+        {% endif %}
+      </ul>
+
+      <p class="govuk-body">This self-assessment expires when the owner of the item changes.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">You can sell or hire out the item at your own risk.</p>
+        <p class="govuk-body">If you do so, and we later discover that you’ve given us false information, you could be fined or prosecuted.</p>
+        <p class="govuk-body">This self-assessment lasts until the owner of the item changes.</p>
+
+      <a href="guidance-new" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">Finish</a>
+
+
+
+
+  {% endif %}
+
+
+
+      <p class="govuk-body invisible-link">
+            <a href="confirmation-email" class="govuk-link">View confirmation email</a>
+      </p>
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

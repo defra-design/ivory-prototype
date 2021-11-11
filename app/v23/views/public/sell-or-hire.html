@@ -1,0 +1,52 @@
+{% extends "./layout.html" %} {% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+              What do you intend to do with the item?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sellHire-sell" name="sellHire" type="radio" value="Sell it"/>
+              <label class="govuk-label govuk-radios__label" for="sellHire-sell">
+                Sell it
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sellHire-hire" name="sellHire" type="radio" value="Hire it out"/>
+              <label class="govuk-label govuk-radios__label" for="sellHire-hire">
+                Hire it out
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sellHire-idk" name="sellHire" type="radio" value="I don't know"/>
+              <label class="govuk-label govuk-radios__label" for="sellHire-idk">
+                I’m not sure yet
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

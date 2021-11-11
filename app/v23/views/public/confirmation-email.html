@@ -1,0 +1,137 @@
+{% extends "./layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Confirmation email
+{% endblock %}
+
+{% block content %}
+
+{% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Reselling your ivory item - confirmation</dd>
+
+  </dl>
+
+      <p class="govuk-body">Dear {{ data['agentName'] }},</p>
+      <p class="govuk-body">You've told us that you intend to sell or hire out your ivory item of outstandingly high artistic, cultural or historical value.</p>
+
+      <p class="govuk-body">You confirmed that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the information on the item's certificate is still accurate and complete</li>
+        <li>the certificate was issued for this item</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-bold">What happens next</p>
+
+      <p class="govuk-body">You can now sell or hire out your item.</p>
+      <p class="govuk-body">You must pass on the item's certificate to the new owner as part of the transaction.</p>
+''
+
+      <p class="govuk-body">Animal and Health Agency (APHA)</p>
+
+
+{% elseif data['exemptionChoice'] == "type5" %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date"> Ivory application for certification: RMI-238746</dd>
+
+  </dl>
+
+      <p class="govuk-body">Dear {{ data['agentName'] }},</p>
+      <p class="govuk-body">You have completed an application for certification. You have told us the item:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>was made before 1918 and has outstandingly high artistic, cultural or historical value</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission reference</p>
+        <p class="govuk-body">RMI-238746</p>
+
+        <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">What happens next</p>
+
+        <p class="govuk-body">An expert will check your application. We will contact you if we require more information.</p>
+        <p class="govuk-body">If your application is approved, we will send you an exemption certificate to sell or hire out  your item.</p>
+        <p class="govuk-body">This message has been sent from a do-not-reply email address. If you have not heard from us within 35 working days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>.</p>
+
+        <p class="govuk-body">You will need to provide your submission reference.</p>
+
+        <p class="govuk-body">Animal and Health Agency (APHA)</p>
+
+
+{% else %}
+
+  <dl class="defra-dl defra-email-header">
+
+    <dt class="defra-dt defra-dt__email-header">From</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">ivory@apha.gov.uk</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">To</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ data['agentEmail'] }}</dd>
+
+    <br>
+
+    <dt class="defra-dt defra-dt__email-header">Subject</dt>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory self-assessment: 4HCP37NL</dd>
+
+  </dl>
+
+    <p class="govuk-body">Dear {{ data['agentName'] }},</p>
+    <p class="govuk-body">You have completed a self-assessment. You have told us the item is:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      {% if data['exemptionChoice'] == "type2" %}
+      <li>a musical instrument made before 1975 with less than 20% ivory</li>
+      {% elseif data['exemptionChoice'] == "type1" %}
+      <li>an item made before 3 March 1947 with less than 10% ivory</li>
+      {% elseif data['exemptionChoice'] == "type3" %}
+      <li>a portrait miniature made before 1918 with a surface area less than 320 square centimetres</li>
+      {% else %}
+      <li>an item to be sold or hired out to a qualifying museum</li>
+      {% endif %}
+    </ul>
+
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission reference</p>
+      <p class="govuk-body">4HCP37NL</p>
+
+      <p class="govuk-body">You can now sell or hire out the item. This self-assessment expires when the owner of the item changes.</p>
+
+      <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+      <p class="govuk-body">This message has been sent from a do-not-reply email address. You can contact us at <a class="govuk-link" href="#">IvoryAct@apha.gov.uk</a>. You will need to provide your submission reference.</p>
+
+      <p class="govuk-body">Animal and Health Agency (APHA)</p>
+
+
+
+{% endif %}
+
+
+
+{% endblock %}
