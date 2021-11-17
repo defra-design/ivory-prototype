@@ -477,7 +477,7 @@ router.post('/describe-the-item', function (req, res) {
   if (req.session.data['checkYourAnswers'] == 'hub') {
     res.redirect('check-your-answers')
   } else if (req.session.data['exemptionChoice'] == 'type4'){
-    res.redirect('add-photo')
+    res.redirect('who-owns-item')
   } else if (req.session.data['exemptionChoice'] == 'type3'){
     res.redirect('ivory-age')
   } else {
