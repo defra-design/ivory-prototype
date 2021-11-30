@@ -1,8 +1,5 @@
 {% extends "layout.html" %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
-{% set mainClasses = "govuk-main-wrapper--l" %}
-
 {% block pageTitle %}
   Task list
 {% endblock %}
@@ -15,6 +12,9 @@
         Service name goes here
       </h1>
 
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 8 sections.</p>
+
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
@@ -22,68 +22,82 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#" aria-describedby="eligibility-completed">
-                Check eligibility
-              </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Check eligibility
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#" aria-describedby="read-declaration-completed">
-                Read declaration
-              </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="read-declaration-status">
+                  Read declaration
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
             </li>
           </ul>
         </li>
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span> Prepare application
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#" aria-describedby="company-information-completed">
-                Company information
-              </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="company-information-status">
+                  Company information
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#" aria-describedby="contact-details-completed">
-                Your contact details
-              </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="contact-details-completed">Completed</strong>
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="contact-details-status">
+                  Your contact details
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#">
-                List convictions
-              </a>
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="list-convictions-status">
+                  List convictions
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#">
+              <span class="app-task-list__task-name">
                 Provide financial evidence
-              </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Cannot start yet</strong>
             </li>
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#" aria-describedby="medical-information-completed">
+              <span class="app-task-list__task-name">
                 Give medical information
-              </a>
-              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">Completed</strong>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="medical-information-status">Cannot start yet</strong>
             </li>
           </ul>
         </li>
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">3. </span> Apply
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              <a class="app-task-list__task-name" href="#">
+              <span class="app-task-list__task-name">
                 Submit and pay
-              </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
             </li>
           </ul>
         </li>
       </ol>
-
     </div>
   </div>
 
