@@ -1,0 +1,152 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Confirm the volume of ivory" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <!--    <form method="post" autocomplete="off" {{ novalidateVal }}>-->
+    <form method="post" autocomplete="off">
+
+
+      <div class="govuk-form-group">
+
+        {% if data['exemptionChoice'] == 'type5' %}
+
+        <h1 class="govuk-heading-l">Why is your item of outstandingly high artistic, cultural or historical value?</h1>
+
+        <p class="govuk-body">Make your case in the text box below.</p>
+        <p class="govuk-body">You can upload supporting documents later on. If you’d prefer to make your case within these documents, use the text box to summarise any documents you want to upload.</p>
+
+
+        <details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+               What qualifies as ‘outstandingly high artistic, cultural or historical value’?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            <p class="govuk-body">The item must:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>have been made before 1 January 1918</li>
+              <li>be a rare and socially significant example of its type</li>
+            </ul>
+
+            <p class="govuk-body">An item that only has sentimental value would not qualify, regardless of how important it is to you personally.</p>
+
+            <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when approving items for sale or hire.</p>
+
+            <p class="govuk-body">They’ll consider various things, such as whether an item:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>is unique or extremely rare</li>
+              <li>is of high artistic or aesthetic quality, for example from a known artist, school or studio</li>
+              <li>is in better condition than other items like it</li>
+              <li>is part of a well-known collection</li>
+              <li>has an important history</li>
+              <li>is important to a specific place or region</li>
+              <li>has previously been recognised for its value or status, for example being recognised as a national treasure</li>
+            </ul>
+          </div>
+        </details>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" style="visibility: hidden" for="volume-detail">
+            What evidence can you provide to support your application?
+          </label>
+          <textarea class="govuk-textarea" id="volume-detail" name="volumeDetail" rows="3" aria-describedby="volume-detail-hint">{{ data['volumeDetail'] }}</textarea>
+        </div>
+
+
+
+        <!-- <h2 class="govuk-heading-m">Add up to 3 files</h2>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div> -->
+
+
+        {% else %}
+
+
+        <h1 class="govuk-heading-l">
+          How do you know the item has less than {{ ivoryVolume }} ivory by volume?
+        </h1>
+
+        <p class="govuk-body">You must keep any physical evidence that supports your answer. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+
+
+        {% set ivoryVolumeOtherHtml %}
+        {{ govukTextarea({
+          id: "volumeDetail",
+          name: "volumeDetail",
+          rows: "2",
+          classes: "govuk-!-width-full",
+          value: data['volumeDetail'],
+          label: {
+            text: "Give details"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "ivoryVolume",
+          items: [
+            {
+              value: "It’s clear from looking at it",
+              text: "It’s clear from looking at it",
+              id: "ivory-volume-eye",
+              checked: checked("ivoryVolume", "It’s clear from looking at it")
+            },
+            {
+              value: "I measured it",
+              text: "I measured it",
+              id: "ivory-volume-measured",
+              checked: checked("ivoryVolume", "I measured it")
+            },
+            {
+              value: "I have written verification from a relevant expert",
+              text: "I have written verification from a relevant expert",
+              id: "ivory-volume-expert",
+              checked: checked("ivoryVolume", "I have written verification from a relevant expert")
+            },
+            {
+              value: "Other reason",
+              text: "Other reason",
+              id: "ivory-age-other",
+              checked: checked("ivoryVolume", "Other reason"),
+              conditional: {
+                html: ivoryVolumeOtherHtml
+              }
+            }
+          ]
+        }) }}
+
+
+        {% endif %}
+
+      </div>
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

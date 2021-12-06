@@ -1,0 +1,419 @@
+{% extends "./layout_unbranded.html" %}
+
+{% set registrationNumber = "4HCP37NL" %}
+
+{% block pageTitle %}
+  Confirmation of application to register an ivory item
+{% endblock %}
+
+{% block content %}
+
+<!--
+
+APHA logo and other info?
+
+-->
+
+
+
+<div class="reg-doc-header">
+
+  <div class="govuk-body reg-doc-logo">
+    <img src="/public/images/org_crest_18px.png" />
+    <br />
+    Animal &amp;
+    <br />
+    Plant Health
+    <br />
+    Agency
+  </div>
+
+
+
+  <h1 class="govuk-heading-l reg-doc reg-doc-centre">
+    Ivory registration
+    <span class="reg-doc-number">
+    {{ registrationNumber }}
+      </span>
+  </h1>
+
+  <p class="govuk-body reg-doc-date reg-doc-centre">
+    Date of registration: {{ dateOfRegistration }}
+  </p>
+
+
+
+</div>
+
+
+
+<div class="reg-doc-main">
+
+
+  <div class="reg-doc-section">
+
+<h2 class="govuk-heading-l">
+  Owner details
+</h2>
+
+
+<p class="govuk-body">
+  {{ data['ownerName'] }}
+</p>
+
+<p class="govuk-body">
+  {{ data['addressBusiness']}},
+  {{ data['addressLine1'] }},
+  {{ data['addressLine2'] }},
+  {{ data['addressTown'] }},
+  {{ data['addressCounty'] }},
+  {{ data['addressPostcode'] }}
+</p>
+
+  </div>
+
+  <div class="reg-doc-section">
+
+<h2 class="govuk-heading-l ">
+  Item details
+</h2>
+
+
+    <ul class="ivory-photos-list">
+
+
+      {% for photo in data['photos'] %}
+      <li class="ivory-photo-item">
+        <img class="ivory-photo" src="{{baseUrl}}/photos/{{photo}}" />
+      </li>
+      {%  endfor %}
+
+    </ul>
+
+
+
+<p class="govuk-body">
+  {{ data['description'] }}
+</p>
+
+
+
+
+
+
+
+
+
+
+{% if data['exemptionChoice'] == 'type1' %}
+<!-- de minimis -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as an item made before 1947 with less than 10% ivory.
+</p>
+
+<p class="govuk-body govuk-!-margin-top-9">
+  Evidence it was made before 1947:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
+
+
+
+
+
+
+
+<p class="govuk-body govuk-!-margin-top-9">
+  Evidence the ivory is integral to the item:
+</p>
+
+<p class="govuk-body">
+  {{ data['ivoryIntegralDetail'] }}
+</p>
+
+
+
+
+    <p class="govuk-body govuk-!-margin-top-9">
+  Evidence it has less than 10% ivory:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryVolume'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+{% if data['exemptionChoice'] == 'type2' %}
+<!-- Musical instrument -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as a musical instrument made before 1975 with less than 20% ivory.
+</p>
+
+<p class="govuk-body">
+  Evidence it was made before 1975:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
+
+
+
+<p class="govuk-body">
+  Evidence it has less than 20% ivory:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryVolume'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% if data['exemptionChoice'] == 'type3' %}
+<!-- Portrait miniature -->
+<p class="govuk-body govuk-!-font-weight-bold">
+  This item has been registered and declared as a portrait miniature made before 1918 with a surface area less than 320 square centimetres.
+</p>
+
+<p class="govuk-body">
+  Evidence it was made before 1918:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  {% for reason in data['ivoryAge'] %}
+  <li>{{ reason }}</li>
+  {% else %}
+  <li>Not available</li>
+  {% endfor %}
+</ul>
+
+<p class="govuk-body">
+  Details:
+</p>
+
+<p class="govuk-body">
+  {{ data['ageDetail'] }}
+</p>
+
+<p class="govuk-body">
+  Evidence it has a surface ara less than 320 square centimetres:
+</p>
+
+<p class="govuk-body">
+  {{ data['volumeDetail'] }}
+</p>
+
+{% endif %}
+
+
+
+  </div>
+
+  <div class="reg-doc-section">
+
+
+
+
+<h2 class="govuk-heading-l">
+  What you need to do
+</h2>
+
+
+
+<h3 class="govuk-heading-m">
+  Seller information
+</h3>
+
+<p class="govuk-body">
+  You can sell this item based on the details in this registration document being correct.
+</p>
+
+<p class="govuk-body">
+  This registration expires when you sell the item.
+</p>
+
+<p class="govuk-body">
+  The registration will not expire if you hire out the item.
+</p>
+
+
+    <!--
+
+
+    Does the reader need the "Check before you buy" URL spelt out?
+    In print only, or on screen and in print?
+    We can use print styles to show/hide the URL... we get this out of the box with GOV.UK
+    Faking it at mo with www.gov.uk/guidance/check-before-you-buy-ivory
+
+
+    -->
+
+<p class="govuk-body">
+  You can give the registration number to a buyer so they can <a class="govuk-link" href="check-before-you-buy-an-ivory-item">check the item before they buy it</a>.
+</p>
+
+
+
+    <h4 class="govuk-heading-s">
+  Report changes
+</h4>
+
+<p class="govuk-body">
+  You must tell Animal and Plant Health Agency (APHA) if:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>any information about you or the item changes</li>
+<li>the item no longer meets the criteria for registration</li>
+</ul>
+
+
+<br />
+<br />
+
+<h3 class="govuk-heading-m">
+  Buyer information
+</h3>
+
+
+
+<p class="govuk-body">
+  Before you buy an ivory item, you must check:
+</p>
+
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the item is registered - and matches the description in the registration</li>
+  <!--  <li>the owner’s details are correct</li>-->
+  {% if data['exemptionChoice'] == 'type1' %}
+  <!-- de minimis -->
+  <li>you agree the item was made before 1947 and has less than 10% ivory</li>
+  {% endif %}
+  {% if data['exemptionChoice'] == 'type2' %}
+  <!-- musical instrument -->
+  <li>you agree the item is a musical instrument made before 1975 and has less than 20% ivory</li>
+  {% endif %}
+  {% if data['exemptionChoice'] == 'type3' %}
+  <!-- portrait miniature -->
+  <li>you agree the item is a portrait miniature made before 1918 and has a surface area less than 320 square centimetres</li>
+  {% endif %}
+</ul>
+
+
+<p class="govuk-body">
+  Use <a href="check-before-you-buy-an-ivory-item">check before you buy an ivory item</a> to view details of the item.
+  <br />
+  <span class="print-only">www.gov.uk/guidance/check-before-you-buy-ivory</span>
+</p>
+
+
+    <h4 class="govuk-heading-s">
+  After the sale
+</h4>
+
+<p class="govuk-body">
+  As the new owner you must:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>contact APHA to give them your name and address</li>
+  <li>register the item again if you plan to sell it</li>
+</ul>
+
+
+
+<h3 class="govuk-heading-m">
+  Read the guidance
+</h3>
+
+<p class="govuk-body">
+  Find out what to do if you want to sell, hire or buy ivory items <a href="a-guide-to-selling-hiring-and-buying-items-containing-ivory">https://www.gov.uk/guidance/a-guide-to-selling-hiring-and-buying-items-containing-ivory</a>
+</p>
+
+<h3 class="govuk-heading-m">
+  Contact us
+</h3>
+
+<p class="govuk-body">
+  To contact us email <a href="mailto:ivory@apha.gov.uk">ivory@apha.gov.uk</a>
+</p>
+
+  </div>
+
+
+</div>
+
+{% endblock %}

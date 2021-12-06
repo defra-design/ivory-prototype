@@ -1,0 +1,41 @@
+{% set pageTitle = "Your photos" %}
+
+{% extends "./layout.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Your photos</h1>
+
+    <p class="govuk-body">You can add up to 6 photos.</p>
+
+      {{ govukSummaryList({
+        rows: photosSummaryList
+      }) }}
+
+    <form method="post" autocomplete="off" novalidate >
+
+      {% if photosSummaryList.length < 6 %}
+
+      <p class="govuk-body govuk-!-margin-bottom-7">
+        <a href="add-photo">Add another photo</a>
+      </p>
+
+      {%  endif %}
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

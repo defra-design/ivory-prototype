@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Enter the submission reference for the previous application" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-heading-l">
+              <label class="govuk-label govuk-label--l" for="previous-number">{{ thisPageTitle }}</label>
+            </h1>
+
+              <p class="govuk">This is a X digit number you can find on any of the emails related to the application.</p>
+
+              <div class="govuk-form-group">
+                <div id="event-name-hint" class="govuk-hint">
+                  For example, 'RMI-12345678'
+                </div>
+                <input class="govuk-input govuk-!-width-one-third" id="previous-number" name="previous-number" type="text">
+              </div>
+          </div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I don't have the submission reference
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">You must provide the submission reference for the previous application so that we can process your new application.</p>
+              <p class="govuk-body">We aim to send all new applications to a different expert for a fresh opinion.</p>
+            </div>
+          </details>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

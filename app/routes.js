@@ -29,6 +29,8 @@ router.use('/v20', require('./v20/routes/routes'))
 router.use('/v21', require('./v21/routes/routes'))
 router.use('/v22', require('./v22/routes/routes'))
 router.use('/v23', require('./v23/routes/routes'))
+router.use('/v24', require('./v24/routes/routes'))
+
 
 
 

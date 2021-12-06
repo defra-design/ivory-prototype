@@ -1,0 +1,91 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Is your item a musical instrument?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <p class="govuk-body">This includes accessories used to play a musical instrument, like a violin bow, although these must be registered as separate items.</p>
+
+              <p class="govuk-body">This does not include:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>items shaped like musical instruments that are not designed to be played</li>
+                  <li>items used to create music or rhythm that were not made originally for that purpose </li>
+                  <li>parts of musical instruments, like individual piano keys</li>
+                </ul>
+
+              <!-- <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    How do I know if the instrument was made before 1975?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">You can use:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>an original receipt or bill</li>
+                      <li>a date mark on the item</li>
+                      <li>written proof from an expert, such as an antiques specialist</li>
+                      <li>personal knowledge or evidence that it’s been in the family since 1974 or before</li>
+                      <li>an article or a catalogue published before 1 January 1975 with photos or a detailed description of the item</li>
+                      <li>carbon dating</li>
+                    </ul>
+                </div>
+              </details>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    How can I tell if the instrument has less than 20% ivory?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">You must give a reasonable assessment of the volume of ivory in your item. In some cases, it’s easy to do this by eye. In others, you’ll need to take measurements.</p>
+
+                  <p class="govuk-body">Do not include any empty spaces, for instance the space within a violin or piano.</p>
+
+                  <p class="govuk-body">If it’s difficult to calculate ivory volume without damaging the item, you can make an assessment based on knowledge of similar items.</p>
+                </div>
+              </details> -->
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMusical-yes" name="isitMusical" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="isitMusical-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="isitMusical-no" name="isitMusical" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="isitMusical-no">
+                    No
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
