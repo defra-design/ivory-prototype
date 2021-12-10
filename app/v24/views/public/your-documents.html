@@ -1,7 +1,7 @@
 {% set pageTitle = "Your documents" %}
 
 {% extends "./layout.html" %}
-{% from "summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 {% block pageTitle %}
 {{ pageTitle }} - {{ serviceName }} - GOV.UK
@@ -14,28 +14,28 @@
 
     <form method="post" autocomplete="off" novalidate>
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Your documents</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Your supporting evidence</h1>
 
-      <p class="govuk-body">You can add up to 6 documents.</p>
+      <p class="govuk-body">You can add up to 6 files.</p>
 
         <dl class="govuk-summary-list ">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Document 1
+              File 1
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['file-upload-1'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
-                Remove<span class="govuk-visually-hidden"> document 1</span>
+                Remove<span class="govuk-visually-hidden"> file 1</span>
               </a>
             </dd>
           </div>
         </dl>
 
         <p class="govuk-body govuk-!-margin-bottom-7">
-          <a href="add-document">Add another document</a>
+          <a href="add-document">Add another file</a>
         </p>
 
       <button class="govuk-button">Continue</button>
