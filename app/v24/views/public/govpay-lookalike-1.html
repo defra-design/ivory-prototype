@@ -79,13 +79,22 @@
       <!-- SUMMARY ON RIGHT -->
       <div class="govuk-grid-column-one-third" style="border: 2px solid grey; border-width: 12px; padding: 20px;">
         <h3 class="govuk-heading-m">Payment summary</h3>
-        <p class="govuk-heading-s">{{ serviceName }}</p>
+          {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
+          <p class="govuk-heading-s">Payment for an item that has been previously certified</p>
+          {% elseif data['exemptionChoice'] == 'type5' %}
+          <p class="govuk-heading-s">Payment for an exemption certificate application</p>
+          {% else %}
+          <p class="govuk-heading-s">Payment for the registration of an ivory item</p>
+          {% endif %}
+
         <p class="govuk-heading-s">Total amount:</p>
-        {% if data['exemptionChoice'] == 'type5' %}
-        <p class="govuk-heading-l">£250.00</p>
-        {% else %}
-        <p class="govuk-heading-l">£20.00</p>
-        {% endif %}
+          {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
+          <p class="govuk-heading-l">£20.00</p>
+          {% elseif data['exemptionChoice'] == 'type5' %}
+          <p class="govuk-heading-l">£250.00</p>
+          {% else %}
+          <p class="govuk-heading-l">£20.00</p>
+          {% endif %}
       </div>
     </div>
 
