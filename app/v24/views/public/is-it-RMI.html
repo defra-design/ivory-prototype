@@ -19,7 +19,13 @@ Does your item have outstandingly high artistic, cultural or historical value? -
             {% if data['isitBefore1918'] === "yes" %}
 
             <h1 class="govuk-heading-l">Does your item have outstandingly high artistic, cultural or historical value?</h1>
-              <p class="govuk-body">The item must be a rare and socially significant example of its type.</p>
+
+            <p class="govuk-body">The item must be:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>rare</li>
+              <li>an important example of its type</li>
+              <li>or both of the above</li>
+            </ul>
 
               <div class="govuk-inset-text">
                 An item that only has sentimental value would not qualify, regardless of how important it is to you personally.
@@ -32,7 +38,7 @@ Does your item have outstandingly high artistic, cultural or historical value? -
                   </span>
                 </summary>
                 <div class="govuk-details__text">
-                  <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when approving items for sale or hire.</p>
+                  <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when advising whether an item meets these criteria.</p>
                   <p class="govuk-body">They’ll consider various things, such as whether an item:</p>
                   <ul class="govuk-list govuk-list--bullet">
                     <li>is unique or extremely rare</li>
@@ -70,10 +76,11 @@ Does your item have outstandingly high artistic, cultural or historical value? -
             {% else %}
             <h1 class="govuk-heading-l">Is it a pre-1918 item of outstandingly high artistic, cultural or historical value?</h1>
 
-            <p class="govuk-body">The item must:</p>
+            <p class="govuk-body">The item must have been made before 1 January 1918 and be:</p>
             <ul class="govuk-list govuk-list--bullet">
-              <li>have been made before 1 January 1918</li>
-              <li>be a rare and socially significant example of its type</li>
+              <li>rare</li>
+              <li>an important example of its type</li>
+              <li>or both of the above</li>
             </ul>
 
             <div class="govuk-inset-text">
@@ -87,7 +94,7 @@ Does your item have outstandingly high artistic, cultural or historical value? -
                 </span>
               </summary>
               <div class="govuk-details__text">
-                <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when approving items for sale or hire.</p>
+                <p class="govuk-body">Each item is assessed individually by recognised experts. They set a very high threshold when advising whether an item meets these criteria.</p>
                 <p class="govuk-body">They’ll consider various things, such as whether an item:</p>
                 <ul class="govuk-list govuk-list--bullet">
                   <li>is unique or extremely rare</li>
