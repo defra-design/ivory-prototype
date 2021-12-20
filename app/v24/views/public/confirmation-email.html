@@ -21,18 +21,15 @@
     <br>
 
     <dt class="defra-dt defra-dt__email-header">Subject</dt>
-    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Reselling your ivory item - confirmation</dd>
+    <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Submission received - selling your certified ivory item</dd>
 
   </dl>
 
       <p class="govuk-body">Dear {{ data['agentName'] }},</p>
       <p class="govuk-body">You've told us that you intend to sell or hire out your ivory item of outstandingly high artistic, cultural or historical value.</p>
 
-      <p class="govuk-body">You confirmed that:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the information on the item's certificate is still accurate and complete</li>
-        <li>the certificate was issued for this item</li>
-      </ul>
+      <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Certificate number</p>
+        <p class="govuk-body">RMI-238746</p>
 
       <p class="govuk-body govuk-!-font-weight-bold">What happens next</p>
 
@@ -63,7 +60,7 @@
   </dl>
 
       <p class="govuk-body">Dear {{ data['agentName'] }},</p>
-      <p class="govuk-body">You have completed an application for certification. You have told us the item:</p>
+      <p class="govuk-body">You have completed an application for an exemption certificate. You have told us the item:</p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>was made before 1918 and has outstandingly high artistic, cultural or historical value</li>
@@ -72,12 +69,14 @@
       <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission reference</p>
         <p class="govuk-body">RMI-238746</p>
 
-        <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+        <p class="govuk-body">You must keep any physical evidence that supports this application.</p>
 
       <p class="govuk-body govuk-!-font-weight-bold">What happens next</p>
 
-        <p class="govuk-body">An expert will check your application. We will contact you if we require more information.</p>
-        <p class="govuk-body">If your application is approved, we will send you an exemption certificate to sell or hire out  your item.</p>
+        <p class="govuk-body">Your application will now be sent to an expert for assessment.</p>
+        <p class="govuk-body">We'll aim to let you know the outcome of your application within 35 working days, we'll let you know if it is going to take longer.</p>
+        <p class="govuk-body">Following advice from the expert, we will determine whether to award the item an exemption certificate. We'll contact you if we need more information.</p>
+
         <p class="govuk-body">This message has been sent from a do-not-reply email address. If you have not heard from us within 35 working days, you can contact us at <a href="mailto:">ivory@apha.gov.uk</a>.</p>
 
         <p class="govuk-body">You will need to provide your submission reference.</p>
@@ -105,7 +104,7 @@
   </dl>
 
     <p class="govuk-body">Dear {{ data['agentName'] }},</p>
-    <p class="govuk-body">You have completed a self-assessment. You have told us the item is:</p>
+    <p class="govuk-body">You have completed a self-declaration to register an ivory item. You have told us the item is:</p>
     <ul class="govuk-list govuk-list--bullet">
       {% if data['exemptionChoice'] == "type2" %}
       <li>a musical instrument made before 1975 with less than 20% ivory</li>
@@ -121,9 +120,15 @@
     <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Submission reference</p>
       <p class="govuk-body">4HCP37NL</p>
 
-      <p class="govuk-body">You can now sell or hire out the item. This self-assessment expires when the owner of the item changes.</p>
+    <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">What happens next</p>
+      <p class="govuk-body">Your item is now registered. You can now sell or hire out the item at your own risk.</p>
 
-      <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date, if we decide to check your self-assessment.</p>
+      <p class="govuk-body">If we later discover that any of the information you have given is incorrect, your registration may be cancelled, and you may be subject to a fine of up to £250,000, or 5 years imprisonment.</p>
+
+      <p class="govuk-body">This registration expires when the owner of the item changes.</p>
+
+      <p class="govuk-body">You must keep any physical evidence that supports this declaration. We may ask for it at a later date if we decide to check your registration.</p>
+      
       <p class="govuk-body">This message has been sent from a do-not-reply email address. You can contact us at <a class="govuk-link" href="#">IvoryAct@apha.gov.uk</a>. You will need to provide your submission reference.</p>
 
       <p class="govuk-body">Animal and Health Agency (APHA)</p>

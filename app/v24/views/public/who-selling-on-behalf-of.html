@@ -1,7 +1,7 @@
 {% extends "./layout.html" %}
 
 
-{% set thisPageTitle = "Who are you selling or hiring out the item on behalf of?" %}
+<!-- {% set thisPageTitle = "Who are you selling or hiring out the item on behalf of?" %} -->
 
 {% block pageTitle %}
 {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
@@ -20,7 +20,11 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              {{ thisPageTitle }}
+              {% if data['exemptionChoice'] == "type5" %}
+                Who are you completing this application on behalf of?
+              {% else %}
+                Who are you completing this registration on behalf of?
+              {% endif %}
             </h1>
           </legend>
 
