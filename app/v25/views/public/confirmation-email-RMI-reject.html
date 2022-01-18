@@ -1,0 +1,58 @@
+{% extends "./layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Confirmation email
+{% endblock %}
+
+{% block content %}
+
+
+<dl class="defra-dl defra-email-header">
+
+  <dt class="defra-dt defra-dt__email-header">From</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-from">ivory@apha.gov.uk</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">To</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-to">{{ contactEmail }}</dd>
+
+  <br>
+
+  <dt class="defra-dt defra-dt__email-header">Subject</dt>
+  <dd class="defra-dd defra-dd__email-header" id="conf-email-date">Ivory application: RMI-238746</dd>
+
+</dl>
+
+  <p class="govuk-body">{{ contactName }},</p>
+
+  <p class="govuk-body">An expert has checked the following application to sell or hire out an ivory item: </p>
+
+  <p class="govuk-body"><a href="#">https://ivory-ban.gov.uk/RMI-238746</a></p>
+
+
+  <p class="govuk-body">They have rejected the application and given the following explanation:</p>
+
+    <div class="govuk-inset-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </div>
+
+  <h2 class="govuk-heading-s">What you can do with your item</h2>
+
+  <p class="govuk-body">Following this decision, it is illegal to sell or hire out the item.</p>
+  <p class="govuk-body">Your options include:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>keeping it</li>
+    <li>giving it away as a gift</li>
+    <li>leaving it to someone in your will</li>
+  </ul>
+
+  <h2 class="govuk-heading-s">Appealing this decision</h2>
+
+  <p class="govuk-body">If you believe our decision is wrong, and you have evidence to support this, you may appeal by contacting <a href="#">ivory-appeals@hmcts.gov.uk</a>.</p>
+
+  <p class="govuk-body">Make sure you quote your application number when you do so. </p>
+
+
+{% endblock %}

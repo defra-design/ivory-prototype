@@ -1,0 +1,202 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Ivory application: 10AB10CD" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-8">{{ thisPageTitle }}</h1>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body"><a class="govuk-link" href="#">Download details of application (PDF)</a></p>
+      <p class="govuk-body">You will need to download images and supporting documents separately.</p>
+    </div>
+
+
+<h2 class="govuk-heading-m ">Owner's details</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+
+    <div class="app-check-your-answers__contents">
+      <dt class="app-check-your-answers__question">Owner's name</dt>
+      <dd class="app-check-your-answers__answer">Joe Bloggs</dd>
+    </div>
+
+    <div class="app-check-your-answers__contents">
+      <dt class="app-check-your-answers__question">Owner's address</dt>
+      <dd class="app-check-your-answers__answer">
+        1 Ivory Avenue<br/>
+        Crewe<br/>
+        CW4 1IA
+      </dd>
+    </div>
+    </dl>
+
+<h2 class="govuk-heading-m ">The item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Type of exemption</dt>
+        <dd class="app-check-your-answers__answer">Item made before 1918 that has outstandingly high artistic, cultural or historical value	</dd>
+      </div>
+    <!-- RMI post MVS features -->
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Already has a certficate</dt>
+        <dd class="app-check-your-answers__answer">No</dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Applied before</dt>
+        <dd class="app-check-your-answers__answer">No</dd>
+      </div>
+      <!-- RMI Revoked application  -->
+      <!-- <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Already has a certficate</dt>
+        <dd class="app-check-your-answers__answer">It used to</dd>
+        <dd class="app-check-your-answers__change"><a href="already-certified">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Revoked certificate number</dt>
+        <dd class="app-check-your-answers__answer">{{data['previous-number']}}</dd>
+        <dd class="app-check-your-answers__change"><a href="previous-previous">Change</a></dd>
+      </div> -->
+
+        <!-- RMI Reapplication -->
+      <!-- <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Previous application number</dt>
+        <dd class="app-check-your-answers__answer">{{ data['previous-number'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="previous-application">Change</a></dd>
+      </div> -->
+
+  </dl>
+
+<h2 class="govuk-heading-m ">Description of the item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What is it?</dt>
+        <dd class="app-check-your-answers__answer">Ancient Egyptian violin used by Tutankhamun</dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Where's the ivory?</dt>
+        <dd class="app-check-your-answers__answer">The tip of the violin</dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Distinguishing features</dt>
+        <dd class="app-check-your-answers__answer">'Great Egyptian' makers mark dated back to 1332 BC. Uniquely carved with Egyptian hieroglyphs.</dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Where was it made?	(optional)</dt>
+        <dd class="app-check-your-answers__answer">Egypt</dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">When was it made? (optional)</dt>
+        <dd class="app-check-your-answers__answer">1332 BC</dd>
+      </div>
+  </dl>
+
+
+
+<h2 class="govuk-heading-m ">Why item qualifies for exemption</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Proof of item's age</dt>
+        <dd class="app-check-your-answers__answer">
+          It has a stamp, serial number or signature to prove its age
+        </dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Why it’s of outstandingly high value</dt>
+        <dd class="app-check-your-answers__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+      </div>
+  </dl>
+
+
+
+
+<h2 class="govuk-heading-m ">Photos of the item</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 1</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_01.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_01.jpg" href="{{baseUrl}}/photos/violin_01.jpg">Download</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 2</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_02.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_02.jpg" href="{{baseUrl}}/photos/violin_02.jpg">Download</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 3</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_03.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_03.jpg" href="{{baseUrl}}/photos/violin_03.jpg">Download</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 4</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_04.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_04.jpg" href="{{baseUrl}}/photos/violin_04.jpg">Download</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 5</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_05.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_05.jpg" href="{{baseUrl}}/photos/violin_05.jpg">Download</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Photo 6</dt>
+        <dd class="app-check-your-answers__answer">
+              <img class="check-your-answers-img" src="{{baseUrl}}/photos/violin_06.jpg" />
+        </dd>
+        <dd class="app-check-your-answers__change"><a download="violin_06.jpg" href="{{baseUrl}}/photos/violin_06.jpg">Download</a></dd>
+      </div>
+  </dl>
+
+
+
+<h2 class="govuk-heading-m ">Supporting evidence</h2>
+
+  <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">File 1</dt>
+        <dd class="app-check-your-answers__answer">Rare_Egyptian_ivory_vioin_bow.doc</dd>
+        <dd class="app-check-your-answers__change"><a href="your-documents">Download</a></dd>
+      </div>
+  </dl>
+
+
+
+
+
+
+<!-- <h2 class="govuk-heading-m ">What will happen to the item</h2>
+
+    <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">What owner intends to do</dt>
+        <dd class="app-check-your-answers__answer">{{ data['sellHire'] }}</dd>
+        <dd class="app-check-your-answers__change"><a href="sell-or-hire">Change</a></dd>
+      </div>
+    </dl> -->
+
+
+
+  </div>
+</div>
+{% endblock %}

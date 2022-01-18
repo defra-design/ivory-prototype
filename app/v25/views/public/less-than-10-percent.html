@@ -1,0 +1,77 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Is your item less than 10% ivory?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+            <div class="govuk-inset-text">
+              The ivory must be integral to the design or function of the item.
+            </div>
+
+              <p class="govuk-body">You must give a reasonable assessment of the volume of ivory in your item. In some cases, it’s easy to do this by eye. In others, you’ll need to take measurements.</p>
+
+              <p class="govuk-body">If it’s difficult to calculate ivory volume without damaging the item, you can make an assessment based on knowledge of similar items.</p>
+
+              <p class="govuk-body">Do not include any empty spaces, for instance, the space within a chest of drawers or a teapot.</p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                   What kinds of item have less than 10% ivory?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">Items likely to have less than 10% ivory include furniture with ivory inlay.</p>
+                  <p class="govuk-body">You will not be able to sell items like chess sets with ivory pieces or cutlery with ivory handles, because these usually have more than 10% ivory.</p>
+                </div>
+              </details>
+
+
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan10percent-yes" name="lessthan10percent" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="lessthan10percent-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan10percent-no" name="lessthan10percent" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="lessthan10percent-no">
+                    No
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="lessthan10percent-idk" name="lessthan10percent" type="radio" value="idk">
+                  <label class="govuk-label govuk-radios__label" for="lessthan10percent-idk">
+                    I don't know
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

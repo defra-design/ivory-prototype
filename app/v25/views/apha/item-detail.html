@@ -1,0 +1,136 @@
+{% set pageTitle = "Ivory registration: " + registration.reg_id + " (" + registration.exemption_type + ")" %}
+
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+{{ pageTitle }}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "../includes/stage-banner-prototype.html" %}
+
+{{ govukBreadcrumbs({
+items: [
+{
+text: "Ivory registrations",
+href: baseUrl + "/apha/registrations"
+},
+{
+text: registration.reg_id + " - " + registration.exemption_type
+}
+]
+}) }}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ registration.reg_id }} - {{ registration.exemption_type }}
+
+<!--        <span class="govuk-heading-m govuk-!-margin-top-5">Reg no: {{ registration.reg_id }}</span>-->
+
+      </h1>
+
+      <!-- <img class="govuk-!-margin-bottom-5" src="https://farm8.staticflickr.com/7353/27096944865_ee6c27f42d_z.jpg" width="640" height="480" alt="Upright Bechstein"> -->
+      <!-- <img class="govuk-!-margin-bottom-5" src="/public/images/piano.jpg" width="640" height="480" alt="Upright Bechstein"> -->
+      <img class="item-detail-main govuk-!-margin-bottom-5" src="{{baseUrl}}/photos/{{ registration.photo }}" alt="{{ registration.description }}">
+
+    {% set age_explanation_label = "Age explanation" %}
+    {% set ivory_explanation_label = "Ivory explanation" %}
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+
+<!--          <tr class="govuk-table__row">-->
+<!--            <th class="govuk-table__header" scope="row">Status</th>-->
+<!--            <td class="govuk-table__cell">{{ registration.status }}</td>-->
+<!--          </tr>-->
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Item type</th>
+            <td class="govuk-table__cell">{{ registration.exemption_type }}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">Description</th>
+            <td class="govuk-table__cell">{{ registration.description }}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              {% if registration.exemption_type_id == "1" %}
+              Pre-1947
+              {% elseif registration.exemption_type_id == "2" %}
+              Pre-1975
+              {% elseif registration.exemption_type_id == "3" %}
+              Pre-1918
+              {% else %}
+              Age
+              {% endif %}
+              explanation
+            </th>
+            <td class="govuk-table__cell">{{ registration.age_explanation }}</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="row">
+              {% if registration.exemption_type_id == "1" %}
+              Less than 10% ivory
+              {% elseif registration.exemption_type_id == "2" %}
+              Less than 20% ivory
+              {% elseif registration.exemption_type_id == "3" %}
+              Surface area less than 320 square centimetres
+              {% else %}
+              Volume
+              {% endif %}
+              explanation
+            </th>
+            <td class="govuk-table__cell">{{ registration.ivory_explanation }}</td>
+          </tr>
+
+          <tr class="govuk-table__row apha-only">
+            <th class="govuk-table__header" scope="row">Owner</th>
+            <td class="govuk-table__cell">{{ registration.owner_name }}</td>
+          </tr>
+
+          <tr class="govuk-table__row apha-only">
+            <th class="govuk-table__header" scope="row">Owner's email</th>
+            <td class="govuk-table__cell">{{ registration.owner_email }}</td>
+          </tr>
+
+          <tr class="govuk-table__row apha-only">
+            <th class="govuk-table__header" scope="row">Owner's&#160;address</th>
+            <td class="govuk-table__cell">{{ registration.owner_address }} <br />{{ registration.owner_postcode }}</td>
+          </tr>
+
+<!--<tr class="govuk-table__row">-->
+<!--  <th class="govuk-table__header" scope="row">Registration&#160;number</th>-->
+<!--  <td class="govuk-table__cell">{{ registration.reg_id }}</td>-->
+<!--</tr>-->
+
+<tr class="govuk-table__row">
+  <th class="govuk-table__header" scope="row">Submitted</th>
+  <td class="govuk-table__cell">{{ registration.submitted_datetime }}</td>
+</tr>
+
+
+
+        </tbody>
+      </table>
+
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

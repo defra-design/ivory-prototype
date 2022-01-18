@@ -1,0 +1,83 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Does the item already have an exemption certificate?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+              <!-- <p class="govuk-body">Answer 'yes' if the item has ever had a certificate, even if this has since been cancelled or 'revoked'.</p> -->
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="alreadyCertified-yes" name="alreadyCertified" type="radio" data-aria-controls="conditional-certNumber" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="alreadyCertified-yes">
+                    Yes
+                  </label>
+                </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-certNumber">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="certNumber">
+                          Enter certificate number
+                        </label>
+                        <div id="certNumber-hint" class="govuk-hint">
+                          For example, '10AB010C'
+                        </div>
+                        <input class="govuk-input govuk-!-width-one-third" id="certNumber" name="certNumber">
+                    </div>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="alreadyCertified-no" name="alreadyCertified" type="radio" value="No">
+                    <label class="govuk-label govuk-radios__label" for="alreadyCertified-no">
+                      No
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="alreadyCertified-usedTo" name="alreadyCertified" type="radio" value="It used to">
+                    <label class="govuk-label govuk-radios__label" for="alreadyCertified-usedTo">
+                      It used to
+                    </label>
+                    <div id="alreadyCertified-usedTo-hint" class="govuk-hint govuk-radios__hint">
+                      The certificate has been cancelled or 'revoked'
+                    </div>
+                  </div>
+              </div>
+
+          </div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                It does but I don't have the certificate or certificate number
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">You can find the certificate number towards the top of the digital certificate we emailed the owner when their application was successful.</p>
+              <p class="govuk-body">If you bought the item, the previous owner should have given you the certificate as part of the transaction. You may have received this by email.</p>
+              <p class="govuk-body">Without this number, you may have to make a new application for your item. Before doing so, you can contact the Animal Health and Plant Agency (APHA) at <a href="#" class="govuk-link">IvoryAct@apha.gov.uk</a> with the contact details of the previous owner and a description of the item. With this information, APHA may be able to locate the certificate and send you a copy. You can then continue with notifying us that you intend to sell your certified item.</p>
+            </div>
+          </details>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

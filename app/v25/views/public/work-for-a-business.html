@@ -1,0 +1,57 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Do you work for a business that is intending to sell or hire out the item?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+          <p class="govuk-body">This could be an auction house or antiques dealer, for example.</p>
+
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="workForABusiness-yes" name="workForABusiness" type="radio" value="Yes"/>
+              <label class="govuk-label govuk-radios__label" for="workForABusiness-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="workForABusiness-no" name="workForABusiness" type="radio" value="No"/>
+              <label class="govuk-label govuk-radios__label" for="workForABusiness-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

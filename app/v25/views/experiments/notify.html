@@ -1,0 +1,33 @@
+{% extends "./layout.html" %} {% block beforeContent %}
+{% include "../includes/ib-head.html" %} {% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">How do you want to be notified?</h1>
+
+    <form method="post" autocomplete="off" novalidate>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="email">Email address</label>
+        <span id="email-hint" class="govuk-hint">Notify only sends messsages to 'team members' registered in the account, e.g. david.harris@environment-agency.gov.uk</span>
+        <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="telephoneNumber">UK telephone number</label>
+        <span id="email-hint" class="govuk-hint">Notify only sends messsages to 'team members' registered in the account, e.g. Dave's 07967 275243</span>
+        <input class="govuk-input govuk-input--width-20" id="telephoneNumber" name="telephoneNumber" type="tel">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

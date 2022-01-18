@@ -1,0 +1,74 @@
+ {% extends "./layout.html" %}
+
+ {% set thisPageTitle = "Ivory V25 prototypes" %}
+
+
+ {% block pageTitle %}
+ {{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+ {% endblock %}
+
+
+ {% block beforeContent %}
+   {% include "./includes/stage-banner.html" %}
+ {% endblock %}
+
+ {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">
+      {{ thisPageTitle }}
+    </h1>
+
+    <!-- <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th class="govuk-table__header" width="40%" scope="col">APHA (Backstage)</th>
+        <th class="govuk-table__header" scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="apha/registrations">Ivory Register</a></td>
+        <td class="govuk-table__cell">Service for APHA users</td>
+      </tr>
+      </tbody>
+    </table> -->
+
+    <table class="govuk-table govuk-!-margin-bottom-5">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Selling ivory items</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/guidance-new">Declare elephant ivory you intend to sell or hire out</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/guidance-publications">GOV.uk guidance - start at publications page</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table govuk-!-margin-bottom-9">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">APHA / Back office</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="public/pass-data-to-pi">Passing an application to a Prescribed Institute (Simple RMI example)</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+{% endblock %}

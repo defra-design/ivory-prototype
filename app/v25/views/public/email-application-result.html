@@ -1,0 +1,44 @@
+{% extends "./layout.html" %}
+
+<!-- Override some layout.html blocks -->
+{% block header %}{% endblock %}
+{% block beforeContent %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block bodyEnd %}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <p>
+    <b>From:</b> {{ serviceName }} &#60;ivory.service@notifications.gov.uk&#62;</br>
+    <b>Date:</b> Thu 24/01/2019 14:46</br>
+    <b>Subject:</b> {{serviceName}}
+    </p>
+
+    <!-- Add the GOV.UK banner...seemed easier than manually putting an image in here -->
+    {% block new %}
+      {{ govukHeader({
+        serviceName: serviceName,
+        serviceUrl: "/start",
+        containerClasses: "govuk-width-container"
+      }) }}
+    {% endblock %}
+
+    <br><br>
+    <!-- <h1 class="govuk-heading-m">Title</h1> -->
+    <p class="govuk-body">Your application and payment to '{{serviceName}}' was successful.</p>
+    <p class="govuk-body">Your reference number is XKCDWRVS</p>
+
+    <h1 class="govuk-heading-m">What happens next</h1>
+    <p class="govuk-body">You may now use this reference number if you sell or hire the ivory item.</p>
+    <p class="govuk-body">You may now check the details of this registration using the <a href='check-registration-search'>check registration</a> service.</p>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

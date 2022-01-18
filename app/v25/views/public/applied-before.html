@@ -1,0 +1,49 @@
+{% extends "./layout.html" %}
+
+{% set thisPageTitle = "Has an application for an exemption certificate for this item been made before?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" method="post" novalidate>
+
+          <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="appliedBefore-yes" name="appliedBefore" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="appliedBefore-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="appliedBefore-no" name="appliedBefore" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="appliedBefore-no">
+                    No
+                  </label>
+                </div>
+              </div>
+
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}
