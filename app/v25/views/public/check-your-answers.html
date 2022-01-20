@@ -786,7 +786,11 @@
       </div>
 
     <form method="post" autocomplete="off" {{ novalidateVal }}>
-      <button class="govuk-button">Agree and submit</button>
+      {% if data['exemptionChoice'] == 'type5' %}
+        <button class="govuk-button">Agree and continue</button>
+      {% else %}
+        <button class="govuk-button">Agree and submit</button>
+      {% endif %}
     </form>
 
   </div>

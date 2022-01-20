@@ -938,8 +938,11 @@ router.get('/check-your-answers', function (req, res) {
 })
 
 router.post('/check-your-answers', function (req, res) {
-  // res.redirect('declaration');
-  res.redirect('govpay-lookalike-1')
+  if (req.session.data['exemptionChoice'] == 'type5') {
+    res.redirect('share-data')
+    } else {
+    res.redirect('govpay-lookalike-1')
+    }
 })
 
 
@@ -2184,6 +2187,10 @@ router.get('/pass-data-to-pi', function (req, res) {
 // SHARE DATA
 router.get('/share-data', function (req, res) {
   res.render(viewsFolder + 'share-data')
+})
+
+router.post('/share-data', function (req, res) {
+  res.redirect('govpay-lookalike-1')
 })
 
 
