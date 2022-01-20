@@ -2181,5 +2181,10 @@ router.get('/pass-data-to-pi', function (req, res) {
   res.render(viewsFolder + 'pass-data-to-pi')
 })
 
+// SHARE DATA
+router.get('/share-data', function (req, res) {
+  res.render(viewsFolder + 'share-data')
+})
+
 
 module.exports = router
