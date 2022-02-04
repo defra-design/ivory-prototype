@@ -1,0 +1,61 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Who is selling the item?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--inlinex">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whosSelling-iAm" name="whosSelling" type="radio" value="I am"/>
+              <label class="govuk-label govuk-radios__label" for="whosSelling-iAm"">
+                I am
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whosSelling-business" name="whosSelling" type="radio" value="The business I work for"/>
+              <label class="govuk-label govuk-radios__label" for="whosSelling-business">
+                The business I work for
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whosSelling-myBusiness" name="whosSelling" type="radio" value="My business"/>
+              <label class="govuk-label govuk-radios__label" for="whosSelling-myBusiness">
+                My business
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

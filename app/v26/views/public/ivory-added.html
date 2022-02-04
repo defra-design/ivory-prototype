@@ -1,0 +1,55 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Has any ivory been added since 1 January 1975 to restore the item to its original state?" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" novalidate>
+
+      <div class="govuk-form-group">
+
+          <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
+
+          <!-- <p class="govuk-body">This could have been to repair or restore damaged ivory.</p> -->
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ivoryAdded-yes" name="ivoryAdded" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="ivoryAdded-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ivoryAdded-no" name="ivoryAdded" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="ivoryAdded-no">
+                No
+              </label>
+            </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="ivoryAdded-idk" name="ivoryAdded" type="radio" value="idk">
+            <label class="govuk-label govuk-radios__label" for="ivoryAdded-idk">
+              I don't know
+            </label>
+          </div>
+          </div>
+
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

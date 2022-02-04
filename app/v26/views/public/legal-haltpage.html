@@ -1,0 +1,91 @@
+{% extends "./layout.html" %}
+
+{% block pageTitle %}
+Legal warning - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+  <form class="form" method="post" novalidate>
+    <div class="flash-card">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <header>
+            {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
+            <h1 class="govuk-heading-l">Both the owner and the person selling the certified item are jointly responsible for ensuring it is still exempt</h1>
+            {% else %}
+            <h1 class="govuk-heading-l">Both the owner and applicant are jointly responsible for providing accurate information</h1>
+            {% endif %}
+          </header>
+        </div>
+      </div>
+
+          {% if (data['exemptionChoice'] === "type5") and (data['alreadyCertified'] === "Yes") %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">If you are not the owner of the item, you must have permission to act on their behalf.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+              <p class="govuk-body">If we later find out that the item has been damaged or altered, the exemption certificate is likely to be cancelled or 'revoked'. In this case a new application for an exemption certificate would have to be made before you can sell or hire out the item.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>Dealing that relies on inaccurate information on the certificate may be a criminal offence. Anyone involved could be subject to a fine of up to £250,000, or 5 years imprisonment.</p>
+              </div>
+
+
+          {% elseif data['exemptionChoice'] === "type5" %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">If you are not the owner of the item, you must have permission to act on their behalf.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+              <p class="govuk-body">If we later find out that the information you’ve given is not accurate, the exemption certificate may be cancelled or 'revoked'.</p>
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>Dealing that relies on inaccurate information on the certificate may be a criminal offence. Anyone involved could be subject to a fine of up to £250,000, or 5 years imprisonment.</p>
+              </div>
+
+
+          {% else %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-body">This is a self-declaration, both the owner and applicant are responsible for ensuring the item qualifies for exemption.</p>
+
+              <p class="govuk-body">If you are not the owner of the item, you must have permission to act on their behalf.</p>
+
+              <p class="govuk-body">Stop at any point if you’re unsure about the right answer.</p>
+
+
+              <div class="govuk-inset-text" style="border-left: 10px solid white">
+                <p>If we later find out that any of the information you have given is incorrect, your registration may be cancelled. You may be subject to a fine of up to £250,000 or 5 years imprisonment.</p>
+              </div>
+
+          {% endif %}
+
+          <div class="form-group">
+            <input class="govuk-button button-white govuk-!-margin-top-2 govuk-!-margin-bottom-4" type="submit" value="Continue">
+          </div>
+
+          <p class="govuk-body govuk-!-margin-bottom-0"><a href="guidance-new" class="govuk-link">Cancel</a></p>
+
+        </div>
+      </div>
+
+
+    </div>
+  </form>
+
+
+
+
+{% endblock %}

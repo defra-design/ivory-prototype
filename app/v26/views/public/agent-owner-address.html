@@ -1,0 +1,114 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "Owner's address" %}
+
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+    <form method="post" autocomplete="off" {{ novalidateVal }}>
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-heading-l">
+            {{ thisPageTitle }}
+          </h1>
+        </legend>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-business">
+            Business name (if applicable)
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-business" name="addressBusiness" type="text" value="{{ data['addressBusiness'] }}" />
+        </div>
+
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-1">
+            Building and street
+            <span class="govuk-visually-hidden">line 1 of 2</span>
+          </label>
+          <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" value="{{ data['addressLine1'] }}" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-line-2">
+            <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+          </label>
+          <input class="govuk-input" id="address-line-2" name="addressLine2" type="text" value="{{ data['addressLine2'] }}" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-town">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="addressTown" type="text" value="{{ data['addressTown'] }}" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-county">
+            County
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="addressCounty" type="text" value="{{ data['addressCounty'] }}" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" value="{{ data['addressPostcode'] }}" required />
+        </div>
+
+      </fieldset>
+
+
+      <!-- {% from "details/macro.njk" import govukDetails %}
+
+      {{ govukDetails({
+        summaryText: "The address is outside the UK",
+        text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+      }) }} -->
+
+
+      <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">The address is outside the UK</span>
+    </summary>
+    <div class="govuk-details__text">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="agent-owner-address">
+          Owner's address
+        </label>
+        <textarea class="govuk-textarea" id="agent-owner-address" name="agent-owner-address" rows="5" autocomplete="agent-owner-address"></textarea>
+      </div>
+
+    </div>
+  </details>
+
+
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}
