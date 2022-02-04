@@ -1,0 +1,89 @@
+{% extends "./layout.html" %}
+
+
+{% set thisPageTitle = "What species of ivory does your item contain?" %}
+
+{% block pageTitle %}
+{{ thisPageTitle }} - {{ serviceName }} - GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" {{ novalidateVal }}>
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+              {{ thisPageTitle }}
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-elephant" name="species" type="radio" value="Elephant"/>
+              <label class="govuk-label govuk-radios__label" for="species-elephant">
+                Elephant
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-hippopotamus" name="species" type="radio" value="Hippopotamus"/>
+              <label class="govuk-label govuk-radios__label" for="species-hippopotamus">
+                Hippopotamus
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-walrus" name="species" type="radio" value="Walrus"/>
+              <label class="govuk-label govuk-radios__label" for="species-walrus">
+                Walrus
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-narwhal" name="species" type="radio" value="Narwhal"/>
+              <label class="govuk-label govuk-radios__label" for="species-narwhal">
+                Narwhal
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-spermWhale" name="species" type="radio" value="Sperm Whale"/>
+              <label class="govuk-label govuk-radios__label" for="species-spermWhale">
+                Sperm Whale
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="species-killerWhale" name="species" type="radio" value="Killer Whale"/>
+              <label class="govuk-label govuk-radios__label" for="species-killerWhale">
+                Killer Whale
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I'm not sure what species my item contains
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Use our <a href="sure-its-elephant" class="govuk-link">eligibility checker</a> or <a href="#" class="govuk-link">read our guidance</a> on how to identify different species of ivory.</p>
+        </div>
+      </details>
+
+      <button class="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

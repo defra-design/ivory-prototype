@@ -1630,7 +1630,7 @@ router.post('/know-items-exempt', function (req, res) {
   let knowItemsExempt = req.session.data['knowItemsExempt']
 
   if (knowItemsExempt === 'yes') {
-    res.redirect('what-type-of-item-is-it')
+    res.redirect('what-species-expert')
   } else {
     res.redirect('sure-its-elephant')
   }
@@ -2191,6 +2191,19 @@ router.get('/share-data', function (req, res) {
 
 router.post('/share-data', function (req, res) {
   res.redirect('govpay-lookalike-1')
+})
+
+
+
+////////////////////////////////// Extension to other species ////////////////////////////////
+
+// WHAT SPECIES - EXPERT ROUTE
+router.get('/what-species-expert', function (req, res) {
+  res.render(viewsFolder + 'what-species-expert')
+})
+
+router.post('/what-species-expert', function (req, res) {
+  res.redirect('what-type-of-item-is-it')
 })
 
 
