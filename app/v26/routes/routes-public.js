@@ -1651,7 +1651,7 @@ router.post('/sure-its-elephant', function (req, res) {
   } else if (isitElephant === 'idk'){
     res.redirect('cannot-continue')
   } else {
-    res.redirect('dont-need-service')
+    res.redirect('what-species')
   }
 })
 
@@ -2204,6 +2204,19 @@ router.get('/what-species-expert', function (req, res) {
 
 router.post('/what-species-expert', function (req, res) {
   res.redirect('what-type-of-item-is-it')
+})
+
+// WHAT SPECIES - ELIGIBILITY CHECKER ROUTE
+router.get('/what-species', function (req, res) {
+  res.render(viewsFolder + 'what-species')
+})
+
+router.post('/what-species', function (req, res) {
+  if (req.session.data['species'] == 'None of these') {
+    res.redirect('dont-need-service')
+    } else {
+    res.redirect('is-it-being-sold-to-museum')
+    }
 })
 
 
