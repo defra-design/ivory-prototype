@@ -14,9 +14,17 @@
 
       <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
-      {% if data['isitElephant'] === "no" %}
+      {% if data['species'] === "None of these" %}
 
-        <p class="govuk-body">You only need to tell us if you are intending to sell or hire out an item that contains elephant ivory.</p>
+        <p class="govuk-body">You only need to tell us if you are intending to sell or hire out an item that contains ivory from:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>elephant</li>
+          <li>hippopotamus</li>
+          <li>killer whale</li>
+          <li>narwhal</li>
+          <li>sperm whale</li>
+          <li>walrus</li>
+        </ul>
 
       {% else %}
 
