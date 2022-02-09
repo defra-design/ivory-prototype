@@ -21,6 +21,15 @@
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory type</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['species'] == null %}Elephant
+          {% else %}{{ data['species'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
@@ -171,6 +180,15 @@
 <h2 class="govuk-heading-m ">The item</h2>
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
+      <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory type</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['species'] == null %}Elephant
+          {% else %}{{ data['species'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+      </div>
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
@@ -350,7 +368,16 @@
 <h2 class="govuk-heading-m ">The item</h2>
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
-      <div class="app-check-your-answers__contents">
+    <div class="app-check-your-answers__contents">
+      <dt class="app-check-your-answers__question">Ivory type</dt>
+      <dd class="app-check-your-answers__answer">
+        {% if data['species'] == null %}Elephant
+        {% else %}{{ data['species'] }}
+        {% endif %}
+      </dd>
+      <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+    </div>
+    <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
