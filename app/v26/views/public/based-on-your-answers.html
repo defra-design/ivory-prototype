@@ -15,7 +15,7 @@
       <h1 class="govuk-heading-l">{{ thisPageTitle }}</h1>
 
       {% if data['ivoryAdded2'] === "yes" %}
-      <p class="govuk-body">Any replacement ivory in your item must have been taken from an elephant before 1 January 1975.</p>
+      <p class="govuk-body">Any replacement ivory in your item must have been taken from the {% if data['species'] == null %}elephant{% else %}<span style="text-transform: lowercase">{{ data['species'] }}</span>{% endif %} before 1 January 1975.</p>
 
       {% elseif data['isitBefore1947'] === "no" %}
       <p class="govuk-body">Your item must have been made before 3 March 1947.</p>
