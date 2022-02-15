@@ -43,6 +43,14 @@
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory type</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['species'] == null %}Elephant
+          {% else %}{{ data['species'] }}
+          {% endif %}
+        </dd>
+    </div>
+      <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">Item made before 1918 that has outstandingly high artistic, cultural or historical value	</dd>
       </div>
