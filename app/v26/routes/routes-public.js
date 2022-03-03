@@ -1977,6 +1977,9 @@ router.post('/legal-haltpage', function (req, res) {
 router.get('/international-address', function (req, res) {
   res.render(viewsFolder + 'international-address')
 })
+router.post('/international-address', function (req, res) {
+    res.redirect('sell-or-hire')
+})
 
 // AGENT ADDRESS CONFIRM
 router.get('/agent-address-confirm', function (req, res) {
