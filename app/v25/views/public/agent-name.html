@@ -22,7 +22,7 @@
         <input class="govuk-input" id="agentName" name="agentName" type="text" value="{{data['agentName']}}" required />
       </div>
 
-      {% if (data['workForABusiness'] == 'Yes') or (data['whosSelling'] == 'The business I work for') or (data['whosSelling'] == 'My business') %}
+      {% if (data['workForABusiness'] == 'As a business') or (data['whosSelling'] == 'The business I work for') or (data['whosSelling'] == 'My business') %}
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--s" for="agentNameBusiness">Business name</label>
         <input class="govuk-input" id="agentNameBusiness" name="agentNameBusiness" type="text" value="{{data['agentNameBusiness']}}" required />

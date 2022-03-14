@@ -20,15 +20,14 @@
         <fieldset class="govuk-fieldset" aria-describedby="owner-agent-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
-              {% if data['exemptionChoice'] == "type5" %}
-                Who are you completing this application on behalf of?
-              {% else %}
-                Who are you completing this registration on behalf of?
-              {% endif %}
+              Who is the owner of the item?
             </h1>
           </legend>
 
-  {% if data['workForABusiness'] == 'Yes' %}
+          <p class="govuk-body">If there is no owner, for example the item is part of a deceased’s estate, select ‘other’.</p>
+
+
+  {% if data['workForABusiness'] == 'As a business' %}
 
           <div class="govuk-radios govuk-radios--inlinex">
             <div class="govuk-radios__item">

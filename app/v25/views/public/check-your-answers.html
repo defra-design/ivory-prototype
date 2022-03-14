@@ -21,6 +21,15 @@
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory type</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['species'] == null %}Elephant
+          {% else %}{{ data['species'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
@@ -61,12 +70,12 @@
     {% if agentOwner == 'agent' %}
 
     <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Work for a business</dt>
+      <dt class="app-check-your-answers__question">Completing the service</dt>
       <dd class="app-check-your-answers__answer">{{data['workForABusiness']}}</dd>
       <dd class="app-check-your-answers__change"><a href="work-for-a-business">Change</a></dd>
     </div>
     <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Selling on behalf of</dt>
+      <dt class="app-check-your-answers__question">Who's the owner?</dt>
       <dd class="app-check-your-answers__answer">{{data['onBehalfOf']}}</dd>
       <dd class="app-check-your-answers__change"><a href="who-selling-on-behalf-of">Change</a></dd>
     </div>
@@ -98,7 +107,7 @@
       <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
       <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
     </div>
-    {% if data['workForABusiness'] == 'Yes' %}
+    {% if data['workForABusiness'] == 'As a business' %}
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Business name</dt>
         <dd class="app-check-your-answers__answer">
@@ -172,6 +181,15 @@
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
       <div class="app-check-your-answers__contents">
+        <dt class="app-check-your-answers__question">Ivory type</dt>
+        <dd class="app-check-your-answers__answer">
+          {% if data['species'] == null %}Elephant
+          {% else %}{{ data['species'] }}
+          {% endif %}
+        </dd>
+        <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+      </div>
+      <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
@@ -241,12 +259,12 @@
       {% if agentOwner == 'agent' %}
 
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Work for a business</dt>
+        <dt class="app-check-your-answers__question">Completing the service</dt>
         <dd class="app-check-your-answers__answer">{{data['workForABusiness']}}</dd>
         <dd class="app-check-your-answers__change"><a href="work-for-a-business">Change</a></dd>
       </div>
       <div class="app-check-your-answers__contents">
-        <dt class="app-check-your-answers__question">Selling on behalf of</dt>
+        <dt class="app-check-your-answers__question">Who's the owner?</dt>
         <dd class="app-check-your-answers__answer">{{data['onBehalfOf']}}</dd>
         <dd class="app-check-your-answers__change"><a href="who-selling-on-behalf-of">Change</a></dd>
       </div>
@@ -278,7 +296,7 @@
         <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
         <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
       </div>
-      {% if data['workForABusiness'] == 'Yes' %}
+      {% if data['workForABusiness'] == 'As a business' %}
         <div class="app-check-your-answers__contents">
           <dt class="app-check-your-answers__question">Business name</dt>
           <dd class="app-check-your-answers__answer">
@@ -350,7 +368,16 @@
 <h2 class="govuk-heading-m ">The item</h2>
 
   <dl class="app-check-your-answers app-check-your-answers--short govuk-!-margin-bottom-8">
-      <div class="app-check-your-answers__contents">
+    <div class="app-check-your-answers__contents">
+      <dt class="app-check-your-answers__question">Ivory type</dt>
+      <dd class="app-check-your-answers__answer">
+        {% if data['species'] == null %}Elephant
+        {% else %}{{ data['species'] }}
+        {% endif %}
+      </dd>
+      <dd class="app-check-your-answers__change"><a href="what-species-expert">Change</a></dd>
+    </div>
+    <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Type of exemption</dt>
         <dd class="app-check-your-answers__answer">{{ exemptionTypeChosen }}</dd>
         <dd class="app-check-your-answers__change"><a href="what-type-of-item-is-it">Change</a></dd>
@@ -536,12 +563,12 @@
     {% if agentOwner == 'agent' %}
 
     <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Work for a business</dt>
+      <dt class="app-check-your-answers__question">Completing the service</dt>
       <dd class="app-check-your-answers__answer">{{data['workForABusiness']}}</dd>
       <dd class="app-check-your-answers__change"><a href="work-for-a-business">Change</a></dd>
     </div>
     <div class="app-check-your-answers__contents">
-      <dt class="app-check-your-answers__question">Selling on behalf of</dt>
+      <dt class="app-check-your-answers__question">Who's the owner?</dt>
       <dd class="app-check-your-answers__answer">{{data['onBehalfOf']}}</dd>
       <dd class="app-check-your-answers__change"><a href="who-selling-on-behalf-of">Change</a></dd>
     </div>
@@ -573,7 +600,7 @@
       <dd class="app-check-your-answers__answer">{{data['agentName']}}</dd>
       <dd class="app-check-your-answers__change"><a href="agent-name">Change</a></dd>
     </div>
-    {% if data['workForABusiness'] == 'Yes' %}
+    {% if data['workForABusiness'] == 'As a business' %}
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Business name</dt>
         <dd class="app-check-your-answers__answer">
@@ -699,7 +726,7 @@
       <p class="govuk-body">Both you and the owner must also agree with the following:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>the item was made before 1918</li>
-          <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+          <li>any replacement ivory was taken from the items ivory type before 1 January 1975</li>
           <li>the information you’ve provided is complete and correct</li>
         </ul>
       <p class="govuk-body">By making this application, I confirm that I believe:</p>
@@ -711,7 +738,7 @@
       <p class="govuk-body">Before you continue, you must agree with the following:</p>
         <ul class="govuk-list govuk-list--bullet">
           <li>the item was made before 1918</li>
-          <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+          <li>any replacement ivory was taken from the items ivory type before 1 January 1975</li>
           <li>the information you’ve provided is complete and correct</li>
         </ul>
       <p class="govuk-body">By making this application, I confirm that I believe:</p>
@@ -739,7 +766,7 @@
         <li>the item was made before 3 March 1947</li>
         <li>the item contains less than 10% ivory by volume</li>
         <li>all the ivory in the item is integral to it</li>
-        <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+        <li>any replacement ivory was taken from the items ivory type before 1 January 1975</li>
         <li>the information you’ve provided is complete and correct</li>
       </ul>
 
@@ -749,7 +776,7 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>the musical instrument was made before 1975</li>
         <li>the instrument contains less than 20% ivory by volume</li>
-        <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+        <li>any replacement ivory was taken from the items ivory type before 1 January 1975</li>
         <li>the information you’ve provided is complete and correct</li>
       </ul>
 
@@ -767,7 +794,7 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>the portrait miniature was made before 1918</li>
         <li>the surface area of ivory on the miniature is less than 320 square centimetres</li>
-        <li>any replacement ivory was taken from an elephant before 1 January 1975</li>
+        <li>any replacement ivory was taken from the items ivory type before 1 January 1975</li>
         <li>the information you’ve provided is complete and correct</li>
       </ul>
 
